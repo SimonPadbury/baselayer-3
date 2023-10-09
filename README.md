@@ -23,4 +23,6 @@ Ready to use as-is, Baselayer gives you all this and more:
 
 Baselayer uses some modern web technologies such as CSS Grid, CSS math functions (e.g. clamp), CSS variables, and the OKLCH color model, therefore it supports only up-to-date (2023 forward) evergreen web browsers (Safari, Firefox, Chrome, Edge, etc.).
 
+**Documentation:** [https://simonpadbury.github.io/baselayer-3/](https://simonpadbury.github.io/baselayer-3/)
+
 **Changelog:** [https://github.com/SimonPadbury/baselayer-3/blob/main/README.md](https://github.com/baselayer/blob/main/CHANGELOG.md)
