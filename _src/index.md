@@ -90,7 +90,7 @@ For links, collapsible `<details>`, pseudo-buttons (i.e. links styled with the `
     </div>
     <div class="p-3 flex flex-column flex-center flex-middle bg-blue bg-700">
     <p><a class="t-blue t-200 hover:t-300" href="/#">Link</a></p>
-    <p><button class="b-1 b-white hover:b-white" type="button">Button</button></p>
+    <p><button type="button">Button</button></p>
     </div>
     <div class="p-3 flex flex-column flex-center flex-middle bg-black">
     <p><a class="t-blue t-200 hover:t-300" href="/#">Link</a></p>
