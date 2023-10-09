@@ -4,13 +4,6 @@ Modern starter CSS library with OKLCH color utilities, CSS math functions, CSS g
 
 v.1.0.0
 
-* A total reinvention of the Baselayer project. Not backwards compatible. 
-* Class names now contain hyphens. 
-* New grid system.
-* OKLCH colors for theme and utility classes. No HSL fallback.
-* Less than 22 KB.
-
-
 ```
 git clone https://github.com/SimonPadbury/baselayer-3.git
 ```
