@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Typography · Baselayer 3 CSS</title>
+
+  <link rel="stylesheet" href="/baselayer-3/css/min/baselayer.min.css?v=1.0.0">
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    [aria-current=page] {
+      
+      background: oklch(var(--l900) var(--c02) var(--coolgray));
+    }
+    .check-box {
+      width: 1rem;
+      height: 1rem;
+    }
+    .font-base .label-base .check-box::before { content: '✓'; }
+    .font-prose .label-prose .check-box::before { content: '✓'; }
+    .font-normal .label-normal .check-box::before { content: '✓'; }
+    .font-longread .label-longread .check-box::before { content: '✓'; }
+    .theme-light .label-light .check-box::before { content: '✓'; }
+    .theme-dark .label-dark .check-box::before { content: '✓'; }
+
+    @media (min-width: 960px) {
+      #site-title { 
+        max-width: 145px;
+        margin-inline: auto;
+        padding-top: var(--sp-2);
+        justify-content: center;
+      }
+    }
+    .font-longread article { 
+      font-size: var(--fs-long-read);
+    }
+
+    .font-prose article { font-family: var(--t-prose); }
+
+    .font-longread .btn-icon {
+      width: calc(var(--si) + 2px);
+      height: calc(var(--si) + 2px);
+    }
+    h2, h3, h4 {
+      scroll-margin-top: var(--sp-2);
+    }
+    .content-grid header + h2 {
+      margin-top: 0;
+    }
+
+    pre code {
+      max-height: 80vh;
+      overflow-y: auto
+    }
+
+    .resize-x {
+      margin-inline: -5px;
+      padding: 5px;
+      resize: horizontal;
+      overflow-x: auto;
+      background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='silver' stroke-width='2' stroke-dasharray='8%2c 8' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
+    }
+  </style>
+
+  <script>
+  const matchMediaDark = window.matchMedia('(prefers-color-scheme: dark)');
+const htmlClassList = document.querySelector('html').classList;
+
+function fontProse() {
+  sessionStorage.setItem('baselayerFont', 'prose');
+  htmlClassList.remove('font-base');
+  htmlClassList.add('font-prose');
+}
+
+function fontBase() {
+  sessionStorage.setItem('baselayerFont', 'base');
+  htmlClassList.remove('font-prose');
+  htmlClassList.add('font-base');
+}
+
+function fsLongRead() {
+  sessionStorage.setItem('baselayerFS', 'longread');
+  htmlClassList.remove('font-normal');
+  htmlClassList.add('font-longread');
+}
+
+function fsNormal() {
+  sessionStorage.setItem('baselayerFS', 'normal');
+  htmlClassList.remove('font-longread');
+  htmlClassList.add('font-normal');
+}
+
+function themeDark() {
+  sessionStorage.setItem("baselayerTheme", "dark");
+  htmlClassList.remove('theme-light');
+  htmlClassList.add('theme-dark');
+}
+
+function themeLight() {
+  sessionStorage.setItem("baselayerTheme", "light");
+  htmlClassList.remove('theme-dark');
+  htmlClassList.add('theme-light');
+}
+
+// Toggles
+
+function toggleFont() {
+  if ( sessionStorage.baselayerFont === 'prose' ) {
+    fontBase();
+  } else {
+    fontProse();
+  }
+};
+
+function toggleFS() {
+  if ( sessionStorage.baselayerFS === 'normal' ) {
+    fsLongRead();
+  } else {
+    fsNormal();
+  }
+};
+
+function toggleTheme() {
+  if ( sessionStorage.baselayerTheme === 'dark' ) {
+    themeLight();
+  } else {
+    themeDark();
+  }
+};
+
+// init
+
+function baselayerInit() {
+  if (sessionStorage.baselayerTheme === 'dark' || (!('baselayerTheme' in sessionStorage) && matchMediaDark.matches)) {
+    themeDark();
+  } else {
+    themeLight();
+  }
+  if ( sessionStorage.baselayerFont === 'prose' ) {
+    fontProse();
+  } else {
+    fontBase();
+  }
+  if ( sessionStorage.baselayerFS === 'longread' ) {
+    fsLongRead();
+  } else {
+    fsNormal();
+  }
+};
+
+baselayerInit();
+    /**
+  * Site Navigation Toggle (Phones)
+  */
+
+window.addEventListener("DOMContentLoaded", () => {
+  let navButton = document.querySelector('#site-nav-toggle');
+  let menu = document.querySelector('#site-nav-menu');
+  let windowTest = function() {
+    if (window.matchMedia('(max-width: 959px)').matches) {
+      navButton.setAttribute('aria-expanded', 'false');
+      menu.hidden = true;
+    } else {
+      navButton.setAttribute('aria-expanded', 'true');
+      menu.hidden = false;
+    }
+  }
+
+  windowTest();
+
+  window.addEventListener('resize', function () {
+    windowTest();
+  });
+
+  navButton.addEventListener('click', function() {
+    let expanded = this.getAttribute('aria-expanded') === 'true' || false;
+    this.setAttribute('aria-expanded', !expanded);
+    menu.hidden = !menu.hidden;
+  });
+});
+
+  </script>
+
+</head>
+<body class="">
+
+  <!-- Current page: /baselayer-3/typography/ -->
+
+  <a href="#main-content" tabindex="1" class="inline-block m-1 visually-hidden">Skip to main content</a>
+
+  <div class="h-100-dvh md:flex">
+    <div id="site-nav" class="bg-coolgray bg-800">
+  <div class="sticky top h-max-100dvh overflow-y">
+    <div class="p-cell t-center">
+      <a id="site-title" href="/baselayer-3/" class="h3 m-0 py-1 t-normal flex flex-center flex-middle flex-wrap gap-1 t-gray t-100 hover:t-200 t-noline">
+        <svg height="48" width="48" viewBox="0 0 111 111" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-miterlimit:1.5">
+          <g transform="translate(-294.592 -94.592)">
+            <circle cx="350" cy="150" r="50" style="fill:none;stroke:currentColor;stroke-width:4px"/>
+            <path d="M294.167 180H320v-65.833" style="fill:none;stroke:currentColor;stroke-width:4px" transform="translate(10 -10)"/>
+            <path d="M405.833 180H380v-65.833" style="fill:none;stroke:currentColor;stroke-width:4px" transform="translate(-10 -10)"/>
+            <circle cx="350" cy="150" r="30" style="fill:none;stroke:currentColor;stroke-width:6px" transform="matrix(.66667 0 0 .66667 116.667 50)"/>
+            <path d="M310 180h80" style="fill:none;stroke:currentColor;stroke-width:4px"/>
+            </g>
+          </svg>
+        <span class="t-nowrap">Baselayer 3 CSS</span>
+      </a>
+      <p class="t-coolgray t-400">Version: 1.0.0 • <a class="t-gray t-100 hover:t-200 t-noline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3">GitHub</a></p>
+    </div>
+
+    <nav id="site-nav" role="menu">
+      <button type="button" id="site-nav-toggle" aria-expanded="false" aria-label="Menu" aria-controls="site-nav-menu" class="absolute top right m-2 md:hidden">
+        Menu
+      </button>
+
+      <div id="site-nav-menu" class="mx-auto t-center t-white" style="width: var(--w-xs);">
+        <div class="my-2 p-cell flex flex-column gap-1">
+          <a class="block p-cell t-coolgray t-100 hover:t-200"  href="/baselayer-3/">Introduction</a>
+          <a class="block p-cell t-coolgray t-100 hover:t-200"  aria-current="page" href="/baselayer-3/typography/">Typography</a>
+          <a class="block p-cell t-coolgray t-100 hover:t-200"  href="/baselayer-3/layout/">Layout</a>
+          <a class="block p-cell t-coolgray t-100 hover:t-200"  href="/baselayer-3/decoration/">Decoration</a>
+          <a class="block p-cell t-coolgray t-100 hover:t-200"  href="/baselayer-3/colors/">Colors</a>
+          <a class="block p-cell t-coolgray t-100 hover:t-200"  href="/baselayer-3/forms/">Forms</a>
+          <a class="block p-cell t-coolgray t-100 hover:t-200"  href="/baselayer-3/buttons/">Buttons</a>
+          <a class="block p-cell t-coolgray t-100 hover:t-200" href="/baselayer-3/examples/">Examples</a>
+        </div>
+
+        <div class="mb-2 p-cell">
+          <button class="w-100% mb-1 p-1 flex flex-column gap-1 bg-coolgray bg-600 hover:bg-700" onclick="toggleFont()">
+            <div class="label-base w-100% flex flex-middle gap-1">
+              <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
+              <div class="grow t-left">Base font</div>
+            </div>
+            <div class="label-prose w-100% flex flex-middle gap-1">
+              <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
+              <div class="grow t-left">Prose font</div>
+            </div>
+          </button>
+
+          <button class="w-100% mb-1 p-1 flex flex-column gap-1 bg-coolgray bg-600 hover:bg-700" onclick="toggleFS()">
+            <div class="label-normal w-100% flex flex-middle gap-1">
+              <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
+              <div class="grow t-left">Normal font-size</div>
+            </div>
+            <div class="label-longread w-100% flex flex-middle gap-1">
+              <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
+              <div class="grow t-left">Long read font-size</div>
+            </div>
+          </button>
+
+          <button class="w-100% mb-1 p-1 flex flex-column gap-1 bg-coolgray bg-600 hover:bg-700" onclick="toggleTheme()">
+            <div class="label-light w-100% flex flex-middle gap-1">
+              <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
+              <div class="grow t-left">Light theme</div>
+            </div>
+            <div class="label-dark w-100% flex flex-middle gap-1">
+              <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
+              <div class="grow t-left">Dark theme</div>
+            </div>
+          </button>
+        </div>
+
+      </div>
+    </nav>
+  </div>
+</div>
+
+      <main id="main-content" class="grow flex">
+
+        <div id="toc" class="lg:hidden-below" style="order: 2;">
+          <div class="sticky top h-max-100dvh p-2 overflow-y" style="width: var(--w-xs);">
+            <p class="h4 t-semibold">Contents</p>
+            <nav class="toc" >
+        <ul><li><a href="#font-stacks">Font stacks</a><ul><li><a href="#setting-font-stacks">Setting font stacks</a></li></ul></li><li><a href="#typographic-block-elements">Typographic block elements</a><ul><li><a href="#headings">Headings</a></li><li><a href="#block-quotes">Block quotes</a></li><li><a href="#lists">Lists</a></li></ul></li><li><a href="#the-link-tag">The link tag</a></li><li><a href="#tables">Tables</a><ul><li><a href="#making-wide-tables-responsive">Making wide tables responsive</a></li></ul></li><li><a href="#the-long-lead-utility-class">The long-lead utility class</a></li><li><a href="#code-blocks">Code blocks</a></li><li><a href="#other-typographic-utility-classes">Other typographic utility classes</a></li><li><a href="#simple-menus">Simple Menus</a></li></ul>
+      </nav>
+          </div>
+        </div>
+  
+        <div>
+          <article class="content-grid">
+            <header class="my-2 py-4 t-big t-center">
+              <h1 class="m0 lighter">Typography</h1>
+            </header>
+          
+              <h2 id="font-stacks" tabindex="-1">Font stacks</h2>
+<p>Three native font stacks are set in the <code>root-vars.css</code> file.</p>
+<pre><code>:root {
+  --base: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Helvetica, Arial, sans-serif;
+  --prose: &quot;Iowan Old Style&quot;, &quot;Palatino Linotype&quot;, Palatino, Georgia, serif;
+  --mono: ui-monospace, Menlo, &quot;Segoe UI Mono&quot;, Consolas, &quot;Ubuntu Monospace&quot;, monospace;
+}
+</code></pre>
+<p>Everything here is an example, a place to start. Your own <code>--base</code> and <code>--prose</code> don’t need to be both sans-serif and serif.</p>
+<p>The Baselayer docs make use of JavaScript and some extra CSS to enable a demo toggle, so that you can switch between <code>--base</code> and <code>--prose</code> in this main content column.</p>
+<p class="flex flex-center">
+  <button class="p-cell flex flex-column gap-1 bg-blue bg-600 hover:bg-700" onclick="toggleFont()">
+    <div class="label-base w-100% flex flex-middle gap-1">
+      <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
+      <div class="grow t-left">Base font</div>
+    </div>
+    <div class="label-prose w-100% flex flex-middle gap-1">
+      <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
+      <div class="grow t-left">Prose font</div>
+    </div>
+  </button>
+</p>
+<p>Font stack usage in Baselayer:</p>
+<ul>
+<li>The base font stack is set in the <code>&lt;body&gt;</code> tag (in <code>base.css</code>) and in the <code>base</code> utility class.</li>
+<li>The prose is only available via the <code>prose</code> utility class</li>
+<li>The monotype is available via the <code>&lt;code&gt;</code>, <code>&lt;kbd&gt;</code>, and <code>&lt;samp&gt;</code> HTML tags, and in the <code>mono</code> utility class.</li>
+</ul>
+<h3 id="setting-font-stacks" tabindex="-1">Setting font stacks</h3>
+<p>In choosing your own font stacks, you may wish to choose two fonts that have similar x-height, so that you can set them using the same font size and line-height. Some other factors to compare are hights for lowercase ascenders and descenders, letter width, and stroke thickness.</p>
+<p>A good place to start is by pairing serif and sans-serif (or slab serif) fonts of the same typeface. There are several to choose from on <a href="https://fonts.google.com">Google Fonts</a>. Some examples:</p>
+<ul>
+<li>Alegreya and Alegreya Sans</li>
+<li>IBM Plex and IBM Plex Sans</li>
+<li>Inria Serif and Inria Sans</li>
+<li>Noto Serif and Noto Sans</li>
+<li>PT Serif and PT Sans</li>
+<li>Roboto and Roboto Slab</li>
+<li>Source Sans 3 and Source Serif 4</li>
+</ul>
+<p>Of course, you can also mix and match. In Baselayer, sizes and weights for the base and prose typefaces can optionally be set independently — but you will still want them to share the same line height. For using another set of sizes and weights for prose, you will need to do some un-commenting in two files: <code>variables.css</code> and <code>typography.css</code>.</p>
+<p>So, for example:</p>
+<ul>
+<li>If your chosen base typeface has an x-height much larger than your chosen prose, then you can set the prose font-size slightly larger, or the base slightly smaller.</li>
+<li>If your base has thicker strokes so that it “looks darker” than your prose, then you may want to set your base font-weight slightly lighter, to <code>300</code> (if this is available) while retaining your prose font-weight at the normal <code>400</code>.</li>
+</ul>
+<p>For inspiration:</p>
+<ul>
+<li><a href="https://fonts.google.com/knowledge/choosing_type/pairing_typefaces">Pairing Typefaces (Google Fonts article)</a></li>
+<li><a href="https://www.fontpairings.com">fontpairings.com</a></li>
+<li><a href="https://www.fontpair.co">fontpair.co</a></li>
+<li><a href="https://fontjoy.com">fontjoy.com</a></li>
+<li><a href="https://www.pairandcompare.net">Pair &amp; Compare</a></li>
+<li><a href="https://www.pagecloud.com/blog/best-google-fonts-pairings">Top 50 Google Font Pairings [Handpicked by Pro Designers] (Pagecloud)</a></li>
+</ul>
+<h2 id="typographic-block-elements" tabindex="-1">Typographic block elements</h2>
+<p>The bottom margin on most typographic blocks have zero top margin, and bottom margin set to the <em>line height in rems</em> using these two varibles:</p>
+<pre><code class="language-css">:root {
+  --lh: 1.5; /* Base lineheight (no unit) */
+  --mlh: calc(var(--lh) * 1rem); /* margin line height in rems */
+}
+</code></pre>
+<h3 id="headings" tabindex="-1">Headings</h3>
+<p>Example of heading sizes — using utility classes (so that they don’t show up in the automatic table-of-contents generator):</p>
+<p class="h1">Heading h1</p>
+<p class="h2">Heading h2</p>
+<p class="h3">Heading h3</p>
+<p class="h4">Heading h4</p>
+<p class="h5">Heading h5</p>
+<p class="h6">Heading h6</p>
+<p>All headings <code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code> and matching utility classes <code>h1</code> to <code>h6</code> have:</p>
+<ul>
+<li>Font sizes set in the variables file. The typographic scale is 1.250 (major third), calculated using the <a href="https://type-scale.com">Type Scale</a> webapp.</li>
+<li>Headings also have their font-family set using <code>--hf: inherit</code> This has been done so that you can override it. Headings don’t need to have the same typeface as paragraphs.</li>
+<li>The headings font weight is set using <code>--hfw: var(--bold)</code> — which you can override.</li>
+<li>Line heights set using the formula 1em + 0.5rem. Meanwhile the bottom margin is the same as for paragraphs (described above).</li>
+<li>Headings <code>&lt;h2&gt;</code> to <code>&lt;h6&gt;</code> and matching utility classes <code>h2</code> to <code>h6</code> also have top margins equal to their respective line heights (so H2 has a bigger top margin than H3, and so on)</li>
+</ul>
+<pre><code class="language-css">:root {
+  /* Heading font sizes */
+  --h1: 2.441em;
+  --h2: 1.953em;
+  --h3: 1.563em;
+  --h4: 1.25em;
+  --h5: 1em;
+  --h6: .8em;
+
+  /* headings font */
+  --hf: inherit;
+
+  /* headings font-weight */
+  --hfw: var(--bold);
+
+  /* headings line-height */
+  --hlh: calc(1em + 0.5rem);
+}
+</code></pre>
+<p>Tips:</p>
+<ol>
+<li>In some contexts (e.g. in card components) you may not want any built-in spacing for typographic block elements. Then, you can remove margins by using the <code>m-0</code> utility class.</li>
+<li>You can also remove top margin “remotely” e.g. you can target the first item inside its wrapper using <code>.wrapper:first-child { margin-top: 0; }</code>, or the first sibling after the <code>&lt;header&gt;</code> or <code>&lt;h1&gt;</code> e.g. as I have done in these docs: <code>.content-grid header + * { margin-top: 0; }</code>. This takes care of any chapters that start their content with an <code>&lt;h2&gt;</code> as the first element under the title (header) block.</li>
+</ol>
+<h3 id="block-quotes" tabindex="-1">Block quotes</h3>
+<p>Baselayer styles <code>&lt;blockquote&gt;</code> tags with some inline (x-axis) padding, to give the effect of indentation. This inline padding is set using the responsive spacing variable <code>--sp-3</code> so that it becomes wider for wider viewports.</p>
+<p>Otherwise, blockquotes have the same as paragraph styling.</p>
+<blockquote>
+<p>Lorem ipsum dolor sit amet, adipiscing honestatis ius ut, nisl consulatu pro in. Imperdiet evertitur no usu, his te suavitate salutatus. Nullam ridens deterruisset an duo. Cum harum insolens ei, cum probo placerat praesent et.</p>
+</blockquote>
+<h3 id="lists" tabindex="-1">Lists</h3>
+<p>In Baselayer ordered <code>&lt;ol&gt;</code> and unordered <code>&lt;ul&gt;</code> have a little left padding. But Baselayer separates list items <code>&lt;li&gt;</code> to make them more obvious by setting a small top margin <em>between</em> list items (smaller than the top margin between paragraphs), and <em>above</em> nested <code>&lt;ol&gt;</code> and <code>&lt;ul&gt;</code>.</p>
+<ol>
+<li>Ordered item one</li>
+<li>Ordered item two
+<ol>
+<li>Ordered item two child one</li>
+<li>Ordered item two child two</li>
+</ol>
+</li>
+<li>Ordered item three</li>
+</ol>
+<pre><code>&lt;ol&gt;
+  &lt;li&gt;Ordered item one&lt;/li&gt;
+  &lt;li&gt;Ordered item two
+    &lt;ol&gt;
+      &lt;li&gt;Ordered item two child one&lt;/li&gt;
+      &lt;li&gt;Ordered item two child two&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Ordered item three&lt;/li&gt;
+&lt;/ol&gt;
+</code></pre>
+<ul>
+<li>Unordered item</li>
+<li>Unordered item
+<ul>
+<li>Unordered item child</li>
+<li>Unordered item child</li>
+</ul>
+</li>
+<li>Unordered item</li>
+</ul>
+<pre><code>&lt;ul&gt;
+  &lt;li&gt;Unordered item&lt;/li&gt;
+  &lt;li&gt;Unordered item
+    &lt;ul&gt;
+      &lt;li&gt;Unordered item child&lt;/li&gt;
+      &lt;li&gt;Unordered item child&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Unordered item&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+<p>For definition lists, the title is bold and the data-item is indented with the same left padding as for the lists (see above).</p>
+<dl>
+  <dt>Definition list title</dt>
+  <dd>Definition list data</dd>
+  <dt>Definition list title</dt>
+  <dd>Definition list data</dd>
+</dl>
+<pre><code>&lt;dl&gt;
+  &lt;dt&gt;Definition list title&lt;/dt&gt;
+  &lt;dd&gt;Definition list data&lt;/dd&gt;
+  &lt;dt&gt;Definition list title&lt;/dt&gt;
+  &lt;dd&gt;Definition list data&lt;/dd&gt;
+&lt;/dl&gt;
+</code></pre>
+<h2 id="the-link-tag" tabindex="-1">The link tag</h2>
+<p>The default underline for links has been moved downwards slightly to improve legibility. The link decoration (underscore) thickness has been set at 1px, so that it doesn’t become thicker when used on larger text (e.g. in headings) where link underscores can be too bulky).</p>
+<p>Link color is set by <code>--tc-link</code>, which is the Baselayer theme middle blue (see <a href="/baselayer-3/colors/">colors</a>). The hover state is a shade darker.</p>
+<h2 id="tables" tabindex="-1">Tables</h2>
+<p>Baselayer tables are set using the <code>.table</code> class.</p>
+<ul>
+<li>Paddings are set by <code>--p-cell</code> (see decoration <a href="/baselayer-3/decoration/#spacing-extras">spacing extras</a>)</li>
+<li>Table headers <code>&lt;th&gt;</code> are bold.</li>
+<li>Table cells <code>&lt;th&gt;</code> and <code>&lt;td&gt;</code> have a border set by <code>var(--b-1)</code> – the same detail as <code>&lt;hr&gt;</code> and <a href="/baselayer-3/decoration/#borders">border</a> utility classes.</li>
+<li>All cell content is left-aligned. You can change that on the whole <code>&lt;table&gt;</code> or on a per-cell basis using the text alignment classes.</li>
+</ul>
+<table class="mt-2 mb-3 table">
+  <caption>This is a Table Caption</caption>
+  <thead>
+    <tr>
+      <th>Table Header 1</th>
+      <th>Table Header 2</th>
+      <th>Table Header 3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Table content 1.1</td>
+      <td>Table content 2.1</td>
+      <td>Table content 3.1</td>
+    </tr>
+    <tr>
+      <td>Table content 1.2</td>
+      <td>Table content 2.2</td>
+      <td>Table content 3.2</td>
+    </tr>
+    <tr>
+      <td>Table content 1.3</td>
+      <td>Table content 2.3</td>
+      <td>Table content 3.3</td>
+    </tr>
+    <tr>
+      <td>Table content 1.4</td>
+      <td>Table content 2.4</td>
+      <td>Table content 3.4</td>
+    </tr>
+  </tbody>
+</table>
+<pre><code>&lt;table class=&quot;table&quot;&gt;
+  &lt;caption&gt;This is a Table Caption&lt;/caption&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Table Header 1&lt;/th&gt;
+      &lt;th&gt;Table Header 2&lt;/th&gt;
+      &lt;th&gt;Table Header 3&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Table content 1.1&lt;/td&gt;
+      &lt;td&gt;Table content 2.1&lt;/td&gt;
+      &lt;td&gt;Table content 3.1&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Table content 1.2&lt;/td&gt;
+      &lt;td&gt;Table content 2.2&lt;/td&gt;
+      &lt;td&gt;Table content 3.2&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+</code></pre>
+<h3 id="making-wide-tables-responsive" tabindex="-1">Making wide tables responsive</h3>
+<p>If you have a lot of content in your table, it will probably break your page layout on small viewports (e.g. phones). So, you can wrap your table in a DIV with the <code>overflow-x</code> class to make it horizontally scrollable.</p>
+<pre><code>&lt;div class=&quot;overflow-x&quot;&gt;
+  &lt;table class=&quot;table&quot;&gt;
+    ...
+  &lt;/table&gt;
+&lt;/div&gt;
+</code></pre>
+<h2 id="the-long-lead-utility-class" tabindex="-1">The long-lead utility class</h2>
+<p>Intended for long-read essays, articles and blog posts, the <code>t-long-read</code> utility class (to be used as a <em>wrapper</em> class) enlarges text (including headings) responsive to wider viewports (e.g. tablets, laptops, and up) using the following CSS clamp, which is set in <code>variables.css</code>:</p>
+<pre><code>:root {
+  --fs-long-read: clamp(1rem, 0.75rem + 0.625vw, 1.25rem);
+  --lh-long-read: calc(var(--fs) * 1.5);
+}
+</code></pre>
+<p>The base font size is expanded to 125% over the middle range — from viewport widths 640px to 1280px (i.e. same as the <code>sm</code> to <code>md</code> default breakpoints). Starting from 1rem (16px), this expands the base sext size to 20px. This <code>clamp()</code> has been calculated using Petter Walbø Johnsgård’s <a href="https://clamp.font-size.app/">Font-size Clamp Generator</a>.</p>
+<p>The Baselayer docs make use of JavaScript and some extra CSS to enable a demo toggle, so that you can switch between normal and long read font size in this main article column.</p>
+<p class="flex flex-center">
+  <button class="p-cell flex flex-column gap-1 bg-blue bg-600 hover:bg-700" onclick="toggleFS()">
+    <div class="label-normal w-100% flex flex-middle gap-1">
+      <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
+      <div class="grow t-left">Normal font-size</div>
+    </div>
+    <div class="label-longread w-100% flex flex-middle gap-1">
+      <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
+      <div class="grow t-left">Long read font-size</div>
+    </div>
+  </button>
+</p>
+<h2 id="code-blocks" tabindex="-1">Code blocks</h2>
+<p><code>&lt;code&gt;</code> tags have monospaced text over a pale blue background (set by <code>--cbgcode</code>) with a little padding to improve readability.</p>
+<p>If the <code>&lt;code&gt;</code> tag is wrapped in a <code>&lt;pre&gt;</code> tag, then it becomes a block level element with more padding, a max-width of 100%, and y-axis overflow scrolling.</p>
+<h2 id="other-typographic-utility-classes" tabindex="-1">Other typographic utility classes</h2>
+<p>Besides those already introduced, Baselayer also has utility classes for:</p>
+<ul>
+<li><code>t-big</code> — increase font size by 1.5em. Use it directly on a <code>&lt;p&gt;</code> to enlarge the font (e.g. for a lead paragraph). But don’t use <code>t-big</code>  directly on a heading, because that will overrive the heading size — but you can use it on a <em>wrapper</em> around a heading that you wish to enlarge (e.g. for a title or hero component).</li>
+<li><code>t-small</code> (or use the <code>&lt;small&gt;</code> HTML tag) — decrease font-size to 0.75em.</li>
+<li><code>t-right</code>, <code>t-center</code>, and <code>t-left</code> — text alignment</li>
+<li><code>t-lighter</code>, <code>t-normal</code>, <code>t-semibold</code>, <code>t-bold</code>, <code>t-heavy</code> — font weights</li>
+<li><code>t-italic</code> — font style italic</li>
+<li><code>t-uppercase</code> — text transform to capitals</li>
+<li><code>t-noline</code> — use to remove the underline (underscore) from links where having it may be inappropriate (e.g. in menus)</li>
+<li><code>hover:t-line</code> – make underline appear on hover (pair as <code>t-noline hover:t-line</code> on a link)
+<ul>
+<li>Example <code>t-noline h:t-line</code>: <a class="t-noline hover:t-line" href="http://example.com">example</a></li>
+</ul>
+</li>
+<li><code>t-nowrap</code> — prevents text wrapping (spaces behave as non-breaking spaces)</li>
+<li><code>unlist</code> — sets <code>list-style-type: none</code> on <code>&lt;ol&gt;</code>, <code>&lt;ul&gt;</code>, or <code>&lt;li&gt;</code>. You can use this when you want to use a list in a navigation menu. And you can combine it with <code>p-0</code> to remove the list inset padding.</li>
+</ul>
+<p><strong>Note:</strong> links can also be styled as though they are buttons using the <code>btn</code> utility class. See <a href="/baselayer-3/buttons/">buttons</a>.</p>
+<h2 id="simple-menus" tabindex="-1">Simple Menus</h2>
+<p>If you wrap links in a <code>&lt;nav&gt;</code> tag, as you should do when creating a menu, then the links have their underscores removed. (So, there is no need to use <code>noline</code> inside a <code>&lt;nav&gt;</code> tag.)</p>
+<p>Simple can created in this way, whether or not you involve an <code>&lt;ul&gt;</code> unordered list. Example:</p>
+<nav class="mt-2 mb-3">
+  <a class="p-cell" href="#/">Home</a>
+  <a class="p-cell" href="#/">About</a>
+  <a class="p-cell" href="#/">Contact</a>
+</nav>
+<pre><code>&lt;nav&gt;
+  &lt;a class=&quot;p-cell&quot; href=&quot;#/&quot;&gt;Home&lt;/a&gt;
+  &lt;a class=&quot;p-cell&quot; href=&quot;#/&quot;&gt;About&lt;/a&gt;
+  &lt;a class=&quot;p-cell&quot; href=&quot;#/&quot;&gt;Contact&lt;/a&gt;
+&lt;/nav&gt;
+</code></pre>
+<p>For more information on <code>p-cell</code> see decoration <a href="/baselayer-3/decoration/#spacing-extras">spacing extras</a>. And for how Baselayer colors work, see <a href="/baselayer-3/colors/">colors</a>.</p>
+
+          </article>
+          <div class="content-grid">
+            <nav class="mt-3 mb-2 b-1 r-pill p-cell popout">
+              <ul class="m-0 unlist p-0 flex">
+                
+                <li class="grow my-1">&larr; <a href="/baselayer-3/"> Introduction</a></li>
+                
+                
+                <li class="grow my-1 t-right"><a href="/baselayer-3/layout/">Layout</a> &rarr;</li>
+                  
+              </ul>
+            </nav>
+            <footer>
+              <div class="p-2 flex flex-center t-center">
+                <a href="/baselayer-3/" class="h3 m-0 t-normal flex flex-column flex-center gap-1 t-noline">
+                  <svg class="mx-auto" height="48" width="48" viewBox="0 0 111 111" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-miterlimit:1.5">
+                    <g transform="translate(-294.592 -94.592)">
+                      <circle cx="350" cy="150" r="50" style="fill:none;stroke:currentColor;stroke-width:4px"/>
+                      <path d="M294.167 180H320v-65.833" style="fill:none;stroke:currentColor;stroke-width:4px" transform="translate(10 -10)"/>
+                      <path d="M405.833 180H380v-65.833" style="fill:none;stroke:currentColor;stroke-width:4px" transform="translate(-10 -10)"/>
+                      <circle cx="350" cy="150" r="30" style="fill:none;stroke:currentColor;stroke-width:6px" transform="matrix(.66667 0 0 .66667 116.667 50)"/>
+                      <path d="M310 180h80" style="fill:none;stroke:currentColor;stroke-width:4px"/>
+                      </g>
+                    </svg>
+                  <span class="t-nowrap">Baselayer 3 CSS</span>
+                </a>
+              </div>
+
+              <p class="p-cell flex flex-center flex-wrap gap-3 t-center">
+                <span>Version: 1.0.0</span>
+                <a class="t-noline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3">GitHub Repository</a>
+                <a class="t-noline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3/blob/main/LICENSE">MIT license</a>
+                <span>Developer: <a class="t-noline hover:t-line" href="https://github.com/SimonPadbury">Simon Padbury</a></span>
+              </p>
+            </footer>
+          </div>
+        </div>
+      </div>
+    </main>
+      
+    </div>
+  </div>
+
+</body>
+</html>

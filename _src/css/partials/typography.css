@@ -1,0 +1,309 @@
+p,
+ol,
+ul,
+dl,
+pre,
+table,
+fieldset,
+figure,
+figcaption,
+blockquote {
+  margin-block: 0 var(--m-lh);
+}
+
+caption {
+  margin-block: var(--sp-1);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+h1,
+.h1 {
+  font-size: var(--h1);
+  font-weight: var(--h-fw);
+  line-height: var(--h-lh);
+  margin-block: 0 var(--m-lh);
+}
+
+h2,
+.h2 {
+  font-size: var(--h2);
+}
+
+h3,
+.h3 {
+  font-size: var(--h3);
+}
+
+h4,
+.h4 {
+  font-size: var(--h4);
+}
+
+h5,
+.h5 {
+  font-size: var(--h5);
+}
+
+h6,
+.h6 {
+  font-size: var(--h6);
+}
+
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+  margin-block: var(--h-lh) var(--m-lh);
+  ;
+  font-weight: var(--h-fw);
+  line-height: var(--h-lh);
+}
+
+.content-grid>h2,
+.content-grid>.h2,
+.content-grid>h3,
+.content-grid>.h3,
+.content-grid>h4,
+.content-grid>.h4,
+.content-grid>h5,
+.content-grid>.h5,
+.content-grid>h6,
+.content-grid>.h6 {
+  /* This because CSS grid prevents margin-collapse on grid items */
+  margin-block:
+    calc(var(--h-lh) - var(--m-lh)) var(--m-lh);
+  ;
+}
+
+a {
+  text-decoration: underline;
+  color: var(--tc-link);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+a,
+a * {
+  text-decoration-skip-ink: auto;
+  text-decoration-thickness: var(--dt-link);
+  text-underline-offset: var(--do-link);
+}
+
+a:hover,
+a:focus {
+  color: var(--tc-link-hover);
+}
+
+ol,
+ul {
+  margin-block: 0 var(--m-lh);
+  padding-left: 1.5em;
+}
+
+li+li,
+li ol,
+li ul {
+  margin-block: var(--sp-list) 0;
+}
+
+dl {
+  margin: 0 0 var(--m-lh);
+  ;
+}
+
+dt {
+  font-weight: bold;
+}
+
+dd {
+  margin: 0 0 var(--sp-list);
+  padding-left: 1.5em;
+}
+
+ol ol {
+  list-style-type: lower-alpha;
+}
+
+ol ol ol {
+  list-style-type: lower-roman;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.table th,
+.table td {
+  border: var(--b-1);
+  padding: var(--p-cell);
+  vertical-align: top;
+  text-align: left;
+}
+
+.table th {
+  font-weight: bold;
+}
+
+hr {
+  width: 100%;
+  border: 0;
+  border-top: var(--b-1);
+  height: 0;
+  margin-block: 3rem;
+}
+
+blockquote {
+  margin-inline: 0;
+  padding-inline: var(--sp-3);
+}
+
+blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+code,
+kbd,
+samp {
+  font-family: var(--t-mono);
+}
+
+code {
+  display: inline-block;
+  padding-inline: .25em;
+  color: var(--tc-code);
+  background: var(--bgc-code);
+}
+
+pre {
+  overflow-x: auto;
+}
+
+pre code {
+  display: block;
+  padding: 1em;
+  background: var(--bgc-code);
+  overflow-x: auto;
+  /* so that the background color extends into the hidden overflow area */
+}
+
+sub,
+sup {
+  font-size: 85%;
+  line-height: 0;
+}
+
+.unlist {
+  list-style-type: none;
+}
+
+nav a,
+.t-noline {
+  text-decoration: none;
+}
+
+.hover\:t-line:hover {
+  text-decoration: underline;
+  text-decoration-skip-ink: auto;
+  text-decoration-thickness: var(--dt-link);
+  text-underline-offset: var(--do-link);
+}
+
+.t-nowrap {
+  white-space: nowrap;
+}
+
+.t-big {
+  font-size: 150%;
+}
+
+small,
+.t-small {
+  font-size: 75%;
+}
+
+.t-lighter {
+  font-weight: var(--fw-lighter);
+}
+
+.t-normal {
+  font-weight: var(--fw-normal);
+}
+
+.t-semibold {
+  font-weight: var(--fw-semibold);
+}
+
+.t-bold {
+  font-weight: var(--fw-bold);
+}
+
+.t-heavy {
+  font-weight: var(--fw-heavy);
+}
+
+.t-italic {
+  font-style: italic;
+}
+
+.t-right {
+  text-align: right;
+}
+
+.t-center {
+  text-align: center;
+}
+
+.t-left {
+  text-align: left;
+}
+
+.t-uppercase {
+  text-transform: uppercase;
+}
+
+.t-long-read {
+  font-size: var(--fs-long-read);
+  line-height: var(--lh-long-read);
+}
+
+.t-base {
+  font-family: var(--t-base);
+}
+
+.t-prose {
+  font-family: var(--t-prose);
+}
+
+/*
+Un-comment these if required
+*/
+/* .t-prose.t-normal,
+.t-prose {
+  font-family: var(--t-prose);
+  font-size: var(--fs-baseprose);
+  font-weight: var(--fwprose);
+}
+.t-prose.t-bold, .t-prose .t-bold, .t-prose strong {
+  font-weight: var(--strprose);
+}
+.t-long-read.t-prose,
+.t-long-read .t-prose,
+.t-prose .t-long-read {
+  font-size: var(--fs-long-read-prose);
+} */

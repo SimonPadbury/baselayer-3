@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Forms · Baselayer 3 CSS</title>
+
+  <link rel="stylesheet" href="/baselayer-3/css/min/baselayer.min.css?v=1.0.0">
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    [aria-current=page] {
+      
+      background: oklch(var(--l900) var(--c02) var(--coolgray));
+    }
+    .check-box {
+      width: 1rem;
+      height: 1rem;
+    }
+    .font-base .label-base .check-box::before { content: '✓'; }
+    .font-prose .label-prose .check-box::before { content: '✓'; }
+    .font-normal .label-normal .check-box::before { content: '✓'; }
+    .font-longread .label-longread .check-box::before { content: '✓'; }
+    .theme-light .label-light .check-box::before { content: '✓'; }
+    .theme-dark .label-dark .check-box::before { content: '✓'; }
+
+    @media (min-width: 960px) {
+      #site-title { 
+        max-width: 145px;
+        margin-inline: auto;
+        padding-top: var(--sp-2);
+        justify-content: center;
+      }
+    }
+    .font-longread article { 
+      font-size: var(--fs-long-read);
+    }
+
+    .font-prose article { font-family: var(--t-prose); }
+
+    .font-longread .btn-icon {
+      width: calc(var(--si) + 2px);
+      height: calc(var(--si) + 2px);
+    }
+    h2, h3, h4 {
+      scroll-margin-top: var(--sp-2);
+    }
+    .content-grid header + h2 {
+      margin-top: 0;
+    }
+
+    pre code {
+      max-height: 80vh;
+      overflow-y: auto
+    }
+
+    .resize-x {
+      margin-inline: -5px;
+      padding: 5px;
+      resize: horizontal;
+      overflow-x: auto;
+      background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='silver' stroke-width='2' stroke-dasharray='8%2c 8' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
+    }
+  </style>
+
+  <script>
+  const matchMediaDark = window.matchMedia('(prefers-color-scheme: dark)');
+const htmlClassList = document.querySelector('html').classList;
+
+function fontProse() {
+  sessionStorage.setItem('baselayerFont', 'prose');
+  htmlClassList.remove('font-base');
+  htmlClassList.add('font-prose');
+}
+
+function fontBase() {
+  sessionStorage.setItem('baselayerFont', 'base');
+  htmlClassList.remove('font-prose');
+  htmlClassList.add('font-base');
+}
+
+function fsLongRead() {
+  sessionStorage.setItem('baselayerFS', 'longread');
+  htmlClassList.remove('font-normal');
+  htmlClassList.add('font-longread');
+}
+
+function fsNormal() {
+  sessionStorage.setItem('baselayerFS', 'normal');
+  htmlClassList.remove('font-longread');
+  htmlClassList.add('font-normal');
+}
+
+function themeDark() {
+  sessionStorage.setItem("baselayerTheme", "dark");
+  htmlClassList.remove('theme-light');
+  htmlClassList.add('theme-dark');
+}
+
+function themeLight() {
+  sessionStorage.setItem("baselayerTheme", "light");
+  htmlClassList.remove('theme-dark');
+  htmlClassList.add('theme-light');
+}
+
+// Toggles
+
+function toggleFont() {
+  if ( sessionStorage.baselayerFont === 'prose' ) {
+    fontBase();
+  } else {
+    fontProse();
+  }
+};
+
+function toggleFS() {
+  if ( sessionStorage.baselayerFS === 'normal' ) {
+    fsLongRead();
+  } else {
+    fsNormal();
+  }
+};
+
+function toggleTheme() {
+  if ( sessionStorage.baselayerTheme === 'dark' ) {
+    themeLight();
+  } else {
+    themeDark();
+  }
+};
+
+// init
+
+function baselayerInit() {
+  if (sessionStorage.baselayerTheme === 'dark' || (!('baselayerTheme' in sessionStorage) && matchMediaDark.matches)) {
+    themeDark();
+  } else {
+    themeLight();
+  }
+  if ( sessionStorage.baselayerFont === 'prose' ) {
+    fontProse();
+  } else {
+    fontBase();
+  }
+  if ( sessionStorage.baselayerFS === 'longread' ) {
+    fsLongRead();
+  } else {
+    fsNormal();
+  }
+};
+
+baselayerInit();
+    /**
+  * Site Navigation Toggle (Phones)
+  */
+
+window.addEventListener("DOMContentLoaded", () => {
+  let navButton = document.querySelector('#site-nav-toggle');
+  let menu = document.querySelector('#site-nav-menu');
+  let windowTest = function() {
+    if (window.matchMedia('(max-width: 959px)').matches) {
+      navButton.setAttribute('aria-expanded', 'false');
+      menu.hidden = true;
+    } else {
+      navButton.setAttribute('aria-expanded', 'true');
+      menu.hidden = false;
+    }
+  }
+
+  windowTest();
+
+  window.addEventListener('resize', function () {
+    windowTest();
+  });
+
+  navButton.addEventListener('click', function() {
+    let expanded = this.getAttribute('aria-expanded') === 'true' || false;
+    this.setAttribute('aria-expanded', !expanded);
+    menu.hidden = !menu.hidden;
+  });
+});
+
+  </script>
+
+</head>
+<body class="">
+
+  <!-- Current page: /baselayer-3/forms/ -->
+
+  <a href="#main-content" tabindex="1" class="inline-block m-1 visually-hidden">Skip to main content</a>
+
+  <div class="h-100-dvh md:flex">
+    <div id="site-nav" class="bg-coolgray bg-800">
+  <div class="sticky top h-max-100dvh overflow-y">
+    <div class="p-cell t-center">
+      <a id="site-title" href="/baselayer-3/" class="h3 m-0 py-1 t-normal flex flex-center flex-middle flex-wrap gap-1 t-gray t-100 hover:t-200 t-noline">
+        <svg height="48" width="48" viewBox="0 0 111 111" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-miterlimit:1.5">
+          <g transform="translate(-294.592 -94.592)">
+            <circle cx="350" cy="150" r="50" style="fill:none;stroke:currentColor;stroke-width:4px"/>
+            <path d="M294.167 180H320v-65.833" style="fill:none;stroke:currentColor;stroke-width:4px" transform="translate(10 -10)"/>
+            <path d="M405.833 180H380v-65.833" style="fill:none;stroke:currentColor;stroke-width:4px" transform="translate(-10 -10)"/>
+            <circle cx="350" cy="150" r="30" style="fill:none;stroke:currentColor;stroke-width:6px" transform="matrix(.66667 0 0 .66667 116.667 50)"/>
+            <path d="M310 180h80" style="fill:none;stroke:currentColor;stroke-width:4px"/>
+            </g>
+          </svg>
+        <span class="t-nowrap">Baselayer 3 CSS</span>
+      </a>
+      <p class="t-coolgray t-400">Version: 1.0.0 • <a class="t-gray t-100 hover:t-200 t-noline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3">GitHub</a></p>
+    </div>
+
+    <nav id="site-nav" role="menu">
+      <button type="button" id="site-nav-toggle" aria-expanded="false" aria-label="Menu" aria-controls="site-nav-menu" class="absolute top right m-2 md:hidden">
+        Menu
+      </button>
+
+      <div id="site-nav-menu" class="mx-auto t-center t-white" style="width: var(--w-xs);">
+        <div class="my-2 p-cell flex flex-column gap-1">
+          <a class="block p-cell t-coolgray t-100 hover:t-200"  href="/baselayer-3/">Introduction</a>
+          <a class="block p-cell t-coolgray t-100 hover:t-200"  href="/baselayer-3/typography/">Typography</a>
+          <a class="block p-cell t-coolgray t-100 hover:t-200"  href="/baselayer-3/layout/">Layout</a>
+          <a class="block p-cell t-coolgray t-100 hover:t-200"  href="/baselayer-3/decoration/">Decoration</a>
+          <a class="block p-cell t-coolgray t-100 hover:t-200"  href="/baselayer-3/colors/">Colors</a>
+          <a class="block p-cell t-coolgray t-100 hover:t-200"  aria-current="page" href="/baselayer-3/forms/">Forms</a>
+          <a class="block p-cell t-coolgray t-100 hover:t-200"  href="/baselayer-3/buttons/">Buttons</a>
+          <a class="block p-cell t-coolgray t-100 hover:t-200" href="/baselayer-3/examples/">Examples</a>
+        </div>
+
+        <div class="mb-2 p-cell">
+          <button class="w-100% mb-1 p-1 flex flex-column gap-1 bg-coolgray bg-600 hover:bg-700" onclick="toggleFont()">
+            <div class="label-base w-100% flex flex-middle gap-1">
+              <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
+              <div class="grow t-left">Base font</div>
+            </div>
+            <div class="label-prose w-100% flex flex-middle gap-1">
+              <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
+              <div class="grow t-left">Prose font</div>
+            </div>
+          </button>
+
+          <button class="w-100% mb-1 p-1 flex flex-column gap-1 bg-coolgray bg-600 hover:bg-700" onclick="toggleFS()">
+            <div class="label-normal w-100% flex flex-middle gap-1">
+              <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
+              <div class="grow t-left">Normal font-size</div>
+            </div>
+            <div class="label-longread w-100% flex flex-middle gap-1">
+              <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
+              <div class="grow t-left">Long read font-size</div>
+            </div>
+          </button>
+
+          <button class="w-100% mb-1 p-1 flex flex-column gap-1 bg-coolgray bg-600 hover:bg-700" onclick="toggleTheme()">
+            <div class="label-light w-100% flex flex-middle gap-1">
+              <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
+              <div class="grow t-left">Light theme</div>
+            </div>
+            <div class="label-dark w-100% flex flex-middle gap-1">
+              <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
+              <div class="grow t-left">Dark theme</div>
+            </div>
+          </button>
+        </div>
+
+      </div>
+    </nav>
+  </div>
+</div>
+
+      <main id="main-content" class="grow flex">
+
+        <div id="toc" class="lg:hidden-below" style="order: 2;">
+          <div class="sticky top h-max-100dvh p-2 overflow-y" style="width: var(--w-xs);">
+            <p class="h4 t-semibold">Contents</p>
+            <nav class="toc" >
+        <ul><li><a href="#textual-form-input-fields">Textual Form Input Fields</a></li><li><a href="#number-inputs">Number Inputs</a></li><li><a href="#date-and-time-inputs">Date and Time Inputs</a></li><li><a href="#color-picker">Color Picker</a></li><li><a href="#file-upload">File Upload</a></li><li><a href="#select-and-multi-select">Select and Multi-select</a></li><li><a href="#text-area-(multiline)">Text Area (Multiline)</a></li><li><a href="#radio-boxes-and-checkboxes">Radio Boxes and Checkboxes</a></li><li><a href="#fieldsets-and-legends">Fieldsets and Legends</a></li><li><a href="#form-buttons">Form Buttons</a></li></ul>
+      </nav>
+          </div>
+        </div>
+  
+        <div>
+          <article class="content-grid">
+            <header class="my-2 py-4 t-big t-center">
+              <h1 class="m0 lighter">Forms</h1>
+            </header>
+          
+              <p>Baselayer form elements have simple background and focus styling (no default border).</p>
+<p><strong>Notes:</strong></p>
+<ol>
+<li>In Baselayer, form elements do not have set width. You can control widths them by one of two ways (same as for <a href="/baselayer-3/buttons/">buttons</a>):
+<ul>
+<li>By adding the <code>w-100%</code> utility class to the form element, or</li>
+<li>By involving the form elements as immediate children of <a href="/baselayer-3/layout/#flex-layouts">flex layout</a> or <a href="/baselayer-3/layout/#grid-layouts">grid layout</a> wrappers.</li>
+</ul>
+</li>
+<li>Form inputs, textareas, buttons, and the <code>btn</code> class, have <code>font-size: inherit</code>. This means their font sizes can be modified by any font-size class in Baselayer.</li>
+<li>The font-family of form elements, buttons, and <code>btn</code> is controlled by <code>var(--base)</code> (default is sans-serif).</li>
+</ol>
+<h2 id="textual-form-input-fields" tabindex="-1">Textual Form Input Fields</h2>
+<form action="">
+  <p>
+    <label for="example-input-text">Text</label>
+    <input type="text" id="example-input-text" name="example" placeholder="Enter text">
+  </p>
+  <p>
+    <label for="example-input-search">Search</label>
+    <input type="search" id="example-input-serach" name="example" placeholder="Search ...">
+  </p>
+  <p>
+    <label for="example-input-email">Email address</label>
+    <input type="email" id="example-input-email" name="example" placeholder="Enter email">
+    <br/>Expects an email address — on touch screens, this will invoke a keypad for entering emails.
+  </p>
+  <p>
+    <label for="example-input-password">Password</label>
+    <input type="password" id="example-input-password" name="example" placeholder="Password">
+  </p>
+  <p>
+    <label for="example-input-url">Url</label>
+    <input type="url" id="example-input-url" name="example" placeholder="Enter a url">
+    <br/>Expects a web address — on touch screens, this will invoke a keypad for entering URLs.
+  </p>
+</form>
+<h2 id="number-inputs" tabindex="-1">Number Inputs</h2>
+<p>On touch screens, these inputs invoke the numeric keyboard instead of the text keyboard.</p>
+<form action="">
+  <p>
+    <label for="example-input-tel">Telephone number</label>
+    <input type="tel" id="example-input-tel" name="example" placeholder="Telephone number">
+  </p>
+  <p>
+    <label for="example-input-number">Number</label>
+    <input type="number" id="quantity" name="example" min="0" inputmode="numeric" pattern="\d*">
+  </p>
+</form>
+<h2 id="date-and-time-inputs" tabindex="-1">Date and Time Inputs</h2>
+<p>On some devices (e.g. iOS Safari), these inputs get modified by date pickers, etc. The shape of the input fields gets changed.</p>
+<form action="">
+  <p>
+    <label for="example-input-date">Date</label>
+    <input type="date" id="example-input-date" name="example">
+  </p>
+  <p>
+    <label for="example-input-date-time-local">Date / Time local</label>
+    <input type="datetime-local" id="example-input-date-time-local" name="example">
+  </p>
+  <p>
+    <label for="example-input-time">Time</label>
+    <input type="time" id="example-input-time" name="example">
+  </p>
+</form>
+<h2 id="color-picker" tabindex="-1">Color Picker</h2>
+<p>Invokes the device’s color picker.</p>
+<form action="">
+  <p>
+    <label for="example-input-color">Color</label>
+    <input type="color" id="example-inupt-color" placeholder="#fff">
+  </p>
+</form>
+<h2 id="file-upload" tabindex="-1">File Upload</h2>
+<form action="">
+  <p>
+    <label for="example-input-file">File input</label>
+    <input class="w100%" type="file" id="example-input-file" accept="image/png, image/jpeg">
+  </p>
+</form>
+<p><strong>Note:</strong> File upload inputs <code>&lt;input type=&quot;file&quot;&gt;</code> can break your page layout on the smallest phones in portrait orientation. But if you add <code>class=&quot;w100%&quot;</code> that problem goes away.</p>
+<h2 id="select-and-multi-select" tabindex="-1">Select and Multi-select</h2>
+<p>On some devices (e.g. iOS Safari), these inputs get modified by number pickers (dropdowns).</p>
+<form action="">
+  <p>
+    <label for="example-select1">Example select</label>
+    <select id="example-select1">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+  </p>
+  <p>
+    <label for="example-select2">Example multiple select</label>
+    <select multiple id="example-select2">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+  </p>
+</form>
+<h2 id="text-area-(multiline)" tabindex="-1">Text Area (Multiline)</h2>
+<form action="" class="mt2">
+    <label for="example-textarea">Example textarea</label><br>
+    <textarea id="example-textarea" rows="3"></textarea>
+</form>
+<h2 id="radio-boxes-and-checkboxes" tabindex="-1">Radio Boxes and Checkboxes</h2>
+<form action="">
+  <p class="my2">Radio boxes:</p>
+  <input type="radio" id="example-radio-1" name="example-radio" value="banana">
+  <label for="example-radio-1">Banana</label><br>
+  <input type="radio" id="example-radio-2" name="example-radio" value="mango">
+  <label for="example-radio-2">Mango</label><br>
+  <input type="radio" id="example-radio-3" name="example-radio" value="coconut" disabled>
+  <label for="example-radio-3">Coconut (disabled)</label>
+  <p class="my2">Checkboxes:</p>
+  <input type="checkbox" id="example-check-1" name="example-check-1" value="strawberry">
+  <label for="example-check-1"> Strawberry</label><br>
+  <input type="checkbox" id="example-check-2" name="example-check-2" value="chocolatte">
+  <label for="example-check-2"> Chocolate</label><br>
+  <input type="checkbox" id="example-check-3" name="example-check-3" value="vanilla">
+  <label for="example-check-3"> Vanilla</label><br><br>
+  <input type="submit" value="Submit">
+</form>
+<h2 id="fieldsets-and-legends" tabindex="-1">Fieldsets and Legends</h2>
+<p>Groups of form elements can be wrapped in <code>&lt;fieldset&gt;</code> tags. Add a <code>&lt;legend&gt;</code> to provide a special title for the entire fieldset.</p>
+<form action="">
+  <fieldset class="flex">
+    <legend>Example e-newsletter subscribe</legend>
+    <input class="w100%" type="email" id="example-input-email" placeholder="Enter email">
+    <input type="submit" name="submit" value="Subscribe">
+  </fieldset>
+</form>
+<pre><code>&lt;form action=&quot;&quot;&gt;
+  &lt;fieldset class=&quot;flex&quot;&gt;
+    &lt;legend&gt;Example e-newsletter subscribe&lt;/legend&gt;
+    &lt;input class=&quot;w100%&quot; type=&quot;email&quot; id=&quot;example-input-email&quot; placeholder=&quot;Enter email&quot;&gt;
+    &lt;input type=&quot;submit&quot; name=&quot;submit&quot; value=&quot;Subscribe&quot;&gt;
+  &lt;/fieldset&gt;
+&lt;/form&gt;
+</code></pre>
+<p><strong>Note:</strong> In the example above, the Baselayer <code>flex</code> class has been used to align these form elements side-by-side, and then <code>grow</code> has been used to expand the email input field. A <code>&lt;legend&gt;</code> is also included — but since its text incorporates with the <code>&lt;fieldset&gt;</code> wrapping border line, it will not be controlled by the flexbox rule.</p>
+<h2 id="form-buttons" tabindex="-1">Form Buttons</h2>
+<form action="">
+  <p>
+    <button type="button" name="button">Button</button>
+    <input type="button" name="input" value="Input Button">
+    <input type="submit" name="submit" value="Submit Button">
+    <input type="reset" name="reset" value="Reset Button">
+  </p>
+</form>
+<pre><code>&lt;form action=&quot;&quot;&gt;
+  &lt;p&gt;
+    &lt;button type=&quot;button&quot; name=&quot;button&quot;&gt;Button&lt;/button&gt;
+    &lt;input type=&quot;button&quot; name=&quot;input&quot; value=&quot;Input Button&quot;&gt;
+    &lt;input type=&quot;submit&quot; name=&quot;submit&quot; value=&quot;Submit Button&quot;&gt;
+    &lt;input type=&quot;reset&quot; name=&quot;reset&quot; value=&quot;Reset Button&quot;&gt;
+  &lt;/p&gt;
+&lt;/form&gt;
+</code></pre>
+<p>See <a href="/baselayer-3/buttons">buttons</a> for more information.</p>
+
+          </article>
+          <div class="content-grid">
+            <nav class="mt-3 mb-2 b-1 r-pill p-cell popout">
+              <ul class="m-0 unlist p-0 flex">
+                
+                <li class="grow my-1">&larr; <a href="/baselayer-3/colors/"> Colors</a></li>
+                
+                
+                <li class="grow my-1 t-right"><a href="/baselayer-3/buttons/">Buttons</a> &rarr;</li>
+                  
+              </ul>
+            </nav>
+            <footer>
+              <div class="p-2 flex flex-center t-center">
+                <a href="/baselayer-3/" class="h3 m-0 t-normal flex flex-column flex-center gap-1 t-noline">
+                  <svg class="mx-auto" height="48" width="48" viewBox="0 0 111 111" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-miterlimit:1.5">
+                    <g transform="translate(-294.592 -94.592)">
+                      <circle cx="350" cy="150" r="50" style="fill:none;stroke:currentColor;stroke-width:4px"/>
+                      <path d="M294.167 180H320v-65.833" style="fill:none;stroke:currentColor;stroke-width:4px" transform="translate(10 -10)"/>
+                      <path d="M405.833 180H380v-65.833" style="fill:none;stroke:currentColor;stroke-width:4px" transform="translate(-10 -10)"/>
+                      <circle cx="350" cy="150" r="30" style="fill:none;stroke:currentColor;stroke-width:6px" transform="matrix(.66667 0 0 .66667 116.667 50)"/>
+                      <path d="M310 180h80" style="fill:none;stroke:currentColor;stroke-width:4px"/>
+                      </g>
+                    </svg>
+                  <span class="t-nowrap">Baselayer 3 CSS</span>
+                </a>
+              </div>
+
+              <p class="p-cell flex flex-center flex-wrap gap-3 t-center">
+                <span>Version: 1.0.0</span>
+                <a class="t-noline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3">GitHub Repository</a>
+                <a class="t-noline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3/blob/main/LICENSE">MIT license</a>
+                <span>Developer: <a class="t-noline hover:t-line" href="https://github.com/SimonPadbury">Simon Padbury</a></span>
+              </p>
+            </footer>
+          </div>
+        </div>
+      </div>
+    </main>
+      
+    </div>
+  </div>
+
+</body>
+</html>

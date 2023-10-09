@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>{{ title + ' · ' if title }}{{ metadata.title }}</title>
+
+  <link rel="stylesheet" href="{{ '/css/min/baselayer.min.css' | url }}{{ '?v=' + metadata.version }}">
+
+</head>
+<body class="{% if bodyClass %}{{ bodyClass }}{% endif %}">
+
+  <!-- Current page: {{ page.url | url }} -->
+
+  <a href="#main-content" tabindex="1" class="inline-block m-1 visually-hidden">Skip to main content</a>
+
+  <header class="container my-2">
+    <h1>{{ mainHeading }}</h1>
+  </header>
+
+  {{ content | safe }}
+
+</body>
+</html>

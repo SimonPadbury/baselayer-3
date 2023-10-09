@@ -1,0 +1,515 @@
+/*
+`t*` = text color
+`b*` = border color
+`bg*` = background color
+`.hover\:` = hover (mouseover) state
+*/
+
+.t-gray,
+.hover\:t-gray:hover {
+  --tl: var(--l500);
+  --tc: var(--c0) !important;
+  --th: var(--gray);
+  color: var(--tcx);
+}
+
+.b-gray,
+.hover\:b-gray:hover {
+  --bl: var(--l500);
+  --bc: var(--c0) !important;
+  --bh: var(--gray);
+  border-color: var(--bcx);
+}
+
+.bg-gray,
+.hover\:bg-gray:hover {
+  --bgl: var(--l500);
+  --bgc: var(--c0) !important;
+  --bg-hover: var(--gray);
+  background: var(--bgcx);
+}
+
+.t-coolgray,
+.hover\:t-coolgray:hover {
+  --tl: var(--l500);
+  --tc: var(--c02) !important;
+  --th: var(--coolgray);
+  color: var(--tcx);
+}
+
+.b-coolgray,
+.hover\:b-coolgray:hover {
+  --bl: var(--l500);
+  --bc: var(--c02) !important;
+  --bh: var(--gray);
+  border-color: var(--b-cool-color);
+}
+
+.bg-coolgray,
+.hover\:bg-coolgray:hover {
+  --bgl: var(--l500);
+  --bgc: var(--c02) !important;
+  --bg-hover: var(--coolgray);
+  background: var(--bgcx);
+}
+
+.t-warmgray,
+.hover\:t-warmgray:hover {
+  --tl: var(--l500);
+  --tc: var(--c02) !important;
+  --th: var(--warmgray);
+  color: var(--tcx);
+}
+
+.b-warmgray,
+.hover\:b-warmgray:hover {
+  --bl: var(--l500);
+  --bc: var(--c02) !important;
+  --bh: var(--warmgray);
+  border-color: var(--b-warm-color);
+}
+
+.bg-warmgray,
+.hover\:bg-warmgray:hover {
+  --bgl: var(--l500);
+  --bgc: var(--c02) !important;
+  --bg-hover: var(--warmgray);
+  background: var(--bgcx);
+}
+
+.t-brown,
+.hover\:t-brown:hover {
+  --tl: var(--l500);
+  --tc: var(--c08) !important;
+  --th: var(--brown);
+  color: var(--tcx);
+}
+
+.b-brown,
+.hover\:b-brown:hover {
+  --bl: var(--l500);
+  --bc: var(--c08) !important;
+  --bh: var(--brown);
+  border-color: var(--bcx);
+}
+
+.bg-brown,
+.hover\:bg-brown:hover {
+  --bgl: var(--l500);
+  --bgc: var(--c08) !important;
+  --bg-hover: var(--brown);
+  background: var(--bgcx);
+}
+
+.t-red,
+.hover\:t-red:hover {
+  --tl: var(--l500);
+  --tc: var(--c30);
+  --th: var(--red);
+  color: var(--tcx);
+}
+
+.b-red,
+.hover\:b-red:hover {
+  --bl: var(--l500);
+  --bc: var(--c30);
+  --bh: var(--red);
+  border-color: var(--bcx);
+}
+
+.bg-red,
+.hover\:bg-red:hover {
+  --bgl: var(--l500);
+  --bgc: var(--c30);
+  --bg-hover: var(--red);
+  background: var(--bgcx);
+}
+
+.t-orange,
+.hover\:t-orange:hover {
+  --tl: var(--l500);
+  --tc: var(--c30);
+  --th: var(--orange);
+  color: var(--tcx);
+}
+
+.b-orange,
+.hover\:b-orange:hover {
+  --bl: var(--l500);
+  --bc: var(--c30);
+  --bh: var(--orange);
+  border-color: var(--bcx);
+}
+
+.bg-orange,
+.hover\:bg-orange:hover {
+  --bgl: var(--l500);
+  --bgc: var(--c30);
+  --bg-hover: var(--orange);
+  background: var(--bgcx);
+}
+
+.t-green,
+.hover\:t-green:hover {
+  --tl: var(--l500);
+  --tc: var(--c30);
+  --th: var(--green);
+  color: var(--tcx);
+}
+
+.b-green,
+.hover\:b-green:hover {
+  --bl: var(--l500);
+  --bc: var(--c30);
+  --bh: var(--green);
+  border-color: var(--bcx);
+}
+
+.bg-green,
+.hover\:bg-green:hover {
+  --bgl: var(--l500);
+  --bgc: var(--c30);
+  --bg-hover: var(--green);
+  background: var(--bgcx);
+}
+
+.t-teal,
+.hover\:t-teal:hover {
+  --tl: var(--l500);
+  --tc: var(--c30);
+  --th: var(--teal);
+  color: var(--tcx);
+}
+
+.b-teal,
+.hover\:b-teal:hover {
+  --bl: var(--l500);
+  --bc: var(--c30);
+  --bh: var(--teal);
+  border-color: var(--bcx);
+}
+
+.bg-teal,
+.hover\:bg-teal:hover {
+  --bgl: var(--l500);
+  --bgc: var(--c30);
+  --bg-hover: var(--teal);
+  background: var(--bgcx);
+}
+
+.t-blue,
+.hover\:t-blue:hover {
+  --tl: var(--l500);
+  --tc: var(--c30);
+  --th: var(--blue);
+  color: var(--tcx);
+}
+
+.b-blue,
+.hover\:b-blue:hover {
+  --bl: var(--l500);
+  --bc: var(--c30);
+  --bh: var(--blue);
+  border-color: var(--bcx);
+}
+
+.bg-blue,
+.hover\:bg-blue:hover {
+  --bgl: var(--l500);
+  --bgc: var(--c30);
+  --bg-hover: var(--blue);
+  background: var(--bgcx);
+}
+
+.t-purple,
+.hover\:t-purple:hover {
+  --tl: var(--l500);
+  --tc: var(--c30);
+  --th: var(--purple);
+  color: var(--tcx);
+}
+
+.b-purple,
+.hover\:b-purple:hover {
+  --bl: var(--l500);
+  --bc: var(--c30);
+  --bh: var(--purple);
+  border-color: var(--bcx);
+}
+
+.bg-purple,
+.hover\:bg-purple:hover {
+  --bgl: var(--l500);
+  --bgc: var(--c30);
+  --bg-hover: var(--purple);
+  background: var(--bgcx);
+}
+
+/* Text shades */
+
+.t-100,
+.hover\:t-100:hover {
+  --tl: var(--l100);
+  --tc: var(--c10);
+  color: var(--tcx);
+}
+
+.t-200,
+.hover\:t-200:hover {
+  --tl: var(--l200);
+  --tc: var(--c15);
+  color: var(--tcx);
+}
+
+.t-300,
+.hover\:t-300:hover {
+  --tl: var(--l300);
+  --tc: var(--c20);
+  color: var(--tcx);
+}
+
+.t-400,
+.hover\:t-400:hover {
+  --tl: var(--l400);
+  --tc: var(--c25);
+  color: var(--tcx);
+}
+
+.t-500,
+.hover\:t-500:hover {
+  --tl: var(--l500);
+  --tc: var(--c30);
+  color: var(--tcx);
+}
+
+.t-600,
+.hover\:t-600:hover {
+  --tl: var(--l600);
+  --tc: var(--c25);
+  color: var(--tcx);
+}
+
+.t-700,
+.hover\:t-700:hover {
+  --tl: var(--l700);
+  --tc: var(--c20);
+  color: var(--tcx);
+}
+
+.t-800,
+.hover\:t-800:hover {
+  --tl: var(--l800);
+  --tc: var(--c15);
+  color: var(--tcx);
+}
+
+.t-900,
+.hover\:t-900:hover {
+  --tl: var(--l900);
+  --tc: var(--c10);
+  color: var(--tcx);
+}
+
+/* Border shades */
+
+.b-100,
+.hover\:b-100:hover {
+  --bl: var(--l100);
+  --bc: var(--c10);
+  border-color: var(--bcx);
+}
+
+.b-200,
+.hover\:b-200:hover {
+  --bl: var(--l200);
+  --bc: var(--c15);
+  border-color: var(--bcx);
+}
+
+.b-300,
+.hover\:b-300:hover {
+  --bl: var(--l300);
+  --bc: var(--c20);
+  border-color: var(--bcx);
+}
+
+.b-400,
+.hover\:b-400:hover {
+  --bl: var(--l400);
+  --bc: var(--c25);
+  border-color: var(--bcx);
+}
+
+.b-500,
+.hover\:b-500:hover {
+  --bl: var(--l500);
+  --bc: var(--c30);
+  border-color: var(--bcx);
+}
+
+.b-600,
+.hover\:b-600:hover {
+  --bl: var(--l600);
+  --bc: var(--c25);
+  border-color: var(--bcx);
+}
+
+.b-700,
+.hover\:b-700:hover {
+  --bl: var(--l700);
+  --bc: var(--c20);
+  border-color: var(--bcx);
+}
+
+.b-800,
+.hover\:b-800:hover {
+  --bl: var(--l800);
+  --bc: var(--c15);
+  border-color: var(--bcx);
+}
+
+.b-900,
+.hover\:b-900:hover {
+  --bl: var(--l900);
+  --bc: var(--c10);
+  border-color: var(--bcx);
+}
+
+/* Background shades */
+
+.bg-100,
+.hover\:bg-100:hover {
+  --bgl: var(--l100);
+  --bgc: var(--c10);
+  background: var(--bgcx);
+}
+
+.bg-200,
+.hover\:bg-200:hover {
+  --bgl: var(--l200);
+  --bgc: var(--c15);
+  background: var(--bgcx);
+}
+
+.bg-300,
+.hover\:bg-300:hover {
+  --bgl: var(--l300);
+  --bgc: var(--c20);
+  background: var(--bgcx);
+}
+
+.bg-400,
+.hover\:bg-400:hover {
+  --bgl: var(--l400);
+  --bgc: var(--c25);
+  background: var(--bgcx);
+}
+
+.bg-500,
+.hover\:bg-500:hover {
+  --bgl: var(--l500);
+  --bgc: var(--c30);
+  background: var(--bgcx);
+}
+
+.bg-600,
+.hover\:bg-600:hover {
+  --bgl: var(--l600);
+  --bgc: var(--c25);
+  background: var(--bgcx);
+}
+
+.bg-700,
+.hover\:bg-700:hover {
+  --bgl: var(--l700);
+  --bgc: var(--c20);
+  background: var(--bgcx);
+}
+
+.bg-800,
+.hover\:bg-800:hover {
+  --bgl: var(--l800);
+  --bgc: var(--c15);
+  background: var(--bgcx);
+}
+
+.bg-900,
+.hover\:bg-900:hover {
+  --bgl: var(--l900);
+  --bgc: var(--c10);
+  background: var(--bgcx);
+}
+
+/* Other color utilities */
+
+.bg-transparent {
+  background: transparent;
+}
+
+.t-reversi-alt,
+.t-white,
+.hover\:t-white:hover {
+  color: white;
+}
+
+.b-reversi-alt,
+.b-white,
+.hover\:b-white:hover {
+  border-color: white;
+}
+
+.bg-reversi-alt,
+.bg-white,
+.hover\:bg-white:hover {
+  background: white;
+}
+
+.t-reversi,
+.t-black,
+.hover\:t-black:hover {
+  color: black;
+}
+
+.b-reversi,
+.b-black,
+.hover\:b-black:hover {
+  border-color: black;
+}
+
+.bg-reversi,
+.bg-black,
+.hover\:bg-black:hover {
+  background: black;
+}
+
+/*
+Baselayer dark theme colors invert “reversi” classes
+====================================================
+Note: these all use the `.theme-dark` class. If using prefers-clr-scheme,
+remove .theme-dark from each of these, and wrap them in
+@media (prefers-clr-scheme: dark) { ... }
+*/
+
+.theme-dark .t-reversi {
+  color: white;
+}
+
+.theme-dark .b-reversi {
+  border-color: white;
+}
+
+.theme-dark .bg-reversi {
+  background: white;
+}
+
+.theme-dark .t-reversi-alt {
+  color: black;
+}
+
+.theme-dark .b-reversi-alt {
+  border-color: black;
+}
+
+.theme-dark .bg-reversi-alt {
+  background: black;
+}

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>{{ title + ' · ' if title }}{{ metadata.title }}</title>
+
+  <link rel="stylesheet" href="{{ '/css/min/baselayer.min.css' | url }}{{ '?v=' + metadata.version }}">
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    [aria-current=page] {
+      {# border: var(--b-1); #}
+      background: oklch(var(--l900) var(--c02) var(--coolgray));
+    }
+    .check-box {
+      width: 1rem;
+      height: 1rem;
+    }
+    .font-base .label-base .check-box::before { content: '✓'; }
+    .font-prose .label-prose .check-box::before { content: '✓'; }
+    .font-normal .label-normal .check-box::before { content: '✓'; }
+    .font-longread .label-longread .check-box::before { content: '✓'; }
+    .theme-light .label-light .check-box::before { content: '✓'; }
+    .theme-dark .label-dark .check-box::before { content: '✓'; }
+
+    @media (min-width: 960px) {
+      #site-title { 
+        max-width: 145px;
+        margin-inline: auto;
+        padding-top: var(--sp-2);
+        justify-content: center;
+      }
+    }
+    .font-longread article { 
+      font-size: var(--fs-long-read);
+    }
+
+    .font-prose article { font-family: var(--t-prose); }
+
+    .font-longread .btn-icon {
+      width: calc(var(--si) + 2px);
+      height: calc(var(--si) + 2px);
+    }
+    h2, h3, h4 {
+      scroll-margin-top: var(--sp-2);
+    }
+    .content-grid header + h2 {
+      margin-top: 0;
+    }
+
+    pre code {
+      max-height: 80vh;
+      overflow-y: auto
+    }
+
+    .resize-x {
+      margin-inline: -5px;
+      padding: 5px;
+      resize: horizontal;
+      overflow-x: auto;
+      background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='silver' stroke-width='2' stroke-dasharray='8%2c 8' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
+    }
+  </style>
+
+  <script>
+  {% include "includes/switcher.js" %}
+  {% include "includes/menu.js" %}
+  </script>
+
+</head>
+<body class="{% if bodyClass %}{{ bodyClass }}{% endif %}">
+
+  <!-- Current page: {{ page.url | url }} -->
+
+  <a href="#main-content" tabindex="1" class="inline-block m-1 visually-hidden">Skip to main content</a>
+
+  <div class="h-100-dvh md:flex">
+    {% include "includes/site-nav.njk" %}
+
+      <main id="main-content" class="grow flex">
+
+        <div id="toc" class="lg:hidden-below" style="order: 2;">
+          <div class="sticky top h-max-100dvh p-2 overflow-y" style="width: var(--w-xs);">
+            <p class="h4 t-semibold">Contents</p>
+            {{ content | toc | safe }}
+          </div>
+        </div>
+  
+        <div>
+          <article class="content-grid">
+            <header class="my-2 py-4 t-big t-center">
+              <h1 class="m0 lighter">{{ mainHeading }}</h1>
+            </header>
+          
+              {{ content | safe }}
+          </article>
+          <div class="content-grid">
+            <nav class="mt-3 mb-2 b-1 r-pill p-cell popout">
+              <ul class="m-0 unlist p-0 flex">
+                {% if prevPage %}
+                <li class="grow my-1">&larr; <a href="{{ prevPage | url }}"> {{ prevLink if prevLink else "Previous page" }}</a></li>
+                {% endif %}
+                {% if nextPage %}
+                <li class="grow my-1 t-right"><a href="{{ nextPage | url }}">{{ nextLink if nextLink else "Next page" }}</a> &rarr;</li>
+                {% endif %}  
+              </ul>
+            </nav>
+            <footer>
+              <div class="p-2 flex flex-center t-center">
+                <a href="{{ '/' | url }}" class="h3 m-0 t-normal flex flex-column flex-center gap-1 t-noline">
+                  <svg class="mx-auto" height="48" width="48" viewBox="0 0 111 111" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-miterlimit:1.5">
+                    <g transform="translate(-294.592 -94.592)">
+                      <circle cx="350" cy="150" r="50" style="fill:none;stroke:currentColor;stroke-width:4px"/>
+                      <path d="M294.167 180H320v-65.833" style="fill:none;stroke:currentColor;stroke-width:4px" transform="translate(10 -10)"/>
+                      <path d="M405.833 180H380v-65.833" style="fill:none;stroke:currentColor;stroke-width:4px" transform="translate(-10 -10)"/>
+                      <circle cx="350" cy="150" r="30" style="fill:none;stroke:currentColor;stroke-width:6px" transform="matrix(.66667 0 0 .66667 116.667 50)"/>
+                      <path d="M310 180h80" style="fill:none;stroke:currentColor;stroke-width:4px"/>
+                      </g>
+                    </svg>
+                  <span class="t-nowrap">{{ metadata.title }}</span>
+                </a>
+              </div>
+
+              <p class="p-cell flex flex-center flex-wrap gap-3 t-center">
+                <span>Version: {{ metadata.version }}</span>
+                <a class="t-noline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3">GitHub Repository</a>
+                <a class="t-noline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3/blob/main/LICENSE">MIT license</a>
+                <span>Developer: <a class="t-noline hover:t-line" href="{{ metadata.developer.url }}">{{ metadata.developer.name }}</a></span>
+              </p>
+            </footer>
+          </div>
+        </div>
+      </div>
+    </main>
+      
+    </div>
+  </div>
+
+</body>
+</html>

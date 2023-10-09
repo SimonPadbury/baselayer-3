@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Colors · Baselayer 3 CSS</title>
+
+  <link rel="stylesheet" href="/baselayer-3/css/min/baselayer.min.css?v=1.0.0">
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    [aria-current=page] {
+      
+      background: oklch(var(--l900) var(--c02) var(--coolgray));
+    }
+    .check-box {
+      width: 1rem;
+      height: 1rem;
+    }
+    .font-base .label-base .check-box::before { content: '✓'; }
+    .font-prose .label-prose .check-box::before { content: '✓'; }
+    .font-normal .label-normal .check-box::before { content: '✓'; }
+    .font-longread .label-longread .check-box::before { content: '✓'; }
+    .theme-light .label-light .check-box::before { content: '✓'; }
+    .theme-dark .label-dark .check-box::before { content: '✓'; }
+
+    @media (min-width: 960px) {
+      #site-title { 
+        max-width: 145px;
+        margin-inline: auto;
+        padding-top: var(--sp-2);
+        justify-content: center;
+      }
+    }
+    .font-longread article { 
+      font-size: var(--fs-long-read);
+    }
+
+    .font-prose article { font-family: var(--t-prose); }
+
+    .font-longread .btn-icon {
+      width: calc(var(--si) + 2px);
+      height: calc(var(--si) + 2px);
+    }
+    h2, h3, h4 {
+      scroll-margin-top: var(--sp-2);
+    }
+    .content-grid header + h2 {
+      margin-top: 0;
+    }
+
+    pre code {
+      max-height: 80vh;
+      overflow-y: auto
+    }
+
+    .resize-x {
+      margin-inline: -5px;
+      padding: 5px;
+      resize: horizontal;
+      overflow-x: auto;
+      background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='silver' stroke-width='2' stroke-dasharray='8%2c 8' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
+    }
+  </style>
+
+  <script>
+  const matchMediaDark = window.matchMedia('(prefers-color-scheme: dark)');
+const htmlClassList = document.querySelector('html').classList;
+
+function fontProse() {
+  sessionStorage.setItem('baselayerFont', 'prose');
+  htmlClassList.remove('font-base');
+  htmlClassList.add('font-prose');
+}
+
+function fontBase() {
+  sessionStorage.setItem('baselayerFont', 'base');
+  htmlClassList.remove('font-prose');
+  htmlClassList.add('font-base');
+}
+
+function fsLongRead() {
+  sessionStorage.setItem('baselayerFS', 'longread');
+  htmlClassList.remove('font-normal');
+  htmlClassList.add('font-longread');
+}
+
+function fsNormal() {
+  sessionStorage.setItem('baselayerFS', 'normal');
+  htmlClassList.remove('font-longread');
+  htmlClassList.add('font-normal');
+}
+
+function themeDark() {
+  sessionStorage.setItem("baselayerTheme", "dark");
+  htmlClassList.remove('theme-light');
+  htmlClassList.add('theme-dark');
+}
+
+function themeLight() {
+  sessionStorage.setItem("baselayerTheme", "light");
+  htmlClassList.remove('theme-dark');
+  htmlClassList.add('theme-light');
+}
+
+// Toggles
+
+function toggleFont() {
+  if ( sessionStorage.baselayerFont === 'prose' ) {
+    fontBase();
+  } else {
+    fontProse();
+  }
+};
+
+function toggleFS() {
+  if ( sessionStorage.baselayerFS === 'normal' ) {
+    fsLongRead();
+  } else {
+    fsNormal();
+  }
+};
+
+function toggleTheme() {
+  if ( sessionStorage.baselayerTheme === 'dark' ) {
+    themeLight();
+  } else {
+    themeDark();
+  }
+};
+
+// init
+
+function baselayerInit() {
+  if (sessionStorage.baselayerTheme === 'dark' || (!('baselayerTheme' in sessionStorage) && matchMediaDark.matches)) {
+    themeDark();
+  } else {
+    themeLight();
+  }
+  if ( sessionStorage.baselayerFont === 'prose' ) {
+    fontProse();
+  } else {
+    fontBase();
+  }
+  if ( sessionStorage.baselayerFS === 'longread' ) {
+    fsLongRead();
+  } else {
+    fsNormal();
+  }
+};
+
+baselayerInit();
+    /**
+  * Site Navigation Toggle (Phones)
+  */
+
+window.addEventListener("DOMContentLoaded", () => {
+  let navButton = document.querySelector('#site-nav-toggle');
+  let menu = document.querySelector('#site-nav-menu');
+  let windowTest = function() {
+    if (window.matchMedia('(max-width: 959px)').matches) {
+      navButton.setAttribute('aria-expanded', 'false');
+      menu.hidden = true;
+    } else {
+      navButton.setAttribute('aria-expanded', 'true');
+      menu.hidden = false;
+    }
+  }
+
+  windowTest();
+
+  window.addEventListener('resize', function () {
+    windowTest();
+  });
+
+  navButton.addEventListener('click', function() {
+    let expanded = this.getAttribute('aria-expanded') === 'true' || false;
+    this.setAttribute('aria-expanded', !expanded);
+    menu.hidden = !menu.hidden;
+  });
+});
+
+  </script>
+
+</head>
+<body class="">
+
+  <!-- Current page: /baselayer-3/colors/ -->
+
+  <a href="#main-content" tabindex="1" class="inline-block m-1 visually-hidden">Skip to main content</a>
+
+  <div class="h-100-dvh md:flex">
+    <div id="site-nav" class="bg-coolgray bg-800">
+  <div class="sticky top h-max-100dvh overflow-y">
+    <div class="p-cell t-center">
+      <a id="site-title" href="/baselayer-3/" class="h3 m-0 py-1 t-normal flex flex-center flex-middle flex-wrap gap-1 t-gray t-100 hover:t-200 t-noline">
+        <svg height="48" width="48" viewBox="0 0 111 111" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-miterlimit:1.5">
+          <g transform="translate(-294.592 -94.592)">
+            <circle cx="350" cy="150" r="50" style="fill:none;stroke:currentColor;stroke-width:4px"/>
+            <path d="M294.167 180H320v-65.833" style="fill:none;stroke:currentColor;stroke-width:4px" transform="translate(10 -10)"/>
+            <path d="M405.833 180H380v-65.833" style="fill:none;stroke:currentColor;stroke-width:4px" transform="translate(-10 -10)"/>
+            <circle cx="350" cy="150" r="30" style="fill:none;stroke:currentColor;stroke-width:6px" transform="matrix(.66667 0 0 .66667 116.667 50)"/>
+            <path d="M310 180h80" style="fill:none;stroke:currentColor;stroke-width:4px"/>
+            </g>
+          </svg>
+        <span class="t-nowrap">Baselayer 3 CSS</span>
+      </a>
+      <p class="t-coolgray t-400">Version: 1.0.0 • <a class="t-gray t-100 hover:t-200 t-noline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3">GitHub</a></p>
+    </div>
+
+    <nav id="site-nav" role="menu">
+      <button type="button" id="site-nav-toggle" aria-expanded="false" aria-label="Menu" aria-controls="site-nav-menu" class="absolute top right m-2 md:hidden">
+        Menu
+      </button>
+
+      <div id="site-nav-menu" class="mx-auto t-center t-white" style="width: var(--w-xs);">
+        <div class="my-2 p-cell flex flex-column gap-1">
+          <a class="block p-cell t-coolgray t-100 hover:t-200"  href="/baselayer-3/">Introduction</a>
+          <a class="block p-cell t-coolgray t-100 hover:t-200"  href="/baselayer-3/typography/">Typography</a>
+          <a class="block p-cell t-coolgray t-100 hover:t-200"  href="/baselayer-3/layout/">Layout</a>
+          <a class="block p-cell t-coolgray t-100 hover:t-200"  href="/baselayer-3/decoration/">Decoration</a>
+          <a class="block p-cell t-coolgray t-100 hover:t-200"  aria-current="page" href="/baselayer-3/colors/">Colors</a>
+          <a class="block p-cell t-coolgray t-100 hover:t-200"  href="/baselayer-3/forms/">Forms</a>
+          <a class="block p-cell t-coolgray t-100 hover:t-200"  href="/baselayer-3/buttons/">Buttons</a>
+          <a class="block p-cell t-coolgray t-100 hover:t-200" href="/baselayer-3/examples/">Examples</a>
+        </div>
+
+        <div class="mb-2 p-cell">
+          <button class="w-100% mb-1 p-1 flex flex-column gap-1 bg-coolgray bg-600 hover:bg-700" onclick="toggleFont()">
+            <div class="label-base w-100% flex flex-middle gap-1">
+              <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
+              <div class="grow t-left">Base font</div>
+            </div>
+            <div class="label-prose w-100% flex flex-middle gap-1">
+              <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
+              <div class="grow t-left">Prose font</div>
+            </div>
+          </button>
+
+          <button class="w-100% mb-1 p-1 flex flex-column gap-1 bg-coolgray bg-600 hover:bg-700" onclick="toggleFS()">
+            <div class="label-normal w-100% flex flex-middle gap-1">
+              <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
+              <div class="grow t-left">Normal font-size</div>
+            </div>
+            <div class="label-longread w-100% flex flex-middle gap-1">
+              <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
+              <div class="grow t-left">Long read font-size</div>
+            </div>
+          </button>
+
+          <button class="w-100% mb-1 p-1 flex flex-column gap-1 bg-coolgray bg-600 hover:bg-700" onclick="toggleTheme()">
+            <div class="label-light w-100% flex flex-middle gap-1">
+              <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
+              <div class="grow t-left">Light theme</div>
+            </div>
+            <div class="label-dark w-100% flex flex-middle gap-1">
+              <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
+              <div class="grow t-left">Dark theme</div>
+            </div>
+          </button>
+        </div>
+
+      </div>
+    </nav>
+  </div>
+</div>
+
+      <main id="main-content" class="grow flex">
+
+        <div id="toc" class="lg:hidden-below" style="order: 2;">
+          <div class="sticky top h-max-100dvh p-2 overflow-y" style="width: var(--w-xs);">
+            <p class="h4 t-semibold">Contents</p>
+            <nav class="toc" >
+        <ul><li><a href="#rationale-for-baselayer%E2%80%99s-color-systems">Rationale for Baselayer’s color systems</a></li><li><a href="#oklch-colors-with-grayscale-fallbacks">OKLCH colors with grayscale fallbacks</a></li><li><a href="#color-utility-classes">Color utility classes</a></li><li><a href="#lightness-and-chroma-scales">Lightness and chroma scales</a></li><li><a href="#adding-more-colors-the-baselayer-way">Adding more colors the Baselayer way</a></li><li><a href="#other-baselayer-color-utilities">Other Baselayer color utilities</a><ul><li><a href="#black-and-white">Black and white</a></li><li><a href="#reversi-%2F-reversi-alt">Reversi / reversi-alt</a></li><li><a href="#transparent-background">Transparent background</a></li></ul></li><li><a href="#colors-and-accessibility">Colors and accessibility</a></li><li><a href="#dark-theme">Dark theme</a><ul><li><a href="#dark%2Flight-theme-toggle">Dark/light theme toggle</a></li></ul></li></ul>
+      </nav>
+          </div>
+        </div>
+  
+        <div>
+          <article class="content-grid">
+            <header class="my-2 py-4 t-big t-center">
+              <h1 class="m0 lighter">Colors</h1>
+            </header>
+          
+              <div aria-label="Note" class="popout mb-2 bl-3 b-blue b-300 p-2 t-black bg-blue bg-100">
+  Since June 2023, all “evergreen” browsers (Chrome, Edge, Firefox, Safari) have capability for the new <code class="t-black bg-blue bg-200">oklch()</code> color model (see <a  class="t-blue t-600 hover:t-700"href="https://caniuse.com/?search=oklch">Can I use OKLCH</a>). And in each of these browsers the lightness, chroma, and hue  channels can be separately controlled by CSS variables.
+</div>
+<div class="full-bleed m-2 p-2 flex flex-center flex-wrap">
+  <div style="width: max(70px, 140px)">
+    <div class="p-1 t-center"><code class="t-small">bg-blue</code></div>
+    <div class="p-1 t-black t-small bg-blue bg-100">bg-100</div>
+    <div class="p-1 t-black t-small bg-blue bg-200">bg-200</div>
+    <div class="p-1 t-black t-small bg-blue bg-300">bg-300</div>
+    <div class="p-1 t-black t-small bg-blue bg-400">bg-400</div>
+    <div class="p-1 t-white t-small bg-blue bg-500">bg-500</div>
+    <div class="p-1 t-white t-small bg-blue bg-600">bg-600</div>
+    <div class="p-1 t-white t-small bg-blue bg-700">bg-700</div>
+    <div class="p-1 t-white t-small bg-blue bg-800">bg-800</div>
+    <div class="p-1 t-white t-small bg-blue bg-900">bg-900</div>
+  </div>
+  <div style="width: max(70px, 140px)">
+    <div class="p-1 t-center"><code class="t-small">bg-teal</code></div>
+    <div class="p-1 t-black t-small bg-teal bg-100">bg-100</div>
+    <div class="p-1 t-black t-small bg-teal bg-200">bg-200</div>
+    <div class="p-1 t-black t-small bg-teal bg-300">bg-300</div>
+    <div class="p-1 t-black t-small bg-teal bg-400">bg-400</div>
+    <div class="p-1 t-white t-small bg-teal bg-500">bg-500</div>
+    <div class="p-1 t-white t-small bg-teal bg-600">bg-600</div>
+    <div class="p-1 t-white t-small bg-teal bg-700">bg-700</div>
+    <div class="p-1 t-white t-small bg-teal bg-800">bg-800</div>
+    <div class="p-1 t-white t-small bg-teal bg-900">bg-900</div>
+  </div>
+  <div style="width: max(70px, 140px)">
+    <div class="p-1 t-center"><code class="t-small">bg-green</code></div>
+    <div class="p-1 t-black t-small bg-green bg-100">bg-100</div>
+    <div class="p-1 t-black t-small bg-green bg-200">bg-200</div>
+    <div class="p-1 t-black t-small bg-green bg-300">bg-300</div>
+    <div class="p-1 t-black t-small bg-green bg-400">bg-400</div>
+    <div class="p-1 t-white t-small bg-green bg-500">bg-500</div>
+    <div class="p-1 t-white t-small bg-green bg-600">bg-600</div>
+    <div class="p-1 t-white t-small bg-green bg-700">bg-700</div>
+    <div class="p-1 t-white t-small bg-green bg-800">bg-800</div>
+    <div class="p-1 t-white t-small bg-green bg-900">bg-900</div>
+  </div>
+  <div style="width: max(70px, 140px)">
+    <div class="p-1 t-center"><code class="t-small">bg-orange</code></div>
+    <div class="p-1 t-black t-small bg-orange bg-100">bg-100</div>
+    <div class="p-1 t-black t-small bg-orange bg-200">bg-200</div>
+    <div class="p-1 t-black t-small bg-orange bg-300">bg-300</div>
+    <div class="p-1 t-black t-small bg-orange bg-400">bg-400</div>
+    <div class="p-1 t-white t-small bg-orange bg-500">bg-500</div>
+    <div class="p-1 t-white t-small bg-orange bg-600">bg-600</div>
+    <div class="p-1 t-white t-small bg-orange bg-700">bg-700</div>
+    <div class="p-1 t-white t-small bg-orange bg-800">bg-800</div>
+    <div class="p-1 t-white t-small bg-orange bg-900">bg-900</div>
+  </div>
+  <div style="width: max(70px, 140px)">
+    <div class="p-1 t-center"><code class="t-small">bg-red</code></div>
+    <div class="p-1 t-black t-small bg-red bg-100">bg-100</div>
+    <div class="p-1 t-black t-small bg-red bg-200">bg-200</div>
+    <div class="p-1 t-black t-small bg-red bg-300">bg-300</div>
+    <div class="p-1 t-black t-small bg-red bg-400">bg-400</div>
+    <div class="p-1 t-white t-small bg-red bg-500">bg-500</div>
+    <div class="p-1 t-white t-small bg-red bg-600">bg-600</div>
+    <div class="p-1 t-white t-small bg-red bg-700">bg-700</div>
+    <div class="p-1 t-white t-small bg-red bg-800">bg-800</div>
+    <div class="p-1 t-white t-small bg-red bg-900">bg-900</div>
+  </div>
+  <div style="width: max(70px, 140px)">
+    <div class="p-1 t-center"><code class="t-small">bg-purple</code></div>
+    <div class="p-1 t-black t-small bg-purple bg-100">bg-100</div>
+    <div class="p-1 t-black t-small bg-purple bg-200">bg-200</div>
+    <div class="p-1 t-black t-small bg-purple bg-300">bg-300</div>
+    <div class="p-1 t-black t-small bg-purple bg-400">bg-400</div>
+    <div class="p-1 t-white t-small bg-purple bg-500">bg-500</div>
+    <div class="p-1 t-white t-small bg-purple bg-600">bg-600</div>
+    <div class="p-1 t-white t-small bg-purple bg-700">bg-700</div>
+    <div class="p-1 t-white t-small bg-purple bg-800">bg-800</div>
+    <div class="p-1 t-white t-small bg-purple bg-900">bg-900</div>
+  </div>
+  <div style="width: max(70px, 140px)">
+    <div class="p-1 t-center"><code class="t-small">bg-brown</code></div>
+    <div class="p-1 t-black t-small bg-brown bg-100">bg-100</div>
+    <div class="p-1 t-black t-small bg-brown bg-200">bg-200</div>
+    <div class="p-1 t-black t-small bg-brown bg-300">bg-300</div>
+    <div class="p-1 t-black t-small bg-brown bg-400">bg-400</div>
+    <div class="p-1 t-white t-small bg-brown bg-500">bg-500</div>
+    <div class="p-1 t-white t-small bg-brown bg-600">bg-600</div>
+    <div class="p-1 t-white t-small bg-brown bg-700">bg-700</div>
+    <div class="p-1 t-white t-small bg-brown bg-800">bg-800</div>
+    <div class="p-1 t-white t-small bg-brown bg-900">bg-900</div>
+  </div>
+  <div style="width: max(70px, 140px)">
+    <div class="p-1 t-center"><code class="t-small">bg-warmgray</code></div>
+    <div class="p-1 t-black t-small bg-warmgray bg-100">bg-100</div>
+    <div class="p-1 t-black t-small bg-warmgray bg-200">bg-200</div>
+    <div class="p-1 t-black t-small bg-warmgray bg-300">bg-300</div>
+    <div class="p-1 t-black t-small bg-warmgray bg-400">bg-400</div>
+    <div class="p-1 t-white t-small bg-warmgray bg-500">bg-500</div>
+    <div class="p-1 t-white t-small bg-warmgray bg-600">bg-600</div>
+    <div class="p-1 t-white t-small bg-warmgray bg-700">bg-700</div>
+    <div class="p-1 t-white t-small bg-warmgray bg-800">bg-800</div>
+    <div class="p-1 t-white t-small bg-warmgray bg-900">bg-900</div>
+  </div>
+  <div style="width: max(70px, 140px)">
+    <div class="p-1 t-center"><code class="t-small">bg-gray</code></div>
+    <div class="p-1 t-black t-small bg-gray bg-100">bg-100</div>
+    <div class="p-1 t-black t-small bg-gray bg-200">bg-200</div>
+    <div class="p-1 t-black t-small bg-gray bg-300">bg-300</div>
+    <div class="p-1 t-black t-small bg-gray bg-400">bg-400</div>
+    <div class="p-1 t-white t-small bg-gray bg-500">bg-500</div>
+    <div class="p-1 t-white t-small bg-gray bg-600">bg-600</div>
+    <div class="p-1 t-white t-small bg-gray bg-700">bg-700</div>
+    <div class="p-1 t-white t-small bg-gray bg-800">bg-800</div>
+    <div class="p-1 t-white t-small bg-gray bg-900">bg-900</div>
+  </div>
+  <div style="width: max(70px, 140px)">
+    <div class="p-1 t-center"><code class="t-small">bg-coolgray</code></div>
+    <div class="p-1 t-black t-small bg-coolgray bg-100">bg-100</div>
+    <div class="p-1 t-black t-small bg-coolgray bg-200">bg-200</div>
+    <div class="p-1 t-black t-small bg-coolgray bg-300">bg-300</div>
+    <div class="p-1 t-black t-small bg-coolgray bg-400">bg-400</div>
+    <div class="p-1 t-white t-small bg-coolgray bg-500">bg-500</div>
+    <div class="p-1 t-white t-small bg-coolgray bg-600">bg-600</div>
+    <div class="p-1 t-white t-small bg-coolgray bg-700">bg-700</div>
+    <div class="p-1 t-white t-small bg-coolgray bg-800">bg-800</div>
+    <div class="p-1 t-white t-small bg-coolgray bg-900">bg-900</div>
+  </div>
+</div>
+<h2 id="rationale-for-baselayer%E2%80%99s-color-systems" tabindex="-1">Rationale for Baselayer’s color systems</h2>
+<p>I wanted to develop a color system that was based on CSS variables for generating a series of shades for each color, so that the stylesheet didn’t need to be overloaded with all the shade permutations for each color (most of which you would never use in a project). This meant finding a color model with a <em>lightness channel</em> that can be controlled by a CSS variables, which I could then apply to numerous hues.</p>
+<p>For this purpose, the HSL model almost gave me what I needed. Therefore Baselayer 1 and 2 used the HSL color model from <a href="https://www.w3.org/TR/css-clr-3/">CSS Color Module Level 3</a> because <code>hsl()</code> had a lightness channel that I could control (controlling a lightness channel is not possible in Hex or RGB). However, when building the various HSL color lightness (shades) series, I found that it was not possible to get the shades to look <em>perceptually uniform</em>.</p>
+<p>While OKLCH colors were added as an experimental feature in Baselayer 2, this is now the only color system available in Baselayer 3. And a few more colors have been added as examples of what you can do with OKLCH.</p>
+<p>The OKLCH model looks really great in shades. 😎</p>
+<p>More on OKLCH (and LCH):</p>
+<ul>
+<li><a href="https://lea.verou.me/2020/04/lch-colors-in-css-what-why-and-how/">LCH colors in CSS: what, why, and how?</a> by Lea Verou</li>
+<li><a href="https://keithjgrant.com/posts/2023/04/its-time-to-learn-oklch-color/">It’s Time to Learn oklch Color</a> by Keith J. Grant</li>
+<li><a href="https://oklch.com">oklch.com</a> color picker and converter by <em>Evil Martians</em></li>
+<li><a href="https://evilmartians.com/chronicles/oklch-in-css-why-quit-rgb-hsl">OKLCH in CSS: why we moved from RGB and HSL</a> by Andrey Sitnik and Travis Turner (<em>Evil Martians</em>)</li>
+<li><a href="https://atmos.style/playground">LCH and OKLCH color tool</a> by Atmos.style</li>
+<li><a href="https://developer.chrome.com/articles/high-definition-css-clr-guide/">High Definition CSS Color Guide (Google)</a></li>
+</ul>
+<h2 id="oklch-colors-with-grayscale-fallbacks" tabindex="-1">OKLCH colors with grayscale fallbacks</h2>
+<p>First of all, some fallback hex (#) color codes are set for classless HTML elements (e.g. text is near black, horizontal rule and table borders are pale gray, buttons are mid gray, links are blue). Also, the color utilities have fallbacks (all text utilities default to near black; all border utilities default to light gray; all background utilities default to a lighter gray).</p>
+<p>So, at least older browsers get something. It is up to you to support older browsers by adding hex or RGB colors according to your own design (I can’t know what colors you want).</p>
+<p>After these fallbacks the OKLCH lightness, chroma, and hue channel variables are declared in the universal selector <code>* {}</code> — because that is what’s required for making the utility classes and hover shades work.</p>
+<p>All colors are declared in <code>variables.css</code>.</p>
+<h2 id="color-utility-classes" tabindex="-1">Color utility classes</h2>
+<p>Color utility classes are prefixed acording to where the color will be applied:</p>
+<ul>
+<li><code>b-*</code> — border color / <code>hover:b-*</code> — border color hover</li>
+<li><code>t-*</code> — text color / <code>hover:t-*</code> — text color hover</li>
+<li><code>bg-*</code> — background color / <code>hover:bg-*</code> — background color hover</li>
+</ul>
+<p>All color utilities are set at their <code>*-500</code> lightness (this is what you will get if you don’t add a lightness modifier utility). Lightness modifier utilities are as follows:</p>
+<ul>
+<li>Border:
+<ul>
+<li><code>b-100</code> through <code>b-900</code></li>
+<li><code>hover:b-100</code> through <code>hover:b-900</code></li>
+</ul>
+</li>
+<li>Text:
+<ul>
+<li><code>t-100</code> through <code>t-900</code></li>
+<li><code>hover:t-100</code> through <code>hover:t-900</code></li>
+</ul>
+</li>
+<li>Background:
+<ul>
+<li><code>bg-100</code> through <code>bg-900</code></li>
+<li><code>hover:bg-100</code> through <code>hover:bg-900</code></li>
+</ul>
+</li>
+</ul>
+<p>The colors are as follows (demo uses background colors at the default <code>bg500</code> lightness):</p>
+<p>I have named the colors according to their common names, instead of opting to name them according to the common user interface (UI) “success”, “warning”, “danger” etc. — so that you can make color utilities or components with colors dedicated to those purposes, meanwhile allowing you to adjust these built-in named colors and also add your own.</p>
+<p>Also present are <code>black</code> and <code>white</code> utility classes, but these are set as <em>named</em> colors in the CSS (<code>black</code> and <code>white</code>, not an OKLCH color code). There is also <code>bg-transparent</code> — for setting a transparent background. E.g. use this for outline buttons (see <a href="#other-clr-utilities-included-in-baselayer">other color utilities included in Baselayer</a>).</p>
+<p>Example border, text and background utilities:</p>
+<div class="mt-2 mb-3 flex flex-grow-equal gap-2">
+  <div class="b-3 b-green p-2 flex flex-center flex-middle">b-green</div>
+  <div class="p-2 flex flex-center flex-middle t-green t-600">t-green t-600</div>
+  <div class="p-2 flex flex-center flex-middle t-black bg-green bg-300">bg-green bg-200</div>
+</div>
+<pre><code>&lt;div class=&quot;b-3 b-green&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;t-green t-600&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;t-black bg-green bg-300&quot;&gt;&lt;/div&gt;
+</code></pre>
+<p>Here’s an example showing the working of Baselayer 3’s OKLCH color channel variables and utility classes:</p>
+<p>In <code>variables.css</code>:</p>
+<pre><code class="language-css">* {
+  --l-500:  64%;  /* lightness */
+  --c-30:   0.30; /* chroma */
+  --green: 165;  /* hue */
+
+  /* builder */
+  --bgcx: oklch(var(--bgl) var(--bgc) var(--bgh));
+}
+</code></pre>
+<p>In <code>colors.css</code>:</p>
+<pre><code class="language-css">.bg-green,
+.hover\:b-green:hover {
+  --bgl: var(--l500);
+  --bgc: var(--c30);
+  --bgh: var(--green);
+  background: var(--bgcx);
+}
+
+.bg-300,
+.hover\:bg-300:hover {
+  --bgl: var(--l300);
+  --bgc: var(--c20);
+  background: var(--bgcx);
+}
+</code></pre>
+<p>Example usage:</p>
+<div aria-label="Note" class="popout mb-2 bl-3 b-orange b-300 p-2 t-black bg-orange bg-100">
+  Warning alert panel.
+</div>
+<pre><code>&lt;div aria-label=&quot;Note&quot; class=&quot;popout mb-2 bl-3 b-orange b-300 p-2 t-black bg-orange bg-100&quot;&gt;
+  Warning alert panel.
+&lt;/div&gt;
+</code></pre>
+<h2 id="lightness-and-chroma-scales" tabindex="-1">Lightness and chroma scales</h2>
+<p>The OKLCH lightness channels in Baselayer 3 are numbered <code>-100</code> (lightest shade) thorugh <code>-900</code> (darkest shade), following the convention adopted by other CSS systems such as Materialize and Tailwind.</p>
+<p>For most of the pre-set color schemes in Baselayer 3, these lightnesses are paired with a chroma scale that is more vibrant in the middle at <code>-500</code> and less vibrant for the lighter or darker shades.</p>
+<p>For the grays (neutral, cool gray and warm gray), as well as the brown, these required a uniform chroma override using an <code>!important</code> flag — they are not more vibrant in their mid-range shades.</p>
+<p>The shades <code>*-100</code> through <code>*-900</code> if used alone, <em>do not provide color</em>. But if you use them to supplement one of the other colors above, then the color class will provide the color, and the shade class will set the lightness level.</p>
+<p>Of course, there are no shades of black and white — use <code>*-gray</code> and shades for a grayscale.</p>
+<h2 id="adding-more-colors-the-baselayer-way" tabindex="-1">Adding more colors the Baselayer way</h2>
+<p>To add more colors the, you would need to convert them to <code>oklch()</code> format, declare the variables in the <code>*</code> universal selector, and set up the default (lightness 500) color utilities. The color shade utilities will take care of everything else.</p>
+<pre><code class="language-css">* {
+  /* hue */
+  --pink:   345;
+}
+.t-pink, .hover\:t-pink:hover {
+  --tl: var(--l500);
+  --tc: var(--c30);
+  --th: var(--pink);
+  color: var(--tcolor); 
+}
+.b-pink, .hover\:b-pink:hover {
+  --bl: var(--l500);
+  --bc: var(--c30);
+  --bh: var(--pink);
+  border-color: var(--bcolor); 
+}
+.bg-pink, .hover\:bg-pink:hover {
+  --bgl: var(--l500);
+  --bgc: var(--c30);
+  --bgh: var(--pink);
+  background: var(--bgcolor); 
+}
+/* ...etc. */
+</code></pre>
+<p>If your new color doesn’t require greater vibrancy in its mid-range shades, Baselayer 3 has several low chroma variables that you can use.</p>
+<pre><code class="language-css">* {
+  /* chroma */
+  --c0: 0;
+  --c02: 0.02;
+  --c04: 0.04;
+  --c06: 0.06;
+  --c08: 0.08;
+  --c10: 0.10;
+  ...
+}
+
+</code></pre>
+<p>See <code>colors.css</code> for how this is done with brown, warmgray and cool-gray.</p>
+<p>Example cool-gray in <code>colors.css</code>:</p>
+<pre><code class="language-css">.t-coolgray,
+.hover\:t-coolgray:hover {
+  --tl: var(--l500);
+  --tc: var(--c02) !important;
+  --th: var(--coolgray);
+  color: var(--tcx);
+}
+
+.b-coolgray,
+.hover\:b-coolgray:hover {
+  --bl: var(--l500);
+  --bc: var(--c02) !important;
+  --bh: var(--gray);
+  border-color: var(--b-cool-color);
+}
+
+.bg-coolgray,
+.hover\:bg-coolgray:hover {
+  --bgl: var(--l500);
+  --bgc: var(--c02) !important;
+  --bg-hover: var(--coolgray);
+  background: var(--bgcx);
+}
+</code></pre>
+<p>The chroma channel’s <code>!important</code> overrides chroma scale that is built into the lightness utilities <code>*-100</code> thorugh <code>*-900</code>, so that this color will remain less vibrant (with one low chroma level) accross its shades.</p>
+<h2 id="other-baselayer-color-utilities" tabindex="-1">Other Baselayer color utilities</h2>
+<p>Other color utilities included in Baselayer cover black, white, and transparent, as follows:</p>
+<h3 id="black-and-white" tabindex="-1">Black and white</h3>
+<ul>
+<li>White — named color <code>white</code>:
+<ul>
+<li><code>b-white</code> / <code>t-white</code> / <code>bg-white</code>,</li>
+<li><code>hover:b-white</code>, <code>hover:t-white</code>, <code>hover:bg-white</code>,</li>
+</ul>
+</li>
+<li>Black — named color <code>black</code>:
+<ul>
+<li><code>b-black</code> / <code>t-black</code> / <code>bg-black</code>,</li>
+<li><code>hover:b-black</code> / <code>hover:t-black</code> / <code>hover:bg-black</code>,</li>
+</ul>
+</li>
+</ul>
+<p>(Utility classes for colors: <code>b*</code> = border; <code>t*</code> = text; <code>bg*</code> = background.
+)</p>
+<h3 id="reversi-%2F-reversi-alt" tabindex="-1">Reversi / reversi-alt</h3>
+<p>Baselayer 3’s <a href="https://en.wikipedia.org/wiki/Reversi">reversi</a> color utilities can be used for flipping from black to white (and the opposite way) depending on whether the user is viewing the site in its light theme or dark theme.</p>
+<p>Reversi utilities are intended for use e.g. for <a href="#dark%2Flight-theme-toggle">dark/light theme toggle</a> buttons or <a href="https://brutalist-web.design">brutalist</a> web designs.</p>
+<ul>
+<li>Reversi — <code>black</code> on light theme; <code>white</code> on dark theme:
+<ul>
+<li><code>t-reversi</code> / <code>.b-reversi</code> / <code>.bg-reversi</code></li>
+</ul>
+</li>
+<li>Reversi-alt (i.e. flipped) — <code>black</code> on light theme; <code>white</code> on dark theme:
+<ul>
+<li><code>t-reversi-alt</code> / <code>.b-reversi-alt</code> / <code>.bg-reversi-alt</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="transparent-background" tabindex="-1">Transparent background</h3>
+<p>E.g. for outline buttons.</p>
+<ul>
+<li>Transparent:
+<ul>
+<li><code>bg-transparent</code></li>
+</ul>
+</li>
+</ul>
+<p>There are no hover states of <code>bg-transparent</code>.</p>
+<h2 id="colors-and-accessibility" tabindex="-1">Colors and accessibility</h2>
+<div aria-label="Note" class="popout mb-2 bl-3 b-orange b-300 p-2 t-black bg-orange bg-100">
+  In any color model, color combinations must chosen with care so that there is sufficient contrast between text and background colors for purposes of assessibility.
+</div>
+<p>In your text and background color combinations, be careful to ensure that the text is readable — there needs to be an adequate contrast. Generally, you will want to aim at <strong>WCAG level AA</strong> for accessibility compliance.</p>
+<p>For WCAG level AA compliance, most user interface colors need to be <em>darker than the middle shade</em> (i.e. use <code>*600</code> up) if the text color is white, or <em>lighter than the middle shade</em> (i.e. use <code>*400</code> down) if the text color is black.</p>
+<p>However, any colors near yellow, such as Baselayer orange, as well as amber and yellow-green (not included) are notoriously difficult for accessibility. You may do better using a lighter background orange and pairing it with black text.</p>
+<form>
+  <p>
+    <button type="button" name="button">Button</button>
+    <button class="bg-blue bg-600 hover:bg-700" type="button" name="button">Button</button>
+    <button class="t-black hover:t-black bg-orange bg-200 hover:bg-300" type="button" name="button">Button</button>
+    <button class="b-1 b-green bg-transparent bg-600 t-green t-600 hover:b-700 hover:t-white hover:bg-green hover:bg-700" type="button" name="button">Button</button>
+  </p>
+</form>
+<p>When colorizing buttons, remember to set their <code>hover:</code> hover state shades too.</p>
+<pre><code>/* Default button */
+&lt;button type=&quot;button&quot; name=&quot;button&quot;&gt;Button&lt;/button&gt;
+
+/* Blue button */
+&lt;button class=&quot;bg-blue bg-600 hover:bg-700&quot; type=&quot;button&quot; name=&quot;button&quot;&gt;Button&lt;/button&gt;
+
+/* orange button */
+&lt;button class=&quot;t-black hover:t-black bg-orange bg-200 hover:bg-300&quot; type=&quot;button&quot; name=&quot;button&quot;&gt;Button&lt;/button&gt;
+
+/* Green outline (a.k.a. ghost) button */
+&lt;button class=&quot;b-1 b-green bg-transparent bg-600 t-green t-600 hover:b-700 hover:t-white hover:bg-green hover:bg-700&quot; type=&quot;button&quot; name=&quot;button&quot;&gt;Button&lt;/button&gt;
+</code></pre>
+<p>Background reading on colors and accessibility (not much is available about OKLCH at this time, mid-2023):</p>
+<ul>
+<li>Useful blog posts from <a href="https://www.a11yproject.com">The Accessibility (A11Y) Project</a>:
+<ul>
+<li><a href="https://www.a11yproject.com/posts/understanding-visual-impairment/">A primer to visual impairment</a></li>
+<li><a href="https://www.a11yproject.com/posts/understanding-colourblindness/">Understanding color blindness</a></li>
+<li><a href="https://www.a11yproject.com/posts/how-i-deal-with-colorblindness-as-a-digital-product-designer/">How I deal with colorblindness as a digital product designer</a></li>
+</ul>
+</li>
+<li><a href="https://www.smashingmagazine.com/2021/07/hsl-colors-css/">Using HSL Colors In CSS (Smashing Magazine)</a></li>
+<li><a href="https://www.w3.org/WAI/standards-guidelines/wcag/">Web Content Accessibility Guidelines (WCAG) 2</a></li>
+<li><a href="https://webaim.org/articles/contrast/">Contrast and Color Accessibility (WEB AIM)</a></li>
+<li>The <a href="https://coolors.co/contrast-checker/112a46-acc8e5"><em>Coolors</em> contrast checker</a> has an HSL picker option</li>
+<li><a href="https://contrast-ratio.com">https://contrast-ratio.com</a> has an HSLA contrast checker (HSL plus opacity)</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/Understanding_Colors_and_Luminance">Web Accessibility: Understanding Colors and Luminance (Mozilla Developer Network Docs)</a></li>
+</ul>
+<h2 id="dark-theme" tabindex="-1">Dark theme</h2>
+<p>Baselayer 3 has some simple dark themes built in, controlled by a <a href="#dark%2Flight-theme-toggle">JavaScript toggle</a> in this documentation.</p>
+<p>If you don’t want to give your visitors the option to toggle, then you can also change the CSS to make the dark theme simply respond to the <code>prefers-clr-scheme: dark</code> instead.</p>
+<pre><code class="language-css">@media (prefers-clr-scheme: dark) {
+  /*
+  Your dark theme styles
+  */
+}
+</code></pre>
+<p>The dark theme has this effect:</p>
+<ol>
+<li>HTML elements are generally flipped from light to dark, or dark to light. The body background becomes dark gray; near black text becomes near white;</li>
+<li>Links are slightly darkened, to make them easier on the eye.</li>
+<li>Form fields are flipped from pale gray to a dark gray (but lighter than the body background).</li>
+<li>Default buttons stay mid gray.</li>
+<li>Color utilities are slightly darkened, to make them easier on the eye.</li>
+<li>Reversi color utilties are flipped (<code>-reversi</code> becomes white and <code>-reversi-alt</code> becomes black.)</li>
+</ol>
+<p>Each OKLCH lightness variant has a dark theme, that sets dark theme colors for the HTML tags. These are set using <code>#</code> in <code>baselayer.css</code>, <code>oklch()</code> in <code>baselayer-oklch.css</code> and <code>hsl()</code> in <code>baselayer-hsl.css</code>. Example from <code>baselayer.css</code>:</p>
+<p class="mb-1 t-bold t-center">Baselayer 3’s OKLCH shades (lightness) are darkened for the dark theme<p>
+<div class="mb-3 w-100% mx-auto" style="max-width: 500px">
+<svg viewBox="0 0 121 119" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:1.5"><path d="M200 100v200" style="fill:none;stroke:currentColor;stroke-width:.38px" transform="matrix(1 0 0 .5 -180.003 -48.459)"/><path d="m210 85.185 80-503.704" style="fill:none;stroke:currentColor;stroke-width:.42px" transform="matrix(-1 0 0 .135 319.997 61.041)"/><path d="m210-329.63 80 444.445" style="fill:none;stroke:currentColor;stroke-width:.42px;stroke-dasharray:3,3,0,0" transform="matrix(1 0 0 .135 -180.003 61.041)"/><path d="M200 100v200" style="fill:none;stroke:currentColor;stroke-width:.38px" transform="matrix(0 -1 .5 0 -30.003 301.541)"/><text x="194.001" y="309.985" style="font-family:'ArialMT','Arial',sans-serif;font-size:4.167px;fill:currentColor" transform="rotate(-60 -59.51 354.107)">100</text><text x="194.001" y="309.985" style="font-family:'ArialMT','Arial',sans-serif;font-size:4.167px;fill:currentColor" transform="rotate(-60 -54.51 345.447)">200</text><text x="194.001" y="309.985" style="font-family:'ArialMT','Arial',sans-serif;font-size:4.167px;fill:currentColor" transform="rotate(-60 -49.51 336.786)">300</text><text x="194.001" y="309.985" style="font-family:'ArialMT','Arial',sans-serif;font-size:4.167px;fill:currentColor" transform="rotate(-60 -44.51 328.126)">400</text><text x="194.001" y="309.985" style="font-family:'ArialMT','Arial',sans-serif;font-size:4.167px;fill:currentColor" transform="rotate(-60 -39.51 319.466)">500</text><text x="194.001" y="309.985" style="font-family:'ArialMT','Arial',sans-serif;font-size:4.167px;fill:currentColor" transform="rotate(-60 -34.51 310.806)">600</text><text x="194.001" y="309.985" style="font-family:'ArialMT','Arial',sans-serif;font-size:4.167px;fill:currentColor" transform="rotate(-60 -29.509 302.145)">700</text><text x="194.001" y="309.985" style="font-family:'ArialMT','Arial',sans-serif;font-size:4.167px;fill:currentColor" transform="rotate(-60 -24.509 293.485)">800</text><text x="194.001" y="309.985" style="font-family:'ArialMT','Arial',sans-serif;font-size:4.167px;fill:currentColor" transform="rotate(-60 -19.509 284.824)">900</text><text x="194.843" y="312.992" style="font-family:'ArialMT','Arial',sans-serif;font-size:4.167px;fill:currentColor" transform="translate(-190.003 -309.959)">100%</text><text x="197.161" y="312.992" style="font-family:'ArialMT','Arial',sans-serif;font-size:4.167px;fill:currentColor" transform="translate(-190.003 -299.959)">90%</text><text x="197.161" y="312.992" style="font-family:'ArialMT','Arial',sans-serif;font-size:4.167px;fill:currentColor" transform="translate(-190.003 -289.959)">80%</text><text x="197.161" y="312.992" style="font-family:'ArialMT','Arial',sans-serif;font-size:4.167px;fill:currentColor" transform="translate(-190.003 -279.959)">70%</text><text x="197.161" y="312.992" style="font-family:'ArialMT','Arial',sans-serif;font-size:4.167px;fill:currentColor" transform="translate(-190.003 -269.959)">60%</text><text x="197.161" y="312.992" style="font-family:'ArialMT','Arial',sans-serif;font-size:4.167px;fill:currentColor" transform="translate(-190.003 -259.959)">50%</text><text x="197.161" y="312.992" style="font-family:'ArialMT','Arial',sans-serif;font-size:4.167px;fill:currentColor" transform="translate(-190.003 -249.959)">40%</text><text x="197.161" y="312.992" style="font-family:'ArialMT','Arial',sans-serif;font-size:4.167px;fill:currentColor" transform="translate(-190.003 -239.959)">30%</text><text x="197.161" y="312.992" style="font-family:'ArialMT','Arial',sans-serif;font-size:4.167px;fill:currentColor" transform="translate(-190.003 -229.959)">20%</text><text x="197.161" y="312.992" style="font-family:'ArialMT','Arial',sans-serif;font-size:4.167px;fill:currentColor" transform="translate(-190.003 -219.959)">10%</text><text x="199.478" y="312.992" style="font-family:'ArialMT','Arial',sans-serif;font-size:4.167px;fill:currentColor" transform="translate(-190.003 -209.959)">0%</text><text x="194" y="309.985" style="font-family:'ArialMT','Arial',sans-serif;font-size:4.167px;fill:currentColor" transform="translate(-147.187 -300.459)">Light theme shades</text><text x="204.541" y="314.288" style="font-family:'ArialMT','Arial',sans-serif;font-size:4.167px;fill:currentColor" transform="translate(-147.187 -300.459)">(default)</text><text x="194" y="309.985" style="font-family:'ArialMT','Arial',sans-serif;font-size:4.167px;fill:currentColor" transform="translate(-122.133 -226.452)">Dark theme shades</text><text x="212.275" y="309.985" style="font-family:'ArialMT','Arial',sans-serif;font-size:4.167px;fill:currentColor" transform="translate(-163.867 -192.459)">Lightness code number</text><text x="219.454" y="309.985" style="font-family:'ArialMT','Arial',sans-serif;font-size:4.167px;fill:currentColor" transform="rotate(-90 -10.731 296.272)">Lightness value</text><path d="M200 200h-3" style="fill:none;stroke:currentColor;stroke-width:.35px" transform="matrix(.66667 0 0 1 -113.336 -198.459)"/><path d="M200 200h-3" style="fill:none;stroke:currentColor;stroke-width:.35px" transform="matrix(.66667 0 0 1 -113.336 -188.459)"/><path d="M200 200h-3" style="fill:none;stroke:currentColor;stroke-width:.35px" transform="matrix(.66667 0 0 1 -113.336 -178.459)"/><path d="M200 200h-3" style="fill:none;stroke:currentColor;stroke-width:.35px" transform="matrix(.66667 0 0 1 -113.336 -168.459)"/><path d="M200 200h-3" style="fill:none;stroke:currentColor;stroke-width:.35px" transform="matrix(.66667 0 0 1 -113.336 -158.459)"/><path d="M200 200h-3" style="fill:none;stroke:currentColor;stroke-width:.35px" transform="matrix(.66667 0 0 1 -113.336 -148.459)"/><path d="M200 200h-3" style="fill:none;stroke:currentColor;stroke-width:.35px" transform="matrix(.66667 0 0 1 -113.336 -138.459)"/><path d="M200 200h-3" style="fill:none;stroke:currentColor;stroke-width:.35px" transform="matrix(.66667 0 0 1 -113.336 -128.459)"/><path d="M200 200h-3" style="fill:none;stroke:currentColor;stroke-width:.35px" transform="matrix(.66667 0 0 1 -113.336 -118.459)"/><path d="M200 200h-3" style="fill:none;stroke:currentColor;stroke-width:.35px" transform="matrix(.66667 0 0 1 -113.336 -108.459)"/><path d="M200 200h-3" style="fill:none;stroke:currentColor;stroke-width:.35px" transform="matrix(.66667 0 0 1 -113.336 -98.459)"/><path d="M200 200h-3" style="fill:none;stroke:currentColor;stroke-width:.35px" transform="matrix(0 -.66667 1 0 -170.003 234.874)"/><path d="M200 200h-3" style="fill:none;stroke:currentColor;stroke-width:.35px" transform="matrix(0 -.66667 1 0 -160.003 234.874)"/><path d="M200 200h-3" style="fill:none;stroke:currentColor;stroke-width:.35px" transform="matrix(0 -.66667 1 0 -150.003 234.874)"/><path d="M200 200h-3" style="fill:none;stroke:currentColor;stroke-width:.35px" transform="matrix(0 -.66667 1 0 -140.003 234.874)"/><path d="M200 200h-3" style="fill:none;stroke:currentColor;stroke-width:.35px" transform="matrix(0 -.66667 1 0 -130.003 234.874)"/><path d="M200 200h-3" style="fill:none;stroke:currentColor;stroke-width:.35px" transform="matrix(0 -.66667 1 0 -120.003 234.874)"/><path d="M200 200h-3" style="fill:none;stroke:currentColor;stroke-width:.35px" transform="matrix(0 -.66667 1 0 -110.003 234.874)"/><path d="M200 200h-3" style="fill:none;stroke:currentColor;stroke-width:.35px" transform="matrix(0 -.66667 1 0 -100.003 234.874)"/><path d="M200 200h-3" style="fill:none;stroke:currentColor;stroke-width:.35px" transform="matrix(0 -.66667 1 0 -90.003 234.874)"/><path d="m60.152 26.55-2.155.991 1.13-2.086 1.025 1.095Z" style="fill:currentColor"/><path d="M64.997 16.541c-.008 3.629-3.661 7.759-5.686 9.769" style="fill:none;stroke:currentColor;stroke-width:.5px"/><path d="m94.746 68.532 2.154-.991-1.129 2.086-1.025-1.095Z" style="fill:currentColor"/><path d="M89.9 78.541c.009-3.629 3.662-7.759 5.687-9.769" style="fill:none;stroke:currentColor;stroke-width:.5px"/></svg></div>
+<h3 id="dark%2Flight-theme-toggle" tabindex="-1">Dark/light theme toggle</h3>
+<p>Baselayer 3’s dark/light theme switcher JavaScript uses <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage">sessionStorage</a> in the user’s browser to remember their theme preference as they visit multiple pages in this documentation.</p>
+<p>This script is added to the <code>&lt;head&gt;</code> of the webpage and it is read early so that it is implimented (almost) immediately, before the <code>&lt;body&gt;</code> is painted in the browser window.</p>
+<p>The theme switcher in the Baselayer 2 docs is built into its <code>switcher.js</code> demo toggling system, that powers the buttons in the sidebar. If you want to use the same dark/light mode toggler, here it is isolated below (no JS framework required):</p>
+<pre><code class="language-js">const matchMediaDark = window.matchMedia('(prefers-clr-scheme: dark)');
+const htmlClassList = document.querySelector('html').classList;
+
+function themeDark() {
+  sessionStorage.setItem(&quot;baselayerTheme&quot;, &quot;dark&quot;);
+  htmlClassList.remove('theme-light');
+  htmlClassList.add('theme-dark');
+}
+
+function themeLight() {
+  sessionStorage.setItem(&quot;baselayerTheme&quot;, &quot;light&quot;);
+  htmlClassList.remove('theme-dark');
+  htmlClassList.add('theme-light');
+}
+
+function toggleTheme() {
+  if ( sessionStorage.baselayerTheme === 'dark' ) {
+    themeLight();
+  } else {
+    themeDark();
+  }
+};
+
+function baselayerInit() {
+  if (sessionStorage.baselayerTheme === 'dark' || (!('baselayerTheme' in sessionStorage) &amp;&amp; matchMediaDark.matches)) {
+    themeDark();
+  } else {
+    themeLight();
+  }
+};
+
+baselayerInit();
+</code></pre>
+<p>You will also need a toggle button, like the one in the sidebar. The checkmarks are added in by CSS pseudo-selectors.</p>
+<p class="flex flex-center">
+  <button class="p-cell flex flex-column gap-1 bg-blue hover:bg-600" onclick="toggleTheme()">
+    <div class="label-light w-100% flex flex-middle gap-1">
+      <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
+      <div class="grow left">Light theme</div>
+    </div>
+    <div class="label-dark w-100% flex flex-middle gap-1">
+      <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
+      <div class="grow left">Dark theme</div>
+    </div>
+  </button>
+</p>
+<p>Another, simpler example theme toggle button, using glyphs selected via <a href="https://www.amp-what.com">&amp;what;</a></p>
+<style>
+  .theme-dark .theme-toggle span::before { content: '☀️ '; }
+  .theme-light .theme-toggle span::before { content: '🌙 '; }
+</style>
+<p class="flex flexcenter">
+  <button class="theme-toggle pl-1 t-reversi-alt bg-reversi" onclick="toggleTheme()">
+    <span>theme</span>
+  </button>
+</p>
+<pre><code>&lt;style&gt;
+  .theme-dark .theme-toggle span::before { content: '☀️ '; }
+  .theme-light .theme-toggle span::before { content: '🌙 '; }
+&lt;/style&gt;
+
+&lt;button class=&quot;theme-toggle pl-1 t-reversi-alt bg-reversi&quot; onclick=&quot;toggleTheme()&quot;&gt;
+  &lt;span&gt;theme&lt;/span&gt;
+&lt;/button&gt;
+</code></pre>
+<p>The simple example above uses <code>bg-reversi</code> to put a “night time” black background behind the moon and a “day time” white backgorund behind the sun, meanwhile <code>t-reversi-alt</code> is used to flip the text color the opposite way.</p>
+
+          </article>
+          <div class="content-grid">
+            <nav class="mt-3 mb-2 b-1 r-pill p-cell popout">
+              <ul class="m-0 unlist p-0 flex">
+                
+                <li class="grow my-1">&larr; <a href="/baselayer-3/decoration/"> Decoration</a></li>
+                
+                
+                <li class="grow my-1 t-right"><a href="/baselayer-3/forms/">Forms</a> &rarr;</li>
+                  
+              </ul>
+            </nav>
+            <footer>
+              <div class="p-2 flex flex-center t-center">
+                <a href="/baselayer-3/" class="h3 m-0 t-normal flex flex-column flex-center gap-1 t-noline">
+                  <svg class="mx-auto" height="48" width="48" viewBox="0 0 111 111" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-miterlimit:1.5">
+                    <g transform="translate(-294.592 -94.592)">
+                      <circle cx="350" cy="150" r="50" style="fill:none;stroke:currentColor;stroke-width:4px"/>
+                      <path d="M294.167 180H320v-65.833" style="fill:none;stroke:currentColor;stroke-width:4px" transform="translate(10 -10)"/>
+                      <path d="M405.833 180H380v-65.833" style="fill:none;stroke:currentColor;stroke-width:4px" transform="translate(-10 -10)"/>
+                      <circle cx="350" cy="150" r="30" style="fill:none;stroke:currentColor;stroke-width:6px" transform="matrix(.66667 0 0 .66667 116.667 50)"/>
+                      <path d="M310 180h80" style="fill:none;stroke:currentColor;stroke-width:4px"/>
+                      </g>
+                    </svg>
+                  <span class="t-nowrap">Baselayer 3 CSS</span>
+                </a>
+              </div>
+
+              <p class="p-cell flex flex-center flex-wrap gap-3 t-center">
+                <span>Version: 1.0.0</span>
+                <a class="t-noline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3">GitHub Repository</a>
+                <a class="t-noline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3/blob/main/LICENSE">MIT license</a>
+                <span>Developer: <a class="t-noline hover:t-line" href="https://github.com/SimonPadbury">Simon Padbury</a></span>
+              </p>
+            </footer>
+          </div>
+        </div>
+      </div>
+    </main>
+      
+    </div>
+  </div>
+
+</body>
+</html>

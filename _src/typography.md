@@ -1,0 +1,357 @@
+---
+title: Typography
+mainHeading: Typography
+layout: base.njk
+prevPage: "/"
+nextPage: "/layout/"
+prevLink: "Introduction"
+nextLink: "Layout"
+---
+
+## Font stacks
+
+Three native font stacks are set in the `root-vars.css` file.
+
+```
+:root {
+  --base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --prose: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --mono: ui-monospace, Menlo, "Segoe UI Mono", Consolas, "Ubuntu Monospace", monospace;
+}
+```
+
+Everything here is an example, a place to start. Your own `--base` and `--prose` don’t need to be both sans-serif and serif.
+
+The Baselayer docs make use of JavaScript and some extra CSS to enable a demo toggle, so that you can switch between `--base` and `--prose` in this main content column.
+
+<p class="flex flex-center">
+  <button class="p-cell flex flex-column gap-1 bg-blue bg-600 hover:bg-700" onclick="toggleFont()">
+    <div class="label-base w-100% flex flex-middle gap-1">
+      <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
+      <div class="grow t-left">Base font</div>
+    </div>
+    <div class="label-prose w-100% flex flex-middle gap-1">
+      <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
+      <div class="grow t-left">Prose font</div>
+    </div>
+  </button>
+</p>
+
+Font stack usage in Baselayer:
+
+* The base font stack is set in the `<body>` tag (in `base.css`) and in the `base` utility class.
+* The prose is only available via the `prose` utility class
+* The monotype is available via the `<code>`, `<kbd>`, and `<samp>` HTML tags, and in the `mono` utility class.
+
+### Setting font stacks
+
+In choosing your own font stacks, you may wish to choose two fonts that have similar x-height, so that you can set them using the same font size and line-height. Some other factors to compare are hights for lowercase ascenders and descenders, letter width, and stroke thickness.
+
+A good place to start is by pairing serif and sans-serif (or slab serif) fonts of the same typeface. There are several to choose from on [Google Fonts](https://fonts.google.com). Some examples:
+
+* Alegreya and Alegreya Sans
+* IBM Plex and IBM Plex Sans
+* Inria Serif and Inria Sans
+* Noto Serif and Noto Sans
+* PT Serif and PT Sans
+* Roboto and Roboto Slab
+* Source Sans 3 and Source Serif 4
+
+Of course, you can also mix and match. In Baselayer, sizes and weights for the base and prose typefaces can optionally be set independently — but you will still want them to share the same line height. For using another set of sizes and weights for prose, you will need to do some un-commenting in two files: `variables.css` and `typography.css`.
+
+So, for example:
+
+* If your chosen base typeface has an x-height much larger than your chosen prose, then you can set the prose font-size slightly larger, or the base slightly smaller.
+* If your base has thicker strokes so that it “looks darker” than your prose, then you may want to set your base font-weight slightly lighter, to `300` (if this is available) while retaining your prose font-weight at the normal `400`.
+
+For inspiration:
+
+* [Pairing Typefaces (Google Fonts article)](https://fonts.google.com/knowledge/choosing_type/pairing_typefaces)
+* [fontpairings.com](https://www.fontpairings.com)
+* [fontpair.co](https://www.fontpair.co)
+* [fontjoy.com](https://fontjoy.com)
+* [Pair & Compare](https://www.pairandcompare.net)
+* [Top 50 Google Font Pairings [Handpicked by Pro Designers] (Pagecloud)](https://www.pagecloud.com/blog/best-google-fonts-pairings)
+
+## Typographic block elements
+
+The bottom margin on most typographic blocks have zero top margin, and bottom margin set to the _line height in rems_ using these two varibles:
+
+```css
+:root {
+  --lh: 1.5; /* Base lineheight (no unit) */
+  --mlh: calc(var(--lh) * 1rem); /* margin line height in rems */
+}
+```
+
+### Headings
+
+Example of heading sizes — using utility classes (so that they don’t show up in the automatic table-of-contents generator):
+
+<p class="h1">Heading h1</p>
+<p class="h2">Heading h2</p>
+<p class="h3">Heading h3</p>
+<p class="h4">Heading h4</p>
+<p class="h5">Heading h5</p>
+<p class="h6">Heading h6</p>
+
+All headings `<h1>` to `<h6>` and matching utility classes `h1` to `h6` have:
+
+* Font sizes set in the variables file. The typographic scale is 1.250 (major third), calculated using the [Type Scale](https://type-scale.com) webapp.
+* Headings also have their font-family set using `--hf: inherit` This has been done so that you can override it. Headings don’t need to have the same typeface as paragraphs.
+* The headings font weight is set using `--hfw: var(--bold)` — which you can override.
+* Line heights set using the formula 1em + 0.5rem. Meanwhile the bottom margin is the same as for paragraphs (described above).
+* Headings `<h2>` to `<h6>` and matching utility classes `h2` to `h6` also have top margins equal to their respective line heights (so H2 has a bigger top margin than H3, and so on)
+
+```css
+:root {
+  /* Heading font sizes */
+  --h1: 2.441em;
+  --h2: 1.953em;
+  --h3: 1.563em;
+  --h4: 1.25em;
+  --h5: 1em;
+  --h6: .8em;
+
+  /* headings font */
+  --hf: inherit;
+
+  /* headings font-weight */
+  --hfw: var(--bold);
+
+  /* headings line-height */
+  --hlh: calc(1em + 0.5rem);
+}
+```
+
+Tips:
+
+1. In some contexts (e.g. in card components) you may not want any built-in spacing for typographic block elements. Then, you can remove margins by using the `m-0` utility class.
+2. You can also remove top margin “remotely” e.g. you can target the first item inside its wrapper using `.wrapper:first-child { margin-top: 0; }`, or the first sibling after the `<header>` or `<h1>` e.g. as I have done in these docs: `.content-grid header + * { margin-top: 0; }`. This takes care of any chapters that start their content with an `<h2>` as the first element under the title (header) block.
+
+### Block quotes
+
+Baselayer styles `<blockquote>` tags with some inline (x-axis) padding, to give the effect of indentation. This inline padding is set using the responsive spacing variable `--sp-3` so that it becomes wider for wider viewports.
+
+Otherwise, blockquotes have the same as paragraph styling.
+
+> Lorem ipsum dolor sit amet, adipiscing honestatis ius ut, nisl consulatu pro in. Imperdiet evertitur no usu, his te suavitate salutatus. Nullam ridens deterruisset an duo. Cum harum insolens ei, cum probo placerat praesent et.
+
+### Lists
+
+In Baselayer ordered `<ol>` and unordered `<ul>` have a little left padding. But Baselayer separates list items `<li>` to make them more obvious by setting a small top margin _between_ list items (smaller than the top margin between paragraphs), and _above_ nested `<ol>` and `<ul>`.
+
+1. Ordered item one
+2. Ordered item two
+    1. Ordered item two child one
+    2. Ordered item two child two
+3. Ordered item three
+
+```
+<ol>
+  <li>Ordered item one</li>
+  <li>Ordered item two
+    <ol>
+      <li>Ordered item two child one</li>
+      <li>Ordered item two child two</li>
+    </ol>
+  </li>
+  <li>Ordered item three</li>
+</ol>
+```
+
+* Unordered item
+* Unordered item
+    * Unordered item child
+    * Unordered item child
+* Unordered item
+
+```
+<ul>
+  <li>Unordered item</li>
+  <li>Unordered item
+    <ul>
+      <li>Unordered item child</li>
+      <li>Unordered item child</li>
+    </ul>
+  </li>
+  <li>Unordered item</li>
+</ul>
+```
+
+For definition lists, the title is bold and the data-item is indented with the same left padding as for the lists (see above).
+
+<dl>
+  <dt>Definition list title</dt>
+  <dd>Definition list data</dd>
+  <dt>Definition list title</dt>
+  <dd>Definition list data</dd>
+</dl>
+
+```
+<dl>
+  <dt>Definition list title</dt>
+  <dd>Definition list data</dd>
+  <dt>Definition list title</dt>
+  <dd>Definition list data</dd>
+</dl>
+```
+
+## The link tag
+
+The default underline for links has been moved downwards slightly to improve legibility. The link decoration (underscore) thickness has been set at 1px, so that it doesn’t become thicker when used on larger text (e.g. in headings) where link underscores can be too bulky).
+
+Link color is set by `--tc-link`, which is the Baselayer theme middle blue (see [colors]({{ '/colors/' | url }})). The hover state is a shade darker.
+
+## Tables
+
+Baselayer tables are set using the `.table` class.
+
+* Paddings are set by `--p-cell` (see decoration [spacing extras]({{ '/decoration/' | url }}#spacing-extras))
+* Table headers `<th>` are bold. 
+* Table cells `<th>` and `<td>` have a border set by `var(--b-1)` – the same detail as `<hr>` and [border]({{ '/decoration/' | url }}#borders) utility classes.
+* All cell content is left-aligned. You can change that on the whole `<table>` or on a per-cell basis using the text alignment classes.
+
+<table class="mt-2 mb-3 table">
+  <caption>This is a Table Caption</caption>
+  <thead>
+    <tr>
+      <th>Table Header 1</th>
+      <th>Table Header 2</th>
+      <th>Table Header 3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Table content 1.1</td>
+      <td>Table content 2.1</td>
+      <td>Table content 3.1</td>
+    </tr>
+    <tr>
+      <td>Table content 1.2</td>
+      <td>Table content 2.2</td>
+      <td>Table content 3.2</td>
+    </tr>
+    <tr>
+      <td>Table content 1.3</td>
+      <td>Table content 2.3</td>
+      <td>Table content 3.3</td>
+    </tr>
+    <tr>
+      <td>Table content 1.4</td>
+      <td>Table content 2.4</td>
+      <td>Table content 3.4</td>
+    </tr>
+  </tbody>
+</table>
+
+```
+<table class="table">
+  <caption>This is a Table Caption</caption>
+  <thead>
+    <tr>
+      <th>Table Header 1</th>
+      <th>Table Header 2</th>
+      <th>Table Header 3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Table content 1.1</td>
+      <td>Table content 2.1</td>
+      <td>Table content 3.1</td>
+    </tr>
+    <tr>
+      <td>Table content 1.2</td>
+      <td>Table content 2.2</td>
+      <td>Table content 3.2</td>
+    </tr>
+  </tbody>
+</table>
+```
+
+### Making wide tables responsive
+
+If you have a lot of content in your table, it will probably break your page layout on small viewports (e.g. phones). So, you can wrap your table in a DIV with the `overflow-x` class to make it horizontally scrollable.
+
+```
+<div class="overflow-x">
+  <table class="table">
+    ...
+  </table>
+</div>
+```
+
+## The long-lead utility class 
+
+Intended for long-read essays, articles and blog posts, the `t-long-read` utility class (to be used as a _wrapper_ class) enlarges text (including headings) responsive to wider viewports (e.g. tablets, laptops, and up) using the following CSS clamp, which is set in `variables.css`:
+
+```
+:root {
+  --fs-long-read: clamp(1rem, 0.75rem + 0.625vw, 1.25rem);
+  --lh-long-read: calc(var(--fs) * 1.5);
+}
+```
+
+The base font size is expanded to 125% over the middle range — from viewport widths 640px to 1280px (i.e. same as the `sm` to `md` default breakpoints). Starting from 1rem (16px), this expands the base sext size to 20px. This `clamp()` has been calculated using Petter Walbø Johnsgård’s [Font-size Clamp Generator](https://clamp.font-size.app/).
+
+The Baselayer docs make use of JavaScript and some extra CSS to enable a demo toggle, so that you can switch between normal and long read font size in this main article column.
+
+<p class="flex flex-center">
+  <button class="p-cell flex flex-column gap-1 bg-blue bg-600 hover:bg-700" onclick="toggleFS()">
+    <div class="label-normal w-100% flex flex-middle gap-1">
+      <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
+      <div class="grow t-left">Normal font-size</div>
+    </div>
+    <div class="label-longread w-100% flex flex-middle gap-1">
+      <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
+      <div class="grow t-left">Long read font-size</div>
+    </div>
+  </button>
+</p>
+
+## Code blocks
+
+`<code>` tags have monospaced text over a pale blue background (set by `--cbgcode`) with a little padding to improve readability.
+
+If the `<code>` tag is wrapped in a `<pre>` tag, then it becomes a block level element with more padding, a max-width of 100%, and y-axis overflow scrolling.
+
+## Other typographic utility classes
+
+Besides those already introduced, Baselayer also has utility classes for:
+
+* `t-big` — increase font size by 1.5em. Use it directly on a `<p>` to enlarge the font (e.g. for a lead paragraph). But don’t use `t-big`  directly on a heading, because that will overrive the heading size — but you can use it on a _wrapper_ around a heading that you wish to enlarge (e.g. for a title or hero component).
+* `t-small` (or use the `<small>` HTML tag) — decrease font-size to 0.75em.
+* `t-right`, `t-center`, and `t-left` — text alignment
+* `t-lighter`, `t-normal`, `t-semibold`, `t-bold`, `t-heavy` — font weights
+* `t-italic` — font style italic
+* `t-uppercase` — text transform to capitals
+* `t-noline` — use to remove the underline (underscore) from links where having it may be inappropriate (e.g. in menus)
+* `hover:t-line` – make underline appear on hover (pair as `t-noline hover:t-line` on a link)
+  * Example `t-noline h:t-line`: <a class="t-noline hover:t-line" href="http://example.com">example</a>
+* `t-nowrap` — prevents text wrapping (spaces behave as non-breaking spaces)
+* `unlist` — sets `list-style-type: none` on `<ol>`, `<ul>`, or `<li>`. You can use this when you want to use a list in a navigation menu. And you can combine it with `p-0` to remove the list inset padding.
+
+**Note:** links can also be styled as though they are buttons using the `btn` utility class. See [buttons]({{ '/buttons/' | url }}).
+
+## Simple Menus
+
+If you wrap links in a `<nav>` tag, as you should do when creating a menu, then the links have their underscores removed. (So, there is no need to use `noline` inside a `<nav>` tag.)
+
+Simple can created in this way, whether or not you involve an `<ul>` unordered list. Example:
+
+<nav class="mt-2 mb-3">
+  <a class="p-cell" href="#/">Home</a>
+  <a class="p-cell" href="#/">About</a>
+  <a class="p-cell" href="#/">Contact</a>
+</nav>
+
+```
+<nav>
+  <a class="p-cell" href="#/">Home</a>
+  <a class="p-cell" href="#/">About</a>
+  <a class="p-cell" href="#/">Contact</a>
+</nav>
+```
+
+For more information on `p-cell` see decoration [spacing extras]({{ '/decoration/' | url }}#spacing-extras). And for how Baselayer colors work, see [colors]({{ '/colors/' | url }}).

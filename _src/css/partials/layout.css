@@ -1,0 +1,686 @@
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.fixed {
+  position: fixed;
+}
+
+.sticky {
+  position: sticky;
+}
+
+.top {
+  top: 0;
+}
+
+.right {
+  right: 0;
+}
+
+.bottom {
+  bottom: 0;
+}
+
+.left {
+  left: 0;
+}
+
+.z-1 {
+  z-index: 1;
+}
+
+.z-2 {
+  z-index: 2;
+}
+
+.z-3 {
+  z-index: 3;
+}
+
+.float-right {
+  float: right;
+}
+
+.float-left {
+  float: left;
+}
+
+.clearfix:after {
+  /* use on wrappers around float sets */
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.overflow-x {
+  overflow-x: auto;
+}
+
+.overflow-y {
+  overflow-y: auto;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.block {
+  display: block;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.inline-flex {
+  display: inline-flex;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.flex-start {
+  justify-content: flex-start;
+}
+
+.flex-center {
+  justify-content: center;
+}
+
+.flex-end {
+  justify-content: flex-end;
+}
+
+.flex-top {
+  align-items: flex-start;
+}
+
+.flex-middle {
+  align-items: center;
+}
+
+.flex-bottom {
+  align-items: flex-end;
+}
+
+.flex-space-between {
+  justify-content: space-between;
+}
+
+.flex-grow-equal>* {
+  flex: 1;
+}
+
+.flex-grow-auto>* {
+  flex: auto;
+}
+
+.grow {
+  flex-grow: 1;
+}
+
+/*
+Invisibility
+*/
+
+@media (max-width: 767px) {
+  .sm\:hidden-below {
+    display: none !important;
+  }
+}
+
+@media (max-width: 1023px) {
+  .md\:hidden-below {
+    display: none !important;
+  }
+}
+
+@media (max-width: 1279px) {
+  .lg\:hidden-below {
+    display: none !important;
+  }
+}
+
+/* 
+Grid system
+*/
+
+.grid {
+  display: grid;
+}
+
+.grid-dense {
+  grid-auto-flow: dense
+}
+
+/*
+Tier Zero (all viewport widths)
+===============================
+Grid wrapper columns only -- no per item control
+*/
+
+[class*=equal-] {
+  grid-template-columns: repeat(var(--cols), minmax(1rem, 1fr))
+}
+
+[class*=col-1],
+[class*=col-2],
+[class*=col-3],
+[class*=col-4] {
+  grid-column: var(--col)
+}
+
+[class*=row-1],
+[class*=row-2],
+[class*=row-3],
+[class*=row-4] {
+  grid-row: var(--row)
+}
+
+[class*=col-span-] {
+  --col: auto;
+  grid-column: var(--col) / span var(--cspan)
+}
+
+[class*=row-span-] {
+  --row: auto;
+  grid-row: var(--row) / span var(--rspan)
+}
+
+.equal-2-cols {
+  --cols: 2
+}
+
+.equal-3-cols {
+  --cols: 3
+}
+
+.equal-4-cols {
+  --cols: 4
+}
+
+.col-1 {
+  --col: 1
+}
+
+.col-2 {
+  --col: 2
+}
+
+.col-3 {
+  --col: 3
+}
+
+.col-4 {
+  --col: 4
+}
+
+.col-span-1 {
+  --cspan: 1
+}
+
+.col-span-2 {
+  --cspan: 2
+}
+
+.col-span-3 {
+  --cspan: 3
+}
+
+.col-span-4 {
+  --cspan: 4
+}
+
+.row-1 {
+  --row: 1
+}
+
+.row-2 {
+  --row: 2
+}
+
+.row-3 {
+  --row: 3
+}
+
+.row-4 {
+  --row: 4
+}
+
+.row-span-1 {
+  --rspan: 1
+}
+
+.row-span-2 {
+  --rspan: 2
+}
+
+.row-span-3 {
+  --rspan: 3
+}
+
+.row-span-4 {
+  --rspan: 4
+}
+
+/* 
+Tier 1 (sm)
+*/
+
+@media (min-width: 640px) {
+  .sm\:flex {
+    display: flex;
+  }
+
+  .sm\:hidden {
+    display: none !important;
+  }
+
+  .sm\:equal-2-cols {
+    --cols: 2
+  }
+
+  .sm\:equal-3-cols {
+    --cols: 3
+  }
+
+  .sm\:equal-4-cols {
+    --cols: 4
+  }
+
+  .sm\:col-1 {
+    --col: 1
+  }
+
+  .sm\:col-2 {
+    --col: 2
+  }
+
+  .sm\:col-3 {
+    --col: 3
+  }
+
+  .sm\:col-4 {
+    --col: 4
+  }
+
+  .sm\:col-span-1 {
+    --cspan: 1
+  }
+
+  .sm\:col-span-2 {
+    --cspan: 2
+  }
+
+  .sm\:col-span-3 {
+    --cspan: 3
+  }
+
+  .sm\:col-span-4 {
+    --cspan: 4
+  }
+
+  .sm\:row-1 {
+    --row: 1
+  }
+
+  .sm\:row-2 {
+    --row: 2
+  }
+
+  .sm\:row-3 {
+    --row: 3
+  }
+
+  .sm\:row-4 {
+    --row: 4
+  }
+
+  .sm\:row-span-1 {
+    --rspan: 1
+  }
+
+  .sm\:row-span-2 {
+    --rspan: 2
+  }
+
+  .sm\:row-span-3 {
+    --rspan: 3
+  }
+
+  .sm\:row-span-4 {
+    --rspan: 4
+  }
+}
+
+/* 
+Tier 2 (md)
+*/
+
+@media (min-width: 960px) {
+  .md\:flex {
+    display: flex;
+  }
+
+  .md\:hidden {
+    display: none !important;
+  }
+
+  .md\:equal-2-cols {
+    --cols: 2
+  }
+
+  .md\:equal-3-cols {
+    --cols: 3
+  }
+
+  .md\:equal-4-cols {
+    --cols: 4
+  }
+
+  .md\:col-1 {
+    --col: 1
+  }
+
+  .md\:col-2 {
+    --col: 2
+  }
+
+  .md\:col-3 {
+    --col: 3
+  }
+
+  .md\:col-4 {
+    --col: 4
+  }
+
+  .md\:col-span-1 {
+    --cspan: 1
+  }
+
+  .md\:col-span-2 {
+    --cspan: 2
+  }
+
+  .md\:col-span-3 {
+    --cspan: 3
+  }
+
+  .md\:col-span-4 {
+    --cspan: 4
+  }
+
+  .md\:row-1 {
+    --row: 1
+  }
+
+  .md\:row-2 {
+    --row: 2
+  }
+
+  .md\:row-3 {
+    --row: 3
+  }
+
+  .md\:row-4 {
+    --row: 4
+  }
+
+  .md\:row-span-1 {
+    --rspan: 1
+  }
+
+  .md\:row-span-2 {
+    --rspan: 2
+  }
+
+  .md\:row-span-3 {
+    --rspan: 3
+  }
+
+  .md\:row-span-4 {
+    --rspan: 4
+  }
+}
+
+/* 
+Tier 3 (lg)
+*/
+
+@media (min-width: 1280px) {
+  .lg\:flex {
+    display: flex;
+  }
+
+  .sm\:hidden {
+    display: none !important;
+  }
+
+  .lg\:equal-2-cols {
+    --cols: 2
+  }
+
+  .lg\:equal-3-cols {
+    --cols: 3
+  }
+
+  .lg\:equal-4-cols {
+    --cols: 4
+  }
+
+  .lg\:col-1 {
+    --col: 1
+  }
+
+  .lg\:col-2 {
+    --col: 2
+  }
+
+  .lg\:col-3 {
+    --col: 3
+  }
+
+  .lg\:col-4 {
+    --col: 4
+  }
+
+  .lg\:col-span-1 {
+    --cspan: 1
+  }
+
+  .lg\:col-span-2 {
+    --cspan: 2
+  }
+
+  .lg\:col-span-3 {
+    --cspan: 3
+  }
+
+  .lg\:col-span-4 {
+    --cspan: 4
+  }
+
+  .lg\:row-1 {
+    --row: 1
+  }
+
+  .lg\:row-2 {
+    --row: 2
+  }
+
+  .lg\:row-3 {
+    --row: 3
+  }
+
+  .lg\:row-4 {
+    --row: 4
+  }
+
+  .lg\:row-span-1 {
+    --rspan: 1
+  }
+
+  .lg\:row-span-2 {
+    --rspan: 2
+  }
+
+  .lg\:row-span-3 {
+    --rspan: 3
+  }
+
+  .lg\:row-span-4 {
+    --rspan: 4
+  }
+}
+
+/*
+Gaps - these work for both flexbox (including inside buttons) and the grid system.
+(However, don’t use these on containergrid.)
+*/
+
+.gap-1 {
+  --gap: var(--sp-1);
+  gap: var(--gap) !important;
+}
+
+.gap-2 {
+  --gap: var(--sp-2);
+  gap: var(--gap) !important;
+}
+
+.gap-3 {
+  --gap: var(--sp-3);
+  gap: var(--gap) !important;
+}
+
+.gap-4 {
+  --gap: var(--sp-4);
+  gap: var(--gap) !important;
+}
+
+/*
+Content grid
+*/
+
+.content-grid {
+  --full: minmax(var(--sp-2), 1fr);
+  --content: min(var(--w-cg), 100% - (var(--sp-2) * 2));
+  --pop: minmax(0, var(--sp-2));
+  display: grid;
+  grid-template-columns:
+    var(--full) var(--pop) var(--content) var(--pop) var(--full);
+}
+
+.content-grid>* {
+  grid-column: 3
+}
+
+.popout {
+  grid-column: 2 / span 3
+}
+
+.full-bleed {
+  grid-column: 1 / span 5
+}
+
+.content-grid>hr+* {
+  margin-top: 0
+}
+
+/*
+Containers and max-widths
+*/
+
+.container,
+[class^=container-] {
+  --w-max: var(--w-xl);
+  width: min(100% - (var(--sp-2) * 2), var(--w-max));
+  margin-inline: auto;
+}
+
+.w-xs,
+.w-sm,
+.w-md,
+.w-lg,
+.w-xl {
+  width: min(100%, var(--w-max));
+}
+
+.container-xs,
+.w-xs {
+  --w-max: var(--w-xs);
+}
+
+.container-sm,
+.w-sm {
+  --w-max: var(--w-sm);
+}
+
+.container-md,
+.w-md {
+  --w-max: var(--w-md);
+}
+
+.container-lg,
+.w-lg {
+  --w-max: var(--w-lg);
+}
+
+.container-xl,
+.w-xl {
+  --w-max: var(--w-xl);
+}
+
+.w-100\% {
+  width: 100%;
+}
+
+.w-max-100vw {
+  max-width: 100vw;
+}
+
+.h-100\% {
+  height: 100%;
+}
+
+.h-100dvh {
+  height: min(100%, 100dvh);
+}
+
+.h-max-100dvh {
+  max-height: 100dvh;
+}
+
+.box {
+  inset: 0;
+}
+
+.aspect-ratio-16x9 {
+  aspect-ratio: 16 / 9;
+}
+
+.aspect-ratio-21x9 {
+  aspect-ratio: 21 / 9;
+}
+
+.aspect-ratio-1x1 {
+  aspect-ratio: 1 / 1;
+}
+
+.aspect-ratio-4x3 {
+  aspect-ratio: 4 / 3;
+}

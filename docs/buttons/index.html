@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Buttons · Baselayer 3 CSS</title>
+
+  <link rel="stylesheet" href="/baselayer-3/css/min/baselayer.min.css?v=1.0.0">
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    [aria-current=page] {
+      
+      background: oklch(var(--l900) var(--c02) var(--coolgray));
+    }
+    .check-box {
+      width: 1rem;
+      height: 1rem;
+    }
+    .font-base .label-base .check-box::before { content: '✓'; }
+    .font-prose .label-prose .check-box::before { content: '✓'; }
+    .font-normal .label-normal .check-box::before { content: '✓'; }
+    .font-longread .label-longread .check-box::before { content: '✓'; }
+    .theme-light .label-light .check-box::before { content: '✓'; }
+    .theme-dark .label-dark .check-box::before { content: '✓'; }
+
+    @media (min-width: 960px) {
+      #site-title { 
+        max-width: 145px;
+        margin-inline: auto;
+        padding-top: var(--sp-2);
+        justify-content: center;
+      }
+    }
+    .font-longread article { 
+      font-size: var(--fs-long-read);
+    }
+
+    .font-prose article { font-family: var(--t-prose); }
+
+    .font-longread .btn-icon {
+      width: calc(var(--si) + 2px);
+      height: calc(var(--si) + 2px);
+    }
+    h2, h3, h4 {
+      scroll-margin-top: var(--sp-2);
+    }
+    .content-grid header + h2 {
+      margin-top: 0;
+    }
+
+    pre code {
+      max-height: 80vh;
+      overflow-y: auto
+    }
+
+    .resize-x {
+      margin-inline: -5px;
+      padding: 5px;
+      resize: horizontal;
+      overflow-x: auto;
+      background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='silver' stroke-width='2' stroke-dasharray='8%2c 8' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
+    }
+  </style>
+
+  <script>
+  const matchMediaDark = window.matchMedia('(prefers-color-scheme: dark)');
+const htmlClassList = document.querySelector('html').classList;
+
+function fontProse() {
+  sessionStorage.setItem('baselayerFont', 'prose');
+  htmlClassList.remove('font-base');
+  htmlClassList.add('font-prose');
+}
+
+function fontBase() {
+  sessionStorage.setItem('baselayerFont', 'base');
+  htmlClassList.remove('font-prose');
+  htmlClassList.add('font-base');
+}
+
+function fsLongRead() {
+  sessionStorage.setItem('baselayerFS', 'longread');
+  htmlClassList.remove('font-normal');
+  htmlClassList.add('font-longread');
+}
+
+function fsNormal() {
+  sessionStorage.setItem('baselayerFS', 'normal');
+  htmlClassList.remove('font-longread');
+  htmlClassList.add('font-normal');
+}
+
+function themeDark() {
+  sessionStorage.setItem("baselayerTheme", "dark");
+  htmlClassList.remove('theme-light');
+  htmlClassList.add('theme-dark');
+}
+
+function themeLight() {
+  sessionStorage.setItem("baselayerTheme", "light");
+  htmlClassList.remove('theme-dark');
+  htmlClassList.add('theme-light');
+}
+
+// Toggles
+
+function toggleFont() {
+  if ( sessionStorage.baselayerFont === 'prose' ) {
+    fontBase();
+  } else {
+    fontProse();
+  }
+};
+
+function toggleFS() {
+  if ( sessionStorage.baselayerFS === 'normal' ) {
+    fsLongRead();
+  } else {
+    fsNormal();
+  }
+};
+
+function toggleTheme() {
+  if ( sessionStorage.baselayerTheme === 'dark' ) {
+    themeLight();
+  } else {
+    themeDark();
+  }
+};
+
+// init
+
+function baselayerInit() {
+  if (sessionStorage.baselayerTheme === 'dark' || (!('baselayerTheme' in sessionStorage) && matchMediaDark.matches)) {
+    themeDark();
+  } else {
+    themeLight();
+  }
+  if ( sessionStorage.baselayerFont === 'prose' ) {
+    fontProse();
+  } else {
+    fontBase();
+  }
+  if ( sessionStorage.baselayerFS === 'longread' ) {
+    fsLongRead();
+  } else {
+    fsNormal();
+  }
+};
+
+baselayerInit();
+    /**
+  * Site Navigation Toggle (Phones)
+  */
+
+window.addEventListener("DOMContentLoaded", () => {
+  let navButton = document.querySelector('#site-nav-toggle');
+  let menu = document.querySelector('#site-nav-menu');
+  let windowTest = function() {
+    if (window.matchMedia('(max-width: 959px)').matches) {
+      navButton.setAttribute('aria-expanded', 'false');
+      menu.hidden = true;
+    } else {
+      navButton.setAttribute('aria-expanded', 'true');
+      menu.hidden = false;
+    }
+  }
+
+  windowTest();
+
+  window.addEventListener('resize', function () {
+    windowTest();
+  });
+
+  navButton.addEventListener('click', function() {
+    let expanded = this.getAttribute('aria-expanded') === 'true' || false;
+    this.setAttribute('aria-expanded', !expanded);
+    menu.hidden = !menu.hidden;
+  });
+});
+
+  </script>
+
+</head>
+<body class="">
+
+  <!-- Current page: /baselayer-3/buttons/ -->
+
+  <a href="#main-content" tabindex="1" class="inline-block m-1 visually-hidden">Skip to main content</a>
+
+  <div class="h-100-dvh md:flex">
+    <div id="site-nav" class="bg-coolgray bg-800">
+  <div class="sticky top h-max-100dvh overflow-y">
+    <div class="p-cell t-center">
+      <a id="site-title" href="/baselayer-3/" class="h3 m-0 py-1 t-normal flex flex-center flex-middle flex-wrap gap-1 t-gray t-100 hover:t-200 t-noline">
+        <svg height="48" width="48" viewBox="0 0 111 111" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-miterlimit:1.5">
+          <g transform="translate(-294.592 -94.592)">
+            <circle cx="350" cy="150" r="50" style="fill:none;stroke:currentColor;stroke-width:4px"/>
+            <path d="M294.167 180H320v-65.833" style="fill:none;stroke:currentColor;stroke-width:4px" transform="translate(10 -10)"/>
+            <path d="M405.833 180H380v-65.833" style="fill:none;stroke:currentColor;stroke-width:4px" transform="translate(-10 -10)"/>
+            <circle cx="350" cy="150" r="30" style="fill:none;stroke:currentColor;stroke-width:6px" transform="matrix(.66667 0 0 .66667 116.667 50)"/>
+            <path d="M310 180h80" style="fill:none;stroke:currentColor;stroke-width:4px"/>
+            </g>
+          </svg>
+        <span class="t-nowrap">Baselayer 3 CSS</span>
+      </a>
+      <p class="t-coolgray t-400">Version: 1.0.0 • <a class="t-gray t-100 hover:t-200 t-noline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3">GitHub</a></p>
+    </div>
+
+    <nav id="site-nav" role="menu">
+      <button type="button" id="site-nav-toggle" aria-expanded="false" aria-label="Menu" aria-controls="site-nav-menu" class="absolute top right m-2 md:hidden">
+        Menu
+      </button>
+
+      <div id="site-nav-menu" class="mx-auto t-center t-white" style="width: var(--w-xs);">
+        <div class="my-2 p-cell flex flex-column gap-1">
+          <a class="block p-cell t-coolgray t-100 hover:t-200"  href="/baselayer-3/">Introduction</a>
+          <a class="block p-cell t-coolgray t-100 hover:t-200"  href="/baselayer-3/typography/">Typography</a>
+          <a class="block p-cell t-coolgray t-100 hover:t-200"  href="/baselayer-3/layout/">Layout</a>
+          <a class="block p-cell t-coolgray t-100 hover:t-200"  href="/baselayer-3/decoration/">Decoration</a>
+          <a class="block p-cell t-coolgray t-100 hover:t-200"  href="/baselayer-3/colors/">Colors</a>
+          <a class="block p-cell t-coolgray t-100 hover:t-200"  href="/baselayer-3/forms/">Forms</a>
+          <a class="block p-cell t-coolgray t-100 hover:t-200"  aria-current="page" href="/baselayer-3/buttons/">Buttons</a>
+          <a class="block p-cell t-coolgray t-100 hover:t-200" href="/baselayer-3/examples/">Examples</a>
+        </div>
+
+        <div class="mb-2 p-cell">
+          <button class="w-100% mb-1 p-1 flex flex-column gap-1 bg-coolgray bg-600 hover:bg-700" onclick="toggleFont()">
+            <div class="label-base w-100% flex flex-middle gap-1">
+              <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
+              <div class="grow t-left">Base font</div>
+            </div>
+            <div class="label-prose w-100% flex flex-middle gap-1">
+              <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
+              <div class="grow t-left">Prose font</div>
+            </div>
+          </button>
+
+          <button class="w-100% mb-1 p-1 flex flex-column gap-1 bg-coolgray bg-600 hover:bg-700" onclick="toggleFS()">
+            <div class="label-normal w-100% flex flex-middle gap-1">
+              <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
+              <div class="grow t-left">Normal font-size</div>
+            </div>
+            <div class="label-longread w-100% flex flex-middle gap-1">
+              <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
+              <div class="grow t-left">Long read font-size</div>
+            </div>
+          </button>
+
+          <button class="w-100% mb-1 p-1 flex flex-column gap-1 bg-coolgray bg-600 hover:bg-700" onclick="toggleTheme()">
+            <div class="label-light w-100% flex flex-middle gap-1">
+              <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
+              <div class="grow t-left">Light theme</div>
+            </div>
+            <div class="label-dark w-100% flex flex-middle gap-1">
+              <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
+              <div class="grow t-left">Dark theme</div>
+            </div>
+          </button>
+        </div>
+
+      </div>
+    </nav>
+  </div>
+</div>
+
+      <main id="main-content" class="grow flex">
+
+        <div id="toc" class="lg:hidden-below" style="order: 2;">
+          <div class="sticky top h-max-100dvh p-2 overflow-y" style="width: var(--w-xs);">
+            <p class="h4 t-semibold">Contents</p>
+            <nav class="toc" >
+        <ul><li><a href="#button-types-and-link-%E2%80%9Cbuttons%E2%80%9D">Button Types and Link “Buttons”</a></li><li><a href="#full-width-buttons">Full-width buttons</a></li><li><a href="#adding-colors">Adding Colors</a></li><li><a href="#buttons-with-icons">Buttons with Icons</a></li><li><a href="#pill-buttons">Pill Buttons</a></li><li><a href="#button-sizes">Button Sizes</a></li><li><a href="#stretch-buttons">Stretch Buttons</a></li></ul>
+      </nav>
+          </div>
+        </div>
+  
+        <div>
+          <article class="content-grid">
+            <header class="my-2 py-4 t-big t-center">
+              <h1 class="m0 lighter">Buttons</h1>
+            </header>
+          
+              <p>Baselayer form elements have simple background, hover/active and focus styling (no default border).</p>
+<h3 id="button-types-and-link-%E2%80%9Cbuttons%E2%80%9D" tabindex="-1">Button Types and Link “Buttons”</h3>
+<form class="mt-2 mb-3">
+  <button type="button" name="button">Button</button>
+  <input type="button" name="input" value="Input Button">
+  <input type="submit" name="submit" value="Submit Button">
+  <input type="reset" name="reset" value="Reset Button">
+  <a class="btn" href="">Link “button”</a>
+</form>
+<pre><code>&lt;button type=&quot;button&quot; name=&quot;button&quot;&gt;Button&lt;/button&gt;
+
+&lt;input type=&quot;button&quot; name=&quot;input&quot; value=&quot;Input Button&quot;&gt;
+
+&lt;input type=&quot;submit&quot; name=&quot;submit&quot; value=&quot;Submit Button&quot;&gt;
+
+&lt;input type=&quot;reset&quot; name=&quot;reset&quot; value=&quot;Reset Button&quot;&gt;
+
+&lt;a class=&quot;btn&quot; href=&quot;&quot;&gt;Link “button”&lt;/a&gt;
+</code></pre>
+<p><strong>Notes:</strong></p>
+<ol>
+<li>Form inputs, textareas, buttons, and the <code>btn</code> class, have <code>font-size: inherit</code>. This means their font sizes can be modified by any font-size class in Baselayer.</li>
+<li>The font-family of form elements, buttons, <code>btn</code> is controlled by <code>var(--base)</code> (default is sans-serif).</li>
+<li>The <code>btn</code> class doesn’t include the input focus ring (that is set only on form inputs, textareas, and the <code>&lt;button&gt;</code> tag). But if the <code>btn</code> utility class is used on an <code>&lt;a href=&quot;&quot;&gt;</code> link tag, then will get the link focus ring insead (this is only visible when keyboard-tabbing or using assistive tech).</li>
+</ol>
+<h2 id="full-width-buttons" tabindex="-1">Full-width buttons</h2>
+<p>In Baselayer, buttons are pre-styled with <code>display: inline-flex</code> and centering and middling flexbox alignment. So, if you want a button to stretch full-width, you can add <code>class=&quot;w100%&quot;</code> or you can override the inline-flex by adding <code>class=&quot;flex&quot;</code>.</p>
+<div aria-label="Note" class="popout mb-2 bl-3 b-orange b-300 p-2 t-black bg-orange bg-100">
+  Do not use <code>class="block"</code> on a button (or <code>.btn</code>) because that will override the inline flexbox.
+</div>
+<p><button class="w-100% my-2" type="button" name="button">Button</button></p>
+<pre><code>&lt;button class=&quot;w-100%&quot; type=&quot;button&quot; name=&quot;button&quot;&gt;
+  Button
+&lt;/button&gt;
+</code></pre>
+<p>Also, since buttons already have <code>display: inlne-flex</code>, this means that adding the <code>flex-space-between</code> class to the button will also stretch the button <em>if you have more than one item</em> inside the button, such as the descriptive text <em>plus</em> an icon.</p>
+<p>For example, here’s a full-width button with a down-caret icon and spacing controlled by flexbox:</p>
+<button class="mt-2 mb-3 flex-space-between" type="button" name="button">
+  Button
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"></rect><polyline points="208 96 128 176 48 96" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"></polyline></svg>
+</button>
+<pre><code>&lt;button class=&quot;flex-space-between&quot; type=&quot;button&quot; name=&quot;button&quot;&gt;
+  Button
+  &lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;16&quot; height=&quot;16&quot; fill=&quot;currentColor&quot; viewBox=&quot;0 0 256 256&quot;&gt;&lt;rect width=&quot;256&quot; height=&quot;256&quot; fill=&quot;none&quot;&gt;&lt;/rect&gt;&lt;polyline points=&quot;208 96 128 176 48 96&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; stroke-width=&quot;24&quot;&gt;&lt;/polyline&gt;&lt;/svg&gt;
+&lt;/button&gt;
+</code></pre>
+<p>Down-caret SVG icon from <a href="https://phosphoricons.com/">Phosphor Icons</a>, with color set by <code>currentColor</code>, and width and height 16px — same as font size (1rem).</p>
+<p>Another way to control the width of a button is <em>from outside of it</em> — by wrapping the button in a <code>grid</code> so that the button adopts the dimensions of a grid item.</p>
+<h2 id="adding-colors" tabindex="-1">Adding Colors</h2>
+<p>Border, background, and text color utilities can be used.</p>
+<form class="mt-2 mb-3">
+  <label for="example-input-text">Label</label>
+  <input class="b-2 b-red" type="text" id="example-input-text" placeholder="Enter some text here">
+  <input class="b-2 b-green" type="text" id="example-input-text" placeholder="Enter some text here">
+</form>
+<pre><code>&lt;label for=&quot;example-input-text&quot;&gt;Label&lt;/label&gt;
+
+&lt;input class=&quot;b-2 b-red&quot; type=&quot;text&quot; id=&quot;example-input-text&quot; placeholder=&quot;Enter some text here&quot;&gt;
+
+&lt;input class=&quot;b-2 b-green&quot; type=&quot;text&quot; id=&quot;example-input-text&quot; placeholder=&quot;Enter some text here&quot;&gt;
+</code></pre>
+<p>When colorizing buttons, remember to set their <code>hover:</code> hover state shades too.</p>
+<form>
+  <p>
+    <button type="button" name="button">Button</button>
+    <button class="b-blue b-600 hover:b-700 bg-blue bg-600 hover:bg-700" type="button" name="button">Button</button>
+    <button class="b-orange b-300 hover:b-400 t-black hover:t-black bg-orange bg-300 hover:bg-400" type="button" name="button">Button</button>
+    <a class="btn b-1 b-green bg-transparent bg-600 t-green t-600 hover:b-700 hover:t-white hover:bg-green hover:bg-700" href="#/">Link “button”</a>
+  </p>
+</form>
+<pre><code>&lt;!-- Default button --&gt;
+&lt;button type=&quot;button&quot; name=&quot;button&quot;&gt;Button&lt;/button&gt;
+
+&lt;!-- Blue button --&gt;
+&lt;button class=&quot;b-blue b-600 hover:b-700 bg-blue bg-600 hover:bg-700&quot; type=&quot;button&quot; name=&quot;button&quot;&gt;Button&lt;/button&gt;
+
+&lt;!-- orange button --&gt;
+&lt;button class=&quot;b-orange b-300 hover:b-400 t-black hover:t-black bg-orange bg-300 hover:bg-400&quot; type=&quot;button&quot; name=&quot;button&quot;&gt;Button&lt;/button&gt;
+
+&lt;!-- Green outline (a.k.a. ghost) link “button” --&gt;
+&lt;a class=&quot;btn b-1 b-green bg-transparent bg-600 t-green t-600 hover:b-700 hover:t-white hover:bg-green hover:bg-700&quot; href=&quot;#/&quot;&gt;Link “button”&lt;/a&gt;
+</code></pre>
+<h2 id="buttons-with-icons" tabindex="-1">Buttons with Icons</h2>
+<p>In Baselayer, buttons are pre-styled with <code>display: inline-flex</code> and centering and middling flexbox alignment. So, all you need to do is add an icon and it will all line up.</p>
+<p>
+  <button type="button" name="button" class="gap-1">
+    Search
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"></rect><circle cx="116" cy="116" r="84" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"></circle><line x1="175.4" y1="175.4" x2="224" y2="224" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"></line></svg>
+  </button>
+</p>
+<pre><code class="language-html">&lt;button type=&quot;button&quot; name=&quot;button&quot; class=&quot;gap-1&quot;&gt;
+  Search
+  &lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;16&quot; height=&quot;16&quot; fill=&quot;currentColor&quot;&gt;
+    &lt;!-- SVG icon --&gt;
+  &lt;/svg&gt;
+&lt;/button&gt;
+</code></pre>
+<p>Baselayer CSS buttons works well with SVG icons, e.g. <a href="https://phosphoricons.com/">Phosphor icons</a>. Set the width and height of the icon to be e.g. 16px, 20px, or 24px. Set the fill colors to be <code>currentColor</code> so that it can be controlled by the CSS.</p>
+<p>If you are combining text with an icon, you may sometimes need to add some space using <code>gap-1</code> within your button (see <a href="/baselayer-3/layout/#flex-layouts">flex layouts</a>). That’s the easiest way. Alternatively, you could put <code>&amp;nbsp;</code> between your button text and icon.</p>
+<p>For icon-only buttons, add the CSS class  <code>btn-icon</code> and have only a single character or icon in the button — this will make the button to be a square.</p>
+<form>
+  <p class="flex flex-middle">
+    <button type="button" name="button">Button</button>&nbsp;
+    <button class="btn-icon" type="button" name="button">1</button>&nbsp;
+    <button class="btn-icon" type="button" name="button">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"></rect><line x1="40" y1="128" x2="216" y2="128" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"></line><polyline points="144 56 216 128 144 200" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"></polyline></svg>
+    </button>
+  </p>
+</form>
+<h2 id="pill-buttons" tabindex="-1">Pill Buttons</h2>
+<p>The <code>r-pill</code> class on a square icon button will make it circular. (See <a href="/baselayer-3/decoration/#rounded-corners">decoration: rounded corners</a>.)</p>
+<form>
+  <p class="flex flex-middle">
+    <button class="r-pill" type="button" name="button">Button</button>&nbsp;
+    <button class="btn-icon r-pill" type="button" name="button">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"></rect><line x1="40" y1="128" x2="216" y2="128" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"></line><polyline points="144 56 216 128 144 200" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"></polyline></svg>
+    </button>
+  </p>
+</form>
+<pre><code>&lt;button class=&quot;r-pill&quot; type=&quot;button&quot; name=&quot;button&quot;&gt;Button&lt;/button&gt;
+
+&lt;button class=&quot;btn-icon r-pill&quot; type=&quot;button&quot; name=&quot;button&quot;&gt;I&lt;/button&gt;
+</code></pre>
+<h2 id="button-sizes" tabindex="-1">Button Sizes</h2>
+<p>The typographic size modifier classes <code>t-small</code> and <code>t-big</code> work on buttons.</p>
+<form class="mt-2 mb-3 flex flex-middle gap-1">
+  <button type="button" name="button" class="t-small">Button</button>
+  <button type="button" name="button">Button</button>
+  <button type="button" name="button" class="t-big">Button</button>
+</form>
+<pre><code>&lt;form class=&quot;flex flex-middle gap-1&quot;&gt;
+  &lt;button type=&quot;button&quot; name=&quot;button&quot; class=&quot;t-small&quot;&gt;Button&lt;/button&gt;
+  &lt;button type=&quot;button&quot; name=&quot;button&quot;&gt;Button&lt;/button&gt;
+  &lt;button type=&quot;button&quot; name=&quot;button&quot; class=&quot;t-big&quot;&gt;Button&lt;/button&gt;
+&lt;/form&gt;
+</code></pre>
+<p><strong>Note:</strong> button x-axis padding is <code>1em</code>, so that it responds to the text size of the button.</p>
+<h2 id="stretch-buttons" tabindex="-1">Stretch Buttons</h2>
+<p>You can increase the x-axis padding (using the responsive <code>px-2</code> or <code>px-3</code>) to make a button more impressive:</p>
+<form class="mt-2 mb-3 flex flex-middle gap-1">
+  <button type="button" name="button">Button</button>
+  <button class="px-2" type="button" name="button">Button</button>
+  <button class="px-3" type="button" name="button">Button</button>
+</form>
+<pre><code>&lt;button type=&quot;button&quot; name=&quot;button&quot;&gt;Button&lt;/button&gt;
+
+&lt;button class=&quot;px-2&quot; type=&quot;button&quot; name=&quot;button&quot;&gt;Button&lt;/button&gt;
+
+&lt;button class=&quot;px-3&quot; type=&quot;button&quot; name=&quot;button&quot;&gt;Button&lt;/button&gt;
+</code></pre>
+
+          </article>
+          <div class="content-grid">
+            <nav class="mt-3 mb-2 b-1 r-pill p-cell popout">
+              <ul class="m-0 unlist p-0 flex">
+                
+                <li class="grow my-1">&larr; <a href="/baselayer-3/forms/"> Forms</a></li>
+                
+                  
+              </ul>
+            </nav>
+            <footer>
+              <div class="p-2 flex flex-center t-center">
+                <a href="/baselayer-3/" class="h3 m-0 t-normal flex flex-column flex-center gap-1 t-noline">
+                  <svg class="mx-auto" height="48" width="48" viewBox="0 0 111 111" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-miterlimit:1.5">
+                    <g transform="translate(-294.592 -94.592)">
+                      <circle cx="350" cy="150" r="50" style="fill:none;stroke:currentColor;stroke-width:4px"/>
+                      <path d="M294.167 180H320v-65.833" style="fill:none;stroke:currentColor;stroke-width:4px" transform="translate(10 -10)"/>
+                      <path d="M405.833 180H380v-65.833" style="fill:none;stroke:currentColor;stroke-width:4px" transform="translate(-10 -10)"/>
+                      <circle cx="350" cy="150" r="30" style="fill:none;stroke:currentColor;stroke-width:6px" transform="matrix(.66667 0 0 .66667 116.667 50)"/>
+                      <path d="M310 180h80" style="fill:none;stroke:currentColor;stroke-width:4px"/>
+                      </g>
+                    </svg>
+                  <span class="t-nowrap">Baselayer 3 CSS</span>
+                </a>
+              </div>
+
+              <p class="p-cell flex flex-center flex-wrap gap-3 t-center">
+                <span>Version: 1.0.0</span>
+                <a class="t-noline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3">GitHub Repository</a>
+                <a class="t-noline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3/blob/main/LICENSE">MIT license</a>
+                <span>Developer: <a class="t-noline hover:t-line" href="https://github.com/SimonPadbury">Simon Padbury</a></span>
+              </p>
+            </footer>
+          </div>
+        </div>
+      </div>
+    </main>
+      
+    </div>
+  </div>
+
+</body>
+</html>

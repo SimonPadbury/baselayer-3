@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Layout · Baselayer 3 CSS</title>
+
+  <link rel="stylesheet" href="/baselayer-3/css/min/baselayer.min.css?v=1.0.0">
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    [aria-current=page] {
+      
+      background: oklch(var(--l900) var(--c02) var(--coolgray));
+    }
+    .check-box {
+      width: 1rem;
+      height: 1rem;
+    }
+    .font-base .label-base .check-box::before { content: '✓'; }
+    .font-prose .label-prose .check-box::before { content: '✓'; }
+    .font-normal .label-normal .check-box::before { content: '✓'; }
+    .font-longread .label-longread .check-box::before { content: '✓'; }
+    .theme-light .label-light .check-box::before { content: '✓'; }
+    .theme-dark .label-dark .check-box::before { content: '✓'; }
+
+    @media (min-width: 960px) {
+      #site-title { 
+        max-width: 145px;
+        margin-inline: auto;
+        padding-top: var(--sp-2);
+        justify-content: center;
+      }
+    }
+    .font-longread article { 
+      font-size: var(--fs-long-read);
+    }
+
+    .font-prose article { font-family: var(--t-prose); }
+
+    .font-longread .btn-icon {
+      width: calc(var(--si) + 2px);
+      height: calc(var(--si) + 2px);
+    }
+    h2, h3, h4 {
+      scroll-margin-top: var(--sp-2);
+    }
+    .content-grid header + h2 {
+      margin-top: 0;
+    }
+
+    pre code {
+      max-height: 80vh;
+      overflow-y: auto
+    }
+
+    .resize-x {
+      margin-inline: -5px;
+      padding: 5px;
+      resize: horizontal;
+      overflow-x: auto;
+      background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='silver' stroke-width='2' stroke-dasharray='8%2c 8' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
+    }
+  </style>
+
+  <script>
+  const matchMediaDark = window.matchMedia('(prefers-color-scheme: dark)');
+const htmlClassList = document.querySelector('html').classList;
+
+function fontProse() {
+  sessionStorage.setItem('baselayerFont', 'prose');
+  htmlClassList.remove('font-base');
+  htmlClassList.add('font-prose');
+}
+
+function fontBase() {
+  sessionStorage.setItem('baselayerFont', 'base');
+  htmlClassList.remove('font-prose');
+  htmlClassList.add('font-base');
+}
+
+function fsLongRead() {
+  sessionStorage.setItem('baselayerFS', 'longread');
+  htmlClassList.remove('font-normal');
+  htmlClassList.add('font-longread');
+}
+
+function fsNormal() {
+  sessionStorage.setItem('baselayerFS', 'normal');
+  htmlClassList.remove('font-longread');
+  htmlClassList.add('font-normal');
+}
+
+function themeDark() {
+  sessionStorage.setItem("baselayerTheme", "dark");
+  htmlClassList.remove('theme-light');
+  htmlClassList.add('theme-dark');
+}
+
+function themeLight() {
+  sessionStorage.setItem("baselayerTheme", "light");
+  htmlClassList.remove('theme-dark');
+  htmlClassList.add('theme-light');
+}
+
+// Toggles
+
+function toggleFont() {
+  if ( sessionStorage.baselayerFont === 'prose' ) {
+    fontBase();
+  } else {
+    fontProse();
+  }
+};
+
+function toggleFS() {
+  if ( sessionStorage.baselayerFS === 'normal' ) {
+    fsLongRead();
+  } else {
+    fsNormal();
+  }
+};
+
+function toggleTheme() {
+  if ( sessionStorage.baselayerTheme === 'dark' ) {
+    themeLight();
+  } else {
+    themeDark();
+  }
+};
+
+// init
+
+function baselayerInit() {
+  if (sessionStorage.baselayerTheme === 'dark' || (!('baselayerTheme' in sessionStorage) && matchMediaDark.matches)) {
+    themeDark();
+  } else {
+    themeLight();
+  }
+  if ( sessionStorage.baselayerFont === 'prose' ) {
+    fontProse();
+  } else {
+    fontBase();
+  }
+  if ( sessionStorage.baselayerFS === 'longread' ) {
+    fsLongRead();
+  } else {
+    fsNormal();
+  }
+};
+
+baselayerInit();
+    /**
+  * Site Navigation Toggle (Phones)
+  */
+
+window.addEventListener("DOMContentLoaded", () => {
+  let navButton = document.querySelector('#site-nav-toggle');
+  let menu = document.querySelector('#site-nav-menu');
+  let windowTest = function() {
+    if (window.matchMedia('(max-width: 959px)').matches) {
+      navButton.setAttribute('aria-expanded', 'false');
+      menu.hidden = true;
+    } else {
+      navButton.setAttribute('aria-expanded', 'true');
+      menu.hidden = false;
+    }
+  }
+
+  windowTest();
+
+  window.addEventListener('resize', function () {
+    windowTest();
+  });
+
+  navButton.addEventListener('click', function() {
+    let expanded = this.getAttribute('aria-expanded') === 'true' || false;
+    this.setAttribute('aria-expanded', !expanded);
+    menu.hidden = !menu.hidden;
+  });
+});
+
+  </script>
+
+</head>
+<body class="">
+
+  <!-- Current page: /baselayer-3/layout/ -->
+
+  <a href="#main-content" tabindex="1" class="inline-block m-1 visually-hidden">Skip to main content</a>
+
+  <div class="h-100-dvh md:flex">
+    <div id="site-nav" class="bg-coolgray bg-800">
+  <div class="sticky top h-max-100dvh overflow-y">
+    <div class="p-cell t-center">
+      <a id="site-title" href="/baselayer-3/" class="h3 m-0 py-1 t-normal flex flex-center flex-middle flex-wrap gap-1 t-gray t-100 hover:t-200 t-noline">
+        <svg height="48" width="48" viewBox="0 0 111 111" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-miterlimit:1.5">
+          <g transform="translate(-294.592 -94.592)">
+            <circle cx="350" cy="150" r="50" style="fill:none;stroke:currentColor;stroke-width:4px"/>
+            <path d="M294.167 180H320v-65.833" style="fill:none;stroke:currentColor;stroke-width:4px" transform="translate(10 -10)"/>
+            <path d="M405.833 180H380v-65.833" style="fill:none;stroke:currentColor;stroke-width:4px" transform="translate(-10 -10)"/>
+            <circle cx="350" cy="150" r="30" style="fill:none;stroke:currentColor;stroke-width:6px" transform="matrix(.66667 0 0 .66667 116.667 50)"/>
+            <path d="M310 180h80" style="fill:none;stroke:currentColor;stroke-width:4px"/>
+            </g>
+          </svg>
+        <span class="t-nowrap">Baselayer 3 CSS</span>
+      </a>
+      <p class="t-coolgray t-400">Version: 1.0.0 • <a class="t-gray t-100 hover:t-200 t-noline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3">GitHub</a></p>
+    </div>
+
+    <nav id="site-nav" role="menu">
+      <button type="button" id="site-nav-toggle" aria-expanded="false" aria-label="Menu" aria-controls="site-nav-menu" class="absolute top right m-2 md:hidden">
+        Menu
+      </button>
+
+      <div id="site-nav-menu" class="mx-auto t-center t-white" style="width: var(--w-xs);">
+        <div class="my-2 p-cell flex flex-column gap-1">
+          <a class="block p-cell t-coolgray t-100 hover:t-200"  href="/baselayer-3/">Introduction</a>
+          <a class="block p-cell t-coolgray t-100 hover:t-200"  href="/baselayer-3/typography/">Typography</a>
+          <a class="block p-cell t-coolgray t-100 hover:t-200"  aria-current="page" href="/baselayer-3/layout/">Layout</a>
+          <a class="block p-cell t-coolgray t-100 hover:t-200"  href="/baselayer-3/decoration/">Decoration</a>
+          <a class="block p-cell t-coolgray t-100 hover:t-200"  href="/baselayer-3/colors/">Colors</a>
+          <a class="block p-cell t-coolgray t-100 hover:t-200"  href="/baselayer-3/forms/">Forms</a>
+          <a class="block p-cell t-coolgray t-100 hover:t-200"  href="/baselayer-3/buttons/">Buttons</a>
+          <a class="block p-cell t-coolgray t-100 hover:t-200" href="/baselayer-3/examples/">Examples</a>
+        </div>
+
+        <div class="mb-2 p-cell">
+          <button class="w-100% mb-1 p-1 flex flex-column gap-1 bg-coolgray bg-600 hover:bg-700" onclick="toggleFont()">
+            <div class="label-base w-100% flex flex-middle gap-1">
+              <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
+              <div class="grow t-left">Base font</div>
+            </div>
+            <div class="label-prose w-100% flex flex-middle gap-1">
+              <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
+              <div class="grow t-left">Prose font</div>
+            </div>
+          </button>
+
+          <button class="w-100% mb-1 p-1 flex flex-column gap-1 bg-coolgray bg-600 hover:bg-700" onclick="toggleFS()">
+            <div class="label-normal w-100% flex flex-middle gap-1">
+              <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
+              <div class="grow t-left">Normal font-size</div>
+            </div>
+            <div class="label-longread w-100% flex flex-middle gap-1">
+              <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
+              <div class="grow t-left">Long read font-size</div>
+            </div>
+          </button>
+
+          <button class="w-100% mb-1 p-1 flex flex-column gap-1 bg-coolgray bg-600 hover:bg-700" onclick="toggleTheme()">
+            <div class="label-light w-100% flex flex-middle gap-1">
+              <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
+              <div class="grow t-left">Light theme</div>
+            </div>
+            <div class="label-dark w-100% flex flex-middle gap-1">
+              <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
+              <div class="grow t-left">Dark theme</div>
+            </div>
+          </button>
+        </div>
+
+      </div>
+    </nav>
+  </div>
+</div>
+
+      <main id="main-content" class="grow flex">
+
+        <div id="toc" class="lg:hidden-below" style="order: 2;">
+          <div class="sticky top h-max-100dvh p-2 overflow-y" style="width: var(--w-xs);">
+            <p class="h4 t-semibold">Contents</p>
+            <nav class="toc" >
+        <ul><li><a href="#blocks">Blocks</a></li><li><a href="#widths">Widths</a></li><li><a href="#containers">Containers</a></li><li><a href="#heights">Heights</a></li><li><a href="#box">Box</a></li><li><a href="#positions">Positions</a></li><li><a href="#flex-layouts">Flex layouts</a><ul><li><a href="#flex-modifiers">Flex modifiers</a></li><li><a href="#flex-item-grow">Flex-item grow</a></li></ul></li><li><a href="#grid-layouts">Grid layouts</a><ul><li><a href="#grid-gaps">Grid gaps</a></li><li><a href="#grid-item-control">Grid item control</a></li></ul></li><li><a href="#content-grid">Content-grid</a><ul><li><a href="#popout-panels">Popout panels</a></li><li><a href="#full-bleed-panels">Full-bleed panels</a></li></ul></li><li><a href="#aspect-ratios">Aspect ratios</a></li><li><a href="#overflows">Overflows</a></li><li><a href="#invisibility">Invisibility</a></li></ul>
+      </nav>
+          </div>
+        </div>
+  
+        <div>
+          <article class="content-grid">
+            <header class="my-2 py-4 t-big t-center">
+              <h1 class="m0 lighter">Layout</h1>
+            </header>
+          
+              <h2 id="blocks" tabindex="-1">Blocks</h2>
+<ul>
+<li><code>block</code> — make an inline element behave as a block element</li>
+<li><code>inline-block</code> — to enable block-like settings on an inline element (width, height, margins, paddings)</li>
+<li><code>inline-flex</code>, <code>flex</code> — see <a href="#flex-layouts">flex layouts</a></li>
+<li><code>grid</code> — see <a href="#grid-layouts">grid layouts</a></li>
+</ul>
+<h2 id="widths" tabindex="-1">Widths</h2>
+<ul>
+<li><code>container-xs</code> / <code>w-xs</code> — (max) width 630px or 100%</li>
+<li><code>container-sm</code> / <code>w-sm</code> — (max) width 640px or 100%</li>
+<li><code>container-md</code> / <code>w-md</code> — (max) width 960px or 100%</li>
+<li><code>container-lg</code> / <code>w-lg</code> — (max) width 1280px or 100%</li>
+<li><code>container-xl</code> / <code>w-xl</code> — (max) width 1600px or 100%</li>
+<li><code>w-100%</code> — width 100%</li>
+<li><code>w-max-100vw</code> — max-width 100vw</li>
+</ul>
+<p>Both the <code>xs</code>, <code>sm</code>, <code>md</code>, <code>lg</code>, <code>xl</code> container and width utilities have their widths set using:</p>
+<pre><code class="language-css">width: min(100%, {variable});
+</code></pre>
+<p>This means they will responsively expand to width 100% within the space available, until they max out at their set width variable.</p>
+<p>The difference between these width utilities and container utilities is that containers have x-axis side padding and x-axis centering (see below).</p>
+<h2 id="containers" tabindex="-1">Containers</h2>
+<p>The centered layout <code>container</code> is set up as follows:</p>
+<p><code>variables.css</code></p>
+<pre><code class="language-css">:root {
+  --w-xl: 1600px;
+
+  --sp-2: clamp(1rem, 0.5rem + 1.25vw, 1.5rem);
+}
+</code></pre>
+<p><code>layout.css</code></p>
+<pre><code class="language-css">.container {
+  --w-max: var(--w-xl);
+  width: min(100% - (var(--sp-2) * 2), var(--w-max));
+  margin-inline: auto;
+}
+</code></pre>
+<p>For viewport widths below <code>--w-max</code> side spacing is provided by <code>--sp-2</code>. This adds a negative space (whitespace) right and left of the container, to prevent text being difficult to read when up against the sides of phone and tablet screens.</p>
+<p>Smaller containers have the same (max) width behavior as described for the <strong>width</strong> utilities above.</p>
+<h2 id="heights" tabindex="-1">Heights</h2>
+<ul>
+<li><code>h-100%</code> — height 100%, e.g. for making cards equal to the height of their wrapper</li>
+<li><code>h-100dvh</code> — height 100% <em>or</em> 100dvh, e.g. for making “full cover” panels</li>
+<li><code>h-max-100dvh</code> — max-height 100dvh, e.g. for tall sidebars (use <code>h-max-100dvh</code> with <code>overflow-y</code>)</li>
+</ul>
+<p>Baselayer uses <code>100dvh</code> (dynamic viewport height) that gives a different viewport height for some devices — i.e. it compensates for the scroll retracting interface toolbars on iOS Safari.</p>
+<h2 id="box" tabindex="-1">Box</h2>
+<ul>
+<li><code>box</code> — expands an inner element using <code>inset: 0</code> to fill the size of its wrapper (you must put <code>relative</code> on a <code>box</code> wrapper). Useful for setting up a panel (e.g. hero or card) background image with text overlay.</li>
+</ul>
+<h2 id="positions" tabindex="-1">Positions</h2>
+<ul>
+<li><code>relative</code></li>
+<li><code>absolute</code></li>
+<li><code>sticky</code></li>
+<li><code>top</code> — <code>top: 0</code></li>
+<li><code>right</code> — <code>right: 0</code></li>
+<li><code>bottom</code> — <code>bottom: 0</code></li>
+<li><code>left</code> — <code>left: 0</code></li>
+<li><code>z-1</code> — <code>z-index: 1</code></li>
+<li><code>z-2</code> — <code>z-index: 2</code></li>
+<li><code>z-3</code> — <code>z-index: 3</code></li>
+</ul>
+<p>For centering and middling, use <a href="#flex-layouts">flex</a>.</p>
+<p>Example:</p>
+<div class="relative mb-2 b-1 aspect-ratio-16x9">
+  <div class="absolute top w-100% center t-center"><code>top</code></div>
+  <div class="absolute right h-100% flex flex-middle"><code>right</code></div>
+  <div class="absolute bottom w-100% center t-center"><code>bottom</code></div>
+  <div class="absolute left h-100% flex flex-middle"><code>left</code></div>
+  <div class="absolute box flex flex-center flex-middle t-center"><code>centered<br>and middled</code></div>
+</div>
+<pre><code>&lt;div class=&quot;relative mb-2 b-1 aspect-ratio-16x9&quot;&gt;
+  &lt;div class=&quot;absolute top w-100% center t-center&quot;&gt;&lt;code&gt;top&lt;/code&gt;&lt;/div&gt;
+  &lt;div class=&quot;absolute right h-100% flex flex-middle&quot;&gt;&lt;code&gt;right&lt;/code&gt;&lt;/div&gt;
+  &lt;div class=&quot;absolute bottom w-100% center t-center&quot;&gt;&lt;code&gt;bottom&lt;/code&gt;&lt;/div&gt;
+  &lt;div class=&quot;absolute left h-100% flex flex-middle&quot;&gt;&lt;code&gt;left&lt;/code&gt;&lt;/div&gt;
+  &lt;div class=&quot;absolute box flex flex-center flex-middle t-center&quot;&gt;&lt;code&gt;centered&lt;br&gt;and middled&lt;/code&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<h2 id="flex-layouts" tabindex="-1">Flex layouts</h2>
+<p>Flexbox utilities for simple layout, menubars, pagination lists, cards, etc.</p>
+<ul>
+<li><code>inline-flex</code> — inline flexbox at all viewport widths</li>
+<li><code>flex</code> — flexbox at all viewport widths</li>
+<li><code>sm:flex</code> — flexbox at 640px and up</li>
+<li><code>md:flex</code> — flexbox at 960px and up</li>
+<li><code>lg:flex</code> — flexbox at 1280px and up</li>
+</ul>
+<h3 id="flex-modifiers" tabindex="-1">Flex modifiers</h3>
+<ul>
+<li><code>gap-*</code> — adds a <em>horizontal and vertical</em> gap (same as for <a href="#grid-layouts">grid layouts</a>):
+<ul>
+<li><code>gap-1</code> — <code>--sp-1</code></li>
+<li><code>gap-2</code> — <code>--sp-2</code></li>
+<li><code>gap-3</code> — <code>--sp-3</code></li>
+<li><code>gap-4</code> — <code>--sp-4</code></li>
+</ul>
+</li>
+<li>X-axis: <code>flex-start</code> / <code>flex-center</code> / <code>flex-end</code></li>
+<li>Y-axis: <code>flex-top</code> / <code>flex-middle</code> / <code>flex-bottom</code></li>
+<li><code>flex-wrap</code> — gives you <code>flex-wrap: wrap</code></li>
+<li><code>flex-column</code> — gives you <code>flex-direction: column</code></li>
+<li><code>flex-space-between</code> — gives you <code>justify-content: space-between</code></li>
+<li><code>flex-grow-equal</code> — makes grid item expand so that they occupy an equal fraction of the total width (or height, if used with <code>flex-column</code>)</li>
+<li><code>flex-grow-auto</code> — makes grid item expand so that they occupy an unequal fraction of the total width (or height, if used with <code>flex-column</code>): each expanding as required by their respective content.</li>
+</ul>
+<p><strong>Note:</strong> the gaps have the same spacing CSS variables as <a href="/baselayer-3/decoration/#spacing-(margins-and-paddings)">margins and paddings</a>.</p>
+<p>Example using <code>sm:flex</code> (breakpoint width 640px):</p>
+<nav class="my-2 sm:flex gap-1 flex-end">
+  <a class="mb-1 btn block" href="#/">Home</a>
+  <a class="mb-1 btn block" href="#/">Products</a>
+  <a class="mb-1 btn block" href="#/">About</a>
+  <a class="mb-1 btn block" href="#/">Blog</a>
+  <a class="mb-1 btn block" href="#/">Contact</a>
+</nav>
+<pre><code class="language-html">&lt;nav class=&quot;my-2 sm:flex gap-1 flex-end&quot;&gt;
+  &lt;a class=&quot;mb-1 btn block&quot; href=&quot;&quot;&gt;Home&lt;/a&gt;
+  &lt;a class=&quot;mb-1 btn block&quot; href=&quot;&quot;&gt;Products&lt;/a&gt;
+  &lt;a class=&quot;mb-1 btn block&quot; href=&quot;&quot;&gt;About&lt;/a&gt;
+  &lt;a class=&quot;mb-1 btn block&quot; href=&quot;&quot;&gt;Blog&lt;/a&gt;
+  &lt;a class=&quot;mb-1 btn block&quot; href=&quot;&quot;&gt;Contact&lt;/a&gt;
+&lt;/nav&gt;
+</code></pre>
+<p>In the example above, each button has a bottom margin, so that they have whitepsae gaps below the <code>sm:flex</code> breakpoint width.</p>
+<h3 id="flex-item-grow" tabindex="-1">Flex-item grow</h3>
+<ul>
+<li><code>grow</code> — gives you <code>flex-grow: 1</code></li>
+</ul>
+<div class="mt-2 mb-3 flex">
+<div class="b-1 p-cell">(no grow)</div>
+<div class="grow b-1 p-cell"><code>grow</code></div>
+</div>
+<pre><code class="language-html">&lt;div class=&quot;flex&quot;&gt;
+  &lt;div&gt;&lt;/div&gt;
+  &lt;div class=&quot;grow&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<h2 id="grid-layouts" tabindex="-1">Grid layouts</h2>
+<div aria-label="Note" class="popout mb-2 bl-3 b-orange b-300 p-2 t-black bg-orange bg-100">
+  The grid system has been reinvented again in Baselayer v.3. It is not backwards compatible to Baselayer 1 or 2.
+</div>
+<ul>
+<li><strong>Controlling tracks at <em>grid wrapper</em> level:</strong>
+<ul>
+<li>Grid: <code>grid</code> initializes the CSS grid. It adds <code>display: grid</code> but it doesn’t provide information about how many columns you want.</li>
+<li>Gap (optional) — adds vertical and horizontal whitespace (a.k.a. gutters) along internal grid tracks. See <a href="#grid-gaps">grid gaps</a></li>
+<li>Equal width grid cell control (optional): <code>equal-*-cols</code> etc. specifies how many columns your layout has (up to four), where each column width is equalized.</li>
+<li>Dense packing (optional): <code>grid-dense</code> can be used as a quick way to reorder grid items: packing so later items into earlier empty cells if there’s enough soace for them.</li>
+</ul>
+</li>
+<li><strong>Controlling positioning and spanning at <em>per-grid-item</em> level:</strong>
+<ul>
+<li>Positioning (optional): <code>col-*</code> and <code>row-*</code> etc. – for positioning each grid item over the grid cells.</li>
+<li>Spanning (optional): <code>col-span-*</code> and <code>row-span-*</code>etc. – spanning 2, 3, or 4 columns or rows.</li>
+</ul>
+</li>
+<li><strong>Grid layouts at different <em>media query breakpoint widths</em>:</strong>
+<ul>
+<li>The Baselayer 3 grid system has four tiers of media query breakpoint widths, for creating different grid layouts for different sized devices: all widths; <code>sm</code> (e.g. phones up); <code>md</code> (e.g. tablets up); and <code>lg</code> (laptops up).</li>
+</ul>
+</li>
+</ul>
+<p>While the wrapper <code>grid</code> (and gaps) classes take effect at all viewport widths, the lowest breakpoint that positioning and spanning takes effect is <code>sm</code> (640px). Below this, everything will be in a single column.</p>
+<p>The responsive <code>col-</code> and <code>row-</code> positioning classes are used to instruct the grid which grid cell you want your grid item to be placed on (up to 4 columns and/or 4 rows).</p>
+<p>The <code>col-span-</code> and <code>row-span-</code> spanning classes can be used to make grid items to span up to 4 columns and/or 4 rows.</p>
+<p>The responsive grid item classes can be <em>combined</em> on the same elements, so that you can set up to four different layouts on the same <code>grid</code>:</p>
+<ul>
+<li>Tier 1: Below 640px — for phones</li>
+<li>Tier 2: <code>sm</code> 640px and up — for large phones, and tablets in portrait orientation</li>
+<li>Tier 3: <code>md</code> 960px and up — for tablets in landscape orientation</li>
+<li>Tier 4: <code>lg</code> 1280px and up — for laptops up</li>
+</ul>
+<p>The <em>tier 1</em> grid system has no media query prefixes — it takes effect at all viewport widths. This is ideal for creating small icon galleries in sidebars or dropdown, or for making media objects (e.g. social messaging or comment cards).</p>
+<p>CSS grid positions grid items <em>automatically</em> on the available grid cells — so an item will be placed on the <em>next</em> available cell until required to begin again on the <em>next</em> (i.e. new) row. You can use this automatic positioning to your advantage, allowing CSS grid to presume where you want your next item to be. Or you can control positioning by using the responsive <code>col-</code> and <code>row-</code> classes (and sometimes <code>grid-dense</code> is all you need).</p>
+<p>Having 2, 3, or 4 <em>CSS grid</em> columns covers most use cases for the traditional 12 column grid system in webpage design. The Baselayer 3 grid can do all that and so much more.</p>
+<div class="my-3 grid equal-3-cols">
+  <div class="b-1 p-cell">1</div>
+  <div class="b-1 p-cell">2</div>
+  <div class="b-1 p-cell">3</div>
+</div>
+<pre><code class="language-html">&lt;div class=&quot;grid equal-3-cols&quot;&gt;
+  &lt;div&gt;&lt;/div&gt;
+  &lt;div&gt;&lt;/div&gt;
+  &lt;div&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<p>At this point, each <em>grid item</em> will automatically span one <em>grid cell</em>. If you have more grid items than set columns, the excess will wrap onto new row(s). This is all you need for setting up equal width items such as in image galleries, or sets of cards.</p>
+<p><code>grid sm:equal-2-cols md:equal-4-cols gap-2</code>:</p>
+<div class="mt-2 mb-3 grid sm:equal-2-cols md:equal-4-cols gap-2">
+  <div class="b-1 p-cell">1</div>
+  <div class="b-1 p-cell">2</div>
+  <div class="b-1 p-cell">3</div>
+  <div class="b-1 p-cell">4</div>
+  <div class="b-1 p-cell">5</div>
+  <div class="b-1 p-cell">6</div>
+  <div class="b-1 p-cell">7</div>
+  <div class="b-1 p-cell">8</div>
+</div>
+<h3 id="grid-gaps" tabindex="-1">Grid gaps</h3>
+<ul>
+<li><code>gap-*</code> — adds a <em>horizontal and vertical</em> gap between grid cells, using the same spacing variables as for margins and paddings:
+<ul>
+<li><code>gap-1</code> — <code>--sp-1</code></li>
+<li><code>gap-2</code> — <code>--sp-2</code></li>
+<li><code>gap-3</code> — <code>--sp-3</code></li>
+<li><code>gap-4</code> — <code>--sp-4</code></li>
+</ul>
+</li>
+</ul>
+<p>These same <code>gap-*</code> classes are used for <a href="#flex-layouts">flex layouts</a>.</p>
+<h3 id="grid-item-control" tabindex="-1">Grid item control</h3>
+<p>A simple example: the following would be two rows on phones (below 768px width), and two columns on tablets up (e.g. sidebar plus main):</p>
+<div class="mt-2 mb-3 grid sm:equal-3-cols gap-2">
+  <div class="b-1 p-cell">1</div>
+  <div class="sm:col-span-2 b-1 p-cell">columns 2 to 3</div>
+</div>
+<pre><code class="language-html">&lt;div class=&quot;grid sm:equal-3-cols gap-2&quot;&gt;
+  &lt;div&gt;&lt;/div&gt;
+  &lt;div class=&quot;sm:col-span-2&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<p>A complex example, taking effect at 1024px (<code>md</code>):</p>
+<div class="mt-2 mb-3 grid md:equal-4-cols gap-1">
+  <div class="b-1 p-cell">1</div>
+  <div class="b-1 p-cell">2</div>
+  <div class="md:col-span-2 md:row-2 b-1 p-cell">columns 1 to 2, row 2</div>
+  <div class="md:col-span-2 md:row-span-2 b-1 p-cell">columns 3 to 4, rows 1 to 2</div>
+</div>
+<pre><code class="language-html">&lt;div class=&quot;grid md:equal-4-cols gap-1&quot;&gt;
+  &lt;div&gt;1&lt;/div&gt;
+  &lt;div&gt;2&lt;/div&gt;
+  &lt;div class=&quot;md:col-span-2 md:row-2&quot;&gt;columns 1 to 2, row 2&lt;/div&gt;
+  &lt;div class=&quot;md:col-span-2 md:row-span-2&quot;&gt;columns 3 to 4, rows 1 to 2&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<p>Grid items can sometimes leave spaces of unoccupied cells:</p>
+<div class="mt-2 mb-3 grid gap-1 equal-4-cols">
+  <div class="b-1 p-cell">Item 1</div>
+  <div class="col-1 col-span-2 b-1 p-cell">Item 2</div>
+  <div class="col-2 col-span-3 b-1 p-cell">Item 3</div>
+  <div class="col-4 b-1 p-cell">Item 4</div>
+  <div class="col-3 b-1 p-cell">Item 5</div>
+</div>
+<p>With <code>grid dense</code> you can close up this type of space, by CSS grid rearranging the grid items to fill in the unoccupied cells:</p>
+<div class="mt-2 mb-3 grid grid-dense gap-1 equal-4-cols">
+  <div class="b-1 p-cell">Item 1</div>
+  <div class="col-1 col-span-2 b-1 p-cell">Item 2</div>
+  <div class="col-2 col-span-3 b-1 p-cell">Item 3</div>
+  <div class="col-4 b-1 p-cell">Item 4</div>
+  <div class="col-3 b-1 p-cell">Item 5</div>
+</div>
+<h2 id="content-grid" tabindex="-1">Content-grid</h2>
+<p><code>content-grid</code> uses CSS Grid to set up a 5 column layout where the main content is placed in the middle (column 3) and has max width <code>--w-cg</code> = <code>40em</code>. This will be 640px for the default font size (1rem = 16px) and 800px for when used with <code>t-long-read</code> (see <a href="/baselayer-3/typography/#the-long-lead-utility-class">the long-lead utility class</a>).</p>
+<p><code>content-grid</code> expects your content typographic blocks (headings, paragraphs, etc.), and the panel blocks below, to be its immediate children.</p>
+<ul>
+<li>Use the <code>popout</code> utility class to make an element span the middle 3 columns (2 to 4). Columns 3 and 5 have width <code>--sp-2</code></li>
+<li>Use the <code>full-bleed</code> utility class to make an element span all 5 columns</li>
+</ul>
+<p>Columns 1 and 5 (the first and last column) have a minimum width of <code>--sp-2</code> — providing the middle (content) column with x-axis side whitespace. Columns 2 and 4 have a maximum width of <code>--sp-2</code> — providing x-axis space for popouts when the acailable wdth allows.</p>
+<p>Within a <code>full-bleed</code>, if you require, you can add another element with a <code>container-*</code> or other utilities with width constraint and x-axis side padding.</p>
+<h3 id="popout-panels" tabindex="-1">Popout panels</h3>
+<p>Example information panel using <code>popout</code>:</p>
+<div aria-label="Note" class="popout mb-2 bt-3 b-blue b-300 r-2 p-2 t-black bg-gray bg-100">
+  &star; Information panel
+</div>
+<pre><code class="language-html">&lt;div aria-label=&quot;Note&quot; class=&quot;popout mb-2 bt-3 b-blue b-300 r-2 p-2 t-black bg-gray bg-100&quot;&gt;
+  &amp;star; Information panel
+&lt;/div&gt;
+</code></pre>
+<h3 id="full-bleed-panels" tabindex="-1">Full-bleed panels</h3>
+<p>If your layout has no sidebars, side spacing (margin or padding), or other object that takes up some of the viewport width, then your <code>content-grid full-bleed</code> will expand to the full width of the viewport. But if it can’t get to the full viewport width, then it will expand to the available width (as seen in the docs example below).</p>
+<p>Example colored stripe using <code>full-bleed</code>:</p>
+<div class="full-bleed mb-2 p-2 bg-red t-white">
+ <code>full-bleed</code> — expands to the full width of the <code>article</code> wrapper.
+</div>
+<pre><code>&lt;div class=&quot;full-bleed mb-2 p-2 bg-red t-white&quot;&gt;
+ Full bleed panel content...
+&lt;/div&gt;
+</code></pre>
+<p>You can constrain the width of elements inside full-bleeds. Here’s an example hero or poster component using an embedded <code>container-md</code>:</p>
+<div class="full-bleed mt-2 mb-3">
+  <div class="container-md aspect-ratio-16x9 flex flex-center flex-middle relative">
+    <svg xmlns="http://www.w3.org/2000/svg" class="absolute box img-cover" preserveAspectRatio="xMidYMid slice" width="1000" height="600"><defs><linearGradient id="gradient1" gradientTransform="rotate(45)"><stop offset="5%" stop-color="rgba(255,255,0,.5)"/><stop offset="50%" stop-color="rgba(255,255,255,0)"/><stop offset="95%" stop-color="rgba(255,0,0,.5)"/></linearGradient><linearGradient id="gradient2" gradientTransform="rotate(135)"><stop offset="5%" stop-color="rgba(0,0,255,.5)"/><stop offset="50%" stop-color="rgba(255,255,255,0)"/><stop offset="95%" stop-color="rgba(0,255,0,.5)"/></linearGradient></defs><rect width="100%" height="100%" fill="url('#gradient1')"/><rect width="100%" height="100%" fill="url('#gradient2')"/></svg>
+    <div class="relative w-sm aspect-ratio-16x9 p-3">
+      <p class="h1 t-bold">This is a lot of example text that may or may not distort the aspect ratio (16×9) of this hero component.</p>
+      <p class="h1 t-bold">See what it does on a small viewport width (e.g. phone).</p>
+    </div>
+  </div>
+</div>
+<pre><code class="language-html">&lt;div class=&quot;full-bleed mt-2 mb-3&quot;&gt;
+  &lt;div class=&quot;container-md aspect-ratio-16x9 flex flex-center flex-middle relative bg-black&quot;&gt;
+    &lt;img class=&quot;absolute box img-cover opacity-50%&quot; src=&quot;&quot;&gt;
+    &lt;div class=&quot;relative w-sm aspect-ratio-16x9 p-3&quot;&gt;
+      &lt;p class=&quot;h1 t-bold&quot;&gt;This is a lot of example text that may or may not distort the aspect ratio (16×9) of this hero component.&lt;/p&gt;
+      &lt;p class=&quot;h1 t-bold&quot;&gt;See what it does on a small viewport width.&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<h2 id="aspect-ratios" tabindex="-1">Aspect ratios</h2>
+<p>Common aspect ratio constraints for images, video, and hero blocks.</p>
+<div class="full-bleed mt-2 mb-3">
+  <div class="container-md grid sm:equal-4-cols gap-2">
+    <div>
+      <div class="aspect-ratio-1x1 b-1 p-1"><code>aspect-ratio-1x1</code></div>
+    </div>
+    <div>
+      <div class="aspect-ratio-4x3 b-1 p-1"><code>aspect-ratio-4x3</code></div>
+    </div>
+    <div>
+      <div class="aspect-ratio-16x9 b-1 p-1"><code>aspect-ratio-16x9</code></div>
+    </div>
+    <div>
+      <div class="aspect-ratio-21x9 b-1 p-1"><code>aspect-ratio-21x9</code></div>
+    </div>
+  </div>
+</div>
+<h2 id="overflows" tabindex="-1">Overflows</h2>
+<p>Using <code>auto</code> to add scrollling when the content of a block exceeds its constrained height or width.</p>
+<ul>
+<li><code>overflow-x</code> — e.g. for wrapping tables with a lots of columns, that would break a template layout in small viewports</li>
+<li><code>overflow-y</code> — e.g. for sidebar menus loaded with content</li>
+</ul>
+<h2 id="invisibility" tabindex="-1">Invisibility</h2>
+<p>There may be situation where you require some element(s) to be displayed on smaller or larger viewports, but hidden otherwise. Baselayer has:</p>
+<ul>
+<li><code>sm:hidden</code> — hides elements on viewports with width 640px and up</li>
+<li><code>sm:hidden-below</code> — hides elements on viewports with width below 640px</li>
+<li><code>md:hidden</code> — hides elements on viewports with width 960px and up</li>
+<li><code>md:hidden-below</code> — hides elements on viewports with width below 960px</li>
+<li><code>lg:hidden</code> — hides elements on viewports with width 1280px and up</li>
+<li><code>lg:hidden-below</code> — hides elements on viewports with width below 1280px</li>
+</ul>
+
+          </article>
+          <div class="content-grid">
+            <nav class="mt-3 mb-2 b-1 r-pill p-cell popout">
+              <ul class="m-0 unlist p-0 flex">
+                
+                <li class="grow my-1">&larr; <a href="/baselayer-3/typography/"> Typography</a></li>
+                
+                
+                <li class="grow my-1 t-right"><a href="/baselayer-3/decoration/">Decoration</a> &rarr;</li>
+                  
+              </ul>
+            </nav>
+            <footer>
+              <div class="p-2 flex flex-center t-center">
+                <a href="/baselayer-3/" class="h3 m-0 t-normal flex flex-column flex-center gap-1 t-noline">
+                  <svg class="mx-auto" height="48" width="48" viewBox="0 0 111 111" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-miterlimit:1.5">
+                    <g transform="translate(-294.592 -94.592)">
+                      <circle cx="350" cy="150" r="50" style="fill:none;stroke:currentColor;stroke-width:4px"/>
+                      <path d="M294.167 180H320v-65.833" style="fill:none;stroke:currentColor;stroke-width:4px" transform="translate(10 -10)"/>
+                      <path d="M405.833 180H380v-65.833" style="fill:none;stroke:currentColor;stroke-width:4px" transform="translate(-10 -10)"/>
+                      <circle cx="350" cy="150" r="30" style="fill:none;stroke:currentColor;stroke-width:6px" transform="matrix(.66667 0 0 .66667 116.667 50)"/>
+                      <path d="M310 180h80" style="fill:none;stroke:currentColor;stroke-width:4px"/>
+                      </g>
+                    </svg>
+                  <span class="t-nowrap">Baselayer 3 CSS</span>
+                </a>
+              </div>
+
+              <p class="p-cell flex flex-center flex-wrap gap-3 t-center">
+                <span>Version: 1.0.0</span>
+                <a class="t-noline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3">GitHub Repository</a>
+                <a class="t-noline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3/blob/main/LICENSE">MIT license</a>
+                <span>Developer: <a class="t-noline hover:t-line" href="https://github.com/SimonPadbury">Simon Padbury</a></span>
+              </p>
+            </footer>
+          </div>
+        </div>
+      </div>
+    </main>
+      
+    </div>
+  </div>
+
+</body>
+</html>

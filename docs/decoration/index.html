@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Decoration · Baselayer 3 CSS</title>
+
+  <link rel="stylesheet" href="/baselayer-3/css/min/baselayer.min.css?v=1.0.0">
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    [aria-current=page] {
+      
+      background: oklch(var(--l900) var(--c02) var(--coolgray));
+    }
+    .check-box {
+      width: 1rem;
+      height: 1rem;
+    }
+    .font-base .label-base .check-box::before { content: '✓'; }
+    .font-prose .label-prose .check-box::before { content: '✓'; }
+    .font-normal .label-normal .check-box::before { content: '✓'; }
+    .font-longread .label-longread .check-box::before { content: '✓'; }
+    .theme-light .label-light .check-box::before { content: '✓'; }
+    .theme-dark .label-dark .check-box::before { content: '✓'; }
+
+    @media (min-width: 960px) {
+      #site-title { 
+        max-width: 145px;
+        margin-inline: auto;
+        padding-top: var(--sp-2);
+        justify-content: center;
+      }
+    }
+    .font-longread article { 
+      font-size: var(--fs-long-read);
+    }
+
+    .font-prose article { font-family: var(--t-prose); }
+
+    .font-longread .btn-icon {
+      width: calc(var(--si) + 2px);
+      height: calc(var(--si) + 2px);
+    }
+    h2, h3, h4 {
+      scroll-margin-top: var(--sp-2);
+    }
+    .content-grid header + h2 {
+      margin-top: 0;
+    }
+
+    pre code {
+      max-height: 80vh;
+      overflow-y: auto
+    }
+
+    .resize-x {
+      margin-inline: -5px;
+      padding: 5px;
+      resize: horizontal;
+      overflow-x: auto;
+      background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='silver' stroke-width='2' stroke-dasharray='8%2c 8' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
+    }
+  </style>
+
+  <script>
+  const matchMediaDark = window.matchMedia('(prefers-color-scheme: dark)');
+const htmlClassList = document.querySelector('html').classList;
+
+function fontProse() {
+  sessionStorage.setItem('baselayerFont', 'prose');
+  htmlClassList.remove('font-base');
+  htmlClassList.add('font-prose');
+}
+
+function fontBase() {
+  sessionStorage.setItem('baselayerFont', 'base');
+  htmlClassList.remove('font-prose');
+  htmlClassList.add('font-base');
+}
+
+function fsLongRead() {
+  sessionStorage.setItem('baselayerFS', 'longread');
+  htmlClassList.remove('font-normal');
+  htmlClassList.add('font-longread');
+}
+
+function fsNormal() {
+  sessionStorage.setItem('baselayerFS', 'normal');
+  htmlClassList.remove('font-longread');
+  htmlClassList.add('font-normal');
+}
+
+function themeDark() {
+  sessionStorage.setItem("baselayerTheme", "dark");
+  htmlClassList.remove('theme-light');
+  htmlClassList.add('theme-dark');
+}
+
+function themeLight() {
+  sessionStorage.setItem("baselayerTheme", "light");
+  htmlClassList.remove('theme-dark');
+  htmlClassList.add('theme-light');
+}
+
+// Toggles
+
+function toggleFont() {
+  if ( sessionStorage.baselayerFont === 'prose' ) {
+    fontBase();
+  } else {
+    fontProse();
+  }
+};
+
+function toggleFS() {
+  if ( sessionStorage.baselayerFS === 'normal' ) {
+    fsLongRead();
+  } else {
+    fsNormal();
+  }
+};
+
+function toggleTheme() {
+  if ( sessionStorage.baselayerTheme === 'dark' ) {
+    themeLight();
+  } else {
+    themeDark();
+  }
+};
+
+// init
+
+function baselayerInit() {
+  if (sessionStorage.baselayerTheme === 'dark' || (!('baselayerTheme' in sessionStorage) && matchMediaDark.matches)) {
+    themeDark();
+  } else {
+    themeLight();
+  }
+  if ( sessionStorage.baselayerFont === 'prose' ) {
+    fontProse();
+  } else {
+    fontBase();
+  }
+  if ( sessionStorage.baselayerFS === 'longread' ) {
+    fsLongRead();
+  } else {
+    fsNormal();
+  }
+};
+
+baselayerInit();
+    /**
+  * Site Navigation Toggle (Phones)
+  */
+
+window.addEventListener("DOMContentLoaded", () => {
+  let navButton = document.querySelector('#site-nav-toggle');
+  let menu = document.querySelector('#site-nav-menu');
+  let windowTest = function() {
+    if (window.matchMedia('(max-width: 959px)').matches) {
+      navButton.setAttribute('aria-expanded', 'false');
+      menu.hidden = true;
+    } else {
+      navButton.setAttribute('aria-expanded', 'true');
+      menu.hidden = false;
+    }
+  }
+
+  windowTest();
+
+  window.addEventListener('resize', function () {
+    windowTest();
+  });
+
+  navButton.addEventListener('click', function() {
+    let expanded = this.getAttribute('aria-expanded') === 'true' || false;
+    this.setAttribute('aria-expanded', !expanded);
+    menu.hidden = !menu.hidden;
+  });
+});
+
+  </script>
+
+</head>
+<body class="">
+
+  <!-- Current page: /baselayer-3/decoration/ -->
+
+  <a href="#main-content" tabindex="1" class="inline-block m-1 visually-hidden">Skip to main content</a>
+
+  <div class="h-100-dvh md:flex">
+    <div id="site-nav" class="bg-coolgray bg-800">
+  <div class="sticky top h-max-100dvh overflow-y">
+    <div class="p-cell t-center">
+      <a id="site-title" href="/baselayer-3/" class="h3 m-0 py-1 t-normal flex flex-center flex-middle flex-wrap gap-1 t-gray t-100 hover:t-200 t-noline">
+        <svg height="48" width="48" viewBox="0 0 111 111" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-miterlimit:1.5">
+          <g transform="translate(-294.592 -94.592)">
+            <circle cx="350" cy="150" r="50" style="fill:none;stroke:currentColor;stroke-width:4px"/>
+            <path d="M294.167 180H320v-65.833" style="fill:none;stroke:currentColor;stroke-width:4px" transform="translate(10 -10)"/>
+            <path d="M405.833 180H380v-65.833" style="fill:none;stroke:currentColor;stroke-width:4px" transform="translate(-10 -10)"/>
+            <circle cx="350" cy="150" r="30" style="fill:none;stroke:currentColor;stroke-width:6px" transform="matrix(.66667 0 0 .66667 116.667 50)"/>
+            <path d="M310 180h80" style="fill:none;stroke:currentColor;stroke-width:4px"/>
+            </g>
+          </svg>
+        <span class="t-nowrap">Baselayer 3 CSS</span>
+      </a>
+      <p class="t-coolgray t-400">Version: 1.0.0 • <a class="t-gray t-100 hover:t-200 t-noline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3">GitHub</a></p>
+    </div>
+
+    <nav id="site-nav" role="menu">
+      <button type="button" id="site-nav-toggle" aria-expanded="false" aria-label="Menu" aria-controls="site-nav-menu" class="absolute top right m-2 md:hidden">
+        Menu
+      </button>
+
+      <div id="site-nav-menu" class="mx-auto t-center t-white" style="width: var(--w-xs);">
+        <div class="my-2 p-cell flex flex-column gap-1">
+          <a class="block p-cell t-coolgray t-100 hover:t-200"  href="/baselayer-3/">Introduction</a>
+          <a class="block p-cell t-coolgray t-100 hover:t-200"  href="/baselayer-3/typography/">Typography</a>
+          <a class="block p-cell t-coolgray t-100 hover:t-200"  href="/baselayer-3/layout/">Layout</a>
+          <a class="block p-cell t-coolgray t-100 hover:t-200"  aria-current="page" href="/baselayer-3/decoration/">Decoration</a>
+          <a class="block p-cell t-coolgray t-100 hover:t-200"  href="/baselayer-3/colors/">Colors</a>
+          <a class="block p-cell t-coolgray t-100 hover:t-200"  href="/baselayer-3/forms/">Forms</a>
+          <a class="block p-cell t-coolgray t-100 hover:t-200"  href="/baselayer-3/buttons/">Buttons</a>
+          <a class="block p-cell t-coolgray t-100 hover:t-200" href="/baselayer-3/examples/">Examples</a>
+        </div>
+
+        <div class="mb-2 p-cell">
+          <button class="w-100% mb-1 p-1 flex flex-column gap-1 bg-coolgray bg-600 hover:bg-700" onclick="toggleFont()">
+            <div class="label-base w-100% flex flex-middle gap-1">
+              <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
+              <div class="grow t-left">Base font</div>
+            </div>
+            <div class="label-prose w-100% flex flex-middle gap-1">
+              <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
+              <div class="grow t-left">Prose font</div>
+            </div>
+          </button>
+
+          <button class="w-100% mb-1 p-1 flex flex-column gap-1 bg-coolgray bg-600 hover:bg-700" onclick="toggleFS()">
+            <div class="label-normal w-100% flex flex-middle gap-1">
+              <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
+              <div class="grow t-left">Normal font-size</div>
+            </div>
+            <div class="label-longread w-100% flex flex-middle gap-1">
+              <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
+              <div class="grow t-left">Long read font-size</div>
+            </div>
+          </button>
+
+          <button class="w-100% mb-1 p-1 flex flex-column gap-1 bg-coolgray bg-600 hover:bg-700" onclick="toggleTheme()">
+            <div class="label-light w-100% flex flex-middle gap-1">
+              <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
+              <div class="grow t-left">Light theme</div>
+            </div>
+            <div class="label-dark w-100% flex flex-middle gap-1">
+              <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
+              <div class="grow t-left">Dark theme</div>
+            </div>
+          </button>
+        </div>
+
+      </div>
+    </nav>
+  </div>
+</div>
+
+      <main id="main-content" class="grow flex">
+
+        <div id="toc" class="lg:hidden-below" style="order: 2;">
+          <div class="sticky top h-max-100dvh p-2 overflow-y" style="width: var(--w-xs);">
+            <p class="h4 t-semibold">Contents</p>
+            <nav class="toc" >
+        <ul><li><a href="#spacing-(margins-and-paddings)">Spacing (margins and paddings)</a><ul><li><a href="#spacing-extras">Spacing extras</a></li></ul></li><li><a href="#borders">Borders</a><ul><li><a href="#border-extra">Border extra</a></li></ul></li><li><a href="#rounded-corners">Rounded corners</a></li><li><a href="#the-img-cover-class">The img-cover class</a></li><li><a href="#opacity">Opacity</a></li></ul>
+      </nav>
+          </div>
+        </div>
+  
+        <div>
+          <article class="content-grid">
+            <header class="my-2 py-4 t-big t-center">
+              <h1 class="m0 lighter">Decoration</h1>
+            </header>
+          
+              <h2 id="spacing-(margins-and-paddings)" tabindex="-1">Spacing (margins and paddings)</h2>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Introduction_to_the_CSS_box_model">Box model</a> margin and padding spacing have both 4 levels based on 4 CSS variables. The smallest simply adds 0.5rem spacing, whereas levels 2-4 are responsive to viewport width using <code>clamp()</code> functions to ramp up to 1.5× their base size. These variables are set in the variables file. They have been calculated using Petter Walbø Johnsgård’s <a href="https://clamp.font-size.app/">Font-size Clamp Generator</a>.</p>
+<pre><code>:root {
+  --sp-1: 0.5rem;
+  --sp-2: clamp(1rem, 0.5rem + 1.25vw, 1.5rem);
+  --sp-3: clamp(2rem, 1rem + 2.5vw, 3rem);
+  --sp-4: clamp(3rem, 1.5rem + 3.75vw, 4.5rem);
+}
+</code></pre>
+<p>This makes the negative space (“whitespace”) for spacing levels 2-4 larger for larger screens.</p>
+<p>Both margin and padding spacers are controlled on the 4 sides of blocks, as follows:</p>
+<ul>
+<li>All: <code>m-1</code> through <code>m-4</code> / <code>p-1</code> through <code>p-4</code> (all four sides)</li>
+<li>Top: <code>mt-1</code> through <code>mt-4</code> / <code>pt-1</code> through <code>pt-4</code></li>
+<li>Right: <code>mr-1</code> through <code>mr-4</code> / <code>pr-1</code> through <code>pr-4</code></li>
+<li>Bottom: <code>mb-1</code> through <code>mb-4</code> / <code>pb-1</code> through <code>pb-4</code></li>
+<li>Left: <code>ml-1</code> through <code>ml-4</code> / <code>pl-1</code> through <code>pl-4</code></li>
+<li>Inline x-axis (right and left): <code>mx-1</code> through <code>mx-4</code> / <code>px-4</code> through <code>px-4</code></li>
+<li>Block y-axis (top and bottom): <code>my-1</code> through <code>my-4</code> / <code>py-4</code> through <code>py-4</code></li>
+</ul>
+<p>Spacing example with paddings:</p>
+<div class="mb-2 b-1 p-1"><code>p-1</code></div>
+<div class="mb-2 b-1 p-2"><code>p-2</code></div>
+<div class="mb-2 b-1 p-3"><code>p-3</code></div>
+<div class="mt-1 mb-2 b-1 p-4"><code>p-4</code></div>
+<h3 id="spacing-extras" tabindex="-1">Spacing extras</h3>
+<p>In addition, there are the following specials:</p>
+<ul>
+<li><code>p-cell</code> — adds y-axis padding <code>--sp-1</code> and x-axis padding of double <code>--sp-1</code> for creating menu items. Same as the padding for table cells and buttons</li>
+<li><code>mx-auto</code> — for x-axis margin auto-centering</li>
+<li><code>m-0</code>, <code>mt-0</code>, <code>mb-0</code>, and <code>p-0</code> — for removing (resetting) unwanted space.</li>
+</ul>
+<p><code>mb-0</code> is commonly used for removing the bottom margin on the last paragraph (or other typographic block) inside a <code>&lt;div&gt;</code> panel. <code>mt-0</code> is commonly used for removing top margin for headers used in side-columns (e.g. for navigation menus).</p>
+<p>These zero spacing utilities are declared before the spacers above in <code>decoration.css</code> so that you can use them to <em>reset</em> and then use spacers to set spacing the way you want it.</p>
+<h2 id="borders" tabindex="-1">Borders</h2>
+<p>Baselayer provides three thicknesses of border (plus a zero border override):</p>
+<div class="mb-2 b-1 p-1"><code>b-1</code> (1px)</div>
+<div class="mb-2 b-2 p-1"><code>b-2</code> (4px)</div>
+<div class="mb-2 b-3 p-1"><code>b-3</code> (8px)</div>
+<p>Borders can be set as follows:</p>
+<ul>
+<li>All: <code>b-*</code></li>
+<li>Top: <code>bt-*</code></li>
+<li>Right: <code>br-*</code></li>
+<li>Bottom: <code>bb-*</code></li>
+<li>Left: <code>bl-*</code></li>
+</ul>
+<h3 id="border-extra" tabindex="-1">Border extra</h3>
+<ul>
+<li><code>b-0</code> — for removing (resetting) all borders</li>
+</ul>
+<h2 id="rounded-corners" tabindex="-1">Rounded corners</h2>
+<ul>
+<li><code>r-2</code> — 4px border radius</li>
+<li><code>r-3</code> — 8px border radius</li>
+<li><code>r-4</code> — 16px border radius</li>
+</ul>
+<div class="mt-2 mb-3 grid equal-3-cols gap-2">
+  <div class="b-1 r-2 p-1">r-2</div>
+  <div class="b-1 r-3 p-1">r-3</div>
+  <div class="b-1 r-4 p-1">r-4</div>
+</div>
+<p><strong>Note:</strong> border-radius classes have <code>overflow: hidden</code> built in, so that they can “clip” the corners of images.</p>
+<p>Border and border-radius variables pair as follows:</p>
+<table class="table t-center">
+  <thead>
+    <tr>
+      <th>Border variable</th>
+      <th>Border-radius variable</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>--b1</code></td>
+      <td>n/a</td>
+      <td><code>1px</code></td>
+    </tr>
+    <tr>
+      <td><code>--b2</code></td>
+      <td><code>--r2</code></td>
+      <td><code>4px</code></td>
+    </tr>
+    <tr>
+      <td><code>--b3</code></td>
+      <td><code>--r3</code></td>
+      <td><code>8px</code></td>
+    </tr>
+    <tr>
+      <td>n/a</td>
+      <td><code>--r4</code></td>
+      <td><code>16px</code></td>
+    </tr>
+  </tbody>
+</table>
+<p><strong>Note:</strong> There is no <code>--r1</code> (a border radius of 1px) or <code>--b4</code> (border radius of 16px) in Baselayer.</p>
+<ul>
+<li><code>r-pill</code> — 99em border radius (more than sufficient to put x-axis semi-circular ends on even mid-sized blocks)</li>
+</ul>
+<div class="mt-2 mb-3 b-1 r-pill p-3">pill</div>
+<p>If <code>r-pill</code> is used on a square, then the result will be a circle.</p>
+<div class="mt-2 mb-3 b-1 r-pill flex flex-center flex-middle t-center" style="width: 280px; height: 280px;">280px²<br>square pill</div>
+<h2 id="the-img-cover-class" tabindex="-1">The <code>img-cover</code> class</h2>
+<p>The Baselayer <code>cover</code> class can be used to make an image expand or contract to fully cover a container block rectangle. It is designed for use on an <code>&lt;img src=&quot;&quot;&gt;</code> tag.</p>
+<pre><code>.img-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  overflow: hidden;
+}
+</code></pre>
+<p>An example of <code>img-cover</code> being used can be seen in the <a href="/baselayer-3/layout/#expanded-panels">expanded panel</a> example.</p>
+<h2 id="opacity" tabindex="-1">Opacity</h2>
+<p>Opacities (with hover states):</p>
+<ul>
+<li><code>opacity-25%</code> / <code>hover:opacity-25%</code></li>
+<li><code>opacity-50%</code> / <code>hover:opacity-50%</code></li>
+<li><code>opacity-75%</code> / <code>hover:opacity-75%</code></li>
+<li><code>hover:opacity-100%</code> — a reset that removes opacity on hover</li>
+</ul>
+<p>The hover states are provided in case you want an image inside a link to change opacity on hover.</p>
+<p>If you use these on an image over a colored background, then you get a color-tinted image.</p>
+<p>If you have text over an image (e.g. in a hero component), then you can use opacity over a black (or dark color) background to make white text more readable — and <em>vise versa</em>.</p>
+
+          </article>
+          <div class="content-grid">
+            <nav class="mt-3 mb-2 b-1 r-pill p-cell popout">
+              <ul class="m-0 unlist p-0 flex">
+                
+                <li class="grow my-1">&larr; <a href="/baselayer-3/layout/"> Layout</a></li>
+                
+                
+                <li class="grow my-1 t-right"><a href="/baselayer-3/colors/">Colors</a> &rarr;</li>
+                  
+              </ul>
+            </nav>
+            <footer>
+              <div class="p-2 flex flex-center t-center">
+                <a href="/baselayer-3/" class="h3 m-0 t-normal flex flex-column flex-center gap-1 t-noline">
+                  <svg class="mx-auto" height="48" width="48" viewBox="0 0 111 111" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-miterlimit:1.5">
+                    <g transform="translate(-294.592 -94.592)">
+                      <circle cx="350" cy="150" r="50" style="fill:none;stroke:currentColor;stroke-width:4px"/>
+                      <path d="M294.167 180H320v-65.833" style="fill:none;stroke:currentColor;stroke-width:4px" transform="translate(10 -10)"/>
+                      <path d="M405.833 180H380v-65.833" style="fill:none;stroke:currentColor;stroke-width:4px" transform="translate(-10 -10)"/>
+                      <circle cx="350" cy="150" r="30" style="fill:none;stroke:currentColor;stroke-width:6px" transform="matrix(.66667 0 0 .66667 116.667 50)"/>
+                      <path d="M310 180h80" style="fill:none;stroke:currentColor;stroke-width:4px"/>
+                      </g>
+                    </svg>
+                  <span class="t-nowrap">Baselayer 3 CSS</span>
+                </a>
+              </div>
+
+              <p class="p-cell flex flex-center flex-wrap gap-3 t-center">
+                <span>Version: 1.0.0</span>
+                <a class="t-noline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3">GitHub Repository</a>
+                <a class="t-noline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3/blob/main/LICENSE">MIT license</a>
+                <span>Developer: <a class="t-noline hover:t-line" href="https://github.com/SimonPadbury">Simon Padbury</a></span>
+              </p>
+            </footer>
+          </div>
+        </div>
+      </div>
+    </main>
+      
+    </div>
+  </div>
+
+</body>
+</html>
