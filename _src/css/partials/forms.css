@@ -13,7 +13,7 @@ legend {
 }
 
 input[type=search] {
-  -webkit-appearance: none
+  -webkit-appearance: textfield;
 }
 
 input,
