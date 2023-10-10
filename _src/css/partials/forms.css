@@ -8,7 +8,7 @@ legend {
 }
 
 ::placeholder {
-  color: var(--tcx);
+  color: var(--tc-input);
   opacity: .7;
 }
 
@@ -77,6 +77,7 @@ button,
 .btn {
   position: relative;
   -webkit-appearance: none;
+  appearance: none;
   min-height: var(--mh-input);
   display: inline-flex;
   justify-content: center;

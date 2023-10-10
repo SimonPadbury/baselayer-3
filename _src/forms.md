@@ -163,7 +163,7 @@ Groups of form elements can be wrapped in `<fieldset>` tags. Add a `<legend>` to
 <form action="">
   <fieldset class="flex">
     <legend>Example e-newsletter subscribe</legend>
-    <input class="w100%" type="email" id="example-input-email" placeholder="Enter email">
+    <input class="w-100%" type="email" id="example-input-email" placeholder="Enter email">
     <input type="submit" name="submit" value="Subscribe">
   </fieldset>
 </form>
