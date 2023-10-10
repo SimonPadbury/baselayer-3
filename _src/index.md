@@ -67,7 +67,7 @@ For form inputs and buttons on `:focus`, there’s a 4px light blue ring (see [c
 <form class="mt-2 mb-3">
   <fieldset class="flex">
     <legend>Example e-newsletter subscribe</legend>
-    <input class="w100%" type="email" id="example-input-email" placeholder="Enter email">
+    <input class="w-100%" type="email" id="example-input-email" placeholder="Enter email">
     <input type="submit" name="submit" value="Subscribe">
   </fieldset>
 </form>
