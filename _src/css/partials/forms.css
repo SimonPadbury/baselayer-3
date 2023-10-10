@@ -7,10 +7,13 @@ legend {
   font-family: var(--t-base);
 }
 
-::placeholder,
-::-webkit-search-decoration {
+::placeholder {
   color: var(--tc-input);
   opacity: .7;
+}
+
+input[type=search] {
+  -webkit-appearance: none
 }
 
 input,
