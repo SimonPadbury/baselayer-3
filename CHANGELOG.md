@@ -1,3 +1,5 @@
+<!-- Increment version control numbers in README.md, baselayer.css, metadata.json, package.json, package-lock.json (x2), and this CHANGELOG.md -->
+
 # Baselayer 3 changelog
 
 ## v.1.0.0 -- 09 Oct 2023
@@ -7,3 +9,11 @@
 * New grid system.
 * OKLCH colors for theme and utility classes. A simple grayscale hex (#) fallback for pre-OKLCH browsers.
 * `baselayer.css` is less than 22 KB.
+
+## v.1.1.0 -- 12 Oct 2023
+
+* Added CSS cascade layers (thereby e.g. enabling users to add colors _before_ the shade utilities).
+* Added optional shade invert `*-dark-invert` color utility class modifiers.
+* Removed `*-reversi` (black/white) color utilities. Use `*-dark-invert` (on other colors, including grayscale) instead.
+* Added typographic utilities for letter spacing, and highlighting.
+* Bug fixes.

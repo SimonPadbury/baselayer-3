@@ -16,26 +16,6 @@ nextLink: "Decoration"
 * `inline-flex`, `flex` — see [flex layouts](#flex-layouts)
 * `grid` — see [grid layouts](#grid-layouts)
 
-## Widths
-
-* `container-xs` / `w-xs` — (max) width 630px or 100%
-* `container-sm` / `w-sm` — (max) width 640px or 100%
-* `container-md` / `w-md` — (max) width 960px or 100%
-* `container-lg` / `w-lg` — (max) width 1280px or 100%
-* `container-xl` / `w-xl` — (max) width 1600px or 100%
-* `w-100%` — width 100%
-* `w-max-100vw` — max-width 100vw
-
-Both the `xs`, `sm`, `md`, `lg`, `xl` container and width utilities have their widths set using:
-
-```css
-width: min(100%, {variable});
-```
-
-This means they will responsively expand to width 100% within the space available, until they max out at their set width variable.
-
-The difference between these width utilities and container utilities is that containers have x-axis side padding and x-axis centering (see below).
-
 ## Containers
 
 The centered layout `container` is set up as follows:
@@ -62,7 +42,25 @@ The centered layout `container` is set up as follows:
 
 For viewport widths below `--w-max` side spacing is provided by `--sp-2`. This adds a negative space (whitespace) right and left of the container, to prevent text being difficult to read when up against the sides of phone and tablet screens.
 
-Smaller containers have the same (max) width behavior as described for the **width** utilities above.
+## Widths
+
+* `container-xs` / `w-xs` — (max) width 630px or 100%
+* `container-sm` / `w-sm` — (max) width 640px or 100%
+* `container-md` / `w-md` — (max) width 960px or 100%
+* `container-lg` / `w-lg` — (max) width 1280px or 100%
+* `container-xl` / `w-xl` — (max) width 1600px or 100%
+* `w-100%` — width 100%
+* `w-max-100vw` — max-width 100vw
+
+Both the `xs`, `sm`, `md`, `lg`, `xl` container and width utilities have their widths set using:
+
+```css
+width: min(100%, {variable});
+```
+
+This means they will responsively expand to width 100% within the space available, until they max out at their set width variable.
+
+The difference between these width utilities and container utilities is that containers have x-axis side padding and x-axis centering (see above).
 
 ## Heights
 
@@ -179,7 +177,7 @@ In the example above, each button has a bottom margin, so that they have whiteps
 ## Grid layouts
 
 <div aria-label="Note" class="popout mb-2 bl-3 b-orange b-300 p-2 t-black bg-orange bg-100">
-  The grid system has been reinvented again in Baselayer v.3. It is not backwards compatible to Baselayer 1 or 2.
+  The grid system has been reinvented for Baselayer v.3. It is not backwards compatible to Baselayer 1 or 2.
 </div>
 
 * **Controlling tracks at _grid wrapper_ level:**
@@ -338,12 +336,12 @@ If your layout has no sidebars, side spacing (margin or padding), or other objec
 
 Example colored stripe using `full-bleed`:
 
-<div class="full-bleed mb-2 p-2 bg-red t-white">
- <code>full-bleed</code> — expands to the full width of the <code>article</code> wrapper.
+<div class="full-bleed mt-2 mb-3 p-2 t-semibold t-white bg-red">
+ <code>full-bleed</code> — expands to the full width of the avilable space. If there are no sidebars, it will reach the sides of the viewport.
 </div>
 
 ```
-<div class="full-bleed mb-2 p-2 bg-red t-white">
+<div class="full-bleed">
  Full bleed panel content...
 </div>
 ```

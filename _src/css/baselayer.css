@@ -1,13 +1,15 @@
 /*!
-Baselayer 3 CSS v.1.0.0
+Baselayer 3 CSS v.1.1.0
 https://github.com/SimonPadbury/baselayer
 */
+
+@layer defaults, typography, forms-and-buttons, layout, decoration, color-setup, color-shade, color-other;
 
 @import "/partials/variables.css";
 @import "/partials/reset.css";
 @import "/partials/base.css";
-@import "/partials/forms.css";
 @import "/partials/typography.css";
+@import "/partials/forms.css";
 @import "/partials/layout.css";
 @import "/partials/decoration.css";
 @import "/partials/colors.css";

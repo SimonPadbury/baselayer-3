@@ -130,9 +130,9 @@ On some devices (e.g. iOS Safari), these inputs get modified by number pickers (
 
 ## Text Area (Multiline)
 
-<form action="" class="mt2">
+<form action="">
     <label for="example-textarea">Example textarea</label><br>
-    <textarea id="example-textarea" rows="3"></textarea>
+    <textarea id="example-textarea"></textarea>
 </form>
 
 ## Radio Boxes and Checkboxes
@@ -154,7 +154,6 @@ On some devices (e.g. iOS Safari), these inputs get modified by number pickers (
   <label for="example-check-3"> Vanilla</label><br><br>
   <input type="submit" value="Submit">
 </form>
-
 
 ## Fieldsets and Legends
 

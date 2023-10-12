@@ -7,7 +7,7 @@
 
   <title>Typography · Baselayer 3 CSS</title>
 
-  <link rel="stylesheet" href="/baselayer-3/css/min/baselayer.min.css?v=1.0.0">
+  <link rel="stylesheet" href="/baselayer-3/css/min/baselayer.min.css?v=1.1.0">
 
   <style>
     html {
@@ -30,13 +30,14 @@
 
     @media (min-width: 960px) {
       #site-title { 
-        max-width: 145px;
+        max-width: 200px;
         margin-inline: auto;
         padding-top: var(--sp-2);
         justify-content: center;
       }
     }
-    .font-longread article { 
+    .font-longread #article-title,
+    .font-longread #article-content { 
       font-size: var(--fs-long-read);
     }
 
@@ -56,14 +57,6 @@
     pre code {
       max-height: 80vh;
       overflow-y: auto
-    }
-
-    .resize-x {
-      margin-inline: -5px;
-      padding: 5px;
-      resize: horizontal;
-      overflow-x: auto;
-      background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='silver' stroke-width='2' stroke-dasharray='8%2c 8' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
     }
   </style>
 
@@ -209,7 +202,7 @@ window.addEventListener("DOMContentLoaded", () => {
           </svg>
         <span class="t-nowrap">Baselayer 3 CSS</span>
       </a>
-      <p class="t-coolgray t-400">Version: 1.0.0 • <a class="t-gray t-100 hover:t-200 t-noline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3">GitHub</a></p>
+      <p class="t-coolgray t-400">Version: 1.1.0 • <a class="t-gray t-100 hover:t-200 t-noline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3">GitHub</a></p>
     </div>
 
     <nav id="site-nav" role="menu">
@@ -270,22 +263,25 @@ window.addEventListener("DOMContentLoaded", () => {
 </div>
 
       <main id="main-content" class="grow flex">
-
-        <div id="toc" class="lg:hidden-below" style="order: 2;">
-          <div class="sticky top h-max-100dvh p-2 overflow-y" style="width: var(--w-xs);">
-            <p class="h4 t-semibold">Contents</p>
-            <nav class="toc" >
-        <ul><li><a href="#font-stacks">Font stacks</a><ul><li><a href="#setting-font-stacks">Setting font stacks</a></li></ul></li><li><a href="#typographic-block-elements">Typographic block elements</a><ul><li><a href="#headings">Headings</a></li><li><a href="#block-quotes">Block quotes</a></li><li><a href="#lists">Lists</a></li></ul></li><li><a href="#the-link-tag">The link tag</a></li><li><a href="#tables">Tables</a><ul><li><a href="#making-wide-tables-responsive">Making wide tables responsive</a></li></ul></li><li><a href="#the-long-lead-utility-class">The long-lead utility class</a></li><li><a href="#code-blocks">Code blocks</a></li><li><a href="#other-typographic-utility-classes">Other typographic utility classes</a></li><li><a href="#simple-menus">Simple Menus</a></li></ul>
-      </nav>
-          </div>
-        </div>
   
-        <div>
-          <article class="content-grid">
-            <header class="my-2 py-4 t-big t-center">
-              <h1 class="m0 lighter">Typography</h1>
-            </header>
-          
+        <article class="grid lg:equal-4-cols gap-2">
+          <header id="article-title" class="lg:col-1 lg:col-span-3">
+            <div class="container-md pt-4 t-big t-center">
+              <h1 class="m-0 t-semibold">Typography</h1>
+            </div>
+          </header>
+        
+          <div id="toc" class="lg:col-4 lg:row-1 lg:row-span-2">
+            <div class="sticky top w-sm h-max-100dvh mx-auto px-2 overflow-y">
+              <p class="h4 t-semibold">Contents</p>
+              <nav class="toc" >
+        <ul><li><a href="#font-stacks">Font stacks</a><ul><li><a href="#setting-font-stacks">Setting font stacks</a></li></ul></li><li><a href="#typographic-block-elements">Typographic block elements</a><ul><li><a href="#headings">Headings</a></li><li><a href="#block-quotes">Block quotes</a></li><li><a href="#lists">Lists</a></li></ul></li><li><a href="#the-link-tag">The link tag</a></li><li><a href="#tables">Tables</a><ul><li><a href="#making-wide-tables-responsive">Making wide tables responsive</a></li></ul></li><li><a href="#the-.t-long-lead-utility-class">The .t-long-lead utility class</a></li><li><a href="#code-blocks">Code blocks</a></li><li><a href="#other-typographic-utility-classes">Other typographic utility classes</a></li><li><a href="#simple-menus">Simple menus</a></li></ul>
+      </nav>
+            </div>
+          </div>
+
+          <div id="article-content" class="lg:col-1 lg:col-span-3">
+            <div class="content-grid">
               <h2 id="font-stacks" tabindex="-1">Font stacks</h2>
 <p>Three native font stacks are set in the <code>root-vars.css</code> file.</p>
 <pre><code>:root {
@@ -310,9 +306,9 @@ window.addEventListener("DOMContentLoaded", () => {
 </p>
 <p>Font stack usage in Baselayer:</p>
 <ul>
-<li>The base font stack is set in the <code>&lt;body&gt;</code> tag (in <code>base.css</code>) and in the <code>base</code> utility class.</li>
-<li>The prose is only available via the <code>prose</code> utility class</li>
-<li>The monotype is available via the <code>&lt;code&gt;</code>, <code>&lt;kbd&gt;</code>, and <code>&lt;samp&gt;</code> HTML tags, and in the <code>mono</code> utility class.</li>
+<li>The base font stack is set in the <code>&lt;body&gt;</code> tag (in <code>base.css</code>) and via the <code>t-base</code> utility class.</li>
+<li>The prose is only available via the <code>t-prose</code> utility class</li>
+<li>The monotype is available via the <code>&lt;code&gt;</code>, <code>&lt;kbd&gt;</code>, and <code>&lt;samp&gt;</code> HTML tags, and in the <code>t-mono</code> utility class.</li>
 </ul>
 <h3 id="setting-font-stacks" tabindex="-1">Setting font stacks</h3>
 <p>In choosing your own font stacks, you may wish to choose two fonts that have similar x-height, so that you can set them using the same font size and line-height. Some other factors to compare are hights for lowercase ascenders and descenders, letter width, and stroke thickness.</p>
@@ -361,7 +357,7 @@ window.addEventListener("DOMContentLoaded", () => {
 <li>Font sizes set in the variables file. The typographic scale is 1.250 (major third), calculated using the <a href="https://type-scale.com">Type Scale</a> webapp.</li>
 <li>Headings also have their font-family set using <code>--hf: inherit</code> This has been done so that you can override it. Headings don’t need to have the same typeface as paragraphs.</li>
 <li>The headings font weight is set using <code>--hfw: var(--bold)</code> — which you can override.</li>
-<li>Line heights set using the formula 1em + 0.5rem. Meanwhile the bottom margin is the same as for paragraphs (described above).</li>
+<li>Line heights set using the formula 1em + 0.5rem. Meanwhile the bottom margin is the same as for paragraphs: the line-height of <em>defaut</em> text (1.5) made into rems (1.5rem), set by the variable <code>--mlh</code>. (When the default text size is 16px, the line height and margin-bottom of typographic block elements is 24px.)</li>
 <li>Headings <code>&lt;h2&gt;</code> to <code>&lt;h6&gt;</code> and matching utility classes <code>h2</code> to <code>h6</code> also have top margins equal to their respective line heights (so H2 has a bigger top margin than H3, and so on)</li>
 </ul>
 <pre><code class="language-css">:root {
@@ -386,7 +382,7 @@ window.addEventListener("DOMContentLoaded", () => {
 <p>Tips:</p>
 <ol>
 <li>In some contexts (e.g. in card components) you may not want any built-in spacing for typographic block elements. Then, you can remove margins by using the <code>m-0</code> utility class.</li>
-<li>You can also remove top margin “remotely” e.g. you can target the first item inside its wrapper using <code>.wrapper:first-child { margin-top: 0; }</code>, or the first sibling after the <code>&lt;header&gt;</code> or <code>&lt;h1&gt;</code> e.g. as I have done in these docs: <code>.content-grid header + * { margin-top: 0; }</code>. This takes care of any chapters that start their content with an <code>&lt;h2&gt;</code> as the first element under the title (header) block.</li>
+<li>You can also remove top margin “remotely” e.g. you can target the first item inside its wrapper using <code>.your-wrapper:first-child { margin-top: 0; }</code>, or the first sibling after the <code>&lt;header&gt;</code> or <code>&lt;h1&gt;</code> e.g. as I have done in these docs: <code>.content-grid header + * { margin-top: 0; }</code>. This takes care of any chapters that start their content with an <code>&lt;h2&gt;</code> as the first element under the title (header) block.</li>
 </ol>
 <h3 id="block-quotes" tabindex="-1">Block quotes</h3>
 <p>Baselayer styles <code>&lt;blockquote&gt;</code> tags with some inline (x-axis) padding, to give the effect of indentation. This inline padding is set using the responsive spacing variable <code>--sp-3</code> so that it becomes wider for wider viewports.</p>
@@ -526,7 +522,7 @@ window.addEventListener("DOMContentLoaded", () => {
   &lt;/table&gt;
 &lt;/div&gt;
 </code></pre>
-<h2 id="the-long-lead-utility-class" tabindex="-1">The long-lead utility class</h2>
+<h2 id="the-.t-long-lead-utility-class" tabindex="-1">The <code>.t-long-lead</code> utility class</h2>
 <p>Intended for long-read essays, articles and blog posts, the <code>t-long-read</code> utility class (to be used as a <em>wrapper</em> class) enlarges text (including headings) responsive to wider viewports (e.g. tablets, laptops, and up) using the following CSS clamp, which is set in <code>variables.css</code>:</p>
 <pre><code>:root {
   --fs-long-read: clamp(1rem, 0.75rem + 0.625vw, 1.25rem);
@@ -554,40 +550,61 @@ window.addEventListener("DOMContentLoaded", () => {
 <p>Besides those already introduced, Baselayer also has utility classes for:</p>
 <ul>
 <li><code>t-big</code> — increase font size by 1.5em. Use it directly on a <code>&lt;p&gt;</code> to enlarge the font (e.g. for a lead paragraph). But don’t use <code>t-big</code>  directly on a heading, because that will overrive the heading size — but you can use it on a <em>wrapper</em> around a heading that you wish to enlarge (e.g. for a title or hero component).</li>
-<li><code>t-small</code> (or use the <code>&lt;small&gt;</code> HTML tag) — decrease font-size to 0.75em.</li>
+<li><code>t-small</code> (or use the <code>&lt;small&gt;</code> HTML tag) — decrease font-size to 0.75em</li>
+<li><code>t-highlight</code> (or use the <code>&lt;mark&gt;</code> HTML tag) — text highlighter</li>
 <li><code>t-right</code>, <code>t-center</code>, and <code>t-left</code> — text alignment</li>
 <li><code>t-lighter</code>, <code>t-normal</code>, <code>t-semibold</code>, <code>t-bold</code>, <code>t-heavy</code> — font weights</li>
 <li><code>t-italic</code> — font style italic</li>
 <li><code>t-uppercase</code> — text transform to capitals</li>
+<li><code>t-loose</code>, <code>t-tight</code> — slightly inchrease or slightly decrease letter spacing</li>
 <li><code>t-noline</code> — use to remove the underline (underscore) from links where having it may be inappropriate (e.g. in menus)</li>
 <li><code>hover:t-line</code> – make underline appear on hover (pair as <code>t-noline hover:t-line</code> on a link)
 <ul>
-<li>Example <code>t-noline h:t-line</code>: <a class="t-noline hover:t-line" href="http://example.com">example</a></li>
+<li>Example <code>t-noline hover:t-line</code>: <a class="t-noline hover:t-line" href="http://example.com">example</a></li>
 </ul>
 </li>
 <li><code>t-nowrap</code> — prevents text wrapping (spaces behave as non-breaking spaces)</li>
 <li><code>unlist</code> — sets <code>list-style-type: none</code> on <code>&lt;ol&gt;</code>, <code>&lt;ul&gt;</code>, or <code>&lt;li&gt;</code>. You can use this when you want to use a list in a navigation menu. And you can combine it with <code>p-0</code> to remove the list inset padding.</li>
 </ul>
 <p><strong>Note:</strong> links can also be styled as though they are buttons using the <code>btn</code> utility class. See <a href="/baselayer-3/buttons/">buttons</a>.</p>
-<h2 id="simple-menus" tabindex="-1">Simple Menus</h2>
+<h2 id="simple-menus" tabindex="-1">Simple menus</h2>
 <p>If you wrap links in a <code>&lt;nav&gt;</code> tag, as you should do when creating a menu, then the links have their underscores removed. (So, there is no need to use <code>noline</code> inside a <code>&lt;nav&gt;</code> tag.)</p>
 <p>Simple can created in this way, whether or not you involve an <code>&lt;ul&gt;</code> unordered list. Example:</p>
-<nav class="mt-2 mb-3">
-  <a class="p-cell" href="#/">Home</a>
-  <a class="p-cell" href="#/">About</a>
-  <a class="p-cell" href="#/">Contact</a>
+<p>Simply links inside a <code>&lt;nav&gt;</code> (spacing controlled by <a href="/baselayer-3/layout/#flex-layouts">flex layout</a>):</p>
+<nav class="mt-2 mb-3 p-2 flex flex-wrap gap-2 bg-gray bg-100 bg-dark-invert">
+  <a href="#/">Home</a>
+  <a href="#/">About</a>
+  <a href="#/">Contact</a>
 </nav>
-<pre><code>&lt;nav&gt;
-  &lt;a class=&quot;p-cell&quot; href=&quot;#/&quot;&gt;Home&lt;/a&gt;
-  &lt;a class=&quot;p-cell&quot; href=&quot;#/&quot;&gt;About&lt;/a&gt;
-  &lt;a class=&quot;p-cell&quot; href=&quot;#/&quot;&gt;Contact&lt;/a&gt;
+<pre><code>&lt;nav class=&quot;p-2 flex flex-wrap gap-2 bg-gray bg-100 bg-dark-invert&quot;&gt;
+  &lt;a href=&quot;&quot;&gt;Home&lt;/a&gt;
+  &lt;a href=&quot;&quot;&gt;About&lt;/a&gt;
+  &lt;a href=&quot;&quot;&gt;Contact&lt;/a&gt;
 &lt;/nav&gt;
 </code></pre>
-<p>For more information on <code>p-cell</code> see decoration <a href="/baselayer-3/decoration/#spacing-extras">spacing extras</a>. And for how Baselayer colors work, see <a href="/baselayer-3/colors/">colors</a>.</p>
+<p>Read more about Baselayer’s <a href="/baselayer-3/colors/">color utility classes</a>.</p>
+<p>Involving an unordered list:</p>
+<nav class="mt-2 mb-3 b-1 p-2">
+  <ul class="unlist flex flex-column flex-wrap gap-2">
+    <li><a href="#/">Home</a></li>
+    <li><a href="#/">About</a></li>
+    <li><a href="#/">Contact</a></li>
+  </ul>
+</nav>
+<pre><code>&lt;nav class=&quot;b-1 p-2&quot;&gt;
+  &lt;ul class=&quot;unlist flex flex-column flex-wrap gap-2&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;&quot;&gt;About&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;&quot;&gt;Contact&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;
+</code></pre>
 
-          </article>
-          <div class="content-grid">
-            <nav class="mt-3 mb-2 b-1 r-pill p-cell popout">
+            </div>
+          </div>
+
+          <footer class="lg:col-1 lg:col-span-3 content-grid">
+            <nav class="popout mt-3 mb-2 b-1 r-pill p-cell popout">
               <ul class="m-0 unlist p-0 flex">
                 
                 <li class="grow my-1">&larr; <a href="/baselayer-3/"> Introduction</a></li>
@@ -597,34 +614,33 @@ window.addEventListener("DOMContentLoaded", () => {
                   
               </ul>
             </nav>
-            <footer>
-              <div class="p-2 flex flex-center t-center">
-                <a href="/baselayer-3/" class="h3 m-0 t-normal flex flex-column flex-center gap-1 t-noline">
-                  <svg class="mx-auto" height="48" width="48" viewBox="0 0 111 111" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-miterlimit:1.5">
-                    <g transform="translate(-294.592 -94.592)">
-                      <circle cx="350" cy="150" r="50" style="fill:none;stroke:currentColor;stroke-width:4px"/>
-                      <path d="M294.167 180H320v-65.833" style="fill:none;stroke:currentColor;stroke-width:4px" transform="translate(10 -10)"/>
-                      <path d="M405.833 180H380v-65.833" style="fill:none;stroke:currentColor;stroke-width:4px" transform="translate(-10 -10)"/>
-                      <circle cx="350" cy="150" r="30" style="fill:none;stroke:currentColor;stroke-width:6px" transform="matrix(.66667 0 0 .66667 116.667 50)"/>
-                      <path d="M310 180h80" style="fill:none;stroke:currentColor;stroke-width:4px"/>
-                      </g>
-                    </svg>
-                  <span class="t-nowrap">Baselayer 3 CSS</span>
-                </a>
-              </div>
+            <div class="p-2 flex flex-center t-center">
+              <a href="/baselayer-3/" class="h3 m-0 t-normal flex flex-column flex-center gap-1 t-noline">
+                <svg class="mx-auto" height="48" width="48" viewBox="0 0 111 111" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-miterlimit:1.5">
+                  <g transform="translate(-294.592 -94.592)">
+                    <circle cx="350" cy="150" r="50" style="fill:none;stroke:currentColor;stroke-width:4px"/>
+                    <path d="M294.167 180H320v-65.833" style="fill:none;stroke:currentColor;stroke-width:4px" transform="translate(10 -10)"/>
+                    <path d="M405.833 180H380v-65.833" style="fill:none;stroke:currentColor;stroke-width:4px" transform="translate(-10 -10)"/>
+                    <circle cx="350" cy="150" r="30" style="fill:none;stroke:currentColor;stroke-width:6px" transform="matrix(.66667 0 0 .66667 116.667 50)"/>
+                    <path d="M310 180h80" style="fill:none;stroke:currentColor;stroke-width:4px"/>
+                    </g>
+                  </svg>
+                <span class="t-nowrap">Baselayer 3 CSS</span>
+              </a>
+            </div>
 
-              <p class="p-cell flex flex-center flex-wrap gap-2 t-center">
-                <span><a href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> (21.3 KB)</span>
-                <span>Version: 1.0.0</span>
-                <a class="t-noline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3">GitHub Repository</a>
-                <a class="t-noline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3/blob/main/LICENSE">MIT license</a>
-              </p>
-              <p class="t-center"><span>Developer: <a class="t-noline hover:t-line" href="https://github.com/SimonPadbury">Simon Padbury</a></span>
-            </footer>
-          </div>
-        </div>
-      </div>
-    </main>
+            <p class="p-cell flex flex-center flex-wrap gap-2 t-center">
+              <span><a href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> (22.8 KB)</span>
+              <span>Version: 1.1.0</span>
+              <a class="t-noline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3">GitHub Repository</a>
+              <a class="t-noline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3/blob/main/LICENSE">MIT license</a>
+            </p>
+            <p class="t-center"><span>Developer: <a class="t-noline hover:t-line" href="https://github.com/SimonPadbury">Simon Padbury</a></span>
+          </footer>
+        </article>
+
+      
+      </main>
       
     </div>
   </div>

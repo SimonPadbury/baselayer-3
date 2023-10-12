@@ -39,9 +39,9 @@ The Baselayer docs make use of JavaScript and some extra CSS to enable a demo to
 
 Font stack usage in Baselayer:
 
-* The base font stack is set in the `<body>` tag (in `base.css`) and in the `base` utility class.
-* The prose is only available via the `prose` utility class
-* The monotype is available via the `<code>`, `<kbd>`, and `<samp>` HTML tags, and in the `mono` utility class.
+* The base font stack is set in the `<body>` tag (in `base.css`) and via the `t-base` utility class.
+* The prose is only available via the `t-prose` utility class
+* The monotype is available via the `<code>`, `<kbd>`, and `<samp>` HTML tags, and in the `t-mono` utility class.
 
 ### Setting font stacks
 
@@ -100,7 +100,7 @@ All headings `<h1>` to `<h6>` and matching utility classes `h1` to `h6` have:
 * Font sizes set in the variables file. The typographic scale is 1.250 (major third), calculated using the [Type Scale](https://type-scale.com) webapp.
 * Headings also have their font-family set using `--hf: inherit` This has been done so that you can override it. Headings don’t need to have the same typeface as paragraphs.
 * The headings font weight is set using `--hfw: var(--bold)` — which you can override.
-* Line heights set using the formula 1em + 0.5rem. Meanwhile the bottom margin is the same as for paragraphs (described above).
+* Line heights set using the formula 1em + 0.5rem. Meanwhile the bottom margin is the same as for paragraphs: the line-height of _defaut_ text (1.5) made into rems (1.5rem), set by the variable `--mlh`. (When the default text size is 16px, the line height and margin-bottom of typographic block elements is 24px.)
 * Headings `<h2>` to `<h6>` and matching utility classes `h2` to `h6` also have top margins equal to their respective line heights (so H2 has a bigger top margin than H3, and so on)
 
 ```css
@@ -127,7 +127,7 @@ All headings `<h1>` to `<h6>` and matching utility classes `h1` to `h6` have:
 Tips:
 
 1. In some contexts (e.g. in card components) you may not want any built-in spacing for typographic block elements. Then, you can remove margins by using the `m-0` utility class.
-2. You can also remove top margin “remotely” e.g. you can target the first item inside its wrapper using `.wrapper:first-child { margin-top: 0; }`, or the first sibling after the `<header>` or `<h1>` e.g. as I have done in these docs: `.content-grid header + * { margin-top: 0; }`. This takes care of any chapters that start their content with an `<h2>` as the first element under the title (header) block.
+2. You can also remove top margin “remotely” e.g. you can target the first item inside its wrapper using `.your-wrapper:first-child { margin-top: 0; }`, or the first sibling after the `<header>` or `<h1>` e.g. as I have done in these docs: `.content-grid header + * { margin-top: 0; }`. This takes care of any chapters that start their content with an `<h2>` as the first element under the title (header) block.
 
 ### Block quotes
 
@@ -282,7 +282,7 @@ If you have a lot of content in your table, it will probably break your page lay
 </div>
 ```
 
-## The long-lead utility class 
+## The `.t-long-lead` utility class 
 
 Intended for long-read essays, articles and blog posts, the `t-long-read` utility class (to be used as a _wrapper_ class) enlarges text (including headings) responsive to wider viewports (e.g. tablets, laptops, and up) using the following CSS clamp, which is set in `variables.css`:
 
@@ -321,37 +321,61 @@ If the `<code>` tag is wrapped in a `<pre>` tag, then it becomes a block level e
 Besides those already introduced, Baselayer also has utility classes for:
 
 * `t-big` — increase font size by 1.5em. Use it directly on a `<p>` to enlarge the font (e.g. for a lead paragraph). But don’t use `t-big`  directly on a heading, because that will overrive the heading size — but you can use it on a _wrapper_ around a heading that you wish to enlarge (e.g. for a title or hero component).
-* `t-small` (or use the `<small>` HTML tag) — decrease font-size to 0.75em.
+* `t-small` (or use the `<small>` HTML tag) — decrease font-size to 0.75em
+* `t-highlight` (or use the `<mark>` HTML tag) — text highlighter
 * `t-right`, `t-center`, and `t-left` — text alignment
 * `t-lighter`, `t-normal`, `t-semibold`, `t-bold`, `t-heavy` — font weights
 * `t-italic` — font style italic
 * `t-uppercase` — text transform to capitals
+* `t-loose`, `t-tight` — slightly inchrease or slightly decrease letter spacing
 * `t-noline` — use to remove the underline (underscore) from links where having it may be inappropriate (e.g. in menus)
 * `hover:t-line` – make underline appear on hover (pair as `t-noline hover:t-line` on a link)
-  * Example `t-noline h:t-line`: <a class="t-noline hover:t-line" href="http://example.com">example</a>
+  * Example `t-noline hover:t-line`: <a class="t-noline hover:t-line" href="http://example.com">example</a>
 * `t-nowrap` — prevents text wrapping (spaces behave as non-breaking spaces)
 * `unlist` — sets `list-style-type: none` on `<ol>`, `<ul>`, or `<li>`. You can use this when you want to use a list in a navigation menu. And you can combine it with `p-0` to remove the list inset padding.
 
 **Note:** links can also be styled as though they are buttons using the `btn` utility class. See [buttons]({{ '/buttons/' | url }}).
 
-## Simple Menus
+## Simple menus
 
 If you wrap links in a `<nav>` tag, as you should do when creating a menu, then the links have their underscores removed. (So, there is no need to use `noline` inside a `<nav>` tag.)
 
 Simple can created in this way, whether or not you involve an `<ul>` unordered list. Example:
 
-<nav class="mt-2 mb-3">
-  <a class="p-cell" href="#/">Home</a>
-  <a class="p-cell" href="#/">About</a>
-  <a class="p-cell" href="#/">Contact</a>
+Simply links inside a `<nav>` (spacing controlled by [flex layout](/baselayer-3/layout/#flex-layouts)):
+
+<nav class="mt-2 mb-3 p-2 flex flex-wrap gap-2 bg-gray bg-100 bg-dark-invert">
+  <a href="#/">Home</a>
+  <a href="#/">About</a>
+  <a href="#/">Contact</a>
 </nav>
 
 ```
-<nav>
-  <a class="p-cell" href="#/">Home</a>
-  <a class="p-cell" href="#/">About</a>
-  <a class="p-cell" href="#/">Contact</a>
+<nav class="p-2 flex flex-wrap gap-2 bg-gray bg-100 bg-dark-invert">
+  <a href="">Home</a>
+  <a href="">About</a>
+  <a href="">Contact</a>
 </nav>
 ```
 
-For more information on `p-cell` see decoration [spacing extras]({{ '/decoration/' | url }}#spacing-extras). And for how Baselayer colors work, see [colors]({{ '/colors/' | url }}).
+Read more about Baselayer’s [color utility classes](/baselayer-3/colors/).
+
+Involving an unordered list:
+
+<nav class="mt-2 mb-3 b-1 p-2">
+  <ul class="unlist flex flex-column flex-wrap gap-2">
+    <li><a href="#/">Home</a></li>
+    <li><a href="#/">About</a></li>
+    <li><a href="#/">Contact</a></li>
+  </ul>
+</nav>
+
+```
+<nav class="b-1 p-2">
+  <ul class="unlist flex flex-column flex-wrap gap-2">
+    <li><a href="">Home</a></li>
+    <li><a href="">About</a></li>
+    <li><a href="">Contact</a></li>
+  </ul>
+</nav>
+```

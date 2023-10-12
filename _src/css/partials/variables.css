@@ -19,12 +19,13 @@
   --bgc-btn-hover: #707070;
   --tc-code: black;
   --bgc-code: #4df5ff;
+  --bgc-highlight: #ffcc0066;
   --bc-fineline: #d9d9d9;
 
-  /* color utility builder fallbacks (for pre-OKLCH) (x = output from builder) */
-  --tcx: #222;
-  --bcx: #aaa;
-  --bgcx: #ddd;
+  /* color utility builder fallbacks (for pre-OKLCH) */
+  --tx: #222;
+  --bx: #aaa;
+  --bgx: #ddd;
 
   /*
   Baselayer oklch() theme colors
@@ -65,8 +66,7 @@
   --c30: 0.3;
   /* (higher chromas are out of gamut for many monitors) */
 
-
-  /* hues */
+  /* hue */
   --gray: 0;
   --coolgray: 265;
   --warmgray: 65;
@@ -78,10 +78,10 @@
   --blue: 265;
   --purple: 300;
 
-  /* builders (x = outout from builder) */
-  --tcx: oklch(var(--tl) var(--tc) var(--th));
-  --bcx: oklch(var(--bl) var(--bc) var(--bh));
-  --bgcx: oklch(var(--bgl) var(--bgc) var(--bg-hover));
+  /* builders */
+  --tx: oklch(var(--tl) var(--tc) var(--th));
+  --bx: oklch(var(--bl) var(--bc) var(--bh));
+  --bgx: oklch(var(--bgl) var(--bgc) var(--bgh));
 }
 
 /*
@@ -181,6 +181,8 @@ Alternatively, you could set these up using...
   --p-cell: var(--sp-1) calc(2 * var(--sp-1));
   /* list spacing (between items) */
   --sp-list: 0.75em;
+  /* letter spacing for `.t-loose` and `.t-tight` */
+  --sp-letter: 0.625em;
 
   /* 
   Major third typographic scale, calculated by https://type-scale.com

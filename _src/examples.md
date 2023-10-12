@@ -77,7 +77,7 @@ Back
   <button class="px-3" type="button" name="button">Stretched button</button>
   <a class="btn" href="#/">Link pseudo-button</a>
   <button class="b-blue b-600 hover:b-700 bg-blue bg-600 hover:bg-700" type="button" name="button">Blue button</button>
-  <button class="b-orange b-300 hover:b-400 t-black hover:t-black bg-orange bg-300 hover:bg-400" type="button" name="button">orange button</button>
+  <button class="b-orange b-300 hover:b-400 t-black hover:t-black bg-orange bg-300 hover:bg-400" type="button" name="button">Orange button</button>
   <a class="btn b-1 b-green bg-transparent bg-600 t-green t-600 hover:b-700 hover:t-white hover:bg-green hover:bg-700" href="#/">Link ghost pseudo-button</a>
 </div>
 <div class="container-sm mb-2">
@@ -124,7 +124,33 @@ Back
 
 </div><!-- /.container -->
 
-<h2>Example components using grid</h2>
+## Example components
+
+<div class="container-lg grid md:equal-2-cols gap-3">
+  <div>
+    <div aria-label="Note" class="popout mb-2 bt-3 b-blue b-300 r-2 p-2 t-black bg-gray bg-100">
+      &star; Information panel
+    </div>
+    <div aria-label="Note" class="popout mb-2 bl-3 b-orange b-300 p-2 t-black bg-orange bg-100">
+      &#9888; Warning alert panel.
+    </div>
+  </div>
+  <div>
+    <div class="b-1 r-3">
+      <div class="p-cell t-bold">Card category</div>
+      <div class="aspect-ratio-21x9 relative">
+        <svg xmlns="http://www.w3.org/2000/svg" class="absolute box img-cover" preserveAspectRatio="xMidYMid slice" width="1000" height="600"><defs><linearGradient id="gradient1" gradientTransform="rotate(45)"><stop offset="5%" stop-color="rgba(255,255,0,.5)"/><stop offset="50%" stop-color="rgba(255,255,255,0)"/><stop offset="95%" stop-color="rgba(255,0,0,.5)"/></linearGradient><linearGradient id="gradient2" gradientTransform="rotate(135)"><stop offset="5%" stop-color="rgba(0,0,255,.5)"/><stop offset="50%" stop-color="rgba(255,255,255,0)"/><stop offset="95%" stop-color="rgba(0,255,0,.5)"/></linearGradient></defs><rect width="100%" height="100%" fill="url('#gradient1')"/><rect width="100%" height="100%" fill="url('#gradient2')"/></svg>
+      </div>
+      <div class="p-cell">
+      <p class="h3 my-1">Card title</p>
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni rem animi quaerat accusantium illum architecto, nemo, ex harum voluptatum adipisci eum blanditiis dolorum.</p>
+      <p><a class="btn r-2 bg-green" href="#/">Get this thing</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+## Example components using grid
 
 <div class="container-lg grid md:equal-2-cols gap-3">
   <div>

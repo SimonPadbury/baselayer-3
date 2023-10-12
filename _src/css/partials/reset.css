@@ -4,65 +4,45 @@
  * https://andy-bell.co.uk/a-more-modern-css-reset/
  */
 
-html {
-  -moz-text-size-adjust: none;
-  -webkit-text-size-adjust: none;
-  text-size-adjust: none;
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-body {
-  min-height: 100dvh;
-  margin: 0;
-  font-size: var(--fs-base);
-  line-height: var(--lh-base);
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-}
-
-img,
-picture,
-video,
-canvas {
-  max-width: 100%;
-  display: block;
-}
-
-iframe {
-  border: 0;
-}
-
-summary {
-  cursor: pointer;
-}
-
-:target {
-  scroll-margin-block: 5ex;
-}
-
-/*
-Baselayer has no built-in CSS animations. If you add any,
-then you should help your users who for some reason may
-prefer gentler or no animations (e.g. people who have
-vestibular and seizure disorders).
-
-@media (prefers-reduced-motion: reduce) {
-  html:focus-within {
-   scroll-behavior: auto;
+@layer defaults {
+  html {
+    -moz-text-size-adjust: none;
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
   }
-  
+
   *,
   *::before,
   *::after {
-    animation-duration: .01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: .01ms !important;
-    scroll-behavior: auto !important;
+    box-sizing: border-box;
+  }
+
+  body {
+    min-height: 100dvh;
+    margin: 0;
+    font-size: var(--fs-base);
+    line-height: var(--lh-base);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  img,
+  picture,
+  video,
+  canvas {
+    max-width: 100%;
+    display: block;
+  }
+
+  iframe {
+    border: 0;
+  }
+
+  summary {
+    cursor: pointer;
+  }
+
+  :target {
+    scroll-margin-block: 5ex;
   }
 }
-*/
