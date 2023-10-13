@@ -307,6 +307,53 @@ The OKLCH lightness channels in Baselayer 3 are numbered `-100` (lightest shade)
 
 For most of the pre-set color schemes in Baselayer 3, these lightnesses are paired with a chroma scale that is more vibrant in the middle at `-500` and less vibrant for the lighter or darker shades.
 
+<table class="table">
+<thead>
+<tr>
+<th>Lightness variable</th>
+<th>Chroma variable</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--l100</code> (lightest)</td>
+<td><code>--c10</code> (least vibrant)</td>
+</tr>
+<tr>
+<td><code>--l200</code></td>
+<td><code>--c15</code></td>
+</tr>
+<tr>
+<td><code>--l300</code></td>
+<td><code>--c20</code></td>
+</tr>
+<tr>
+<td><code>--l400</code></td>
+<td><code>--c25</code></td>
+</tr>
+<tr>
+<td><code>--l500</code></td>
+<td><code>--c30</code> (most vibrant)</td>
+</tr>
+<tr>
+<td><code>--l600</code></td>
+<td><code>--c25</code></td>
+</tr>
+<tr>
+<td><code>--l700</code></td>
+<td><code>--c20</code></td>
+</tr>
+<tr>
+<td><code>--l800</code></td>
+<td><code>--c15</code></td>
+</tr>
+<tr>
+<td><code>--l900</code> (darkest)</td>
+<td><code>--c10</code> (least vibrant)</td>
+</tr>
+</tbody>
+</table>
+
 For the grays (neutral, cool gray and warm gray), as well as the brown, these required a uniform chroma override using an `!important` flag — they are not more vibrant in their mid-range shades.
 
 The shades `*-100` through `*-900` if used alone, _do not provide color_. But if you use them to supplement one of the other colors above, then the color class will provide the color, and the shade class will set the lightness level.

@@ -549,6 +549,52 @@ window.addEventListener("DOMContentLoaded", () => {
 <h2 id="lightness-and-chroma-scales" tabindex="-1">Lightness and chroma scales</h2>
 <p>The OKLCH lightness channels in Baselayer 3 are numbered <code>-100</code> (lightest shade) thorugh <code>-900</code> (darkest shade), following the convention adopted by other CSS systems such as Materialize and Tailwind.</p>
 <p>For most of the pre-set color schemes in Baselayer 3, these lightnesses are paired with a chroma scale that is more vibrant in the middle at <code>-500</code> and less vibrant for the lighter or darker shades.</p>
+<table class="table">
+<thead>
+<tr>
+<th>Lightness variable</th>
+<th>Chroma variable</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--l100</code> (lightest)</td>
+<td><code>--c10</code> (least vibrant)</td>
+</tr>
+<tr>
+<td><code>--l200</code></td>
+<td><code>--c15</code></td>
+</tr>
+<tr>
+<td><code>--l300</code></td>
+<td><code>--c20</code></td>
+</tr>
+<tr>
+<td><code>--l400</code></td>
+<td><code>--c25</code></td>
+</tr>
+<tr>
+<td><code>--l500</code></td>
+<td><code>--c30</code> (most vibrant)</td>
+</tr>
+<tr>
+<td><code>--l600</code></td>
+<td><code>--c25</code></td>
+</tr>
+<tr>
+<td><code>--l700</code></td>
+<td><code>--c20</code></td>
+</tr>
+<tr>
+<td><code>--l800</code></td>
+<td><code>--c15</code></td>
+</tr>
+<tr>
+<td><code>--l900</code> (darkest)</td>
+<td><code>--c10</code> (least vibrant)</td>
+</tr>
+</tbody>
+</table>
 <p>For the grays (neutral, cool gray and warm gray), as well as the brown, these required a uniform chroma override using an <code>!important</code> flag — they are not more vibrant in their mid-range shades.</p>
 <p>The shades <code>*-100</code> through <code>*-900</code> if used alone, <em>do not provide color</em>. But if you use them to supplement one of the other colors above, then the color class will provide the color, and the shade class will set the lightness level.</p>
 <p>Of course, there are no shades of black and white — use <code>*-gray</code> and shades for a grayscale.</p>
