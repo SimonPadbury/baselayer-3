@@ -182,7 +182,7 @@ Alternatively, you could set these up using...
   /* list spacing (between items) */
   --sp-list: 0.75em;
   /* letter spacing for `.t-loose` and `.t-tight` */
-  --sp-letter: 0.625em;
+  --sp-letter: 0.0625em;
 
   /* 
   Major third typographic scale, calculated by https://type-scale.com
