@@ -35,7 +35,22 @@
         padding-top: var(--sp-2);
         justify-content: center;
       }
+      .ms-windows #site-nav > div {
+        overflow-y: hidden;
+      }
+      .ms-windows #site-nav:hover > div {
+        overflow-y: auto;
+      }
     }
+    @media (min-width: 1280px) {
+      .ms-windows #toc > div {
+        overflow-y: hidden;
+      }
+      .ms-windows #toc:hover > div {
+        overflow-y: auto;
+      }
+    }
+
     .font-longread #article-title,
     .font-longread #article-content { 
       font-size: var(--fs-long-read);
@@ -43,10 +58,6 @@
 
     .font-prose article { font-family: var(--t-prose); }
 
-    .font-longread .btn-icon {
-      width: calc(var(--si) + 2px);
-      height: calc(var(--si) + 2px);
-    }
     h2, h3, h4 {
       scroll-margin-top: var(--sp-2);
     }
@@ -60,6 +71,11 @@
     }
   </style>
 
+  <script>
+    if (navigator.appVersion.indexOf("Win") != -1) {
+      document.body.classList.add('ms-windows');
+    }
+  </script>
   <script>
   const matchMediaDark = window.matchMedia('(prefers-color-scheme: dark)');
 const htmlClassList = document.querySelector('html').classList;
