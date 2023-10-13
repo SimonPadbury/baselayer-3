@@ -138,13 +138,13 @@
   Invisibility
   */
 
-  @media (max-width: 767px) {
+  @media (max-width: 639px) {
     .sm\:hidden-below {
       display: none !important;
     }
   }
 
-  @media (max-width: 1023px) {
+  @media (max-width: 959px) {
     .md\:hidden-below {
       display: none !important;
     }

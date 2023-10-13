@@ -2,7 +2,7 @@
 
 Modern starter CSS library with OKLCH color utilities, CSS math functions, CSS grid, and CSS variables.
 
-v.1.1.0
+v.1.1.1
 
 Designed as a good place to start, Baselayer may be all you need — for small web projects. Or you may use it as a _baselayer_ to quick-start your mega project.
 

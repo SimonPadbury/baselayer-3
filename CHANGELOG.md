@@ -17,3 +17,7 @@
 * Removed `*-reversi` (black/white) color utilities. Use `*-dark-invert` (on other colors, including grayscale) instead.
 * Added typographic utilities for letter spacing, and highlighting.
 * Bug fixes.
+
+## v.1.1.1 -- 13 Oct 2023
+
+* Bug fix: `hidden-below` media queries.
