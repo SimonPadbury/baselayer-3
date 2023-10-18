@@ -35,7 +35,11 @@
         padding-top: var(--sp-2);
         justify-content: center;
       }
+      #site-nav {
+        min-width: var(--w-xs);
+      }
       .ms-windows #site-nav > div {
+        scrollbar-gutter: stable;
         overflow-y: hidden;
       }
       .ms-windows #site-nav:hover > div {
@@ -44,6 +48,7 @@
     }
     @media (min-width: 1280px) {
       .ms-windows #toc > div {
+        scrollbar-gutter: stable;
         overflow-y: hidden;
       }
       .ms-windows #toc:hover > div {
@@ -72,17 +77,17 @@
   </style>
 
   <script>
-    if (navigator.appVersion.indexOf("Win") != -1) {
-      document.body.classList.add('ms-windows');
-    }
-  </script>
-  <script>
   {% include "includes/switcher.js" %}
   {% include "includes/menu.js" %}
   </script>
 
 </head>
 <body class="{% if bodyClass %}{{ bodyClass }}{% endif %}">
+  <script>
+    if (navigator.appVersion.indexOf("Win") != -1) {
+      document.body.classList.add('ms-windows');
+    }
+  </script>
 
   <!-- Current page: {{ page.url | url }} -->
 

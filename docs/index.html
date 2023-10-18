@@ -35,7 +35,11 @@
         padding-top: var(--sp-2);
         justify-content: center;
       }
+      #site-nav {
+        min-width: var(--w-xs);
+      }
       .ms-windows #site-nav > div {
+        scrollbar-gutter: stable;
         overflow-y: hidden;
       }
       .ms-windows #site-nav:hover > div {
@@ -44,6 +48,7 @@
     }
     @media (min-width: 1280px) {
       .ms-windows #toc > div {
+        scrollbar-gutter: stable;
         overflow-y: hidden;
       }
       .ms-windows #toc:hover > div {
@@ -71,11 +76,6 @@
     }
   </style>
 
-  <script>
-    if (navigator.appVersion.indexOf("Win") != -1) {
-      document.body.classList.add('ms-windows');
-    }
-  </script>
   <script>
   const matchMediaDark = window.matchMedia('(prefers-color-scheme: dark)');
 const htmlClassList = document.querySelector('html').classList;
@@ -197,6 +197,11 @@ window.addEventListener("DOMContentLoaded", () => {
 
 </head>
 <body class="">
+  <script>
+    if (navigator.appVersion.indexOf("Win") != -1) {
+      document.body.classList.add('ms-windows');
+    }
+  </script>
 
   <!-- Current page: /baselayer-3/ -->
 
@@ -221,12 +226,12 @@ window.addEventListener("DOMContentLoaded", () => {
       <p class="t-coolgray t-400">Version: 1.1.1 • <a class="t-gray t-100 hover:t-200 t-noline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3">GitHub</a></p>
     </div>
 
-    <nav id="site-nav" role="menu">
+    <nav role="menu">
       <button type="button" id="site-nav-toggle" aria-expanded="false" aria-label="Menu" aria-controls="site-nav-menu" class="absolute top right m-2 md:hidden">
         Menu
       </button>
 
-      <div id="site-nav-menu" class="mx-auto t-center t-white" style="width: var(--w-xs);">
+      <div id="site-nav-menu" class="mx-auto t-center t-white">
         <div class="my-2 p-cell flex flex-column gap-1">
           <a class="block p-cell t-coolgray t-100 hover:t-200"  aria-current="page" href="/baselayer-3/">Introduction</a>
           <a class="block p-cell t-coolgray t-100 hover:t-200"  href="/baselayer-3/typography/">Typography</a>
