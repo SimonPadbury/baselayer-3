@@ -252,63 +252,72 @@
   /* Text shades */
 
   .t-100,
-  .hover\:t-100:hover {
+  .hover\:t-100:hover,
+  .hover\:t-100:active {
     --tl: var(--l100);
     --tc: var(--c10);
     color: var(--tx);
   }
 
   .t-200,
-  .hover\:t-200:hover {
+  .hover\:t-200:hover,
+  .hover\:t-200:active {
     --tl: var(--l200);
     --tc: var(--c15);
     color: var(--tx);
   }
 
   .t-300,
-  .hover\:t-300:hover {
+  .hover\:t-300:hover,
+  .hover\:t-300:active {
     --tl: var(--l300);
     --tc: var(--c20);
     color: var(--tx);
   }
 
   .t-400,
-  .hover\:t-400:hover {
+  .hover\:t-400:hover,
+  .hover\:t-400:active {
     --tl: var(--l400);
     --tc: var(--c25);
     color: var(--tx);
   }
 
   .t-500,
-  .hover\:t-500:hover {
+  .hover\:t-500:hover,
+  .hover\:t-500:active {
     --tl: var(--l500);
     --tc: var(--c30);
     color: var(--tx);
   }
 
   .t-600,
-  .hover\:t-600:hover {
+  .hover\:t-600:hover,
+  .hover\:t-600:active {
     --tl: var(--l600);
     --tc: var(--c25);
     color: var(--tx);
   }
 
   .t-700,
-  .hover\:t-700:hover {
+  .hover\:t-700:hover,
+  .hover\:t-700:active {
     --tl: var(--l700);
     --tc: var(--c20);
     color: var(--tx);
   }
 
   .t-800,
-  .hover\:t-800:hover {
+  .hover\:t-800:hover,
+  .hover\:t-800:active {
     --tl: var(--l800);
     --tc: var(--c15);
     color: var(--tx);
   }
 
   .t-900,
-  .hover\:t-900:hover {
+  .hover\:t-900:hover,
+  .hover\:t-900:active {
     --tl: var(--l900);
     --tc: var(--c10);
     color: var(--tx);
@@ -317,63 +326,72 @@
   /* Border shades */
 
   .b-100,
-  .hover\:b-100:hover {
+  .hover\:b-100:hover,
+  .hover\:b-100:active {
     --bl: var(--l100);
     --bc: var(--c10);
     border-color: var(--bx);
   }
 
   .b-200,
-  .hover\:b-200:hover {
+  .hover\:b-200:hover,
+  .hover\:b-200:active {
     --bl: var(--l200);
     --bc: var(--c15);
     border-color: var(--bx);
   }
 
   .b-300,
-  .hover\:b-300:hover {
+  .hover\:b-300:hover,
+  .hover\:b-300:active {
     --bl: var(--l300);
     --bc: var(--c20);
     border-color: var(--bx);
   }
 
   .b-400,
-  .hover\:b-400:hover {
+  .hover\:b-400:hover,
+  .hover\:b-400:active {
     --bl: var(--l400);
     --bc: var(--c25);
     border-color: var(--bx);
   }
 
   .b-500,
-  .hover\:b-500:hover {
+  .hover\:b-500:hover,
+  .hover\:b-500:active {
     --bl: var(--l500);
     --bc: var(--c30);
     border-color: var(--bx);
   }
 
   .b-600,
-  .hover\:b-600:hover {
+  .hover\:b-600:hover,
+  .hover\:b-600:active {
     --bl: var(--l600);
     --bc: var(--c25);
     border-color: var(--bx);
   }
 
   .b-700,
-  .hover\:b-700:hover {
+  .hover\:b-700:hover,
+  .hover\:b-700:active {
     --bl: var(--l700);
     --bc: var(--c20);
     border-color: var(--bx);
   }
 
   .b-800,
-  .hover\:b-800:hover {
+  .hover\:b-800:hover,
+  .hover\:b-800:active {
     --bl: var(--l800);
     --bc: var(--c15);
     border-color: var(--bx);
   }
 
   .b-900,
-  .hover\:b-900:hover {
+  .hover\:b-900:hover,
+  .hover\:b-900:active {
     --bl: var(--l900);
     --bc: var(--c10);
     border-color: var(--bx);
@@ -382,63 +400,72 @@
   /* Background shades */
 
   .bg-100,
-  .hover\:bg-100:hover {
+  .hover\:bg-100:hover,
+  .hover\:bg-100:active {
     --bgl: var(--l100);
     --bgc: var(--c10);
     background: var(--bgx);
   }
 
   .bg-200,
-  .hover\:bg-200:hover {
+  .hover\:bg-200:hover,
+  .hover\:bg-200:active {
     --bgl: var(--l200);
     --bgc: var(--c15);
     background: var(--bgx);
   }
 
   .bg-300,
-  .hover\:bg-300:hover {
+  .hover\:bg-300:hover,
+  .hover\:bg-300:active {
     --bgl: var(--l300);
     --bgc: var(--c20);
     background: var(--bgx);
   }
 
   .bg-400,
-  .hover\:bg-400:hover {
+  .hover\:bg-400:hover,
+  .hover\:bg-400:active {
     --bgl: var(--l400);
     --bgc: var(--c25);
     background: var(--bgx);
   }
 
   .bg-500,
-  .hover\:bg-500:hover {
+  .hover\:bg-500:hover,
+  .hover\:bg-500:active {
     --bgl: var(--l500);
     --bgc: var(--c30);
     background: var(--bgx);
   }
 
   .bg-600,
-  .hover\:bg-600:hover {
+  .hover\:bg-600:hover,
+  .hover\:bg-600:active {
     --bgl: var(--l600);
     --bgc: var(--c25);
     background: var(--bgx);
   }
 
   .bg-700,
-  .hover\:bg-700:hover {
+  .hover\:bg-700:hover,
+  .hover\:bg-700:active {
     --bgl: var(--l700);
     --bgc: var(--c20);
     background: var(--bgx);
   }
 
   .bg-800,
-  .hover\:bg-800:hover {
+  .hover\:bg-800:hover,
+  .hover\:bg-800:active {
     --bgl: var(--l800);
     --bgc: var(--c15);
     background: var(--bgx);
   }
 
   .bg-900,
-  .hover\:bg-900:hover {
+  .hover\:bg-900:hover,
+  .hover\:bg-900:active {
     --bgl: var(--l900);
     --bgc: var(--c10);
     background: var(--bgx);

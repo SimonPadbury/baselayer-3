@@ -47,8 +47,8 @@ The design philosophy behind the Baselayer project is as follows:
 * Using modern CSS technologies such variables, math functions, grid, and a modern color system, that enable a lot of code reuse (reducing duplication)
 * All without a preprocessor (no need for Sass, Less, Stylus etc.)
 * Aim at being a good place to start — a _baselayer_ for a web design project, closer to being a more powerful replacement for [Normalize](https://necolas.github.io/normalize.css/) than an entire design system like the much bigger CSS frameworks.
-* Being so small, there’s less you need to overwrite to style it your own way, making it look “less like [Bootstrap](https://getbootstrap.com).” And there’s no need for [Tailwind](https://tailwindcss.com)-like purging to remove a heavy payload of unused styles.
-* Plus, if you want to include the whole of Baselayer ({{ metadata.filesize }}) with or within your styles in a content management system (CMS), then you still it all available when you need to style simple components in the content editor.
+* Being so small ({{ metadata.filesize }}), there’s less you need to overwrite to style it your own way. And there’s no need for a purge process to remove a heavy payload of unused styles.
+* Plus, if you want to include the whole of `baselayer.min.css` along with your styles in a content management system (CMS), then you still it all available when you need to style simple components in the content editor.
 
 ## Built using PostCSS
 
