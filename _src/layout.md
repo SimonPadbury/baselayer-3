@@ -44,7 +44,9 @@ For viewport widths below `--w-max` side spacing is provided by `--sp-2`. This a
 
 ## Widths
 
-* `container-xs` / `w-xs` — (max) width 630px or 100%
+320px intervals.
+
+* `container-xs` / `w-xs` — (max) width 320px or 100%
 * `container-sm` / `w-sm` — (max) width 640px or 100%
 * `container-md` / `w-md` — (max) width 960px or 100%
 * `container-lg` / `w-lg` — (max) width 1280px or 100%

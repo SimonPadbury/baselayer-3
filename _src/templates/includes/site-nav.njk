@@ -13,7 +13,8 @@
           </svg>
         <span class="t-nowrap">{{ metadata.title }}</span>
       </a>
-      <p class="t-coolgray t-400">Version: {{ metadata.version }} • <a class="t-gray t-100 hover:t-200 t-noline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3">GitHub</a></p>
+      <p class="mb-1 t-coolgray t-400">Version: {{ metadata.version }} • <a class="t-gray t-100 hover:t-200 t-noline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3">GitHub</a></p>
+      <p class="mb-1 t-coolgray t-400"><a class="t-gray t-100 hover:t-200 t-noline hover:t-line" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> ({{ metadata.filesize }})</p>
     </div>
 
     <nav role="menu">
@@ -21,7 +22,7 @@
         Menu
       </button>
 
-      <div id="site-nav-menu" class="mx-auto t-center t-white">
+      <div id="site-nav-menu" class="w-xs mx-auto t-center t-white">
         <div class="my-2 p-cell flex flex-column gap-1">
           <a class="block p-cell t-coolgray t-100 hover:t-200" {% if page.url == '/' %} aria-current="page"{% endif %} href="{{ '/' | url }}">Introduction</a>
           <a class="block p-cell t-coolgray t-100 hover:t-200" {% if 'typography' in page.url %} aria-current="page"{% endif %} href="{{ '/typography/' | url }}">Typography</a>
