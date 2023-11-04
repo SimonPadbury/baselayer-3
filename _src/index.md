@@ -8,7 +8,7 @@ nextLink: "Typography"
 
 ## Introduction
 
-<p class="t-big">Designed as a <mark>good place to start</mark>, Baselayer may be all you need — for small static websites and blogs. Or you may use it as a <em>baselayer</em> to quick-start your mega project.</p>
+<p class="t-big">Designed as a good place to start, Baselayer may be all you need — for small static websites and blogs. Or you may use it as a <em>baselayer</em> to quick-start your mega project.</p>
 
 Ready to use as-is, Baselayer gives you all this and more:
 
