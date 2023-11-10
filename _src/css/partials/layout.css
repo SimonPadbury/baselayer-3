@@ -579,27 +579,32 @@
 
   .content-grid {
     --full: minmax(var(--sp-2), 1fr);
-    --content: min(var(--w-cg), 100% - (var(--sp-2) * 2));
+    --expand: minmax(var(--sp-2), var(--w-expand));
     --pop: minmax(0, var(--sp-2));
+    --content: min(var(--w-cg), 100% - (var(--sp-2) * 2));
     display: grid;
     grid-template-columns:
-      var(--full) var(--pop) var(--content) var(--pop) var(--full);
+      [full-start] var(--full) [expand-start] var(--expand) [popout-start] var(--pop) [content-start] var(--content) [content-end] var(--pop) [popout-end] var(--expand) [expand-end] var(--full) [full-end];
   }
 
   .content-grid>* {
-    grid-column: 3
+    grid-column: content;
   }
 
   .popout {
-    grid-column: 2 / span 3
+    grid-column: popout;
+  }
+
+  .expand {
+    grid-column: expand;
   }
 
   .full-bleed {
-    grid-column: 1 / span 5
+    grid-column: full;
   }
 
   .content-grid>hr+* {
-    margin-top: 0
+    margin-top: 0;
   }
 
   /*

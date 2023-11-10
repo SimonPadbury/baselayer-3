@@ -332,6 +332,28 @@ Example information panel using `popout`:
 </div>
 ```
 
+### Expanded panels
+
+Sometimes you need to expand a panel more than as is done in the popout above. You can do this using the `expand` class.
+
+<div class="expand mt-2 mb-3 aspect-ratio-16x9 flex flex-center flex-middle relative">
+  <svg xmlns="http://www.w3.org/2000/svg" class="absolute box img-cover" preserveAspectRatio="xMidYMid slice" width="1000" height="600"><defs><linearGradient id="gradient1" gradientTransform="rotate(45)"><stop offset="5%" stop-color="rgba(255,255,0,.5)"/><stop offset="50%" stop-color="rgba(255,255,255,0)"/><stop offset="95%" stop-color="rgba(255,0,0,.5)"/></linearGradient><linearGradient id="gradient2" gradientTransform="rotate(135)"><stop offset="5%" stop-color="rgba(0,0,255,.5)"/><stop offset="50%" stop-color="rgba(255,255,255,0)"/><stop offset="95%" stop-color="rgba(0,255,0,.5)"/></linearGradient></defs><rect width="100%" height="100%" fill="url('#gradient1')"/><rect width="100%" height="100%" fill="url('#gradient2')"/></svg>
+  <div class="relative w-sm aspect-ratio-16x9 p-3">
+    <p class="h1 t-bold">This is a lot of example text that may or may not distort the aspect ratio (16×9) of this expand component.</p>
+    <p class="h1 t-bold">See what it does on a small viewport width (e.g. phone).</p>
+  </div>
+</div>
+
+```html
+<div class="expand mt-2 mb-3 aspect-ratio-16x9 flex flex-center flex-middle relative">
+  <svg xmlns="http://www.w3.org/2000/svg" class="absolute box img-cover" preserveAspectRatio="xMidYMid slice" width="1000" height="600"><defs><linearGradient id="gradient1" gradientTransform="rotate(45)"><stop offset="5%" stop-color="rgba(255,255,0,.5)"/><stop offset="50%" stop-color="rgba(255,255,255,0)"/><stop offset="95%" stop-color="rgba(255,0,0,.5)"/></linearGradient><linearGradient id="gradient2" gradientTransform="rotate(135)"><stop offset="5%" stop-color="rgba(0,0,255,.5)"/><stop offset="50%" stop-color="rgba(255,255,255,0)"/><stop offset="95%" stop-color="rgba(0,255,0,.5)"/></linearGradient></defs><rect width="100%" height="100%" fill="url('#gradient1')"/><rect width="100%" height="100%" fill="url('#gradient2')"/></svg>
+  <div class="relative w-sm aspect-ratio-16x9 p-3">
+    <p class="h1 t-bold">This is a lot of example text that may or may not distort the aspect ratio (16×9) of this expand component.</p>
+    <p class="h1 t-bold">See what it does on a small viewport width (e.g. phone).</p>
+  </div>
+</div>
+```
+
 ### Full-bleed panels
 
 If your layout has no sidebars, side spacing (margin or padding), or other object that takes up some of the viewport width, then your `content-grid full-bleed` will expand to the full width of the viewport. But if it can’t get to the full viewport width, then it will expand to the available width (as seen in the docs example below).
@@ -345,30 +367,6 @@ Example colored stripe using `full-bleed`:
 ```
 <div class="full-bleed">
  Full bleed panel content...
-</div>
-```
-
-You can constrain the width of elements inside full-bleeds. Here’s an example hero or poster component using an embedded `container-md`:
-
-<div class="full-bleed mt-2 mb-3">
-  <div class="container-md aspect-ratio-16x9 flex flex-center flex-middle relative">
-    <svg xmlns="http://www.w3.org/2000/svg" class="absolute box img-cover" preserveAspectRatio="xMidYMid slice" width="1000" height="600"><defs><linearGradient id="gradient1" gradientTransform="rotate(45)"><stop offset="5%" stop-color="rgba(255,255,0,.5)"/><stop offset="50%" stop-color="rgba(255,255,255,0)"/><stop offset="95%" stop-color="rgba(255,0,0,.5)"/></linearGradient><linearGradient id="gradient2" gradientTransform="rotate(135)"><stop offset="5%" stop-color="rgba(0,0,255,.5)"/><stop offset="50%" stop-color="rgba(255,255,255,0)"/><stop offset="95%" stop-color="rgba(0,255,0,.5)"/></linearGradient></defs><rect width="100%" height="100%" fill="url('#gradient1')"/><rect width="100%" height="100%" fill="url('#gradient2')"/></svg>
-    <div class="relative w-sm aspect-ratio-16x9 p-3">
-      <p class="h1 t-bold">This is a lot of example text that may or may not distort the aspect ratio (16×9) of this hero component.</p>
-      <p class="h1 t-bold">See what it does on a small viewport width (e.g. phone).</p>
-    </div>
-  </div>
-</div>
-
-```html
-<div class="full-bleed mt-2 mb-3">
-  <div class="container-md aspect-ratio-16x9 flex flex-center flex-middle relative bg-black">
-    <img class="absolute box img-cover opacity-50%" src="">
-    <div class="relative w-sm aspect-ratio-16x9 p-3">
-      <p class="h1 t-bold">This is a lot of example text that may or may not distort the aspect ratio (16×9) of this hero component.</p>
-      <p class="h1 t-bold">See what it does on a small viewport width.</p>
-    </div>
-  </div>
 </div>
 ```
 

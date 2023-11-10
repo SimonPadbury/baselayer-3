@@ -7,7 +7,7 @@
 
   <title>Layout · Baselayer 3 CSS</title>
 
-  <link rel="stylesheet" href="/baselayer-3/css/min/baselayer.min.css?v=1.1.2">
+  <link rel="stylesheet" href="/baselayer-3/css/min/baselayer.min.css?v=1.1.3">
 
   <style>
     html {
@@ -223,8 +223,8 @@ window.addEventListener("DOMContentLoaded", () => {
           </svg>
         <span class="t-nowrap">Baselayer 3 CSS</span>
       </a>
-      <p class="mb-1 t-coolgray t-400">Version: 1.1.2 • <a class="t-gray t-100 hover:t-200 t-noline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3">GitHub</a></p>
-      <p class="mb-1 t-coolgray t-400"><a class="t-gray t-100 hover:t-200 t-noline hover:t-line" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> (23.3 KB)</p>
+      <p class="mb-1 t-coolgray t-400">Version: 1.1.3 • <a class="t-gray t-100 hover:t-200 t-noline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3">GitHub</a></p>
+      <p class="mb-1 t-coolgray t-400"><a class="t-gray t-100 hover:t-200 t-noline hover:t-line" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> (23.6 KB)</p>
     </div>
 
     <nav role="menu">
@@ -297,7 +297,7 @@ window.addEventListener("DOMContentLoaded", () => {
             <div class="sticky top w-sm h-max-100dvh mx-auto px-2 overflow-y">
               <p class="h4 t-semibold">Contents</p>
               <nav class="toc" >
-        <ul><li><a href="#blocks">Blocks</a></li><li><a href="#containers">Containers</a></li><li><a href="#widths">Widths</a></li><li><a href="#heights">Heights</a></li><li><a href="#box">Box</a></li><li><a href="#positions">Positions</a></li><li><a href="#flex-layouts">Flex layouts</a><ul><li><a href="#flex-modifiers">Flex modifiers</a></li><li><a href="#flex-item-grow">Flex-item grow</a></li></ul></li><li><a href="#grid-layouts">Grid layouts</a><ul><li><a href="#grid-gaps">Grid gaps</a></li><li><a href="#grid-item-control">Grid item control</a></li></ul></li><li><a href="#content-grid">Content-grid</a><ul><li><a href="#popout-panels">Popout panels</a></li><li><a href="#full-bleed-panels">Full-bleed panels</a></li></ul></li><li><a href="#aspect-ratios">Aspect ratios</a></li><li><a href="#overflows">Overflows</a></li><li><a href="#invisibility">Invisibility</a></li></ul>
+        <ul><li><a href="#blocks">Blocks</a></li><li><a href="#containers">Containers</a></li><li><a href="#widths">Widths</a></li><li><a href="#heights">Heights</a></li><li><a href="#box">Box</a></li><li><a href="#positions">Positions</a></li><li><a href="#flex-layouts">Flex layouts</a><ul><li><a href="#flex-modifiers">Flex modifiers</a></li><li><a href="#flex-item-grow">Flex-item grow</a></li></ul></li><li><a href="#grid-layouts">Grid layouts</a><ul><li><a href="#grid-gaps">Grid gaps</a></li><li><a href="#grid-item-control">Grid item control</a></li></ul></li><li><a href="#content-grid">Content-grid</a><ul><li><a href="#popout-panels">Popout panels</a></li><li><a href="#expanded-panels">Expanded panels</a></li><li><a href="#full-bleed-panels">Full-bleed panels</a></li></ul></li><li><a href="#aspect-ratios">Aspect ratios</a></li><li><a href="#overflows">Overflows</a></li><li><a href="#invisibility">Invisibility</a></li></ul>
       </nav>
             </div>
           </div>
@@ -575,6 +575,23 @@ window.addEventListener("DOMContentLoaded", () => {
   &amp;star; Information panel
 &lt;/div&gt;
 </code></pre>
+<h3 id="expanded-panels" tabindex="-1">Expanded panels</h3>
+<p>Sometimes you need to expand a panel more than as is done in the popout above. You can do this using the <code>expand</code> class.</p>
+<div class="expand mt-2 mb-3 aspect-ratio-16x9 flex flex-center flex-middle relative">
+  <svg xmlns="http://www.w3.org/2000/svg" class="absolute box img-cover" preserveAspectRatio="xMidYMid slice" width="1000" height="600"><defs><linearGradient id="gradient1" gradientTransform="rotate(45)"><stop offset="5%" stop-color="rgba(255,255,0,.5)"/><stop offset="50%" stop-color="rgba(255,255,255,0)"/><stop offset="95%" stop-color="rgba(255,0,0,.5)"/></linearGradient><linearGradient id="gradient2" gradientTransform="rotate(135)"><stop offset="5%" stop-color="rgba(0,0,255,.5)"/><stop offset="50%" stop-color="rgba(255,255,255,0)"/><stop offset="95%" stop-color="rgba(0,255,0,.5)"/></linearGradient></defs><rect width="100%" height="100%" fill="url('#gradient1')"/><rect width="100%" height="100%" fill="url('#gradient2')"/></svg>
+  <div class="relative w-sm aspect-ratio-16x9 p-3">
+    <p class="h1 t-bold">This is a lot of example text that may or may not distort the aspect ratio (16×9) of this expand component.</p>
+    <p class="h1 t-bold">See what it does on a small viewport width (e.g. phone).</p>
+  </div>
+</div>
+<pre><code class="language-html">&lt;div class=&quot;expand mt-2 mb-3 aspect-ratio-16x9 flex flex-center flex-middle relative&quot;&gt;
+  &lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; class=&quot;absolute box img-cover&quot; preserveAspectRatio=&quot;xMidYMid slice&quot; width=&quot;1000&quot; height=&quot;600&quot;&gt;&lt;defs&gt;&lt;linearGradient id=&quot;gradient1&quot; gradientTransform=&quot;rotate(45)&quot;&gt;&lt;stop offset=&quot;5%&quot; stop-color=&quot;rgba(255,255,0,.5)&quot;/&gt;&lt;stop offset=&quot;50%&quot; stop-color=&quot;rgba(255,255,255,0)&quot;/&gt;&lt;stop offset=&quot;95%&quot; stop-color=&quot;rgba(255,0,0,.5)&quot;/&gt;&lt;/linearGradient&gt;&lt;linearGradient id=&quot;gradient2&quot; gradientTransform=&quot;rotate(135)&quot;&gt;&lt;stop offset=&quot;5%&quot; stop-color=&quot;rgba(0,0,255,.5)&quot;/&gt;&lt;stop offset=&quot;50%&quot; stop-color=&quot;rgba(255,255,255,0)&quot;/&gt;&lt;stop offset=&quot;95%&quot; stop-color=&quot;rgba(0,255,0,.5)&quot;/&gt;&lt;/linearGradient&gt;&lt;/defs&gt;&lt;rect width=&quot;100%&quot; height=&quot;100%&quot; fill=&quot;url('#gradient1')&quot;/&gt;&lt;rect width=&quot;100%&quot; height=&quot;100%&quot; fill=&quot;url('#gradient2')&quot;/&gt;&lt;/svg&gt;
+  &lt;div class=&quot;relative w-sm aspect-ratio-16x9 p-3&quot;&gt;
+    &lt;p class=&quot;h1 t-bold&quot;&gt;This is a lot of example text that may or may not distort the aspect ratio (16×9) of this expand component.&lt;/p&gt;
+    &lt;p class=&quot;h1 t-bold&quot;&gt;See what it does on a small viewport width (e.g. phone).&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
 <h3 id="full-bleed-panels" tabindex="-1">Full-bleed panels</h3>
 <p>If your layout has no sidebars, side spacing (margin or padding), or other object that takes up some of the viewport width, then your <code>content-grid full-bleed</code> will expand to the full width of the viewport. But if it can’t get to the full viewport width, then it will expand to the available width (as seen in the docs example below).</p>
 <p>Example colored stripe using <code>full-bleed</code>:</p>
@@ -583,26 +600,6 @@ window.addEventListener("DOMContentLoaded", () => {
 </div>
 <pre><code>&lt;div class=&quot;full-bleed&quot;&gt;
  Full bleed panel content...
-&lt;/div&gt;
-</code></pre>
-<p>You can constrain the width of elements inside full-bleeds. Here’s an example hero or poster component using an embedded <code>container-md</code>:</p>
-<div class="full-bleed mt-2 mb-3">
-  <div class="container-md aspect-ratio-16x9 flex flex-center flex-middle relative">
-    <svg xmlns="http://www.w3.org/2000/svg" class="absolute box img-cover" preserveAspectRatio="xMidYMid slice" width="1000" height="600"><defs><linearGradient id="gradient1" gradientTransform="rotate(45)"><stop offset="5%" stop-color="rgba(255,255,0,.5)"/><stop offset="50%" stop-color="rgba(255,255,255,0)"/><stop offset="95%" stop-color="rgba(255,0,0,.5)"/></linearGradient><linearGradient id="gradient2" gradientTransform="rotate(135)"><stop offset="5%" stop-color="rgba(0,0,255,.5)"/><stop offset="50%" stop-color="rgba(255,255,255,0)"/><stop offset="95%" stop-color="rgba(0,255,0,.5)"/></linearGradient></defs><rect width="100%" height="100%" fill="url('#gradient1')"/><rect width="100%" height="100%" fill="url('#gradient2')"/></svg>
-    <div class="relative w-sm aspect-ratio-16x9 p-3">
-      <p class="h1 t-bold">This is a lot of example text that may or may not distort the aspect ratio (16×9) of this hero component.</p>
-      <p class="h1 t-bold">See what it does on a small viewport width (e.g. phone).</p>
-    </div>
-  </div>
-</div>
-<pre><code class="language-html">&lt;div class=&quot;full-bleed mt-2 mb-3&quot;&gt;
-  &lt;div class=&quot;container-md aspect-ratio-16x9 flex flex-center flex-middle relative bg-black&quot;&gt;
-    &lt;img class=&quot;absolute box img-cover opacity-50%&quot; src=&quot;&quot;&gt;
-    &lt;div class=&quot;relative w-sm aspect-ratio-16x9 p-3&quot;&gt;
-      &lt;p class=&quot;h1 t-bold&quot;&gt;This is a lot of example text that may or may not distort the aspect ratio (16×9) of this hero component.&lt;/p&gt;
-      &lt;p class=&quot;h1 t-bold&quot;&gt;See what it does on a small viewport width.&lt;/p&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
 &lt;/div&gt;
 </code></pre>
 <h2 id="aspect-ratios" tabindex="-1">Aspect ratios</h2>
@@ -670,8 +667,8 @@ window.addEventListener("DOMContentLoaded", () => {
             </div>
 
             <p class="p-cell flex flex-center flex-wrap gap-2 t-center">
-              <span><a class="t-noline hover:t-line" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> (23.3 KB)</span>
-              <span>Version: 1.1.2</span>
+              <span><a class="t-noline hover:t-line" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> (23.6 KB)</span>
+              <span>Version: 1.1.3</span>
               <a class="t-noline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3">GitHub Repository</a>
               <a class="t-noline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3/blob/main/LICENSE">MIT license</a>
             </p>

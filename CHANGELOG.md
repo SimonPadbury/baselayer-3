@@ -9,6 +9,12 @@
 
 # Baselayer 3 changelog
 
+## v.1.1.3 -- 10 Nov 2023
+
+* Improved `content-grid` using named lines.
+* Added `expand` to the content grid.
+* Snagging: made `bg-transparent` to not work on hover, so that outline (ghost) buttons can get a hover background color.
+
 ## v.1.1.2 -- 21 Oct 2023
 
 * Added `:active` attribute color states to color lightness (shades) utility classes (same as `.hover:*`).

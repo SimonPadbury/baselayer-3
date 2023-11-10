@@ -18,7 +18,7 @@ Back
 </button>
 </p>
 
-## Widths
+## Layout [widths](/baselayer-3/layout/#widths)
 
 <div class="container mb-1 p-1 bg-gray bg-100">container</div>
 <div class="container flex flex-wrap mb-1 bg-gray bg-100">
@@ -47,7 +47,7 @@ Back
 <div class="w-xl p-1 bg-gray bg-200">w-xl / 1600px</div>
 </div>
 
-## Containers
+## Layout [containers](/baselayer-3/layout/#containers)
 
 <div class="container mb-1 p-1 bg-gray bg-100">container</div>
 <div class="container-xl mb-1 p-1 bg-gray bg-100">container-xl</div>
@@ -56,7 +56,7 @@ Back
 <div class="container-sm mb-1 p-1 bg-gray bg-100">container-sm</div>
 <div class="container-xs mb-1 p-1 bg-gray bg-100">container-xs</div>
 
-## Labels
+## Labels (see [decoration](/baselayer-3/decoration/))
 
 <div class="container">
   <label class="inline-block px-1 t-black bg-orange bg-200">Really?</label>
@@ -68,7 +68,7 @@ Back
   <label class="inline-block px-1 t-white bg-coolgray bg-700">Uncategorized</label>
 </div>
 
-## Buttons
+## [Buttons](/baselayer-3/buttons/)
 
 <div class="mb-2 container">
   <button type="button" name="button">Button</button>
@@ -78,14 +78,14 @@ Back
   <a class="btn" href="#/">Link pseudo-button</a>
   <button class="b-blue b-600 hover:b-700 bg-blue bg-600 hover:bg-700" type="button" name="button">Blue button</button>
   <button class="b-orange b-300 hover:b-400 t-black hover:t-black bg-orange bg-300 hover:bg-400" type="button" name="button">Orange button</button>
-  <a class="btn b-1 b-green bg-transparent bg-600 t-green t-600 hover:b-700 hover:t-white hover:bg-green hover:bg-700" href="#/">Link ghost pseudo-button</a>
+  <a class="btn b-1 b-green bg-transparent t-green t-600 hover:b-700 hover:t-white hover:bg-green hover:bg-700" href="#/">Link ghost pseudo-button</a>
 </div>
 <div class="container-sm mb-2">
   <p>Full width button inside a small container</p>
   <button class="w-100%">Button</button>
 </div>
 
-## Grid
+## [Grid](/baselayer-3/layout/#grid) layouts
 
 <div class="container mb-3 ">
 <p class="w-sm">A malleable grid without equalization set on the wrapper. For <code>sm</code> up, columns will adopt whatever width they require for their content. <em>CSS grid</em> requires column placement classes to know where you want your columns, so that it can figure out how many columns you need.</p>
@@ -150,7 +150,7 @@ Back
   </div>
 </div>
 
-## Example components using grid
+## Example components using [grid](/baselayer-3/layout/#grid)
 
 <div class="container-lg grid md:equal-2-cols gap-3">
   <div>
@@ -196,7 +196,7 @@ Back
   </div>
 </div>
 
-<h2>Research article page layout using grid</h2>
+## Research article page layout using [grid](/baselayer-3/layout/#grid)
 
 <div class="container mt-2 mb-3">
   <code>grid md:equal-3-cols lg:equal-4-cols gap-3</code>
@@ -236,5 +236,30 @@ Back
         <li>Page Three</li>
       </ul>
     </div>
+  </div>
+</div>
+
+## [Content-grid](/baselayer-3/layout/#content-grid) layouts
+
+<div class="content-grid">
+  <h3 class="h1">Title of this content grid demo</h3>
+  <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni rem animi quaerat accusantium illum architecto, nemo, ex harum voluptatum adipisci eum blanditiis dolorum. Natus debitis quisquam, expedita accusantium quos cumque?</p>
+  <p>Here’s a styled <code>&lt;p class="popout"&gt;</code>:</p>
+  <div aria-label="Note" class="popout mt-2 mb-3 bt-3 b-blue b-300 r-2 p-2 t-black bg-gray bg-100">
+    &star; Information panel
+  </div>
+  <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni rem animi quaerat accusantium illum architecto, nemo, ex harum voluptatum adipisci eum blanditiis dolorum. Natus debitis quisquam, expedita accusantium quos cumque?</p>
+  <p>Here’s a styled <code>&lt;div class="expand"&gt;</code>:</p>
+  <div class="expand mt-2 mb-3 aspect-ratio-16x9 flex flex-center flex-middle relative">
+    <svg xmlns="http://www.w3.org/2000/svg" class="absolute box img-cover" preserveAspectRatio="xMidYMid slice" width="1000" height="600"><defs><linearGradient id="gradient1" gradientTransform="rotate(45)"><stop offset="5%" stop-color="rgba(255,255,0,.5)"/><stop offset="50%" stop-color="rgba(255,255,255,0)"/><stop offset="95%" stop-color="rgba(255,0,0,.5)"/></linearGradient><linearGradient id="gradient2" gradientTransform="rotate(135)"><stop offset="5%" stop-color="rgba(0,0,255,.5)"/><stop offset="50%" stop-color="rgba(255,255,255,0)"/><stop offset="95%" stop-color="rgba(0,255,0,.5)"/></linearGradient></defs><rect width="100%" height="100%" fill="url('#gradient1')"/><rect width="100%" height="100%" fill="url('#gradient2')"/></svg>
+    <div class="relative w-sm aspect-ratio-16x9 p-3">
+      <p class="h1 t-bold">This is a lot of example text that may or may not distort the aspect ratio (16×9) of this expand component.</p>
+      <p class="h1 t-bold">See what it does on a small viewport width (e.g. phone).</p>
+    </div>
+  </div>
+  <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni rem animi quaerat accusantium illum architecto, nemo, ex harum voluptatum adipisci eum blanditiis dolorum. Natus debitis quisquam, expedita accusantium quos cumque?</p>
+  <p>Here’s a styled <code>&lt;p class="full-bleed"&gt;</code>:</p>
+  <div class="full-bleed mt-2 mb-3 p-2 t-semibold t-white bg-red">
+    <code>full-bleed</code> — expands to the full width of the avilable space. If there are no sidebars, it will reach the sides of the viewport.
   </div>
 </div>

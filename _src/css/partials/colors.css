@@ -585,7 +585,7 @@
 @layer color-other {
 
   /* Other color utilities */
-  .bg-transparent {
+  .bg-transparent:not(:hover) {
     background: transparent;
   }
 

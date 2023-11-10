@@ -182,7 +182,7 @@ However, any colors near yellow, such as Baselayer orange, as well as amber and 
     <button type="button" name="button">Button</button>
     <button class="bg-blue bg-600 hover:bg-700" type="button" name="button">Button</button>
     <button class="t-black hover:t-black bg-orange bg-200 hover:bg-300" type="button" name="button">Button</button>
-    <button class="b-1 b-green bg-transparent bg-600 t-green t-600 hover:b-700 hover:t-white hover:bg-green hover:bg-700" type="button" name="button">Button</button>
+    <button class="b-1 b-green bg-transparent t-green t-600 hover:b-700 hover:t-white hover:bg-green hover:bg-700" type="button" name="button">Button</button>
   </p>
 </form>
 
@@ -199,7 +199,7 @@ When colorizing buttons, remember to set their `hover:` hover state shades too.
 <button class="t-black hover:t-black bg-orange bg-200 hover:bg-300" type="button" name="button">Button</button>
 
 /* Green outline (a.k.a. ghost) button */
-<button class="b-1 b-green bg-transparent bg-600 t-green t-600 hover:b-700 hover:t-white hover:bg-green hover:bg-700" type="button" name="button">Button</button>
+<button class="b-1 b-green bg-transparent t-green t-600 hover:b-700 hover:t-white hover:bg-green hover:bg-700" type="button" name="button">Button</button>
 ```
 
 Background reading on colors and accessibility (not much is available about OKLCH at this time, mid-2023):

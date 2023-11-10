@@ -156,17 +156,23 @@ Alternatively, you could set these up using...
   --fw-heavy: 900;
 
   /*
-  Widths set at 320px intervals.
+  Widths set at 320px intervals
   If you change these, remember to also change 
-  the @container queries and @media queries in _src/partials/layout.css
+  the @media queries in _src/partials/layout.css
   */
   --w-xs: 320px;
   --w-sm: 640px;
   --w-md: 960px;
   --w-lg: 1280px;
   --w-xl: 1600px;
-  /* content grid */
+
+  /*
+  Content grid
+  Default content becomes max width 640px when font-size is 16px (1rem)
+  Expand panels becomes max width 960px when font-size is 16px (1rem)
+  */
   --w-cg: 40em;
+  --w-expand: 8.5em;
 
   /*
   Spacing (margins, paddings, flexbox gaps, and grid gaps)
