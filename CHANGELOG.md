@@ -11,6 +11,8 @@
 
 ## v.1.1.3 -- 10 Nov 2023
 
+* Simplified font stacks.
+* Added back `postcss-custom-media` and refactored the layout @media queries.
 * Improved `content-grid` using named lines.
 * Added `expand` to the content grid.
 * Snagging: made `bg-transparent` to not work on hover, so that outline (ghost) buttons can get a hover background color.

@@ -138,19 +138,19 @@
   Invisibility
   */
 
-  @media (max-width: 639px) {
+  @media (--max-sm) {
     .sm\:hidden-below {
       display: none !important;
     }
   }
 
-  @media (max-width: 959px) {
+  @media (--max-md) {
     .md\:hidden-below {
       display: none !important;
     }
   }
 
-  @media (max-width: 1279px) {
+  @media (--max-lg) {
     .lg\:hidden-below {
       display: none !important;
     }
@@ -282,7 +282,7 @@
   Tier 1 (sm)
   */
 
-  @media (min-width: 640px) {
+  @media (--min-sm) {
     .sm\:flex {
       display: flex;
     }
@@ -372,7 +372,7 @@
   Tier 2 (md)
   */
 
-  @media (min-width: 960px) {
+  @media (--min-md) {
     .md\:flex {
       display: flex;
     }
@@ -462,7 +462,7 @@
   Tier 3 (lg)
   */
 
-  @media (min-width: 1280px) {
+  @media (--min-lg) {
     .lg\:flex {
       display: flex;
     }

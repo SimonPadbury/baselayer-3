@@ -14,9 +14,9 @@ Three native font stacks are set in the `root-vars.css` file.
 
 ```
 :root {
-  --base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  --prose: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
-  --mono: ui-monospace, Menlo, "Segoe UI Mono", Consolas, "Ubuntu Monospace", monospace;
+  --t-base: system-ui, sans-serif;
+  --t-prose: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --t-mono: ui-monospace, Menlo, Consolas, monospace;
 }
 ```
 

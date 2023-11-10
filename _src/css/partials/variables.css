@@ -137,9 +137,9 @@ Alternatively, you could set these up using...
   /*
   Native Typeface Stacks
   */
-  --t-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --t-base: system-ui, sans-serif;
   --t-prose: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
-  --t-mono: ui-monospace, Menlo, "Segoe UI Mono", Consolas, "Ubuntu Monospace", monospace;
+  --t-mono: ui-monospace, Menlo, Consolas, monospace;
 
   /* Base font size */
   --fs-base: 100%;
@@ -158,7 +158,7 @@ Alternatively, you could set these up using...
   /*
   Widths set at 320px intervals
   If you change these, remember to also change 
-  the @media queries in _src/partials/layout.css
+  the @custom-media queries variables below
   */
   --w-xs: 320px;
   --w-sm: 640px;
@@ -231,3 +231,14 @@ Alternatively, you could set these up using...
   --r-3: 8px;
   --r-4: 16px;
 }
+
+/*
+Custom media
+*/
+
+@custom-media --max-sm (max-width: 639px);
+@custom-media --min-sm (min-width: 649px);
+@custom-media --max-md (max-width: 959px);
+@custom-media --min-md (min-width: 960px);
+@custom-media --max-lg (max-width: 1279px);
+@custom-media --min-lg (min-width: 1280px);

@@ -4,6 +4,8 @@ mainHeading: Buttons
 layout: base.njk
 prevPage: "/forms/"
 prevLink: "Forms"
+nextPage: "/examples/"
+nextLink: "Examples"
 ---
 
 Baselayer form elements have simple background, hover/active and focus styling (no default border). 

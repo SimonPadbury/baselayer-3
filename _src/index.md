@@ -55,14 +55,14 @@ The design philosophy behind the Baselayer project is as follows:
 Baselayer is built using [PostCSS](https://postcss.org) and a few plugins. The PostCSS plugins used by Baselayer are:
 
 * [postcss-import](https://github.com/postcss/postcss-import) — so that Baselayer could be built from separate CSS files, linked together in an `index.css` using the `@import` rule, and then inlined
-* [postcss-custom-media](https://npm.devtool.tech/postcss-custom-media) — to enable CSS variables to be used in media queries (used only in the `flex` and `grid` layout classes)
-* [cssnano](https://cssnano.co) — to remove comments and minify the output `baselayer.css`
+* [postcss-custom-media](https://npm.devtool.tech/postcss-custom-media) — to enable CSS variables to be used in media queries (used only in the `flex`, `grid`, `hidden`, and `hidden-below` layout classes)
+* [cssnano](https://cssnano.co) — to remove comments and minify the output `baselayer.min.css`
 
 **Note:** neither [postcss-preset-env](https://preset-env.cssdb.org) nor [autoprefixer](https://github.com/postcss/autoprefixer) have been used in Baselayer. And preprocessors such as Sass are not required.
 
 ## Modern CSS reset
 
-The Baselayer reset is a “best of both” combination of: [Josh W Comeau’s custom CSS reset](https://www.joshwcomeau.com/css/custom-css-reset/) and [Andy Bell’s (more) modern CSS reset”](https://andy-bell.co.uk/a-more-modern-css-reset/).
+The Baselayer reset is a “best of both” combination of [Josh W Comeau’s custom CSS reset](https://www.joshwcomeau.com/css/custom-css-reset/) and [Andy Bell’s (more) modern CSS reset”](https://andy-bell.co.uk/a-more-modern-css-reset/).
 
 From that basis, Baselayer then takes care of the basics by setting some minimalist, easy-to-read typography, and styles for buttons and forms.
 
