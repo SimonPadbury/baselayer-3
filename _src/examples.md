@@ -207,14 +207,17 @@ Back
       <p class="h1 mb-0">Title of This Article</p>
     </div>
     <!---->
-    <div class="md:col-2 md:col-span-2 lg:col-4 lg:row-1 lg:row-span-2 b-1 p-1">
-      <code>md:col-2 md:col-span-2 lg:col-4 lg:row-span-2</code>
-      <p class="h4 mt-0">On this page TOC</p>
-      <ul>
-        <li>Introduction</li>
-        <li>Discussion</li>
-        <li>Conclusion</li>
-      </ul>
+    <div class="md:col-2 md:col-span-2 lg:col-4 lg:row-1 lg:row-span-2 b-1 p-1 relative">
+      <div class="sticky top">
+        <code>md:col-2 md:col-span-2 lg:col-4 lg:row-span-2 p-1 relative</code><br>
+        <code>> sticky top</code>
+        <p class="h4 mt-0">On this page TOC</p>
+        <ul>
+          <li>Introduction</li>
+          <li>Discussion</li>
+          <li>Conclusion</li>
+        </ul>
+      </div>
     </div>
     <!---->
     <div class="md:col-2 md:col-span-2 b-1 p-1">
