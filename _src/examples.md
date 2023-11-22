@@ -105,7 +105,7 @@ Back
 </div>
 
 <code>grid sm:equal-2-cols md:equal-3-cols gap-2</code>
-<div class="mt-1 mb-3 grid sm:equal-3-cols gap-2">
+<div class="mt-1 mb-3 grid sm:equal-2-cols md:equal-3-cols gap-2">
     <div class="p-1 bg-gray bg-100">#</div>
     <div class="p-1 bg-gray bg-100">#</div>
     <div class="p-1 bg-gray bg-100">#</div>
