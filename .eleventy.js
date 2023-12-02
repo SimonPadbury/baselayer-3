@@ -2,7 +2,7 @@ const markdownIt = require('markdown-it');
 const markdownItAnchor = require('markdown-it-anchor');
 const pluginTOC = require('eleventy-plugin-toc');
 
-module.exports = function(eleventyConfig) {
+module.exports = function (eleventyConfig) {
 
   // Markdown
 
@@ -11,7 +11,7 @@ module.exports = function(eleventyConfig) {
     markdownIt({ html: true }).use(markdownItAnchor)
   );
   eleventyConfig.addPlugin(pluginTOC, {
-    tags: ['h2', 'h3'],
+    tags: ['h2', 'h3', 'h4'],
     ul: true
   })
 
@@ -25,11 +25,11 @@ module.exports = function(eleventyConfig) {
 
   return {
     dir: {
-        input: "_src",
-        includes: "templates",
-        data: "data",
-        output: "docs"
-      },
-      pathPrefix: "/baselayer-3/"
+      input: "_src",
+      includes: "templates",
+      data: "data",
+      output: "docs"
+    },
+    pathPrefix: "/baselayer-3/"
   };
 };

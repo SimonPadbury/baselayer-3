@@ -9,6 +9,24 @@
 
 # Baselayer 3 changelog
 
+## v.1.2.0
+
+_The big **container query** upgrade._
+
+* Renamed _containers_ as _wrappers_ so that the name `container` could be used exclusively for setting _container query_ context.
+* Refactored the flexbox system for container queries.
+* Refactored the grid system cor container queries.
+* Refactored the invisibility (hidden) classes for container queries.
+* Added `cqi` rules to spacing variables (used by margins, paddings, and gaps) for operation inside a `container`
+* Added a `cqi` rule to `.t-long-read` for operation inside a `container`
+* Fixed `.theme-dark` shade scale for the `<body>` tag.
+* Darkened the dark theme `<body>` element so that `bg-gray bg-900` doesn’t disappear into the page background
+* Removed `t-loose` and `t-tight` as unrequired for a _baselayer_ stylesheet.
+* Removed colors [teal, purple, brown, coolgray, warmgray] -- commented out but retained as examples for inspiration.
+* Added OKLCH lightness `--l1000` variable for use on the dark theme background color.
+* Added `font-style: normal; font-style: normal;` to `code`, `kbd`, `samp`, and `pre` tags, so that these classes could be used within italic and bold text without being affected.
+* Removed the NPM package `postcss-custom-media` because it does not work for container queries (only media queries).
+
 ## v.1.1.3 -- 10 Nov 2023
 
 * Simplified font stacks.

@@ -1,4 +1,4 @@
-<div id="site-nav" class="bg-coolgray bg-800">
+<div id="site-nav" class="bg-gray bg-800">
   <div class="sticky top h-max-100dvh overflow-y">
     <div class="p-cell t-center">
       <a id="site-title" href="{{ '/' | url }}" class="h3 m-0 py-1 t-normal flex flex-center flex-middle flex-wrap gap-1 t-gray t-100 hover:t-200 t-noline">
@@ -13,8 +13,8 @@
           </svg>
         <span class="t-nowrap">{{ metadata.title }}</span>
       </a>
-      <p class="mb-1 t-coolgray t-400">Version: {{ metadata.version }} • <a class="t-gray t-100 hover:t-200 t-noline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3">GitHub</a></p>
-      <p class="mb-1 t-coolgray t-400"><a class="t-gray t-100 hover:t-200 t-noline hover:t-line" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> ({{ metadata.filesize }})</p>
+      <p class="mb-1 t-gray t-400">Version: {{ metadata.version }} • <a class="t-gray t-100 hover:t-200 t-noline hover:t-line" href="https://github.com/SimonPadbury/baselayer-4">GitHub</a></p>
+      <p class="mb-1 t-gray t-400"><a class="t-gray t-100 hover:t-200 t-noline hover:t-line" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> ({{ metadata.filesize }})</p>
     </div>
 
     <nav role="menu">
@@ -24,18 +24,18 @@
 
       <div id="site-nav-menu" class="w-xs mx-auto t-center t-white">
         <div class="my-2 p-cell flex flex-column gap-1">
-          <a class="block p-cell t-coolgray t-100 hover:t-200" {% if page.url == '/' %} aria-current="page"{% endif %} href="{{ '/' | url }}">Introduction</a>
-          <a class="block p-cell t-coolgray t-100 hover:t-200" {% if 'typography' in page.url %} aria-current="page"{% endif %} href="{{ '/typography/' | url }}">Typography</a>
-          <a class="block p-cell t-coolgray t-100 hover:t-200" {% if 'layout' in page.url %} aria-current="page"{% endif %} href="{{ '/layout/' | url }}">Layout</a>
-          <a class="block p-cell t-coolgray t-100 hover:t-200" {% if 'decoration' in page.url %} aria-current="page"{% endif %} href="{{ '/decoration/' | url }}">Decoration</a>
-          <a class="block p-cell t-coolgray t-100 hover:t-200" {% if 'colors' in page.url %} aria-current="page"{% endif %} href="{{ '/colors/' | url }}">Colors</a>
-          <a class="block p-cell t-coolgray t-100 hover:t-200" {% if 'forms' in page.url %} aria-current="page"{% endif %} href="{{ '/forms/' | url }}">Forms</a>
-          <a class="block p-cell t-coolgray t-100 hover:t-200" {% if 'buttons' in page.url %} aria-current="page"{% endif %} href="{{ '/buttons/' | url }}">Buttons</a>
-          <a class="block p-cell t-coolgray t-100 hover:t-200" href="{{ '/examples/' | url }}">Examples</a>
+          <a class="block p-cell t-gray t-100 hover:t-200" {% if page.url == '/' %} aria-current="page"{% endif %} href="{{ '/' | url }}">Introduction</a>
+          <a class="block p-cell t-gray t-100 hover:t-200" {% if 'typography' in page.url %} aria-current="page"{% endif %} href="{{ '/typography/' | url }}">Typography</a>
+          <a class="block p-cell t-gray t-100 hover:t-200" {% if 'layout' in page.url %} aria-current="page"{% endif %} href="{{ '/layout/' | url }}">Layout</a>
+          <a class="block p-cell t-gray t-100 hover:t-200" {% if 'decoration' in page.url %} aria-current="page"{% endif %} href="{{ '/decoration/' | url }}">Decoration</a>
+          <a class="block p-cell t-gray t-100 hover:t-200" {% if 'colors' in page.url %} aria-current="page"{% endif %} href="{{ '/colors/' | url }}">Colors</a>
+          <a class="block p-cell t-gray t-100 hover:t-200" {% if 'forms' in page.url %} aria-current="page"{% endif %} href="{{ '/forms/' | url }}">Forms</a>
+          <a class="block p-cell t-gray t-100 hover:t-200" {% if 'buttons' in page.url %} aria-current="page"{% endif %} href="{{ '/buttons/' | url }}">Buttons</a>
+          <a class="block p-cell t-gray t-100 hover:t-200" href="{{ '/examples/' | url }}">Examples</a>
         </div>
 
         <div class="mb-2 p-cell">
-          <button class="w-100% mb-1 p-1 flex flex-column gap-1 bg-coolgray bg-600 hover:bg-700" onclick="toggleFont()">
+          <button class="w-100% mb-1 p-1 flex flex-column gap-1 bg-gray bg-600 hover:bg-700" onclick="toggleFont()">
             <div class="label-base w-100% flex flex-middle gap-1">
               <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
               <div class="grow t-left">Base font</div>
@@ -46,7 +46,7 @@
             </div>
           </button>
 
-          <button class="w-100% mb-1 p-1 flex flex-column gap-1 bg-coolgray bg-600 hover:bg-700" onclick="toggleFS()">
+          <button class="w-100% mb-1 p-1 flex flex-column gap-1 bg-gray bg-600 hover:bg-700" onclick="toggleFS()">
             <div class="label-normal w-100% flex flex-middle gap-1">
               <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
               <div class="grow t-left">Normal font-size</div>
@@ -57,7 +57,7 @@
             </div>
           </button>
 
-          <button class="w-100% mb-1 p-1 flex flex-column gap-1 bg-coolgray bg-600 hover:bg-700" onclick="toggleTheme()">
+          <button class="w-100% mb-1 p-1 flex flex-column gap-1 bg-gray bg-600 hover:bg-700" onclick="toggleTheme()">
             <div class="label-light w-100% flex flex-middle gap-1">
               <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
               <div class="grow t-left">Light theme</div>

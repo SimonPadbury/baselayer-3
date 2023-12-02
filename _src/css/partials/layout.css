@@ -1,4 +1,9 @@
 @layer layout {
+
+  .container {
+    container-type: inline-size;
+  }
+
   .relative {
     position: relative;
   }
@@ -52,7 +57,7 @@
   }
 
   .clearfix:after {
-    /* use on wrappers around float sets */
+    /* use on immediate parent elements around float sets */
     content: '';
     display: table;
     clear: both;
@@ -138,19 +143,19 @@
   Invisibility
   */
 
-  @media (--max-sm) {
+  @container (max-width: 639px) {
     .sm\:hidden-below {
       display: none !important;
     }
   }
 
-  @media (--max-md) {
+  @container (max-width: 959px) {
     .md\:hidden-below {
       display: none !important;
     }
   }
 
-  @media (--max-lg) {
+  @container (max-width: 1279px) {
     .lg\:hidden-below {
       display: none !important;
     }
@@ -167,12 +172,6 @@
   .grid-dense {
     grid-auto-flow: dense
   }
-
-  /*
-  Tier Zero (all viewport widths)
-  ===============================
-  Grid wrapper columns only -- no per item control
-  */
 
   [class*=equal-] {
     grid-template-columns: repeat(var(--cols), minmax(1rem, 1fr))
@@ -201,6 +200,10 @@
     --row: auto;
     grid-row: var(--row) / span var(--rspan)
   }
+
+  /*
+  Tier Zero (all viewport widths)
+  */
 
   .equal-2-cols {
     --cols: 2
@@ -282,7 +285,7 @@
   Tier 1 (sm)
   */
 
-  @media (--min-sm) {
+  @container (min-width: 640px) {
     .sm\:flex {
       display: flex;
     }
@@ -372,7 +375,7 @@
   Tier 2 (md)
   */
 
-  @media (--min-md) {
+  @container (min-width: 960px) {
     .md\:flex {
       display: flex;
     }
@@ -462,7 +465,7 @@
   Tier 3 (lg)
   */
 
-  @media (--min-lg) {
+  @container (min-width: 1280px) {
     .lg\:flex {
       display: flex;
     }
@@ -579,7 +582,7 @@
 
   .content-grid {
     --full: minmax(var(--sp-2), 1fr);
-    --expand: minmax(var(--sp-2), var(--w-expand));
+    --expand: minmax(0, var(--w-expand));
     --pop: minmax(0, var(--sp-2));
     --content: min(var(--w-cg), 100% - (var(--sp-2) * 2));
     display: grid;
@@ -608,13 +611,14 @@
   }
 
   /*
-  Containers and max-widths
+  Wrapper (f.k.a. containers) and max-widths
   */
 
-  .container,
-  [class^=container-] {
+  .wrapper,
+  [class^=wrapper-] {
     --w-max: var(--w-xl);
-    width: min(100% - (var(--sp-2) * 2), var(--w-max));
+    --sp-inline: var(--sp-2);
+    width: min(100% - (var(--sp-inline) * 2), var(--w-max));
     margin-inline: auto;
   }
 
@@ -626,27 +630,27 @@
     width: min(100%, var(--w-max));
   }
 
-  .container-xs,
+  .wrapper-xs,
   .w-xs {
     --w-max: var(--w-xs);
   }
 
-  .container-sm,
+  .wrapper-sm,
   .w-sm {
     --w-max: var(--w-sm);
   }
 
-  .container-md,
+  .wrapper-md,
   .w-md {
     --w-max: var(--w-md);
   }
 
-  .container-lg,
+  .wrapper-lg,
   .w-lg {
     --w-max: var(--w-lg);
   }
 
-  .container-xl,
+  .wrapper-xl,
   .w-xl {
     --w-max: var(--w-xl);
   }

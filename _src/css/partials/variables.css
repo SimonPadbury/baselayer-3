@@ -52,6 +52,8 @@
   --l700: 46%;
   --l800: 37.5%;
   --l900: 29%;
+  --l1000: 20.5%;
+  /* #171717 */
 
   /* chroma */
   --c0: 0;
@@ -68,15 +70,16 @@
 
   /* hue */
   --gray: 0;
-  --coolgray: 265;
-  --warmgray: 65;
-  --brown: 75;
   --red: 30;
   --orange: 79;
   --green: 155;
-  --teal: 195;
   --blue: 265;
+  /* --coolgray: 265;
+  --warmgray: 65;
+  --brown: 75;
+  --teal: 195;
   --purple: 300;
+  --pink: 345; */
 
   /* builders */
   --tx: oklch(var(--tl) var(--tc) var(--th));
@@ -101,6 +104,7 @@ Alternatively, you could set these up using...
 ... if you don’t want to give your users the opportunity of choosing light or dark theme.
 */
 
+.theme-dark,
 .theme-dark * {
   /* lightness (decrements: 7%) */
   --l100: 85%;
@@ -112,10 +116,12 @@ Alternatively, you could set these up using...
   --l700: 40%;
   --l800: 32.5%;
   --l900: 25%;
+  --l1000: 18%;
+  /* #121212 */
 }
 
 .theme-dark {
-  --bgc-body: oklch(var(--l900) var(--c0) var(--gray));
+  --bgc-body: oklch(var(--l1000) var(--c0) var(--gray));
   --tc-base: oklch(var(--l100) var(--c0) var(--gray));
   --tc-link: oklch(var(--l300) var(--c30) var(--blue));
   --tc-link-hover: oklch(var(--l400) var(--c30) var(--blue));
@@ -127,13 +133,6 @@ Alternatively, you could set these up using...
 }
 
 :root {
-  /*
-  Example from Google Fonts:
-  @import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,700;1,400;1,700&family=Source+Serif+4:ital,wght@0,8..60,400;0,8..60,700;1,8..60,400;1,8..60,700&display=swap');
-  --t-base: 'Source Sans 3', sans-serif;
-  --t-prose: 'Source Serif 4', serif;
-  */
-
   /*
   Native Typeface Stacks
   */
@@ -168,6 +167,7 @@ Alternatively, you could set these up using...
 
   /*
   Content grid
+  ============
   Default content becomes max width 640px when font-size is 16px (1rem)
   Expand panels becomes max width 960px when font-size is 16px (1rem)
   */
@@ -175,9 +175,12 @@ Alternatively, you could set these up using...
   --w-expand: 8.5em;
 
   /*
-  Spacing (margins, paddings, flexbox gaps, and grid gaps)
+  Spacing
+  =======
+  Used for margins, paddings, flexbox gaps, and grid gaps.
   sp-2 through sp-4 clamps are based on https://clamp.font-size.app/,
-  expanding each to 1.5× of initial value from 640px to 1280px
+  expanding each to 1.5× of initial value from 640px to 1280px.
+  See also “container query powered spacing” below.
   */
   --sp-1: 0.5rem;
   --sp-2: clamp(1rem, 0.5rem + 1.25vw, 1.5rem);
@@ -187,11 +190,11 @@ Alternatively, you could set these up using...
   --p-cell: var(--sp-1) calc(2 * var(--sp-1));
   /* list spacing (between items) */
   --sp-list: 0.75em;
-  /* letter spacing for `.t-loose` and `.t-tight` */
-  --sp-letter: 0.0625em;
 
   /* 
-  Major third typographic scale, calculated by https://type-scale.com
+  Major third typographic scale
+  =============================
+  Salculated by https://type-scale.com
   Set heading sizes using ems, so that all headings can be clamp() 
   enlarged by wrapping with `.t-long-read` 
   */
@@ -208,9 +211,11 @@ Alternatively, you could set these up using...
   /* headings line-height */
   --h-lh: calc(1em + 0.5rem);
 
-  /* Long-read utility */
+  /*
+  Long-read utility
+  =================
+  */
   --fs-long-read: clamp(1rem, 0.75rem + 0.625vw, 1.25rem);
-  --lh-long-read: calc(var(--fs-base) * 1.5);
 
   /* link decoration offset */
   --do-link: .3rem;
@@ -230,6 +235,19 @@ Alternatively, you could set these up using...
   --r-2: 4px;
   --r-3: 8px;
   --r-4: 16px;
+}
+
+/*
+Container query powered spacing and typography
+*/
+
+.container {
+  /* No need for --sp-1 because it’s always 0.5rem */
+  --sp-2: clamp(1rem, 0.5rem + 1.25cqi, 1.5rem);
+  --sp-3: clamp(2rem, 1rem + 2.5cqi, 3rem);
+  --sp-4: clamp(3rem, 1.5rem + 3.75cqi, 4.5rem);
+
+  --fs-long-read: clamp(1rem, 0.75rem + 0.625cqi, 1.25rem);
 }
 
 /*

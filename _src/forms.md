@@ -18,7 +18,7 @@ Baselayer form elements have simple background and focus styling (no default bor
 2. Form inputs, textareas, buttons, and the `btn` class, have `font-size: inherit`. This means their font sizes can be modified by any font-size class in Baselayer.
 3. The font-family of form elements, buttons, and `btn` is controlled by `var(--base)` (default is sans-serif).
 
-## Textual Form Input Fields
+## Textual form input fields
 
 <form action="">
   <p>
@@ -45,7 +45,7 @@ Baselayer form elements have simple background and focus styling (no default bor
   </p>
 </form>
 
-## Number Inputs
+## Number inputs
 
 On touch screens, these inputs invoke the numeric keyboard instead of the text keyboard.
 
@@ -60,7 +60,7 @@ On touch screens, these inputs invoke the numeric keyboard instead of the text k
   </p>
 </form>
 
-## Date and Time Inputs
+## Date and time inputs
 
 On some devices (e.g. iOS Safari), these inputs get modified by date pickers, etc. The shape of the input fields gets changed.
 
@@ -79,7 +79,7 @@ On some devices (e.g. iOS Safari), these inputs get modified by date pickers, et
   </p>
 </form>
 
-## Color Picker
+## Color picker
 
 Invokes the device’s color picker.
 
@@ -90,7 +90,7 @@ Invokes the device’s color picker.
   </p>
 </form>
 
-## File Upload
+## File upload
 
 <form action="">
   <p>
@@ -101,7 +101,7 @@ Invokes the device’s color picker.
 
 **Note:** File upload inputs `<input type="file">` can break your page layout on the smallest phones in portrait orientation. But if you add `class="w100%"` that problem goes away.
 
-## Select and Multi-select
+## Select and multi-select
 
 On some devices (e.g. iOS Safari), these inputs get modified by number pickers (dropdowns).
 
@@ -128,14 +128,14 @@ On some devices (e.g. iOS Safari), these inputs get modified by number pickers (
   </p>
 </form>
 
-## Text Area (Multiline)
+## Text area (multiline)
 
 <form action="">
     <label for="example-textarea">Example textarea</label><br>
     <textarea id="example-textarea"></textarea>
 </form>
 
-## Radio Boxes and Checkboxes
+## Radio boxes and checkboxes
 
 <form action="">
   <p class="my2">Radio boxes:</p>
@@ -155,7 +155,7 @@ On some devices (e.g. iOS Safari), these inputs get modified by number pickers (
   <input type="submit" value="Submit">
 </form>
 
-## Fieldsets and Legends
+## Fieldsets and legends
 
 Groups of form elements can be wrapped in `<fieldset>` tags. Add a `<legend>` to provide a special title for the entire fieldset.
 
@@ -179,7 +179,7 @@ Groups of form elements can be wrapped in `<fieldset>` tags. Add a `<legend>` to
 
 **Note:** In the example above, the Baselayer `flex` class has been used to align these form elements side-by-side, and then `grow` has been used to expand the email input field. A `<legend>` is also included — but since its text incorporates with the `<fieldset>` wrapping border line, it will not be controlled by the flexbox rule.
 
-## Form Buttons
+## Form buttons
 
 <form action="">
   <p>

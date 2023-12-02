@@ -1,7 +1,7 @@
 {
   "name": "baselayer-3",
-  "version": "1.1.3",
-  "description": "",
+  "version": "1.2.0",
+  "description": "A modern starter CSS library with container queries, a real CSS grid system, clamp() powered typography and spacing sizes, OKLCH color utilities, and custom properties.",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "postcss": "postcss _src/css/baselsyer.css -o _src/css/min/baselayer.min.css -w",
@@ -14,11 +14,10 @@
     "@11ty/eleventy": "^2.0.1",
     "cssnano": "^6.0.1",
     "eleventy-plugin-toc": "^1.1.5",
-    "markdown-it": "^13.0.1",
+    "markdown-it": "^13.0.2",
     "markdown-it-anchor": "^8.6.7",
-    "postcss": "^8.4.24",
+    "postcss": "^8.4.31",
     "postcss-cli": "^10.1.0",
-    "postcss-custom-media": "^10.0.2",
     "postcss-import": "^15.1.0"
   }
 }

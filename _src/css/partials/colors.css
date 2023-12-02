@@ -31,78 +31,6 @@
     background: var(--bgx);
   }
 
-  .t-coolgray,
-  .hover\:t-coolgray:hover {
-    --tl: var(--l500);
-    --tc: var(--c02) !important;
-    --th: var(--coolgray);
-    color: var(--tx);
-  }
-
-  .b-coolgray,
-  .hover\:b-coolgray:hover {
-    --bl: var(--l500);
-    --bc: var(--c02) !important;
-    --bh: var(--gray);
-    border-color: var(--bx);
-  }
-
-  .bg-coolgray,
-  .hover\:bg-coolgray:hover {
-    --bgl: var(--l500);
-    --bgc: var(--c02) !important;
-    --bgh: var(--coolgray);
-    background: var(--bgx);
-  }
-
-  .t-warmgray,
-  .hover\:t-warmgray:hover {
-    --tl: var(--l500);
-    --tc: var(--c02) !important;
-    --th: var(--warmgray);
-    color: var(--tx);
-  }
-
-  .b-warmgray,
-  .hover\:b-warmgray:hover {
-    --bl: var(--l500);
-    --bc: var(--c02) !important;
-    --bh: var(--warmgray);
-    border-color: var(--bx);
-  }
-
-  .bg-warmgray,
-  .hover\:bg-warmgray:hover {
-    --bgl: var(--l500);
-    --bgc: var(--c02) !important;
-    --bgh: var(--warmgray);
-    background: var(--bgx);
-  }
-
-  .t-brown,
-  .hover\:t-brown:hover {
-    --tl: var(--l500);
-    --tc: var(--c08) !important;
-    --th: var(--brown);
-    color: var(--tx);
-  }
-
-  .b-brown,
-  .hover\:b-brown:hover {
-    --bl: var(--l500);
-    --bc: var(--c08) !important;
-    --bh: var(--brown);
-    border-color: var(--bx);
-  }
-
-  .bg-brown,
-  .hover\:bg-brown:hover {
-    --bgl: var(--l500);
-    --bgc: var(--c08) !important;
-    --bgh: var(--brown);
-    background: var(--bgx);
-  }
-
   .t-red,
   .hover\:t-red:hover {
     --tl: var(--l500);
@@ -175,30 +103,6 @@
     background: var(--bgx);
   }
 
-  .t-teal,
-  .hover\:t-teal:hover {
-    --tl: var(--l500);
-    --tc: var(--c30);
-    --th: var(--teal);
-    color: var(--tx);
-  }
-
-  .b-teal,
-  .hover\:b-teal:hover {
-    --bl: var(--l500);
-    --bc: var(--c30);
-    --bh: var(--teal);
-    border-color: var(--bx);
-  }
-
-  .bg-teal,
-  .hover\:bg-teal:hover {
-    --bgl: var(--l500);
-    --bgc: var(--c30);
-    --bgh: var(--teal);
-    background: var(--bgx);
-  }
-
   .t-blue,
   .hover\:t-blue:hover {
     --tl: var(--l500);
@@ -223,6 +127,31 @@
     background: var(--bgx);
   }
 
+  /*
+  .t-teal,
+  .hover\:t-teal:hover {
+    --tl: var(--l500);
+    --tc: var(--c30);
+    --th: var(--teal);
+    color: var(--tx);
+  }
+
+  .b-teal,
+  .hover\:b-teal:hover {
+    --bl: var(--l500);
+    --bc: var(--c30);
+    --bh: var(--teal);
+    border-color: var(--bx);
+  }
+
+  .bg-teal,
+  .hover\:bg-teal:hover {
+    --bgl: var(--l500);
+    --bgc: var(--c30);
+    --bgh: var(--teal);
+    background: var(--bgx);
+  }
+
   .t-purple,
   .hover\:t-purple:hover {
     --tl: var(--l500);
@@ -238,7 +167,6 @@
     --bh: var(--purple);
     border-color: var(--bx);
   }
-
   .bg-purple,
   .hover\:bg-purple:hover {
     --bgl: var(--l500);
@@ -246,6 +174,103 @@
     --bgh: var(--purple);
     background: var(--bgx);
   }
+
+  .t-pink,
+  .hover\:t-pink:hover {
+    --tl: var(--l500);
+    --tc: var(--c30);
+    --th: var(--pink);
+    color: var(--tx);
+  }
+
+  .b-pink,
+  .hover\:b-pink:hover {
+    --bl: var(--l500);
+    --bc: var(--c30);
+    --bh: var(--pink);
+    border-color: var(--bx);
+  }
+
+  .bg-pink,
+  .hover\:bg-pink:hover {
+    --bgl: var(--l500);
+    --bgc: var(--c30);
+    --bgh: var(--pink);
+    background: var(--bgx);
+  }
+  
+  .t-coolgray,
+  .hover\:t-coolgray:hover {
+    --tl: var(--l500);
+    --tc: var(--c02) !important;
+    --th: var(--coolgray);
+    color: var(--tx);
+  }
+
+  .b-coolgray,
+  .hover\:b-coolgray:hover {
+    --bl: var(--l500);
+    --bc: var(--c02) !important;
+    --bh: var(--gray);
+    border-color: var(--bx);
+  }
+
+  .bg-coolgray,
+  .hover\:bg-coolgray:hover {
+    --bgl: var(--l500);
+    --bgc: var(--c02) !important;
+    --bgh: var(--coolgray);
+    background: var(--bgx);
+  }
+
+  .t-warmgray,
+  .hover\:t-warmgray:hover {
+    --tl: var(--l500);
+    --tc: var(--c02) !important;
+    --th: var(--warmgray);
+    color: var(--tx);
+  }
+
+  .b-warmgray,
+  .hover\:b-warmgray:hover {
+    --bl: var(--l500);
+    --bc: var(--c02) !important;
+    --bh: var(--warmgray);
+    border-color: var(--bx);
+  }
+
+  .bg-warmgray,
+  .hover\:bg-warmgray:hover {
+    --bgl: var(--l500);
+    --bgc: var(--c02) !important;
+    --bgh: var(--warmgray);
+    background: var(--bgx);
+  }
+
+  .t-brown,
+  .hover\:t-brown:hover {
+    --tl: var(--l500);
+    --tc: var(--c08) !important;
+    --th: var(--brown);
+    color: var(--tx);
+  }
+
+  .b-brown,
+  .hover\:b-brown:hover {
+    --bl: var(--l500);
+    --bc: var(--c08) !important;
+    --bh: var(--brown);
+    border-color: var(--bx);
+  }
+
+  .bg-brown,
+  .hover\:bg-brown:hover {
+    --bgl: var(--l500);
+    --bgc: var(--c08) !important;
+    --bgh: var(--brown);
+    background: var(--bgx);
+  }
+  */
 }
 
 @layer color-shade {

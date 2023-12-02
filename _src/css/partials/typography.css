@@ -183,6 +183,8 @@
   kbd,
   samp {
     font-family: var(--t-mono);
+    font-style: normal;
+    font-weight: normal;
   }
 
   code {
@@ -194,6 +196,8 @@
 
   pre {
     overflow-x: auto;
+    font-style: normal;
+    font-weight: normal;
   }
 
   pre code {
@@ -221,10 +225,6 @@
   .t-noline {
     text-decoration: none;
   }
-
-  /* nav li {
-    margin: 0;
-  } */
 
   .hover\:t-line:hover {
     text-decoration: underline;
@@ -286,14 +286,6 @@
     text-transform: uppercase;
   }
 
-  .t-loose {
-    letter-spacing: var(--sp-letter);
-  }
-
-  .t-tight {
-    letter-spacing: -var(--sp-letter);
-  }
-
   mark,
   .t-highlight {
     color: currentColor;
@@ -302,7 +294,6 @@
 
   .t-long-read {
     font-size: var(--fs-long-read);
-    line-height: var(--lh-long-read);
   }
 
   .t-base {
@@ -313,9 +304,8 @@
     font-family: var(--t-prose);
   }
 
-  /*
-  Un-comment these if required
-  */
+  /* Un-comment these if required */
+
   /* .t-prose.t-normal,
   .t-prose {
     font-family: var(--t-prose);

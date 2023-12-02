@@ -10,7 +10,7 @@ nextLink: "Examples"
 
 Baselayer form elements have simple background, hover/active and focus styling (no default border). 
 
-### Button Types and Link “Buttons”
+### Button types and link “pseudo-buttons”
 
 <form class="mt-2 mb-3">
   <button type="button" name="button">Button</button>
@@ -43,7 +43,7 @@ Baselayer form elements have simple background, hover/active and focus styling (
 In Baselayer, buttons are pre-styled with `display: inline-flex` and centering and middling flexbox alignment. So, if you want a button to stretch full-width, you can add `class="w100%"` or you can override the inline-flex by adding `class="flex"`.
 
 <div aria-label="Note" class="popout mb-2 bl-3 b-orange b-300 p-2 t-black bg-orange bg-100">
-  Do not use <code>class="block"</code> on a button (or <code>.btn</code>) because that will override the inline flexbox.
+  Do not use <code>class="block"</code> on a button (or <code>.btn</code>) because that will override its inline flexbox.
 </div>
 
 <button class="w-100% my-2" type="button" name="button">Button</button>
@@ -74,7 +74,7 @@ Down-caret SVG icon from [Phosphor Icons](https://phosphoricons.com/), with colo
 
 Another way to control the width of a button is _from outside of it_ — by wrapping the button in a `grid` so that the button adopts the dimensions of a grid item.
 
-## Adding Colors
+## Adding colors
 
 Border, background, and text color utilities can be used.
 
@@ -117,7 +117,7 @@ When colorizing buttons, remember to set their `hover:` hover state shades too.
 <a class="btn b-1 b-green bg-transparent bg-600 t-green t-600 hover:b-700 hover:t-white hover:bg-green hover:bg-700" href="#/">Link “button”</a>
 ```
 
-## Buttons with Icons
+## Buttons with icons
 
 In Baselayer, buttons are pre-styled with `display: inline-flex` and centering and middling flexbox alignment. So, all you need to do is add an icon and it will all line up.
 
@@ -153,7 +153,7 @@ For icon-only buttons, add the CSS class  `btn-icon` and have only a single char
   </p>
 </form>
 
-## Pill Buttons
+## Pill buttons
 
 The `r-pill` class on a square icon button will make it circular. (See [decoration: rounded corners](/baselayer-3/decoration/#rounded-corners).)
 
@@ -172,7 +172,7 @@ The `r-pill` class on a square icon button will make it circular. (See [decorati
 <button class="btn-icon r-pill" type="button" name="button">I</button>
 ```
 
-## Button Sizes
+## Button sizes
 
 The typographic size modifier classes `t-small` and `t-big` work on buttons.
 
@@ -192,7 +192,7 @@ The typographic size modifier classes `t-small` and `t-big` work on buttons.
 
 **Note:** button x-axis padding is `1em`, so that it responds to the text size of the button.
 
-## Stretch Buttons
+## Stretch buttons
 
 You can increase the x-axis padding (using the responsive `px-2` or `px-3`) to make a button more impressive:
 

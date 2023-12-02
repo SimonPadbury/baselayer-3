@@ -14,7 +14,7 @@ nextLink: "Forms"
 </div>
 
 <div class="full-bleed m-2 p-2 flex flex-center flex-wrap">
-  <div style="width: max(70px, 140px)">
+  <div style="width: max(72px, 160px)">
     <div class="p-1 t-center"><code class="t-small">bg-blue</code></div>
     <div class="p-1 t-black t-small bg-blue bg-100">bg-100</div>
     <div class="p-1 t-black t-small bg-blue bg-200">bg-200</div>
@@ -26,19 +26,7 @@ nextLink: "Forms"
     <div class="p-1 t-white t-small bg-blue bg-800">bg-800</div>
     <div class="p-1 t-white t-small bg-blue bg-900">bg-900</div>
   </div>
-  <div style="width: max(70px, 140px)">
-    <div class="p-1 t-center"><code class="t-small">bg-teal</code></div>
-    <div class="p-1 t-black t-small bg-teal bg-100">bg-100</div>
-    <div class="p-1 t-black t-small bg-teal bg-200">bg-200</div>
-    <div class="p-1 t-black t-small bg-teal bg-300">bg-300</div>
-    <div class="p-1 t-black t-small bg-teal bg-400">bg-400</div>
-    <div class="p-1 t-white t-small bg-teal bg-500">bg-500</div>
-    <div class="p-1 t-white t-small bg-teal bg-600">bg-600</div>
-    <div class="p-1 t-white t-small bg-teal bg-700">bg-700</div>
-    <div class="p-1 t-white t-small bg-teal bg-800">bg-800</div>
-    <div class="p-1 t-white t-small bg-teal bg-900">bg-900</div>
-  </div>
-  <div style="width: max(70px, 140px)">
+  <div style="width: max(72px, 160px)">
     <div class="p-1 t-center"><code class="t-small">bg-green</code></div>
     <div class="p-1 t-black t-small bg-green bg-100">bg-100</div>
     <div class="p-1 t-black t-small bg-green bg-200">bg-200</div>
@@ -50,7 +38,7 @@ nextLink: "Forms"
     <div class="p-1 t-white t-small bg-green bg-800">bg-800</div>
     <div class="p-1 t-white t-small bg-green bg-900">bg-900</div>
   </div>
-  <div style="width: max(70px, 140px)">
+  <div style="width: max(72px, 160px)">
     <div class="p-1 t-center"><code class="t-small">bg-orange</code></div>
     <div class="p-1 t-black t-small bg-orange bg-100">bg-100</div>
     <div class="p-1 t-black t-small bg-orange bg-200">bg-200</div>
@@ -62,7 +50,7 @@ nextLink: "Forms"
     <div class="p-1 t-white t-small bg-orange bg-800">bg-800</div>
     <div class="p-1 t-white t-small bg-orange bg-900">bg-900</div>
   </div>
-  <div style="width: max(70px, 140px)">
+  <div style="width: max(72px, 160px)">
     <div class="p-1 t-center"><code class="t-small">bg-red</code></div>
     <div class="p-1 t-black t-small bg-red bg-100">bg-100</div>
     <div class="p-1 t-black t-small bg-red bg-200">bg-200</div>
@@ -74,43 +62,7 @@ nextLink: "Forms"
     <div class="p-1 t-white t-small bg-red bg-800">bg-800</div>
     <div class="p-1 t-white t-small bg-red bg-900">bg-900</div>
   </div>
-  <div style="width: max(70px, 140px)">
-    <div class="p-1 t-center"><code class="t-small">bg-purple</code></div>
-    <div class="p-1 t-black t-small bg-purple bg-100">bg-100</div>
-    <div class="p-1 t-black t-small bg-purple bg-200">bg-200</div>
-    <div class="p-1 t-black t-small bg-purple bg-300">bg-300</div>
-    <div class="p-1 t-black t-small bg-purple bg-400">bg-400</div>
-    <div class="p-1 t-white t-small bg-purple bg-500">bg-500</div>
-    <div class="p-1 t-white t-small bg-purple bg-600">bg-600</div>
-    <div class="p-1 t-white t-small bg-purple bg-700">bg-700</div>
-    <div class="p-1 t-white t-small bg-purple bg-800">bg-800</div>
-    <div class="p-1 t-white t-small bg-purple bg-900">bg-900</div>
-  </div>
-  <div style="width: max(70px, 140px)">
-    <div class="p-1 t-center"><code class="t-small">bg-brown</code></div>
-    <div class="p-1 t-black t-small bg-brown bg-100">bg-100</div>
-    <div class="p-1 t-black t-small bg-brown bg-200">bg-200</div>
-    <div class="p-1 t-black t-small bg-brown bg-300">bg-300</div>
-    <div class="p-1 t-black t-small bg-brown bg-400">bg-400</div>
-    <div class="p-1 t-white t-small bg-brown bg-500">bg-500</div>
-    <div class="p-1 t-white t-small bg-brown bg-600">bg-600</div>
-    <div class="p-1 t-white t-small bg-brown bg-700">bg-700</div>
-    <div class="p-1 t-white t-small bg-brown bg-800">bg-800</div>
-    <div class="p-1 t-white t-small bg-brown bg-900">bg-900</div>
-  </div>
-  <div style="width: max(70px, 140px)">
-    <div class="p-1 t-center"><code class="t-small">bg-warmgray</code></div>
-    <div class="p-1 t-black t-small bg-warmgray bg-100">bg-100</div>
-    <div class="p-1 t-black t-small bg-warmgray bg-200">bg-200</div>
-    <div class="p-1 t-black t-small bg-warmgray bg-300">bg-300</div>
-    <div class="p-1 t-black t-small bg-warmgray bg-400">bg-400</div>
-    <div class="p-1 t-white t-small bg-warmgray bg-500">bg-500</div>
-    <div class="p-1 t-white t-small bg-warmgray bg-600">bg-600</div>
-    <div class="p-1 t-white t-small bg-warmgray bg-700">bg-700</div>
-    <div class="p-1 t-white t-small bg-warmgray bg-800">bg-800</div>
-    <div class="p-1 t-white t-small bg-warmgray bg-900">bg-900</div>
-  </div>
-  <div style="width: max(70px, 140px)">
+  <div style="width: max(72px, 160px)">
     <div class="p-1 t-center"><code class="t-small">bg-gray</code></div>
     <div class="p-1 t-black t-small bg-gray bg-100">bg-100</div>
     <div class="p-1 t-black t-small bg-gray bg-200">bg-200</div>
@@ -122,25 +74,13 @@ nextLink: "Forms"
     <div class="p-1 t-white t-small bg-gray bg-800">bg-800</div>
     <div class="p-1 t-white t-small bg-gray bg-900">bg-900</div>
   </div>
-  <div style="width: max(70px, 140px)">
-    <div class="p-1 t-center"><code class="t-small">bg-coolgray</code></div>
-    <div class="p-1 t-black t-small bg-coolgray bg-100">bg-100</div>
-    <div class="p-1 t-black t-small bg-coolgray bg-200">bg-200</div>
-    <div class="p-1 t-black t-small bg-coolgray bg-300">bg-300</div>
-    <div class="p-1 t-black t-small bg-coolgray bg-400">bg-400</div>
-    <div class="p-1 t-white t-small bg-coolgray bg-500">bg-500</div>
-    <div class="p-1 t-white t-small bg-coolgray bg-600">bg-600</div>
-    <div class="p-1 t-white t-small bg-coolgray bg-700">bg-700</div>
-    <div class="p-1 t-white t-small bg-coolgray bg-800">bg-800</div>
-    <div class="p-1 t-white t-small bg-coolgray bg-900">bg-900</div>
-  </div>
 </div>
 
 ## Rationale for Baselayer’s color systems
 
-I wanted to develop a color system that was based on CSS variables for generating a series of shades for each color, so that the stylesheet didn’t need to be overloaded with all the shade permutations for each color (most of which you would never use in a project). This meant finding a color model with a _lightness channel_ that can be controlled by a CSS variables, which I could then apply to numerous hues. 
+I wanted to develop a color system that was based on CSS variables for generating a series of shades for each color, so that the stylesheet didn’t need to be overloaded with all the shade permutations for each color — most of which you would never use in a project. This meant finding a color model with a _lightness channel_ that can be controlled by a CSS variables, which I could then apply to numerous hues. 
 
-For this purpose, the HSL model almost gave me what I needed. Therefore Baselayer 1 and 2 used the HSL color model from [CSS Color Module Level 3](https://www.w3.org/TR/css-clr-3/) because `hsl()` had a lightness channel that I could control (controlling a lightness channel is not possible in Hex or RGB). However, when building the various HSL color lightness (shades) series, I found that it was not possible to get the shades to look _perceptually uniform_ across different hues.
+For this purpose, the HSL model almost gave me what I needed. Therefore Baselayer 1 and 2 used the HSL color model from [CSS Color Module Level 3](https://www.w3.org/TR/css-clr-3/) because `hsl()` had a lightness channel that I could control. (Controlling a lightness channel is not possible in Hex or RGB.) However, when building the various HSL color lightness levels, I found that it was not possible to get the lightnesses (shades) to look _perceptually uniform_ across different hues.
 
 While OKLCH colors were added as an experimental feature in Baselayer 2, this is now the only color system available in Baselayer 3. And a few more colors have been added as examples of what you can do with OKLCH.
 
@@ -157,9 +97,11 @@ More on OKLCH (and LCH):
 
 ## OKLCH colors with grayscale fallbacks
 
-First of all, some fallback hex (#) color codes are set for classless HTML elements (e.g. text is near black, horizontal rule and table borders are pale gray, buttons are mid gray, links are blue). Also, the color utilities have fallbacks (all text utilities default to near black; all border utilities default to light gray; all background utilities default to a lighter gray).
+First of all, some fallback hex (#) color codes are set for classless HTML elements — e.g. text is near black, horizontal rule and table borders are light gray, buttons are mid gray, links are blue.
 
-So, at least older browsers get something. It is up to you to support older browsers by adding hex or RGB colors according to your own design (I can’t know what colors you want).
+Also, the color utilities (below) have fallbacks: all text utilities default to near black; all border utilities default to light gray; all background utilities default to a lighter gray.
+
+So, at least older browsers get a limited grayscale, and blue links. It is up to you to support older browsers by adding hex or RGB colors according to your own design. I don’t know what colors you want!
 
 After these fallbacks the OKLCH lightness, chroma, and hue channel variables are declared in the universal selector `* {}` — because that is what’s required for making the utility classes and hover shades work.
 
@@ -188,17 +130,17 @@ However, any colors near yellow, such as Baselayer orange, as well as amber and 
 
 When colorizing buttons, remember to set their `hover:` hover state shades too.
 
-```
-/* Default button */
+```html
+<!-- Default button -->
 <button type="button" name="button">Button</button>
 
-/* Blue button */
+<!-- Blue button -->
 <button class="bg-blue bg-600 hover:bg-700" type="button" name="button">Button</button>
 
-/* orange button */
+<!-- Orange button -->
 <button class="t-black hover:t-black bg-orange bg-200 hover:bg-300" type="button" name="button">Button</button>
 
-/* Green outline (a.k.a. ghost) button */
+<!-- Green outline (a.k.a. ghost) button -->
 <button class="b-1 b-green bg-transparent t-green t-600 hover:b-700 hover:t-white hover:bg-green hover:bg-700" type="button" name="button">Button</button>
 ```
 
@@ -237,6 +179,8 @@ The lightness modifier utilities (declared in `@layer color-shade`) are as follo
     * `bg-100` through `bg-900`
     * `hover:bg-100` through `hover:bg-900`
 
+There are also three `*-dark-invert` modifiers that reverse the shade for dark mode, in those situations when you want dark elements in light mode to become light elements in dark mode. For more information see [darker and inverted shade utilities](#darker-and-inverted-shade-utilities).
+
 I have named the colors according to their common names, instead of opting to name them according to the common user interface (UI) “success”, “warning”, “danger” etc. — so that you can make color utilities or components with colors dedicated to those purposes, meanwhile allowing you to adjust these built-in named colors and also add your own.
 
 Also present are `black` and `white` utility classes, but these are set as _named_ colors in the CSS (`black` and `white`, not an OKLCH color code). There is also `bg-transparent` — for setting a transparent background. E.g. use this for outline buttons (see [other Baselayer color utilities](#other-baselayer-color-utilities)).
@@ -244,18 +188,18 @@ Also present are `black` and `white` utility classes, but these are set as _name
 Example border, text and background utilities:
 
 <div class="mt-2 mb-3 flex flex-grow-equal gap-2">
-  <div class="b-3 b-green p-2 flex flex-center flex-middle">b-green</div>
-  <div class="p-2 flex flex-center flex-middle t-green t-600">t-green t-600</div>
-  <div class="p-2 flex flex-center flex-middle t-black bg-green bg-300">bg-green bg-200</div>
+  <div class="b-3 b-green p-2 flex flex-center flex-middle"><span class="t-nowrap">b-green</span></div>
+  <div class="p-2 flex flex-center flex-middle gap-1 flex-wrap t-green t-600 t-dark-invert"><span class="t-nowrap">t-green</span> <span class="t-nowrap">t-600</span> <span class="t-nowrap">t-dark-invert</span></div>
+  <div class="p-2 flex flex-center flex-middle gap-1 flex-wrap t-black bg-green bg-300"><span class="t-nowrap">bg-green</span> <span class="t-nowrap">bg-200</span></div>
 </div>
 
 ```
 <div class="b-3 b-green"></div>
-<div class="t-green t-600"></div>
+<div class="t-green t-600 t-dark-invert"></div>
 <div class="t-black bg-green bg-300"></div>
 ```
 
-Here’s an example showing the working of Baselayer 3’s OKLCH color channel variables and utility classes:
+Here’s an example (orange border) showing the working of Baselayer 3’s OKLCH color channel variables and utility classes:
 
 In `variables.css`: 
 
@@ -263,29 +207,29 @@ In `variables.css`:
 * {
   --l-500:  64%;  /* lightness */
   --c-30:   0.30; /* chroma */
-  --green: 165;  /* hue */
+  --orange: 79;  /* hue */
 
-  /* builder */
-  --bgx: oklch(var(--bgl) var(--bgc) var(--bgh));
+  /* border color builder */
+  --bx: oklch(var(--bgl) var(--bgc) var(--bgh));
 }
 ```
 
 In `colors.css`:
 
 ```css
-.bg-green,
-.hover\:b-green:hover {
+.b-orange,
+.hover\:b-orange:hover {
   --bgl: var(--l500);
   --bgc: var(--c30);
-  --bgh: var(--green);
-  background: var(--bgx);
+  --bgh: var(--orange);
+  border: var(--bx);
 }
 
-.bg-300,
-.hover\:bg-300:hover {
+.b-300,
+.hover\:b-300:hover {
   --bgl: var(--l300);
   --bgc: var(--c20);
-  background: var(--bgx);
+  border: var(--bx);
 }
 ```
 
@@ -295,7 +239,7 @@ Example usage:
   &#9888; Warning alert panel.
 </div>
 
-```
+```html
 <div aria-label="Note" class="popout mb-2 bl-3 b-orange b-300 p-2 t-black bg-orange bg-100">
   &#9888; Warning alert panel.
 </div>
@@ -354,13 +298,11 @@ For most of the pre-set color schemes in Baselayer 3, these lightnesses are pair
 </tbody>
 </table>
 
-For the grays (neutral, cool gray and warm gray), as well as the brown, these required a uniform chroma override using an `!important` flag — they are not more vibrant in their mid-range shades.
-
 The shades `*-100` through `*-900` if used alone, _do not provide color_. But if you use them to supplement one of the other colors above, then the color class will provide the color, and the shade class will set the lightness level.
 
-Of course, there are no shades of black and white — use `*-gray` and shades for a grayscale.
+The grays require a uniform chroma override using an `!important` flag — grays are not more vibrant in their mid-range shades.
 
-Some colors (such as grays and browns) don’t require greater vibrancy in its mid-range shades. For this purpose Baselayer 3 has several low chroma variables that you can use.
+Other colors besides grays don’t require greater vibrancy in their mid-range shades — such as brown, warmgray and coolgray (available as “commented out” examples in Baselayer 4). For this purpose Baselayer has several low chroma variables that you can use.
 
 ```css
 * {
@@ -377,52 +319,49 @@ Some colors (such as grays and browns) don’t require greater vibrancy in its m
 
 To use these low chromas in your shade scales instead of Baselayer’s usual range of chromas that rise to a higher level (more vibrant) toward the middle of the scale (peaking at `*-500`), create utility classes with `!important` flags on their chroma channels. 
 
-Example coolgray from Baselayer 3’s `colors.css`:
+Example gray from Baselayer 3’s `colors.css`:
 
 ```css
-.t-coolgray,
-.hover\:t-coolgray:hover {
+.t-gray,
+.hover\:t-gray:hover {
   --tl: var(--l500);
-  --tc: var(--c02) !important;
-  --th: var(--coolgray);
+  --tc: var(--c0) !important;
+  --th: var(--gray);
   color: var(--tx);
 }
 
-.b-coolgray,
-.hover\:b-coolgray:hover {
+.b-gray,
+.hover\:b-gray:hover {
   --bl: var(--l500);
-  --bc: var(--c02) !important;
+  --bc: var(--c0) !important;
   --bh: var(--gray);
-  border-color: var(--b-cool-color);
+  border-color: var(--bx);
 }
 
-.bg-coolgray,
-.hover\:bg-coolgray:hover {
+.bg-gray,
+.hover\:bg-gray:hover {
   --bgl: var(--l500);
-  --bgc: var(--c02) !important;
-  --bgh: var(--coolgray);
+  --bgc: var(--c0) !important;
+  --bgh: var(--gray);
   background: var(--bgx);
 }
 ```
 
+Another example `*-brand-blue-faded` is provided below, in [adding more colors the Baselayer way](#adding-more-colors-the-baselayer-way).
+
 The chroma channel’s `!important` overrides chroma scale that is built into the lightness utilities `*-100` thorugh `*-900`, so that this color will remain less vibrant (with one low chroma level) accross its shades.
 
-See `colors.css` for how these low chromas have also been used with brown, gray, and warmgray.
-
-## Using Baselayer colors in your CSS (without using utility classes)
-
-As with all Baselayer’s CSS variables, all the built-in OKLCH color channels are available for you to use.
+Several more color examples have been provided but commented out in `colors.css` (with their hue variables commented out in `variables.css`). These will show you further how Baselayer OKLCH colors work, and they are there for your inspiration.
 
 ## Adding more colors the Baselayer way
 
-To add more colors in your CSS the same way as Baselayer 3 does it:
+You can still use colors in hex, RGB or any other format. But to  add more color utilities in your CSS the same way as Baselayer 4 does it:
 
-1. You need to choose OKLCH colors, or convert your already chosen colors to  `oklch()` format. ([oklch.com](https://oklch.com/) is a great online tool for this purpose — I usually round up the decimals). Then, declare your colors as variables in the `*` universal selector. Give them variable names that make sense to you.
+1. You need to choose OKLCH colors, or convert your already chosen colors to `oklch()` format. ([oklch.com](https://oklch.com/) is a great online tool for this purpose — I usually round up the decimals). Then, declare your colors as variables in the `*` universal selector. Give them variable names that make sense to you.
 
 ```css
 * {
-  /* Brand dark blue #15376b */
-  --logo-blue: oklch(34% 0.1 260);
+  --brand-blue: oklch(34% 0.1 260);
 }
 ```
 
@@ -432,190 +371,137 @@ With that done, you can access the variable anywhere in your CSS.
 
 ```css
 * {
-  /* Brand dark blue #15376b */
-  --logo-blue: oklch(34% 0.1 260);
-  --logo-blue-h: 260;
-
-  --pink: 345;
+  --brand-blue: oklch(34% 0.1 260);
+  --brand-blue-h: 260;
 }
 ```
 
-3. Next, you need to these hues’ default (lightness 500) color utilities. The Baselayer color shade utilities will take care of everything else.
+3. Next, you need to create these hues’ default (lightness 500) color utilities. The Baselayer color shade utilities will take care of everything else.
 
 <div aria-label="Note" class="popout mb-2 bl-3 b-orange b-300 p-2 t-black bg-orange bg-100">
-  ⚠ You need to add your color utilities as supplements to the <code>@layer color-setup</code> cascade layer, so that they get declared before the shades that are in the subsequent <code>@layer color-shades</code>.
+  ⚠ You need to add your color utilities as supplements to the <code>@layer color-setup</code> cascade layer, so that they get declared before the shades that are in the subsequent <code>@layer color-shades</code> layer.
 </div>
 
 ```css
 @layer color-setup {
-  .t-logo-blue, .hover\:t-logo-blue:hover {
+  .t-brand-blue, .hover\:t-brand-blue:hover {
     --tl: var(--l500);
     --tc: var(--c30);
-    --th: var(--logo-blue-h);
+    --th: var(--brand-blue-h);
     color: var(--tx); 
   }
-  .b-logo-blue, .hover\:b-logo-blue:hover {
+  .b-brand-blue, .hover\:b-brand-blue:hover {
     --bl: var(--l500);
     --bc: var(--c30);
-    --bh: var(--logo-blue-h);
+    --bh: var(--brand-blue-h);
     border-color: var(--bx); 
   }
-  .bg-logo-blue, .hover\:bg-logo-blue:hover {
+  .bg-brand-blue, .hover\:bg-brand-blue:hover {
     --bgl: var(--l500);
     --bgc: var(--c30);
-    --bgh: var(--logo-blue-h);
-    background: var(--bgx); 
-  }
-  .t-pink, .hover\:t-pink:hover {
-    --tl: var(--l500);
-    --tc: var(--c30);
-    --th: var(--pink);
-    color: var(--tx); 
-  }
-  .b-pink, .hover\:b-pink:hover {
-    --bl: var(--l500);
-    --bc: var(--c30);
-    --bh: var(--pink);
-    border-color: var(--bx); 
-  }
-  .bg-pink, .hover\:bg-pink:hover {
-    --bgl: var(--l500);
-    --bgc: var(--c30);
-    --bgh: var(--pink);
+    --bgh: var(--brand-blue-h);
     background: var(--bgx); 
   }
 }
 ```
 
-4. If you have color that doesn’t require greater vibrancy in its mid-range shades (or, if you want add a desaurated/“washed out” shade pallete for a hue), you can use one of Baselayer 3’s low chroma variables and override the usual mid-range vibrant chromas using an `!important` flag on your utility chroma channels — in a similar way as per Baselayer 3’s brown, gray, coolgray, and warmgray.
+4. If you have a color that doesn’t require greater vibrancy in its mid-range shades (or, if you need a desaurated/“washed out” shade pallete for a hue), you can use one of Baselayer 3’s low chroma variables and override the usual mid-range vibrant chromas using an `!important` flag on your utility chroma channels.
 
 ```css
 @layer color-setup {
-  .t-logo-blue-faded, .hover\:t-logo-blue-faded:hover {
+  .t-brand-blue-faded, .hover\:t-brand-blue-faded:hover {
     --tl: var(--l500);
-    --tc: var(--c10) !important;
-    --th: var(--logo-blue-h);
+    --tc: var(--c15) !important;
+    --th: var(--brand-blue-h);
     color: var(--tx); 
   }
-  .b-logo-blue-faded, .hover\:b-logo-blue-faded:hover {
+  .b-brand-blue-faded, .hover\:b-brand-blue-faded:hover {
     --bl: var(--l500);
-    --bc: var(--c10) !important;
-    --bh: var(--logo-blue-h);
+    --bc: var(--c15) !important;
+    --bh: var(--brand-blue-h);
     border-color: var(--bx); 
   }
-  .bg-logo-blue-faded, .hover\:bg-logo-blue-faded:hover {
+  .bg-brand-blue-faded, .hover\:bg-brand-blue-faded:hover {
     --bgl: var(--l500);
-    --bgc: var(--c10) !important;
-    --bgh: var(--logo-blue-h);
+    --bgc: var(--c15) !important;
+    --bgh: var(--brand-blue-h);
     background: var(--bgx); 
   }
 }
 ```
 
-Demonstrating what all these examples look like:
+Demonstrating what these examples look like:
 
 <style>
   * {
-    /* Brand dark blue #15376b */
-    --logo-blue: oklch(34% 0.1 260);
-    --logo-blue-h: 260;
-
-    --pink: 345;
+    /* Brand blue #15376b */
+    --brand-blue: oklch(34% 0.1 260);
+    --brand-blue-h: 260;
   }
   @layer color-setup {
-    .t-logo-blue, .hover\:t-logo-blue:hover {
+    .t-brand-blue, .hover\:t-brand-blue:hover {
       --tl: var(--l500);
       --tc: var(--c30);
-      --th: var(--logo-blue-h);
+      --th: var(--brand-blue-h);
       color: var(--tx); 
     }
-    .b-logo-blue, .hover\:b-logo-blue:hover {
+    .b-brand-blue, .hover\:b-brand-blue:hover {
       --bl: var(--l500);
       --bc: var(--c30);
-      --bh: var(--logo-blue-h);
+      --bh: var(--brand-blue-h);
       border-color: var(--bx); 
     }
-    .bg-logo-blue, .hover\:bg-logo-blue:hover {
+    .bg-brand-blue, .hover\:bg-brand-blue:hover {
       --bgl: var(--l500);
       --bgc: var(--c30);
-      --bgh: var(--logo-blue-h);
+      --bgh: var(--brand-blue-h);
       background: var(--bgx); 
     }
-    .t-pink, .hover\:t-pink:hover {
+    .t-brand-blue-faded, .hover\:t-brand-blue-faded:hover {
       --tl: var(--l500);
-      --tc: var(--c30);
-      --th: var(--pink);
+      --tc: var(--c15) !important;
+      --th: var(--brand-blue-h);
       color: var(--tx); 
     }
-    .b-pink, .hover\:b-pink:hover {
+    .b-brand-blue-faded, .hover\:b-brand-blue-faded:hover {
       --bl: var(--l500);
-      --bc: var(--c30);
-      --bh: var(--pink);
+      --bc: var(--c15) !important;
+      --bh: var(--brand-blue-h);
       border-color: var(--bx); 
     }
-    .bg-pink, .hover\:bg-pink:hover {
+    .bg-brand-blue-faded, .hover\:bg-brand-blue-faded:hover {
       --bgl: var(--l500);
-      --bgc: var(--c30);
-      --bgh: var(--pink);
-      background: var(--bgx); 
-    }
-    .t-logo-blue-faded, .hover\:t-logo-blue-faded:hover {
-      --tl: var(--l500);
-      --tc: var(--c10) !important;
-      --th: var(--logo-blue-h);
-      color: var(--tx); 
-    }
-    .b-logo-blue-faded, .hover\:b-logo-blue-faded:hover {
-      --bl: var(--l500);
-      --bc: var(--c10) !important;
-      --bh: var(--logo-blue-h);
-      border-color: var(--bx); 
-    }
-    .bg-logo-blue-faded, .hover\:bg-logo-blue-faded:hover {
-      --bgl: var(--l500);
-      --bgc: var(--c10) !important;
-      --bgh: var(--logo-blue-h);
+      --bgc: var(--c15) !important;
+      --bgh: var(--brand-blue-h);
       background: var(--bgx); 
     }
   }
 </style>
 
 <div class="mt-2 mb-3 flex flex-center flex-wrap">
-  <div style="width: max(140px, 210px)">
-    <div class="p-1 t-center"><code class="t-small">bg-logo-blue</code></div>
-    <div class="p-1 t-black t-small bg-logo-blue bg-100">bg-100</div>
-    <div class="p-1 t-black t-small bg-logo-blue bg-200">bg-200</div>
-    <div class="p-1 t-black t-small bg-logo-blue bg-300">bg-300</div>
-    <div class="p-1 t-black t-small bg-logo-blue bg-400">bg-400</div>
-    <div class="p-1 t-white t-small bg-logo-blue bg-500">bg-500</div>
-    <div class="p-1 t-white t-small bg-logo-blue bg-600">bg-600</div>
-    <div class="p-1 t-white t-small bg-logo-blue bg-700">bg-700</div>
-    <div class="p-1 t-white t-small bg-logo-blue bg-800">bg-800</div>
-    <div class="p-1 t-white t-small bg-logo-blue bg-900">bg-900</div>
+  <div style="width: min(100%, 200px)">
+    <div class="p-1 t-center"><code class="t-small">bg-brand-blue</code></div>
+    <div class="p-1 t-black t-small bg-brand-blue bg-100">bg-100</div>
+    <div class="p-1 t-black t-small bg-brand-blue bg-200">bg-200</div>
+    <div class="p-1 t-black t-small bg-brand-blue bg-300">bg-300</div>
+    <div class="p-1 t-black t-small bg-brand-blue bg-400">bg-400</div>
+    <div class="p-1 t-white t-small bg-brand-blue bg-500">bg-500</div>
+    <div class="p-1 t-white t-small bg-brand-blue bg-600">bg-600</div>
+    <div class="p-1 t-white t-small bg-brand-blue bg-700">bg-700</div>
+    <div class="p-1 t-white t-small bg-brand-blue bg-800">bg-800</div>
+    <div class="p-1 t-white t-small bg-brand-blue bg-900">bg-900</div>
   </div>
-  <div style="width: max(140px, 210px)">
-    <div class="p-1 t-center"><code class="t-small">bg-logo-blue-faded</code></div>
-    <div class="p-1 t-black t-small bg-logo-blue-faded bg-100">bg-100</div>
-    <div class="p-1 t-black t-small bg-logo-blue-faded bg-200">bg-200</div>
-    <div class="p-1 t-black t-small bg-logo-blue-faded bg-300">bg-300</div>
-    <div class="p-1 t-black t-small bg-logo-blue-faded bg-400">bg-400</div>
-    <div class="p-1 t-white t-small bg-logo-blue-faded bg-500">bg-500</div>
-    <div class="p-1 t-white t-small bg-logo-blue-faded bg-600">bg-600</div>
-    <div class="p-1 t-white t-small bg-logo-blue-faded bg-700">bg-700</div>
-    <div class="p-1 t-white t-small bg-logo-blue-faded bg-800">bg-800</div>
-    <div class="p-1 t-white t-small bg-logo-blue-faded bg-900">bg-900</div>
-  </div>
-  <div style="width: max(140px, 210px)">
-    <div class="p-1 t-center"><code class="t-small">bg-pink</code></div>
-    <div class="p-1 t-black t-small bg-pink bg-100">bg-100</div>
-    <div class="p-1 t-black t-small bg-pink bg-200">bg-200</div>
-    <div class="p-1 t-black t-small bg-pink bg-300">bg-300</div>
-    <div class="p-1 t-black t-small bg-pink bg-400">bg-400</div>
-    <div class="p-1 t-white t-small bg-pink bg-500">bg-500</div>
-    <div class="p-1 t-white t-small bg-pink bg-600">bg-600</div>
-    <div class="p-1 t-white t-small bg-pink bg-700">bg-700</div>
-    <div class="p-1 t-white t-small bg-pink bg-800">bg-800</div>
-    <div class="p-1 t-white t-small bg-pink bg-900">bg-900</div>
+  <div style="width: min(100%, 200px)">
+    <div class="p-1 t-center"><code class="t-small">bg-brand-blue-faded</code></div>
+    <div class="p-1 t-black t-small bg-brand-blue-faded bg-100">bg-100</div>
+    <div class="p-1 t-black t-small bg-brand-blue-faded bg-200">bg-200</div>
+    <div class="p-1 t-black t-small bg-brand-blue-faded bg-300">bg-300</div>
+    <div class="p-1 t-black t-small bg-brand-blue-faded bg-400">bg-400</div>
+    <div class="p-1 t-white t-small bg-brand-blue-faded bg-500">bg-500</div>
+    <div class="p-1 t-white t-small bg-brand-blue-faded bg-600">bg-600</div>
+    <div class="p-1 t-white t-small bg-brand-blue-faded bg-700">bg-700</div>
+    <div class="p-1 t-white t-small bg-brand-blue-faded bg-800">bg-800</div>
+    <div class="p-1 t-white t-small bg-brand-blue-faded bg-900">bg-900</div>
   </div>
 </div>
 
@@ -648,14 +534,14 @@ There are no hover states of `bg-transparent`.
 
 Baselayer 3 has some simple dark themes built in. The dark theme has this effect:
 
-1. HTML elements are generally flipped from light to dark, or dark to light. The body background becomes dark gray; near black text becomes near white; light gray table borders, horizontal rules, and form inputs become dark gray. (Default buttons remain unchanged at middle gray.)
-2. Links are slightly darkened, to make them easier on the eye.
+1. HTML elements are generally flipped from light to dark, or dark to light. The body background becomes near black; text becomes near white; light gray table borders, horizontal rules, and form inputs become dark gray.
+2. Link blue is slightly darkened, to make links easier on the eye.
 3. Form fields are flipped from pale gray to a dark gray (but lighter than the body background).
 4. Default buttons stay mid gray.
 5. Color utilities are slightly darkened, to make them easier on the eye.
-6. Color utilities can optionally be inverted (and sligtly darkened) by adding the `*-dark-invert` modifier classes.
+6. Color utilities can optionally be inverted (as well as being sligtly darkened) by adding the `*-dark-invert` modifier classes.
 
-### The `.theme-dark` class
+### The `theme-dark` class
 
 In `baselayer.min.css` the dark theme is set by the CSS class `theme-dark` that can be programatically added to the `<html>` tag by a [JavaScript toggle](#dark%2Flight-theme-toggle).
 
@@ -686,7 +572,7 @@ Example using `bg-blue`:
 <div class="bg-blue bg-100"></div>
 
 <!-- will slightly darken AND invert in dark mode -->
-<div class="bg-blue bg-100 bg-dark invert"></div>
+<div class="bg-blue bg-100 bg-dark-invert"></div>
 ```
 
 <table class="table">
@@ -746,16 +632,30 @@ Example using `bg-blue`:
 </tbody>
 </table>
 
-Of course, the middle `bg-500` doesn’t invert. (There is no `bg-500 bg-dark-invert`.)
+The middle `bg-500` doesn’t invert, of course. So, there is no `bg-500 bg-dark-invert`.
 
 <p class="mb-1 t-bold t-center">Baselayer 3’s OKLCH shades (lightness) are darkened for the dark theme<p>
 <div class="mb-3 w-100% mx-auto" style="max-width: 500px">
 <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:1.5" viewBox="0 0 121 119"><path d="M200 100v200" style="fill:none;stroke:currentColor;stroke-width:.38px" transform="matrix(1 0 0 .5 -180.003 -48.459)"/><path d="m210 85.185 80-503.704" style="fill:none;stroke:currentColor;stroke-width:.42px" transform="matrix(-1 0 0 .135 319.997 61.041)"/><path d="m210-329.63 80 444.445" style="fill:none;stroke:currentColor;stroke-width:.42px;stroke-dasharray:4.2,4.2,0,0" transform="matrix(1 0 0 .135 -180.003 61.041)"/><path d="M200 100v200" style="fill:none;stroke:currentColor;stroke-width:.38px" transform="matrix(0 -1 .5 0 -30.003 301.541)"/><text x="194.001" y="309.985" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor" transform="rotate(-60 -59.51 354.107)">100</text><text x="194.001" y="309.985" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor" transform="rotate(-60 -54.51 345.447)">200</text><text x="194.001" y="309.985" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor" transform="rotate(-60 -49.51 336.786)">300</text><text x="194.001" y="309.985" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor" transform="rotate(-60 -44.51 328.126)">400</text><text x="194.001" y="309.985" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor" transform="rotate(-60 -39.51 319.466)">500</text><text x="194.001" y="309.985" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor" transform="rotate(-60 -34.51 310.806)">600</text><text x="194.001" y="309.985" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor" transform="rotate(-60 -29.509 302.145)">700</text><text x="194.001" y="309.985" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor" transform="rotate(-60 -24.509 293.485)">800</text><text x="194.001" y="309.985" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor" transform="rotate(-60 -19.509 284.824)">900</text><text x="194.843" y="312.992" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor" transform="translate(-190.003 -309.959)">100%</text><text x="197.161" y="312.992" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor" transform="translate(-190.003 -299.959)">90%</text><text x="197.161" y="312.992" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor" transform="translate(-190.003 -289.959)">80%</text><text x="197.161" y="312.992" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor" transform="translate(-190.003 -279.959)">70%</text><text x="197.161" y="312.992" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor" transform="translate(-190.003 -269.959)">60%</text><text x="197.161" y="312.992" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor" transform="translate(-190.003 -259.959)">50%</text><text x="197.161" y="312.992" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor" transform="translate(-190.003 -249.959)">40%</text><text x="197.161" y="312.992" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor" transform="translate(-190.003 -239.959)">30%</text><text x="197.161" y="312.992" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor" transform="translate(-190.003 -229.959)">20%</text><text x="197.161" y="312.992" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor" transform="translate(-190.003 -219.959)">10%</text><text x="199.478" y="312.992" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor" transform="translate(-190.003 -209.959)">0%</text><text x="194" y="309.985" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor" transform="translate(-147.187 -300.459)">Light theme shades</text><text x="204.541" y="314.288" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor" transform="translate(-147.187 -300.459)">(default)</text><text x="194" y="309.985" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor" transform="translate(-122.133 -226.452)">Dark theme shades</text><text x="195.906" y="309.985" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor" transform="translate(-102.133 -268.452)">Inverted dark</text><text x="194.978" y="314.288" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor" transform="translate(-102.133 -268.452)">theme shades</text><text x="195.02" y="318.455" style="font-family:&quot;Menlo-Regular&quot;,&quot;Menlo&quot;,monospace;font-size:3.333px;fill:currentColor" transform="translate(-102.133 -268.452)">*-dark-invert</text><text x="212.275" y="309.985" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor" transform="translate(-163.867 -192.459)">Lightness code number</text><text x="219.454" y="309.985" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor" transform="rotate(-90 -10.731 296.272)">Lightness value</text><path d="M200 200h-3" style="fill:none;stroke:currentColor;stroke-width:.35px" transform="matrix(.66667 0 0 1 -113.336 -198.459)"/><path d="M200 200h-3" style="fill:none;stroke:currentColor;stroke-width:.35px" transform="matrix(.66667 0 0 1 -113.336 -188.459)"/><path d="M200 200h-3" style="fill:none;stroke:currentColor;stroke-width:.35px" transform="matrix(.66667 0 0 1 -113.336 -178.459)"/><path d="M200 200h-3" style="fill:none;stroke:currentColor;stroke-width:.35px" transform="matrix(.66667 0 0 1 -113.336 -168.459)"/><path d="M200 200h-3" style="fill:none;stroke:currentColor;stroke-width:.35px" transform="matrix(.66667 0 0 1 -113.336 -158.459)"/><path d="M200 200h-3" style="fill:none;stroke:currentColor;stroke-width:.35px" transform="matrix(.66667 0 0 1 -113.336 -148.459)"/><path d="M200 200h-3" style="fill:none;stroke:currentColor;stroke-width:.35px" transform="matrix(.66667 0 0 1 -113.336 -138.459)"/><path d="M200 200h-3" style="fill:none;stroke:currentColor;stroke-width:.35px" transform="matrix(.66667 0 0 1 -113.336 -128.459)"/><path d="M200 200h-3" style="fill:none;stroke:currentColor;stroke-width:.35px" transform="matrix(.66667 0 0 1 -113.336 -118.459)"/><path d="M200 200h-3" style="fill:none;stroke:currentColor;stroke-width:.35px" transform="matrix(.66667 0 0 1 -113.336 -108.459)"/><path d="M200 200h-3" style="fill:none;stroke:currentColor;stroke-width:.35px" transform="matrix(.66667 0 0 1 -113.336 -98.459)"/><path d="M200 200h-3" style="fill:none;stroke:currentColor;stroke-width:.35px" transform="matrix(0 -.66667 1 0 -170.003 234.874)"/><path d="M200 200h-3" style="fill:none;stroke:currentColor;stroke-width:.35px" transform="matrix(0 -.66667 1 0 -160.003 234.874)"/><path d="M200 200h-3" style="fill:none;stroke:currentColor;stroke-width:.35px" transform="matrix(0 -.66667 1 0 -150.003 234.874)"/><path d="M200 200h-3" style="fill:none;stroke:currentColor;stroke-width:.35px" transform="matrix(0 -.66667 1 0 -140.003 234.874)"/><path d="M200 200h-3" style="fill:none;stroke:currentColor;stroke-width:.35px" transform="matrix(0 -.66667 1 0 -130.003 234.874)"/><path d="M200 200h-3" style="fill:none;stroke:currentColor;stroke-width:.35px" transform="matrix(0 -.66667 1 0 -120.003 234.874)"/><path d="M200 200h-3" style="fill:none;stroke:currentColor;stroke-width:.35px" transform="matrix(0 -.66667 1 0 -110.003 234.874)"/><path d="M200 200h-3" style="fill:none;stroke:currentColor;stroke-width:.35px" transform="matrix(0 -.66667 1 0 -100.003 234.874)"/><path d="M200 200h-3" style="fill:none;stroke:currentColor;stroke-width:.35px" transform="matrix(0 -.66667 1 0 -90.003 234.874)"/><path d="m60.152 26.55-2.155.991 1.13-2.086 1.025 1.095Z" style="fill:currentColor"/><path d="M64.997 16.541c-.008 3.629-3.661 7.759-5.686 9.769" style="fill:none;stroke:currentColor;stroke-width:.5px"/><path d="m94.746 68.532 2.154-.991-1.129 2.086-1.025-1.095Z" style="fill:currentColor"/><path d="M89.9 78.541c.009-3.629 3.662-7.759 5.687-9.769" style="fill:none;stroke:currentColor;stroke-width:.5px"/><path d="m100.03 27.627-1.13-2.086 2.155.991-1.025 1.095Z" style="fill:currentColor"/><path d="M105.9 36.541c-.008-3.629-3.661-7.759-5.686-9.769" style="fill:none;stroke:currentColor;stroke-width:.5px"/><path d="m210-329.63 80 444.445" style="fill:none;stroke:currentColor;stroke-width:.42px;stroke-dasharray:4.2,4.2,0,0" transform="matrix(-1 0 0 .135 319.997 61.041)"/></svg>
 </div>
 
+### Dark theme HTML body background color
+
+Since v.1.2.x Baselayer 3’s dark theme `<body>` color has been made darker than the color shades set by the `bg-900` utility, so that elements colored by those shades are still visible. For this purpose an OKLCH lightness variable of `--l1000` has been added. 
+
+```css
+.theme-dark {
+  --l1000: 18%;
+
+  --bgc-body: oklch(var(--l1000) var(--c0) var(--gray)); /* ~ #121212 */
+}
+```
+
+As with all Baselayer’s variables, this dark theme `<body>` color is an example that you can change to suit the needs of your project.
+
 ### Dark/light theme toggle
 
-Baselayer 3’s dark/light theme switcher JavaScript uses [sessionStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage) in the user’s browser to remember their theme preference as they visit multiple pages in this documentation.
+Baselayer’s dark/light theme switcher JavaScript uses [sessionStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage) in the user’s browser to remember their theme preference as they visit multiple pages in this documentation.
 
 This script adds the CSS class `theme-dark` to the `<html>` tag of the webpage, so that it is implimented (almost) immediately, before the `<body>` is painted in the browser window. 
 
@@ -816,11 +716,11 @@ You will also need a toggle button, like the one in the sidebar. The checkmarks 
 Another, simpler example theme toggle button, using glyphs selected via [&what;](https://www.amp-what.com)
 
 <style>
-  .theme-dark .theme-toggle span::before { content: '☀️ '; }
-  .theme-light .theme-toggle span::before { content: '🌙 '; }
+  .theme-dark .theme-toggle span::before { content: '☀️ light '; }
+  .theme-light .theme-toggle span::before { content: '🌙 dark '; }
 </style>
 
-<p class="flex flexcenter">
+<p class="flex flex-center">
   <button class="theme-toggle pl-1 t-blue t-100 t-dark-invert bg-blue bg-900 bg-dark-invert" onclick="toggleTheme()">
     <span>theme</span>
   </button>
@@ -828,8 +728,8 @@ Another, simpler example theme toggle button, using glyphs selected via [&what;]
 
 ```
 <style>
-  .theme-dark .theme-toggle span::before { content: '☀️ '; }
-  .theme-light .theme-toggle span::before { content: '🌙 '; }
+  .theme-dark .theme-toggle span::before { content: '☀️ light '; }
+  .theme-light .theme-toggle span::before { content: '🌙 dark '; }
 </style>
 
 <button class="theme-toggle pl-1 t-blue t-900 t-dark-invert bg-blue bg-900 bg-dark-invert" onclick="toggleTheme()">

@@ -8,6 +8,9 @@ prevLink: "Typography"
 nextLink: "Decoration"
 ---
 
+<div aria-label="Note" class="popout mb-2 bl-3 b-blue b-300 p-2 t-black bg-blue bg-100">
+  Since September 2023, all “evergreen” browsers (Chrome, Edge, Firefox, Safari) have capability for the new CSS Container Queries (see <a class="t-blue t-600 hover:t-700" href="https://caniuse.com/?search=container">Can I use Container Queries</a>). Baselayer 3 v.1.2.x has <a class="t-blue hover:t-700" href="#container-query-powered-layouts">container query powered layouts</a> to control <code class="t-black bg-blue bg-200">flex</code>, <code class="t-black bg-blue bg-200">grid</code>, and <code class="t-black bg-blue bg-200">hidden</code> utility classes. 
+</div>
 
 ## Blocks
 
@@ -16,9 +19,17 @@ nextLink: "Decoration"
 * `inline-flex`, `flex` — see [flex layouts](#flex-layouts)
 * `grid` — see [grid layouts](#grid-layouts)
 
-## Containers
+## Dimensions
 
-The centered layout `container` is set up as follows:
+### Centered layout wrappers
+
+Baselayer’s `wrapper` classes add a constrained width, inline margin (x-axis) auto centering, and side edge whitespace when the viewport width is at or narrower then the wrapper width.
+
+<div aria-label="Note" class="popout mb-2 bl-3 b-orange b-300 p-2 t-black bg-orange bg-100">
+  Baselayer’s <em>wrappers</em> were previously known as <em>containers</em> (before v.1.2.x), copying the name from other CSS frameworks such as Bootstrap. But with Baselayer 3 v.1.2.x switching from media queries to container queries, a <em>context container</em> was required for parent elements of container query controlled layout systems. And so the class name <code class="t-black bg-blue bg-200">container</code> has been used for that purpose. See <a class="t-blue hover:t-700" href="#container-query-powered-layouts">container query powered layouts</a>.
+</div>
+
+The centered layout `wrapper` is set up as follows:
 
 `variables.css`
 
@@ -33,28 +44,30 @@ The centered layout `container` is set up as follows:
 `layout.css`
 
 ```css
-.container {
+.wrapper {
   --w-max: var(--w-xl);
   width: min(100% - (var(--sp-2) * 2), var(--w-max));
   margin-inline: auto;
 }
 ```
 
-For viewport widths below `--w-max` side spacing is provided by `--sp-2`. This adds a negative space (whitespace) right and left of the container, to prevent text being difficult to read when up against the sides of phone and tablet screens.
+For viewport widths below `--w-max` side spacing is provided by `--sp-2`. This adds a negative space (whitespace) right and left of the wrapper, to prevent text being difficult to read when up against the sides of the viewport.
 
-## Widths
+### Widths
 
-320px intervals.
+320px intervals. `w-` classes will have widths 100% until their max width. `wrapper-` classes will have widths (100% minus side space) until their max width.
 
-* `container-xs` / `w-xs` — (max) width 320px or 100%
-* `container-sm` / `w-sm` — (max) width 640px or 100%
-* `container-md` / `w-md` — (max) width 960px or 100%
-* `container-lg` / `w-lg` — (max) width 1280px or 100%
-* `container-xl` / `w-xl` — (max) width 1600px or 100%
-* `w-100%` — width 100%
-* `w-max-100vw` — max-width 100vw
+The difference between width utilities and wrapper utilities is that wrappers have x-axis side padding and x-axis centering (see above).
 
-Both the `xs`, `sm`, `md`, `lg`, `xl` container and width utilities have their widths set using:
+* `wrapper-xs` / `w-xs` — max width 320px
+* `wrapper-sm` / `w-sm` — max width 640px
+* `wrapper-md` / `w-md` — max width 960px
+* `wrapper-xs` / `w-xs` — max width 320px
+* `wrapper-lg` / `w-lg` — max width 1280px
+* `wrapper-xl` / `w-xl` — max width 1600px
+* `wrapper` — max width 1600px
+
+Both the `xs`, `sm`, `md`, `lg`, `xl` wrapper and width utilities have their widths set using:
 
 ```css
 width: min(100%, {variable});
@@ -62,9 +75,13 @@ width: min(100%, {variable});
 
 This means they will responsively expand to width 100% within the space available, until they max out at their set width variable.
 
-The difference between these width utilities and container utilities is that containers have x-axis side padding and x-axis centering (see above).
+Two more:
 
-## Heights
+* `w-100%` — width 100%
+* `w-max-100vw` — max-width 100vw
+
+
+### Heights
 
 * `h-100%` — height 100%, e.g. for making cards equal to the height of their wrapper
 * `h-100dvh` — height 100% _or_ 100dvh, e.g. for making “full cover” panels
@@ -72,7 +89,7 @@ The difference between these width utilities and container utilities is that con
 
 Baselayer uses `100dvh` (dynamic viewport height) that gives a different viewport height for some devices — i.e. it compensates for the scroll retracting interface toolbars on iOS Safari.
 
-## Box
+### Box
 
 * `box` — expands an inner element using `inset: 0` to fill the size of its wrapper (you must put `relative` on a `box` wrapper). Useful for setting up a panel (e.g. hero or card) background image with text overlay.
 
@@ -81,13 +98,13 @@ Baselayer uses `100dvh` (dynamic viewport height) that gives a different viewpor
 * `relative`
 * `absolute`
 * `sticky`
-* `top` — `top: 0`
-* `right` — `right: 0`
-* `bottom` — `bottom: 0`
-* `left` — `left: 0`
-* `z-1` — `z-index: 1`
-* `z-2` — `z-index: 2`
-* `z-3` — `z-index: 3`
+* `top` — top: 0
+* `right` — right: 0
+* `bottom` — bottom: 0
+* `left` — left: 0
+* `z-1` — z-index: 1
+* `z-2` — z-index: 2
+* `z-3` — z-index: 3
 
 For centering and middling, use [flex](#flex-layouts).
 
@@ -101,7 +118,7 @@ Example:
   <div class="absolute box flex flex-center flex-middle t-center"><code>centered<br>and middled</code></div>
 </div>
 
-```
+```html
 <div class="relative mb-2 b-1 aspect-ratio-16x9">
   <div class="absolute top w-100% center t-center"><code>top</code></div>
   <div class="absolute right h-100% flex flex-middle"><code>right</code></div>
@@ -111,56 +128,85 @@ Example:
 </div>
 ```
 
-## Flex layouts
+## Container query powered layouts
+
+Since Baselyer 3 v.1.2.x, [flex](#flex-layouts), [grid](#grid-layouts), and [invisibility](#invisibility) (hidden) utilities have `@container` variants that only work if they are wrapped in a `container` class, that provides the _container query context_:
+
+```css
+.container {
+  container-type: inline-size;
+}
+```
+
+This `container` class does not constrain the outer element’s width in any way. You will need to control the widths of your content with e.g. [wrapper](#centered-layout-wrappers) or [width](#widths) utilities, or by placing the container within a grid cell, etc.
+
+There are three `@container` variants for `flex`, `grid`, and `hidden` classes corresponding to prefix widths:
+
+* `sm:` (640px)
+* `md:` (960px)
+* `lg:` (1280px)
+
+<div aria-label="Note" class="popout mb-2 bl-3 b-orange b-300 p-2 t-black bg-orange bg-100">
+  Layout classes with <code>sm:</code>, <code>md:</code>, and <code>lg:</code> prefixes do not work unless they are inside of a <code>container</code>.
+</div>
+
+You can place the `container` class on e.g.:
+
+* The `<body>` tag (so that the container query will behave the same as a media query)
+* Semantic layout sections, such as your page `<header>`, `<main>`, or `<footer>` 
+* `<div>`’s of course
+* Nested within other `container` elements (e.g. so you can have sidebars or arrays of cards within your `<main>`)
+* And more.
+
+_What if you want to use Baselayer’s `flex`, `grid` and `hidden` clases but you really prefer media queries, or if you need to support pre-container query browsers?_
+
+Then you can find every instance of `@container` in `layout.css` and replace it with `@media`, and this will convert everything to media queries. (And then the `container` class will be redundant — you won't need it.)
+
+### Container query demos
+
+This entire documentation template is built using a full-width container query powered [grid](#grid-layouts) that takes effect when the _viewport_ is at or above Baselayer’s `md` container query breakpoint (default ≥ 960px). Above `md`, the top navigation bar becomes the sidebar in column 1, with everything else in column 2.
+
+The “everything else” area is organized in another grid within the same `container` context as the outer grid above, that becomes a two column grid when _that container’s_ width is at `lg` or above (≥ 1280px). Then the table of contents (TOC) block is placed in column 2 of this inner grid (that appear to be the third column in the overall page layout).
+
+So, the page layout deonstrates two `grid` layouts, one nested inside the other, and both are inside one outer `container` — they share the same container query context.
+
+The main content (everything else below the title) is organised within a [content-grid](#content-grid) (that is not powered by a container query).
+
+Also, there There are small demos of container query layouts on this page below, demonstrating `flex`, `grid`, and `hidden classes` all set within their own `container`s. Some of those demos have an _x-axis resizer_, so that you can test them out and see how they work. The resizer is indicated by a dashed border and a resizer symbol in the bottom right corner. Example resizer without a container query demo inside:
+
+<div class="mt-2 mb-3 resize-x">
+<div class="flex flex-bottom flex-end t-right" style="min-height: 100px;">Resize symbol ↘</div>
+</div>
+
+### Flex layouts
 
 Flexbox utilities for simple layout, menubars, pagination lists, cards, etc.
 
 * `inline-flex` — inline flexbox at all viewport widths
 * `flex` — flexbox at all viewport widths
-* `sm:flex` — flexbox at 640px and up
-* `md:flex` — flexbox at 960px and up
-* `lg:flex` — flexbox at 1280px and up
 
-### Flex modifiers
+#### Flex gaps
 
-* `gap-*` — adds a _horizontal and vertical_ gap (same as for [grid layouts](#grid-layouts)):
-    * `gap-1` — `--sp-1`
-    * `gap-2` — `--sp-2`
-    * `gap-3` — `--sp-3`
-    * `gap-4` — `--sp-4`
+`gap-*` — adds a _horizontal and vertical_ gap (same as for [grid layouts](#grid-layouts)):
+
+* `gap-1` — `--sp-1`
+* `gap-2` — `--sp-2`
+* `gap-3` — `--sp-3`
+* `gap-4` — `--sp-4`
+
+#### Flex modifiers
+
 * X-axis: `flex-start` / `flex-center` / `flex-end`
 * Y-axis: `flex-top` / `flex-middle` / `flex-bottom`
-* `flex-wrap` — gives you `flex-wrap: wrap`
-* `flex-column` — gives you `flex-direction: column`
-* `flex-space-between` — gives you `justify-content: space-between`
+* `flex-wrap` — gives you flex-wrap: wrap
+* `flex-column` — gives you flex-direction: column
+* `flex-space-between` — gives you justify-content: space-between
 * `flex-grow-equal` — makes grid item expand so that they occupy an equal fraction of the total width (or height, if used with `flex-column`)
 * `flex-grow-auto` — makes grid item expand so that they occupy an unequal fraction of the total width (or height, if used with `flex-column`): each expanding as required by their respective content.
 
 **Note:** the gaps have the same spacing CSS variables as [margins and paddings]({{ '/decoration/' | url }}#spacing-(margins-and-paddings)).
 
-Example using `sm:flex` (breakpoint width 640px):
-
-<nav class="my-2 sm:flex gap-1 flex-end">
-  <a class="mb-1 btn block" href="#/">Home</a>
-  <a class="mb-1 btn block" href="#/">Products</a>
-  <a class="mb-1 btn block" href="#/">About</a>
-  <a class="mb-1 btn block" href="#/">Blog</a>
-  <a class="mb-1 btn block" href="#/">Contact</a>
-</nav>
-
-```html
-<nav class="my-2 sm:flex gap-1 flex-end">
-  <a class="mb-1 btn block" href="">Home</a>
-  <a class="mb-1 btn block" href="">Products</a>
-  <a class="mb-1 btn block" href="">About</a>
-  <a class="mb-1 btn block" href="">Blog</a>
-  <a class="mb-1 btn block" href="">Contact</a>
-</nav>
-```
-
-In the example above, each button has a bottom margin, so that they have whitepsae gaps below the `sm:flex` breakpoint width.
-
-### Flex-item grow
+#### Flex-item grow
 
 * `grow` — gives you `flex-grow: 1`
 
@@ -176,43 +222,54 @@ In the example above, each button has a bottom margin, so that they have whiteps
 </div>
 ```
 
-## Grid layouts
+#### Flex and container queries
 
-<div aria-label="Note" class="popout mb-2 bl-3 b-orange b-300 p-2 t-black bg-orange bg-100">
-  The grid system has been reinvented for Baselayer v.3. It is not backwards compatible to Baselayer 1 or 2.
+If you wrap the following in a `container` class, they will take effect at the following container widths up:
+
+* `sm:flex` — flexbox at container width 640px and up
+* `md:flex` — flexbox at container width 960px and up
+* `lg:flex` — flexbox at container width 1280px and up
+
+Example using `sm:flex` (container query breakpoint width 640px):
+
+<div class="expand mt-2 mb-3">
+  <div class="container resize-x">
+    <nav class="sm:flex gap-1 flex-end">
+      <a class="my-1 btn block" href="#/">Home</a>
+      <a class="my-1 btn block" href="#/">About</a>
+      <a class="my-1 btn block" href="#/">Blog</a>
+      <a class="my-1 btn block" href="#/">Contact</a>
+    </nav>
+  </div>
 </div>
 
-* **Controlling tracks at _grid wrapper_ level:**
-    * Grid: `grid` initializes the CSS grid. It adds `display: grid` but it doesn’t provide information about how many columns you want.
-    * Gap (optional) — adds vertical and horizontal whitespace (a.k.a. gutters) along internal grid tracks. See [grid gaps](#grid-gaps)
-    * Equal width grid cell control (optional): `equal-*-cols` etc. specifies how many columns your layout has (up to four), where each column width is equalized.
-    * Dense packing (optional): `grid-dense` can be used as a quick way to reorder grid items: packing so later items into earlier empty cells if there’s enough soace for them.
-* **Controlling positioning and spanning at _per-grid-item_ level:**
-    * Positioning (optional): `col-*` and `row-*` etc. – for positioning each grid item over the grid cells.
-    * Spanning (optional): `col-span-*` and `row-span-*`etc. – spanning 2, 3, or 4 columns or rows.
-* **Grid layouts at different _media query breakpoint widths_:**
-    * The Baselayer 3 grid system has four tiers of media query breakpoint widths, for creating different grid layouts for different sized devices: all widths; `sm` (e.g. phones up); `md` (e.g. tablets up); and `lg` (laptops up).
+```html
+<div class="container">
+  <nav class="sm:flex gap-1 flex-end">
+    <a class="my-1 btn block" href="">Home</a>
+    <a class="my-1 btn block" href="">About</a>
+    <a class="my-1 btn block" href="">Blog</a>
+    <a class="my-1 btn block" href="">Contact</a>
+  </nav>
+</div>
+```
 
-While the wrapper `grid` (and gaps) classes take effect at all viewport widths, the lowest breakpoint that positioning and spanning takes effect is `sm` (640px). Below this, everything will be in a single column.
+In the example above, each button has a y-axis (block axis) margin, so that they still have whitepace gaps below the `sm:flex` breakpoint width.
 
-The responsive `col-` and `row-` positioning classes are used to instruct the grid which grid cell you want your grid item to be placed on (up to 4 columns and/or 4 rows).
+### Grid layouts
 
-The `col-span-` and `row-span-` spanning classes can be used to make grid items to span up to 4 columns and/or 4 rows.
+#### Setting up a grid
 
-The responsive grid item classes can be _combined_ on the same elements, so that you can set up to four different layouts on the same `grid`:
+Controlling tracks at _grid wrapper_ level:
 
-* Tier 1: Below 640px — for phones
-* Tier 2: `sm` 640px and up — for large phones, and tablets in portrait orientation
-* Tier 3: `md` 960px and up — for tablets in landscape orientation
-* Tier 4: `lg` 1280px and up — for laptops up
-
-The _tier 1_ grid system has no media query prefixes — it takes effect at all viewport widths. This is ideal for creating small icon galleries in sidebars or dropdown, or for making media objects (e.g. social messaging or comment cards).
-
-CSS grid positions grid items _automatically_ on the available grid cells — so an item will be placed on the _next_ available cell until required to begin again on the _next_ (i.e. new) row. You can use this automatic positioning to your advantage, allowing CSS grid to presume where you want your next item to be. Or you can control positioning by using the responsive `col-` and `row-` classes (and sometimes `grid-dense` is all you need).
+* **Grid** — the `grid` class initializes the CSS grid. It only adds `display: grid` — it doesn’t provide information about how many columns you want, or what their widths will be. To control columns, use `equal-` classes on the grid wrapper, or control the position of grid items.
+* **Gap (optional)** — adds vertical _and_ horizontal whitespace (a.k.a. gutters) along internal grid tracks. See [grid gaps](#grid-gaps).
+* **Equal width grid cell control (optional)** — `equal-*-cols` etc. specifies how many columns your layout has (2, 3, or 4), where each column width is equalized.
+* **Dense packing (optional)** — `grid-dense` can be used as a quick way to _reorder_ grid items: packing so later items into earlier empty cells if there’s enough space for them. There is a [dense packing example](#grid-items-and-dense-packing) below, after where we have described per-item control.
 
 Having 2, 3, or 4 _CSS grid_ columns covers most use cases for the traditional 12 column grid system in webpage design. The Baselayer 3 grid can do all that and so much more.
 
-<div class="my-3 grid equal-3-cols">
+<div class="mt-2 mb-3 grid equal-3-cols">
   <div class="b-1 p-cell">1</div>
   <div class="b-1 p-cell">2</div>
   <div class="b-1 p-cell">3</div>
@@ -226,22 +283,27 @@ Having 2, 3, or 4 _CSS grid_ columns covers most use cases for the traditional 1
 </div>
 ```
 
-At this point, each _grid item_ will automatically span one _grid cell_. If you have more grid items than set columns, the excess will wrap onto new row(s). This is all you need for setting up equal width items such as in image galleries, or sets of cards.
+If this is all you do to set up a grid, each _grid item_ will automatically span one _grid cell_. If you have more grid items than set columns, the excess will wrap onto new row(s).
 
-`grid sm:equal-2-cols md:equal-4-cols gap-2`:
-
-<div class="mt-2 mb-3 grid sm:equal-2-cols md:equal-4-cols gap-2">
+<div class="mt-2 mb-3 grid equal-3-cols">
   <div class="b-1 p-cell">1</div>
   <div class="b-1 p-cell">2</div>
   <div class="b-1 p-cell">3</div>
   <div class="b-1 p-cell">4</div>
   <div class="b-1 p-cell">5</div>
-  <div class="b-1 p-cell">6</div>
-  <div class="b-1 p-cell">7</div>
-  <div class="b-1 p-cell">8</div>
 </div>
 
-### Grid gaps
+```html
+<div class="grid equal-3-cols">
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+</div>
+```
+
+#### Grid gaps
 
 * `gap-*` — adds a _horizontal and vertical_ gap between grid cells, using the same spacing variables as for margins and paddings:
     * `gap-1` — `--sp-1`
@@ -251,41 +313,70 @@ At this point, each _grid item_ will automatically span one _grid cell_. If you 
 
 These same `gap-*` classes are used for [flex layouts](#flex-layouts).
 
-### Grid item control
-
-A simple example: the following would be two rows on phones (below 768px width), and two columns on tablets up (e.g. sidebar plus main): 
-
-<div class="mt-2 mb-3 grid sm:equal-3-cols gap-2">
-  <div class="b-1 p-cell">1</div>
-  <div class="sm:col-span-2 b-1 p-cell">columns 2 to 3</div>
-</div>
-
-```html
-<div class="grid sm:equal-3-cols gap-2">
-  <div></div>
-  <div class="sm:col-span-2"></div>
-</div>
-```
-
-A complex example, taking effect at 1024px (`md`):
-
-<div class="mt-2 mb-3 grid md:equal-4-cols gap-1">
+<div class="mt-2 mb-3 grid equal-3-cols gap-2">
   <div class="b-1 p-cell">1</div>
   <div class="b-1 p-cell">2</div>
-  <div class="md:col-span-2 md:row-2 b-1 p-cell">columns 1 to 2, row 2</div>
-  <div class="md:col-span-2 md:row-span-2 b-1 p-cell">columns 3 to 4, rows 1 to 2</div>
+  <div class="b-1 p-cell">3</div>
+  <div class="b-1 p-cell">4</div>
+  <div class="b-1 p-cell">5</div>
 </div>
 
 ```html
-<div class="grid md:equal-4-cols gap-1">
-  <div>1</div>
-  <div>2</div>
-  <div class="md:col-span-2 md:row-2">columns 1 to 2, row 2</div>
-  <div class="md:col-span-2 md:row-span-2">columns 3 to 4, rows 1 to 2</div>
+<div class="grid equal-3-cols gap-2">
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
 </div>
 ```
 
-Grid items can sometimes leave spaces of unoccupied cells:
+#### Controlling grid items
+
+Controlling positioning and spanning at _per-grid-item_ level:
+
+* **Spanning (optional)** — `col-span-*` and `row-span-*`etc. – spanning 2, 3, or 4 columns or rows.
+* **Positioning (optional)** — `col-*` and `row-*` etc. – for positioning each grid item over the grid cells.
+
+CSS grid positions grid items _automatically_ on the available grid cells — so an item will be placed on the _next_ available cell until required to begin again on the _next_ (i.e. new) row. You can use this automatic positioning to your advantage, allowing CSS grid to presume where you want your next item to be. As in the following simple example: 
+
+<div class="mt-2 mb-3 grid equal-3-cols gap-2">
+  <div class="b-1 p-cell">1</div>
+  <div class="col-span-2 b-1 p-cell">columns 2 to 3</div>
+</div>
+
+```html
+<div class="grid equal-3-cols gap-2">
+  <div></div>
+  <div class="col-span-2"></div>
+</div>
+```
+
+The `col-span-` and `row-span-` spanning classes can be used to make grid items to span up to 4 columns and/or 4 rows.
+
+You can also control positioning by using the responsive `col-` and `row-` classes. In the following example, all we needed todo is specify that the third grid item should go on `row-2` and the CSS grid _automatically_ figured out that the fourth item should start in the next available grid cell — in column 3 of row 1:
+
+<div class="mt-2 mb-3 grid equal-4-cols gap-1">
+  <div class="b-1 p-cell">1</div>
+  <div class="b-1 p-cell">2</div>
+  <div class="col-span-2 row-2 b-1 p-cell">columns 1 to 2, row 2</div>
+  <div class="col-span-2 row-span-2 b-1 p-cell">columns 3 to 4, rows 1 to 2</div>
+</div>
+
+```html
+<div class="grid equal-4-cols gap-1">
+  <div>1</div>
+  <div>2</div>
+  <div class="col-span-2 row-2">columns 1 to 2, row 2</div>
+  <div class="col-span-2 row-span-2">columns 3 to 4, rows 1 to 2</div>
+</div>
+```
+
+The responsive `col-` and `row-` positioning classes are used to instruct the grid which grid cell you want your grid item to be placed on (up to 4 columns and/or 4 rows).
+
+#### Grid items and dense packing
+
+When you control the positioning of grid items, you cam sometimes leave leave spaces of unoccupied cells. This is because CSS grid automatially tries to place the next item in the next available cell — it does not automatically back-fill any empty cells that you have left:
 
 <div class="mt-2 mb-3 grid gap-1 equal-4-cols">
   <div class="b-1 p-cell">Item 1</div>
@@ -295,7 +386,17 @@ Grid items can sometimes leave spaces of unoccupied cells:
   <div class="col-3 b-1 p-cell">Item 5</div>
 </div>
 
-With `grid dense` you can close up this type of space, by CSS grid rearranging the grid items to fill in the unoccupied cells:
+```html
+<div class="grid gap-1 equal-4-cols">
+  <div>Item 1</div>
+  <div class="col-1 col-span-2">Item 2</div>
+  <div class="col-2 col-span-3">Item 3</div>
+  <div class="col-4">Item 4</div>
+  <div class="col-3">Item 5</div>
+</div>
+```
+
+With the `grid-dense` modifier you can back-fill some or all of these unoccupied cells, by CSS grid reordering (rearranging) your grid items to fill in the spaces. Here’s the example above again, but with `grid grid-dense`:
 
 <div class="mt-2 mb-3 grid grid-dense gap-1 equal-4-cols">
   <div class="b-1 p-cell">Item 1</div>
@@ -305,24 +406,177 @@ With `grid dense` you can close up this type of space, by CSS grid rearranging t
   <div class="col-3 b-1 p-cell">Item 5</div>
 </div>
 
+
+#### Grid and container queries
+
+The Baselayer grid system has four tiers of container query breakpoint widths, for creating different grid layouts for different sized containers: all widths, `sm`, `md`, and `lg`.
+
+* Tier 1: grid layout effective at all container widths (including below 640px)
+* Tier 2: `sm` grid layout effective at container widths 640px and up
+* Tier 3: `md` grid layout effective at container widths 960px and up
+* Tier 4: `lg` grid layout effective at container widths 1280px and up
+
+These three breakpoint prefixes can be added to grid wrapper `equal-` classes (to specify that you want 2, 3, or 4 equalized columns at those container widths). And they can also be added to the per-item positioning and spanning classes. Meanwhile the `grid`, `grid-dense`, and `gap-*` classes cannot be controlled by breatkpoints — because they don’t need to be.
+
+**Note:** the `grid` class is effective at all widths, therefore the `gap-*` class will still work all the way down.
+
+The _tier 1_ grid system has no container query prefixes (and doesn’t need to be surrounded by a `container`) — it takes effect at all widths. This makes the _tier 1_ `grid` ideal for creating small icon galleries, or for making small media objects that you don’t want to “stack collapse” in narrow columns or on phones (e.g. social messaging or comment cards).
+
+The three responsive (container query powered) grid layout prefixes can be _combined_ on the same HTML elements, so that you can create up to four different layouts on the same `grid`.
+
+Simple example: With just adding a `container` around your grid, and then width prefixes on `equal-` classes, this is all you need for setting up equal width items such as in image galleries, or sets of cards:
+
+<div class="full-bleed mt-2 mb-3 px-2">
+<div class="container resize-x">
+<div class="grid sm:equal-2-cols md:equal-3-cols gap-2">
+  <div class="b-1 p-cell">1</div>
+  <div class="b-1 p-cell">2</div>
+  <div class="b-1 p-cell">3</div>
+  <div class="b-1 p-cell">4</div>
+  <div class="b-1 p-cell">5</div>
+  <div class="b-1 p-cell">6</div>
+</div>
+</div>
+</div>
+
+```html
+<div class="container">
+  <div class="grid sm:equal-2-cols md:equal-3-cols gap-2">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+    <div>6</div>
+  </div>
+</div>
+```
+
+Another example:
+
+<div class="popout mt-2 mb-3 container resize-x">
+  <div class="b-1 r-4 p-2 grid sm:equal-4-cols gap-2">
+    <div>
+      <div class="mx-auto" style="width: min(140px, 100%);">
+        <svg xmlns="http://www.w3.org/2000/svg" class="r-pill img-cover" preserveAspectRatio="xMidYMid slice" width="1000" height="1000"><defs><linearGradient id="gradient1" gradientTransform="rotate(45)"><stop offset="5%" stop-color="rgba(255,255,0,.5)"></stop><stop offset="50%" stop-color="rgba(255,255,255,0)"></stop><stop offset="95%" stop-color="rgba(255,0,0,.5)"></stop></linearGradient><linearGradient id="gradient2" gradientTransform="rotate(135)"><stop offset="5%" stop-color="rgba(0,0,255,.5)"></stop><stop offset="50%" stop-color="rgba(255,255,255,0)"></stop><stop offset="95%" stop-color="rgba(0,255,0,.5)"></stop></linearGradient></defs><rect width="100%" height="100%" fill="url('#gradient1')"></rect><rect width="100%" height="100%" fill="url('#gradient2')"></rect></svg>
+      </div>
+    </div>
+    <div class="sm:col-2 sm:col-span-3">
+      <p class="h4 mt-0 mb-1 ">Media object</p>
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni rem animi quaerat accusantium illum architecto, nemo, ex harum voluptatum adipisci eum blanditiis dolorum.</p>
+      <button>Something</button>
+    </div>
+  </div>
+</div>
+
+A few more examples can be found in [examples](/baselayer-3/examples/), where you can see how container query breakpoint width tiers can be used on grid items for positioning and spanning.
+
+### Invisibility (hidden) classes
+
+There may be situation where you require some element(s) to be displayed on smaller or larger container widths, but hidden otherwise. Baselayer has:
+
+* `sm:hidden` — hides elements in containers with width 640px and up
+* `sm:hidden-below` — hides elements in containers with width below 640px
+* `md:hidden` — hides elements in containers with width 960px and up
+* `md:hidden-below` — hides elements in containers with width below 960px
+* `lg:hidden` — hides elements in containers with width 1280px and up
+* `lg:hidden-below` — hides elements in containers with width below 1280px
+
+<div class="my-2 popout container resize-x">
+<table class="table mb-0">
+<caption><strong>Invisilility:</strong> ✓ = displayed; ✗ = hidden</caption>
+  <thead>
+    <tr>
+      <th>Class</th>
+      <th>Example</th>
+      <th>≤639px</th>
+      <th>640px–959px</th>
+      <th>960px–1280px</th>
+      <th>≥1280px</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="t-nowrap">sm:hidden-below</code></td>
+      <td>
+        <div class="sm:hidden-below p-block t-black bg-green bg-200">Example</div>
+      </td>
+      <td>✗</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
+    </tr>
+    <tr>
+      <td><code class="t-nowrap">md:hidden-below</code></td>
+      <td>
+        <div class="md:hidden-below p-block t-black bg-green bg-200">Example</div>
+      </td>
+      <td>✗</td>
+      <td>✗</td>
+      <td>✓</td>
+      <td>✓</td>
+    </tr>
+    <tr>
+      <td><code>lg:hidden-below</code></td>
+      <td>
+        <div class="lg:hidden-below p-block t-black bg-green bg-200">Example</div>
+      </td>
+      <td>✗</td>
+      <td>✗</td>
+      <td>✗</td>
+      <td>✓</td>
+    </tr>
+    <tr>
+      <td><code>sm:hidden</code></td>
+      <td>
+        <div class="sm:hidden p-block t-black bg-green bg-200">Example</div>
+      </td>
+      <td>✓</td>
+      <td>✗</td>
+      <td>✗</td>
+      <td>✗</td>
+    </tr>
+    <tr>
+      <td><code>md:hidden</code></td>
+      <td>
+        <div class="md:hidden p-block t-black bg-green bg-200">Example</div>
+      </td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✗</td>
+      <td>✗</td>
+    </tr>
+    <tr>
+      <td><code>lg:hidden</code></td>
+      <td>
+        <div class="lg:hidden p-block t-black bg-green bg-200">Example</div>
+      </td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✗</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
 ## Content-grid
 
-`content-grid` uses CSS Grid to set up a 5 column layout where the main content is placed in the middle (column 3) and has max width `--w-cg` = `40em`. This will be 640px for the default font size (1rem = 16px) and 800px for when used with `t-long-read` (see [the long-lead utility class](/baselayer-3/typography/#the-long-lead-utility-class)).
+**Note:** `content-grid` is not a [container query powered layout](#container-query-powered-layouts).
 
-`content-grid` expects your content typographic blocks (headings, paragraphs, etc.), and the panel blocks below, to be its immediate children.
+`content-grid` is intended for long-read (a.k.a. long-form) prose such as blog losts, news articles, and academic papers.
 
-* Use the `popout` utility class to make an element span the middle 3 columns (2 to 4). Columns 3 and 5 have width `--sp-2`
-* Use the `full-bleed` utility class to make an element span all 5 columns
+`content-grid` uses CSS Grid to set up a 7 column layout. The default behavior of `content-grid` will place your content in the middle (column 4), where it will have maximum width `--w-cg` = `40em`. This max width will be 640px for the default font size (1rem = 16px) and 800px when used with `t-long-read` (see [the long-lead utility class](/baselayer-3/typography/#the-long-lead-utility-class)).
 
-Columns 1 and 5 (the first and last column) have a minimum width of `--sp-2` — providing the middle (content) column with x-axis side whitespace. Columns 2 and 4 have a maximum width of `--sp-2` — providing x-axis space for popouts when the acailable wdth allows.
-
-Within a `full-bleed`, if you require, you can add another element with a `container-*` or other utilities with width constraint and x-axis side padding.
+`content-grid` expects your content typographic blocks (headings, paragraphs, lists, tables, etc.), and the panel blocks below, to be its _immediate children_.
 
 ### Popout panels
 
+Use the `popout` utility class on an immediate child of `content-grid` to make an element span the middle 3 columns (3 to 5) instead of just column 4. Columns 3 and 5 have width `--sp-2`.
+
 Example information panel using `popout`:
 
-<div aria-label="Note" class="popout mb-2 bt-3 b-blue b-300 r-2 p-2 t-black bg-gray bg-100">
+<div aria-label="Note" class="popout mb-2 bt-3 b-blue b-300 r-2 p-2 bg-gray bg-100 bg-dark-invert">
   &star; Information panel
 </div>
 
@@ -334,7 +588,9 @@ Example information panel using `popout`:
 
 ### Expanded panels
 
-Sometimes you need to expand a panel more than as is done in the popout above. You can do this using the `expand` class.
+Sometimes you need to expand a panel more than as is done in the popout above. You can do this using the `expand` class, that makes an immediate child of `container-grid` to span the middle 5 columns (2 to 6).
+
+Example “poster” infographic panel using `expand` (and showing how Baselayer’s [aspect ratio](#aspect-ratios) utilities work):
 
 <div class="expand mt-2 mb-3 aspect-ratio-16x9 flex flex-center flex-middle relative">
   <svg xmlns="http://www.w3.org/2000/svg" class="absolute box img-cover" preserveAspectRatio="xMidYMid slice" width="1000" height="600"><defs><linearGradient id="gradient1" gradientTransform="rotate(45)"><stop offset="5%" stop-color="rgba(255,255,0,.5)"/><stop offset="50%" stop-color="rgba(255,255,255,0)"/><stop offset="95%" stop-color="rgba(255,0,0,.5)"/></linearGradient><linearGradient id="gradient2" gradientTransform="rotate(135)"><stop offset="5%" stop-color="rgba(0,0,255,.5)"/><stop offset="50%" stop-color="rgba(255,255,255,0)"/><stop offset="95%" stop-color="rgba(0,255,0,.5)"/></linearGradient></defs><rect width="100%" height="100%" fill="url('#gradient1')"/><rect width="100%" height="100%" fill="url('#gradient2')"/></svg>
@@ -356,6 +612,10 @@ Sometimes you need to expand a panel more than as is done in the popout above. Y
 
 ### Full-bleed panels
 
+Use the `full-bleed` utility class to make an element span all 7 columns of a `content-grid`.
+
+Columns 1 and 7 (the first and last column) have a minimum width of `--sp-2` — providing the middle columns with inline (x-axis) side whitespace.
+
 If your layout has no sidebars, side spacing (margin or padding), or other object that takes up some of the viewport width, then your `content-grid full-bleed` will expand to the full width of the viewport. But if it can’t get to the full viewport width, then it will expand to the available width (as seen in the docs example below).
 
 Example colored stripe using `full-bleed`:
@@ -375,7 +635,7 @@ Example colored stripe using `full-bleed`:
 Common aspect ratio constraints for images, video, and hero blocks.
 
 <div class="full-bleed mt-2 mb-3">
-  <div class="container-md grid sm:equal-4-cols gap-2">
+  <div class="wrapper-md grid sm:equal-4-cols gap-2">
     <div>
       <div class="aspect-ratio-1x1 b-1 p-1"><code>aspect-ratio-1x1</code></div>
     </div>
@@ -397,14 +657,3 @@ Using `auto` to add scrollling when the content of a block exceeds its constrain
 
 * `overflow-x` — e.g. for wrapping tables with a lots of columns, that would break a template layout in small viewports
 * `overflow-y` — e.g. for sidebar menus loaded with content
-
-## Invisibility
-
-There may be situation where you require some element(s) to be displayed on smaller or larger viewports, but hidden otherwise. Baselayer has:
-
-* `sm:hidden` — hides elements on viewports with width 640px and up
-* `sm:hidden-below` — hides elements on viewports with width below 640px
-* `md:hidden` — hides elements on viewports with width 960px and up
-* `md:hidden-below` — hides elements on viewports with width below 960px
-* `lg:hidden` — hides elements on viewports with width 1280px and up
-* `lg:hidden-below` — hides elements on viewports with width below 1280px

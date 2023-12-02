@@ -10,18 +10,34 @@ nextLink: "Colors"
 
 ## Spacing (margins and paddings)
 
-[Box model](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Introduction_to_the_CSS_box_model) margin and padding spacing have both 4 levels based on 4 CSS variables. The smallest simply adds 0.5rem spacing, whereas levels 2-4 are responsive to viewport width using `clamp()` functions to ramp up to 1.5× their base size. These variables are set in the variables file. They have been calculated using Petter Walbø Johnsgård’s [Font-size Clamp Generator](https://clamp.font-size.app/).
+[Box model](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Introduction_to_the_CSS_box_model) margin and padding spacing have both 4 levels based on 4 CSS variables. 
 
-```
+The smallest level simply adds 0.5rem spacing, whereas levels 2 thorugh 4 increase responsively depending how how much width is available, using `clamp()` functions to ramp up to 1.5× their base size.
+
+If the spacing decoration class is _not_ inside a `container` (see [container query powered layouts](/baselayer-3/layout/#container-query-powered-layouts)), the spacing ramp of levels 2 thorugh 4 uses the viewport width unit, `vw`. But the same spacing utility classes used inside a `container` will ramp up using the container query inline width unit, `cqi`. Both these ramps achieve 1.5× their base sizes at approximately 1280px available width.
+
+```css
+/*
+Default spacing
+*/
 :root {
   --sp-1: 0.5rem;
   --sp-2: clamp(1rem, 0.5rem + 1.25vw, 1.5rem);
   --sp-3: clamp(2rem, 1rem + 2.5vw, 3rem);
   --sp-4: clamp(3rem, 1.5rem + 3.75vw, 4.5rem);
 }
+
+/*
+Container query powered spacing
+*/
+.container {
+  --sp-2: clamp(1rem, 0.5rem + 1.25cqi, 1.5rem);
+  --sp-3: clamp(2rem, 1rem + 2.5cqi, 3rem);
+  --sp-4: clamp(3rem, 1.5rem + 3.75cqi, 4.5rem);
+}
 ```
 
-This makes the negative space (“whitespace”) for spacing levels 2-4 larger for larger screens.
+This makes the negative space (“whitespace”) for spacing levels 2 through 4 larger where there is a larger container (or viewport) width available.
 
 Both margin and padding spacers are controlled on the 4 sides of blocks, as follows:
 
@@ -30,8 +46,8 @@ Both margin and padding spacers are controlled on the 4 sides of blocks, as foll
 * Right: `mr-1` through `mr-4` / `pr-1` through `pr-4`
 * Bottom: `mb-1` through `mb-4` / `pb-1` through `pb-4`
 * Left: `ml-1` through `ml-4` / `pl-1` through `pl-4`
-* Inline x-axis (right and left): `mx-1` through `mx-4` / `px-4` through `px-4`
-* Block y-axis (top and bottom): `my-1` through `my-4` / `py-4` through `py-4`
+* Inline axis, or x-axis (right and left): `mx-1` through `mx-4` / `px-4` through `px-4`
+* Block acis, or y-axis (top and bottom): `my-1` through `my-4` / `py-4` through `py-4`
 
 Spacing example with paddings:
 

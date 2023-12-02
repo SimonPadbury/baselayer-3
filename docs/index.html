@@ -7,20 +7,27 @@
 
   <title>Baselayer 3 · Baselayer 3 CSS</title>
 
-  <link rel="stylesheet" href="/baselayer-3/css/min/baselayer.min.css?v=1.1.3">
+  <link rel="stylesheet" href="/baselayer-3/css/min/baselayer.min.css?v=1.2.0">
 
   <style>
     html {
       scroll-behavior: smooth;
     }
     [aria-current=page] {
-      
-      background: oklch(var(--l900) var(--c02) var(--coolgray));
+      background: oklch(var(--l900) var(--c02) var(--gray));
+    }
+    .resize-x {
+      margin-inline: -5px;
+      padding: 5px;
+      resize: horizontal;
+      overflow-x: auto;
+      background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='silver' stroke-width='2' stroke-dasharray='8%2c 8' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
     }
     .check-box {
       width: 1rem;
       height: 1rem;
     }
+
     .font-base .label-base .check-box::before { content: '✓'; }
     .font-prose .label-prose .check-box::before { content: '✓'; }
     .font-normal .label-normal .check-box::before { content: '✓'; }
@@ -47,6 +54,9 @@
       }
     }
     @media (min-width: 1280px) {
+      article > .grid {
+        grid-template-columns: 1fr var(--w-xs);
+      }
       .ms-windows #toc > div {
         scrollbar-gutter: stable;
         overflow-y: hidden;
@@ -207,8 +217,10 @@ window.addEventListener("DOMContentLoaded", () => {
 
   <a href="#main-content" tabindex="1" class="inline-block m-1 visually-hidden">Skip to main content</a>
 
-  <div class="h-100-dvh md:flex">
-    <div id="site-nav" class="bg-coolgray bg-800">
+  <div class="container w-max-100vw">
+    <div class="h-100-dvh grid">
+
+      <div id="site-nav" class="bg-gray bg-800">
   <div class="sticky top h-max-100dvh overflow-y">
     <div class="p-cell t-center">
       <a id="site-title" href="/baselayer-3/" class="h3 m-0 py-1 t-normal flex flex-center flex-middle flex-wrap gap-1 t-gray t-100 hover:t-200 t-noline">
@@ -223,8 +235,8 @@ window.addEventListener("DOMContentLoaded", () => {
           </svg>
         <span class="t-nowrap">Baselayer 3 CSS</span>
       </a>
-      <p class="mb-1 t-coolgray t-400">Version: 1.1.3 • <a class="t-gray t-100 hover:t-200 t-noline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3">GitHub</a></p>
-      <p class="mb-1 t-coolgray t-400"><a class="t-gray t-100 hover:t-200 t-noline hover:t-line" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> (23.5 KB)</p>
+      <p class="mb-1 t-gray t-400">Version: 1.2.0 • <a class="t-gray t-100 hover:t-200 t-noline hover:t-line" href="https://github.com/SimonPadbury/baselayer-4">GitHub</a></p>
+      <p class="mb-1 t-gray t-400"><a class="t-gray t-100 hover:t-200 t-noline hover:t-line" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> (22.2 KB)</p>
     </div>
 
     <nav role="menu">
@@ -234,18 +246,18 @@ window.addEventListener("DOMContentLoaded", () => {
 
       <div id="site-nav-menu" class="w-xs mx-auto t-center t-white">
         <div class="my-2 p-cell flex flex-column gap-1">
-          <a class="block p-cell t-coolgray t-100 hover:t-200"  aria-current="page" href="/baselayer-3/">Introduction</a>
-          <a class="block p-cell t-coolgray t-100 hover:t-200"  href="/baselayer-3/typography/">Typography</a>
-          <a class="block p-cell t-coolgray t-100 hover:t-200"  href="/baselayer-3/layout/">Layout</a>
-          <a class="block p-cell t-coolgray t-100 hover:t-200"  href="/baselayer-3/decoration/">Decoration</a>
-          <a class="block p-cell t-coolgray t-100 hover:t-200"  href="/baselayer-3/colors/">Colors</a>
-          <a class="block p-cell t-coolgray t-100 hover:t-200"  href="/baselayer-3/forms/">Forms</a>
-          <a class="block p-cell t-coolgray t-100 hover:t-200"  href="/baselayer-3/buttons/">Buttons</a>
-          <a class="block p-cell t-coolgray t-100 hover:t-200" href="/baselayer-3/examples/">Examples</a>
+          <a class="block p-cell t-gray t-100 hover:t-200"  aria-current="page" href="/baselayer-3/">Introduction</a>
+          <a class="block p-cell t-gray t-100 hover:t-200"  href="/baselayer-3/typography/">Typography</a>
+          <a class="block p-cell t-gray t-100 hover:t-200"  href="/baselayer-3/layout/">Layout</a>
+          <a class="block p-cell t-gray t-100 hover:t-200"  href="/baselayer-3/decoration/">Decoration</a>
+          <a class="block p-cell t-gray t-100 hover:t-200"  href="/baselayer-3/colors/">Colors</a>
+          <a class="block p-cell t-gray t-100 hover:t-200"  href="/baselayer-3/forms/">Forms</a>
+          <a class="block p-cell t-gray t-100 hover:t-200"  href="/baselayer-3/buttons/">Buttons</a>
+          <a class="block p-cell t-gray t-100 hover:t-200" href="/baselayer-3/examples/">Examples</a>
         </div>
 
         <div class="mb-2 p-cell">
-          <button class="w-100% mb-1 p-1 flex flex-column gap-1 bg-coolgray bg-600 hover:bg-700" onclick="toggleFont()">
+          <button class="w-100% mb-1 p-1 flex flex-column gap-1 bg-gray bg-600 hover:bg-700" onclick="toggleFont()">
             <div class="label-base w-100% flex flex-middle gap-1">
               <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
               <div class="grow t-left">Base font</div>
@@ -256,7 +268,7 @@ window.addEventListener("DOMContentLoaded", () => {
             </div>
           </button>
 
-          <button class="w-100% mb-1 p-1 flex flex-column gap-1 bg-coolgray bg-600 hover:bg-700" onclick="toggleFS()">
+          <button class="w-100% mb-1 p-1 flex flex-column gap-1 bg-gray bg-600 hover:bg-700" onclick="toggleFS()">
             <div class="label-normal w-100% flex flex-middle gap-1">
               <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
               <div class="grow t-left">Normal font-size</div>
@@ -267,7 +279,7 @@ window.addEventListener("DOMContentLoaded", () => {
             </div>
           </button>
 
-          <button class="w-100% mb-1 p-1 flex flex-column gap-1 bg-coolgray bg-600 hover:bg-700" onclick="toggleTheme()">
+          <button class="w-100% mb-1 p-1 flex flex-column gap-1 bg-gray bg-600 hover:bg-700" onclick="toggleTheme()">
             <div class="label-light w-100% flex flex-middle gap-1">
               <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
               <div class="grow t-left">Light theme</div>
@@ -284,68 +296,67 @@ window.addEventListener("DOMContentLoaded", () => {
   </div>
 </div>
 
-      <main id="main-content" class="grow flex">
-  
-        <article class="grid lg:equal-4-cols gap-2">
-          <header id="article-title" class="lg:col-1 lg:col-span-3">
-            <div class="container-md pt-4 t-big t-center">
-              <h1 class="t-semibold">Baselayer 3 is a tiny but powerful modern CSS library</h1>
-            </div>
-          </header>
-        
-          <div id="toc" class="lg:col-4 lg:row-1 lg:row-span-2">
-            <div class="sticky top w-sm h-max-100dvh mx-auto px-2 overflow-y">
-              <p class="h4 t-semibold">Contents</p>
-              <nav class="toc" >
-        <ul><li><a href="#introduction">Introduction</a></li><li><a href="#using-several-modern-web-technologies">Using several modern web technologies</a></li><li><a href="#including-no-javascript-or-icon-fonts">Including no JavaScript or icon fonts</a></li><li><a href="#baselayer%E2%80%99s-design-philosophy">Baselayer’s design philosophy</a></li><li><a href="#built-using-postcss">Built using PostCSS</a></li><li><a href="#modern-css-reset">Modern CSS reset</a></li><li><a href="#basic-accessibility-features">Basic accessibility features</a><ul><li><a href="#(1.)-focus-rings">(1.) Focus rings</a></li><li><a href="#(2.)-the-visually-hidden-class">(2.) The visually-hidden class</a></li></ul></li></ul>
+      <div class="md:col-2">
+        <article>
+          <div class="grid gap-2">
+            <header id="article-title" class="lg:col-1">
+              <div class="wrapper-md pt-4 t-big t-center">
+                <h1 class="t-semibold">Baselayer 3 is a powerful, modern, tiny CSS library</h1>
+              </div>
+            </header>
+          
+            <nav id="toc" class="lg:col-2 lg:row-1 lg:row-span-3">
+              <div class="sticky top w-sm h-max-100dvh mx-auto px-2 overflow-y">
+                <p class="h4 t-semibold">Contents</p>
+                <nav class="toc" >
+        <ul><li><a href="#introduction">Introduction</a></li><li><a href="#using-several-modern-css-technologies">Using several modern CSS technologies</a></li><li><a href="#including-no-javascript-or-icon-fonts">Including no JavaScript or icon fonts</a></li><li><a href="#baselayer%E2%80%99s-design-philosophy">Baselayer’s design philosophy</a></li><li><a href="#built-using-postcss">Built using PostCSS</a></li><li><a href="#modern-css-reset">Modern CSS reset</a></li><li><a href="#basic-accessibility-features">Basic accessibility features</a><ul><li><a href="#(1.)-focus-rings">(1.) Focus rings</a></li><li><a href="#(2.)-the-visually-hidden-class">(2.) The visually-hidden class</a></li></ul></li></ul>
       </nav>
-            </div>
-          </div>
+              </div>
+            </nav>
 
-          <div id="article-content" class="lg:col-1 lg:col-span-3">
-            <div class="content-grid">
-              <h2 id="introduction" tabindex="-1">Introduction</h2>
+            <main id="article-content" class="lg:col-1">
+              <div class="content-grid">
+                <h2 id="introduction" tabindex="-1">Introduction</h2>
 <p class="t-big">Designed as a good place to start, Baselayer may be all you need — for small static websites and blogs. Or you may use it as a <em>baselayer</em> to quick-start your mega project.</p>
-<p>Ready to use as-is, Baselayer gives you all this and more:</p>
+<p>Ready to use as-is, Baselayer 3’s 22.2 KB (minified) stylesheet gives you all this:</p>
 <ul>
 <li>A modern CSS reset</li>
 <li>Foundational accessibility features</li>
-<li>Responsive typography</li>
-<li>Simple responsive layouts using grid, flexbox, dimensions, and positioning</li>
-<li>A lightweight system of utility classes for controlling spacing, borders, text, images, and colors</li>
+<li>A lightweight system of utility classes for controlling dimensions, positioning, spacing, borders, text, images, and colors</li>
+<li>Container-responsive typography and spacing</li>
+<li>Container query responsive layouts using grid and flexbox</li>
 <li>Styled form elements and buttons</li>
 <li>A OKLCH color scale system of utilities for text, borders, and backgrounds</li>
-<li>Built-in dark mode (requires a JavaScript theme toggler)</li>
+<li>Built-in dark mode (requires a simple JavaScript theme toggler — example provided)</li>
 <li>Control of many of these things using CSS variables (a.k.a. custom properties)</li>
+<li>And more</li>
 </ul>
-<h2 id="using-several-modern-web-technologies" tabindex="-1">Using several modern web technologies</h2>
+<h2 id="using-several-modern-css-technologies" tabindex="-1">Using several modern CSS technologies</h2>
 <p>Such as:</p>
 <ul>
-<li><a href="https://caniuse.com/css-grid">CSS Grid</a></li>
-<li><a href="https://caniuse.com/?search=css%20math%20functions">CSS math functions (e.g. clamp)</a></li>
-<li><a href="https://caniuse.com/css-variables">CSS variables</a></li>
-<li><a href="https://caniuse.com/css-cascade-layers">CSS cascade layers</a></li>
+<li><a href="https://caniuse.com/css-container-queries">Container queries (inline-size)</a></li>
+<li><a href="https://caniuse.com/css-grid">Grid</a></li>
+<li><a href="https://caniuse.com/?search=css%20math%20functions">Math functions (e.g. clamp)</a></li>
+<li><a href="https://caniuse.com/css-variables">Custom properties (variables)</a></li>
+<li><a href="https://caniuse.com/css-cascade-layers">Cascade layers</a></li>
 <li><a href="https://caniuse.com/mdn-css_types_color_oklch">OKLCH color model</a></li>
 </ul>
-<p>Therefore Baselayer supports only up-to-date (2023 forward) evergreen web browsers (Safari, Firefox, Chrome, Edge, etc.).</p>
+<p>Therefore Baselayer supports only up-to-date (mid-2023 forward) “evergreen” web browsers (Safari, Firefox, Chrome, Edge, etc.).</p>
 <h2 id="including-no-javascript-or-icon-fonts" tabindex="-1">Including no JavaScript or icon fonts</h2>
-<p>You can pair Baselayer with whatever JS framework you prefer to work with (e.g. Baselayer pairs well with <a href="https://alpinejs.dev">AlpineJS</a>), or do your own thing. For icon fonts, for small projects I usually use a character (glyph) from <a href="https://www.amp-what.com/">&amp;what;</a> and reach for <a href="https://phosphoricons.com/">Phosphor icons</a> when I need something more (other icon sets are available).</p>
+<p>You can pair Baselayer with whatever JS framework you prefer to work with, or do your own thing. E.g. Baselayer’s utility classes work well with the <code>x-bind</code> directive in <a href="https://alpinejs.dev">AlpineJS</a>.</p>
+<p>For icon fonts, for small projects I usually use a character (glyph) from <a href="https://www.amp-what.com/">&amp;what;</a> and I reach for <a href="https://phosphoricons.com/">Phosphor icons</a> when I need something more. (Other icon sets are available.)</p>
 <h2 id="baselayer%E2%80%99s-design-philosophy" tabindex="-1">Baselayer’s design philosophy</h2>
-<p>The design philosophy behind the Baselayer project is as follows:</p>
+<p>The design philosophy behind the Baselayer CSS project is as follows:</p>
 <ul>
-<li>Make a stylesheet that does most things most people want</li>
-<li>With much less CSS that is mostly never used, e.g. rarely used grid column classes or color shade classes (filesize: 23.5 KB)</li>
-<li>Using modern CSS technologies such variables, math functions, grid, and a modern color system, that enable a lot of code reuse (reducing duplication)</li>
-<li>All without a preprocessor (no need for Sass, Less, Stylus etc.)</li>
 <li>Aim at being a good place to start — a <em>baselayer</em> for a web design project, closer to being a more powerful replacement for <a href="https://necolas.github.io/normalize.css/">Normalize</a> than an entire design system like the much bigger CSS frameworks.</li>
-<li>Being so small (23.5 KB), there’s less you need to overwrite to style it your own way. And there’s no need for a purge process to remove a heavy payload of unused styles.</li>
-<li>Plus, if you want to include the whole of <code>baselayer.min.css</code> along with your styles in a content management system (CMS), then you still it all available when you need to style simple components in the content editor.</li>
+<li>Being so small (22.2 KB), there’s less you need to overwrite in order to style it your own way (and most things in Baselayer can be restyles by CSS variables ). So, there’s no need for a purge process to remove a heavy payload of unused Baselayer styles.</li>
+<li>PostCSS only — no Sass, Less, Stylus etc.</li>
+<li>Plus, if you want to include the whole of <code>baselayer.min.css</code> along with your styles in a content management system (CMS), then you will still have it all available when you need to style simple components in the content editor.</li>
 </ul>
 <h2 id="built-using-postcss" tabindex="-1">Built using PostCSS</h2>
-<p>Baselayer is built using <a href="https://postcss.org">PostCSS</a> and a few plugins. The PostCSS plugins used by Baselayer are:</p>
+<p>Baselayer is built using <a href="https://postcss.org">PostCSS</a> and some plugins. The plugins used by Baselayer are:</p>
 <ul>
 <li><a href="https://github.com/postcss/postcss-import">postcss-import</a> — so that Baselayer could be built from separate CSS files, linked together in an <code>index.css</code> using the <code>@import</code> rule, and then inlined</li>
-<li><a href="https://npm.devtool.tech/postcss-custom-media">postcss-custom-media</a> — to enable CSS variables to be used in media queries (used only in the <code>flex</code>, <code>grid</code>, <code>hidden</code>, and <code>hidden-below</code> layout classes)</li>
 <li><a href="https://cssnano.co">cssnano</a> — to remove comments and minify the output <code>baselayer.min.css</code></li>
 </ul>
 <p><strong>Note:</strong> neither <a href="https://preset-env.cssdb.org">postcss-preset-env</a> nor <a href="https://github.com/postcss/autoprefixer">autoprefixer</a> have been used in Baselayer. And preprocessors such as Sass are not required.</p>
@@ -353,7 +364,7 @@ window.addEventListener("DOMContentLoaded", () => {
 <p>The Baselayer reset is a “best of both” combination of <a href="https://www.joshwcomeau.com/css/custom-css-reset/">Josh W Comeau’s custom CSS reset</a> and <a href="https://andy-bell.co.uk/a-more-modern-css-reset/">Andy Bell’s (more) modern CSS reset”</a>.</p>
 <p>From that basis, Baselayer then takes care of the basics by setting some minimalist, easy-to-read typography, and styles for buttons and forms.</p>
 <h2 id="basic-accessibility-features" tabindex="-1">Basic accessibility features</h2>
-<p>Baselayer has two basic accessibility features built-in.</p>
+<p>Baselayer has two “must have” accessibility features built-in.</p>
 <h3 id="(1.)-focus-rings" tabindex="-1">(1.) Focus rings</h3>
 <p><strong>(a.) Form focus ring:</strong></p>
 <p>For form inputs and buttons on <code>:focus</code>, there’s a 4px light blue ring (see <a href="/colors">colors</a>). Example:</p>
@@ -368,7 +379,8 @@ window.addEventListener("DOMContentLoaded", () => {
 <p><strong>(b.) Button focus ring:</strong></p>
 <p>Buttons (<code>&lt;button&gt;</code>, <code>&lt;input type=&quot;button&quot;&gt;</code>, etc.) get the same focus ring as for other form inputs, but only for <code>:focus-visible</code>.</p>
 <p><strong>(c.) Link focus ring:</strong></p>
-<p>For links, collapsible <code>&lt;details&gt;</code>, pseudo-buttons (i.e. links styled with the <code>btn</code> class), and anything else that is not a form input or button, the focus ring is a 2px dotted black outline supported by a 2px solid white box shadow. This white will appear <em>between</em> the outline dots, looking like a dotted white line. Keyboard-tab through these links and buttons to see the accessibility rings:</p>
+<p>For links, collapsible <code>&lt;details&gt;</code>, pseudo-buttons (i.e. links styled with the <code>btn</code> class), and anything else that is not a form input or button, the focus ring is a 2px dotted black outline supported by a 2px solid white box shadow. This white will appear <em>between</em> the outline dots, looking like a dotted white line.</p>
+<p>Keyboard-tab through these links and buttons to see the accessibility rings:</p>
 <div class="mt-2 mb-3 b-1">
   <div class="grid sm:equal-3-cols">
     <div class="p-3 flex flex-column flex-center flex-middle">
@@ -386,59 +398,63 @@ window.addEventListener("DOMContentLoaded", () => {
   </div>
 </div>
 <h3 id="(2.)-the-visually-hidden-class" tabindex="-1">(2.) The <code>visually-hidden</code> class</h3>
-<p>The <code>visually-hidden</code> is used for “skip links”, such as the visually-hidden link above the top navigation bar on this website.</p>
+<p>The <code>visually-hidden</code> is used to provide additional content for screen-readers, for improved accessibility. For example, it is best practice to have “skip link” above the top navigation bar on your website, but have it (visually) hidden for ably sighted users.</p>
 <pre><code>&lt;a href=&quot;#main-content&quot;
   tabindex=&quot;1&quot;
   class=&quot;inline-block m-1 visually-hidden&quot;
-&gt;Skip to main content&lt;/a&gt;
+&gt;
+  Skip to main content
+&lt;/a&gt;
 
 &lt;!-- Logo and site menu go in here --&gt;
 
-&lt;main id=&quot;main-content&quot;&gt;
+&lt;div id=&quot;main-content&quot;&gt;
   ...
-&lt;/main&gt;
+&lt;/div&gt;
 </code></pre>
 
-            </div>
-          </div>
+              </div>
+            </main>
 
-          <footer class="lg:col-1 lg:col-span-3 content-grid">
-            <nav class="popout mt-3 mb-2 b-1 r-pill p-cell popout">
-              <ul class="m-0 unlist p-0 flex">
-                
-                
-                <li class="grow my-1 t-right"><a href="/baselayer-3/typography/">Typography</a> &rarr;</li>
+            <footer class="lg:col-1 content-grid">
+              <nav class="popout mt-3 mb-2 b-1 r-pill p-cell popout">
+                <ul class="m-0 unlist p-0 flex flex-space-between">
                   
-              </ul>
-            </nav>
-            <div class="p-2 flex flex-center t-center">
-              <a href="/baselayer-3/" class="h3 m-0 t-normal flex flex-column flex-center gap-1 t-noline">
-                <svg class="mx-auto" height="48" width="48" viewBox="0 0 111 111" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-miterlimit:1.5">
-                  <g transform="translate(-294.592 -94.592)">
-                    <circle cx="350" cy="150" r="50" style="fill:none;stroke:currentColor;stroke-width:4px"/>
-                    <path d="M294.167 180H320v-65.833" style="fill:none;stroke:currentColor;stroke-width:4px" transform="translate(10 -10)"/>
-                    <path d="M405.833 180H380v-65.833" style="fill:none;stroke:currentColor;stroke-width:4px" transform="translate(-10 -10)"/>
-                    <circle cx="350" cy="150" r="30" style="fill:none;stroke:currentColor;stroke-width:6px" transform="matrix(.66667 0 0 .66667 116.667 50)"/>
-                    <path d="M310 180h80" style="fill:none;stroke:currentColor;stroke-width:4px"/>
-                    </g>
-                  </svg>
-                <span class="t-nowrap">Baselayer 3 CSS</span>
-              </a>
-            </div>
+                  
+                  <li class="my-1 flex flex-middle gap-1 t-right">
+                    <a href="/baselayer-3/typography/">Typography</a>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"></path></svg>
+                  </li>
+                    
+                </ul>
+              </nav>
+              <div class="p-2 flex flex-center t-center">
+                <a href="/baselayer-3/" class="h3 m-0 t-normal flex flex-column flex-center gap-1 t-noline">
+                  <svg class="mx-auto" height="48" width="48" viewBox="0 0 111 111" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-miterlimit:1.5">
+                    <g transform="translate(-294.592 -94.592)">
+                      <circle cx="350" cy="150" r="50" style="fill:none;stroke:currentColor;stroke-width:4px"/>
+                      <path d="M294.167 180H320v-65.833" style="fill:none;stroke:currentColor;stroke-width:4px" transform="translate(10 -10)"/>
+                      <path d="M405.833 180H380v-65.833" style="fill:none;stroke:currentColor;stroke-width:4px" transform="translate(-10 -10)"/>
+                      <circle cx="350" cy="150" r="30" style="fill:none;stroke:currentColor;stroke-width:6px" transform="matrix(.66667 0 0 .66667 116.667 50)"/>
+                      <path d="M310 180h80" style="fill:none;stroke:currentColor;stroke-width:4px"/>
+                      </g>
+                    </svg>
+                  <span class="t-nowrap">Baselayer 3 CSS</span>
+                </a>
+              </div>
 
-            <p class="p-cell flex flex-center flex-wrap gap-2 t-center">
-              <span><a class="t-noline hover:t-line" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> (23.5 KB)</span>
-              <span>Version: 1.1.3</span>
-              <a class="t-noline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3">GitHub Repository</a>
-              <a class="t-noline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3/blob/main/LICENSE">MIT license</a>
-            </p>
-            <p class="t-center"><span>Developer: <a class="t-noline hover:t-line" href="https://github.com/SimonPadbury">Simon Padbury</a></span>
-          </footer>
+              <p class="p-cell flex flex-center flex-wrap gap-2 t-center">
+                <span><a class="t-noline hover:t-line" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> (22.2 KB)</span>
+                <span>Version: 1.2.0</span>
+                <a class="t-noline hover:t-line" href="https://github.com/SimonPadbury/baselayer-4">GitHub Repository</a>
+                <a class="t-noline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3/blob/main/LICENSE">MIT license</a>
+              </p>
+              <p class="t-center"><span>Developer: <a class="t-noline hover:t-line" href="https://github.com/SimonPadbury">Simon Padbury</a></span>
+            </footer>
+          </div>
         </article>
+      </div>
 
-      
-      </main>
-      
     </div>
   </div>
 

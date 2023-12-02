@@ -7,20 +7,27 @@
 
   <title>Forms · Baselayer 3 CSS</title>
 
-  <link rel="stylesheet" href="/baselayer-3/css/min/baselayer.min.css?v=1.1.3">
+  <link rel="stylesheet" href="/baselayer-3/css/min/baselayer.min.css?v=1.2.0">
 
   <style>
     html {
       scroll-behavior: smooth;
     }
     [aria-current=page] {
-      
-      background: oklch(var(--l900) var(--c02) var(--coolgray));
+      background: oklch(var(--l900) var(--c02) var(--gray));
+    }
+    .resize-x {
+      margin-inline: -5px;
+      padding: 5px;
+      resize: horizontal;
+      overflow-x: auto;
+      background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='silver' stroke-width='2' stroke-dasharray='8%2c 8' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
     }
     .check-box {
       width: 1rem;
       height: 1rem;
     }
+
     .font-base .label-base .check-box::before { content: '✓'; }
     .font-prose .label-prose .check-box::before { content: '✓'; }
     .font-normal .label-normal .check-box::before { content: '✓'; }
@@ -47,6 +54,9 @@
       }
     }
     @media (min-width: 1280px) {
+      article > .grid {
+        grid-template-columns: 1fr var(--w-xs);
+      }
       .ms-windows #toc > div {
         scrollbar-gutter: stable;
         overflow-y: hidden;
@@ -207,8 +217,10 @@ window.addEventListener("DOMContentLoaded", () => {
 
   <a href="#main-content" tabindex="1" class="inline-block m-1 visually-hidden">Skip to main content</a>
 
-  <div class="h-100-dvh md:flex">
-    <div id="site-nav" class="bg-coolgray bg-800">
+  <div class="container w-max-100vw">
+    <div class="h-100-dvh grid">
+
+      <div id="site-nav" class="bg-gray bg-800">
   <div class="sticky top h-max-100dvh overflow-y">
     <div class="p-cell t-center">
       <a id="site-title" href="/baselayer-3/" class="h3 m-0 py-1 t-normal flex flex-center flex-middle flex-wrap gap-1 t-gray t-100 hover:t-200 t-noline">
@@ -223,8 +235,8 @@ window.addEventListener("DOMContentLoaded", () => {
           </svg>
         <span class="t-nowrap">Baselayer 3 CSS</span>
       </a>
-      <p class="mb-1 t-coolgray t-400">Version: 1.1.3 • <a class="t-gray t-100 hover:t-200 t-noline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3">GitHub</a></p>
-      <p class="mb-1 t-coolgray t-400"><a class="t-gray t-100 hover:t-200 t-noline hover:t-line" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> (23.5 KB)</p>
+      <p class="mb-1 t-gray t-400">Version: 1.2.0 • <a class="t-gray t-100 hover:t-200 t-noline hover:t-line" href="https://github.com/SimonPadbury/baselayer-4">GitHub</a></p>
+      <p class="mb-1 t-gray t-400"><a class="t-gray t-100 hover:t-200 t-noline hover:t-line" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> (22.2 KB)</p>
     </div>
 
     <nav role="menu">
@@ -234,18 +246,18 @@ window.addEventListener("DOMContentLoaded", () => {
 
       <div id="site-nav-menu" class="w-xs mx-auto t-center t-white">
         <div class="my-2 p-cell flex flex-column gap-1">
-          <a class="block p-cell t-coolgray t-100 hover:t-200"  href="/baselayer-3/">Introduction</a>
-          <a class="block p-cell t-coolgray t-100 hover:t-200"  href="/baselayer-3/typography/">Typography</a>
-          <a class="block p-cell t-coolgray t-100 hover:t-200"  href="/baselayer-3/layout/">Layout</a>
-          <a class="block p-cell t-coolgray t-100 hover:t-200"  href="/baselayer-3/decoration/">Decoration</a>
-          <a class="block p-cell t-coolgray t-100 hover:t-200"  href="/baselayer-3/colors/">Colors</a>
-          <a class="block p-cell t-coolgray t-100 hover:t-200"  aria-current="page" href="/baselayer-3/forms/">Forms</a>
-          <a class="block p-cell t-coolgray t-100 hover:t-200"  href="/baselayer-3/buttons/">Buttons</a>
-          <a class="block p-cell t-coolgray t-100 hover:t-200" href="/baselayer-3/examples/">Examples</a>
+          <a class="block p-cell t-gray t-100 hover:t-200"  href="/baselayer-3/">Introduction</a>
+          <a class="block p-cell t-gray t-100 hover:t-200"  href="/baselayer-3/typography/">Typography</a>
+          <a class="block p-cell t-gray t-100 hover:t-200"  href="/baselayer-3/layout/">Layout</a>
+          <a class="block p-cell t-gray t-100 hover:t-200"  href="/baselayer-3/decoration/">Decoration</a>
+          <a class="block p-cell t-gray t-100 hover:t-200"  href="/baselayer-3/colors/">Colors</a>
+          <a class="block p-cell t-gray t-100 hover:t-200"  aria-current="page" href="/baselayer-3/forms/">Forms</a>
+          <a class="block p-cell t-gray t-100 hover:t-200"  href="/baselayer-3/buttons/">Buttons</a>
+          <a class="block p-cell t-gray t-100 hover:t-200" href="/baselayer-3/examples/">Examples</a>
         </div>
 
         <div class="mb-2 p-cell">
-          <button class="w-100% mb-1 p-1 flex flex-column gap-1 bg-coolgray bg-600 hover:bg-700" onclick="toggleFont()">
+          <button class="w-100% mb-1 p-1 flex flex-column gap-1 bg-gray bg-600 hover:bg-700" onclick="toggleFont()">
             <div class="label-base w-100% flex flex-middle gap-1">
               <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
               <div class="grow t-left">Base font</div>
@@ -256,7 +268,7 @@ window.addEventListener("DOMContentLoaded", () => {
             </div>
           </button>
 
-          <button class="w-100% mb-1 p-1 flex flex-column gap-1 bg-coolgray bg-600 hover:bg-700" onclick="toggleFS()">
+          <button class="w-100% mb-1 p-1 flex flex-column gap-1 bg-gray bg-600 hover:bg-700" onclick="toggleFS()">
             <div class="label-normal w-100% flex flex-middle gap-1">
               <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
               <div class="grow t-left">Normal font-size</div>
@@ -267,7 +279,7 @@ window.addEventListener("DOMContentLoaded", () => {
             </div>
           </button>
 
-          <button class="w-100% mb-1 p-1 flex flex-column gap-1 bg-coolgray bg-600 hover:bg-700" onclick="toggleTheme()">
+          <button class="w-100% mb-1 p-1 flex flex-column gap-1 bg-gray bg-600 hover:bg-700" onclick="toggleTheme()">
             <div class="label-light w-100% flex flex-middle gap-1">
               <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
               <div class="grow t-left">Light theme</div>
@@ -284,27 +296,27 @@ window.addEventListener("DOMContentLoaded", () => {
   </div>
 </div>
 
-      <main id="main-content" class="grow flex">
-  
-        <article class="grid lg:equal-4-cols gap-2">
-          <header id="article-title" class="lg:col-1 lg:col-span-3">
-            <div class="container-md pt-4 t-big t-center">
-              <h1 class="t-semibold">Forms</h1>
-            </div>
-          </header>
-        
-          <div id="toc" class="lg:col-4 lg:row-1 lg:row-span-2">
-            <div class="sticky top w-sm h-max-100dvh mx-auto px-2 overflow-y">
-              <p class="h4 t-semibold">Contents</p>
-              <nav class="toc" >
-        <ul><li><a href="#textual-form-input-fields">Textual Form Input Fields</a></li><li><a href="#number-inputs">Number Inputs</a></li><li><a href="#date-and-time-inputs">Date and Time Inputs</a></li><li><a href="#color-picker">Color Picker</a></li><li><a href="#file-upload">File Upload</a></li><li><a href="#select-and-multi-select">Select and Multi-select</a></li><li><a href="#text-area-(multiline)">Text Area (Multiline)</a></li><li><a href="#radio-boxes-and-checkboxes">Radio Boxes and Checkboxes</a></li><li><a href="#fieldsets-and-legends">Fieldsets and Legends</a></li><li><a href="#form-buttons">Form Buttons</a></li></ul>
+      <div class="md:col-2">
+        <article>
+          <div class="grid gap-2">
+            <header id="article-title" class="lg:col-1">
+              <div class="wrapper-md pt-4 t-big t-center">
+                <h1 class="t-semibold">Forms</h1>
+              </div>
+            </header>
+          
+            <nav id="toc" class="lg:col-2 lg:row-1 lg:row-span-3">
+              <div class="sticky top w-sm h-max-100dvh mx-auto px-2 overflow-y">
+                <p class="h4 t-semibold">Contents</p>
+                <nav class="toc" >
+        <ul><li><a href="#textual-form-input-fields">Textual form input fields</a></li><li><a href="#number-inputs">Number inputs</a></li><li><a href="#date-and-time-inputs">Date and time inputs</a></li><li><a href="#color-picker">Color picker</a></li><li><a href="#file-upload">File upload</a></li><li><a href="#select-and-multi-select">Select and multi-select</a></li><li><a href="#text-area-(multiline)">Text area (multiline)</a></li><li><a href="#radio-boxes-and-checkboxes">Radio boxes and checkboxes</a></li><li><a href="#fieldsets-and-legends">Fieldsets and legends</a></li><li><a href="#form-buttons">Form buttons</a></li></ul>
       </nav>
-            </div>
-          </div>
+              </div>
+            </nav>
 
-          <div id="article-content" class="lg:col-1 lg:col-span-3">
-            <div class="content-grid">
-              <p>Baselayer form elements have simple background and focus styling (no default border).</p>
+            <main id="article-content" class="lg:col-1">
+              <div class="content-grid">
+                <p>Baselayer form elements have simple background and focus styling (no default border).</p>
 <p><strong>Notes:</strong></p>
 <ol>
 <li>In Baselayer, form elements do not have set width. You can control widths them by one of two ways (same as for <a href="/baselayer-3/buttons/">buttons</a>):
@@ -316,7 +328,7 @@ window.addEventListener("DOMContentLoaded", () => {
 <li>Form inputs, textareas, buttons, and the <code>btn</code> class, have <code>font-size: inherit</code>. This means their font sizes can be modified by any font-size class in Baselayer.</li>
 <li>The font-family of form elements, buttons, and <code>btn</code> is controlled by <code>var(--base)</code> (default is sans-serif).</li>
 </ol>
-<h2 id="textual-form-input-fields" tabindex="-1">Textual Form Input Fields</h2>
+<h2 id="textual-form-input-fields" tabindex="-1">Textual form input fields</h2>
 <form action="">
   <p>
     <label for="example-input-text">Text</label>
@@ -341,7 +353,7 @@ window.addEventListener("DOMContentLoaded", () => {
     <br/>Expects a web address — on touch screens, this will invoke a keypad for entering URLs.
   </p>
 </form>
-<h2 id="number-inputs" tabindex="-1">Number Inputs</h2>
+<h2 id="number-inputs" tabindex="-1">Number inputs</h2>
 <p>On touch screens, these inputs invoke the numeric keyboard instead of the text keyboard.</p>
 <form action="">
   <p>
@@ -353,7 +365,7 @@ window.addEventListener("DOMContentLoaded", () => {
     <input type="number" id="quantity" name="example" min="0" inputmode="numeric" pattern="\d*">
   </p>
 </form>
-<h2 id="date-and-time-inputs" tabindex="-1">Date and Time Inputs</h2>
+<h2 id="date-and-time-inputs" tabindex="-1">Date and time inputs</h2>
 <p>On some devices (e.g. iOS Safari), these inputs get modified by date pickers, etc. The shape of the input fields gets changed.</p>
 <form action="">
   <p>
@@ -369,7 +381,7 @@ window.addEventListener("DOMContentLoaded", () => {
     <input type="time" id="example-input-time" name="example">
   </p>
 </form>
-<h2 id="color-picker" tabindex="-1">Color Picker</h2>
+<h2 id="color-picker" tabindex="-1">Color picker</h2>
 <p>Invokes the device’s color picker.</p>
 <form action="">
   <p>
@@ -377,7 +389,7 @@ window.addEventListener("DOMContentLoaded", () => {
     <input type="color" id="example-inupt-color" placeholder="#fff">
   </p>
 </form>
-<h2 id="file-upload" tabindex="-1">File Upload</h2>
+<h2 id="file-upload" tabindex="-1">File upload</h2>
 <form action="">
   <p>
     <label for="example-input-file">File input</label>
@@ -385,7 +397,7 @@ window.addEventListener("DOMContentLoaded", () => {
   </p>
 </form>
 <p><strong>Note:</strong> File upload inputs <code>&lt;input type=&quot;file&quot;&gt;</code> can break your page layout on the smallest phones in portrait orientation. But if you add <code>class=&quot;w100%&quot;</code> that problem goes away.</p>
-<h2 id="select-and-multi-select" tabindex="-1">Select and Multi-select</h2>
+<h2 id="select-and-multi-select" tabindex="-1">Select and multi-select</h2>
 <p>On some devices (e.g. iOS Safari), these inputs get modified by number pickers (dropdowns).</p>
 <form action="">
   <p>
@@ -409,12 +421,12 @@ window.addEventListener("DOMContentLoaded", () => {
     </select>
   </p>
 </form>
-<h2 id="text-area-(multiline)" tabindex="-1">Text Area (Multiline)</h2>
+<h2 id="text-area-(multiline)" tabindex="-1">Text area (multiline)</h2>
 <form action="">
     <label for="example-textarea">Example textarea</label><br>
     <textarea id="example-textarea"></textarea>
 </form>
-<h2 id="radio-boxes-and-checkboxes" tabindex="-1">Radio Boxes and Checkboxes</h2>
+<h2 id="radio-boxes-and-checkboxes" tabindex="-1">Radio boxes and checkboxes</h2>
 <form action="">
   <p class="my2">Radio boxes:</p>
   <input type="radio" id="example-radio-1" name="example-radio" value="banana">
@@ -432,7 +444,7 @@ window.addEventListener("DOMContentLoaded", () => {
   <label for="example-check-3"> Vanilla</label><br><br>
   <input type="submit" value="Submit">
 </form>
-<h2 id="fieldsets-and-legends" tabindex="-1">Fieldsets and Legends</h2>
+<h2 id="fieldsets-and-legends" tabindex="-1">Fieldsets and legends</h2>
 <p>Groups of form elements can be wrapped in <code>&lt;fieldset&gt;</code> tags. Add a <code>&lt;legend&gt;</code> to provide a special title for the entire fieldset.</p>
 <form action="">
   <fieldset class="flex">
@@ -450,7 +462,7 @@ window.addEventListener("DOMContentLoaded", () => {
 &lt;/form&gt;
 </code></pre>
 <p><strong>Note:</strong> In the example above, the Baselayer <code>flex</code> class has been used to align these form elements side-by-side, and then <code>grow</code> has been used to expand the email input field. A <code>&lt;legend&gt;</code> is also included — but since its text incorporates with the <code>&lt;fieldset&gt;</code> wrapping border line, it will not be controlled by the flexbox rule.</p>
-<h2 id="form-buttons" tabindex="-1">Form Buttons</h2>
+<h2 id="form-buttons" tabindex="-1">Form buttons</h2>
 <form action="">
   <p>
     <button type="button" name="button">Button</button>
@@ -470,48 +482,53 @@ window.addEventListener("DOMContentLoaded", () => {
 </code></pre>
 <p>See <a href="/baselayer-3/buttons">buttons</a> for more information.</p>
 
-            </div>
-          </div>
+              </div>
+            </main>
 
-          <footer class="lg:col-1 lg:col-span-3 content-grid">
-            <nav class="popout mt-3 mb-2 b-1 r-pill p-cell popout">
-              <ul class="m-0 unlist p-0 flex">
-                
-                <li class="grow my-1">&larr; <a href="/baselayer-3/colors/"> Colors</a></li>
-                
-                
-                <li class="grow my-1 t-right"><a href="/baselayer-3/buttons/">Buttons</a> &rarr;</li>
+            <footer class="lg:col-1 content-grid">
+              <nav class="popout mt-3 mb-2 b-1 r-pill p-cell popout">
+                <ul class="m-0 unlist p-0 flex flex-space-between">
                   
-              </ul>
-            </nav>
-            <div class="p-2 flex flex-center t-center">
-              <a href="/baselayer-3/" class="h3 m-0 t-normal flex flex-column flex-center gap-1 t-noline">
-                <svg class="mx-auto" height="48" width="48" viewBox="0 0 111 111" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-miterlimit:1.5">
-                  <g transform="translate(-294.592 -94.592)">
-                    <circle cx="350" cy="150" r="50" style="fill:none;stroke:currentColor;stroke-width:4px"/>
-                    <path d="M294.167 180H320v-65.833" style="fill:none;stroke:currentColor;stroke-width:4px" transform="translate(10 -10)"/>
-                    <path d="M405.833 180H380v-65.833" style="fill:none;stroke:currentColor;stroke-width:4px" transform="translate(-10 -10)"/>
-                    <circle cx="350" cy="150" r="30" style="fill:none;stroke:currentColor;stroke-width:6px" transform="matrix(.66667 0 0 .66667 116.667 50)"/>
-                    <path d="M310 180h80" style="fill:none;stroke:currentColor;stroke-width:4px"/>
-                    </g>
-                  </svg>
-                <span class="t-nowrap">Baselayer 3 CSS</span>
-              </a>
-            </div>
+                  <li class="my-1 flex flex-middle gap-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256"><path d="M224,128a8,8,0,0,1-8,8H59.31l58.35,58.34a8,8,0,0,1-11.32,11.32l-72-72a8,8,0,0,1,0-11.32l72-72a8,8,0,0,1,11.32,11.32L59.31,120H216A8,8,0,0,1,224,128Z"></path></svg>
+                    <a href="/baselayer-3/colors/"> Colors</a>
+                  </li>
+                  
+                  
+                  <li class="my-1 flex flex-middle gap-1 t-right">
+                    <a href="/baselayer-3/buttons/">Buttons</a>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"></path></svg>
+                  </li>
+                    
+                </ul>
+              </nav>
+              <div class="p-2 flex flex-center t-center">
+                <a href="/baselayer-3/" class="h3 m-0 t-normal flex flex-column flex-center gap-1 t-noline">
+                  <svg class="mx-auto" height="48" width="48" viewBox="0 0 111 111" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-miterlimit:1.5">
+                    <g transform="translate(-294.592 -94.592)">
+                      <circle cx="350" cy="150" r="50" style="fill:none;stroke:currentColor;stroke-width:4px"/>
+                      <path d="M294.167 180H320v-65.833" style="fill:none;stroke:currentColor;stroke-width:4px" transform="translate(10 -10)"/>
+                      <path d="M405.833 180H380v-65.833" style="fill:none;stroke:currentColor;stroke-width:4px" transform="translate(-10 -10)"/>
+                      <circle cx="350" cy="150" r="30" style="fill:none;stroke:currentColor;stroke-width:6px" transform="matrix(.66667 0 0 .66667 116.667 50)"/>
+                      <path d="M310 180h80" style="fill:none;stroke:currentColor;stroke-width:4px"/>
+                      </g>
+                    </svg>
+                  <span class="t-nowrap">Baselayer 3 CSS</span>
+                </a>
+              </div>
 
-            <p class="p-cell flex flex-center flex-wrap gap-2 t-center">
-              <span><a class="t-noline hover:t-line" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> (23.5 KB)</span>
-              <span>Version: 1.1.3</span>
-              <a class="t-noline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3">GitHub Repository</a>
-              <a class="t-noline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3/blob/main/LICENSE">MIT license</a>
-            </p>
-            <p class="t-center"><span>Developer: <a class="t-noline hover:t-line" href="https://github.com/SimonPadbury">Simon Padbury</a></span>
-          </footer>
+              <p class="p-cell flex flex-center flex-wrap gap-2 t-center">
+                <span><a class="t-noline hover:t-line" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> (22.2 KB)</span>
+                <span>Version: 1.2.0</span>
+                <a class="t-noline hover:t-line" href="https://github.com/SimonPadbury/baselayer-4">GitHub Repository</a>
+                <a class="t-noline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3/blob/main/LICENSE">MIT license</a>
+              </p>
+              <p class="t-center"><span>Developer: <a class="t-noline hover:t-line" href="https://github.com/SimonPadbury">Simon Padbury</a></span>
+            </footer>
+          </div>
         </article>
+      </div>
 
-      
-      </main>
-      
     </div>
   </div>
 
