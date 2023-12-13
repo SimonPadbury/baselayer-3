@@ -329,7 +329,7 @@ window.addEventListener("DOMContentLoaded", () => {
   --t-prose: var(--t-serif);
 }
 </code></pre>
-<p>In Baselayer 3 v.1.2.1, the sans-serif and serif native font stacks have been improved and isolated to their own CSS variables. These are not accessed directly, but they are loaded into the Baselayer variabes <code>--t-base</code> and <code>--t-prose</code>. (Baselayer’s “Old Style” serif stack is still available as <code>--t-old-serif</code>, but it is lo longer deployed in Baselayer. If you want to use it, it’s there for you to access) .</p>
+<p>In Baselayer 3 v.1.2.1, the sans-serif and serif native font stacks have been improved and isolated to their own CSS variables. These are not accessed directly, but they are loaded into the Baselayer variabes <code>--t-base</code> and <code>--t-prose</code>. (Baselayer’s “Old Style” serif stack is still available as <code>--t-old-serif</code>, but it is lo longer deployed in Baselayer. If you want to use it, it’s still there for you to access) .</p>
 <p>Baselayer uses <code>var(--t-base)</code> for the <code>&lt;body</code> tag (and therefore, for most things), <code>var(--t-mono)</code> for <code>&lt;code&gt;</code> and a few other classless HTML tags, and <code>var(--t-prose)</code> only in the <code>t-prose</code> utility.</p>
 <p>Everything here is an example, a place to start. Your own <code>--base</code> and <code>--prose</code> don’t need to be both sans-serif and serif. See <a href="#setting-font-stacks">setting font stacks</a> for more information.</p>
 <p>The Baselayer docs make use of JavaScript and some extra CSS to enable a demo toggle, so that you can switch between <code>--base</code> and <code>--prose</code> in this main content column.</p>

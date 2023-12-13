@@ -25,7 +25,7 @@ A few native font stacks are set in the `root-vars.css` file.
 }
 ```
 
-In Baselayer 3 v.1.2.1, the sans-serif and serif native font stacks have been improved and isolated to their own CSS variables. These are not accessed directly, but they are loaded into the Baselayer variabes `--t-base` and `--t-prose`. (Baselayer’s “Old Style” serif stack is still available as `--t-old-serif`, but it is lo longer deployed in Baselayer. If you want to use it, it’s there for you to access) .
+In Baselayer 3 v.1.2.1, the sans-serif and serif native font stacks have been improved and isolated to their own CSS variables. These are not accessed directly, but they are loaded into the Baselayer variabes `--t-base` and `--t-prose`. (Baselayer’s “Old Style” serif stack is still available as `--t-old-serif`, but it is lo longer deployed in Baselayer. If you want to use it, it’s still there for you to access) .
 
 Baselayer uses `var(--t-base)` for the `<body` tag (and therefore, for most things), `var(--t-mono)` for `<code>` and a few other classless HTML tags, and `var(--t-prose)` only in the `t-prose` utility.
 
