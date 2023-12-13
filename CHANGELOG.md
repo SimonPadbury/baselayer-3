@@ -9,7 +9,13 @@
 
 # Baselayer 3 changelog
 
-## v.1.2.0
+## v.1.2.1 -- 13 Dec 2023
+
+* Improved native font stacks.
+* Isolated sans-serif to `--t-sans-serif` and serif to `--t-serif`.
+* Baselayer’s earlier “Old Style” serif is still available as `--t-old-serif` but no longer deployed by default.
+
+## v.1.2.0 -- 2 December 2023
 
 _The big **container query** upgrade._
 

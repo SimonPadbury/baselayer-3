@@ -136,9 +136,14 @@ Alternatively, you could set these up using...
   /*
   Native Typeface Stacks
   */
-  --t-base: system-ui, sans-serif;
-  --t-prose: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
-  --t-mono: ui-monospace, Menlo, Consolas, monospace;
+  --t-sans-serif: ui-sans-serif, system-ui, sans-serif;
+  --t-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --t-mono: ui-monospace, Menlo, Consolas, "Courier New", monospace;
+
+  --t-old-serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+
+  --t-base: var(--t-sans-serif);
+  --t-prose: var(--t-serif);
 
   /* Base font size */
   --fs-base: 100%;

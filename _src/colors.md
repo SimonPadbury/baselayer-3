@@ -302,7 +302,7 @@ The shades `*-100` through `*-900` if used alone, _do not provide color_. But if
 
 The grays require a uniform chroma override using an `!important` flag — grays are not more vibrant in their mid-range shades.
 
-Other colors besides grays don’t require greater vibrancy in their mid-range shades — such as brown, warmgray and coolgray (available as “commented out” examples in Baselayer 4). For this purpose Baselayer has several low chroma variables that you can use.
+Other colors besides grays don’t require greater vibrancy in their mid-range shades — such as brown, warmgray and coolgray (available as “commented out” examples in Baselayer). For this purpose Baselayer has several low chroma variables that you can use.
 
 ```css
 * {
@@ -355,7 +355,7 @@ Several more color examples have been provided but commented out in `colors.css`
 
 ## Adding more colors the Baselayer way
 
-You can still use colors in hex, RGB or any other format. But to  add more color utilities in your CSS the same way as Baselayer 4 does it:
+You can still use colors in hex, RGB or any other format. But to  add more color utilities in your CSS the same way as Baselayer 3 does it:
 
 1. You need to choose OKLCH colors, or convert your already chosen colors to `oklch()` format. ([oklch.com](https://oklch.com/) is a great online tool for this purpose — I usually round up the decimals). Then, declare your colors as variables in the `*` universal selector. Give them variable names that make sense to you.
 

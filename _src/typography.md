@@ -14,13 +14,22 @@ Three native font stacks are set in the `root-vars.css` file.
 
 ```
 :root {
-  --t-base: system-ui, sans-serif;
-  --t-prose: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
-  --t-mono: ui-monospace, Menlo, Consolas, monospace;
+  --t-sans-serif: ui-sans-serif, system-ui, sans-serif;
+  --t-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --t-mono: ui-monospace, Menlo, Consolas, "Courier New", monospace;
+
+  --t-old-serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+
+  --t-base: var(--t-sans-serif);
+  --t-prose: var(--t-serif);
 }
 ```
 
-Everything here is an example, a place to start. Your own `--base` and `--prose` don’t need to be both sans-serif and serif.
+In Baselayer 3 v.1.2.1, the sans-serif and serif native font stacks have been improved and isolated to their own CSS variables. These are not accessed directly, but they are loaded into the Baselayer variabes `--t-base` and `--t-prose`. (Baselayer’s “Old Style” serif stack is still available as `--t-old-serif`, but it is lo longer deployed in Baselayer. If you want to use it, it’s there for you to access) .
+
+Baselayer uses `var(--t-base)` for the `<body` tag (and therefore, for most things), `var(--t-mono)` for `<code>` and a few other classless HTML tags, and `var(--t-prose)` only in the `t-prose` utility.
+
+Everything here is an example, a place to start. Your own `--base` and `--prose` don’t need to be both sans-serif and serif. See [setting font stacks](#setting-font-stacks) for more information.
 
 The Baselayer docs make use of JavaScript and some extra CSS to enable a demo toggle, so that you can switch between `--base` and `--prose` in this main content column.
 
@@ -47,7 +56,41 @@ Font stack usage in Baselayer:
 
 In choosing your own font stacks, you may wish to choose two fonts that have similar _x-height_, so that you can set them using the same font size and line-height. Some other factors to compare are hights for lowercase ascenders and descenders, letter width, and stroke thickness.
 
-A good place to start is by pairing serif and sans-serif (or slab serif) fonts of the same typeface. There are several to choose from on [Google Fonts](https://fonts.google.com).
+If you prefer an “Old Style” sans-serif font stack, you can revert to the earlier font stack in Baselayer, that is still available in the variable `--t-old-serif` by doing something like this:
+
+```css
+.t-prose {
+  font-family: var(--t-old-serif);
+}
+```
+
+If you want to stick with using native font stacks, the [Modern Font Stacks](https://modernfontstacks.com) website has several examples that you can easily copy.
+
+In choosing your own typefaces from elsewhere, a good place to start is by pairing serif and sans-serif (or slab serif) fonts of the same typeface, if both are available. [Google Fonts](https://fonts.google.com) has several typefaces to choose from, such as:
+
+* Alegreya and Alegreya Sans
+* IBM Plex and IBM Plex Sans
+* Inria Serif and Inria Sans
+* Noto Serif and Noto Sans
+* PT Serif and PT Sans
+* Roboto and Roboto Slab
+* Source Sans 3 and Source Serif 4
+
+Of course, you can also mix and match. 
+
+Google provides examples of how to use their fonts in your CSS, where the fallback for each is only e.g. `sans-serif` or `serif`. But it may be better to use Baselayer’s native font stack variables instead. For example:
+
+```css
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital@0;1&display=swap');
+
+body {
+  /* Example from Google Fonts */
+  font-family: 'IBM Plex Serif', serif;
+
+  /* You can use this instead */
+  font-family: 'IBM Plex Serif', var(--t-serif);
+}
+```
 
 In Baselayer, sizes and weights for the base and prose typefaces can optionally be set independently — but you will still want them to share the same line height. For using another set of sizes and weights for prose, you will need to do some un-commenting in two files: `variables.css` and `typography.css`.
 

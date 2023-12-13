@@ -7,7 +7,7 @@
 
   <title>Colors · Baselayer 3 CSS</title>
 
-  <link rel="stylesheet" href="/baselayer-3/css/min/baselayer.min.css?v=1.2.0">
+  <link rel="stylesheet" href="/baselayer-3/css/min/baselayer.min.css?v=1.2.1">
 
   <style>
     html {
@@ -235,8 +235,8 @@ window.addEventListener("DOMContentLoaded", () => {
           </svg>
         <span class="t-nowrap">Baselayer 3 CSS</span>
       </a>
-      <p class="mb-1 t-gray t-400">Version: 1.2.0 • <a class="t-gray t-100 hover:t-200 t-noline hover:t-line" href="https://github.com/SimonPadbury/baselayer-4">GitHub</a></p>
-      <p class="mb-1 t-gray t-400"><a class="t-gray t-100 hover:t-200 t-noline hover:t-line" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> (22.2 KB)</p>
+      <p class="mb-1 t-gray t-400">Version: 1.2.1 • <a class="t-gray t-100 hover:t-200 t-noline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3">GitHub</a></p>
+      <p class="mb-1 t-gray t-400"><a class="t-gray t-100 hover:t-200 t-noline hover:t-line" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> (22.3 KB)</p>
     </div>
 
     <nav role="menu">
@@ -573,7 +573,7 @@ window.addEventListener("DOMContentLoaded", () => {
 </table>
 <p>The shades <code>*-100</code> through <code>*-900</code> if used alone, <em>do not provide color</em>. But if you use them to supplement one of the other colors above, then the color class will provide the color, and the shade class will set the lightness level.</p>
 <p>The grays require a uniform chroma override using an <code>!important</code> flag — grays are not more vibrant in their mid-range shades.</p>
-<p>Other colors besides grays don’t require greater vibrancy in their mid-range shades — such as brown, warmgray and coolgray (available as “commented out” examples in Baselayer 4). For this purpose Baselayer has several low chroma variables that you can use.</p>
+<p>Other colors besides grays don’t require greater vibrancy in their mid-range shades — such as brown, warmgray and coolgray (available as “commented out” examples in Baselayer). For this purpose Baselayer has several low chroma variables that you can use.</p>
 <pre><code class="language-css">* {
   /* chroma */
   --c0: 0;
@@ -615,7 +615,7 @@ window.addEventListener("DOMContentLoaded", () => {
 <p>The chroma channel’s <code>!important</code> overrides chroma scale that is built into the lightness utilities <code>*-100</code> thorugh <code>*-900</code>, so that this color will remain less vibrant (with one low chroma level) accross its shades.</p>
 <p>Several more color examples have been provided but commented out in <code>colors.css</code> (with their hue variables commented out in <code>variables.css</code>). These will show you further how Baselayer OKLCH colors work, and they are there for your inspiration.</p>
 <h2 id="adding-more-colors-the-baselayer-way" tabindex="-1">Adding more colors the Baselayer way</h2>
-<p>You can still use colors in hex, RGB or any other format. But to  add more color utilities in your CSS the same way as Baselayer 4 does it:</p>
+<p>You can still use colors in hex, RGB or any other format. But to  add more color utilities in your CSS the same way as Baselayer 3 does it:</p>
 <ol>
 <li>You need to choose OKLCH colors, or convert your already chosen colors to <code>oklch()</code> format. (<a href="https://oklch.com/">oklch.com</a> is a great online tool for this purpose — I usually round up the decimals). Then, declare your colors as variables in the <code>*</code> universal selector. Give them variable names that make sense to you.</li>
 </ol>
@@ -993,9 +993,9 @@ baselayerInit();
               </div>
 
               <p class="p-cell flex flex-center flex-wrap gap-2 t-center">
-                <span><a class="t-noline hover:t-line" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> (22.2 KB)</span>
-                <span>Version: 1.2.0</span>
-                <a class="t-noline hover:t-line" href="https://github.com/SimonPadbury/baselayer-4">GitHub Repository</a>
+                <span><a class="t-noline hover:t-line" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> (22.3 KB)</span>
+                <span>Version: 1.2.1</span>
+                <a class="t-noline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3">GitHub Repository</a>
                 <a class="t-noline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3/blob/main/LICENSE">MIT license</a>
               </p>
               <p class="t-center"><span>Developer: <a class="t-noline hover:t-line" href="https://github.com/SimonPadbury">Simon Padbury</a></span>

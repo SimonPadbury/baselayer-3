@@ -2,8 +2,8 @@
 
 A modern starter CSS library with container queries, a real CSS grid system, clamp() powered typography and spacing sizes, OKLCH color utilities, and custom properties.
 
-v.1.2.0
-Filesize: `baselayer.min.css` 22.2 KB
+v.1.2.1
+Filesize: `baselayer.min.css` 22.3 KB
 
 Designed as a good place to start, Baselayer may be all you need — for small web projects. Or you may use it as a _baselayer_ to quick-start your mega project.
 
