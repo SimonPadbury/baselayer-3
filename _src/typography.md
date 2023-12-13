@@ -25,13 +25,11 @@ A few native font stacks are set in the `root-vars.css` file.
 }
 ```
 
-In Baselayer 3 v.1.2.1, the sans-serif and serif native font stacks have been improved and isolated to their own CSS variables. These are not accessed directly, but they are loaded into the Baselayer variabes `--t-base` and `--t-prose`. (Baselayer’s “Old Style” serif stack is still available as `--t-old-serif`, but it is lo longer deployed in Baselayer. If you want to use it, it’s still there for you to access) .
-
-Baselayer uses `var(--t-base)` for the `<body` tag (and therefore, for most things), `var(--t-mono)` for `<code>` and a few other classless HTML tags, and `var(--t-prose)` only in the `t-prose` utility.
+In Baselayer 3 v.1.2.1, the sans-serif and serif native font stacks have been improved and isolated to their own CSS variables. These are not accessed directly, but they are loaded into the Baselayer variabes `--t-base` and `--t-prose`. (Baselayer’s earlier “Old Style” serif stack remains available as `--t-old-serif`, but it is no longer deployed in Baselayer. If you want to use it, it’s still there for you to access) .
 
 Everything here is an example, a place to start. Your own `--base` and `--prose` don’t need to be both sans-serif and serif. See [setting font stacks](#setting-font-stacks) for more information.
 
-The Baselayer docs make use of JavaScript and some extra CSS to enable a demo toggle, so that you can switch between `--base` and `--prose` in this main content column.
+The Baselayer docs make use of JavaScript and some extra CSS to enable a demo toggle, so that you can switch between `--base` and `--prose` in this main content area.
 
 <p class="flex flex-center">
   <button class="p-cell flex flex-column gap-1 bg-blue bg-600 hover:bg-700" onclick="toggleFont()">
@@ -54,9 +52,9 @@ Font stack usage in Baselayer:
 
 ### Setting font stacks
 
-In choosing your own font stacks, you may wish to choose two fonts that have similar _x-height_, so that you can set them using the same font size and line-height. Some other factors to compare are hights for lowercase ascenders and descenders, letter width, and stroke thickness.
+In choosing your own font stacks, you will probably need two fonts that have similar _x-height_, so that you can set them using the same font size and line-height. Some other factors to compare are hights for lowercase ascenders and descenders, letter width, and stroke thickness.
 
-If you prefer an “Old Style” sans-serif font stack, you can revert to the earlier font stack in Baselayer, that is still available in the variable `--t-old-serif` by doing something like this:
+If you prefer Baselayer’s ealier (pre v.1.2.1) “Old Style” sans-serif font stack, this is still available in the variable `--t-old-serif` and you can easily revert to it by doing something like this in your own stylesheet:
 
 ```css
 .t-prose {

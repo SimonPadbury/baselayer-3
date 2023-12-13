@@ -329,10 +329,9 @@ window.addEventListener("DOMContentLoaded", () => {
   --t-prose: var(--t-serif);
 }
 </code></pre>
-<p>In Baselayer 3 v.1.2.1, the sans-serif and serif native font stacks have been improved and isolated to their own CSS variables. These are not accessed directly, but they are loaded into the Baselayer variabes <code>--t-base</code> and <code>--t-prose</code>. (Baselayer’s “Old Style” serif stack is still available as <code>--t-old-serif</code>, but it is lo longer deployed in Baselayer. If you want to use it, it’s still there for you to access) .</p>
-<p>Baselayer uses <code>var(--t-base)</code> for the <code>&lt;body</code> tag (and therefore, for most things), <code>var(--t-mono)</code> for <code>&lt;code&gt;</code> and a few other classless HTML tags, and <code>var(--t-prose)</code> only in the <code>t-prose</code> utility.</p>
+<p>In Baselayer 3 v.1.2.1, the sans-serif and serif native font stacks have been improved and isolated to their own CSS variables. These are not accessed directly, but they are loaded into the Baselayer variabes <code>--t-base</code> and <code>--t-prose</code>. (Baselayer’s earlier “Old Style” serif stack remains available as <code>--t-old-serif</code>, but it is no longer deployed in Baselayer. If you want to use it, it’s still there for you to access) .</p>
 <p>Everything here is an example, a place to start. Your own <code>--base</code> and <code>--prose</code> don’t need to be both sans-serif and serif. See <a href="#setting-font-stacks">setting font stacks</a> for more information.</p>
-<p>The Baselayer docs make use of JavaScript and some extra CSS to enable a demo toggle, so that you can switch between <code>--base</code> and <code>--prose</code> in this main content column.</p>
+<p>The Baselayer docs make use of JavaScript and some extra CSS to enable a demo toggle, so that you can switch between <code>--base</code> and <code>--prose</code> in this main content area.</p>
 <p class="flex flex-center">
   <button class="p-cell flex flex-column gap-1 bg-blue bg-600 hover:bg-700" onclick="toggleFont()">
     <div class="label-base w-100% flex flex-middle gap-1">
@@ -352,8 +351,8 @@ window.addEventListener("DOMContentLoaded", () => {
 <li>The monotype is available via the <code>&lt;code&gt;</code>, <code>&lt;kbd&gt;</code>, and <code>&lt;samp&gt;</code> HTML tags, and in the <code>t-mono</code> utility class.</li>
 </ul>
 <h3 id="setting-font-stacks" tabindex="-1">Setting font stacks</h3>
-<p>In choosing your own font stacks, you may wish to choose two fonts that have similar <em>x-height</em>, so that you can set them using the same font size and line-height. Some other factors to compare are hights for lowercase ascenders and descenders, letter width, and stroke thickness.</p>
-<p>If you prefer an “Old Style” sans-serif font stack, you can revert to the earlier font stack in Baselayer, that is still available in the variable <code>--t-old-serif</code> by doing something like this:</p>
+<p>In choosing your own font stacks, you will probably need two fonts that have similar <em>x-height</em>, so that you can set them using the same font size and line-height. Some other factors to compare are hights for lowercase ascenders and descenders, letter width, and stroke thickness.</p>
+<p>If you prefer Baselayer’s ealier (pre v.1.2.1) “Old Style” sans-serif font stack, this is still available in the variable <code>--t-old-serif</code> and you can easily revert to it by doing something like this in your own stylesheet:</p>
 <pre><code class="language-css">.t-prose {
   font-family: var(--t-old-serif);
 }
