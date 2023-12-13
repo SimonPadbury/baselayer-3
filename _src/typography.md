@@ -10,7 +10,7 @@ nextLink: "Layout"
 
 ## Font stacks
 
-Three native font stacks are set in the `root-vars.css` file.
+A few native font stacks are set in the `root-vars.css` file.
 
 ```
 :root {
