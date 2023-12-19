@@ -158,9 +158,11 @@ You can place the `container` class on e.g.:
 * Nested within other `container` elements (e.g. so you can have sidebars or arrays of cards within your `<main>`)
 * And more.
 
-_What if you want to use Baselayer’s `flex`, `grid` and `hidden` clases but you really prefer media queries, or if you need to support pre-container query browsers?_
+### Supporting older browsers
 
-Then you can find every instance of `@container` in `layout.css` and replace it with `@media`, and this will convert everything to media queries. (And then the `container` class will be redundant — you won't need it.)
+What if you want to use Baselayer’s `flex`, `grid` and `hidden` clases but you really prefer media queries, or if you need to support pre-container query browsers?
+
+Then all you need to do is find every instance of `@container` in `layout.css` and replace it with `@media`, and this will convert everything to media queries. (And then the `container` class will be redundant — you won’t need it.)
 
 ### Container query demos
 
