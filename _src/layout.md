@@ -147,7 +147,7 @@ There are three `@container` variants for `flex`, `grid`, and `hidden` classes c
 * `lg:` (1280px)
 
 <div aria-label="Note" class="popout mb-2 bl-3 b-orange b-300 p-2 t-black bg-orange bg-100">
-  Layout classes with <code>sm:</code>, <code>md:</code>, and <code>lg:</code> prefixes do not work unless they are inside of a <code>container</code>.
+  Layout classes with <code class="t-black bg-blue bg-200">sm:</code>, <code class="t-black bg-blue bg-200">md:</code>, and <code class="t-black bg-blue bg-200">lg:</code> prefixes do not work unless they are inside of a <code class="t-black bg-blue bg-200">container</code>.
 </div>
 
 You can place the `container` class on e.g.:
