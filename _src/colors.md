@@ -10,7 +10,7 @@ nextLink: "Forms"
 ---
 
 <div aria-label="Note" class="popout mb-2 bl-3 b-blue b-300 p-2 t-black bg-blue bg-100">
-  Since June 2023, all “evergreen” browsers (Chrome, Edge, Firefox, Safari) have capability for the new <code class="t-black bg-blue bg-200">oklch()</code> color model (see <a  class="t-blue t-600 hover:t-700"href="https://caniuse.com/?search=oklch">Can I use OKLCH</a>). And in each of these browsers the lightness, chroma, and hue  channels can be separately controlled by CSS variables.
+  Since June 2023, all “evergreen” browsers (Chrome, Edge, Firefox, Safari) have capability for the new <code class="t-black bg-blue bg-200">oklch()</code> color model (see <a class="t-blue t-600 hover:t-700" href="https://caniuse.com/?search=oklch">Can I use OKLCH</a>). And in each of these browsers the lightness, chroma, and hue  channels can be separately controlled by CSS variables.
 </div>
 
 <div class="full-bleed m-2 p-2 flex flex-center flex-wrap">

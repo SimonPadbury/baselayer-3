@@ -6,6 +6,12 @@ nextPage: "/typography/"
 nextLink: "Typography"
 ---
 
+<div aria-label="Note" class="popout mb-2 bl-3 b-blue b-300 p-2 t-black bg-blue bg-100">
+  <p><strong>Baselayer 3 v.1.2.x uses <em>container queries</em> for its responsive flexbox, grid, and visibility classes.</strong></p>
+  <p>All “evergreen” browsers (Chrome, Edge, Firefox, Safari) have capability for the new CSS Container Queries (see <a class="t-blue t-600 hover:t-700" href="https://caniuse.com/?search=container">Can I use Container Queries</a>) since September 2023. See <a class="t-blue t-600 hover:t-700" href="/baselayer-3/layout/#container-query-powered-layouts">container query powered layouts</a>.</p>
+  <p class="mb-0">If you would rather use media queries for these utility classes, or if you need to support older (pre-container query) browsers a while longer, this is easy to do: in <code class="t-black bg-blue bg-200">layout.css</code> simply do a search-and-replace <code class="t-black bg-blue bg-200">@container → @media</code> (and then you don’t need to use Baselayer’s <code class="t-black bg-blue bg-200">container</code> context class).</p>
+</div>
+
 ## Introduction
 
 <p class="t-big">Designed as a good place to start, Baselayer may be all you need — for small static websites and blogs. Or you may use it as a <em>baselayer</em> to quick-start your mega project.</p>

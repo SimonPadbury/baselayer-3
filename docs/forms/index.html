@@ -35,7 +35,18 @@
     .theme-light .label-light .check-box::before { content: '✓'; }
     .theme-dark .label-dark .check-box::before { content: '✓'; }
 
-    @media (min-width: 960px) {
+    body {
+      container-type: inline-size;
+      container-name: page;
+    }
+
+    @container page (max-width: 1279px) {
+      #toc ul ul {
+        display: none;
+      }
+    }
+
+    @container page (min-width: 960px) {
       #site-title { 
         max-width: 200px;
         margin-inline: auto;
@@ -53,7 +64,7 @@
         overflow-y: auto;
       }
     }
-    @media (min-width: 1280px) {
+    @container page (min-width: 1280px) {
       article > .grid {
         grid-template-columns: 1fr var(--w-xs);
       }
@@ -487,7 +498,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
             <footer class="lg:col-1 content-grid">
               <nav class="popout mt-3 mb-2 b-1 r-pill p-cell popout">
-                <ul class="m-0 unlist p-0 flex flex-space-between">
+                <ul class="m-0 unlist p-0 grid gap-2 sm:equal-2-cols">
                   
                   <li class="my-1 flex flex-middle gap-1">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256"><path d="M224,128a8,8,0,0,1-8,8H59.31l58.35,58.34a8,8,0,0,1-11.32,11.32l-72-72a8,8,0,0,1,0-11.32l72-72a8,8,0,0,1,11.32,11.32L59.31,120H216A8,8,0,0,1,224,128Z"></path></svg>
@@ -495,7 +506,7 @@ window.addEventListener("DOMContentLoaded", () => {
                   </li>
                   
                   
-                  <li class="my-1 flex flex-middle gap-1 t-right">
+                  <li class="sm:col-2 my-1 flex flex-middle flex-end gap-1">
                     <a href="/baselayer-3/buttons/">Buttons</a>
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"></path></svg>
                   </li>
