@@ -15,8 +15,7 @@
     /* for improved accessibility over dark backgrounds */
   }
 
-  .visually-hidden:not(:focus):not(:active),
-  .screen-reader-only:not(:focus):not(:active) {
+  .visually-hidden:not(:focus):not(:active) {
     clip: rect(0 0 0 0);
     -webkit-clip-path: inset(50%);
     clip-path: inset(50%);

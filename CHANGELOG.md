@@ -9,6 +9,11 @@
 
 # Baselayer 3 changelog
 
+## v.1.2.2 -- 5 Jan 2024
+
+* Minor typographic improvements.
+* Adjusted the orange hue.
+ 
 ## v.1.2.1 -- 13 Dec 2023
 
 * Improved native font stacks.

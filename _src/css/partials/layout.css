@@ -553,7 +553,7 @@
 
   /*
   Gaps - these work for both flexbox (including inside buttons) and the grid system.
-  (However, don’t use these on containergrid.)
+  (However, don’t use these on container-grid.)
   */
 
   .gap-1 {
