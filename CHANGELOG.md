@@ -9,6 +9,13 @@
 
 # Baselayer 3 changelog
 
+## v.1.2.3 -- 10 Jan 2024
+
+* Improved `box-sizing: border-box`.
+* Transparent 1px solid border on buttons (previously `border: 0`).
+* Added `!important` to typography utilities `t-small` and `t-big`.
+* Changed min-height to height on buttons (and `.btn` utility).
+
 ## v.1.2.2 -- 5 Jan 2024
 
 * Minor typographic improvements.

@@ -701,7 +701,7 @@ baselayerInit();
 You will also need a toggle button, like the one in the sidebar. The checkmarks are added in by CSS pseudo-selectors.
 
 <p class="flex flex-center">
-  <button class="p-cell flex flex-column gap-1 bg-blue hover:bg-600" onclick="toggleTheme()">
+  <button class="toggler p-cell flex flex-column gap-1 bg-blue hover:bg-600" onclick="toggleTheme()">
     <div class="label-light w-100% flex flex-middle gap-1">
       <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
       <div class="grow left">Light theme</div>

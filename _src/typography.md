@@ -25,14 +25,16 @@ A few native font stacks are set in the `root-vars.css` file.
 }
 ```
 
-In Baselayer 3 v.1.2.1, the sans-serif and serif native font stacks have been improved and isolated to their own CSS variables. These are not accessed directly, but they are loaded into the Baselayer variabes `--t-base` and `--t-prose`. (Baselayer’s earlier “Old Style” serif stack remains available as `--t-old-serif`, but it is no longer deployed in Baselayer. If you want to use it, it’s still there for you to access) .
+Since Baselayer 3 v.1.2.1, the sans-serif and serif native font stacks have been improved and isolated to their own CSS variables. These are not accessed directly, but they are loaded into the Baselayer variabes `--t-base` and `--t-prose`.
+
+(Baselayer’s earlier “Old Style” serif stack remains available as `--t-old-serif`, but it is no longer deployed in Baselayer. If you want to use it, it’s still there for you to access) .
 
 Everything here is an example, a place to start. Your own `--base` and `--prose` don’t need to be both sans-serif and serif. See [setting font stacks](#setting-font-stacks) for more information.
 
 The Baselayer docs make use of JavaScript and some extra CSS to enable a demo toggle, so that you can switch between `--base` and `--prose` in this main content area.
 
 <p class="flex flex-center">
-  <button class="p-cell flex flex-column gap-1 bg-blue bg-600 hover:bg-700" onclick="toggleFont()">
+  <button class="toggler p-cell flex flex-column gap-1 bg-blue bg-600 hover:bg-700" onclick="toggleFont()">
     <div class="label-base w-100% flex flex-middle gap-1">
       <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
       <div class="grow t-left">Base font</div>
@@ -344,7 +346,7 @@ Container query powered long-read
 The Baselayer docs make use of JavaScript and some extra CSS to enable a demo toggle, so that you can switch between normal and long-read font size in this main article column.
 
 <p class="flex flex-center">
-  <button class="p-cell flex flex-column gap-1 bg-blue bg-600 hover:bg-700" onclick="toggleFS()">
+  <button class="toggler p-cell flex flex-column gap-1 bg-blue bg-600 hover:bg-700" onclick="toggleFS()">
     <div class="label-normal w-100% flex flex-middle gap-1">
       <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
       <div class="grow t-left">Normal font-size</div>

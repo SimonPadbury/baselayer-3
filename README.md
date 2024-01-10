@@ -22,7 +22,7 @@ Baselayer uses some modern web technologies such as CSS Grid, CSS math functions
 
 > If you would rather use media queries for these utility classes, or if you need to support older (pre-container query) browsers a while longer, this is easy to do: in `layout.css` simply do a search-and-replace `@container → @media` (and then you don’t need to use the Baselayer’s `container` context class).
 
-**Filesize:** `baselayer.min.css` 22.3 KB
+**Filesize:** `baselayer.min.css` 24 KB
 
 **Documentation:** [https://simonpadbury.github.io/baselayer-3/](https://simonpadbury.github.io/baselayer-3/)
 

@@ -7,7 +7,7 @@
 
   <title>Typography · Baselayer 3 CSS</title>
 
-  <link rel="stylesheet" href="/baselayer-3/css/min/baselayer.min.css?v=1.2.2">
+  <link rel="stylesheet" href="/baselayer-3/css/min/baselayer.min.css?v=1.2.3">
 
   <style>
     html {
@@ -22,6 +22,9 @@
       resize: horizontal;
       overflow-x: auto;
       background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='silver' stroke-width='2' stroke-dasharray='8%2c 8' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
+    }
+    button.toggler {
+      height: 3.625em;
     }
     .check-box {
       width: 1rem;
@@ -246,8 +249,8 @@ window.addEventListener("DOMContentLoaded", () => {
           </svg>
         <span class="t-nowrap">Baselayer 3 CSS</span>
       </a>
-      <p class="mb-1 t-gray t-400">Version: 1.2.2 • <a class="t-gray t-100 hover:t-200 t-noline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3">GitHub</a></p>
-      <p class="mb-1 t-gray t-400"><a class="t-gray t-100 hover:t-200 t-noline hover:t-line" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> (22.3 KB)</p>
+      <p class="mb-1 t-gray t-400">Version: 1.2.3 • <a class="t-gray t-100 hover:t-200 t-noline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3">GitHub</a></p>
+      <p class="mb-1 t-gray t-400"><a class="t-gray t-100 hover:t-200 t-noline hover:t-line" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> (24 KB)</p>
     </div>
 
     <nav role="menu">
@@ -268,7 +271,7 @@ window.addEventListener("DOMContentLoaded", () => {
         </div>
 
         <div class="mb-2 p-cell">
-          <button class="w-100% mb-1 p-1 flex flex-column gap-1 bg-gray bg-600 hover:bg-700" onclick="toggleFont()">
+          <button class="toggler w-100% mb-1 p-1 flex flex-column gap-1 bg-gray bg-600 hover:bg-700" onclick="toggleFont()">
             <div class="label-base w-100% flex flex-middle gap-1">
               <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
               <div class="grow t-left">Base font</div>
@@ -279,7 +282,7 @@ window.addEventListener("DOMContentLoaded", () => {
             </div>
           </button>
 
-          <button class="w-100% mb-1 p-1 flex flex-column gap-1 bg-gray bg-600 hover:bg-700" onclick="toggleFS()">
+          <button class="toggler w-100% mb-1 p-1 flex flex-column gap-1 bg-gray bg-600 hover:bg-700" onclick="toggleFS()">
             <div class="label-normal w-100% flex flex-middle gap-1">
               <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
               <div class="grow t-left">Normal font-size</div>
@@ -290,7 +293,7 @@ window.addEventListener("DOMContentLoaded", () => {
             </div>
           </button>
 
-          <button class="w-100% mb-1 p-1 flex flex-column gap-1 bg-gray bg-600 hover:bg-700" onclick="toggleTheme()">
+          <button class="toggler w-100% mb-1 p-1 flex flex-column gap-1 bg-gray bg-600 hover:bg-700" onclick="toggleTheme()">
             <div class="label-light w-100% flex flex-middle gap-1">
               <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
               <div class="grow t-left">Light theme</div>
@@ -340,11 +343,12 @@ window.addEventListener("DOMContentLoaded", () => {
   --t-prose: var(--t-serif);
 }
 </code></pre>
-<p>In Baselayer 3 v.1.2.1, the sans-serif and serif native font stacks have been improved and isolated to their own CSS variables. These are not accessed directly, but they are loaded into the Baselayer variabes <code>--t-base</code> and <code>--t-prose</code>. (Baselayer’s earlier “Old Style” serif stack remains available as <code>--t-old-serif</code>, but it is no longer deployed in Baselayer. If you want to use it, it’s still there for you to access) .</p>
+<p>Since Baselayer 3 v.1.2.1, the sans-serif and serif native font stacks have been improved and isolated to their own CSS variables. These are not accessed directly, but they are loaded into the Baselayer variabes <code>--t-base</code> and <code>--t-prose</code>.</p>
+<p>(Baselayer’s earlier “Old Style” serif stack remains available as <code>--t-old-serif</code>, but it is no longer deployed in Baselayer. If you want to use it, it’s still there for you to access) .</p>
 <p>Everything here is an example, a place to start. Your own <code>--base</code> and <code>--prose</code> don’t need to be both sans-serif and serif. See <a href="#setting-font-stacks">setting font stacks</a> for more information.</p>
 <p>The Baselayer docs make use of JavaScript and some extra CSS to enable a demo toggle, so that you can switch between <code>--base</code> and <code>--prose</code> in this main content area.</p>
 <p class="flex flex-center">
-  <button class="p-cell flex flex-column gap-1 bg-blue bg-600 hover:bg-700" onclick="toggleFont()">
+  <button class="toggler p-cell flex flex-column gap-1 bg-blue bg-600 hover:bg-700" onclick="toggleFont()">
     <div class="label-base w-100% flex flex-middle gap-1">
       <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
       <div class="grow t-left">Base font</div>
@@ -612,7 +616,7 @@ Container query powered long-read
 </code></pre>
 <p>The Baselayer docs make use of JavaScript and some extra CSS to enable a demo toggle, so that you can switch between normal and long-read font size in this main article column.</p>
 <p class="flex flex-center">
-  <button class="p-cell flex flex-column gap-1 bg-blue bg-600 hover:bg-700" onclick="toggleFS()">
+  <button class="toggler p-cell flex flex-column gap-1 bg-blue bg-600 hover:bg-700" onclick="toggleFS()">
     <div class="label-normal w-100% flex flex-middle gap-1">
       <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
       <div class="grow t-left">Normal font-size</div>
@@ -715,8 +719,8 @@ Container query powered long-read
               </div>
 
               <p class="p-cell flex flex-center flex-wrap gap-2 t-center">
-                <span><a class="t-noline hover:t-line" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> (22.3 KB)</span>
-                <span>Version: 1.2.2</span>
+                <span><a class="t-noline hover:t-line" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> (24 KB)</span>
+                <span>Version: 1.2.3</span>
                 <a class="t-noline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3">GitHub Repository</a>
                 <a class="t-noline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3/blob/main/LICENSE">MIT license</a>
               </p>

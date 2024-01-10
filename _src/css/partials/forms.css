@@ -83,12 +83,12 @@
     position: relative;
     -webkit-appearance: none;
     appearance: none;
-    min-height: var(--mh-input);
+    height: var(--h-input);
     display: inline-flex;
     justify-content: center;
     align-items: center;
     margin: 0;
-    border: 0;
+    border: 1px solid transparent;
     padding: var(--sp-1) 1em;
     font-family: var(--t-base);
     font-size: inherit;

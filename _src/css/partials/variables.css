@@ -226,8 +226,8 @@ Alternatively, you could set these up using...
   --do-link: .3rem;
   /* link decoration thickness */
   --dt-link: 1px;
-  /* input and button minimum height */
-  --mh-input: 2.5em;
+  /* input and button height */
+  --h-input: 2.5em;
   /* button font-weight */
   --fw-btn: var(--fw-semibold);
 
