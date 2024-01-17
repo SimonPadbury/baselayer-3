@@ -1,6 +1,6 @@
 ## Baselayer 3
 
-v.1.2.2
+v.1.2.4
 
 A modern starter CSS library with container queries, a real CSS grid system, clamp() powered typography and spacing sizes, OKLCH color utilities, and custom properties.
 

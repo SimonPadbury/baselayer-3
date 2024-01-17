@@ -9,6 +9,10 @@
 
 # Baselayer 3 changelog
 
+## .v.1.2.4 -- 17 Jan 2024
+
+* Increased upper limit of `.t-long-read` to 1.5rem (24px). 
+
 ## v.1.2.3 -- 10 Jan 2024
 
 * Improved `box-sizing: border-box`.

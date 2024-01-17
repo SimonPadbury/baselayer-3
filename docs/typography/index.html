@@ -7,7 +7,7 @@
 
   <title>Typography · Baselayer 3 CSS</title>
 
-  <link rel="stylesheet" href="/baselayer-3/css/min/baselayer.min.css?v=1.2.3">
+  <link rel="stylesheet" href="/baselayer-3/css/min/baselayer.min.css?v=1.2.4">
 
   <style>
     html {
@@ -249,7 +249,7 @@ window.addEventListener("DOMContentLoaded", () => {
           </svg>
         <span class="t-nowrap">Baselayer 3 CSS</span>
       </a>
-      <p class="mb-1 t-gray t-400">Version: 1.2.3 • <a class="t-gray t-100 hover:t-200 t-noline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3">GitHub</a></p>
+      <p class="mb-1 t-gray t-400">Version: 1.2.4 • <a class="t-gray t-100 hover:t-200 t-noline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3">GitHub</a></p>
       <p class="mb-1 t-gray t-400"><a class="t-gray t-100 hover:t-200 t-noline hover:t-line" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> (24 KB)</p>
     </div>
 
@@ -596,22 +596,22 @@ body {
 &lt;/div&gt;
 </code></pre>
 <h2 id="the-long-lead-utility-class" tabindex="-1">The long-lead utility class</h2>
-<p>Intended for long-read essays, articles and blog posts, the <code>t-long-read</code> utility class (used on a wrapping element around your article content) will enlarge all text, including headings, depending on how much width is available.</p>
-<p>The base font size is expanded to 125% over the middle range — for container widths 640px to 1280px (i.e. same as the <code>sm</code> to <code>md</code> default breakpoints). Starting from 1rem (16px), this expands the base sext size to 20px. This <code>clamp()</code> has been calculated using Petter Walbø Johnsgård’s <a href="https://clamp.font-size.app/">Font-size Clamp Generator</a>.</p>
+<p>Intended for long-read essays, articles and blog posts, the <code>t-long-read</code> utility class (used on a wrapping element around your article content) will enlarge all text, including any headings, depending on how much width is available.</p>
+<p>The base font size is expanded to 125% over the middle range — for container widths 640px to 1280px (i.e. same as the <code>sm</code> to <code>md</code> default breakpoints). Starting from 1rem (16px), this expands the base sext size to 24px. This <code>clamp()</code> has been calculated using Petter Walbø Johnsgård’s <a href="https://clamp.font-size.app/">Font-size Clamp Generator</a>.</p>
 <p>The default behavior of <code>t-long-read</code> is to be responsive to viewport width using the viewport width unit, <code>vw</code>. But the same <code>t-long-read</code> utility class <em>if used inside a <code>container</code></em> (see <a href="/baselayer-3/layout/#container-query-powered-layouts">container query powered layouts</a>) will ramp up using the container query inline width unit, <code>cqi</code>.</p>
 <p>These two CSS clamp variables are set in <code>variables.css</code>:</p>
 <pre><code class="language-css">/*
 Default long-read
 */
 :root {
-  --fs-long-read: clamp(1rem, 0.75rem + 0.625vw, 1.25rem);
+  --fs-long-read: clamp(1rem, 0.5rem + 1.25vw, 1.5rem);
 }
 
 /*
 Container query powered long-read
 */
 .container {
-  --fs-long-read: clamp(1rem, 0.75rem + 0.625cqi, 1.25rem);
+  --fs-long-read: clamp(1rem, 0.5rem + 1.25cqi, 1.5rem);
 }
 </code></pre>
 <p>The Baselayer docs make use of JavaScript and some extra CSS to enable a demo toggle, so that you can switch between normal and long-read font size in this main article column.</p>
@@ -720,7 +720,7 @@ Container query powered long-read
 
               <p class="p-cell flex flex-center flex-wrap gap-2 t-center">
                 <span><a class="t-noline hover:t-line" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> (24 KB)</span>
-                <span>Version: 1.2.3</span>
+                <span>Version: 1.2.4</span>
                 <a class="t-noline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3">GitHub Repository</a>
                 <a class="t-noline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3/blob/main/LICENSE">MIT license</a>
               </p>

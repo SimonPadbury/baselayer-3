@@ -319,9 +319,9 @@ If you have a lot of content in your table, it will probably break your page lay
 
 ## The long-lead utility class 
 
-Intended for long-read essays, articles and blog posts, the `t-long-read` utility class (used on a wrapping element around your article content) will enlarge all text, including headings, depending on how much width is available.
+Intended for long-read essays, articles and blog posts, the `t-long-read` utility class (used on a wrapping element around your article content) will enlarge all text, including any headings, depending on how much width is available.
 
-The base font size is expanded to 125% over the middle range — for container widths 640px to 1280px (i.e. same as the `sm` to `md` default breakpoints). Starting from 1rem (16px), this expands the base sext size to 20px. This `clamp()` has been calculated using Petter Walbø Johnsgård’s [Font-size Clamp Generator](https://clamp.font-size.app/).
+The base font size is expanded to 125% over the middle range — for container widths 640px to 1280px (i.e. same as the `sm` to `md` default breakpoints). Starting from 1rem (16px), this expands the base sext size to 24px. This `clamp()` has been calculated using Petter Walbø Johnsgård’s [Font-size Clamp Generator](https://clamp.font-size.app/).
 
 The default behavior of `t-long-read` is to be responsive to viewport width using the viewport width unit, `vw`. But the same `t-long-read` utility class _if used inside a `container`_ (see [container query powered layouts](/baselayer-3/layout/#container-query-powered-layouts)) will ramp up using the container query inline width unit, `cqi`.
 
@@ -332,14 +332,14 @@ These two CSS clamp variables are set in `variables.css`:
 Default long-read
 */
 :root {
-  --fs-long-read: clamp(1rem, 0.75rem + 0.625vw, 1.25rem);
+  --fs-long-read: clamp(1rem, 0.5rem + 1.25vw, 1.5rem);
 }
 
 /*
 Container query powered long-read
 */
 .container {
-  --fs-long-read: clamp(1rem, 0.75rem + 0.625cqi, 1.25rem);
+  --fs-long-read: clamp(1rem, 0.5rem + 1.25cqi, 1.5rem);
 }
 ```
 

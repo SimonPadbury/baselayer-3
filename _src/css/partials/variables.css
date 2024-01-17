@@ -220,7 +220,7 @@ Alternatively, you could set these up using...
   Long-read utility
   =================
   */
-  --fs-long-read: clamp(1rem, 0.75rem + 0.625vw, 1.25rem);
+  --fs-long-read: clamp(1rem, 0.5rem + 1.25vw, 1.5rem);
 
   /* link decoration offset */
   --do-link: .3rem;
@@ -252,7 +252,7 @@ Container query powered spacing and typography
   --sp-3: clamp(2rem, 1rem + 2.5cqi, 3rem);
   --sp-4: clamp(3rem, 1.5rem + 3.75cqi, 4.5rem);
 
-  --fs-long-read: clamp(1rem, 0.75rem + 0.625cqi, 1.25rem);
+  --fs-long-read: clamp(1rem, 0.5rem + 1.25cqi, 1.5rem);
 }
 
 /*
