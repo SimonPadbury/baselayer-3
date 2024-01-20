@@ -597,21 +597,21 @@ body {
 </code></pre>
 <h2 id="the-long-lead-utility-class" tabindex="-1">The long-lead utility class</h2>
 <p>Intended for long-read essays, articles and blog posts, the <code>t-long-read</code> utility class (used on a wrapping element around your article content) will enlarge all text, including any headings, depending on how much width is available.</p>
-<p>The base font size is expanded to 125% over the middle range — for container widths 640px to 1280px (i.e. same as the <code>sm</code> to <code>md</code> default breakpoints). Starting from 1rem (16px), this expands the base sext size to 24px. This <code>clamp()</code> has been calculated using Petter Walbø Johnsgård’s <a href="https://clamp.font-size.app/">Font-size Clamp Generator</a>.</p>
+<p>The base font size is expanded to 125% over the middle range — for container widths 640px to 1280px (i.e. same as the <code>sm</code> to <code>md</code> default breakpoints). Starting from 1rem (16px), this expands the base sext size to 1.375rem (22px). This <code>clamp()</code> has been calculated using Petter Walbø Johnsgård’s <a href="https://clamp.font-size.app/">Font-size Clamp Generator</a>.</p>
 <p>The default behavior of <code>t-long-read</code> is to be responsive to viewport width using the viewport width unit, <code>vw</code>. But the same <code>t-long-read</code> utility class <em>if used inside a <code>container</code></em> (see <a href="/baselayer-3/layout/#container-query-powered-layouts">container query powered layouts</a>) will ramp up using the container query inline width unit, <code>cqi</code>.</p>
 <p>These two CSS clamp variables are set in <code>variables.css</code>:</p>
 <pre><code class="language-css">/*
 Default long-read
 */
 :root {
-  --fs-long-read: clamp(1rem, 0.5rem + 1.25vw, 1.5rem);
+  --fs-long-read: clamp(1rem, 0.625rem + 0.9375vw, 1.375rem);
 }
 
 /*
 Container query powered long-read
 */
 .container {
-  --fs-long-read: clamp(1rem, 0.5rem + 1.25cqi, 1.5rem);
+  --fs-long-read: clamp(1rem, 0.625rem + 0.9375cqi, 1.375rem);
 }
 </code></pre>
 <p>The Baselayer docs make use of JavaScript and some extra CSS to enable a demo toggle, so that you can switch between normal and long-read font size in this main article column.</p>
