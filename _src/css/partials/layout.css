@@ -659,6 +659,10 @@
     width: 100%;
   }
 
+  .w-100vw {
+    width: 100vw;
+  }
+
   .w-max-100vw {
     max-width: 100vw;
   }
@@ -668,7 +672,7 @@
   }
 
   .h-100dvh {
-    height: min(100%, 100dvh);
+    height: 100dvh;
   }
 
   .h-max-100dvh {

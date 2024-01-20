@@ -201,4 +201,4 @@ Groups of form elements can be wrapped in `<fieldset>` tags. Add a `<legend>` to
 </form>
 ```
 
-See [buttons]({{ '/buttons' | url }}) for more information.
+See [buttons](/baselayer-3/buttons) for more information.

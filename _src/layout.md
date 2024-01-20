@@ -75,19 +75,20 @@ width: min(100%, {variable});
 
 This means they will responsively expand to width 100% within the space available, until they max out at their set width variable.
 
-Two more:
+Three more:
 
 * `w-100%` — width 100%
+* `w-100vw` — width 100vw
 * `w-max-100vw` — max-width 100vw
 
 
 ### Heights
 
 * `h-100%` — height 100%, e.g. for making cards equal to the height of their wrapper
-* `h-100dvh` — height 100% _or_ 100dvh, e.g. for making “full cover” panels
+* `h-100dvh` — height 100dvh, e.g. for making “full cover” panels
 * `h-max-100dvh` — max-height 100dvh, e.g. for tall sidebars (use `h-max-100dvh` with `overflow-y`)
 
-Baselayer uses `100dvh` (dynamic viewport height) that gives a different viewport height for some devices — i.e. it compensates for the scroll retracting interface toolbars on iOS Safari.
+Baselayer uses `100dvh` (dynamic viewport height) that gives a different viewport height for some devices — i.e. it compensates for the scroll-retracting interface toolbars on iOS Safari.
 
 ### Box
 
