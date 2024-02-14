@@ -26,4 +26,4 @@ Baselayer uses some modern web technologies such as CSS Grid, CSS math functions
 
 **Documentation:** [https://simonpadbury.github.io/baselayer-3/](https://simonpadbury.github.io/baselayer-3/)
 
-**Changelog:** [https://github.com/SimonPadbury/baselayer-3/blob/main/README.md](https://github.com/baselayer/blob/main/CHANGELOG.md)
+**Changelog:** [https://github.com/SimonPadbury/baselayer-3/blob/main/CHANGELOG.md](https://github.com/SimonPadbury/baselayer-3/blob/main/CHANGELOG.md)
