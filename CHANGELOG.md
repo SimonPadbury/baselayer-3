@@ -9,6 +9,15 @@
 
 # Baselayer 3 changelog
 
+## v.3.3.0 -- 9 March 2024
+
+* Changed the version number `v.1` to `v.3` to prevent confusion. This is now Baselayer 3.3.0, not v.1.3.0). (From now on, the docs refer back to v.3.1.x, v.3.2.x etc.)
+* Colour styles refactored to use Hex (#) and `color-mix()` for shades, instead of OKLCH and lightness channels. Color utility classes are mostly unchanged (orange is now amber). The OKLCH color system is still available in this repository as `colors.oklch.css` but it is no loonger used.
+* Form input indicators (e.g. date icon, time icon) are now visible (white) in the dark theme.
+* Removed `:active` from buttons.
+* Added `t-balance` for `text-wrap: balance` on e.g. titles.
+* Added (again) `*-reversi` and `*-reversi-alt` black/white color utilities.
+
 ## v.1.2.5 -- 20 Jan 2024
 
 * Fixed `.h-100dvh`
@@ -16,7 +25,7 @@
 
 ## v.1.2.4 -- 17 Jan 2024
 
-* Increased upper limit of `.t-long-read` to 1.375rem (22px). 
+* Increased upper wrapper of `.t-long-read` to 1.375rem (22px). 
 
 ## v.1.2.3 -- 10 Jan 2024
 
@@ -33,7 +42,7 @@
 ## v.1.2.1 -- 13 Dec 2023
 
 * Improved native font stacks.
-* Isolated sans-serif to `--t-sans-serif` and serif to `--t-serif`.
+* Isolated sans-serif to `--t-sans` and serif to `--t-serif`.
 * Baselayer’s earlier “Old Style” serif is still available as `--t-old-serif` but no longer deployed by default.
 
 ## v.1.2.0 -- 2 December 2023

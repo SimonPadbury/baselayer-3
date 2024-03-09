@@ -14,27 +14,24 @@ A few native font stacks are set in the `root-vars.css` file.
 
 ```
 :root {
-  --t-sans-serif: ui-sans-serif, system-ui, sans-serif;
+  --t-sans: ui-sans-serif, system-ui, sans-serif;
   --t-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
   --t-mono: ui-monospace, Menlo, Consolas, "Courier New", monospace;
 
+  /* Alternative serif font stack (not used anywhere) */
   --t-old-serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
 
-  --t-base: var(--t-sans-serif);
+  --t-base: var(--t-sans);
   --t-prose: var(--t-serif);
 }
 ```
-
-Since Baselayer 3 v.1.2.1, the sans-serif and serif native font stacks have been improved and isolated to their own CSS variables. These are not accessed directly, but they are loaded into the Baselayer variabes `--t-base` and `--t-prose`.
-
-(Baselayer’s earlier “Old Style” serif stack remains available as `--t-old-serif`, but it is no longer deployed in Baselayer. If you want to use it, it’s still there for you to access) .
 
 Everything here is an example, a place to start. Your own `--base` and `--prose` don’t need to be both sans-serif and serif. See [setting font stacks](#setting-font-stacks) for more information.
 
 The Baselayer docs make use of JavaScript and some extra CSS to enable a demo toggle, so that you can switch between `--base` and `--prose` in this main content area.
 
 <p class="flex flex-center">
-  <button class="toggler p-cell flex flex-column gap-1 bg-blue bg-600 hover:bg-700" onclick="toggleFont()">
+  <button class="toggler p-cell flex flex-column gap-1 bg-blue bg-500 hover:bg-600 bg-dark-invert" onclick="toggleFont()">
     <div class="label-base w-100% flex flex-middle gap-1">
       <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
       <div class="grow t-left">Base font</div>
@@ -56,7 +53,7 @@ Font stack usage in Baselayer:
 
 In choosing your own font stacks, you will probably need two fonts that have similar _x-height_, so that you can set them using the same font size and line-height. Some other factors to compare are hights for lowercase ascenders and descenders, letter width, and stroke thickness.
 
-If you prefer Baselayer’s ealier (pre v.1.2.1) “Old Style” sans-serif font stack, this is still available in the variable `--t-old-serif` and you can easily revert to it by doing something like this in your own stylesheet:
+If you prefer Baselayer’s ealier “Old Serif” font stack, this is still available in the variable `--t-old-serif`. You can easily revert to it by putting something like this in your own stylesheet:
 
 ```css
 .t-prose {
@@ -66,7 +63,7 @@ If you prefer Baselayer’s ealier (pre v.1.2.1) “Old Style” sans-serif font
 
 If you want to stick with using native font stacks, the [Modern Font Stacks](https://modernfontstacks.com) website has several examples that you can easily copy.
 
-In choosing your own typefaces from elsewhere, a good place to start is by pairing serif and sans-serif (or slab serif) fonts of the same typeface, if both are available. [Google Fonts](https://fonts.google.com) has several typefaces to choose from, such as:
+In choosing your own typefaces from elsewhere, a good place to start is by pairing serif and sans-serif (or slab serif) fonts of the same typeface, if both are available. For example, [Google Fonts](https://fonts.google.com) has several typefaces to choose from, such as:
 
 * Alegreya and Alegreya Sans
 * IBM Plex and IBM Plex Sans
@@ -75,8 +72,6 @@ In choosing your own typefaces from elsewhere, a good place to start is by pairi
 * PT Serif and PT Sans
 * Roboto and Roboto Slab
 * Source Sans 3 and Source Serif 4
-
-Of course, you can also mix and match. 
 
 Google provides examples of how to use their fonts in your CSS, where the fallback for each is only e.g. `sans-serif` or `serif`. But it may be better to use Baselayer’s native font stack variables instead. For example:
 
@@ -133,7 +128,7 @@ Example heading sizes (using utility classes, so that they don’t show up in th
 All headings `<h1>` to `<h6>` and matching utility classes `h1` to `h6` have:
 
 * Headings font sizes set in the variables file. The typographic scale is 1.250 (major third), calculated using the [Type Scale](https://type-scale.com) webapp.
-* Headings also have their font-family set using `--hf: inherit`. This has been done so that you can override it. Your headings don’t need to have the same typeface as your paragraphs.
+* Headings also have their font-family set using `--hf: inherit`. This has been done so that you can use the variable to override it. Your headings don’t need to be the same typeface as your paragraphs.
 * Headings font weight is set using `--hfw: var(--bold)` — which you can also override.
 * Headings line heights set using the formula 1em + 0.5rem. Meanwhile the bottom margin is the same as for paragraphs: the line-height of _defaut_ text (1.5) made into rems (1.5rem), set by the variable `--mlh`. (When the default text size is 16px, the line height and margin-bottom of typographic block elements is 24px.)
 * Headings `<h2>` to `<h6>` and matching utility classes `h2` to `h6` also have top margins equal to their respective line heights (so H2 has a bigger top margin than H3, and so on)
@@ -162,11 +157,11 @@ All headings `<h1>` to `<h6>` and matching utility classes `h1` to `h6` have:
 Tips:
 
 1. In some contexts (e.g. in card components) you may not want any built-in spacing for typographic block elements. Then, you can remove margins by using the `m-0` utility class.
-2. You can also remove top margin “remotely” e.g. you can target the first item inside its wrapper using `.your-wrapper:first-child { margin-top: 0; }`, or the first sibling after the `<header>` or `<h1>` e.g. as I have done in these docs: `.content-grid header + * { margin-top: 0; }`. This takes care of any chapters that start their content with an `<h2>` as the first element under the title (header) block.
+2. You can also remove top margin “remotely” e.g. you can target the first item inside its wrapper using `.your-wrapper:first-child { margin-top: 0; }`, or the first sibling after the `<header>` or `<h1>` e.g. as I have done in these docs: `.content-grid header + * { margin-top: 0; }`. This takes care of any pages that start their content with an `<h2>` as the first element under the title (header) block.
 
 ### Block quotes
 
-Baselayer styles `<blockquote>` tags with some inline (x-axis) padding, to give the effect of indentation. This inline padding is set using the responsive spacing variable `--sp-3` so that it increases if there is more available width.
+Baselayer styles `<blockquote>` tags with some inline (x-axis) padding, to give the effect of indentation. This inline padding is set using the responsive spacing variable `--sp-3` so that it increases if there is more available width. Whitespace `--sp-3` is either based on viewport width or container width, depending on context.
 
 Otherwise, blockquotes have the same as paragraph styling.
 
@@ -346,7 +341,7 @@ Container query powered long-read
 The Baselayer docs make use of JavaScript and some extra CSS to enable a demo toggle, so that you can switch between normal and long-read font size in this main article column.
 
 <p class="flex flex-center">
-  <button class="toggler p-cell flex flex-column gap-1 bg-blue bg-600 hover:bg-700" onclick="toggleFS()">
+  <button class="toggler p-cell flex flex-column gap-1 bg-blue bg-500 hover:bg-600 bg-dark-invert" onclick="toggleFS()">
     <div class="label-normal w-100% flex flex-middle gap-1">
       <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
       <div class="grow t-left">Normal font-size</div>
@@ -368,12 +363,13 @@ If the `<code>` tag is wrapped in a `<pre>` tag, then it becomes a block level e
 
 Besides those already introduced, Baselayer also has utility classes for:
 
-* `t-big` — increase font size by 1.5em (but there’s no clamp ramp). Use it directly on a `<p>` to enlarge the font (e.g. for a lead paragraph). Note: don’t use `t-big`  directly on a heading, because that will override the heading size. But you can use it on a wrapping element around a heading that you wish to enlarge (e.g. for a title or hero component).
-* `t-small` (or use the `<small>` HTML tag) — decrease font-size to 0.75em
+* `t-big` — increase font size by 1.25em. Use it directly on a `<p>` to enlarge the font (e.g. for a lead paragraph). Note: don’t use `t-big`  directly on a heading, because that will override the heading size. But you can use it on a wrapping element around a heading that you wish to enlarge (e.g. for a title or hero component).
+* `t-small` (or use the `<small>` HTML tag) — decrease font-size to 0.8em
 * `t-highlight` (or use the `<mark>` HTML tag) — text highlighter
 * `t-right`, `t-center`, and `t-left` — text alignment
 * `t-lighter`, `t-normal`, `t-semibold`, `t-bold`, `t-heavy` — font weights
 * `t-italic` — font style italic
+* `t-balance` — balances word-wrap, so that e.g. long headings don't have orphans
 * `t-uppercase` — text transform to capitals
 * `t-noline` — use to remove the underline (underscore) from links where having it may be inappropriate (e.g. in menus)
 * `hover:t-line` – make underline appear on hover (pair as `t-noline hover:t-line` on a link)

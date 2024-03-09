@@ -27,7 +27,7 @@ Baselayer form elements have simple background and focus styling (no default bor
   </p>
   <p>
     <label for="example-input-search">Search</label>
-    <input type="search" id="example-input-serach" name="example" placeholder="Search ...">
+    <input type="search" id="example-input-search" name="example" placeholder="Search ...">
   </p>
   <p>
     <label for="example-input-email">Email address</label>
@@ -56,7 +56,7 @@ On touch screens, these inputs invoke the numeric keyboard instead of the text k
   </p>
   <p>
     <label for="example-input-number">Number</label>
-    <input type="number" id="quantity" name="example" min="0" inputmode="numeric" pattern="\d*">
+    <input type="number" id="example-input-number" name="example" min="0" inputmode="numeric" pattern="\d*">
   </p>
 </form>
 
@@ -86,7 +86,7 @@ Invokes the device’s color picker.
 <form action="">
   <p>
     <label for="example-input-color">Color</label>
-    <input type="color" id="example-inupt-color" placeholder="#fff">
+    <input type="color" id="example-input-color" placeholder="#fff">
   </p>
 </form>
 

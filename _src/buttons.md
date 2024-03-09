@@ -8,7 +8,7 @@ nextPage: "/examples/"
 nextLink: "Examples"
 ---
 
-Baselayer form elements have simple background, hover/active and focus styling (border is set to `1px solid transparent`). 
+Baselayer form elements have simple background, hovers and focus styling (border is set to `1px solid transparent`). 
 
 ### Button types and link “pseudo-buttons”
 
@@ -34,17 +34,15 @@ Baselayer form elements have simple background, hover/active and focus styling (
 
 **Notes:**
 
-1. Form inputs, textareas, buttons, and the `btn` class, have `font-size: inherit`. This means their font sizes can be modified by any font-size wrapper around the button in Baselayer.
+1. Form inputs, textareas, buttons, and the `btn` class, have `font-size: inherit`. This means their font sizes can be modified by any font-size limit around the button in Baselayer.
 2. The font-family of form elements, buttons, `btn` is controlled by `var(--base)` (default is sans-serif).
 3. The `btn` class doesn’t include the input focus ring (that is set only on form inputs, textareas, and the `<button>` tag). But if the `btn` utility class is used on an `<a href="">` link tag, then will get the link focus ring insead (this is only visible when keyboard-tabbing or using assistive tech).
 
 ## Full-width buttons
 
-In Baselayer, buttons are pre-styled with `display: inline-flex` and centering and middling flexbox alignment. So, if you want a button to stretch full-width, you can add `class="w100%"` or you can override the inline-flex by adding `class="flex"`.
+In Baselayer, buttons are pre-styled with `display: inline-flex` and centering and middling flexbox alignment. 
 
-<div aria-label="Note" class="popout mb-2 bl-3 b-orange b-300 p-2 t-black bg-orange bg-100">
-  Do not use <code>class="block"</code> on a button (or <code>.btn</code>) because that will override its inline flexbox.
-</div>
+So, if you want a button to stretch full-width, you can add `class="w100%"` or you can override the inline-flex by adding `class="flex"`. (Do not use `class="block"` on a button (or `.btn`) because that will override its inline flexbox.)
 
 <button class="w-100% my-2" type="button" name="button">Button</button>
 
@@ -98,7 +96,7 @@ When colorizing buttons, remember to set their `hover:` hover state shades too.
   <p>
     <button type="button" name="button">Button</button>
     <button class="bg-blue bg-600 hover:bg-700" type="button" name="button">Button</button>
-    <button class="t-black hover:t-black bg-orange bg-300 hover:bg-400" type="button" name="button">Button</button>
+    <button class="t-black hover:t-black bg-amber bg-400 hover:bg-500" type="button" name="button">Button</button>
     <a class="btn b-green hover:b-700 bg-transparent bg-600 t-green t-600 hover:t-white hover:bg-green hover:bg-700" href="#/">Link “button”</a>
   </p>
 </form>
@@ -110,8 +108,8 @@ When colorizing buttons, remember to set their `hover:` hover state shades too.
 <!-- Blue button -->
 <button class="bg-blue bg-600 hover:bg-700" type="button" name="button">Button</button>
 
-<!-- orange button -->
-<button class="t-black hover:t-black bg-orange bg-300 hover:bg-400" type="button" name="button">Button</button>
+<!-- Amber button -->
+<button class="t-black hover:t-black bg-amber bg-400 hover:bg-500" type="button" name="button">Button</button>
 
 <!-- Green outline (a.k.a. ghost) link “button” -->
 <a class="btn b-green hover:b-700 bg-transparent bg-600 t-green t-600 hover:t-white hover:bg-green hover:bg-700" href="#/">Link “button”</a>
@@ -192,7 +190,7 @@ You can also use the typographic size classes `t-small` and `t-big` to modify bu
 </form>
 ```
 
-**Note:** button x-axis padding is `1em`, so that it will also respond to the text size of the button.
+Button x-axis padding is `1em`, so that it will also respond to the text size of the button.
 
 ## Stretch buttons
 

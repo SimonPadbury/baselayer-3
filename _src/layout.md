@@ -8,8 +8,8 @@ prevLink: "Typography"
 nextLink: "Decoration"
 ---
 
-<div aria-label="Note" class="popout mb-2 bl-3 b-blue b-300 p-2 t-black bg-blue bg-100">
-  Since September 2023, all “evergreen” browsers (Chrome, Edge, Firefox, Safari) have capability for the new CSS Container Queries (see <a class="t-blue t-600 hover:t-700" href="https://caniuse.com/?search=container">Can I use Container Queries</a>). Baselayer 3 v.1.2.x has <a class="t-blue hover:t-700" href="#container-query-powered-layouts">container query powered layouts</a> to control <code class="t-black bg-blue bg-200">flex</code>, <code class="t-black bg-blue bg-200">grid</code>, and <code class="t-black bg-blue bg-200">hidden</code> utility classes. 
+<div aria-label="Note" class="popout mb-2 bl-3 b-blue b-300 b-dark-invert p-2 bg-blue bg-100 bg-dark-invert">
+  Since September 2023, all “evergreen” browsers (Chrome, Edge, Firefox, Safari) have capability for the new CSS Container Queries (see <a href="https://caniuse.com/?search=container">Can I use Container Queries</a>). Baselayer 3.2.x has <a href="#container-query-powered-layouts">container query powered layouts</a> to control <code>flex</code>, <code>grid</code>, and <code>hidden</code> utility classes. 
 </div>
 
 ## Blocks
@@ -21,17 +21,16 @@ nextLink: "Decoration"
 
 ## Dimensions
 
-### Centered layout wrappers
+### Content wrappers
 
-Baselayer’s `wrapper` classes add a constrained width, inline margin (x-axis) auto centering, and side edge whitespace when the viewport width is at or narrower then the wrapper width.
+Baselayer’s `wrapper` classes add a constrained layout width, inline margin (x-axis) auto centering, and side edge whitespace when the viewport width is at or narrower then the wrapper width.
 
-<div aria-label="Note" class="popout mb-2 bl-3 b-orange b-300 p-2 t-black bg-orange bg-100">
-  Baselayer’s <em>wrappers</em> were previously known as <em>containers</em> (before v.1.2.x), copying the name from other CSS frameworks such as Bootstrap. But with Baselayer 3 v.1.2.x switching from media queries to container queries, a <em>context container</em> was required for parent elements of container query controlled layout systems. And so the class name <code class="t-black bg-blue bg-200">container</code> has been used for that purpose. See <a class="t-blue hover:t-700" href="#container-query-powered-layouts">container query powered layouts</a>.
+<div aria-label="Note" class="popout mb-2 bl-3 b-amber b-300 b-dark-invert p-2 bg-amber bg-100 bg-dark-invert">  Baselayer’s <em>wrapper</em> classes were previously known as <em>container</em> classes, copying the name from other CSS frameworks such as Bootstrap. But with Baselayer 3.2.x switching from <code>@media</code> queries to <code">@container</code> queries, a context-container was required for parent elements of container query controlled layout systems. Therefore, the <code>container</code> class is now specifically used for that purpose. See <a href="#container-query-powered-layouts">container query powered layouts</a>.
 </div>
 
 The centered layout `wrapper` is set up as follows:
 
-`variables.css`
+In `variables.css`:
 
 ```css
 :root {
@@ -39,9 +38,18 @@ The centered layout `wrapper` is set up as follows:
 
   --sp-2: clamp(1rem, 0.5rem + 1.25vw, 1.5rem);
 }
+
+/*
+Container query context
+*/
+.container {
+  --sp-2: clamp(1rem, 0.5rem + 1.25cqi, 1.5rem);  
+}
 ```
 
-`layout.css`
+For viewport widths below `--w-max` side spacing is provided by `--sp-2`. This adds a negative space (whitespace) right and left of the wrapper, to prevent text being difficult to read when up against the sides of the viewport. `--sp-2` involes viewport widths (vw), or container query widths (cqi) if the `wrapper` is places _inside_ a `container`.
+
+In `layout.css`:
 
 ```css
 .wrapper {
@@ -51,7 +59,7 @@ The centered layout `wrapper` is set up as follows:
 }
 ```
 
-For viewport widths below `--w-max` side spacing is provided by `--sp-2`. This adds a negative space (whitespace) right and left of the wrapper, to prevent text being difficult to read when up against the sides of the viewport.
+There are several `wrapper` width modifiers, same as the width modifiers — see below.
 
 ### Widths
 
@@ -62,12 +70,11 @@ The difference between width utilities and wrapper utilities is that wrappers ha
 * `wrapper-xs` / `w-xs` — max width 320px
 * `wrapper-sm` / `w-sm` — max width 640px
 * `wrapper-md` / `w-md` — max width 960px
-* `wrapper-xs` / `w-xs` — max width 320px
 * `wrapper-lg` / `w-lg` — max width 1280px
 * `wrapper-xl` / `w-xl` — max width 1600px
 * `wrapper` — max width 1600px
 
-Both the `xs`, `sm`, `md`, `lg`, `xl` wrapper and width utilities have their widths set using:
+Both the `-xs`, `-sm`, `-md`, `-lg`, `-xl` wrapper and width utilities have their widths set using:
 
 ```css
 width: min(100%, {variable});
@@ -107,31 +114,47 @@ Baselayer uses `100dvh` (dynamic viewport height) that gives a different viewpor
 * `z-2` — z-index: 2
 * `z-3` — z-index: 3
 
-For centering and middling, use [flex](#flex-layouts).
+For centering and middling, you also need [flex](#flex-layouts).
 
 Example: 
 
 <div class="relative mb-2 b-1 aspect-ratio-16x9">
-  <div class="absolute top w-100% center t-center"><code>top</code></div>
-  <div class="absolute right h-100% flex flex-middle"><code>right</code></div>
-  <div class="absolute bottom w-100% center t-center"><code>bottom</code></div>
-  <div class="absolute left h-100% flex flex-middle"><code>left</code></div>
-  <div class="absolute box flex flex-center flex-middle t-center"><code>centered<br>and middled</code></div>
+  <div class="absolute top w-100% t-center"><code>Top</code></div>
+  <div class="absolute right h-100% flex flex-middle"><code>Right</code></div>
+  <div class="absolute bottom w-100% t-center"><code>Bottom</code></div>
+  <div class="absolute left h-100% flex flex-middle"><code>Left</code></div>
+  <div class="absolute box flex flex-center flex-middle t-center"><code>Mentered<br>and middled</code></div>
 </div>
 
 ```html
-<div class="relative mb-2 b-1 aspect-ratio-16x9">
-  <div class="absolute top w-100% center t-center"><code>top</code></div>
-  <div class="absolute right h-100% flex flex-middle"><code>right</code></div>
-  <div class="absolute bottom w-100% center t-center"><code>bottom</code></div>
-  <div class="absolute left h-100% flex flex-middle"><code>left</code></div>
-  <div class="absolute box flex flex-center flex-middle t-center"><code>centered<br>and middled</code></div>
+<div class="relative">
+
+  <div class="absolute top">
+    Top
+  </div>
+
+  <div class="absolute right">
+    Right
+  </div>
+  
+  <div class="absolute bottom">
+    Bottom
+  </div>
+  
+  <div class="absolute left">
+    Left
+  </div>
+  
+  <div class="absolute box flex flex-center flex-middle">
+    Centered and middled
+  </div>
+
 </div>
 ```
 
 ## Container query powered layouts
 
-Since Baselyer 3 v.1.2.x, [flex](#flex-layouts), [grid](#grid-layouts), and [invisibility](#invisibility) (hidden) utilities have `@container` variants that only work if they are wrapped in a `container` class, that provides the _container query context_:
+Since Baselyer 3.2.x, [flex](#flex-layouts), [grid](#grid-layouts), and [invisibility](#invisibility) (hidden) utilities have `@container` variants that only work if they are wrapped in a `container` class, that provides the _container query context_:
 
 ```css
 .container {
@@ -147,8 +170,8 @@ There are three `@container` variants for `flex`, `grid`, and `hidden` classes c
 * `md:` (960px)
 * `lg:` (1280px)
 
-<div aria-label="Note" class="popout mb-2 bl-3 b-orange b-300 p-2 t-black bg-orange bg-100">
-  Layout classes with <code class="t-black bg-blue bg-200">sm:</code>, <code class="t-black bg-blue bg-200">md:</code>, and <code class="t-black bg-blue bg-200">lg:</code> prefixes do not work unless they are inside of a <code class="t-black bg-blue bg-200">container</code>.
+<div aria-label="Note" class="popout mb-2 bl-3 b-amber b-300 b-dark-invert p-2 bg-amber bg-100 bg-dark-invert">
+  Layout classes with <code>sm:</code>, <code>md:</code>, and <code>lg:</code> prefixes do not work unless they are inside a <code>container</code>.
 </div>
 
 You can place the `container` class on e.g.:
@@ -412,12 +435,12 @@ With the `grid-dense` modifier you can back-fill some or all of these unoccupied
 
 #### Grid and container queries
 
-The Baselayer grid system has four tiers of container query breakpoint widths, for creating different grid layouts for different sized containers: all widths, `sm`, `md`, and `lg`.
+The Baselayer grid system has four tiers of container query breakpoint widths, for creating different grid layouts for different sized containers: all widths, `sm:`, `md:`, and `lg:`.
 
 * Tier 1: grid layout effective at all container widths (including below 640px)
-* Tier 2: `sm` grid layout effective at container widths 640px and up
-* Tier 3: `md` grid layout effective at container widths 960px and up
-* Tier 4: `lg` grid layout effective at container widths 1280px and up
+* Tier 2: `sm:` grid layout effective at container widths 640px and up
+* Tier 3: `md:` grid layout effective at container widths 960px and up
+* Tier 4: `lg:` grid layout effective at container widths 1280px and up
 
 These three breakpoint prefixes can be added to grid wrapper `equal-` classes (to specify that you want 2, 3, or 4 equalized columns at those container widths). And they can also be added to the per-item positioning and spanning classes. Meanwhile the `grid`, `grid-dense`, and `gap-*` classes cannot be controlled by breatkpoints — because they don’t need to be.
 
@@ -579,12 +602,12 @@ Use the `popout` utility class on an immediate child of `content-grid` to make a
 
 Example information panel using `popout`:
 
-<div aria-label="Note" class="popout mb-2 bt-3 b-blue b-300 r-2 p-2 bg-gray bg-100 bg-dark-invert">
+<div aria-label="Note" class="popout mb-2 bt-3 b-blue b-300 b-dark-invert r-2 p-2 bg-gray bg-100 bg-dark-invert">
   &star; Information panel
 </div>
 
 ```html
-<div aria-label="Note" class="popout mb-2 bt-3 b-blue b-300 r-2 p-2 t-black bg-gray bg-100">
+<div aria-label="Note" class="popout mb-2 bt-3 b-blue b-300 b-dark-invert r-2 p-2 t-black bg-gray bg-100 bg-dark-invert">
   &star; Information panel
 </div>
 ```
@@ -597,16 +620,20 @@ Example “poster” infographic panel using `expand` (and showing how Baselayer
 
 <div class="expand mt-2 mb-3 aspect-ratio-16x9 flex flex-center flex-middle relative">
   <svg xmlns="http://www.w3.org/2000/svg" class="absolute box img-cover" preserveAspectRatio="xMidYMid slice" width="1000" height="600"><defs><linearGradient id="gradient1" gradientTransform="rotate(45)"><stop offset="5%" stop-color="rgba(255,255,0,.5)"/><stop offset="50%" stop-color="rgba(255,255,255,0)"/><stop offset="95%" stop-color="rgba(255,0,0,.5)"/></linearGradient><linearGradient id="gradient2" gradientTransform="rotate(135)"><stop offset="5%" stop-color="rgba(0,0,255,.5)"/><stop offset="50%" stop-color="rgba(255,255,255,0)"/><stop offset="95%" stop-color="rgba(0,255,0,.5)"/></linearGradient></defs><rect width="100%" height="100%" fill="url('#gradient1')"/><rect width="100%" height="100%" fill="url('#gradient2')"/></svg>
-  <div class="relative w-sm aspect-ratio-16x9 p-3">
-    <p class="h1 t-bold">This is a lot of example text that may or may not distort the aspect ratio (16×9) of this expand component.</p>
-    <p class="h1 t-bold">See what it does on a small viewport width (e.g. phone).</p>
+  <div class="z-1 w-sm p-3">
+    <div>
+      <p class="h1 t-bold">This is a lot of example text that may or may not distort the aspect ratio (16×9) of this expand component.</p>
+      <p class="h1 t-bold">See what it does on a small viewport width (e.g. phone).</p>
+    </div>
   </div>
 </div>
 
+A z-index positioning layer (e.g. `z-1`) is required to make the text overlay the image layer. (Alternatively, you can add another `relative` context.)
+
 ```html
 <div class="expand mt-2 mb-3 aspect-ratio-16x9 flex flex-center flex-middle relative">
-  <svg xmlns="http://www.w3.org/2000/svg" class="absolute box img-cover" preserveAspectRatio="xMidYMid slice" width="1000" height="600"><defs><linearGradient id="gradient1" gradientTransform="rotate(45)"><stop offset="5%" stop-color="rgba(255,255,0,.5)"/><stop offset="50%" stop-color="rgba(255,255,255,0)"/><stop offset="95%" stop-color="rgba(255,0,0,.5)"/></linearGradient><linearGradient id="gradient2" gradientTransform="rotate(135)"><stop offset="5%" stop-color="rgba(0,0,255,.5)"/><stop offset="50%" stop-color="rgba(255,255,255,0)"/><stop offset="95%" stop-color="rgba(0,255,0,.5)"/></linearGradient></defs><rect width="100%" height="100%" fill="url('#gradient1')"/><rect width="100%" height="100%" fill="url('#gradient2')"/></svg>
-  <div class="relative w-sm aspect-ratio-16x9 p-3">
+  <svg>...</svg>
+  <div class="z-1 w-sm aspect-ratio-16x9 p-3">
     <p class="h1 t-bold">This is a lot of example text that may or may not distort the aspect ratio (16×9) of this expand component.</p>
     <p class="h1 t-bold">See what it does on a small viewport width (e.g. phone).</p>
   </div>

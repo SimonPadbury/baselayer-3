@@ -127,7 +127,7 @@
           <div class="grid gap-2">
             <header id="article-title" class="lg:col-1">
               <div class="wrapper-md pt-4 t-big t-center">
-                <h1 class="t-semibold">{{ mainHeading }}</h1>
+                <h1 class="t-balance t-semibold">{{ mainHeading }}</h1>
               </div>
             </header>
           
@@ -145,25 +145,23 @@
             </main>
 
             <footer class="lg:col-1 content-grid">
-              <nav class="popout mt-3 mb-2">
-                <ul class="m-0 unlist p-0 grid gap-2 sm:equal-2-cols">
-                  {% if prevPage %}
-                  <li class="my-1 b-1 r-3 p-cell flex flex-column gap-1">
-                    Previous
-                    <a class="h2 m-0 t-normal" href="{{ prevPage | url }}"> {{ prevLink if prevLink else "Previous page" }}</a>
-                  </li>
-                  {% endif %}
-                  {% if nextPage %}
-                  <li class="sm:col-2 my-1 b-1 r-3 p-cell flex flex-column gap-1 t-right">
-                    Next
-                    <a class="h2 m-0 t-normal" href="{{ nextPage | url }}">{{ nextLink if nextLink else "Next page" }}</a>
-                  </li>
-                  {% endif %}  
-                </ul>
+              <nav class="popout mt-3 mb-2 p-0 grid gap-2 sm:equal-2-cols">
+                {% if prevPage %}
+                <a class="sm:col-1 my-1 b-1 b-blue b-300 hover:b-900 b-dark-invert r-3 p-cell flex flex-column gap-1 hover:bg-blue hover:bg-100 bg-dark-invert"  href="{{ prevPage | url }}">
+                  Previous page
+                  <span class="h2 m-0 t-normal"> {{ prevLink if prevLink else "Previous page" }}</span>
+                </a>
+                {% endif %}
+                {% if nextPage %}
+                <a class="sm:col-2 my-1 b-1 b-blue b-300 hover:b-900 b-dark-invert r-3 p-cell flex flex-column gap-1 t-right hover:bg-blue hover:bg-100 bg-dark-invert" href="{{ nextPage | url }}">
+                  Next page
+                  <span class="h2 m-0 t-normal">{{ nextLink if nextLink else "Next page" }}</span>
+                </a>
+                {% endif %}
               </nav>
-              <div class="p-2 flex flex-center t-center">
-                <a href="{{ '/' | url }}" class="h3 m-0 t-normal flex flex-column flex-center gap-1 t-noline">
-                  <svg class="mx-auto" height="48" width="48" viewBox="0 0 111 111" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-miterlimit:1.5">
+              <div class="p-2 flex flex-column flex-middle t-center">
+                <a href="{{ '/' | url }}" class="mb-1 flex flex-column flex-center gap-1 t-noline">
+                  <svg class="mx-auto" height="48" width="48" viewBox="0 0 111 111" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-miterwrapper:1.5">
                     <g transform="translate(-294.592 -94.592)">
                       <circle cx="350" cy="150" r="50" style="fill:none;stroke:currentColor;stroke-width:4px"/>
                       <path d="M294.167 180H320v-65.833" style="fill:none;stroke:currentColor;stroke-width:4px" transform="translate(10 -10)"/>
@@ -172,14 +170,15 @@
                       <path d="M310 180h80" style="fill:none;stroke:currentColor;stroke-width:4px"/>
                       </g>
                     </svg>
-                  <span class="t-nowrap">{{ metadata.title }}</span>
+                  <span class="h3 m-0 t-normal t-nowrap">{{ metadata.title }}</span>
                 </a>
+                <span>Version: {{ metadata.version }}</span>
               </div>
 
               <p class="p-cell flex flex-center flex-wrap gap-2 t-center">
                 <span><a class="t-noline hover:t-line" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> ({{ metadata.filesize }})</span>
-                <span>Version: {{ metadata.version }}</span>
                 <a class="t-noline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3">GitHub Repository</a>
+                <a class="t-noline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3/blob/main/CHANGELOG.md">Changelog</a>
                 <a class="t-noline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3/blob/main/LICENSE">MIT license</a>
               </p>
               <p class="t-center"><span>Developer: <a class="t-noline hover:t-line" href="{{ metadata.developer.url }}">{{ metadata.developer.name }}</a></span>

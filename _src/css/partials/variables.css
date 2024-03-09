@@ -1,148 +1,117 @@
 :root {
-  /*
-  Baselayer pre-OKLCH fallback colors
-  ===================================
-  Note: for pre-OKLCH browsers, Baselayer 3 color utility classes 
-  don’t work at all. But text, body background, links, buttons, 
-  form inputs, table borders, etc. receive these fallback colors.
-  */
+  /* Fallback colors (pre `color-mix()` */
   --bgc-body: white;
   --tc-base: #222;
-  --tc-link: #2c6aff;
-  --tc-link-hover: #2559fe;
-  --focus-ring: #4df5ff;
+  --tc-link: #4162e3;
+  --tc-link-hover: #344fb6;
+  --focus-ring: #9BAFF9;
   --tc-input: black;
   --bgc-input: #f5f5f5;
   --tc-btn: white;
   --tc-btn-hover: white;
-  --bgc-btn: #898989;
+  --bgc-btn: #808080;
   --bgc-btn-hover: #707070;
   --tc-code: black;
-  --bgc-code: #4df5ff;
+  --bgc-code: #e0e0e0;
   --bgc-highlight: #ffcc0066;
   --bc-fineline: #d9d9d9;
 
-  /* color utility builder fallbacks (for pre-OKLCH) */
-  --tx: #222;
-  --bx: #aaa;
-  --bgx: #ddd;
+  /* Theme base colors */
+  --blue: #3b6cff;
+  --green: #01b236;
+  --amber: #f0b300;
+  --red: #f80200;
+  --gray: #767676;
 
-  /*
-  Baselayer oklch() theme colors
-  */
-  --tc-base: oklch(var(--l900) var(--c0) var(--gray));
-  --tc-link: oklch(var(--l600) var(--c30) var(--blue));
-  --tc-link-hover: oklch(var(--l800) var(--c30) var(--blue));
-  --focus-ring: oklch(var(--l200) var(--c30) var(--blue));
-  --bgc-input: oklch(var(--l100) var(--c0) var(--gray));
-  --bgc-btn: oklch(var(--l600) var(--c0) var(--gray));
-  --bgc-btn-hover: oklch(var(--l700) var(--c0) var(--gray));
-  --bgc-code: oklch(var(--l100) var(--c10) var(--blue));
-  --bc-fineline: oklch(var(--l200) var(--c0) var(--gray));
+  /* Light theme colors */
+  --tc-base: color-mix(in srgb, var(--gray) calc((100% - var(--l900)) * 2), black);
+  --tc-link: color-mix(in srgb, var(--blue) calc((100% - var(--l600)) * 2), black);
+  --tc-link-hover: color-mix(in srgb, var(--blue) calc((100% - var(--l800)) * 2), black);
+  --focus-ring: color-mix(in srgb, var(--blue) calc(var(--l300) * 2), white);
+  --tc-input: black;
+  --bgc-input: #f5f5f5;
+  --tc-btn: white;
+  --tc-btn-hover: white;
+  --bgc-btn: color-mix(in srgb, var(--gray) calc((100% - var(--l500)) * 2), white);
+  --bgc-btn-hover: color-mix(in srgb, var(--gray) calc((100% - var(--l600)) * 2), black);
+  --tc-code: black;
+  --bgc-code: color-mix(in srgb, var(--gray) calc(var(--l200) * 2), white);
+  --bgc-highlight: #ffcc0066;
+  --bc-fineline: color-mix(in srgb, var(--gray) calc(var(--l200) * 2), white);
 }
 
 * {
-  /* lightness (decrements: 8.5%) */
-  --l100: 97%;
-  --l200: 88.5%;
-  --l300: 80%;
-  --l400: 71.5%;
-  --l500: 63%;
-  --l600: 54.5%;
-  --l700: 46%;
-  --l800: 37.5%;
-  --l900: 29%;
-  --l1000: 20.5%;
-  /* #171717 */
-
-  /* chroma */
-  --c0: 0;
-  --c02: 0.02;
-  --c04: 0.04;
-  --c06: 0.06;
-  --c08: 0.08;
-  --c10: 0.10;
-  --c15: 0.15;
-  --c20: 0.20;
-  --c25: 0.25;
-  --c30: 0.3;
-  /* (higher chromas are out of gamut for many monitors) */
-
-  /* hue */
-  --gray: 0;
-  --red: 30;
-  --orange: 90;
-  --green: 155;
-  --blue: 265;
-  /* --coolgray: 265;
-  --warmgray: 65;
-  --brown: 75;
-  --teal: 195;
-  --purple: 300;
-  --pink: 345; */
-
-  /* builders */
-  --tx: oklch(var(--tl) var(--tc) var(--th));
-  --bx: oklch(var(--bl) var(--bc) var(--bh));
-  --bgx: oklch(var(--bgl) var(--bgc) var(--bgh));
+  /* Color shades; increments: 10% */
+  --l100: 5%;
+  --l200: 15%;
+  --l300: 25%;
+  --l400: 35%;
+  --l500: 45%;
+  --l600: 55%;
+  --l700: 65%;
+  --l800: 75%;
+  --l900: 85%;
+  --l1000: 95%;
 }
 
-/*
-Baselayer dark oklch() theme colors
-===================================
-*/
-
-/* 
-Dark theme
-==========
-Alternatively, you could set these up using...
-
-@media (prefers-clr-scheme: dark) { 
-  * { }
-} 
-
-... if you don’t want to give your users the opportunity of choosing light or dark theme.
-*/
-
+/* Dark theme; increments: 8% */
 .theme-dark,
 .theme-dark * {
-  /* lightness (decrements: 7%) */
-  --l100: 85%;
-  --l200: 77.5%;
+  --l100: 22%;
+  --l200: 30%;
+  --l300: 38%;
+  --l400: 46%;
+  --l500: 54%;
+  --l600: 62%;
+  --l700: 70%;
+  --l800: 78%;
+  --l900: 86%;
+  --l1000: 94%
+}
+
+.theme-dark .b-dark-invert,
+.theme-dark .t-dark-invert,
+.theme-dark .bg-dark-invert {
+  --l100: 86%;
+  --l200: 78%;
   --l300: 70%;
-  --l400: 62.5%;
-  --l500: 55%;
-  --l600: 47.5%;
-  --l700: 40%;
-  --l800: 32.5%;
-  --l900: 25%;
-  --l1000: 18%;
-  /* #121212 */
+  --l400: 62%;
+  --l500: 54%;
+  --l600: 46%;
+  --l700: 38%;
+  --l800: 30%;
+  --l900: 22%;
 }
 
 .theme-dark {
-  --bgc-body: oklch(var(--l1000) var(--c0) var(--gray));
-  --tc-base: oklch(var(--l100) var(--c0) var(--gray));
-  --tc-link: oklch(var(--l300) var(--c30) var(--blue));
-  --tc-link-hover: oklch(var(--l400) var(--c30) var(--blue));
+  --bgc-body: color-mix(in srgb, var(--gray) calc((100% - var(--l1000)) * 2), black);
+  --tc-base: color-mix(in srgb, var(--gray) calc(var(--l100) * 2), white);
+  --tc-link: color-mix(in srgb, var(--blue) calc(var(--l400) * 2), white);
+  --tc-link-lighter: color-mix(in srgb, var(--blue) calc(var(--l300) * 2), white);
+  --tc-link-darker: color-mix(in srgb, var(--blue) calc(var(--l500) * 2), white);
+  --tc-link-hover: var(--tc-link-lighter);
+  --focus-ring: color-mix(in srgb, var(--blue) calc((100% - var(--l600)) * 2), black);
   --tc-input: white;
-  --bgc-input: oklch(var(--l800) var(--c0) var(--gray));
+  --bgc-input: color-mix(in srgb, var(--gray) calc((100% - var(--l900)) * 2), black);
+  --bgc-btn: color-mix(in srgb, var(--gray) calc((100% - var(--l600)) * 2), black);
+  --bgc-btn-lighter: color-mix(in srgb, var(--gray) calc((100% - var(--l500)) * 2), white);
+  --bgc-btn-darker: color-mix(in srgb, var(--gray) calc((100% - var(--l700)) * 2), black);
+  --bgc-btn-hover: var(--bgc-btn-lighter);
   --tc-code: white;
-  --bgc-code: oklch(var(--l800) var(--c30) var(--blue));
-  --bc-fineline: oklch(var(--l600) var(--c0) var(--gray));
+  --bgc-code: color-mix(in srgb, var(--gray) calc((100% - var(--l800)) * 2), black);
+  --bc-fineline: color-mix(in srgb, var(--gray) calc((100% - var(--l700)) * 2), black);
 }
 
 :root {
-  /*
-  Native Typeface Stacks
-  */
-  --t-sans-serif: ui-sans-serif, system-ui, sans-serif;
+  /* Native Typeface Stacks */
+  --t-sans: ui-sans-serif, system-ui, sans-serif;
   --t-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
   --t-mono: ui-monospace, Menlo, Consolas, "Courier New", monospace;
 
+  /* Alternative serif font stack (not used anywhere) */
   --t-old-serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
 
-  --t-base: var(--t-sans-serif);
+  --t-base: var(--t-sans);
   --t-prose: var(--t-serif);
 
   /* Base font size */
@@ -151,6 +120,9 @@ Alternatively, you could set these up using...
   --lh-base: 1.5;
   /* margin line-height in rems */
   --m-lh: calc(var(--lh-base) * 1rem);
+
+  --t-small: .8em;
+  --t-big: 1.25em;
 
   /* Font weights */
   --fw-lighter: 200;
@@ -161,8 +133,7 @@ Alternatively, you could set these up using...
 
   /*
   Widths set at 320px intervals
-  If you change these, remember to also change 
-  the @custom-media queries variables below
+  Same as `@media` and `@container` min-widths
   */
   --w-xs: 320px;
   --w-sm: 640px;
@@ -182,10 +153,11 @@ Alternatively, you could set these up using...
   /*
   Spacing
   =======
-  Used for margins, paddings, flexbox gaps, and grid gaps.
-  sp-2 through sp-4 clamps are based on https://clamp.font-size.app/,
-  expanding each to 1.5× of initial value from 640px to 1280px.
-  See also “container query powered spacing” below.
+  Used for margins, paddings, flexbox gaps, and grid gaps. Notes:
+  * `--sp-2` through `--sp-4` clamps are based on https://clamp.font-size.app/,
+    expanding each to 1.5× of initial value from 640px to 1280px.
+  * `--sp-2` through `--sp-4` involve viewport widths (vw) or container widths (cqi)
+    depending on context. See also “container query powered variables” below.
   */
   --sp-1: 0.5rem;
   --sp-2: clamp(1rem, 0.5rem + 1.25vw, 1.5rem);
@@ -200,7 +172,7 @@ Alternatively, you could set these up using...
   Major third typographic scale
   =============================
   Salculated by https://type-scale.com
-  Set heading sizes using ems, so that all headings can be clamp() 
+  Set heading sizes using ems, so that all headings can be `clamp()`
   enlarged by wrapping with `.t-long-read` 
   */
   --h1: 2.441em;
@@ -218,15 +190,15 @@ Alternatively, you could set these up using...
 
   /*
   Long-read utility
-  =================
+  See also “container query powered variables” below.
   */
   --fs-long-read: clamp(1rem, 0.625rem + 0.9375vw, 1.375rem);
   ;
 
   /* link decoration offset */
-  --do-link: .3rem;
+  --d-off-link: .3rem;
   /* link decoration thickness */
-  --dt-link: 1px;
+  --d-thick-link: 1px;
   /* input and button height */
   --h-input: 2.5em;
   /* button font-weight */
@@ -243,12 +215,9 @@ Alternatively, you could set these up using...
   --r-4: 16px;
 }
 
-/*
-Container query powered spacing and typography
-*/
-
+/* Container query powered variables */
 .container {
-  /* No need for --sp-1 because it’s always 0.5rem */
+  /* No need for `--sp-1` here, because it’s always 0.5rem */
   --sp-2: clamp(1rem, 0.5rem + 1.25cqi, 1.5rem);
   --sp-3: clamp(2rem, 1rem + 2.5cqi, 3rem);
   --sp-4: clamp(3rem, 1.5rem + 3.75cqi, 4.5rem);
@@ -256,14 +225,3 @@ Container query powered spacing and typography
   --fs-long-read: clamp(1rem, 0.625rem + 0.9375cqi, 1.375rem);
   ;
 }
-
-/*
-Custom media
-*/
-
-@custom-media --max-sm (max-width: 639px);
-@custom-media --min-sm (min-width: 649px);
-@custom-media --max-md (max-width: 959px);
-@custom-media --min-md (min-width: 960px);
-@custom-media --max-lg (max-width: 1279px);
-@custom-media --min-lg (min-width: 1280px);

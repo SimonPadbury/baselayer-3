@@ -1,8 +1,8 @@
-<div id="site-nav" class="bg-gray bg-800">
+<div id="site-nav" class="bg-gray bg-100 bg-dark-invert">
   <div class="sticky top h-max-100dvh overflow-y">
     <div class="p-cell t-center">
-      <a id="site-title" href="{{ '/' | url }}" class="h3 m-0 py-1 t-normal flex flex-center flex-middle flex-wrap gap-1 t-gray t-100 hover:t-200 t-noline">
-        <svg height="48" width="48" viewBox="0 0 111 111" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-miterlimit:1.5">
+      <a id="site-title" href="{{ '/' | url }}" class="h3 m-0 py-1 t-normal flex flex-center flex-middle flex-wrap gap-1 t-reversi hover:t-gray hover:t-800 t-dark-invert t-noline">
+        <svg height="48" width="48" viewBox="0 0 111 111" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-miterwrapper:1.5">
           <g transform="translate(-294.592 -94.592)">
             <circle cx="350" cy="150" r="50" style="fill:none;stroke:currentColor;stroke-width:4px"/>
             <path d="M294.167 180H320v-65.833" style="fill:none;stroke:currentColor;stroke-width:4px" transform="translate(10 -10)"/>
@@ -13,8 +13,8 @@
           </svg>
         <span class="t-nowrap">{{ metadata.title }}</span>
       </a>
-      <p class="mb-1 t-gray t-400">Version: {{ metadata.version }} • <a class="t-gray t-100 hover:t-200 t-noline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3">GitHub</a></p>
-      <p class="mb-1 t-gray t-400"><a class="t-gray t-100 hover:t-200 t-noline hover:t-line" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> ({{ metadata.filesize }})</p>
+      <p class="mb-1"><span class="t-gray t-600 t-dark-invert">Version: {{ metadata.version }} •</span> <a class="t-gray t-800 hover:t-900 t-dark-invert t-noline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3">GitHub</a></p>
+      <p class="mb-1"><a class="t-gray t-800 hover:t-900 t-dark-invert t-noline hover:t-line" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> <span class="t-gray t-600 t-dark-invert">({{ metadata.filesize }})</span></p>
     </div>
 
     <nav role="menu">
@@ -24,18 +24,18 @@
 
       <div id="site-nav-menu" class="w-xs mx-auto t-center t-white">
         <div class="my-2 p-cell flex flex-column gap-1">
-          <a class="block p-cell t-gray t-100 hover:t-200" {% if page.url == '/' %} aria-current="page"{% endif %} href="{{ '/' | url }}">Introduction</a>
-          <a class="block p-cell t-gray t-100 hover:t-200" {% if 'typography' in page.url %} aria-current="page"{% endif %} href="{{ '/typography/' | url }}">Typography</a>
-          <a class="block p-cell t-gray t-100 hover:t-200" {% if 'layout' in page.url %} aria-current="page"{% endif %} href="{{ '/layout/' | url }}">Layout</a>
-          <a class="block p-cell t-gray t-100 hover:t-200" {% if 'decoration' in page.url %} aria-current="page"{% endif %} href="{{ '/decoration/' | url }}">Decoration</a>
-          <a class="block p-cell t-gray t-100 hover:t-200" {% if 'colors' in page.url %} aria-current="page"{% endif %} href="{{ '/colors/' | url }}">Colors</a>
-          <a class="block p-cell t-gray t-100 hover:t-200" {% if 'forms' in page.url %} aria-current="page"{% endif %} href="{{ '/forms/' | url }}">Forms</a>
-          <a class="block p-cell t-gray t-100 hover:t-200" {% if 'buttons' in page.url %} aria-current="page"{% endif %} href="{{ '/buttons/' | url }}">Buttons</a>
-          <a class="block p-cell t-gray t-100 hover:t-200" href="{{ '/examples/' | url }}">Examples</a>
+          <a class="block{% if page.url == '/' %} b-1{% endif %} p-cell t-gray t-700 hover:t-900 t-dark-invert" {% if page.url == '/' %} aria-current="page"{% endif %} href="{{ '/' | url }}">Introduction</a>
+          <a class="block{% if 'typography' in page.url %} b-1{% endif %} p-cell t-gray t-700 hover:t-900 t-dark-invert" {% if 'typography' in page.url %} aria-current="page"{% endif %} href="{{ '/typography/' | url }}">Typography</a>
+          <a class="block{% if 'layout' in page.url %} b-1{% endif %} p-cell t-gray t-700 hover:t-900 t-dark-invert" {% if 'layout' in page.url %} aria-current="page"{% endif %} href="{{ '/layout/' | url }}">Layout</a>
+          <a class="block{% if 'decoration' in page.url %} b-1{% endif %} p-cell t-gray t-700 hover:t-900 t-dark-invert" {% if 'decoration' in page.url %} aria-current="page"{% endif %} href="{{ '/decoration/' | url }}">Decoration</a>
+          <a class="block{% if 'colors' in page.url %} b-1{% endif %} p-cell t-gray t-700 hover:t-900 t-dark-invert" {% if 'colors' in page.url %} aria-current="page"{% endif %} href="{{ '/colors/' | url }}">Colors</a>
+          <a class="block{% if 'forms' in page.url %} b-1{% endif %} p-cell t-gray t-700 hover:t-900 t-dark-invert" {% if 'forms' in page.url %} aria-current="page"{% endif %} href="{{ '/forms/' | url }}">Forms</a>
+          <a class="block{% if 'buttons' in page.url %} b-1{% endif %} p-cell t-gray t-700 hover:t-900 t-dark-invert" {% if 'buttons' in page.url %} aria-current="page"{% endif %} href="{{ '/buttons/' | url }}">Buttons</a>
+          <a class="block p-cell t-gray t-700 hover:t-900 t-dark-invert" href="{{ '/examples/' | url }}">Examples</a>
         </div>
 
         <div class="mb-2 p-cell">
-          <button class="toggler w-100% mb-1 p-1 flex flex-column gap-1 bg-gray bg-600 hover:bg-700" onclick="toggleFont()">
+          <button class="toggler w-100% mb-1 p-1 flex flex-column gap-1" onclick="toggleFont()">
             <div class="label-base w-100% flex flex-middle gap-1">
               <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
               <div class="grow t-left">Base font</div>
@@ -46,7 +46,7 @@
             </div>
           </button>
 
-          <button class="toggler w-100% mb-1 p-1 flex flex-column gap-1 bg-gray bg-600 hover:bg-700" onclick="toggleFS()">
+          <button class="toggler w-100% mb-1 p-1 flex flex-column gap-1" onclick="toggleFS()">
             <div class="label-normal w-100% flex flex-middle gap-1">
               <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
               <div class="grow t-left">Normal font-size</div>
@@ -57,7 +57,7 @@
             </div>
           </button>
 
-          <button class="toggler w-100% mb-1 p-1 flex flex-column gap-1 bg-gray bg-600 hover:bg-700" onclick="toggleTheme()">
+          <button class="toggler w-100% mb-1 p-1 flex flex-column gap-1" onclick="toggleTheme()">
             <div class="label-light w-100% flex flex-middle gap-1">
               <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
               <div class="grow t-left">Light theme</div>

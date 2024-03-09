@@ -9,11 +9,13 @@ nextLink: "Forms"
 
 ---
 
-<div aria-label="Note" class="popout mb-2 bl-3 b-blue b-300 p-2 t-black bg-blue bg-100">
-  Since June 2023, all “evergreen” browsers (Chrome, Edge, Firefox, Safari) have capability for the new <code class="t-black bg-blue bg-200">oklch()</code> color model (see <a class="t-blue t-600 hover:t-700" href="https://caniuse.com/?search=oklch">Can I use OKLCH</a>). And in each of these browsers the lightness, chroma, and hue  channels can be separately controlled by CSS variables.
+<div aria-label="Note" class="popout mb-2 bl-3 b-blue b-200 b-dark-invert p-2 bg-blue bg-100 bg-dark-invert">
+  Since March 2023, all “evergreen” browsers (Chrome, Edge, Firefox, Safari) have capability for the new <code class="bg-blue bg-200 bg-dark-invert">color-mix()</code> function (see <a href="https://caniuse.com/?search=color-mix()">Can I use</a>). Baselayer 3.3.x uses this function to set up a range of shades for its built-in (example) colors. 
 </div>
 
-<div class="full-bleed m-2 p-2 flex flex-center flex-wrap">
+Example using background `bg-*` utility classes:
+
+<div class="full-bleed mb-2 p-2 flex flex-center flex-wrap">
   <div style="width: max(72px, 160px)">
     <div class="p-1 t-center"><code class="t-small">bg-blue</code></div>
     <div class="p-1 t-black t-small bg-blue bg-100">bg-100</div>
@@ -32,23 +34,23 @@ nextLink: "Forms"
     <div class="p-1 t-black t-small bg-green bg-200">bg-200</div>
     <div class="p-1 t-black t-small bg-green bg-300">bg-300</div>
     <div class="p-1 t-black t-small bg-green bg-400">bg-400</div>
-    <div class="p-1 t-white t-small bg-green bg-500">bg-500</div>
+    <div class="p-1 t-black t-small bg-green bg-500">bg-500</div>
     <div class="p-1 t-white t-small bg-green bg-600">bg-600</div>
     <div class="p-1 t-white t-small bg-green bg-700">bg-700</div>
     <div class="p-1 t-white t-small bg-green bg-800">bg-800</div>
     <div class="p-1 t-white t-small bg-green bg-900">bg-900</div>
   </div>
   <div style="width: max(72px, 160px)">
-    <div class="p-1 t-center"><code class="t-small">bg-orange</code></div>
-    <div class="p-1 t-black t-small bg-orange bg-100">bg-100</div>
-    <div class="p-1 t-black t-small bg-orange bg-200">bg-200</div>
-    <div class="p-1 t-black t-small bg-orange bg-300">bg-300</div>
-    <div class="p-1 t-black t-small bg-orange bg-400">bg-400</div>
-    <div class="p-1 t-white t-small bg-orange bg-500">bg-500</div>
-    <div class="p-1 t-white t-small bg-orange bg-600">bg-600</div>
-    <div class="p-1 t-white t-small bg-orange bg-700">bg-700</div>
-    <div class="p-1 t-white t-small bg-orange bg-800">bg-800</div>
-    <div class="p-1 t-white t-small bg-orange bg-900">bg-900</div>
+    <div class="p-1 t-center"><code class="t-small">bg-amber</code></div>
+    <div class="p-1 t-black t-small bg-amber bg-100">bg-100</div>
+    <div class="p-1 t-black t-small bg-amber bg-200">bg-200</div>
+    <div class="p-1 t-black t-small bg-amber bg-300">bg-300</div>
+    <div class="p-1 t-black t-small bg-amber bg-400">bg-400</div>
+    <div class="p-1 t-black t-small bg-amber bg-500">bg-500</div>
+    <div class="p-1 t-white t-small bg-amber bg-600">bg-600</div>
+    <div class="p-1 t-white t-small bg-amber bg-700">bg-700</div>
+    <div class="p-1 t-white t-small bg-amber bg-800">bg-800</div>
+    <div class="p-1 t-white t-small bg-amber bg-900">bg-900</div>
   </div>
   <div style="width: max(72px, 160px)">
     <div class="p-1 t-center"><code class="t-small">bg-red</code></div>
@@ -76,98 +78,35 @@ nextLink: "Forms"
   </div>
 </div>
 
-## Rationale for Baselayer’s color systems
+## Rationale for Baselayer’s color system
 
-I wanted to develop a color system that was based on CSS variables for generating a series of shades for each color, so that the stylesheet didn’t need to be overloaded with all the shade permutations for each color — most of which you would never use in a project. This meant finding a color model with a _lightness channel_ that can be controlled by a CSS variables, which I could then apply to numerous hues. 
+I wanted to develop a color system that was based on CSS variables for generating a series of shades for each color, so that the stylesheet didn’t need to be overloaded with all the shade permutations for each color — most of which you would never use. 
 
-For this purpose, the HSL model almost gave me what I needed. Therefore Baselayer 1 and 2 used the HSL color model from [CSS Color Module Level 3](https://www.w3.org/TR/css-clr-3/) because `hsl()` had a lightness channel that I could control. (Controlling a lightness channel is not possible in Hex or RGB.) However, when building the various HSL color lightness levels, I found that it was not possible to get the lightnesses (shades) to look _perceptually uniform_ across different hues.
+Previously, I experimented with setting **shades based on lightness channels**, first in the `hsl` (Baselayer 3.1.x) and later in the new `oklch` color systems (Baselayer 3.2.x). This was successful, but it involved the additional effort of converting colors to OKLCH and to separate out their color channels into different variables, for enabling them to work with the shade channel utilities.
 
-While OKLCH colors were added as an experimental feature in Baselayer 2, this is now the only color system available in Baselayer 3. And a few more colors have been added as examples of what you can do with OKLCH.
+In Baselayer 3.3, I have switched to setting **shades based on mixing in white or black** using the new `color-mix()` function (see [MDN docs: color-mix()](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/color-mix)). The CSS classes remain the same as before, while the color format is now hex (#) based. This is easier to maintain, and stylesheet is smaller.
 
-The OKLCH model looks really great in shades. 😎
+## Color and shade utility classes
 
-More on OKLCH (and LCH):
-
-* [LCH colors in CSS: what, why, and how?](https://lea.verou.me/2020/04/lch-colors-in-css-what-why-and-how/) by Lea Verou
-* [It’s Time to Learn oklch Color](https://keithjgrant.com/posts/2023/04/its-time-to-learn-oklch-color/) by Keith J. Grant
-* [oklch.com](https://oklch.com) color picker and converter by _Evil Martians_
-* [OKLCH in CSS: why we moved from RGB and HSL](https://evilmartians.com/chronicles/oklch-in-css-why-quit-rgb-hsl) by Andrey Sitnik and Travis Turner (_Evil Martians_)
-* [LCH and OKLCH color tool](https://atmos.style/playground) by Atmos.style
-* [High Definition CSS Color Guide (Google)](https://developer.chrome.com/articles/high-definition-css-clr-guide/)
-
-## OKLCH colors with grayscale fallbacks
-
-First of all, some fallback hex (#) color codes are set for classless HTML elements — e.g. text is near black, horizontal rule and table borders are light gray, buttons are mid gray, links are blue.
-
-Also, the color utilities (below) have fallbacks: all text utilities default to near black; all border utilities default to light gray; all background utilities default to a lighter gray.
-
-So, at least older browsers get a limited grayscale, and blue links. It is up to you to support older browsers by adding hex or RGB colors according to your own design. I don’t know what colors you want!
-
-After these fallbacks the OKLCH lightness, chroma, and hue channel variables are declared in the universal selector `* {}` — because that is what’s required for making the utility classes and hover shades work.
-
-All colors are declared in `variables.css`.
-
-## Colors and accessibility
-
-<div aria-label="Note" class="popout mb-2 bl-3 b-orange b-300 p-2 t-black bg-orange bg-100">
-  In any color model, color combinations must be chosen with care so that there is sufficient contrast between text and background colors for purposes of assessibility.
-</div>
-
-In your text and background color combinations, be careful to ensure that the text is readable — there needs to be an adequate contrast. Generally, you will want to aim at **WCAG level AA** for accessibility compliance.
-
-For WCAG level AA compliance, most user interface colors need to be _darker than the middle shade_ (i.e. use `*600` up) if the text color is white, or _lighter than the middle shade_ (i.e. use `*400` down) if the text color is black.
-
-However, any colors near yellow, such as Baselayer orange, as well as amber and yellow-green (not included) are notoriously difficult for accessibility. You may do better using a lighter background orange and pairing it with black text.
-
-<form>
-  <p>
-    <button type="button" name="button">Button</button>
-    <button class="bg-blue bg-600 hover:bg-700" type="button" name="button">Button</button>
-    <button class="t-black hover:t-black bg-orange bg-200 hover:bg-300" type="button" name="button">Button</button>
-    <button class="b-1 b-green bg-transparent t-green t-600 hover:b-700 hover:t-white hover:bg-green hover:bg-700" type="button" name="button">Button</button>
-  </p>
-</form>
-
-When colorizing buttons, remember to set their `hover:` hover state shades too.
-
-```html
-<!-- Default button -->
-<button type="button" name="button">Button</button>
-
-<!-- Blue button -->
-<button class="bg-blue bg-600 hover:bg-700" type="button" name="button">Button</button>
-
-<!-- Orange button -->
-<button class="t-black hover:t-black bg-orange bg-200 hover:bg-300" type="button" name="button">Button</button>
-
-<!-- Green outline (a.k.a. ghost) button -->
-<button class="b-1 b-green bg-transparent t-green t-600 hover:b-700 hover:t-white hover:bg-green hover:bg-700" type="button" name="button">Button</button>
-```
-
-Background reading on colors and accessibility (not much is available about OKLCH at this time, mid-2023):
-
-* Useful blog posts from [The Accessibility (A11Y) Project](https://www.a11yproject.com):
-    * [A primer to visual impairment](https://www.a11yproject.com/posts/understanding-visual-impairment/)
-    * [Understanding color blindness](https://www.a11yproject.com/posts/understanding-colourblindness/)
-    * [How I deal with colorblindness as a digital product designer](https://www.a11yproject.com/posts/how-i-deal-with-colorblindness-as-a-digital-product-designer/)
-* [Using HSL Colors In CSS (Smashing Magazine)](https://www.smashingmagazine.com/2021/07/hsl-colors-css/)
-* [Web Content Accessibility Guidelines (WCAG) 2](https://www.w3.org/WAI/standards-guidelines/wcag/)
-* [Contrast and Color Accessibility (WEB AIM)](https://webaim.org/articles/contrast/)
-* The [_Coolors_ contrast checker](https://coolors.co/contrast-checker/112a46-acc8e5) has an HSL picker option
-* [https://contrast-ratio.com](https://contrast-ratio.com) has an HSLA contrast checker (HSL plus opacity)
-* [Web Accessibility: Understanding Colors and Luminance (Mozilla Developer Network Docs)](https://developer.mozilla.org/en-US/docs/Web/Accessibility/Understanding_Colors_and_Luminance)
-
-## Color utility classes
+All colors and shades are declared in `variables.css`.
 
 Color utility classes (declared in `@layer color-setup`) are prefixed acording to where the color will be applied:
 
-* `b-*` — border color / `hover:b-*` — border color hover
-* `t-*` — text color / `hover:t-*` — text color hover
-* `bg-*` — background color / `hover:bg-*` — background color hover
+* Border color:
+    * `b-*`
+    * `hover:b-*` — border color on hover
+* Text color:
+    * `t-*`
+    * `hover:t-*` — text color on hover
+* Background color:
+    * `bg-*`
+    *  `hover:bg-*` — background color on hover
 
-All color utilities are set at their `*-500` lightness (this is what you will get if you don’t add a lightness modifier utility). 
+I have named the colors according to their common names (blue, green, amber, red, gray), instead of opting to name them according to the common user interface (UI) “success”, “warning”, “danger” etc. — so that you can make color utilities or components with colors dedicated to those purposes, meanwhile allowing you to adjust these built-in named colors and also add your own.
 
-The lightness modifier utilities (declared in `@layer color-shade`) are as follows:
+All color utilities “start” at their `*-500` level, or mid-tone (this is what you will get if you don’t add a shade modifier utility). 
+
+The shade modifier utilities (declared in `@layer color-shade`) are as follows:
 
 * Border:
     * `b-100` through `b-900`
@@ -179,11 +118,11 @@ The lightness modifier utilities (declared in `@layer color-shade`) are as follo
     * `bg-100` through `bg-900`
     * `hover:bg-100` through `hover:bg-900`
 
-There are also three `*-dark-invert` modifiers that reverse the shade for dark mode, in those situations when you want dark elements in light mode to become light elements in dark mode. For more information see [darker and inverted shade utilities](#darker-and-inverted-shade-utilities).
+Also available:
 
-I have named the colors according to their common names, instead of opting to name them according to the common user interface (UI) “success”, “warning”, “danger” etc. — so that you can make color utilities or components with colors dedicated to those purposes, meanwhile allowing you to adjust these built-in named colors and also add your own.
-
-Also present are `black` and `white` utility classes, but these are set as _named_ colors in the CSS (`black` and `white`, not an OKLCH color code). There is also `bg-transparent` — for setting a transparent background. E.g. use this for outline buttons (see [other Baselayer color utilities](#other-baselayer-color-utilities)).
+1. [Dark theme](#dark-theme), via the `theme-dark` wrapper — see .
+2. `b-dark-invert`, `t-dark-invert`, and `bg-dark-invert` modifiers that invert the shade for dark mode, in those situations when you want light elements in light mode to become dark elements in dark mode (and _vise versa_) — see [darker and inverted shade utilities](#darker-and-inverted-shade-utilities).
+3. Black, white, reversi, and transparent — see [other Baselayer color utilities](#other-baselayer-color-utilities).
 
 Example border, text and background utilities:
 
@@ -199,347 +138,91 @@ Example border, text and background utilities:
 <div class="t-black bg-green bg-300"></div>
 ```
 
-Here’s an example (orange border) showing the working of Baselayer 3’s OKLCH color channel variables and utility classes:
-
-In `variables.css`: 
-
-```css
-* {
-  --l-500:  64%;  /* lightness */
-  --c-30:   0.30; /* chroma */
-  --orange: 79;  /* hue */
-
-  /* border color builder */
-  --bx: oklch(var(--bgl) var(--bgc) var(--bgh));
-}
-```
-
-In `colors.css`:
-
-```css
-.b-orange,
-.hover\:b-orange:hover {
-  --bgl: var(--l500);
-  --bgc: var(--c30);
-  --bgh: var(--orange);
-  border: var(--bx);
-}
-
-.b-300,
-.hover\:b-300:hover {
-  --bgl: var(--l300);
-  --bgc: var(--c20);
-  border: var(--bx);
-}
-```
-
 Example usage:
 
-<div aria-label="Note" class="popout mb-2 bl-3 b-orange b-300 p-2 t-black bg-orange bg-100">
+<div aria-label="Note" class="popout mb-2 bl-3 b-amber b-300 p-2 t-black bg-amber bg-100">
   &#9888; Warning alert panel.
 </div>
 
 ```html
-<div aria-label="Note" class="popout mb-2 bl-3 b-orange b-300 p-2 t-black bg-orange bg-100">
+<div aria-label="Note" class="popout mb-2 bl-3 b-amber b-300 p-2 t-black bg-amber bg-100">
   &#9888; Warning alert panel.
 </div>
 ```
 
-## Lightness and chroma scales
+The shades `*-100` through `*-900`, if used alone, don’t provide color. But if you use them to supplement one of the other colors above, then that color class will provide the color, and the shade class will set its lightness level.
 
-The OKLCH lightness channels in Baselayer 3 are numbered `-100` (lightest shade) thorugh `-900` (darkest shade), following the convention adopted by other CSS systems such as Materialize and Tailwind.
+## Colors and accessibility
 
-For most of the pre-set color schemes in Baselayer 3, these lightnesses are paired with a chroma scale that is more vibrant in the middle at `-500` and less vibrant for the lighter or darker shades.
-
-<table class="table">
-<thead>
-<tr>
-<th>Lightness variable</th>
-<th>Chroma variable</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>--l100</code> (lightest)</td>
-<td><code>--c10</code> (least vibrant)</td>
-</tr>
-<tr>
-<td><code>--l200</code></td>
-<td><code>--c15</code></td>
-</tr>
-<tr>
-<td><code>--l300</code></td>
-<td><code>--c20</code></td>
-</tr>
-<tr>
-<td><code>--l400</code></td>
-<td><code>--c25</code></td>
-</tr>
-<tr>
-<td><code>--l500</code></td>
-<td><code>--c30</code> (most vibrant)</td>
-</tr>
-<tr>
-<td><code>--l600</code></td>
-<td><code>--c25</code></td>
-</tr>
-<tr>
-<td><code>--l700</code></td>
-<td><code>--c20</code></td>
-</tr>
-<tr>
-<td><code>--l800</code></td>
-<td><code>--c15</code></td>
-</tr>
-<tr>
-<td><code>--l900</code> (darkest)</td>
-<td><code>--c10</code> (least vibrant)</td>
-</tr>
-</tbody>
-</table>
-
-The shades `*-100` through `*-900` if used alone, _do not provide color_. But if you use them to supplement one of the other colors above, then the color class will provide the color, and the shade class will set the lightness level.
-
-The grays require a uniform chroma override using an `!important` flag — grays are not more vibrant in their mid-range shades.
-
-Other colors besides grays don’t require greater vibrancy in their mid-range shades — such as brown, warmgray and coolgray (available as “commented out” examples in Baselayer). For this purpose Baselayer has several low chroma variables that you can use.
-
-```css
-* {
-  /* chroma */
-  --c0: 0;
-  --c02: 0.02;
-  --c04: 0.04;
-  --c06: 0.06;
-  --c08: 0.08;
-  --c10: 0.10;
-  ...
-}
-```
-
-To use these low chromas in your shade scales instead of Baselayer’s usual range of chromas that rise to a higher level (more vibrant) toward the middle of the scale (peaking at `*-500`), create utility classes with `!important` flags on their chroma channels. 
-
-Example gray from Baselayer 3’s `colors.css`:
-
-```css
-.t-gray,
-.hover\:t-gray:hover {
-  --tl: var(--l500);
-  --tc: var(--c0) !important;
-  --th: var(--gray);
-  color: var(--tx);
-}
-
-.b-gray,
-.hover\:b-gray:hover {
-  --bl: var(--l500);
-  --bc: var(--c0) !important;
-  --bh: var(--gray);
-  border-color: var(--bx);
-}
-
-.bg-gray,
-.hover\:bg-gray:hover {
-  --bgl: var(--l500);
-  --bgc: var(--c0) !important;
-  --bgh: var(--gray);
-  background: var(--bgx);
-}
-```
-
-Another example `*-brand-blue-faded` is provided below, in [adding more colors the Baselayer way](#adding-more-colors-the-baselayer-way).
-
-The chroma channel’s `!important` overrides chroma scale that is built into the lightness utilities `*-100` thorugh `*-900`, so that this color will remain less vibrant (with one low chroma level) accross its shades.
-
-Several more color examples have been provided but commented out in `colors.css` (with their hue variables commented out in `variables.css`). These will show you further how Baselayer OKLCH colors work, and they are there for your inspiration.
-
-## Adding more colors the Baselayer way
-
-You can still use colors in hex, RGB or any other format. But to  add more color utilities in your CSS the same way as Baselayer 3 does it:
-
-1. You need to choose OKLCH colors, or convert your already chosen colors to `oklch()` format. ([oklch.com](https://oklch.com/) is a great online tool for this purpose — I usually round up the decimals). Then, declare your colors as variables in the `*` universal selector. Give them variable names that make sense to you.
-
-```css
-* {
-  --brand-blue: oklch(34% 0.1 260);
-}
-```
-
-With that done, you can access the variable anywhere in your CSS.
-
-2. If you want to use your colors in shade scales, you also need to isolate their hues. You can also add hues for those colors you simply want as scales, where you have no specific requirements for their shades.
-
-```css
-* {
-  --brand-blue: oklch(34% 0.1 260);
-  --brand-blue-h: 260;
-}
-```
-
-3. Next, you need to create these hues’ default (lightness 500) color utilities. The Baselayer color shade utilities will take care of everything else.
-
-<div aria-label="Note" class="popout mb-2 bl-3 b-orange b-300 p-2 t-black bg-orange bg-100">
-  ⚠ You need to add your color utilities as supplements to the <code>@layer color-setup</code> cascade layer, so that they get declared before the shades that are in the subsequent <code>@layer color-shades</code> layer.
+<div aria-label="Note" class="popout mb-2 bl-3 b-amber b-300 b-dark-invert p-2 bg-amber bg-100 bg-dark-invert">
+  In any color model, color combinations must be chosen with care so that there is sufficient contrast between text and background colors for purposes of assessibility.
 </div>
 
-```css
-@layer color-setup {
-  .t-brand-blue, .hover\:t-brand-blue:hover {
-    --tl: var(--l500);
-    --tc: var(--c30);
-    --th: var(--brand-blue-h);
-    color: var(--tx); 
-  }
-  .b-brand-blue, .hover\:b-brand-blue:hover {
-    --bl: var(--l500);
-    --bc: var(--c30);
-    --bh: var(--brand-blue-h);
-    border-color: var(--bx); 
-  }
-  .bg-brand-blue, .hover\:bg-brand-blue:hover {
-    --bgl: var(--l500);
-    --bgc: var(--c30);
-    --bgh: var(--brand-blue-h);
-    background: var(--bgx); 
-  }
-}
+In your text and background color combinations, be careful to ensure that the text is readable — there needs to be an adequate contrast. Generally, you will want to aim at **WCAG level AA** for accessibility compliance.
+
+For WCAG level AA compliance, most user interface colors need to be _darker than the middle shade_ (i.e. use `*-600` up) if the text color is white, or _lighter than the middle shade_ (i.e. use `*-400` down) if the text color is black.
+
+However, any colors near yellow, such as Baselayer amber, as well as orange and yellow-green (not included) are notoriously difficult for accessibility. You may do better using a lighter background amber and pairing it with black text.
+
+<form>
+  <p>
+    <button type="button" name="button">Button</button>
+    <button class="bg-blue bg-600 hover:bg-700" type="button" name="button">Button</button>
+    <button class="t-black hover:t-black bg-amber bg-400 hover:bg-500" type="button" name="button">Button</button>
+    <button class="b-1 b-green bg-transparent t-green t-600 hover:b-700 hover:t-white hover:bg-green hover:bg-700" type="button" name="button">Button</button>
+  </p>
+</form>
+
+When colorizing buttons, remember to set their `hover:` hover state shades too.
+
+```html
+<!-- Default button -->
+<button type="button" name="button">Button</button>
+
+<!-- Blue button -->
+<button class="bg-blue bg-600 hover:bg-700" type="button" name="button">Button</button>
+
+<!-- Amber button -->
+<button class="t-black hover:t-black bg-amber bg-400 hover:bg-500" type="button" name="button">Button</button>
+
+<!-- Green outline (a.k.a. ghost) button -->
+<button class="b-1 b-green bg-transparent t-green t-600 hover:b-700 hover:t-white hover:bg-green hover:bg-700" type="button" name="button">Button</button>
 ```
 
-4. If you have a color that doesn’t require greater vibrancy in its mid-range shades (or, if you need a desaurated/“washed out” shade pallete for a hue), you can use one of Baselayer 3’s low chroma variables and override the usual mid-range vibrant chromas using an `!important` flag on your utility chroma channels.
+Background reading on colors and accessibility:
 
-```css
-@layer color-setup {
-  .t-brand-blue-faded, .hover\:t-brand-blue-faded:hover {
-    --tl: var(--l500);
-    --tc: var(--c15) !important;
-    --th: var(--brand-blue-h);
-    color: var(--tx); 
-  }
-  .b-brand-blue-faded, .hover\:b-brand-blue-faded:hover {
-    --bl: var(--l500);
-    --bc: var(--c15) !important;
-    --bh: var(--brand-blue-h);
-    border-color: var(--bx); 
-  }
-  .bg-brand-blue-faded, .hover\:bg-brand-blue-faded:hover {
-    --bgl: var(--l500);
-    --bgc: var(--c15) !important;
-    --bgh: var(--brand-blue-h);
-    background: var(--bgx); 
-  }
-}
-```
+* Useful blog posts from [The Accessibility (A11Y) Project](https://www.a11yproject.com):
+    * [A primer to visual impairment](https://www.a11yproject.com/posts/understanding-visual-impairment/)
+    * [Understanding color blindness](https://www.a11yproject.com/posts/understanding-colourblindness/)
+    * [How I deal with colorblindness as a digital product designer](https://www.a11yproject.com/posts/how-i-deal-with-colorblindness-as-a-digital-product-designer/)
+* [Web Content Accessibility Guidelines (WCAG) 2](https://www.w3.org/WAI/standards-guidelines/wcag/)
+* [Contrast and Color Accessibility (WEB AIM)](https://webaim.org/articles/contrast/)
+* The [_Coolors_ contrast checker](https://coolors.co/contrast-checker/112a46-acc8e5)
+* [Web Accessibility: Understanding Colors and Luminance (Mozilla Developer Network Docs)](https://developer.mozilla.org/en-US/docs/Web/Accessibility/Understanding_Colors_and_Luminance)
 
-Demonstrating what these examples look like:
+## Adding more colors and shades
 
-<style>
-  * {
-    /* Brand blue #15376b */
-    --brand-blue: oklch(34% 0.1 260);
-    --brand-blue-h: 260;
-  }
-  @layer color-setup {
-    .t-brand-blue, .hover\:t-brand-blue:hover {
-      --tl: var(--l500);
-      --tc: var(--c30);
-      --th: var(--brand-blue-h);
-      color: var(--tx); 
-    }
-    .b-brand-blue, .hover\:b-brand-blue:hover {
-      --bl: var(--l500);
-      --bc: var(--c30);
-      --bh: var(--brand-blue-h);
-      border-color: var(--bx); 
-    }
-    .bg-brand-blue, .hover\:bg-brand-blue:hover {
-      --bgl: var(--l500);
-      --bgc: var(--c30);
-      --bgh: var(--brand-blue-h);
-      background: var(--bgx); 
-    }
-    .t-brand-blue-faded, .hover\:t-brand-blue-faded:hover {
-      --tl: var(--l500);
-      --tc: var(--c15) !important;
-      --th: var(--brand-blue-h);
-      color: var(--tx); 
-    }
-    .b-brand-blue-faded, .hover\:b-brand-blue-faded:hover {
-      --bl: var(--l500);
-      --bc: var(--c15) !important;
-      --bh: var(--brand-blue-h);
-      border-color: var(--bx); 
-    }
-    .bg-brand-blue-faded, .hover\:bg-brand-blue-faded:hover {
-      --bgl: var(--l500);
-      --bgc: var(--c15) !important;
-      --bgh: var(--brand-blue-h);
-      background: var(--bgx); 
-    }
-  }
-</style>
+You can, of course, add any colors you want, and in any format you want.
 
-<div class="mt-2 mb-3 flex flex-center flex-wrap">
-  <div style="width: min(100%, 200px)">
-    <div class="p-1 t-center"><code class="t-small">bg-brand-blue</code></div>
-    <div class="p-1 t-black t-small bg-brand-blue bg-100">bg-100</div>
-    <div class="p-1 t-black t-small bg-brand-blue bg-200">bg-200</div>
-    <div class="p-1 t-black t-small bg-brand-blue bg-300">bg-300</div>
-    <div class="p-1 t-black t-small bg-brand-blue bg-400">bg-400</div>
-    <div class="p-1 t-white t-small bg-brand-blue bg-500">bg-500</div>
-    <div class="p-1 t-white t-small bg-brand-blue bg-600">bg-600</div>
-    <div class="p-1 t-white t-small bg-brand-blue bg-700">bg-700</div>
-    <div class="p-1 t-white t-small bg-brand-blue bg-800">bg-800</div>
-    <div class="p-1 t-white t-small bg-brand-blue bg-900">bg-900</div>
-  </div>
-  <div style="width: min(100%, 200px)">
-    <div class="p-1 t-center"><code class="t-small">bg-brand-blue-faded</code></div>
-    <div class="p-1 t-black t-small bg-brand-blue-faded bg-100">bg-100</div>
-    <div class="p-1 t-black t-small bg-brand-blue-faded bg-200">bg-200</div>
-    <div class="p-1 t-black t-small bg-brand-blue-faded bg-300">bg-300</div>
-    <div class="p-1 t-black t-small bg-brand-blue-faded bg-400">bg-400</div>
-    <div class="p-1 t-white t-small bg-brand-blue-faded bg-500">bg-500</div>
-    <div class="p-1 t-white t-small bg-brand-blue-faded bg-600">bg-600</div>
-    <div class="p-1 t-white t-small bg-brand-blue-faded bg-700">bg-700</div>
-    <div class="p-1 t-white t-small bg-brand-blue-faded bg-800">bg-800</div>
-    <div class="p-1 t-white t-small bg-brand-blue-faded bg-900">bg-900</div>
-  </div>
-</div>
+However, if you want to use Baselayer 3.3.x’s shade classes `-100` thorugh `-900` on your color(s), then you need to start from a mid-tone that works as a `-500` shade. The `color-mix()` formulas mix in various levels of white to shades `-100` through `-400`, and various levels of black to shades `-600` through `-900`.
 
-## Other Baselayer color utilities
+Also, you will need to put your color(s) in `@layer color-setup {}` so that it gets added before `@layer color-shades {}`.
 
-Other color utilities included in Baselayer cover black, white, and transparent, as follows:
-
-### Black and white
-
-* White — named color `white`:
-    * `b-white` / `t-white` / `bg-white`,
-    * `hover:b-white`, `hover:t-white`, `hover:bg-white`,
-* Black — named color `black`:
-    * `b-black` / `t-black` / `bg-black`,
-    * `hover:b-black` / `hover:t-black` / `hover:bg-black`,
-
-(Utility classes for colors: `b*` = border; `t*` = text; `bg*` = background.
-)
-
-### Transparent background
-
-E.g. for outline buttons.
-
-* Transparent:
-    * `bg-transparent`
-
-There are no hover states of `bg-transparent`.
+You can add your own project colors in any format, but the Baselayer `color-mix()` formulas will output shade in SRGB format.
 
 ## Dark theme
 
-Baselayer 3 has some simple dark themes built in. The dark theme has this effect:
+Baselayer 3 has a simple dark theme built in. The dark theme is as follows:
 
-1. HTML elements are generally flipped from light to dark, or dark to light. The body background becomes near black; text becomes near white; light gray table borders, horizontal rules, and form inputs become dark gray.
-2. Link blue is slightly darkened, to make links easier on the eye.
-3. Form fields are flipped from pale gray to a dark gray (but lighter than the body background).
-4. Default buttons stay mid gray.
-5. Color utilities are slightly darkened, to make them easier on the eye.
-6. Color utilities can optionally be inverted (as well as being sligtly darkened) by adding the `*-dark-invert` modifier classes.
+1. HTML elements are generally flipped from light to dark, or dark to light:
+    * Body background is near black
+    * Text is near white
+    * Table borders, horizontal rules, form inputs are dark gray
+    * Text links are a lighter blue
+    * Default buttons are a lighter gray
+2. Color utilities (blue, green, amber, red, gray) are slightly darkened, to make them easier on the eye.
+3. On hover, the link text color and the default button background color both are made lighter (inverted behavior).
+4. Color utilities can optionally be inverted by adding the `*-dark-invert` modifier classes.
 
 ### The `theme-dark` class
 
@@ -557,13 +240,13 @@ If you don’t want to give your visitors the option to toggle, then you can man
 
 ### Darker and inverted shade utilities
 
-Each OKLCH lightness variant has a darker shade for the theme. For example, in dark mode `bg-100` is slightly darker than in light mode. This makes the shades easier on the eye in dark mode.
+Each color shade variant has a darker shade for the dark theme. For example, in dark mode `bg-100` is slightly darker than in light mode. This makes the shades easier on the eye in dark mode.
 
 There are, however, circumstances in your design where you don’t want colors to be merely darkened but also inverted (light shades become dark shades, and dark shades become light shades).
 
 This shade inverting has been built into the dark theme for (classless) `<body>` background, text, links, form inputs, table borders, and horizontal rules.
 
-As from v.1.1, Baselayer 3 has an optinal inverted version of of its shade utilities (for text, border, and background), as well as having them shoghtly darkened. To make this happen, all you need to do is add another modifier class to those elements you wish to shade invert for dark mode.
+Baselayer 3 has an optinal inverted version of of its shade utilities (for text, border, and background), as well as having them shoghtly darkened. To make this happen, all you need to do is add another modifier class to those elements you wish to shade invert for dark mode.
 
 Example using `bg-blue`:
 
@@ -632,22 +315,46 @@ Example using `bg-blue`:
 </tbody>
 </table>
 
-The middle `bg-500` doesn’t invert, of course. So, there is no `bg-500 bg-dark-invert`.
+The middle `t-500`, `b-500`, and `bg-500` do not invert, of course. So, e.g. `bg-500 bg-dark-invert` does not exist in `baselayer.css`.
 
-<p class="mb-1 t-bold t-center">Baselayer 3’s OKLCH shades (lightness) are darkened for the dark theme<p>
-<div class="mb-3 w-100% mx-auto" style="max-width: 500px">
-<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:1.5" viewBox="0 0 121 119"><path d="M200 100v200" style="fill:none;stroke:currentColor;stroke-width:.38px" transform="matrix(1 0 0 .5 -180.003 -48.459)"/><path d="m210 85.185 80-503.704" style="fill:none;stroke:currentColor;stroke-width:.42px" transform="matrix(-1 0 0 .135 319.997 61.041)"/><path d="m210-329.63 80 444.445" style="fill:none;stroke:currentColor;stroke-width:.42px;stroke-dasharray:4.2,4.2,0,0" transform="matrix(1 0 0 .135 -180.003 61.041)"/><path d="M200 100v200" style="fill:none;stroke:currentColor;stroke-width:.38px" transform="matrix(0 -1 .5 0 -30.003 301.541)"/><text x="194.001" y="309.985" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor" transform="rotate(-60 -59.51 354.107)">100</text><text x="194.001" y="309.985" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor" transform="rotate(-60 -54.51 345.447)">200</text><text x="194.001" y="309.985" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor" transform="rotate(-60 -49.51 336.786)">300</text><text x="194.001" y="309.985" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor" transform="rotate(-60 -44.51 328.126)">400</text><text x="194.001" y="309.985" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor" transform="rotate(-60 -39.51 319.466)">500</text><text x="194.001" y="309.985" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor" transform="rotate(-60 -34.51 310.806)">600</text><text x="194.001" y="309.985" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor" transform="rotate(-60 -29.509 302.145)">700</text><text x="194.001" y="309.985" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor" transform="rotate(-60 -24.509 293.485)">800</text><text x="194.001" y="309.985" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor" transform="rotate(-60 -19.509 284.824)">900</text><text x="194.843" y="312.992" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor" transform="translate(-190.003 -309.959)">100%</text><text x="197.161" y="312.992" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor" transform="translate(-190.003 -299.959)">90%</text><text x="197.161" y="312.992" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor" transform="translate(-190.003 -289.959)">80%</text><text x="197.161" y="312.992" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor" transform="translate(-190.003 -279.959)">70%</text><text x="197.161" y="312.992" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor" transform="translate(-190.003 -269.959)">60%</text><text x="197.161" y="312.992" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor" transform="translate(-190.003 -259.959)">50%</text><text x="197.161" y="312.992" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor" transform="translate(-190.003 -249.959)">40%</text><text x="197.161" y="312.992" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor" transform="translate(-190.003 -239.959)">30%</text><text x="197.161" y="312.992" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor" transform="translate(-190.003 -229.959)">20%</text><text x="197.161" y="312.992" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor" transform="translate(-190.003 -219.959)">10%</text><text x="199.478" y="312.992" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor" transform="translate(-190.003 -209.959)">0%</text><text x="194" y="309.985" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor" transform="translate(-147.187 -300.459)">Light theme shades</text><text x="204.541" y="314.288" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor" transform="translate(-147.187 -300.459)">(default)</text><text x="194" y="309.985" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor" transform="translate(-122.133 -226.452)">Dark theme shades</text><text x="195.906" y="309.985" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor" transform="translate(-102.133 -268.452)">Inverted dark</text><text x="194.978" y="314.288" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor" transform="translate(-102.133 -268.452)">theme shades</text><text x="195.02" y="318.455" style="font-family:&quot;Menlo-Regular&quot;,&quot;Menlo&quot;,monospace;font-size:3.333px;fill:currentColor" transform="translate(-102.133 -268.452)">*-dark-invert</text><text x="212.275" y="309.985" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor" transform="translate(-163.867 -192.459)">Lightness code number</text><text x="219.454" y="309.985" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor" transform="rotate(-90 -10.731 296.272)">Lightness value</text><path d="M200 200h-3" style="fill:none;stroke:currentColor;stroke-width:.35px" transform="matrix(.66667 0 0 1 -113.336 -198.459)"/><path d="M200 200h-3" style="fill:none;stroke:currentColor;stroke-width:.35px" transform="matrix(.66667 0 0 1 -113.336 -188.459)"/><path d="M200 200h-3" style="fill:none;stroke:currentColor;stroke-width:.35px" transform="matrix(.66667 0 0 1 -113.336 -178.459)"/><path d="M200 200h-3" style="fill:none;stroke:currentColor;stroke-width:.35px" transform="matrix(.66667 0 0 1 -113.336 -168.459)"/><path d="M200 200h-3" style="fill:none;stroke:currentColor;stroke-width:.35px" transform="matrix(.66667 0 0 1 -113.336 -158.459)"/><path d="M200 200h-3" style="fill:none;stroke:currentColor;stroke-width:.35px" transform="matrix(.66667 0 0 1 -113.336 -148.459)"/><path d="M200 200h-3" style="fill:none;stroke:currentColor;stroke-width:.35px" transform="matrix(.66667 0 0 1 -113.336 -138.459)"/><path d="M200 200h-3" style="fill:none;stroke:currentColor;stroke-width:.35px" transform="matrix(.66667 0 0 1 -113.336 -128.459)"/><path d="M200 200h-3" style="fill:none;stroke:currentColor;stroke-width:.35px" transform="matrix(.66667 0 0 1 -113.336 -118.459)"/><path d="M200 200h-3" style="fill:none;stroke:currentColor;stroke-width:.35px" transform="matrix(.66667 0 0 1 -113.336 -108.459)"/><path d="M200 200h-3" style="fill:none;stroke:currentColor;stroke-width:.35px" transform="matrix(.66667 0 0 1 -113.336 -98.459)"/><path d="M200 200h-3" style="fill:none;stroke:currentColor;stroke-width:.35px" transform="matrix(0 -.66667 1 0 -170.003 234.874)"/><path d="M200 200h-3" style="fill:none;stroke:currentColor;stroke-width:.35px" transform="matrix(0 -.66667 1 0 -160.003 234.874)"/><path d="M200 200h-3" style="fill:none;stroke:currentColor;stroke-width:.35px" transform="matrix(0 -.66667 1 0 -150.003 234.874)"/><path d="M200 200h-3" style="fill:none;stroke:currentColor;stroke-width:.35px" transform="matrix(0 -.66667 1 0 -140.003 234.874)"/><path d="M200 200h-3" style="fill:none;stroke:currentColor;stroke-width:.35px" transform="matrix(0 -.66667 1 0 -130.003 234.874)"/><path d="M200 200h-3" style="fill:none;stroke:currentColor;stroke-width:.35px" transform="matrix(0 -.66667 1 0 -120.003 234.874)"/><path d="M200 200h-3" style="fill:none;stroke:currentColor;stroke-width:.35px" transform="matrix(0 -.66667 1 0 -110.003 234.874)"/><path d="M200 200h-3" style="fill:none;stroke:currentColor;stroke-width:.35px" transform="matrix(0 -.66667 1 0 -100.003 234.874)"/><path d="M200 200h-3" style="fill:none;stroke:currentColor;stroke-width:.35px" transform="matrix(0 -.66667 1 0 -90.003 234.874)"/><path d="m60.152 26.55-2.155.991 1.13-2.086 1.025 1.095Z" style="fill:currentColor"/><path d="M64.997 16.541c-.008 3.629-3.661 7.759-5.686 9.769" style="fill:none;stroke:currentColor;stroke-width:.5px"/><path d="m94.746 68.532 2.154-.991-1.129 2.086-1.025-1.095Z" style="fill:currentColor"/><path d="M89.9 78.541c.009-3.629 3.662-7.759 5.687-9.769" style="fill:none;stroke:currentColor;stroke-width:.5px"/><path d="m100.03 27.627-1.13-2.086 2.155.991-1.025 1.095Z" style="fill:currentColor"/><path d="M105.9 36.541c-.008-3.629-3.661-7.759-5.686-9.769" style="fill:none;stroke:currentColor;stroke-width:.5px"/><path d="m210-329.63 80 444.445" style="fill:none;stroke:currentColor;stroke-width:.42px;stroke-dasharray:4.2,4.2,0,0" transform="matrix(-1 0 0 .135 319.997 61.041)"/></svg>
+<p class="mb-3 t-bold t-center">Baselayer 3.3.x’s color shades are darkened for the dark theme</p>
+<div class="mb-3 w-100% mx-auto" style="max-width: 30em">
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:1.5" viewBox="0 0 121 119"><path d="M20 1.964v100M110 17 30 97M20 101.964h100" style="fill:none;stroke:currentColor;stroke-width:.3px"/><text x="29.038" y="112.923" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor" transform="rotate(-60 29.038 112.923)">100</text><text x="39.038" y="112.923" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor" transform="rotate(-60 39.038 112.923)">200</text><text x="49.038" y="112.923" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor" transform="rotate(-60 49.038 112.923)">300</text><text x="59.038" y="112.923" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor" transform="rotate(-60 59.038 112.923)">400</text><text x="69.038" y="112.923" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor" transform="rotate(-60 69.038 112.923)">500</text><text x="79.038" y="112.923" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor" transform="rotate(-60 79.039 112.923)">600</text><text x="89.039" y="112.923" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor" transform="rotate(-60 89.038 112.923)">700</text><text x="99.039" y="112.923" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor" transform="rotate(-60 99.038 112.923)">800</text><text x="109.039" y="112.923" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor" transform="rotate(-60 109.039 112.923)">900</text><text x="4.843" y="3.456" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor">100%</text><text x="7.161" y="13.456" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor">90%</text><text x="7.161" y="23.456" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor">80%</text><text x="7.161" y="33.456" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor">70%</text><text x="7.161" y="43.456" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor">60%</text><text x="7.161" y="53.456" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor">50%</text><text x="7.161" y="63.456" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor">40%</text><text x="7.161" y="73.456" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor">30%</text><text x="7.161" y="83.456" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor">20%</text><text x="7.161" y="93.456" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor">10%</text><text x="9.478" y="103.456" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor">0%</text><text x="22.695" y="61.259" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor">Light theme shades</text><text x="33.236" y="65.562" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor">(default)</text><text style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor" transform="translate(59.157 25.784)">Dark theme</text><text x="4.05" y="4.167" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor" transform="translate(59.157 25.784)">shades</text><text x="93.776" y="49.956" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor">Inverted dark</text><text x="92.848" y="54.259" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor">theme shades</text><text x="90.856" y="58.192" style="font-family:&quot;Menlo-Regular&quot;,&quot;Menlo&quot;,monospace;font-size:3.333px;fill:currentColor">(*-dark-invert)</text><text x="48.411" y="117.949" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor">Shade sufﬁx number</text><text style="font-family:&quot;Menlo-Regular&quot;,&quot;Menlo&quot;,monospace;font-size:4.167px;fill:currentColor" transform="rotate(-90 41.172 36.518)">color-mix()</text><text x="28.754" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor" transform="rotate(-90 41.172 36.518)">shade value</text><path d="M20 1.964h-2M20 11.964h-2M20 21.964h-2M20 31.964h-2M20 41.964h-2M20 51.964h-2M20 61.964h-2M20 71.964h-2M20 81.964h-2M20 91.964h-2M20 101.964h-2M30 101.964v2M40 101.964v2M50 101.964v2M60 101.964v2M70 101.964v2M80 101.964v2M90 101.964v2M100 101.964v2M110 101.964v2" style="fill:none;stroke:currentColor;stroke-width:.3px"/><path d="m45.845 77.973 2.155.991-1.13-2.086-1.025 1.095Z" style="fill:currentColor"/><path d="M41 67.964c.008 3.629 3.661 7.759 5.686 9.769" style="fill:none;stroke:currentColor;stroke-width:.5px"/><path d="M74.846 41.509 77 42.5l-1.129-2.086-1.025 1.095Z" style="fill:currentColor"/><path d="M70 31.5c.009 3.629 3.662 7.759 5.687 9.769" style="fill:none;stroke:currentColor;stroke-width:.5px"/><path d="m100.033 68.878-1.13 2.086 2.155-.991-1.025-1.095Z" style="fill:currentColor"/><path d="M105.903 59.964c-.008 3.629-3.661 7.759-5.686 9.769" style="fill:none;stroke:currentColor;stroke-width:.5px"/><path d="M110 16 30 80M30 16l80 64" style="fill:none;stroke:currentColor;stroke-width:.3px;stroke-dasharray:3,3,0,0"/></svg>
 </div>
 
-### Dark theme HTML body background color
+### Hover states for links and buttons
 
-Since v.1.2.x Baselayer 3’s dark theme `<body>` color has been made darker than the color shades set by the `bg-900` utility, so that elements colored by those shades are still visible. For this purpose an OKLCH lightness variable of `--l1000` has been added. 
+In the default light theme, the blue link text becomes a darker blue, and the default gray button becomes a darker gray, on `:hover` states. But in the dark theme, this behaviour is inverted: links become a lighter blue and buttons become a lighter gray.
+
+You can easily change this. Lighter and darker options for blue links and gray buttons are included in variables as follows:
 
 ```css
 .theme-dark {
-  --l1000: 18%;
+  /* text color for links (default) */
+  --tc-link: color-mix(in srgb, var(--blue) calc(var(--l400) * 2), white);
+  --tc-link-lighter: color-mix(in srgb, var(--blue) calc(var(--l300) * 2), white);
+  --tc-link-darker: color-mix(in srgb, var(--blue) calc(var(--l500) * 2), white);
+  --tc-link-hover: var(--tc-link-lighter);
 
-  --bgc-body: oklch(var(--l1000) var(--c0) var(--gray)); /* ~ #121212 */
+  /* background color for buttons (default) */
+  --bgc-btn: color-mix(in srgb, var(--gray) calc((100% - var(--l600)) * 2), black);
+  --bgc-btn-lighter: color-mix(in srgb, var(--gray) calc((100% - var(--l500)) * 2), white);
+  --bgc-btn-darker: color-mix(in srgb, var(--gray) calc((100% - var(--l700)) * 2), black);
+  --bgc-btn-hover: var(--bgc-btn-lighter);
+}
+```
+
+To make your styled links and buttons have an inverted behavior as above, you need to use `*-dark-invert` utilities.
+
+### Dark theme HTML body background color
+
+Baselayer 3’s dark theme `<body>` color has been made darker than the color shades set by the `bg-900` utility, so that elements colored by those shades are still visible. For this purpose an shade variable of `--l1000` has been added. (Therefore, you can  use `bg-900` or `bg-100 bg-dark-invert` to color the background of a panel, without it “disappearing” into the body background color.)
+
+```css
+.theme-dark {
+  --l1000: 87.5%;
+
+  --bgc-body: color-mix(in srgb, var(--gray) calc((100% - var(--l1000)) * 2), black); /* = #1e1e1e */
 }
 ```
 
@@ -664,7 +371,7 @@ The switcher script also adds `theme-light` to the `<html>` tag in light mode, b
 The theme switcher in the Baselayer docs is built into its `switcher.js` demo toggling system, that powers the buttons in the sidebar. If you want to use the same dark/light mode toggler, here it is isolated below (no JS framework required):
 
 ```js
-const matchMediaDark = window.matchMedia('(prefers-clr-scheme: dark)');
+const matchMediaDark = window.matchMedia('(prefers-color-scheme: dark)');
 const htmlClassList = document.querySelector('html').classList;
 
 function themeDark() {
@@ -701,7 +408,7 @@ baselayerInit();
 You will also need a toggle button, like the one in the sidebar. The checkmarks are added in by CSS pseudo-selectors.
 
 <p class="flex flex-center">
-  <button class="toggler p-cell flex flex-column gap-1 bg-blue hover:bg-600" onclick="toggleTheme()">
+  <button class="toggler p-cell flex flex-column gap-1 bg-blue bg-600 hover:bg-700 bg-dark-invert" onclick="toggleTheme()">
     <div class="label-light w-100% flex flex-middle gap-1">
       <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
       <div class="grow left">Light theme</div>
@@ -713,7 +420,7 @@ You will also need a toggle button, like the one in the sidebar. The checkmarks 
   </button>
 </p>
 
-Another, simpler example theme toggle button, using glyphs selected via [&what;](https://www.amp-what.com)
+Another, simpler example theme toggle button, using glyphs selected from [&what;](https://www.amp-what.com)
 
 <style>
   .theme-dark .theme-toggle span::before { content: '☀️ light '; }
@@ -721,7 +428,7 @@ Another, simpler example theme toggle button, using glyphs selected via [&what;]
 </style>
 
 <p class="flex flex-center">
-  <button class="theme-toggle pl-1 t-blue t-100 t-dark-invert bg-blue bg-900 bg-dark-invert" onclick="toggleTheme()">
+  <button class="theme-toggle pl-1 t-reversi-alt bg-reversi" onclick="toggleTheme()">
     <span>theme</span>
   </button>
 </p>
@@ -732,9 +439,54 @@ Another, simpler example theme toggle button, using glyphs selected via [&what;]
   .theme-light .theme-toggle span::before { content: '🌙 dark '; }
 </style>
 
-<button class="theme-toggle pl-1 t-blue t-900 t-dark-invert bg-blue bg-900 bg-dark-invert" onclick="toggleTheme()">
+<button class="theme-toggle pl-1 t-reversi-alt bg-reversi" onclick="toggleTheme()">
   <span>theme</span>
 </button>
 ```
 
-The simple example above uses `bg-dark-invert` to put a “night time” dark background behind the moon and a “day time” light backgorund behind the sun, meanwhile `t-dark-invert` is used to flip the text color the opposite way.
+The simple example above uses `bg-reversi` to put a “night time” black background behind the moon and a “day time” white background behind the sun, meanwhile `t-reversi-` flips the text color the opposite way. See [black, white, reversi, and reversi-alt](/baselayer-3/colors/#black%2C-white%2C-reversi%2C-and-reversi-alt) below.
+
+## Other Baselayer color utilities
+
+<div aria-label="Note" class="popout mb-2 bl-3 b-blue b-200 b-dark-invert p-2 bg-blue bg-100 bg-dark-invert">
+  The color utilities for black, white, reversi, reversi-alt, and transparent <em>can’t be used on the same element</em> with the colors and shades above (i.e. as either default or hover states). These other utilities are declared after the colors and shades, and so they will override them. 
+</div>
+
+Other color utilities included in Baselayer cover black, white, and transparent, as follows:
+
+### Black, white, reversi, and reversi-alt
+
+There are utilities for border color, text color, and background color for each of the following (and `hover:` prefix states):
+
+* `-black` — named color black:
+* `-white` — named color white:
+* `-reversi` is black on a light theme, white on a dark theme:
+* `-reversi-alt` is white on a light theme, black on a dark theme:
+
+<div class="mt-2 mb-3 grid gap-1 sm:equal-4-cols">
+<div class="b-1 p-3 t-center t-white bg-black">Black</div>
+<div class="b-1 p-3 t-center t-black bg-white">White</div>
+<div class="b-1 p-3 t-center t-reversi-alt bg-reversi">Reversi</div>
+<div class="b-1 p-3 t-center t-reversi bg-reversi-alt">Reversi-alt</div>
+</div>
+
+```html
+<div class="t-white bg-black">Black</div>
+
+<div class="t-black bg-white">White</div>
+
+<div class="t-reversi-alt bg-reversi">Reversi</div>
+
+<div class="t-reversi bg-reversi-alt">Reversi-alt</div>
+```
+
+You don’t need to use `*-dark-invert` on the reversi and reversi-alt utilities. And `*-dark-invert` doesn’t work on the black and white utilities.
+
+### Transparent background
+
+E.g. for outline buttons.
+
+* Transparent:
+    * `bg-transparent`
+
+There are no hover states of `bg-transparent`.

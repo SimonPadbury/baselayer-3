@@ -7,7 +7,7 @@
 
   <title>Typography · Baselayer 3 CSS</title>
 
-  <link rel="stylesheet" href="/baselayer-3/css/min/baselayer.min.css?v=1.2.5">
+  <link rel="stylesheet" href="/baselayer-3/css/min/baselayer.min.css?v=3.3.0">
 
   <style>
     html {
@@ -234,11 +234,11 @@ window.addEventListener("DOMContentLoaded", () => {
   <div class="container w-max-100vw">
     <div class="h-100-dvh grid">
 
-      <div id="site-nav" class="bg-gray bg-800">
+      <div id="site-nav" class="bg-gray bg-100 bg-dark-invert">
   <div class="sticky top h-max-100dvh overflow-y">
     <div class="p-cell t-center">
-      <a id="site-title" href="/baselayer-3/" class="h3 m-0 py-1 t-normal flex flex-center flex-middle flex-wrap gap-1 t-gray t-100 hover:t-200 t-noline">
-        <svg height="48" width="48" viewBox="0 0 111 111" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-miterlimit:1.5">
+      <a id="site-title" href="/baselayer-3/" class="h3 m-0 py-1 t-normal flex flex-center flex-middle flex-wrap gap-1 t-reversi hover:t-gray hover:t-800 t-dark-invert t-noline">
+        <svg height="48" width="48" viewBox="0 0 111 111" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-miterwrapper:1.5">
           <g transform="translate(-294.592 -94.592)">
             <circle cx="350" cy="150" r="50" style="fill:none;stroke:currentColor;stroke-width:4px"/>
             <path d="M294.167 180H320v-65.833" style="fill:none;stroke:currentColor;stroke-width:4px" transform="translate(10 -10)"/>
@@ -249,8 +249,8 @@ window.addEventListener("DOMContentLoaded", () => {
           </svg>
         <span class="t-nowrap">Baselayer 3 CSS</span>
       </a>
-      <p class="mb-1 t-gray t-400">Version: 1.2.5 • <a class="t-gray t-100 hover:t-200 t-noline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3">GitHub</a></p>
-      <p class="mb-1 t-gray t-400"><a class="t-gray t-100 hover:t-200 t-noline hover:t-line" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> (24 KB)</p>
+      <p class="mb-1"><span class="t-gray t-600 t-dark-invert">Version: 3.3.0 •</span> <a class="t-gray t-800 hover:t-900 t-dark-invert t-noline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3">GitHub</a></p>
+      <p class="mb-1"><a class="t-gray t-800 hover:t-900 t-dark-invert t-noline hover:t-line" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> <span class="t-gray t-600 t-dark-invert">(22.65 KB)</span></p>
     </div>
 
     <nav role="menu">
@@ -260,18 +260,18 @@ window.addEventListener("DOMContentLoaded", () => {
 
       <div id="site-nav-menu" class="w-xs mx-auto t-center t-white">
         <div class="my-2 p-cell flex flex-column gap-1">
-          <a class="block p-cell t-gray t-100 hover:t-200"  href="/baselayer-3/">Introduction</a>
-          <a class="block p-cell t-gray t-100 hover:t-200"  aria-current="page" href="/baselayer-3/typography/">Typography</a>
-          <a class="block p-cell t-gray t-100 hover:t-200"  href="/baselayer-3/layout/">Layout</a>
-          <a class="block p-cell t-gray t-100 hover:t-200"  href="/baselayer-3/decoration/">Decoration</a>
-          <a class="block p-cell t-gray t-100 hover:t-200"  href="/baselayer-3/colors/">Colors</a>
-          <a class="block p-cell t-gray t-100 hover:t-200"  href="/baselayer-3/forms/">Forms</a>
-          <a class="block p-cell t-gray t-100 hover:t-200"  href="/baselayer-3/buttons/">Buttons</a>
-          <a class="block p-cell t-gray t-100 hover:t-200" href="/baselayer-3/examples/">Examples</a>
+          <a class="block p-cell t-gray t-700 hover:t-900 t-dark-invert"  href="/baselayer-3/">Introduction</a>
+          <a class="block b-1 p-cell t-gray t-700 hover:t-900 t-dark-invert"  aria-current="page" href="/baselayer-3/typography/">Typography</a>
+          <a class="block p-cell t-gray t-700 hover:t-900 t-dark-invert"  href="/baselayer-3/layout/">Layout</a>
+          <a class="block p-cell t-gray t-700 hover:t-900 t-dark-invert"  href="/baselayer-3/decoration/">Decoration</a>
+          <a class="block p-cell t-gray t-700 hover:t-900 t-dark-invert"  href="/baselayer-3/colors/">Colors</a>
+          <a class="block p-cell t-gray t-700 hover:t-900 t-dark-invert"  href="/baselayer-3/forms/">Forms</a>
+          <a class="block p-cell t-gray t-700 hover:t-900 t-dark-invert"  href="/baselayer-3/buttons/">Buttons</a>
+          <a class="block p-cell t-gray t-700 hover:t-900 t-dark-invert" href="/baselayer-3/examples/">Examples</a>
         </div>
 
         <div class="mb-2 p-cell">
-          <button class="toggler w-100% mb-1 p-1 flex flex-column gap-1 bg-gray bg-600 hover:bg-700" onclick="toggleFont()">
+          <button class="toggler w-100% mb-1 p-1 flex flex-column gap-1" onclick="toggleFont()">
             <div class="label-base w-100% flex flex-middle gap-1">
               <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
               <div class="grow t-left">Base font</div>
@@ -282,7 +282,7 @@ window.addEventListener("DOMContentLoaded", () => {
             </div>
           </button>
 
-          <button class="toggler w-100% mb-1 p-1 flex flex-column gap-1 bg-gray bg-600 hover:bg-700" onclick="toggleFS()">
+          <button class="toggler w-100% mb-1 p-1 flex flex-column gap-1" onclick="toggleFS()">
             <div class="label-normal w-100% flex flex-middle gap-1">
               <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
               <div class="grow t-left">Normal font-size</div>
@@ -293,7 +293,7 @@ window.addEventListener("DOMContentLoaded", () => {
             </div>
           </button>
 
-          <button class="toggler w-100% mb-1 p-1 flex flex-column gap-1 bg-gray bg-600 hover:bg-700" onclick="toggleTheme()">
+          <button class="toggler w-100% mb-1 p-1 flex flex-column gap-1" onclick="toggleTheme()">
             <div class="label-light w-100% flex flex-middle gap-1">
               <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
               <div class="grow t-left">Light theme</div>
@@ -315,7 +315,7 @@ window.addEventListener("DOMContentLoaded", () => {
           <div class="grid gap-2">
             <header id="article-title" class="lg:col-1">
               <div class="wrapper-md pt-4 t-big t-center">
-                <h1 class="t-semibold">Typography</h1>
+                <h1 class="t-balance t-semibold">Typography</h1>
               </div>
             </header>
           
@@ -333,22 +333,21 @@ window.addEventListener("DOMContentLoaded", () => {
                 <h2 id="font-stacks" tabindex="-1">Font stacks</h2>
 <p>A few native font stacks are set in the <code>root-vars.css</code> file.</p>
 <pre><code>:root {
-  --t-sans-serif: ui-sans-serif, system-ui, sans-serif;
+  --t-sans: ui-sans-serif, system-ui, sans-serif;
   --t-serif: ui-serif, Georgia, Cambria, &quot;Times New Roman&quot;, Times, serif;
   --t-mono: ui-monospace, Menlo, Consolas, &quot;Courier New&quot;, monospace;
 
+  /* Alternative serif font stack (not used anywhere) */
   --t-old-serif: &quot;Iowan Old Style&quot;, &quot;Palatino Linotype&quot;, Palatino, Georgia, serif;
 
-  --t-base: var(--t-sans-serif);
+  --t-base: var(--t-sans);
   --t-prose: var(--t-serif);
 }
 </code></pre>
-<p>Since Baselayer 3 v.1.2.1, the sans-serif and serif native font stacks have been improved and isolated to their own CSS variables. These are not accessed directly, but they are loaded into the Baselayer variabes <code>--t-base</code> and <code>--t-prose</code>.</p>
-<p>(Baselayer’s earlier “Old Style” serif stack remains available as <code>--t-old-serif</code>, but it is no longer deployed in Baselayer. If you want to use it, it’s still there for you to access) .</p>
 <p>Everything here is an example, a place to start. Your own <code>--base</code> and <code>--prose</code> don’t need to be both sans-serif and serif. See <a href="#setting-font-stacks">setting font stacks</a> for more information.</p>
 <p>The Baselayer docs make use of JavaScript and some extra CSS to enable a demo toggle, so that you can switch between <code>--base</code> and <code>--prose</code> in this main content area.</p>
 <p class="flex flex-center">
-  <button class="toggler p-cell flex flex-column gap-1 bg-blue bg-600 hover:bg-700" onclick="toggleFont()">
+  <button class="toggler p-cell flex flex-column gap-1 bg-blue bg-500 hover:bg-600 bg-dark-invert" onclick="toggleFont()">
     <div class="label-base w-100% flex flex-middle gap-1">
       <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
       <div class="grow t-left">Base font</div>
@@ -367,13 +366,13 @@ window.addEventListener("DOMContentLoaded", () => {
 </ul>
 <h3 id="setting-font-stacks" tabindex="-1">Setting font stacks</h3>
 <p>In choosing your own font stacks, you will probably need two fonts that have similar <em>x-height</em>, so that you can set them using the same font size and line-height. Some other factors to compare are hights for lowercase ascenders and descenders, letter width, and stroke thickness.</p>
-<p>If you prefer Baselayer’s ealier (pre v.1.2.1) “Old Style” sans-serif font stack, this is still available in the variable <code>--t-old-serif</code> and you can easily revert to it by doing something like this in your own stylesheet:</p>
+<p>If you prefer Baselayer’s ealier “Old Serif” font stack, this is still available in the variable <code>--t-old-serif</code>. You can easily revert to it by putting something like this in your own stylesheet:</p>
 <pre><code class="language-css">.t-prose {
   font-family: var(--t-old-serif);
 }
 </code></pre>
 <p>If you want to stick with using native font stacks, the <a href="https://modernfontstacks.com">Modern Font Stacks</a> website has several examples that you can easily copy.</p>
-<p>In choosing your own typefaces from elsewhere, a good place to start is by pairing serif and sans-serif (or slab serif) fonts of the same typeface, if both are available. <a href="https://fonts.google.com">Google Fonts</a> has several typefaces to choose from, such as:</p>
+<p>In choosing your own typefaces from elsewhere, a good place to start is by pairing serif and sans-serif (or slab serif) fonts of the same typeface, if both are available. For example, <a href="https://fonts.google.com">Google Fonts</a> has several typefaces to choose from, such as:</p>
 <ul>
 <li>Alegreya and Alegreya Sans</li>
 <li>IBM Plex and IBM Plex Sans</li>
@@ -383,7 +382,6 @@ window.addEventListener("DOMContentLoaded", () => {
 <li>Roboto and Roboto Slab</li>
 <li>Source Sans 3 and Source Serif 4</li>
 </ul>
-<p>Of course, you can also mix and match.</p>
 <p>Google provides examples of how to use their fonts in your CSS, where the fallback for each is only e.g. <code>sans-serif</code> or <code>serif</code>. But it may be better to use Baselayer’s native font stack variables instead. For example:</p>
 <pre><code class="language-css">@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital@0;1&amp;display=swap');
 
@@ -428,7 +426,7 @@ body {
 <p>All headings <code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code> and matching utility classes <code>h1</code> to <code>h6</code> have:</p>
 <ul>
 <li>Headings font sizes set in the variables file. The typographic scale is 1.250 (major third), calculated using the <a href="https://type-scale.com">Type Scale</a> webapp.</li>
-<li>Headings also have their font-family set using <code>--hf: inherit</code>. This has been done so that you can override it. Your headings don’t need to have the same typeface as your paragraphs.</li>
+<li>Headings also have their font-family set using <code>--hf: inherit</code>. This has been done so that you can use the variable to override it. Your headings don’t need to be the same typeface as your paragraphs.</li>
 <li>Headings font weight is set using <code>--hfw: var(--bold)</code> — which you can also override.</li>
 <li>Headings line heights set using the formula 1em + 0.5rem. Meanwhile the bottom margin is the same as for paragraphs: the line-height of <em>defaut</em> text (1.5) made into rems (1.5rem), set by the variable <code>--mlh</code>. (When the default text size is 16px, the line height and margin-bottom of typographic block elements is 24px.)</li>
 <li>Headings <code>&lt;h2&gt;</code> to <code>&lt;h6&gt;</code> and matching utility classes <code>h2</code> to <code>h6</code> also have top margins equal to their respective line heights (so H2 has a bigger top margin than H3, and so on)</li>
@@ -455,10 +453,10 @@ body {
 <p>Tips:</p>
 <ol>
 <li>In some contexts (e.g. in card components) you may not want any built-in spacing for typographic block elements. Then, you can remove margins by using the <code>m-0</code> utility class.</li>
-<li>You can also remove top margin “remotely” e.g. you can target the first item inside its wrapper using <code>.your-wrapper:first-child { margin-top: 0; }</code>, or the first sibling after the <code>&lt;header&gt;</code> or <code>&lt;h1&gt;</code> e.g. as I have done in these docs: <code>.content-grid header + * { margin-top: 0; }</code>. This takes care of any chapters that start their content with an <code>&lt;h2&gt;</code> as the first element under the title (header) block.</li>
+<li>You can also remove top margin “remotely” e.g. you can target the first item inside its wrapper using <code>.your-wrapper:first-child { margin-top: 0; }</code>, or the first sibling after the <code>&lt;header&gt;</code> or <code>&lt;h1&gt;</code> e.g. as I have done in these docs: <code>.content-grid header + * { margin-top: 0; }</code>. This takes care of any pages that start their content with an <code>&lt;h2&gt;</code> as the first element under the title (header) block.</li>
 </ol>
 <h3 id="block-quotes" tabindex="-1">Block quotes</h3>
-<p>Baselayer styles <code>&lt;blockquote&gt;</code> tags with some inline (x-axis) padding, to give the effect of indentation. This inline padding is set using the responsive spacing variable <code>--sp-3</code> so that it increases if there is more available width.</p>
+<p>Baselayer styles <code>&lt;blockquote&gt;</code> tags with some inline (x-axis) padding, to give the effect of indentation. This inline padding is set using the responsive spacing variable <code>--sp-3</code> so that it increases if there is more available width. Whitespace <code>--sp-3</code> is either based on viewport width or container width, depending on context.</p>
 <p>Otherwise, blockquotes have the same as paragraph styling.</p>
 <blockquote>
 <p>Lorem ipsum dolor sit amet, adipiscing honestatis ius ut, nisl consulatu pro in. Imperdiet evertitur no usu, his te suavitate salutatus. Nullam ridens deterruisset an duo. Cum harum insolens ei, cum probo placerat praesent et.</p>
@@ -616,7 +614,7 @@ Container query powered long-read
 </code></pre>
 <p>The Baselayer docs make use of JavaScript and some extra CSS to enable a demo toggle, so that you can switch between normal and long-read font size in this main article column.</p>
 <p class="flex flex-center">
-  <button class="toggler p-cell flex flex-column gap-1 bg-blue bg-600 hover:bg-700" onclick="toggleFS()">
+  <button class="toggler p-cell flex flex-column gap-1 bg-blue bg-500 hover:bg-600 bg-dark-invert" onclick="toggleFS()">
     <div class="label-normal w-100% flex flex-middle gap-1">
       <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
       <div class="grow t-left">Normal font-size</div>
@@ -633,12 +631,13 @@ Container query powered long-read
 <h2 id="other-typographic-utility-classes" tabindex="-1">Other typographic utility classes</h2>
 <p>Besides those already introduced, Baselayer also has utility classes for:</p>
 <ul>
-<li><code>t-big</code> — increase font size by 1.5em (but there’s no clamp ramp). Use it directly on a <code>&lt;p&gt;</code> to enlarge the font (e.g. for a lead paragraph). Note: don’t use <code>t-big</code>  directly on a heading, because that will override the heading size. But you can use it on a wrapping element around a heading that you wish to enlarge (e.g. for a title or hero component).</li>
-<li><code>t-small</code> (or use the <code>&lt;small&gt;</code> HTML tag) — decrease font-size to 0.75em</li>
+<li><code>t-big</code> — increase font size by 1.25em. Use it directly on a <code>&lt;p&gt;</code> to enlarge the font (e.g. for a lead paragraph). Note: don’t use <code>t-big</code>  directly on a heading, because that will override the heading size. But you can use it on a wrapping element around a heading that you wish to enlarge (e.g. for a title or hero component).</li>
+<li><code>t-small</code> (or use the <code>&lt;small&gt;</code> HTML tag) — decrease font-size to 0.8em</li>
 <li><code>t-highlight</code> (or use the <code>&lt;mark&gt;</code> HTML tag) — text highlighter</li>
 <li><code>t-right</code>, <code>t-center</code>, and <code>t-left</code> — text alignment</li>
 <li><code>t-lighter</code>, <code>t-normal</code>, <code>t-semibold</code>, <code>t-bold</code>, <code>t-heavy</code> — font weights</li>
 <li><code>t-italic</code> — font style italic</li>
+<li><code>t-balance</code> — balances word-wrap, so that e.g. long headings don't have orphans</li>
 <li><code>t-uppercase</code> — text transform to capitals</li>
 <li><code>t-noline</code> — use to remove the underline (underscore) from links where having it may be inappropriate (e.g. in menus)</li>
 <li><code>hover:t-line</code> – make underline appear on hover (pair as <code>t-noline hover:t-line</code> on a link)
@@ -687,25 +686,23 @@ Container query powered long-read
             </main>
 
             <footer class="lg:col-1 content-grid">
-              <nav class="popout mt-3 mb-2">
-                <ul class="m-0 unlist p-0 grid gap-2 sm:equal-2-cols">
-                  
-                  <li class="my-1 b-1 r-3 p-cell flex flex-column gap-1">
-                    Previous
-                    <a class="h2 m-0 t-normal" href="/baselayer-3/"> Introduction</a>
-                  </li>
-                  
-                  
-                  <li class="sm:col-2 my-1 b-1 r-3 p-cell flex flex-column gap-1 t-right">
-                    Next
-                    <a class="h2 m-0 t-normal" href="/baselayer-3/layout/">Layout</a>
-                  </li>
-                    
-                </ul>
+              <nav class="popout mt-3 mb-2 p-0 grid gap-2 sm:equal-2-cols">
+                
+                <a class="sm:col-1 my-1 b-1 b-blue b-300 hover:b-900 b-dark-invert r-3 p-cell flex flex-column gap-1 hover:bg-blue hover:bg-100 bg-dark-invert"  href="/baselayer-3/">
+                  Previous page
+                  <span class="h2 m-0 t-normal"> Introduction</span>
+                </a>
+                
+                
+                <a class="sm:col-2 my-1 b-1 b-blue b-300 hover:b-900 b-dark-invert r-3 p-cell flex flex-column gap-1 t-right hover:bg-blue hover:bg-100 bg-dark-invert" href="/baselayer-3/layout/">
+                  Next page
+                  <span class="h2 m-0 t-normal">Layout</span>
+                </a>
+                
               </nav>
-              <div class="p-2 flex flex-center t-center">
-                <a href="/baselayer-3/" class="h3 m-0 t-normal flex flex-column flex-center gap-1 t-noline">
-                  <svg class="mx-auto" height="48" width="48" viewBox="0 0 111 111" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-miterlimit:1.5">
+              <div class="p-2 flex flex-column flex-middle t-center">
+                <a href="/baselayer-3/" class="mb-1 flex flex-column flex-center gap-1 t-noline">
+                  <svg class="mx-auto" height="48" width="48" viewBox="0 0 111 111" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-miterwrapper:1.5">
                     <g transform="translate(-294.592 -94.592)">
                       <circle cx="350" cy="150" r="50" style="fill:none;stroke:currentColor;stroke-width:4px"/>
                       <path d="M294.167 180H320v-65.833" style="fill:none;stroke:currentColor;stroke-width:4px" transform="translate(10 -10)"/>
@@ -714,14 +711,15 @@ Container query powered long-read
                       <path d="M310 180h80" style="fill:none;stroke:currentColor;stroke-width:4px"/>
                       </g>
                     </svg>
-                  <span class="t-nowrap">Baselayer 3 CSS</span>
+                  <span class="h3 m-0 t-normal t-nowrap">Baselayer 3 CSS</span>
                 </a>
+                <span>Version: 3.3.0</span>
               </div>
 
               <p class="p-cell flex flex-center flex-wrap gap-2 t-center">
-                <span><a class="t-noline hover:t-line" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> (24 KB)</span>
-                <span>Version: 1.2.5</span>
+                <span><a class="t-noline hover:t-line" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> (22.65 KB)</span>
                 <a class="t-noline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3">GitHub Repository</a>
+                <a class="t-noline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3/blob/main/CHANGELOG.md">Changelog</a>
                 <a class="t-noline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3/blob/main/LICENSE">MIT license</a>
               </p>
               <p class="t-center"><span>Developer: <a class="t-noline hover:t-line" href="https://github.com/SimonPadbury">Simon Padbury</a></span>

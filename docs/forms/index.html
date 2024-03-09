@@ -7,7 +7,7 @@
 
   <title>Forms · Baselayer 3 CSS</title>
 
-  <link rel="stylesheet" href="/baselayer-3/css/min/baselayer.min.css?v=1.2.5">
+  <link rel="stylesheet" href="/baselayer-3/css/min/baselayer.min.css?v=3.3.0">
 
   <style>
     html {
@@ -234,11 +234,11 @@ window.addEventListener("DOMContentLoaded", () => {
   <div class="container w-max-100vw">
     <div class="h-100-dvh grid">
 
-      <div id="site-nav" class="bg-gray bg-800">
+      <div id="site-nav" class="bg-gray bg-100 bg-dark-invert">
   <div class="sticky top h-max-100dvh overflow-y">
     <div class="p-cell t-center">
-      <a id="site-title" href="/baselayer-3/" class="h3 m-0 py-1 t-normal flex flex-center flex-middle flex-wrap gap-1 t-gray t-100 hover:t-200 t-noline">
-        <svg height="48" width="48" viewBox="0 0 111 111" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-miterlimit:1.5">
+      <a id="site-title" href="/baselayer-3/" class="h3 m-0 py-1 t-normal flex flex-center flex-middle flex-wrap gap-1 t-reversi hover:t-gray hover:t-800 t-dark-invert t-noline">
+        <svg height="48" width="48" viewBox="0 0 111 111" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-miterwrapper:1.5">
           <g transform="translate(-294.592 -94.592)">
             <circle cx="350" cy="150" r="50" style="fill:none;stroke:currentColor;stroke-width:4px"/>
             <path d="M294.167 180H320v-65.833" style="fill:none;stroke:currentColor;stroke-width:4px" transform="translate(10 -10)"/>
@@ -249,8 +249,8 @@ window.addEventListener("DOMContentLoaded", () => {
           </svg>
         <span class="t-nowrap">Baselayer 3 CSS</span>
       </a>
-      <p class="mb-1 t-gray t-400">Version: 1.2.5 • <a class="t-gray t-100 hover:t-200 t-noline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3">GitHub</a></p>
-      <p class="mb-1 t-gray t-400"><a class="t-gray t-100 hover:t-200 t-noline hover:t-line" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> (24 KB)</p>
+      <p class="mb-1"><span class="t-gray t-600 t-dark-invert">Version: 3.3.0 •</span> <a class="t-gray t-800 hover:t-900 t-dark-invert t-noline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3">GitHub</a></p>
+      <p class="mb-1"><a class="t-gray t-800 hover:t-900 t-dark-invert t-noline hover:t-line" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> <span class="t-gray t-600 t-dark-invert">(22.65 KB)</span></p>
     </div>
 
     <nav role="menu">
@@ -260,18 +260,18 @@ window.addEventListener("DOMContentLoaded", () => {
 
       <div id="site-nav-menu" class="w-xs mx-auto t-center t-white">
         <div class="my-2 p-cell flex flex-column gap-1">
-          <a class="block p-cell t-gray t-100 hover:t-200"  href="/baselayer-3/">Introduction</a>
-          <a class="block p-cell t-gray t-100 hover:t-200"  href="/baselayer-3/typography/">Typography</a>
-          <a class="block p-cell t-gray t-100 hover:t-200"  href="/baselayer-3/layout/">Layout</a>
-          <a class="block p-cell t-gray t-100 hover:t-200"  href="/baselayer-3/decoration/">Decoration</a>
-          <a class="block p-cell t-gray t-100 hover:t-200"  href="/baselayer-3/colors/">Colors</a>
-          <a class="block p-cell t-gray t-100 hover:t-200"  aria-current="page" href="/baselayer-3/forms/">Forms</a>
-          <a class="block p-cell t-gray t-100 hover:t-200"  href="/baselayer-3/buttons/">Buttons</a>
-          <a class="block p-cell t-gray t-100 hover:t-200" href="/baselayer-3/examples/">Examples</a>
+          <a class="block p-cell t-gray t-700 hover:t-900 t-dark-invert"  href="/baselayer-3/">Introduction</a>
+          <a class="block p-cell t-gray t-700 hover:t-900 t-dark-invert"  href="/baselayer-3/typography/">Typography</a>
+          <a class="block p-cell t-gray t-700 hover:t-900 t-dark-invert"  href="/baselayer-3/layout/">Layout</a>
+          <a class="block p-cell t-gray t-700 hover:t-900 t-dark-invert"  href="/baselayer-3/decoration/">Decoration</a>
+          <a class="block p-cell t-gray t-700 hover:t-900 t-dark-invert"  href="/baselayer-3/colors/">Colors</a>
+          <a class="block b-1 p-cell t-gray t-700 hover:t-900 t-dark-invert"  aria-current="page" href="/baselayer-3/forms/">Forms</a>
+          <a class="block p-cell t-gray t-700 hover:t-900 t-dark-invert"  href="/baselayer-3/buttons/">Buttons</a>
+          <a class="block p-cell t-gray t-700 hover:t-900 t-dark-invert" href="/baselayer-3/examples/">Examples</a>
         </div>
 
         <div class="mb-2 p-cell">
-          <button class="toggler w-100% mb-1 p-1 flex flex-column gap-1 bg-gray bg-600 hover:bg-700" onclick="toggleFont()">
+          <button class="toggler w-100% mb-1 p-1 flex flex-column gap-1" onclick="toggleFont()">
             <div class="label-base w-100% flex flex-middle gap-1">
               <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
               <div class="grow t-left">Base font</div>
@@ -282,7 +282,7 @@ window.addEventListener("DOMContentLoaded", () => {
             </div>
           </button>
 
-          <button class="toggler w-100% mb-1 p-1 flex flex-column gap-1 bg-gray bg-600 hover:bg-700" onclick="toggleFS()">
+          <button class="toggler w-100% mb-1 p-1 flex flex-column gap-1" onclick="toggleFS()">
             <div class="label-normal w-100% flex flex-middle gap-1">
               <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
               <div class="grow t-left">Normal font-size</div>
@@ -293,7 +293,7 @@ window.addEventListener("DOMContentLoaded", () => {
             </div>
           </button>
 
-          <button class="toggler w-100% mb-1 p-1 flex flex-column gap-1 bg-gray bg-600 hover:bg-700" onclick="toggleTheme()">
+          <button class="toggler w-100% mb-1 p-1 flex flex-column gap-1" onclick="toggleTheme()">
             <div class="label-light w-100% flex flex-middle gap-1">
               <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
               <div class="grow t-left">Light theme</div>
@@ -315,7 +315,7 @@ window.addEventListener("DOMContentLoaded", () => {
           <div class="grid gap-2">
             <header id="article-title" class="lg:col-1">
               <div class="wrapper-md pt-4 t-big t-center">
-                <h1 class="t-semibold">Forms</h1>
+                <h1 class="t-balance t-semibold">Forms</h1>
               </div>
             </header>
           
@@ -350,7 +350,7 @@ window.addEventListener("DOMContentLoaded", () => {
   </p>
   <p>
     <label for="example-input-search">Search</label>
-    <input type="search" id="example-input-serach" name="example" placeholder="Search ...">
+    <input type="search" id="example-input-search" name="example" placeholder="Search ...">
   </p>
   <p>
     <label for="example-input-email">Email address</label>
@@ -376,7 +376,7 @@ window.addEventListener("DOMContentLoaded", () => {
   </p>
   <p>
     <label for="example-input-number">Number</label>
-    <input type="number" id="quantity" name="example" min="0" inputmode="numeric" pattern="\d*">
+    <input type="number" id="example-input-number" name="example" min="0" inputmode="numeric" pattern="\d*">
   </p>
 </form>
 <h2 id="date-and-time-inputs" tabindex="-1">Date and time inputs</h2>
@@ -400,7 +400,7 @@ window.addEventListener("DOMContentLoaded", () => {
 <form action="">
   <p>
     <label for="example-input-color">Color</label>
-    <input type="color" id="example-inupt-color" placeholder="#fff">
+    <input type="color" id="example-input-color" placeholder="#fff">
   </p>
 </form>
 <h2 id="file-upload" tabindex="-1">File upload</h2>
@@ -500,25 +500,23 @@ window.addEventListener("DOMContentLoaded", () => {
             </main>
 
             <footer class="lg:col-1 content-grid">
-              <nav class="popout mt-3 mb-2">
-                <ul class="m-0 unlist p-0 grid gap-2 sm:equal-2-cols">
-                  
-                  <li class="my-1 b-1 r-3 p-cell flex flex-column gap-1">
-                    Previous
-                    <a class="h2 m-0 t-normal" href="/baselayer-3/colors/"> Colors</a>
-                  </li>
-                  
-                  
-                  <li class="sm:col-2 my-1 b-1 r-3 p-cell flex flex-column gap-1 t-right">
-                    Next
-                    <a class="h2 m-0 t-normal" href="/baselayer-3/buttons/">Buttons</a>
-                  </li>
-                    
-                </ul>
+              <nav class="popout mt-3 mb-2 p-0 grid gap-2 sm:equal-2-cols">
+                
+                <a class="sm:col-1 my-1 b-1 b-blue b-300 hover:b-900 b-dark-invert r-3 p-cell flex flex-column gap-1 hover:bg-blue hover:bg-100 bg-dark-invert"  href="/baselayer-3/colors/">
+                  Previous page
+                  <span class="h2 m-0 t-normal"> Colors</span>
+                </a>
+                
+                
+                <a class="sm:col-2 my-1 b-1 b-blue b-300 hover:b-900 b-dark-invert r-3 p-cell flex flex-column gap-1 t-right hover:bg-blue hover:bg-100 bg-dark-invert" href="/baselayer-3/buttons/">
+                  Next page
+                  <span class="h2 m-0 t-normal">Buttons</span>
+                </a>
+                
               </nav>
-              <div class="p-2 flex flex-center t-center">
-                <a href="/baselayer-3/" class="h3 m-0 t-normal flex flex-column flex-center gap-1 t-noline">
-                  <svg class="mx-auto" height="48" width="48" viewBox="0 0 111 111" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-miterlimit:1.5">
+              <div class="p-2 flex flex-column flex-middle t-center">
+                <a href="/baselayer-3/" class="mb-1 flex flex-column flex-center gap-1 t-noline">
+                  <svg class="mx-auto" height="48" width="48" viewBox="0 0 111 111" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-miterwrapper:1.5">
                     <g transform="translate(-294.592 -94.592)">
                       <circle cx="350" cy="150" r="50" style="fill:none;stroke:currentColor;stroke-width:4px"/>
                       <path d="M294.167 180H320v-65.833" style="fill:none;stroke:currentColor;stroke-width:4px" transform="translate(10 -10)"/>
@@ -527,14 +525,15 @@ window.addEventListener("DOMContentLoaded", () => {
                       <path d="M310 180h80" style="fill:none;stroke:currentColor;stroke-width:4px"/>
                       </g>
                     </svg>
-                  <span class="t-nowrap">Baselayer 3 CSS</span>
+                  <span class="h3 m-0 t-normal t-nowrap">Baselayer 3 CSS</span>
                 </a>
+                <span>Version: 3.3.0</span>
               </div>
 
               <p class="p-cell flex flex-center flex-wrap gap-2 t-center">
-                <span><a class="t-noline hover:t-line" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> (24 KB)</span>
-                <span>Version: 1.2.5</span>
+                <span><a class="t-noline hover:t-line" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> (22.65 KB)</span>
                 <a class="t-noline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3">GitHub Repository</a>
+                <a class="t-noline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3/blob/main/CHANGELOG.md">Changelog</a>
                 <a class="t-noline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3/blob/main/LICENSE">MIT license</a>
               </p>
               <p class="t-center"><span>Developer: <a class="t-noline hover:t-line" href="https://github.com/SimonPadbury">Simon Padbury</a></span>

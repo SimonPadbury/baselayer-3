@@ -7,7 +7,7 @@
 
   <title>Buttons · Baselayer 3 CSS</title>
 
-  <link rel="stylesheet" href="/baselayer-3/css/min/baselayer.min.css?v=1.2.5">
+  <link rel="stylesheet" href="/baselayer-3/css/min/baselayer.min.css?v=3.3.0">
 
   <style>
     html {
@@ -234,11 +234,11 @@ window.addEventListener("DOMContentLoaded", () => {
   <div class="container w-max-100vw">
     <div class="h-100-dvh grid">
 
-      <div id="site-nav" class="bg-gray bg-800">
+      <div id="site-nav" class="bg-gray bg-100 bg-dark-invert">
   <div class="sticky top h-max-100dvh overflow-y">
     <div class="p-cell t-center">
-      <a id="site-title" href="/baselayer-3/" class="h3 m-0 py-1 t-normal flex flex-center flex-middle flex-wrap gap-1 t-gray t-100 hover:t-200 t-noline">
-        <svg height="48" width="48" viewBox="0 0 111 111" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-miterlimit:1.5">
+      <a id="site-title" href="/baselayer-3/" class="h3 m-0 py-1 t-normal flex flex-center flex-middle flex-wrap gap-1 t-reversi hover:t-gray hover:t-800 t-dark-invert t-noline">
+        <svg height="48" width="48" viewBox="0 0 111 111" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-miterwrapper:1.5">
           <g transform="translate(-294.592 -94.592)">
             <circle cx="350" cy="150" r="50" style="fill:none;stroke:currentColor;stroke-width:4px"/>
             <path d="M294.167 180H320v-65.833" style="fill:none;stroke:currentColor;stroke-width:4px" transform="translate(10 -10)"/>
@@ -249,8 +249,8 @@ window.addEventListener("DOMContentLoaded", () => {
           </svg>
         <span class="t-nowrap">Baselayer 3 CSS</span>
       </a>
-      <p class="mb-1 t-gray t-400">Version: 1.2.5 • <a class="t-gray t-100 hover:t-200 t-noline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3">GitHub</a></p>
-      <p class="mb-1 t-gray t-400"><a class="t-gray t-100 hover:t-200 t-noline hover:t-line" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> (24 KB)</p>
+      <p class="mb-1"><span class="t-gray t-600 t-dark-invert">Version: 3.3.0 •</span> <a class="t-gray t-800 hover:t-900 t-dark-invert t-noline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3">GitHub</a></p>
+      <p class="mb-1"><a class="t-gray t-800 hover:t-900 t-dark-invert t-noline hover:t-line" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> <span class="t-gray t-600 t-dark-invert">(22.65 KB)</span></p>
     </div>
 
     <nav role="menu">
@@ -260,18 +260,18 @@ window.addEventListener("DOMContentLoaded", () => {
 
       <div id="site-nav-menu" class="w-xs mx-auto t-center t-white">
         <div class="my-2 p-cell flex flex-column gap-1">
-          <a class="block p-cell t-gray t-100 hover:t-200"  href="/baselayer-3/">Introduction</a>
-          <a class="block p-cell t-gray t-100 hover:t-200"  href="/baselayer-3/typography/">Typography</a>
-          <a class="block p-cell t-gray t-100 hover:t-200"  href="/baselayer-3/layout/">Layout</a>
-          <a class="block p-cell t-gray t-100 hover:t-200"  href="/baselayer-3/decoration/">Decoration</a>
-          <a class="block p-cell t-gray t-100 hover:t-200"  href="/baselayer-3/colors/">Colors</a>
-          <a class="block p-cell t-gray t-100 hover:t-200"  href="/baselayer-3/forms/">Forms</a>
-          <a class="block p-cell t-gray t-100 hover:t-200"  aria-current="page" href="/baselayer-3/buttons/">Buttons</a>
-          <a class="block p-cell t-gray t-100 hover:t-200" href="/baselayer-3/examples/">Examples</a>
+          <a class="block p-cell t-gray t-700 hover:t-900 t-dark-invert"  href="/baselayer-3/">Introduction</a>
+          <a class="block p-cell t-gray t-700 hover:t-900 t-dark-invert"  href="/baselayer-3/typography/">Typography</a>
+          <a class="block p-cell t-gray t-700 hover:t-900 t-dark-invert"  href="/baselayer-3/layout/">Layout</a>
+          <a class="block p-cell t-gray t-700 hover:t-900 t-dark-invert"  href="/baselayer-3/decoration/">Decoration</a>
+          <a class="block p-cell t-gray t-700 hover:t-900 t-dark-invert"  href="/baselayer-3/colors/">Colors</a>
+          <a class="block p-cell t-gray t-700 hover:t-900 t-dark-invert"  href="/baselayer-3/forms/">Forms</a>
+          <a class="block b-1 p-cell t-gray t-700 hover:t-900 t-dark-invert"  aria-current="page" href="/baselayer-3/buttons/">Buttons</a>
+          <a class="block p-cell t-gray t-700 hover:t-900 t-dark-invert" href="/baselayer-3/examples/">Examples</a>
         </div>
 
         <div class="mb-2 p-cell">
-          <button class="toggler w-100% mb-1 p-1 flex flex-column gap-1 bg-gray bg-600 hover:bg-700" onclick="toggleFont()">
+          <button class="toggler w-100% mb-1 p-1 flex flex-column gap-1" onclick="toggleFont()">
             <div class="label-base w-100% flex flex-middle gap-1">
               <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
               <div class="grow t-left">Base font</div>
@@ -282,7 +282,7 @@ window.addEventListener("DOMContentLoaded", () => {
             </div>
           </button>
 
-          <button class="toggler w-100% mb-1 p-1 flex flex-column gap-1 bg-gray bg-600 hover:bg-700" onclick="toggleFS()">
+          <button class="toggler w-100% mb-1 p-1 flex flex-column gap-1" onclick="toggleFS()">
             <div class="label-normal w-100% flex flex-middle gap-1">
               <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
               <div class="grow t-left">Normal font-size</div>
@@ -293,7 +293,7 @@ window.addEventListener("DOMContentLoaded", () => {
             </div>
           </button>
 
-          <button class="toggler w-100% mb-1 p-1 flex flex-column gap-1 bg-gray bg-600 hover:bg-700" onclick="toggleTheme()">
+          <button class="toggler w-100% mb-1 p-1 flex flex-column gap-1" onclick="toggleTheme()">
             <div class="label-light w-100% flex flex-middle gap-1">
               <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
               <div class="grow t-left">Light theme</div>
@@ -315,7 +315,7 @@ window.addEventListener("DOMContentLoaded", () => {
           <div class="grid gap-2">
             <header id="article-title" class="lg:col-1">
               <div class="wrapper-md pt-4 t-big t-center">
-                <h1 class="t-semibold">Buttons</h1>
+                <h1 class="t-balance t-semibold">Buttons</h1>
               </div>
             </header>
           
@@ -330,7 +330,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
             <main id="article-content" class="lg:col-1">
               <div class="content-grid">
-                <p>Baselayer form elements have simple background, hover/active and focus styling (border is set to <code>1px solid transparent</code>).</p>
+                <p>Baselayer form elements have simple background, hovers and focus styling (border is set to <code>1px solid transparent</code>).</p>
 <h3 id="button-types-and-link-%E2%80%9Cpseudo-buttons%E2%80%9D" tabindex="-1">Button types and link “pseudo-buttons”</h3>
 <form class="mt-2 mb-3">
   <button type="button" name="button">Button</button>
@@ -351,15 +351,13 @@ window.addEventListener("DOMContentLoaded", () => {
 </code></pre>
 <p><strong>Notes:</strong></p>
 <ol>
-<li>Form inputs, textareas, buttons, and the <code>btn</code> class, have <code>font-size: inherit</code>. This means their font sizes can be modified by any font-size wrapper around the button in Baselayer.</li>
+<li>Form inputs, textareas, buttons, and the <code>btn</code> class, have <code>font-size: inherit</code>. This means their font sizes can be modified by any font-size limit around the button in Baselayer.</li>
 <li>The font-family of form elements, buttons, <code>btn</code> is controlled by <code>var(--base)</code> (default is sans-serif).</li>
 <li>The <code>btn</code> class doesn’t include the input focus ring (that is set only on form inputs, textareas, and the <code>&lt;button&gt;</code> tag). But if the <code>btn</code> utility class is used on an <code>&lt;a href=&quot;&quot;&gt;</code> link tag, then will get the link focus ring insead (this is only visible when keyboard-tabbing or using assistive tech).</li>
 </ol>
 <h2 id="full-width-buttons" tabindex="-1">Full-width buttons</h2>
-<p>In Baselayer, buttons are pre-styled with <code>display: inline-flex</code> and centering and middling flexbox alignment. So, if you want a button to stretch full-width, you can add <code>class=&quot;w100%&quot;</code> or you can override the inline-flex by adding <code>class=&quot;flex&quot;</code>.</p>
-<div aria-label="Note" class="popout mb-2 bl-3 b-orange b-300 p-2 t-black bg-orange bg-100">
-  Do not use <code>class="block"</code> on a button (or <code>.btn</code>) because that will override its inline flexbox.
-</div>
+<p>In Baselayer, buttons are pre-styled with <code>display: inline-flex</code> and centering and middling flexbox alignment.</p>
+<p>So, if you want a button to stretch full-width, you can add <code>class=&quot;w100%&quot;</code> or you can override the inline-flex by adding <code>class=&quot;flex&quot;</code>. (Do not use <code>class=&quot;block&quot;</code> on a button (or <code>.btn</code>) because that will override its inline flexbox.)</p>
 <p><button class="w-100% my-2" type="button" name="button">Button</button></p>
 <pre><code>&lt;button class=&quot;w-100%&quot; type=&quot;button&quot; name=&quot;button&quot;&gt;
   Button
@@ -396,7 +394,7 @@ window.addEventListener("DOMContentLoaded", () => {
   <p>
     <button type="button" name="button">Button</button>
     <button class="bg-blue bg-600 hover:bg-700" type="button" name="button">Button</button>
-    <button class="t-black hover:t-black bg-orange bg-300 hover:bg-400" type="button" name="button">Button</button>
+    <button class="t-black hover:t-black bg-amber bg-400 hover:bg-500" type="button" name="button">Button</button>
     <a class="btn b-green hover:b-700 bg-transparent bg-600 t-green t-600 hover:t-white hover:bg-green hover:bg-700" href="#/">Link “button”</a>
   </p>
 </form>
@@ -406,8 +404,8 @@ window.addEventListener("DOMContentLoaded", () => {
 &lt;!-- Blue button --&gt;
 &lt;button class=&quot;bg-blue bg-600 hover:bg-700&quot; type=&quot;button&quot; name=&quot;button&quot;&gt;Button&lt;/button&gt;
 
-&lt;!-- orange button --&gt;
-&lt;button class=&quot;t-black hover:t-black bg-orange bg-300 hover:bg-400&quot; type=&quot;button&quot; name=&quot;button&quot;&gt;Button&lt;/button&gt;
+&lt;!-- Amber button --&gt;
+&lt;button class=&quot;t-black hover:t-black bg-amber bg-400 hover:bg-500&quot; type=&quot;button&quot; name=&quot;button&quot;&gt;Button&lt;/button&gt;
 
 &lt;!-- Green outline (a.k.a. ghost) link “button” --&gt;
 &lt;a class=&quot;btn b-green hover:b-700 bg-transparent bg-600 t-green t-600 hover:t-white hover:bg-green hover:bg-700&quot; href=&quot;#/&quot;&gt;Link “button”&lt;/a&gt;
@@ -467,7 +465,7 @@ window.addEventListener("DOMContentLoaded", () => {
   &lt;button type=&quot;button&quot; name=&quot;button&quot; class=&quot;t-big&quot;&gt;Button&lt;/button&gt;
 &lt;/form&gt;
 </code></pre>
-<p><strong>Note:</strong> button x-axis padding is <code>1em</code>, so that it will also respond to the text size of the button.</p>
+<p>Button x-axis padding is <code>1em</code>, so that it will also respond to the text size of the button.</p>
 <h2 id="stretch-buttons" tabindex="-1">Stretch buttons</h2>
 <p>You can increase the x-axis padding (using the responsive <code>px-2</code> or <code>px-3</code>) to make a button more impressive:</p>
 <form class="mt-2 mb-3 flex flex-middle gap-1">
@@ -486,25 +484,23 @@ window.addEventListener("DOMContentLoaded", () => {
             </main>
 
             <footer class="lg:col-1 content-grid">
-              <nav class="popout mt-3 mb-2">
-                <ul class="m-0 unlist p-0 grid gap-2 sm:equal-2-cols">
-                  
-                  <li class="my-1 b-1 r-3 p-cell flex flex-column gap-1">
-                    Previous
-                    <a class="h2 m-0 t-normal" href="/baselayer-3/forms/"> Forms</a>
-                  </li>
-                  
-                  
-                  <li class="sm:col-2 my-1 b-1 r-3 p-cell flex flex-column gap-1 t-right">
-                    Next
-                    <a class="h2 m-0 t-normal" href="/baselayer-3/examples/">Examples</a>
-                  </li>
-                    
-                </ul>
+              <nav class="popout mt-3 mb-2 p-0 grid gap-2 sm:equal-2-cols">
+                
+                <a class="sm:col-1 my-1 b-1 b-blue b-300 hover:b-900 b-dark-invert r-3 p-cell flex flex-column gap-1 hover:bg-blue hover:bg-100 bg-dark-invert"  href="/baselayer-3/forms/">
+                  Previous page
+                  <span class="h2 m-0 t-normal"> Forms</span>
+                </a>
+                
+                
+                <a class="sm:col-2 my-1 b-1 b-blue b-300 hover:b-900 b-dark-invert r-3 p-cell flex flex-column gap-1 t-right hover:bg-blue hover:bg-100 bg-dark-invert" href="/baselayer-3/examples/">
+                  Next page
+                  <span class="h2 m-0 t-normal">Examples</span>
+                </a>
+                
               </nav>
-              <div class="p-2 flex flex-center t-center">
-                <a href="/baselayer-3/" class="h3 m-0 t-normal flex flex-column flex-center gap-1 t-noline">
-                  <svg class="mx-auto" height="48" width="48" viewBox="0 0 111 111" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-miterlimit:1.5">
+              <div class="p-2 flex flex-column flex-middle t-center">
+                <a href="/baselayer-3/" class="mb-1 flex flex-column flex-center gap-1 t-noline">
+                  <svg class="mx-auto" height="48" width="48" viewBox="0 0 111 111" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-miterwrapper:1.5">
                     <g transform="translate(-294.592 -94.592)">
                       <circle cx="350" cy="150" r="50" style="fill:none;stroke:currentColor;stroke-width:4px"/>
                       <path d="M294.167 180H320v-65.833" style="fill:none;stroke:currentColor;stroke-width:4px" transform="translate(10 -10)"/>
@@ -513,14 +509,15 @@ window.addEventListener("DOMContentLoaded", () => {
                       <path d="M310 180h80" style="fill:none;stroke:currentColor;stroke-width:4px"/>
                       </g>
                     </svg>
-                  <span class="t-nowrap">Baselayer 3 CSS</span>
+                  <span class="h3 m-0 t-normal t-nowrap">Baselayer 3 CSS</span>
                 </a>
+                <span>Version: 3.3.0</span>
               </div>
 
               <p class="p-cell flex flex-center flex-wrap gap-2 t-center">
-                <span><a class="t-noline hover:t-line" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> (24 KB)</span>
-                <span>Version: 1.2.5</span>
+                <span><a class="t-noline hover:t-line" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> (22.65 KB)</span>
                 <a class="t-noline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3">GitHub Repository</a>
+                <a class="t-noline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3/blob/main/CHANGELOG.md">Changelog</a>
                 <a class="t-noline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3/blob/main/LICENSE">MIT license</a>
               </p>
               <p class="t-center"><span>Developer: <a class="t-noline hover:t-line" href="https://github.com/SimonPadbury">Simon Padbury</a></span>

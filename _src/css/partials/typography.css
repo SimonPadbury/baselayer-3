@@ -93,8 +93,8 @@
   a,
   a * {
     text-decoration-skip-ink: auto;
-    text-decoration-thickness: var(--dt-link);
-    text-underline-offset: var(--do-link);
+    text-decoration-thickness: var(--d-thick-link);
+    text-underline-offset: var(--d-off-link);
   }
 
   a:hover,
@@ -108,9 +108,9 @@
     padding-left: 1.5em;
   }
 
-  li+li,
   li ol,
-  li ul {
+  li ul,
+  li+li {
     margin-block: var(--sp-list) 0;
   }
 
@@ -187,9 +187,10 @@
   }
 
   pre {
-    overflow-x: auto;
     font-style: normal;
     font-weight: normal;
+    white-space: pre;
+    overflow-x: auto;
   }
 
   pre code {
@@ -221,8 +222,8 @@
   .hover\:t-line:hover {
     text-decoration: underline;
     text-decoration-skip-ink: auto;
-    text-decoration-thickness: var(--dt-link);
-    text-underline-offset: var(--do-link);
+    text-decoration-thickness: var(--d-thick-link);
+    text-underline-offset: var(--d-off-link);
   }
 
   .t-nowrap {
@@ -230,12 +231,12 @@
   }
 
   .t-big {
-    font-size: 150% !important;
+    font-size: var(--t-big) !important;
   }
 
   small,
   .t-small {
-    font-size: 75% !important;
+    font-size: var(--t-small) !important;
   }
 
   .t-lighter {
@@ -272,6 +273,10 @@
 
   .t-left {
     text-align: left;
+  }
+
+  .t-balance {
+    text-wrap: balance;
   }
 
   .t-uppercase {
@@ -313,137 +318,4 @@
     font-size: var(--fs-long-read-prose);
   } */
 
-  fieldset {
-    border: var(--b-1);
-  }
-
-  label,
-  legend {
-    font-family: var(--t-base);
-  }
-
-  ::placeholder {
-    color: var(--tc-input);
-    opacity: .7;
-  }
-
-  input,
-  textarea,
-  select {
-    outline: 0 none;
-    min-height: var(--mh-input);
-    /* -webkit-appearance: none; */
-    border: 0;
-    border-radius: unset;
-    padding: var(--p-cell);
-    font-family: var(--t-base);
-    font-size: inherit;
-    text-align: start;
-    color: var(--tc-input);
-    background: var(--bgc-input);
-  }
-
-  input:focus,
-  select:focus,
-  textarea:focus {
-    position: relative;
-    z-index: 1;
-    outline: 0;
-    box-shadow: 0 0 0 4px var(--focus-ring);
-  }
-
-  select:not([multiple]) {
-    height: var(--mh-input);
-  }
-
-  [type="color"] {
-    width: var(--mh-input);
-    height: var(--mh-input);
-    padding: .25em;
-  }
-
-  [type="checkbox"],
-  [type="radio"] {
-    display: inline;
-    height: 0.85em;
-    min-height: unset;
-    width: 1em;
-  }
-
-  [type=search] {
-    -webkit-appearance: textfield;
-  }
-
-  ::file-selector-button {
-    border: 0;
-    font-size: 1em;
-    color: white;
-    background: var(--bgc-btn);
-  }
-
-  :disabled:hover {
-    cursor: not-allowed;
-  }
-
-  textarea:not([rows]) {
-    min-height: 6em;
-  }
-
-  button,
-  [type="button"],
-  [type="submit"],
-  [type="reset"],
-  .btn {
-    position: relative;
-    -webkit-appearance: none;
-    appearance: none;
-    height: var(--h-input);
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0;
-    border: 1px solid transparent;
-    padding: var(--sp-1) 1em;
-    font-family: var(--t-base);
-    font-size: inherit;
-    font-weight: var(--fw-btn);
-    text-decoration: none;
-    color: var(--tc-btn);
-    background: var(--bgc-btn);
-    transition: all 0.15s ease;
-  }
-
-  button:hover,
-  button:active,
-  [type="button"]:hover,
-  [type="button"]:active,
-  [type="submit"]:hover,
-  [type="submit"]:active,
-  [type="reset"]:hover,
-  [type="reset"]:active,
-  .btn:hover,
-  .btn:active {
-    color: var(--tc-btn-hover);
-    background: var(--bgc-btn-hover);
-    cursor: pointer;
-  }
-
-  button:focus-visible,
-  [type="button"]:focus-visible,
-  [type="submit"]:focus-visible,
-  [type="reset"]:focus-visible {
-    z-index: 1;
-    outline: 0;
-    box-shadow: 0 0 0 4px var(--focus-ring);
-  }
-
-  /* Note: The .btn class doesn’t get this input focus ring. As normal, it will 
-  get the link focus ring insead when you do <a class="btn" href="">...</a>. */
-
-  .btn-icon {
-    width: var(--mh-input);
-    height: var(--mh-input);
-    padding: 0;
-    line-height: inherit;
-  }
 }
