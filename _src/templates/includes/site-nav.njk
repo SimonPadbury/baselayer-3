@@ -1,75 +1,99 @@
-<div id="site-nav" class="bg-gray bg-100 bg-dark-invert">
+<div id="site-nav" class="h-100% bg-gray bg-100 bg-dark-invert">
   <div class="sticky top h-max-100dvh overflow-y">
-    <div class="p-cell t-center">
-      <a id="site-title" href="{{ '/' | url }}" class="h3 m-0 py-1 t-normal flex flex-center flex-middle flex-wrap gap-1 t-reversi hover:t-gray hover:t-800 t-dark-invert t-noline">
-        <svg height="48" width="48" viewBox="0 0 111 111" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-miterwrapper:1.5">
-          <g transform="translate(-294.592 -94.592)">
-            <circle cx="350" cy="150" r="50" style="fill:none;stroke:currentColor;stroke-width:4px"/>
-            <path d="M294.167 180H320v-65.833" style="fill:none;stroke:currentColor;stroke-width:4px" transform="translate(10 -10)"/>
-            <path d="M405.833 180H380v-65.833" style="fill:none;stroke:currentColor;stroke-width:4px" transform="translate(-10 -10)"/>
-            <circle cx="350" cy="150" r="30" style="fill:none;stroke:currentColor;stroke-width:6px" transform="matrix(.66667 0 0 .66667 116.667 50)"/>
-            <path d="M310 180h80" style="fill:none;stroke:currentColor;stroke-width:4px"/>
-            </g>
-          </svg>
-        <span class="t-nowrap">{{ metadata.title }}</span>
-      </a>
-      <p class="mb-1"><span class="t-gray t-600 t-dark-invert">Version: {{ metadata.version }} •</span> <a class="t-gray t-800 hover:t-900 t-dark-invert t-noline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3">GitHub</a></p>
-      <p class="mb-1"><a class="t-gray t-800 hover:t-900 t-dark-invert t-noline hover:t-line" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> <span class="t-gray t-600 t-dark-invert">({{ metadata.filesize }})</span></p>
-    </div>
-
-    <nav role="menu">
-      <button type="button" id="site-nav-toggle" aria-expanded="false" aria-label="Menu" aria-controls="site-nav-menu" class="absolute top right m-2 md:hidden">
+    <div class="flex flex-space-between md:block">
+      <div class="p-cell md:t-center">
+        <a id="site-title" href="{{ '/' | url }}" class="h3 py-2 t-normal flex flex-center flex-middle gap-2 t-gray t-800 hover:t-black t-dark-invert t-no-underline">
+          <svg height="48" width="48" viewBox="0 0 111 111" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-miterwrapper:1.5">
+            <g transform="translate(-294.592 -94.592)">
+              <circle cx="350" cy="150" r="50" style="fill:none;stroke:currentColor;stroke-width:4px"/>
+              <path d="M294.167 180H320v-65.833" style="fill:none;stroke:currentColor;stroke-width:4px" transform="translate(10 -10)"/>
+              <path d="M405.833 180H380v-65.833" style="fill:none;stroke:currentColor;stroke-width:4px" transform="translate(-10 -10)"/>
+              <circle cx="350" cy="150" r="30" style="fill:none;stroke:currentColor;stroke-width:6px" transform="matrix(.66667 0 0 .66667 116.667 50)"/>
+              <path d="M310 180h80" style="fill:none;stroke:currentColor;stroke-width:4px"/>
+              </g>
+            </svg>
+          <span class="t-nowrap">{{ metadata.title }}</span>
+        </a>
+      </div>
+      <button type="button" id="site-menu-toggle" aria-expanded="false" aria-label="Menu" aria-controls="site-menu" class="m-3 md:hidden">
         Menu
       </button>
+    </div>
 
-      <div id="site-nav-menu" class="w-xs mx-auto t-center t-white">
-        <div class="my-2 p-cell flex flex-column gap-1">
-          <a class="block{% if page.url == '/' %} b-1{% endif %} p-cell t-gray t-700 hover:t-900 t-dark-invert" {% if page.url == '/' %} aria-current="page"{% endif %} href="{{ '/' | url }}">Introduction</a>
-          <a class="block{% if 'typography' in page.url %} b-1{% endif %} p-cell t-gray t-700 hover:t-900 t-dark-invert" {% if 'typography' in page.url %} aria-current="page"{% endif %} href="{{ '/typography/' | url }}">Typography</a>
-          <a class="block{% if 'layout' in page.url %} b-1{% endif %} p-cell t-gray t-700 hover:t-900 t-dark-invert" {% if 'layout' in page.url %} aria-current="page"{% endif %} href="{{ '/layout/' | url }}">Layout</a>
-          <a class="block{% if 'decoration' in page.url %} b-1{% endif %} p-cell t-gray t-700 hover:t-900 t-dark-invert" {% if 'decoration' in page.url %} aria-current="page"{% endif %} href="{{ '/decoration/' | url }}">Decoration</a>
-          <a class="block{% if 'colors' in page.url %} b-1{% endif %} p-cell t-gray t-700 hover:t-900 t-dark-invert" {% if 'colors' in page.url %} aria-current="page"{% endif %} href="{{ '/colors/' | url }}">Colors</a>
-          <a class="block{% if 'forms' in page.url %} b-1{% endif %} p-cell t-gray t-700 hover:t-900 t-dark-invert" {% if 'forms' in page.url %} aria-current="page"{% endif %} href="{{ '/forms/' | url }}">Forms</a>
-          <a class="block{% if 'buttons' in page.url %} b-1{% endif %} p-cell t-gray t-700 hover:t-900 t-dark-invert" {% if 'buttons' in page.url %} aria-current="page"{% endif %} href="{{ '/buttons/' | url }}">Buttons</a>
-          <a class="block p-cell t-gray t-700 hover:t-900 t-dark-invert" href="{{ '/examples/' | url }}">Examples</a>
-        </div>
-
-        <div class="mb-2 p-cell">
-          <button class="toggler w-100% mb-1 p-1 flex flex-column gap-1" onclick="toggleFont()">
-            <div class="label-base w-100% flex flex-middle gap-1">
-              <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
-              <div class="grow t-left">Base font</div>
-            </div>
-            <div class="label-prose w-100% flex flex-middle gap-1">
-              <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
-              <div class="grow t-left">Prose font</div>
-            </div>
-          </button>
-
-          <button class="toggler w-100% mb-1 p-1 flex flex-column gap-1" onclick="toggleFS()">
-            <div class="label-normal w-100% flex flex-middle gap-1">
-              <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
-              <div class="grow t-left">Normal font-size</div>
-            </div>
-            <div class="label-longread w-100% flex flex-middle gap-1">
-              <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
-              <div class="grow t-left">Long read font-size</div>
-            </div>
-          </button>
-
-          <button class="toggler w-100% mb-1 p-1 flex flex-column gap-1" onclick="toggleTheme()">
-            <div class="label-light w-100% flex flex-middle gap-1">
-              <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
-              <div class="grow t-left">Light theme</div>
-            </div>
-            <div class="label-dark w-100% flex flex-middle gap-1">
-              <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
-              <div class="grow t-left">Dark theme</div>
-            </div>
-          </button>
-        </div>
-
+    <div id="js-menu-wrapper">
+      <div class="m-3 bt-thin bb-thin py-3 flex flex-center flex-wrap gap-3 links-underlined-hover-only">
+        <span class="t-gray t-600 t-dark-invert">Version: {{ metadata.version }}</span>
+        <a class="t-gray t-800 hover:t-900 t-dark-invert" href="https://github.com/SimonPadbury/baselayer-3">GitHub</a>
+        <span>
+          <a class="t-gray t-800 hover:t-900 t-dark-invert" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> <span class="t-gray t-600 t-dark-invert">({{ metadata.filesize }})</span>
+        </span>
       </div>
-    </nav>
+
+      <nav class="t-white container px-3 py-2">
+        <menu class="pl-0 flex flex-column gap-2 links-not-underlined">
+          <menuitem>
+            <a class="block {% if page.url == '/' %}bl-heavy b-gray b-300 b-dark-invert t-black t-dark-invert bg-gray bg-200 bg-dark-invert{% endif %} p-cell t-gray t-700 hover:t-900 t-dark-invert" {% if page.url == '/' %} aria-current="page"{% endif %} href="{{ '/' | url }}">Getting started</a>
+          </menuitem>
+          <menuitem>
+            <a class="block {% if 'typography' in page.url %}bl-heavy b-gray b-300 b-dark-invert t-black t-dark-invert bg-gray bg-200 bg-dark-invert{% endif %} p-cell t-gray t-700 hover:t-900 t-dark-invert" {% if 'typography' in page.url %} aria-current="page"{% endif %} href="{{ '/typography/' | url }}">Typography</a>
+          </menuitem>
+          <menuitem>
+            <a class="block {% if 'layout' in page.url %}bl-heavy t-black t-dark-invert bg-gray bg-200 bg-dark-invert{% endif %} p-cell t-gray t-700 hover:t-900 t-dark-invert" {% if 'layout' in page.url %} aria-current="page"{% endif %} href="{{ '/layout/' | url }}">Layout</a>
+          </menuitem>
+          <menuitem>
+            <a class="block {% if 'decoration' in page.url %}bl-heavy t-black t-dark-invert bg-gray bg-200 bg-dark-invert{% endif %} p-cell t-gray t-700 hover:t-900 t-dark-invert" {% if 'decoration' in page.url %} aria-current="page"{% endif %} href="{{ '/decoration/' | url }}">Decoration</a></menuitem>
+          <menuitem>
+            <a class="block {% if 'colors' in page.url %}bl-heavy t-black t-dark-invert bg-gray bg-200 bg-dark-invert{% endif %} p-cell t-gray t-700 hover:t-900 t-dark-invert" {% if 'colors' in page.url %} aria-current="page"{% endif %} href="{{ '/colors/' | url }}">Colors</a>
+          </menuitem>
+          <menuitem>
+            <a class="block {% if 'forms' in page.url %}bl-heavy t-black t-dark-invert bg-gray bg-200 bg-dark-invert{% endif %} p-cell t-gray t-700 hover:t-900 t-dark-invert" {% if 'forms' in page.url %} aria-current="page"{% endif %} href="{{ '/forms/' | url }}">Forms</a>
+          </menuitem>
+          <menuitem>
+            <a class="block {% if 'buttons' in page.url %}bl-heavy t-black t-dark-invert bg-gray bg-200 bg-dark-invert{% endif %} p-cell t-gray t-700 hover:t-900 t-dark-invert" {% if 'buttons' in page.url %} aria-current="page"{% endif %} href="{{ '/buttons/' | url }}">Buttons</a>
+            </menuitem>
+          <menuitem>
+            <a class="block p-cell t-gray t-700 hover:t-900 t-dark-invert" href="{{ '/examples/' | url }}">Examples</a>
+          </menuitem>
+        </menu>
+      </nav>
+
+      <menu class="mb-3 px-3">
+        <button id="baseSwitch" class="mb-1 p-2 flex flex-start w-100%" type="button" onclick="fontBase()">
+          <div class="w-100% flex flex-middle gap-1">
+            <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
+            <div class="grow t-left">Base font</div>
+          </div>
+        </button>
+
+        <button id="proseSwitch" class="mb-1 p-2 flex flex-start w-100%" type="button" onclick="fontProse()">
+          <div class="w-100% flex flex-middle gap-1">
+            <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
+            <div class="grow t-left">Prose font</div>
+          </div>
+        </button>
+
+        <button id="autoSwitch" class="mb-1 p-2 flex flex-start w-100%" type="button" onclick="themeAuto()">
+          <div class="w-100% flex flex-middle gap-1">
+            <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
+            <div class="grow t-left">Auto theme</div>
+          </div>
+        </button>
+
+        <button id="lightSwitch" class="mb-1 p-2 flex flex-start w-100%" type="button" onclick="themeLight()">
+          <div class="w-100% flex flex-middle gap-1">
+            <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
+            <div class="grow t-left">Light theme</div>
+          </div>
+        </button>
+
+        <button id="darkSwitch" class="p-2 flex flex-start w-100%" type="button" onclick="themeDark()">
+          <div class="w-100% flex flex-middle gap-1">
+            <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
+            <div class="grow t-left">Dark theme</div>
+          </div>
+        </button>
+      </menu>
+    </div>
+
   </div>
 </div>

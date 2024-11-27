@@ -1,10 +1,10 @@
-/**
- * CSS Reset -- based on
- * https://www.joshwcomeau.com/css/custom-css-reset/
- * https://andy-bell.co.uk/a-more-modern-css-reset/
- */
-
 @layer defaults {
+  /**
+  * CSS Reset -- based on:
+  * https://www.joshwcomeau.com/css/custom-css-reset/
+  * https://andy-bell.co.uk/a-more-modern-css-reset/
+  */
+
   html {
     -moz-text-size-adjust: none;
     -webkit-text-size-adjust: none;
@@ -21,8 +21,8 @@
   body {
     min-height: 100dvh;
     margin: 0;
-    font-size: var(--fs-base);
-    line-height: var(--lh-base);
+    font-size: var(--ff-base);
+    line-height: var(--t-lh);
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
   }

@@ -10,6 +10,20 @@
   <link rel="stylesheet" href="{{ '/css/min/baselayer.min.css' | url }}{{ '?v=' + metadata.version }}">
 
   <style>
+    header > h1 {
+      width: var(--w-xl);
+      margin-inline: auto;
+    }
+    main > h2,
+    main > hr {
+      width: min(100% - (var(--s-2) * 2), var(--w-xl));
+      margin-inline: auto;
+    }
+    main > p {
+      width: min(100% - (var(--s-2) * 2), var(--w-xl));
+      margin-inline: auto;
+    }
+
     .resize-x {
       margin-inline: -5px;
       padding: 5px;
@@ -30,7 +44,8 @@
     <h1>{{ mainHeading }}</h1>
   </header>
 
+  <main>
   {{ content | safe }}
-
+  </main>
 </body>
 </html>

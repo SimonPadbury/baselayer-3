@@ -8,15 +8,16 @@ prevLink: "Colors"
 nextLink: "Buttons"
 ---
 
-Baselayer form elements have simple background and focus styling (no default border).
+Baselayer form elements have simple background and focus styling.
 
 **Notes:**
 
 1. In Baselayer, form elements do not have set width. You can control widths them by one of two ways (same as for [buttons]({{ '/buttons/' | url }})):
     * By adding the `w-100%` utility class to the form element, or
     * By involving the form elements as immediate children of [flex layout]({{ '/layout/' | url }}#flex-layouts) or [grid layout]({{ '/layout/' | url }}#grid-layouts) wrappers.
+2. Form inputs (exclusing buttons) and textareas have a 1px solid border colored by `:root { --b-form: var(--tc-base); }`, so that the border will be the same as the default text color (near black on light theme, bear white on dark theme). This border color makes forms stand out more obvious as an interactive element.
 2. Form inputs, textareas, buttons, and the `btn` class, have `font-size: inherit`. This means their font sizes can be modified by any font-size class in Baselayer.
-3. The font-family of form elements, buttons, and `btn` is controlled by `var(--base)` (default is sans-serif).
+3. The font-family of form elements, buttons, and `btn` is controlled by `var(--ff-base)` (default is sans-serif).
 
 ## Textual form input fields
 
@@ -127,6 +128,19 @@ On some devices (e.g. iOS Safari), these inputs get modified by number pickers (
     </select>
   </p>
 </form>
+
+## List and datalist
+
+<label for="input-list1">Favour dog breed:</label>
+<input list="dog-breeds" id="input-list1" name="dog-breeds" />
+
+<datalist id="dog-breeds">
+  <option value="Springer spaniel"></option>
+  <option value="Dachshund"></option>
+  <option value="Golden retriever"></option>
+  <option value="Beagle"></option>
+  <option value="German Shepherd"></option>
+</datalist>
 
 ## Text area (multiline)
 

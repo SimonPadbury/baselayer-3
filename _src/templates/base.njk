@@ -10,185 +10,93 @@
   <link rel="stylesheet" href="{{ '/css/min/baselayer.min.css' | url }}{{ '?v=' + metadata.version }}">
 
   <style>
-    html {
-      scroll-behavior: smooth;
-    }
-    [aria-current=page] {
-      background: oklch(var(--l900) var(--c02) var(--gray));
-    }
-    .resize-x {
-      margin-inline: -5px;
-      padding: 5px;
-      resize: horizontal;
-      overflow-x: auto;
-      background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='silver' stroke-width='2' stroke-dasharray='8%2c 8' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
-    }
-    button.toggler {
-      height: 3.625em;
-    }
-    .check-box {
-      width: 1rem;
-      height: 1rem;
-    }
-
-    .font-base .label-base .check-box::before { content: '✓'; }
-    .font-prose .label-prose .check-box::before { content: '✓'; }
-    .font-normal .label-normal .check-box::before { content: '✓'; }
-    .font-longread .label-longread .check-box::before { content: '✓'; }
-    .theme-light .label-light .check-box::before { content: '✓'; }
-    .theme-dark .label-dark .check-box::before { content: '✓'; }
-
-    body {
-      container-type: inline-size;
-      container-name: page;
-    }
-
-    @container page (max-width: 1279px) {
-      #toc ul ul {
-        display: none;
-      }
-    }
-
-    @container page (min-width: 960px) {
-      #site-title { 
-        max-width: 200px;
-        margin-inline: auto;
-        padding-top: var(--sp-2);
-        justify-content: center;
-      }
-      #site-nav {
-        min-width: var(--w-xs);
-      }
-      .ms-windows #site-nav > div {
-        scrollbar-gutter: stable;
-        overflow-y: hidden;
-      }
-      .ms-windows #site-nav:hover > div {
-        overflow-y: auto;
-      }
-    }
-    @container page (min-width: 1280px) {
-      article > .grid {
-        grid-template-columns: 1fr var(--w-xs);
-      }
-      .ms-windows #toc > div {
-        scrollbar-gutter: stable;
-        overflow-y: hidden;
-      }
-      .ms-windows #toc:hover > div {
-        overflow-y: auto;
-      }
-    }
-
-    .font-longread #article-title,
-    .font-longread #article-content { 
-      font-size: var(--fs-long-read);
-    }
-
-    .font-prose article { font-family: var(--t-prose); }
-
-    h2, h3, h4 {
-      scroll-margin-top: var(--sp-2);
-    }
-    .content-grid header + h2 {
-      margin-top: 0;
-    }
-
-    pre code {
-      max-height: 80vh;
-      overflow-y: auto
-    }
+  {% include "includes/docs.css" %}
   </style>
 
   <script>
-  {% include "includes/switcher.js" %}
-  {% include "includes/menu.js" %}
-  </script>
+    {% include "includes/switcher.js" %}
 
-</head>
-<body class="{% if bodyClass %}{{ bodyClass }}{% endif %}">
-  <script>
+    {% include "includes/menu.js" %}
+
     if (navigator.appVersion.indexOf("Win") != -1) {
       document.body.classList.add('ms-windows');
     }
   </script>
-
+</head>
+<body class="{% if bodyClass %}{{ bodyClass }}{% endif %}">
   <!-- Current page: {{ page.url | url }} -->
 
-  <a href="#main-content" tabindex="1" class="inline-block m-1 visually-hidden">Skip to main content</a>
+  <a href="#content-wrap" tabindex="1" class="block p-2 visually-hidden">Skip to page content</a>
 
-  <div class="container w-max-100vw">
-    <div class="h-100-dvh grid">
+  <div id="body-wrap" class="md:flex">
 
-      {% include "includes/site-nav.njk" %}
+    {% include "includes/site-nav.njk" %}
 
-      <div class="md:col-2">
-        <article>
-          <div class="grid gap-2">
-            <header id="article-title" class="lg:col-1">
-              <div class="wrapper-md pt-4 t-big t-center">
-                <h1 class="t-balance t-semibold">{{ mainHeading }}</h1>
-              </div>
-            </header>
-          
-            <nav id="toc" class="lg:col-2 lg:row-1 lg:row-span-3">
-              <div class="sticky top w-sm h-max-100dvh mx-auto px-2 overflow-y">
-                <p class="h4 t-semibold">Contents</p>
-                {{ content | toc | safe }}
-              </div>
+    <div id="content-wrap" class="grow">
+      <div class="lg:grid lg:equal-4-cols gap-3">
+        <div class="lg:col-span-3">
+          <header id="article-title">
+            <div class="wrapper-md py-4 t-center t-display">
+              <h1 class="my-4 t-balance t-heavy">{{ mainHeading }}</h1>
+            </div>
+          </header>
+        </div>
+        <div class="lg:col-4 lg:row-span-3">
+          <nav id="toc-wrapper" class="sticky top wrapper-sm h-max-100dvh mb-3 pr-2 links-underlined-hover-only overflow-y">
+            <p class="h4 t-semibold">On this page</p>
+            {{ content | toc | safe }}
+          </nav>
+        </div>
+        <div class="lg:col-span-3">
+          <main id="article-content" class="content-grid">
+            {{ content | safe }}
+          </main>
+        </div>
+        <div class="lg:col-span-3">
+          <footer class="mt-3 content-grid">
+            <nav class="popout grid gap-2 sm:equal-2-cols links-not-underlined">
+              {% if prevPage %}
+              <a class="sm:col-1 my-1 b-thin b-blue b-300 hover:b-500 b-dark-invert rad-1 p-cell flex flex-column gap-1 t-blue t-600 hover:t-700 t-dark-invert hover:bg-blue hover:bg-100 bg-dark-invert"  href="{{ prevPage | url }}">
+                Previous page
+                <span class="h2 m-0 t-normal"> {{ prevLink if prevLink else "Previous page" }}</span>
+              </a>
+              {% endif %}
+              {% if nextPage %}
+              <a class="sm:col-2 my-1 b-thin b-blue b-300 hover:b-500 b-dark-invert rad-1 p-cell flex flex-column gap-1 t-blue t-600 hover:t-700 t-dark-invert t-right hover:bg-blue hover:bg-100 bg-dark-invert" href="{{ nextPage | url }}">
+                Next page
+                <span class="h2 m-0 t-normal">{{ nextLink if nextLink else "Next page" }}</span>
+              </a>
+              {% endif %}
             </nav>
+            <div class="mt-4 mb-3 p-2 flex flex-column flex-middle t-center">
+              <a href="{{ '/' | url }}" class="mb-1 flex flex-column flex-center gap-1 t-no-underline">
+                <svg class="mx-auto" height="48" width="48" viewBox="0 0 111 111" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-miterwrapper:1.5">
+                  <g transform="translate(-294.592 -94.592)">
+                    <circle cx="350" cy="150" r="50" style="fill:none;stroke:currentColor;stroke-width:4px"/>
+                    <path d="M294.167 180H320v-65.833" style="fill:none;stroke:currentColor;stroke-width:4px" transform="translate(10 -10)"/>
+                    <path d="M405.833 180H380v-65.833" style="fill:none;stroke:currentColor;stroke-width:4px" transform="translate(-10 -10)"/>
+                    <circle cx="350" cy="150" r="30" style="fill:none;stroke:currentColor;stroke-width:6px" transform="matrix(.66667 0 0 .66667 116.667 50)"/>
+                    <path d="M310 180h80" style="fill:none;stroke:currentColor;stroke-width:4px"/>
+                    </g>
+                  </svg>
+                <span class="h3 m-0 t-normal t-nowrap">{{ metadata.title }}</span>
+              </a>
+              <span>Version: {{ metadata.version }}</span>
+            </div>
 
-            <main id="article-content" class="lg:col-1">
-              <div class="content-grid">
-                {{ content | safe }}
-              </div>
-            </main>
-
-            <footer class="lg:col-1 content-grid">
-              <nav class="popout mt-3 mb-2 p-0 grid gap-2 sm:equal-2-cols">
-                {% if prevPage %}
-                <a class="sm:col-1 my-1 b-1 b-blue b-300 hover:b-900 b-dark-invert r-3 p-cell flex flex-column gap-1 hover:bg-blue hover:bg-100 bg-dark-invert"  href="{{ prevPage | url }}">
-                  Previous page
-                  <span class="h2 m-0 t-normal"> {{ prevLink if prevLink else "Previous page" }}</span>
-                </a>
-                {% endif %}
-                {% if nextPage %}
-                <a class="sm:col-2 my-1 b-1 b-blue b-300 hover:b-900 b-dark-invert r-3 p-cell flex flex-column gap-1 t-right hover:bg-blue hover:bg-100 bg-dark-invert" href="{{ nextPage | url }}">
-                  Next page
-                  <span class="h2 m-0 t-normal">{{ nextLink if nextLink else "Next page" }}</span>
-                </a>
-                {% endif %}
-              </nav>
-              <div class="p-2 flex flex-column flex-middle t-center">
-                <a href="{{ '/' | url }}" class="mb-1 flex flex-column flex-center gap-1 t-noline">
-                  <svg class="mx-auto" height="48" width="48" viewBox="0 0 111 111" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-miterwrapper:1.5">
-                    <g transform="translate(-294.592 -94.592)">
-                      <circle cx="350" cy="150" r="50" style="fill:none;stroke:currentColor;stroke-width:4px"/>
-                      <path d="M294.167 180H320v-65.833" style="fill:none;stroke:currentColor;stroke-width:4px" transform="translate(10 -10)"/>
-                      <path d="M405.833 180H380v-65.833" style="fill:none;stroke:currentColor;stroke-width:4px" transform="translate(-10 -10)"/>
-                      <circle cx="350" cy="150" r="30" style="fill:none;stroke:currentColor;stroke-width:6px" transform="matrix(.66667 0 0 .66667 116.667 50)"/>
-                      <path d="M310 180h80" style="fill:none;stroke:currentColor;stroke-width:4px"/>
-                      </g>
-                    </svg>
-                  <span class="h3 m-0 t-normal t-nowrap">{{ metadata.title }}</span>
-                </a>
-                <span>Version: {{ metadata.version }}</span>
-              </div>
-
-              <p class="p-cell flex flex-center flex-wrap gap-2 t-center">
-                <span><a class="t-noline hover:t-line" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> ({{ metadata.filesize }})</span>
-                <a class="t-noline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3">GitHub Repository</a>
-                <a class="t-noline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3/blob/main/CHANGELOG.md">Changelog</a>
-                <a class="t-noline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3/blob/main/LICENSE">MIT license</a>
-              </p>
-              <p class="t-center"><span>Developer: <a class="t-noline hover:t-line" href="{{ metadata.developer.url }}">{{ metadata.developer.name }}</a></span>
-            </footer>
-          </div>
-        </article>
+            <p class="p-cell flex flex-center flex-wrap gap-4 t-center">
+              <span><a class="t-no-underline hover:t-line" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> ({{ metadata.filesize }})</span>
+              <a class="t-no-underline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3">GitHub Repository</a>
+              <a class="t-no-underline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3/blob/main/CHANGELOG.md">Changelog</a>
+              <a class="t-no-underline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3/blob/main/LICENSE">MIT license</a>
+            </p>
+            <p class="t-center"><span>Developer: <a class="t-no-underline hover:t-line" href="{{ metadata.developer.url }}">{{ metadata.developer.name }}</a></span>
+          </footer>
+        </div>
       </div>
-
     </div>
-  </div>
+
+  </div><!-- /#body-wrap -->
 
 </body>
 </html>

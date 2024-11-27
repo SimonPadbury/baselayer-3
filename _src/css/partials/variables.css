@@ -1,227 +1,158 @@
 :root {
-  /* Fallback colors (pre `color-mix()` */
-  --bgc-body: white;
-  --tc-base: #222;
-  --tc-link: #4162e3;
-  --tc-link-hover: #344fb6;
-  --focus-ring: #9BAFF9;
-  --tc-input: black;
-  --bgc-input: #f5f5f5;
-  --tc-btn: white;
-  --tc-btn-hover: white;
-  --bgc-btn: #808080;
-  --bgc-btn-hover: #707070;
-  --tc-code: black;
-  --bgc-code: #e0e0e0;
-  --bgc-highlight: #ffcc0066;
-  --bc-fineline: #d9d9d9;
-
-  /* Theme base colors */
-  --blue: #3b6cff;
-  --green: #01b236;
-  --amber: #f0b300;
-  --red: #f80200;
-  --gray: #767676;
-
-  /* Light theme colors */
-  --tc-base: color-mix(in srgb, var(--gray) calc((100% - var(--l900)) * 2), black);
-  --tc-link: color-mix(in srgb, var(--blue) calc((100% - var(--l600)) * 2), black);
-  --tc-link-hover: color-mix(in srgb, var(--blue) calc((100% - var(--l800)) * 2), black);
-  --focus-ring: color-mix(in srgb, var(--blue) calc(var(--l300) * 2), white);
-  --tc-input: black;
-  --bgc-input: #f5f5f5;
-  --tc-btn: white;
-  --tc-btn-hover: white;
-  --bgc-btn: color-mix(in srgb, var(--gray) calc((100% - var(--l500)) * 2), white);
-  --bgc-btn-hover: color-mix(in srgb, var(--gray) calc((100% - var(--l600)) * 2), black);
-  --tc-code: black;
-  --bgc-code: color-mix(in srgb, var(--gray) calc(var(--l200) * 2), white);
-  --bgc-highlight: #ffcc0066;
-  --bc-fineline: color-mix(in srgb, var(--gray) calc(var(--l200) * 2), white);
-}
-
-* {
-  /* Color shades; increments: 10% */
-  --l100: 5%;
-  --l200: 15%;
-  --l300: 25%;
-  --l400: 35%;
-  --l500: 45%;
-  --l600: 55%;
-  --l700: 65%;
-  --l800: 75%;
-  --l900: 85%;
-  --l1000: 95%;
-}
-
-/* Dark theme; increments: 8% */
-.theme-dark,
-.theme-dark * {
-  --l100: 22%;
-  --l200: 30%;
-  --l300: 38%;
-  --l400: 46%;
-  --l500: 54%;
-  --l600: 62%;
-  --l700: 70%;
-  --l800: 78%;
-  --l900: 86%;
-  --l1000: 94%
-}
-
-.theme-dark .b-dark-invert,
-.theme-dark .t-dark-invert,
-.theme-dark .bg-dark-invert {
-  --l100: 86%;
-  --l200: 78%;
-  --l300: 70%;
-  --l400: 62%;
-  --l500: 54%;
-  --l600: 46%;
-  --l700: 38%;
-  --l800: 30%;
-  --l900: 22%;
-}
-
-.theme-dark {
-  --bgc-body: color-mix(in srgb, var(--gray) calc((100% - var(--l1000)) * 2), black);
-  --tc-base: color-mix(in srgb, var(--gray) calc(var(--l100) * 2), white);
-  --tc-link: color-mix(in srgb, var(--blue) calc(var(--l400) * 2), white);
-  --tc-link-lighter: color-mix(in srgb, var(--blue) calc(var(--l300) * 2), white);
-  --tc-link-darker: color-mix(in srgb, var(--blue) calc(var(--l500) * 2), white);
-  --tc-link-hover: var(--tc-link-lighter);
-  --focus-ring: color-mix(in srgb, var(--blue) calc((100% - var(--l600)) * 2), black);
-  --tc-input: white;
-  --bgc-input: color-mix(in srgb, var(--gray) calc((100% - var(--l900)) * 2), black);
-  --bgc-btn: color-mix(in srgb, var(--gray) calc((100% - var(--l600)) * 2), black);
-  --bgc-btn-lighter: color-mix(in srgb, var(--gray) calc((100% - var(--l500)) * 2), white);
-  --bgc-btn-darker: color-mix(in srgb, var(--gray) calc((100% - var(--l700)) * 2), black);
-  --bgc-btn-hover: var(--bgc-btn-lighter);
-  --tc-code: white;
-  --bgc-code: color-mix(in srgb, var(--gray) calc((100% - var(--l800)) * 2), black);
-  --bc-fineline: color-mix(in srgb, var(--gray) calc((100% - var(--l700)) * 2), black);
-}
-
-:root {
-  /* Native Typeface Stacks */
-  --t-sans: ui-sans-serif, system-ui, sans-serif;
-  --t-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
-  --t-mono: ui-monospace, Menlo, Consolas, "Courier New", monospace;
-
-  /* Alternative serif font stack (not used anywhere) */
-  --t-old-serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
-
-  --t-base: var(--t-sans);
-  --t-prose: var(--t-serif);
-
-  /* Base font size */
-  --fs-base: 100%;
-  /* Base line-height (no unit required) */
-  --lh-base: 1.5;
-  /* margin line-height in rems */
-  --m-lh: calc(var(--lh-base) * 1rem);
-
-  --t-small: .8em;
-  --t-big: 1.25em;
-
-  /* Font weights */
-  --fw-lighter: 200;
-  --fw-normal: 400;
-  --fw-semibold: 500;
-  --fw-bold: 700;
-  --fw-heavy: 900;
-
   /*
-  Widths set at 320px intervals
-  Same as `@media` and `@container` min-widths
+  Widths
+  ======
+  Note: sm, md, and lg are the same as `@container` min-widths.
   */
   --w-xs: 320px;
   --w-sm: 640px;
   --w-md: 960px;
   --w-lg: 1280px;
   --w-xl: 1600px;
+  --w-content: 40em; /* Used in the content grid, and in `w-content` */
+  --w-expand: 10.79em; /* 40em + (2 x 10.79em) = 1280px */
 
   /*
-  Content grid
-  ============
-  Default content becomes max width 640px when font-size is 16px (1rem)
-  Expand panels becomes max width 960px when font-size is 16px (1rem)
+  Spacing (and border-radius)
+  ===========================
+  Used for margins, paddings, flexbox gaps, and grid gaps.
+  Note: `--s-3` and `--s-4` are based on https://clamp.font-size.app/
+  (but using cqi), expanding to 1.5× of initial value from 640px to 1280px.
   */
-  --w-cg: 40em;
-  --w-expand: 8.5em;
-
-  /*
-  Spacing
-  =======
-  Used for margins, paddings, flexbox gaps, and grid gaps. Notes:
-  * `--sp-2` through `--sp-4` clamps are based on https://clamp.font-size.app/,
-    expanding each to 1.5× of initial value from 640px to 1280px.
-  * `--sp-2` through `--sp-4` involve viewport widths (vw) or container widths (cqi)
-    depending on context. See also “container query powered variables” below.
-  */
-  --sp-1: 0.5rem;
-  --sp-2: clamp(1rem, 0.5rem + 1.25vw, 1.5rem);
-  --sp-3: clamp(2rem, 1rem + 2.5vw, 3rem);
-  --sp-4: clamp(3rem, 1.5rem + 3.75vw, 4.5rem);
-  /* table cells, form inputs, and similar utility class */
-  --p-cell: var(--sp-1) calc(2 * var(--sp-1));
-  /* list spacing (between items) */
-  --sp-list: 0.75em;
-
-  /* 
-  Major third typographic scale
-  =============================
-  Salculated by https://type-scale.com
-  Set heading sizes using ems, so that all headings can be `clamp()`
-  enlarged by wrapping with `.t-long-read` 
-  */
-  --h1: 2.441em;
-  --h2: 1.953em;
-  --h3: 1.563em;
-  --h4: 1.25em;
-  --h5: 1em;
-  --h6: .8em;
-  /* headings font */
-  --h-font: inherit;
-  /* headings font-weight */
-  --h-fw: var(--fw-bold);
-  /* headings line-height */
-  --h-lh: calc(1em + 0.5rem);
-
-  /*
-  Long-read utility
-  See also “container query powered variables” below.
-  */
-  --fs-long-read: clamp(1rem, 0.625rem + 0.9375vw, 1.375rem);
-  ;
-
-  /* link decoration offset */
-  --d-off-link: .3rem;
-  /* link decoration thickness */
-  --d-thick-link: 1px;
-  /* input and button height */
-  --h-input: 2.5em;
-  /* button font-weight */
-  --fw-btn: var(--fw-semibold);
+  --s-1: 0.25rem; /* 4px */
+  --s-2: 0.5rem; /* 8px */
+  --s-3: clamp(1rem, 0.5rem + 1.25cqi, 1.5rem);
+  --s-4: clamp(2rem, 1rem + 2.5cqi, 3rem);
+  --pill: 99rem;
+  --p-cell: 0.5rem 1rem; /* table cells, form inputs, and a utility class */
 
   /* Borders */
   --b-1: 1px solid var(--bc-fineline);
-  --b-2: 4px solid var(--bc-fineline);
-  --b-3: 8px solid var(--bc-fineline);
+  --b-2: var(--s-1) solid var(--bc-fineline);
+  --b-3: var(--s-2) solid var(--bc-fineline);
 
-  /* Border radius (rounded corners) */
-  --r-2: 4px;
-  --r-3: 8px;
-  --r-4: 16px;
-}
+  /* Native Typeface Stacks */
+  --ff-sans: ui-sans-serif, system-ui, Arial, sans-serif;
+  --ff-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --ff-mono: ui-monospace, Menlo, Consolas, "Courier New", monospace;
+  --ff-base: var(--ff-sans);
+  --ff-prose: var(--ff-serif);
 
-/* Container query powered variables */
-.container {
-  /* No need for `--sp-1` here, because it’s always 0.5rem */
-  --sp-2: clamp(1rem, 0.5rem + 1.25cqi, 1.5rem);
-  --sp-3: clamp(2rem, 1rem + 2.5cqi, 3rem);
-  --sp-4: clamp(3rem, 1.5rem + 3.75cqi, 4.5rem);
+  /* Font sizes */
+  --fs-base: 100%; /* usually 16ppx */
+  --fs-bump: 112.5%; /* usually 18px */
+  --fs-sm: 0.8em;
+  --fs-lg: 1.325em;
+  --fs-long-read: clamp(1em, 0.8333cqi + 0.5208vw, 1.25em);
+  --fs-display: clamp(1.125rem, 1.25cqi + 0.625rem, 1.625rem);
+  /*
+  20px ramp to 32px (thru 640 --> 1280). H1 will max out at 72px.
+  Used https://clamp.font-size.app/ but changed vw to cqi
+  */
 
-  --fs-long-read: clamp(1rem, 0.625rem + 0.9375cqi, 1.375rem);
-  ;
+  /* Font weights */
+  --fw-thin: 200;
+  --fw-normal: 400;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+  --fw-heavy: 900;
+  --fw-btn: var(--fw-semibold);
+
+  /* Forms */
+  --b-form: 1px solid var(--bc-form);
+  --y-form: 2.5em;
+
+  /*
+  Headings
+  ========
+  Set heading sizes using ems, so that all headings can be `clamp()`
+  enlarged by wrapping with `.t-display`
+  */
+  --h1: 2.25em;
+  --h2: 1.875em;
+  --h3: 1.5em;
+  --h4: 1.25em;
+  --h5: 1.125em;
+  --h6: 1em;
+  --h-ff: inherit; /* headings font family */
+  --h-fw: var(--fw-semibold);
+  --h-lh: calc(1em + 0.5rem);
+  --h-mt: calc(var(--t-mb) * 2);
+
+  --t-mb: 1rem; /* typographic elements margin-bottom */
+  --t-lh: 1.5; /* Base line-height (no unit required) */
+
+  --a-deco-offset: 0.3em; /* link decoration offset */
+  --a-deco-thickness: 1px; /* link decoration thickness */
+  --a-deco-thickness-hover: 3px; /* link decoration thickness :hover */
+
+  /* Theme base colors */
+  --blue: #0040ff;
+  --green: #128a12;
+  --amber: #e6de00;
+  --red: #e60000;
+  --gray: #808080;
+
+  /* Light and dark theme colors */
+  --bgc-body: light-dark(
+    color-mix(in oklch, white),
+    color-mix(in oklch, var(--gray), var(--l1000))
+  );
+  --tc-base: light-dark(
+    color-mix(in oklch, var(--gray), var(--l900)),
+    color-mix(in oklch, var(--gray), var(--l100))
+  );
+  --tc-link: light-dark(
+    color-mix(in oklch, var(--blue), var(--l600)),
+    color-mix(in oklch, var(--blue), var(--l400))
+  );
+  --tc-link-hover: light-dark(
+    color-mix(in oklch, var(--blue), var(--l800)),
+    color-mix(in oklch, var(--blue), var(--l500))
+  );
+  --tc-btn: white;
+  --tc-btn-hover: white;
+  --bgc-btn: light-dark(
+    color-mix(in oklch, var(--gray), var(--l500)),
+    color-mix(in oklch, var(--gray), var(--l600))
+  );
+  --bgc-btn-hover: light-dark(
+    color-mix(in oklch, var(--gray), var(--l600)),
+    color-mix(in oklch, var(--gray), var(--l700))
+  );
+  --bc-form: var(--bgc-btn);
+  --tc-form: CanvasText;
+  --bgc-form: Canvas;
+  --tc-code: light-dark(
+    color-mix(in oklch, var(--green), var(--l600)),
+    color-mix(in oklch, var(--green), var(--l300))
+  );
+  --bgc-code: light-dark(white, black);
+  --bc-fineline: light-dark(
+    color-mix(in oklch, var(--gray), var(--l300)),
+    color-mix(in oklch, var(--gray), var(--l700))
+  );
+
+  /* Color shades */
+  --l100: white 90%;
+  --l200: white 72%;
+  --l300: white 54%;
+  --l400: white 36%;
+  --l500: white 18%;
+  --l600: black 0%;
+  --l700: black 18%;
+  --l800: black 36%;
+  --l900: black 54%;
+  --l1000: black 72%;
+
+  /* Color shades inverted (used for `*-dark-invert`) */
+  --l100i: black 54%;
+  --l200i: black 36%;
+  --l300i: black 18%;
+  --l400i: black 0%;
+  --l500i: white 18%;
+  --l600i: white 36%;
+  --l700i: white 54%;
+  --l800i: white 72%;
+  --l900i: white 90%;
 }

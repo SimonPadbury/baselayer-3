@@ -5,332 +5,337 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Forms · Baselayer 3 CSS</title>
+  <title>Forms · Baselayer CSS</title>
 
-  <link rel="stylesheet" href="/baselayer-3/css/min/baselayer.min.css?v=3.3.0">
+  <link rel="stylesheet" href="/baselayer-3/css/min/baselayer.min.css?v=3.4.0">
 
   <style>
-    html {
-      scroll-behavior: smooth;
-    }
-    [aria-current=page] {
-      background: oklch(var(--l900) var(--c02) var(--gray));
-    }
-    .resize-x {
-      margin-inline: -5px;
-      padding: 5px;
-      resize: horizontal;
-      overflow-x: auto;
-      background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='silver' stroke-width='2' stroke-dasharray='8%2c 8' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
-    }
-    button.toggler {
-      height: 3.625em;
-    }
-    .check-box {
-      width: 1rem;
-      height: 1rem;
-    }
+  html {
+  scroll-behavior: smooth;
+}
 
-    .font-base .label-base .check-box::before { content: '✓'; }
-    .font-prose .label-prose .check-box::before { content: '✓'; }
-    .font-normal .label-normal .check-box::before { content: '✓'; }
-    .font-longread .label-longread .check-box::before { content: '✓'; }
-    .theme-light .label-light .check-box::before { content: '✓'; }
-    .theme-dark .label-dark .check-box::before { content: '✓'; }
+.resize-x {
+  margin-inline: -5px;
+  padding: 5px;
+  resize: horizontal;
+  overflow-x: auto;
+  background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='silver' stroke-width='2' stroke-dasharray='8%2c 8' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
+}
 
-    body {
-      container-type: inline-size;
-      container-name: page;
-    }
+button.toggler {
+  height: 3.625em;
+}
+.check-box {
+  width: 1rem;
+  height: 1rem;
+}
 
-    @container page (max-width: 1279px) {
-      #toc ul ul {
-        display: none;
-      }
-    }
+.font-base #baseSwitch .check-box::before {
+  content: "✓";
+}
+.font-prose #proseSwitch .check-box::before {
+  content: "✓";
+}
+.theme-auto #autoSwitch .check-box::before {
+  content: "✓";
+}
+.theme-light #lightSwitch .check-box::before {
+  content: "✓";
+}
+.theme-dark #darkSwitch .check-box::before {
+  content: "✓";
+}
 
-    @container page (min-width: 960px) {
-      #site-title { 
-        max-width: 200px;
-        margin-inline: auto;
-        padding-top: var(--sp-2);
-        justify-content: center;
-      }
-      #site-nav {
-        min-width: var(--w-xs);
-      }
-      .ms-windows #site-nav > div {
-        scrollbar-gutter: stable;
-        overflow-y: hidden;
-      }
-      .ms-windows #site-nav:hover > div {
-        overflow-y: auto;
-      }
-    }
-    @container page (min-width: 1280px) {
-      article > .grid {
-        grid-template-columns: 1fr var(--w-xs);
-      }
-      .ms-windows #toc > div {
-        scrollbar-gutter: stable;
-        overflow-y: hidden;
-      }
-      .ms-windows #toc:hover > div {
-        overflow-y: auto;
-      }
-    }
+.font-prose #content-wrap {
+  font-family: var(--ff-prose);
+}
 
-    .font-longread #article-title,
-    .font-longread #article-content { 
-      font-size: var(--fs-long-read);
-    }
+:target {
+  scroll-margin-top: var(--s-3);
+}
 
-    .font-prose article { font-family: var(--t-prose); }
+pre code {
+  max-height: 80vh;
+  overflow-y: auto;
+}
 
-    h2, h3, h4 {
-      scroll-margin-top: var(--sp-2);
-    }
-    .content-grid header + h2 {
-      margin-top: 0;
-    }
+@container (min-width: 960px) {
+  #content-wrap {
+    width: calc(100vw - var(--w-xs));
+  }
+  #site-nav {
+    position: sticky;
+    top: 0;
+    width: var(--w-xs);
+    height: 100dvh;
+  }
+  #site-title {
+    padding-top: var(--s-3);
+    flex-direction: column;
+    align-self: center;
+  }
+  #site-menu {
+    min-width: var(--w-xs);
+  }
+  .ms-windows #site-nav > div {
+    scrollbar-gutter: stable;
+    overflow-y: hidden;
+  }
+  .ms-windows #site-nav:hover > div {
+    overflow-y: auto;
+  }
+}
 
-    pre code {
-      max-height: 80vh;
-      overflow-y: auto
-    }
+@container (min-width: 1280px) {
+  #toc-wrapper > p {
+    padding-top: var(--s-3);
+  }
+  .ms-windows #toc > div {
+    scrollbar-gutter: stable;
+    overflow-y: hidden;
+  }
+  .ms-windows #toc:hover > div {
+    overflow-y: auto;
+  }
+}
+
+@container page (max-width: 1279px) {
+  #toc ul ul {
+    display: none;
+  }
+}
+
   </style>
 
   <script>
-  const matchMediaDark = window.matchMedia('(prefers-color-scheme: dark)');
-const htmlClassList = document.querySelector('html').classList;
+    // Using sessionStorage so that it is discarded as soon as a visitor leaves this site or closes the current window/tab.
 
-function fontProse() {
-  sessionStorage.setItem('baselayerFont', 'prose');
-  htmlClassList.remove('font-base');
-  htmlClassList.add('font-prose');
-}
+const htmlClassList = document.querySelector("html").classList;
+const lightSwitch = document.querySelector("#lightSwitch");
+const darkSwitch = document.querySelector("#darkSwitch");
+const autoSwitch = document.querySelector("#autoSwitch");
 
 function fontBase() {
-  sessionStorage.setItem('baselayerFont', 'base');
-  htmlClassList.remove('font-prose');
-  htmlClassList.add('font-base');
+  sessionStorage.setItem("baselayerFont", "base");
+  htmlClassList.remove("font-prose");
+  htmlClassList.add("font-base");
 }
 
-function fsLongRead() {
-  sessionStorage.setItem('baselayerFS', 'longread');
-  htmlClassList.remove('font-normal');
-  htmlClassList.add('font-longread');
+function fontProse() {
+  sessionStorage.setItem("baselayerFont", "prose");
+  htmlClassList.remove("font-base");
+  htmlClassList.add("font-prose");
 }
 
-function fsNormal() {
-  sessionStorage.setItem('baselayerFS', 'normal');
-  htmlClassList.remove('font-longread');
-  htmlClassList.add('font-normal');
-}
-
-function themeDark() {
-  sessionStorage.setItem("baselayerTheme", "dark");
-  htmlClassList.remove('theme-light');
-  htmlClassList.add('theme-dark');
+function themeAuto() {
+  sessionStorage.setItem("baselayerTheme", "auto");
+  htmlClassList.add("theme-auto");
+  htmlClassList.remove("theme-light");
+  htmlClassList.remove("theme-dark");
 }
 
 function themeLight() {
   sessionStorage.setItem("baselayerTheme", "light");
-  htmlClassList.remove('theme-dark');
-  htmlClassList.add('theme-light');
+  htmlClassList.remove("theme-auto");
+  htmlClassList.add("theme-light");
+  htmlClassList.remove("theme-dark");
 }
 
-// Toggles
+function themeDark() {
+  sessionStorage.setItem("baselayerTheme", "dark");
+  htmlClassList.remove("theme-auto");
+  htmlClassList.remove("theme-light");
+  htmlClassList.add("theme-dark");
+}
 
-function toggleFont() {
-  if ( sessionStorage.baselayerFont === 'prose' ) {
-    fontBase();
-  } else {
-    fontProse();
-  }
-};
-
-function toggleFS() {
-  if ( sessionStorage.baselayerFS === 'normal' ) {
-    fsLongRead();
-  } else {
-    fsNormal();
-  }
-};
-
-function toggleTheme() {
-  if ( sessionStorage.baselayerTheme === 'dark' ) {
-    themeLight();
-  } else {
-    themeDark();
-  }
-};
-
-// init
+// Init
 
 function baselayerInit() {
-  if (sessionStorage.baselayerTheme === 'dark' || (!('baselayerTheme' in sessionStorage) && matchMediaDark.matches)) {
-    themeDark();
-  } else {
-    themeLight();
+  switch (sessionStorage.baselayerTheme) {
+    case "light":
+      result: themeLight();
+      break;
+    case "dark":
+      result: themeDark();
+      break;
+    default:
+      result: themeAuto();
   }
-  if ( sessionStorage.baselayerFont === 'prose' ) {
+
+  if (sessionStorage.baselayerFont === "prose") {
     fontProse();
   } else {
     fontBase();
   }
-  if ( sessionStorage.baselayerFS === 'longread' ) {
-    fsLongRead();
-  } else {
-    fsNormal();
-  }
-};
+}
 
 baselayerInit();
+
+
     /**
-  * Site Navigation Toggle (Phones)
-  */
+ * Site Navigation Toggle (Phones and tablet in portrait orientation)
+ */
 
 window.addEventListener("DOMContentLoaded", () => {
-  let navButton = document.querySelector('#site-nav-toggle');
-  let menu = document.querySelector('#site-nav-menu');
-  let windowTest = function() {
-    if (window.matchMedia('(max-width: 959px)').matches) {
-      navButton.setAttribute('aria-expanded', 'false');
+  let navButton = document.querySelector("#site-menu-toggle");
+  let menu = document.querySelector("#js-menu-wrapper");
+  let windowTest = function () {
+    if (window.matchMedia("(max-width: 959px)").matches) {
+      navButton.setAttribute("aria-expanded", "false");
       menu.hidden = true;
     } else {
-      navButton.setAttribute('aria-expanded', 'true');
+      navButton.setAttribute("aria-expanded", "true");
       menu.hidden = false;
     }
-  }
+  };
 
   windowTest();
 
-  window.addEventListener('resize', function () {
+  window.addEventListener("resize", function () {
     windowTest();
   });
 
-  navButton.addEventListener('click', function() {
-    let expanded = this.getAttribute('aria-expanded') === 'true' || false;
-    this.setAttribute('aria-expanded', !expanded);
+  navButton.addEventListener("click", function () {
+    let expanded = this.getAttribute("aria-expanded") === "true" || false;
+    this.setAttribute("aria-expanded", !expanded);
     menu.hidden = !menu.hidden;
   });
 });
 
-  </script>
 
-</head>
-<body class="">
-  <script>
     if (navigator.appVersion.indexOf("Win") != -1) {
       document.body.classList.add('ms-windows');
     }
   </script>
-
+</head>
+<body class="">
   <!-- Current page: /baselayer-3/forms/ -->
 
-  <a href="#main-content" tabindex="1" class="inline-block m-1 visually-hidden">Skip to main content</a>
+  <a href="#content-wrap" tabindex="1" class="block p-2 visually-hidden">Skip to page content</a>
 
-  <div class="container w-max-100vw">
-    <div class="h-100-dvh grid">
+  <div id="body-wrap" class="md:flex">
 
-      <div id="site-nav" class="bg-gray bg-100 bg-dark-invert">
+    <div id="site-nav" class="h-100% bg-gray bg-100 bg-dark-invert">
   <div class="sticky top h-max-100dvh overflow-y">
-    <div class="p-cell t-center">
-      <a id="site-title" href="/baselayer-3/" class="h3 m-0 py-1 t-normal flex flex-center flex-middle flex-wrap gap-1 t-reversi hover:t-gray hover:t-800 t-dark-invert t-noline">
-        <svg height="48" width="48" viewBox="0 0 111 111" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-miterwrapper:1.5">
-          <g transform="translate(-294.592 -94.592)">
-            <circle cx="350" cy="150" r="50" style="fill:none;stroke:currentColor;stroke-width:4px"/>
-            <path d="M294.167 180H320v-65.833" style="fill:none;stroke:currentColor;stroke-width:4px" transform="translate(10 -10)"/>
-            <path d="M405.833 180H380v-65.833" style="fill:none;stroke:currentColor;stroke-width:4px" transform="translate(-10 -10)"/>
-            <circle cx="350" cy="150" r="30" style="fill:none;stroke:currentColor;stroke-width:6px" transform="matrix(.66667 0 0 .66667 116.667 50)"/>
-            <path d="M310 180h80" style="fill:none;stroke:currentColor;stroke-width:4px"/>
-            </g>
-          </svg>
-        <span class="t-nowrap">Baselayer 3 CSS</span>
-      </a>
-      <p class="mb-1"><span class="t-gray t-600 t-dark-invert">Version: 3.3.0 •</span> <a class="t-gray t-800 hover:t-900 t-dark-invert t-noline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3">GitHub</a></p>
-      <p class="mb-1"><a class="t-gray t-800 hover:t-900 t-dark-invert t-noline hover:t-line" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> <span class="t-gray t-600 t-dark-invert">(22.65 KB)</span></p>
-    </div>
-
-    <nav role="menu">
-      <button type="button" id="site-nav-toggle" aria-expanded="false" aria-label="Menu" aria-controls="site-nav-menu" class="absolute top right m-2 md:hidden">
+    <div class="flex flex-space-between md:block">
+      <div class="p-cell md:t-center">
+        <a id="site-title" href="/baselayer-3/" class="h3 py-2 t-normal flex flex-center flex-middle gap-2 t-gray t-800 hover:t-black t-dark-invert t-no-underline">
+          <svg height="48" width="48" viewBox="0 0 111 111" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-miterwrapper:1.5">
+            <g transform="translate(-294.592 -94.592)">
+              <circle cx="350" cy="150" r="50" style="fill:none;stroke:currentColor;stroke-width:4px"/>
+              <path d="M294.167 180H320v-65.833" style="fill:none;stroke:currentColor;stroke-width:4px" transform="translate(10 -10)"/>
+              <path d="M405.833 180H380v-65.833" style="fill:none;stroke:currentColor;stroke-width:4px" transform="translate(-10 -10)"/>
+              <circle cx="350" cy="150" r="30" style="fill:none;stroke:currentColor;stroke-width:6px" transform="matrix(.66667 0 0 .66667 116.667 50)"/>
+              <path d="M310 180h80" style="fill:none;stroke:currentColor;stroke-width:4px"/>
+              </g>
+            </svg>
+          <span class="t-nowrap">Baselayer CSS</span>
+        </a>
+      </div>
+      <button type="button" id="site-menu-toggle" aria-expanded="false" aria-label="Menu" aria-controls="site-menu" class="m-3 md:hidden">
         Menu
       </button>
+    </div>
 
-      <div id="site-nav-menu" class="w-xs mx-auto t-center t-white">
-        <div class="my-2 p-cell flex flex-column gap-1">
-          <a class="block p-cell t-gray t-700 hover:t-900 t-dark-invert"  href="/baselayer-3/">Introduction</a>
-          <a class="block p-cell t-gray t-700 hover:t-900 t-dark-invert"  href="/baselayer-3/typography/">Typography</a>
-          <a class="block p-cell t-gray t-700 hover:t-900 t-dark-invert"  href="/baselayer-3/layout/">Layout</a>
-          <a class="block p-cell t-gray t-700 hover:t-900 t-dark-invert"  href="/baselayer-3/decoration/">Decoration</a>
-          <a class="block p-cell t-gray t-700 hover:t-900 t-dark-invert"  href="/baselayer-3/colors/">Colors</a>
-          <a class="block b-1 p-cell t-gray t-700 hover:t-900 t-dark-invert"  aria-current="page" href="/baselayer-3/forms/">Forms</a>
-          <a class="block p-cell t-gray t-700 hover:t-900 t-dark-invert"  href="/baselayer-3/buttons/">Buttons</a>
-          <a class="block p-cell t-gray t-700 hover:t-900 t-dark-invert" href="/baselayer-3/examples/">Examples</a>
-        </div>
-
-        <div class="mb-2 p-cell">
-          <button class="toggler w-100% mb-1 p-1 flex flex-column gap-1" onclick="toggleFont()">
-            <div class="label-base w-100% flex flex-middle gap-1">
-              <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
-              <div class="grow t-left">Base font</div>
-            </div>
-            <div class="label-prose w-100% flex flex-middle gap-1">
-              <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
-              <div class="grow t-left">Prose font</div>
-            </div>
-          </button>
-
-          <button class="toggler w-100% mb-1 p-1 flex flex-column gap-1" onclick="toggleFS()">
-            <div class="label-normal w-100% flex flex-middle gap-1">
-              <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
-              <div class="grow t-left">Normal font-size</div>
-            </div>
-            <div class="label-longread w-100% flex flex-middle gap-1">
-              <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
-              <div class="grow t-left">Long read font-size</div>
-            </div>
-          </button>
-
-          <button class="toggler w-100% mb-1 p-1 flex flex-column gap-1" onclick="toggleTheme()">
-            <div class="label-light w-100% flex flex-middle gap-1">
-              <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
-              <div class="grow t-left">Light theme</div>
-            </div>
-            <div class="label-dark w-100% flex flex-middle gap-1">
-              <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
-              <div class="grow t-left">Dark theme</div>
-            </div>
-          </button>
-        </div>
-
+    <div id="js-menu-wrapper">
+      <div class="m-3 bt-thin bb-thin py-3 flex flex-center flex-wrap gap-3 links-underlined-hover-only">
+        <span class="t-gray t-600 t-dark-invert">Version: 3.4.0</span>
+        <a class="t-gray t-800 hover:t-900 t-dark-invert" href="https://github.com/SimonPadbury/baselayer-3">GitHub</a>
+        <span>
+          <a class="t-gray t-800 hover:t-900 t-dark-invert" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> <span class="t-gray t-600 t-dark-invert">(22 KB)</span>
+        </span>
       </div>
-    </nav>
+
+      <nav class="t-white container px-3 py-2">
+        <menu class="pl-0 flex flex-column gap-2 links-not-underlined">
+          <menuitem>
+            <a class="block  p-cell t-gray t-700 hover:t-900 t-dark-invert"  href="/baselayer-3/">Getting started</a>
+          </menuitem>
+          <menuitem>
+            <a class="block  p-cell t-gray t-700 hover:t-900 t-dark-invert"  href="/baselayer-3/typography/">Typography</a>
+          </menuitem>
+          <menuitem>
+            <a class="block  p-cell t-gray t-700 hover:t-900 t-dark-invert"  href="/baselayer-3/layout/">Layout</a>
+          </menuitem>
+          <menuitem>
+            <a class="block  p-cell t-gray t-700 hover:t-900 t-dark-invert"  href="/baselayer-3/decoration/">Decoration</a></menuitem>
+          <menuitem>
+            <a class="block  p-cell t-gray t-700 hover:t-900 t-dark-invert"  href="/baselayer-3/colors/">Colors</a>
+          </menuitem>
+          <menuitem>
+            <a class="block bl-heavy t-black t-dark-invert bg-gray bg-200 bg-dark-invert p-cell t-gray t-700 hover:t-900 t-dark-invert"  aria-current="page" href="/baselayer-3/forms/">Forms</a>
+          </menuitem>
+          <menuitem>
+            <a class="block  p-cell t-gray t-700 hover:t-900 t-dark-invert"  href="/baselayer-3/buttons/">Buttons</a>
+            </menuitem>
+          <menuitem>
+            <a class="block p-cell t-gray t-700 hover:t-900 t-dark-invert" href="/baselayer-3/examples/">Examples</a>
+          </menuitem>
+        </menu>
+      </nav>
+
+      <menu class="mb-3 px-3">
+        <button id="baseSwitch" class="mb-1 p-2 flex flex-start w-100%" type="button" onclick="fontBase()">
+          <div class="w-100% flex flex-middle gap-1">
+            <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
+            <div class="grow t-left">Base font</div>
+          </div>
+        </button>
+
+        <button id="proseSwitch" class="mb-1 p-2 flex flex-start w-100%" type="button" onclick="fontProse()">
+          <div class="w-100% flex flex-middle gap-1">
+            <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
+            <div class="grow t-left">Prose font</div>
+          </div>
+        </button>
+
+        <button id="autoSwitch" class="mb-1 p-2 flex flex-start w-100%" type="button" onclick="themeAuto()">
+          <div class="w-100% flex flex-middle gap-1">
+            <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
+            <div class="grow t-left">Auto theme</div>
+          </div>
+        </button>
+
+        <button id="lightSwitch" class="mb-1 p-2 flex flex-start w-100%" type="button" onclick="themeLight()">
+          <div class="w-100% flex flex-middle gap-1">
+            <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
+            <div class="grow t-left">Light theme</div>
+          </div>
+        </button>
+
+        <button id="darkSwitch" class="p-2 flex flex-start w-100%" type="button" onclick="themeDark()">
+          <div class="w-100% flex flex-middle gap-1">
+            <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
+            <div class="grow t-left">Dark theme</div>
+          </div>
+        </button>
+      </menu>
+    </div>
+
   </div>
 </div>
 
-      <div class="md:col-2">
-        <article>
-          <div class="grid gap-2">
-            <header id="article-title" class="lg:col-1">
-              <div class="wrapper-md pt-4 t-big t-center">
-                <h1 class="t-balance t-semibold">Forms</h1>
-              </div>
-            </header>
-          
-            <nav id="toc" class="lg:col-2 lg:row-1 lg:row-span-3">
-              <div class="sticky top w-sm h-max-100dvh mx-auto px-2 overflow-y">
-                <p class="h4 t-semibold">Contents</p>
-                <nav class="toc" >
-        <ul><li><a href="#textual-form-input-fields">Textual form input fields</a></li><li><a href="#number-inputs">Number inputs</a></li><li><a href="#date-and-time-inputs">Date and time inputs</a></li><li><a href="#color-picker">Color picker</a></li><li><a href="#file-upload">File upload</a></li><li><a href="#select-and-multi-select">Select and multi-select</a></li><li><a href="#text-area-(multiline)">Text area (multiline)</a></li><li><a href="#radio-boxes-and-checkboxes">Radio boxes and checkboxes</a></li><li><a href="#fieldsets-and-legends">Fieldsets and legends</a></li><li><a href="#form-buttons">Form buttons</a></li></ul>
-      </nav>
-              </div>
-            </nav>
 
-            <main id="article-content" class="lg:col-1">
-              <div class="content-grid">
-                <p>Baselayer form elements have simple background and focus styling (no default border).</p>
+    <div id="content-wrap" class="grow">
+      <div class="lg:grid lg:equal-4-cols gap-3">
+        <div class="lg:col-span-3">
+          <header id="article-title">
+            <div class="wrapper-md py-4 t-center t-display">
+              <h1 class="my-4 t-balance t-heavy">Forms</h1>
+            </div>
+          </header>
+        </div>
+        <div class="lg:col-4 lg:row-span-3">
+          <nav id="toc-wrapper" class="sticky top wrapper-sm h-max-100dvh mb-3 pr-2 links-underlined-hover-only overflow-y">
+            <p class="h4 t-semibold">On this page</p>
+            <nav class="toc" >
+        <ul><li><a href="#textual-form-input-fields">Textual form input fields</a></li><li><a href="#number-inputs">Number inputs</a></li><li><a href="#date-and-time-inputs">Date and time inputs</a></li><li><a href="#color-picker">Color picker</a></li><li><a href="#file-upload">File upload</a></li><li><a href="#select-and-multi-select">Select and multi-select</a></li><li><a href="#list-and-datalist">List and datalist</a></li><li><a href="#text-area-(multiline)">Text area (multiline)</a></li><li><a href="#radio-boxes-and-checkboxes">Radio boxes and checkboxes</a></li><li><a href="#fieldsets-and-legends">Fieldsets and legends</a></li><li><a href="#form-buttons">Form buttons</a></li></ul>
+      </nav>
+          </nav>
+        </div>
+        <div class="lg:col-span-3">
+          <main id="article-content" class="content-grid">
+            <p>Baselayer form elements have simple background and focus styling.</p>
 <p><strong>Notes:</strong></p>
 <ol>
 <li>In Baselayer, form elements do not have set width. You can control widths them by one of two ways (same as for <a href="/baselayer-3/buttons/">buttons</a>):
@@ -339,8 +344,9 @@ window.addEventListener("DOMContentLoaded", () => {
 <li>By involving the form elements as immediate children of <a href="/baselayer-3/layout/#flex-layouts">flex layout</a> or <a href="/baselayer-3/layout/#grid-layouts">grid layout</a> wrappers.</li>
 </ul>
 </li>
+<li>Form inputs (exclusing buttons) and textareas have a 1px solid border colored by <code>:root { --b-form: var(--tc-base); }</code>, so that the border will be the same as the default text color (near black on light theme, bear white on dark theme). This border color makes forms stand out more obvious as an interactive element.</li>
 <li>Form inputs, textareas, buttons, and the <code>btn</code> class, have <code>font-size: inherit</code>. This means their font sizes can be modified by any font-size class in Baselayer.</li>
-<li>The font-family of form elements, buttons, and <code>btn</code> is controlled by <code>var(--base)</code> (default is sans-serif).</li>
+<li>The font-family of form elements, buttons, and <code>btn</code> is controlled by <code>var(--ff-base)</code> (default is sans-serif).</li>
 </ol>
 <h2 id="textual-form-input-fields" tabindex="-1">Textual form input fields</h2>
 <form action="">
@@ -435,6 +441,16 @@ window.addEventListener("DOMContentLoaded", () => {
     </select>
   </p>
 </form>
+<h2 id="list-and-datalist" tabindex="-1">List and datalist</h2>
+<p><label for="input-list1">Favour dog breed:</label>
+<input list="dog-breeds" id="input-list1" name="dog-breeds" /></p>
+<datalist id="dog-breeds">
+  <option value="Springer spaniel"></option>
+  <option value="Dachshund"></option>
+  <option value="Golden retriever"></option>
+  <option value="Beagle"></option>
+  <option value="German Shepherd"></option>
+</datalist>
 <h2 id="text-area-(multiline)" tabindex="-1">Text area (multiline)</h2>
 <form action="">
     <label for="example-textarea">Example textarea</label><br>
@@ -496,54 +512,53 @@ window.addEventListener("DOMContentLoaded", () => {
 </code></pre>
 <p>See <a href="/baselayer-3/buttons">buttons</a> for more information.</p>
 
-              </div>
-            </main>
+          </main>
+        </div>
+        <div class="lg:col-span-3">
+          <footer class="mt-3 content-grid">
+            <nav class="popout grid gap-2 sm:equal-2-cols links-not-underlined">
+              
+              <a class="sm:col-1 my-1 b-thin b-blue b-300 hover:b-500 b-dark-invert rad-1 p-cell flex flex-column gap-1 t-blue t-600 hover:t-700 t-dark-invert hover:bg-blue hover:bg-100 bg-dark-invert"  href="/baselayer-3/colors/">
+                Previous page
+                <span class="h2 m-0 t-normal"> Colors</span>
+              </a>
+              
+              
+              <a class="sm:col-2 my-1 b-thin b-blue b-300 hover:b-500 b-dark-invert rad-1 p-cell flex flex-column gap-1 t-blue t-600 hover:t-700 t-dark-invert t-right hover:bg-blue hover:bg-100 bg-dark-invert" href="/baselayer-3/buttons/">
+                Next page
+                <span class="h2 m-0 t-normal">Buttons</span>
+              </a>
+              
+            </nav>
+            <div class="mt-4 mb-3 p-2 flex flex-column flex-middle t-center">
+              <a href="/baselayer-3/" class="mb-1 flex flex-column flex-center gap-1 t-no-underline">
+                <svg class="mx-auto" height="48" width="48" viewBox="0 0 111 111" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-miterwrapper:1.5">
+                  <g transform="translate(-294.592 -94.592)">
+                    <circle cx="350" cy="150" r="50" style="fill:none;stroke:currentColor;stroke-width:4px"/>
+                    <path d="M294.167 180H320v-65.833" style="fill:none;stroke:currentColor;stroke-width:4px" transform="translate(10 -10)"/>
+                    <path d="M405.833 180H380v-65.833" style="fill:none;stroke:currentColor;stroke-width:4px" transform="translate(-10 -10)"/>
+                    <circle cx="350" cy="150" r="30" style="fill:none;stroke:currentColor;stroke-width:6px" transform="matrix(.66667 0 0 .66667 116.667 50)"/>
+                    <path d="M310 180h80" style="fill:none;stroke:currentColor;stroke-width:4px"/>
+                    </g>
+                  </svg>
+                <span class="h3 m-0 t-normal t-nowrap">Baselayer CSS</span>
+              </a>
+              <span>Version: 3.4.0</span>
+            </div>
 
-            <footer class="lg:col-1 content-grid">
-              <nav class="popout mt-3 mb-2 p-0 grid gap-2 sm:equal-2-cols">
-                
-                <a class="sm:col-1 my-1 b-1 b-blue b-300 hover:b-900 b-dark-invert r-3 p-cell flex flex-column gap-1 hover:bg-blue hover:bg-100 bg-dark-invert"  href="/baselayer-3/colors/">
-                  Previous page
-                  <span class="h2 m-0 t-normal"> Colors</span>
-                </a>
-                
-                
-                <a class="sm:col-2 my-1 b-1 b-blue b-300 hover:b-900 b-dark-invert r-3 p-cell flex flex-column gap-1 t-right hover:bg-blue hover:bg-100 bg-dark-invert" href="/baselayer-3/buttons/">
-                  Next page
-                  <span class="h2 m-0 t-normal">Buttons</span>
-                </a>
-                
-              </nav>
-              <div class="p-2 flex flex-column flex-middle t-center">
-                <a href="/baselayer-3/" class="mb-1 flex flex-column flex-center gap-1 t-noline">
-                  <svg class="mx-auto" height="48" width="48" viewBox="0 0 111 111" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-miterwrapper:1.5">
-                    <g transform="translate(-294.592 -94.592)">
-                      <circle cx="350" cy="150" r="50" style="fill:none;stroke:currentColor;stroke-width:4px"/>
-                      <path d="M294.167 180H320v-65.833" style="fill:none;stroke:currentColor;stroke-width:4px" transform="translate(10 -10)"/>
-                      <path d="M405.833 180H380v-65.833" style="fill:none;stroke:currentColor;stroke-width:4px" transform="translate(-10 -10)"/>
-                      <circle cx="350" cy="150" r="30" style="fill:none;stroke:currentColor;stroke-width:6px" transform="matrix(.66667 0 0 .66667 116.667 50)"/>
-                      <path d="M310 180h80" style="fill:none;stroke:currentColor;stroke-width:4px"/>
-                      </g>
-                    </svg>
-                  <span class="h3 m-0 t-normal t-nowrap">Baselayer 3 CSS</span>
-                </a>
-                <span>Version: 3.3.0</span>
-              </div>
-
-              <p class="p-cell flex flex-center flex-wrap gap-2 t-center">
-                <span><a class="t-noline hover:t-line" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> (22.65 KB)</span>
-                <a class="t-noline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3">GitHub Repository</a>
-                <a class="t-noline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3/blob/main/CHANGELOG.md">Changelog</a>
-                <a class="t-noline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3/blob/main/LICENSE">MIT license</a>
-              </p>
-              <p class="t-center"><span>Developer: <a class="t-noline hover:t-line" href="https://github.com/SimonPadbury">Simon Padbury</a></span>
-            </footer>
-          </div>
-        </article>
+            <p class="p-cell flex flex-center flex-wrap gap-4 t-center">
+              <span><a class="t-no-underline hover:t-line" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> (22 KB)</span>
+              <a class="t-no-underline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3">GitHub Repository</a>
+              <a class="t-no-underline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3/blob/main/CHANGELOG.md">Changelog</a>
+              <a class="t-no-underline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3/blob/main/LICENSE">MIT license</a>
+            </p>
+            <p class="t-center"><span>Developer: <a class="t-no-underline hover:t-line" href="https://github.com/SimonPadbury">Simon Padbury</a></span>
+          </footer>
+        </div>
       </div>
-
     </div>
-  </div>
+
+  </div><!-- /#body-wrap -->
 
 </body>
 </html>

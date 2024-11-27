@@ -5,384 +5,425 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Decoration · Baselayer 3 CSS</title>
+  <title>Decoration · Baselayer CSS</title>
 
-  <link rel="stylesheet" href="/baselayer-3/css/min/baselayer.min.css?v=3.3.0">
+  <link rel="stylesheet" href="/baselayer-3/css/min/baselayer.min.css?v=3.4.0">
 
   <style>
-    html {
-      scroll-behavior: smooth;
-    }
-    [aria-current=page] {
-      background: oklch(var(--l900) var(--c02) var(--gray));
-    }
-    .resize-x {
-      margin-inline: -5px;
-      padding: 5px;
-      resize: horizontal;
-      overflow-x: auto;
-      background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='silver' stroke-width='2' stroke-dasharray='8%2c 8' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
-    }
-    button.toggler {
-      height: 3.625em;
-    }
-    .check-box {
-      width: 1rem;
-      height: 1rem;
-    }
+  html {
+  scroll-behavior: smooth;
+}
 
-    .font-base .label-base .check-box::before { content: '✓'; }
-    .font-prose .label-prose .check-box::before { content: '✓'; }
-    .font-normal .label-normal .check-box::before { content: '✓'; }
-    .font-longread .label-longread .check-box::before { content: '✓'; }
-    .theme-light .label-light .check-box::before { content: '✓'; }
-    .theme-dark .label-dark .check-box::before { content: '✓'; }
+.resize-x {
+  margin-inline: -5px;
+  padding: 5px;
+  resize: horizontal;
+  overflow-x: auto;
+  background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='silver' stroke-width='2' stroke-dasharray='8%2c 8' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
+}
 
-    body {
-      container-type: inline-size;
-      container-name: page;
-    }
+button.toggler {
+  height: 3.625em;
+}
+.check-box {
+  width: 1rem;
+  height: 1rem;
+}
 
-    @container page (max-width: 1279px) {
-      #toc ul ul {
-        display: none;
-      }
-    }
+.font-base #baseSwitch .check-box::before {
+  content: "✓";
+}
+.font-prose #proseSwitch .check-box::before {
+  content: "✓";
+}
+.theme-auto #autoSwitch .check-box::before {
+  content: "✓";
+}
+.theme-light #lightSwitch .check-box::before {
+  content: "✓";
+}
+.theme-dark #darkSwitch .check-box::before {
+  content: "✓";
+}
 
-    @container page (min-width: 960px) {
-      #site-title { 
-        max-width: 200px;
-        margin-inline: auto;
-        padding-top: var(--sp-2);
-        justify-content: center;
-      }
-      #site-nav {
-        min-width: var(--w-xs);
-      }
-      .ms-windows #site-nav > div {
-        scrollbar-gutter: stable;
-        overflow-y: hidden;
-      }
-      .ms-windows #site-nav:hover > div {
-        overflow-y: auto;
-      }
-    }
-    @container page (min-width: 1280px) {
-      article > .grid {
-        grid-template-columns: 1fr var(--w-xs);
-      }
-      .ms-windows #toc > div {
-        scrollbar-gutter: stable;
-        overflow-y: hidden;
-      }
-      .ms-windows #toc:hover > div {
-        overflow-y: auto;
-      }
-    }
+.font-prose #content-wrap {
+  font-family: var(--ff-prose);
+}
 
-    .font-longread #article-title,
-    .font-longread #article-content { 
-      font-size: var(--fs-long-read);
-    }
+:target {
+  scroll-margin-top: var(--s-3);
+}
 
-    .font-prose article { font-family: var(--t-prose); }
+pre code {
+  max-height: 80vh;
+  overflow-y: auto;
+}
 
-    h2, h3, h4 {
-      scroll-margin-top: var(--sp-2);
-    }
-    .content-grid header + h2 {
-      margin-top: 0;
-    }
+@container (min-width: 960px) {
+  #content-wrap {
+    width: calc(100vw - var(--w-xs));
+  }
+  #site-nav {
+    position: sticky;
+    top: 0;
+    width: var(--w-xs);
+    height: 100dvh;
+  }
+  #site-title {
+    padding-top: var(--s-3);
+    flex-direction: column;
+    align-self: center;
+  }
+  #site-menu {
+    min-width: var(--w-xs);
+  }
+  .ms-windows #site-nav > div {
+    scrollbar-gutter: stable;
+    overflow-y: hidden;
+  }
+  .ms-windows #site-nav:hover > div {
+    overflow-y: auto;
+  }
+}
 
-    pre code {
-      max-height: 80vh;
-      overflow-y: auto
-    }
+@container (min-width: 1280px) {
+  #toc-wrapper > p {
+    padding-top: var(--s-3);
+  }
+  .ms-windows #toc > div {
+    scrollbar-gutter: stable;
+    overflow-y: hidden;
+  }
+  .ms-windows #toc:hover > div {
+    overflow-y: auto;
+  }
+}
+
+@container page (max-width: 1279px) {
+  #toc ul ul {
+    display: none;
+  }
+}
+
   </style>
 
   <script>
-  const matchMediaDark = window.matchMedia('(prefers-color-scheme: dark)');
-const htmlClassList = document.querySelector('html').classList;
+    // Using sessionStorage so that it is discarded as soon as a visitor leaves this site or closes the current window/tab.
 
-function fontProse() {
-  sessionStorage.setItem('baselayerFont', 'prose');
-  htmlClassList.remove('font-base');
-  htmlClassList.add('font-prose');
-}
+const htmlClassList = document.querySelector("html").classList;
+const lightSwitch = document.querySelector("#lightSwitch");
+const darkSwitch = document.querySelector("#darkSwitch");
+const autoSwitch = document.querySelector("#autoSwitch");
 
 function fontBase() {
-  sessionStorage.setItem('baselayerFont', 'base');
-  htmlClassList.remove('font-prose');
-  htmlClassList.add('font-base');
+  sessionStorage.setItem("baselayerFont", "base");
+  htmlClassList.remove("font-prose");
+  htmlClassList.add("font-base");
 }
 
-function fsLongRead() {
-  sessionStorage.setItem('baselayerFS', 'longread');
-  htmlClassList.remove('font-normal');
-  htmlClassList.add('font-longread');
+function fontProse() {
+  sessionStorage.setItem("baselayerFont", "prose");
+  htmlClassList.remove("font-base");
+  htmlClassList.add("font-prose");
 }
 
-function fsNormal() {
-  sessionStorage.setItem('baselayerFS', 'normal');
-  htmlClassList.remove('font-longread');
-  htmlClassList.add('font-normal');
-}
-
-function themeDark() {
-  sessionStorage.setItem("baselayerTheme", "dark");
-  htmlClassList.remove('theme-light');
-  htmlClassList.add('theme-dark');
+function themeAuto() {
+  sessionStorage.setItem("baselayerTheme", "auto");
+  htmlClassList.add("theme-auto");
+  htmlClassList.remove("theme-light");
+  htmlClassList.remove("theme-dark");
 }
 
 function themeLight() {
   sessionStorage.setItem("baselayerTheme", "light");
-  htmlClassList.remove('theme-dark');
-  htmlClassList.add('theme-light');
+  htmlClassList.remove("theme-auto");
+  htmlClassList.add("theme-light");
+  htmlClassList.remove("theme-dark");
 }
 
-// Toggles
+function themeDark() {
+  sessionStorage.setItem("baselayerTheme", "dark");
+  htmlClassList.remove("theme-auto");
+  htmlClassList.remove("theme-light");
+  htmlClassList.add("theme-dark");
+}
 
-function toggleFont() {
-  if ( sessionStorage.baselayerFont === 'prose' ) {
-    fontBase();
-  } else {
-    fontProse();
-  }
-};
-
-function toggleFS() {
-  if ( sessionStorage.baselayerFS === 'normal' ) {
-    fsLongRead();
-  } else {
-    fsNormal();
-  }
-};
-
-function toggleTheme() {
-  if ( sessionStorage.baselayerTheme === 'dark' ) {
-    themeLight();
-  } else {
-    themeDark();
-  }
-};
-
-// init
+// Init
 
 function baselayerInit() {
-  if (sessionStorage.baselayerTheme === 'dark' || (!('baselayerTheme' in sessionStorage) && matchMediaDark.matches)) {
-    themeDark();
-  } else {
-    themeLight();
+  switch (sessionStorage.baselayerTheme) {
+    case "light":
+      result: themeLight();
+      break;
+    case "dark":
+      result: themeDark();
+      break;
+    default:
+      result: themeAuto();
   }
-  if ( sessionStorage.baselayerFont === 'prose' ) {
+
+  if (sessionStorage.baselayerFont === "prose") {
     fontProse();
   } else {
     fontBase();
   }
-  if ( sessionStorage.baselayerFS === 'longread' ) {
-    fsLongRead();
-  } else {
-    fsNormal();
-  }
-};
+}
 
 baselayerInit();
+
+
     /**
-  * Site Navigation Toggle (Phones)
-  */
+ * Site Navigation Toggle (Phones and tablet in portrait orientation)
+ */
 
 window.addEventListener("DOMContentLoaded", () => {
-  let navButton = document.querySelector('#site-nav-toggle');
-  let menu = document.querySelector('#site-nav-menu');
-  let windowTest = function() {
-    if (window.matchMedia('(max-width: 959px)').matches) {
-      navButton.setAttribute('aria-expanded', 'false');
+  let navButton = document.querySelector("#site-menu-toggle");
+  let menu = document.querySelector("#js-menu-wrapper");
+  let windowTest = function () {
+    if (window.matchMedia("(max-width: 959px)").matches) {
+      navButton.setAttribute("aria-expanded", "false");
       menu.hidden = true;
     } else {
-      navButton.setAttribute('aria-expanded', 'true');
+      navButton.setAttribute("aria-expanded", "true");
       menu.hidden = false;
     }
-  }
+  };
 
   windowTest();
 
-  window.addEventListener('resize', function () {
+  window.addEventListener("resize", function () {
     windowTest();
   });
 
-  navButton.addEventListener('click', function() {
-    let expanded = this.getAttribute('aria-expanded') === 'true' || false;
-    this.setAttribute('aria-expanded', !expanded);
+  navButton.addEventListener("click", function () {
+    let expanded = this.getAttribute("aria-expanded") === "true" || false;
+    this.setAttribute("aria-expanded", !expanded);
     menu.hidden = !menu.hidden;
   });
 });
 
-  </script>
 
-</head>
-<body class="">
-  <script>
     if (navigator.appVersion.indexOf("Win") != -1) {
       document.body.classList.add('ms-windows');
     }
   </script>
-
+</head>
+<body class="">
   <!-- Current page: /baselayer-3/decoration/ -->
 
-  <a href="#main-content" tabindex="1" class="inline-block m-1 visually-hidden">Skip to main content</a>
+  <a href="#content-wrap" tabindex="1" class="block p-2 visually-hidden">Skip to page content</a>
 
-  <div class="container w-max-100vw">
-    <div class="h-100-dvh grid">
+  <div id="body-wrap" class="md:flex">
 
-      <div id="site-nav" class="bg-gray bg-100 bg-dark-invert">
+    <div id="site-nav" class="h-100% bg-gray bg-100 bg-dark-invert">
   <div class="sticky top h-max-100dvh overflow-y">
-    <div class="p-cell t-center">
-      <a id="site-title" href="/baselayer-3/" class="h3 m-0 py-1 t-normal flex flex-center flex-middle flex-wrap gap-1 t-reversi hover:t-gray hover:t-800 t-dark-invert t-noline">
-        <svg height="48" width="48" viewBox="0 0 111 111" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-miterwrapper:1.5">
-          <g transform="translate(-294.592 -94.592)">
-            <circle cx="350" cy="150" r="50" style="fill:none;stroke:currentColor;stroke-width:4px"/>
-            <path d="M294.167 180H320v-65.833" style="fill:none;stroke:currentColor;stroke-width:4px" transform="translate(10 -10)"/>
-            <path d="M405.833 180H380v-65.833" style="fill:none;stroke:currentColor;stroke-width:4px" transform="translate(-10 -10)"/>
-            <circle cx="350" cy="150" r="30" style="fill:none;stroke:currentColor;stroke-width:6px" transform="matrix(.66667 0 0 .66667 116.667 50)"/>
-            <path d="M310 180h80" style="fill:none;stroke:currentColor;stroke-width:4px"/>
-            </g>
-          </svg>
-        <span class="t-nowrap">Baselayer 3 CSS</span>
-      </a>
-      <p class="mb-1"><span class="t-gray t-600 t-dark-invert">Version: 3.3.0 •</span> <a class="t-gray t-800 hover:t-900 t-dark-invert t-noline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3">GitHub</a></p>
-      <p class="mb-1"><a class="t-gray t-800 hover:t-900 t-dark-invert t-noline hover:t-line" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> <span class="t-gray t-600 t-dark-invert">(22.65 KB)</span></p>
-    </div>
-
-    <nav role="menu">
-      <button type="button" id="site-nav-toggle" aria-expanded="false" aria-label="Menu" aria-controls="site-nav-menu" class="absolute top right m-2 md:hidden">
+    <div class="flex flex-space-between md:block">
+      <div class="p-cell md:t-center">
+        <a id="site-title" href="/baselayer-3/" class="h3 py-2 t-normal flex flex-center flex-middle gap-2 t-gray t-800 hover:t-black t-dark-invert t-no-underline">
+          <svg height="48" width="48" viewBox="0 0 111 111" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-miterwrapper:1.5">
+            <g transform="translate(-294.592 -94.592)">
+              <circle cx="350" cy="150" r="50" style="fill:none;stroke:currentColor;stroke-width:4px"/>
+              <path d="M294.167 180H320v-65.833" style="fill:none;stroke:currentColor;stroke-width:4px" transform="translate(10 -10)"/>
+              <path d="M405.833 180H380v-65.833" style="fill:none;stroke:currentColor;stroke-width:4px" transform="translate(-10 -10)"/>
+              <circle cx="350" cy="150" r="30" style="fill:none;stroke:currentColor;stroke-width:6px" transform="matrix(.66667 0 0 .66667 116.667 50)"/>
+              <path d="M310 180h80" style="fill:none;stroke:currentColor;stroke-width:4px"/>
+              </g>
+            </svg>
+          <span class="t-nowrap">Baselayer CSS</span>
+        </a>
+      </div>
+      <button type="button" id="site-menu-toggle" aria-expanded="false" aria-label="Menu" aria-controls="site-menu" class="m-3 md:hidden">
         Menu
       </button>
+    </div>
 
-      <div id="site-nav-menu" class="w-xs mx-auto t-center t-white">
-        <div class="my-2 p-cell flex flex-column gap-1">
-          <a class="block p-cell t-gray t-700 hover:t-900 t-dark-invert"  href="/baselayer-3/">Introduction</a>
-          <a class="block p-cell t-gray t-700 hover:t-900 t-dark-invert"  href="/baselayer-3/typography/">Typography</a>
-          <a class="block p-cell t-gray t-700 hover:t-900 t-dark-invert"  href="/baselayer-3/layout/">Layout</a>
-          <a class="block b-1 p-cell t-gray t-700 hover:t-900 t-dark-invert"  aria-current="page" href="/baselayer-3/decoration/">Decoration</a>
-          <a class="block p-cell t-gray t-700 hover:t-900 t-dark-invert"  href="/baselayer-3/colors/">Colors</a>
-          <a class="block p-cell t-gray t-700 hover:t-900 t-dark-invert"  href="/baselayer-3/forms/">Forms</a>
-          <a class="block p-cell t-gray t-700 hover:t-900 t-dark-invert"  href="/baselayer-3/buttons/">Buttons</a>
-          <a class="block p-cell t-gray t-700 hover:t-900 t-dark-invert" href="/baselayer-3/examples/">Examples</a>
-        </div>
-
-        <div class="mb-2 p-cell">
-          <button class="toggler w-100% mb-1 p-1 flex flex-column gap-1" onclick="toggleFont()">
-            <div class="label-base w-100% flex flex-middle gap-1">
-              <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
-              <div class="grow t-left">Base font</div>
-            </div>
-            <div class="label-prose w-100% flex flex-middle gap-1">
-              <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
-              <div class="grow t-left">Prose font</div>
-            </div>
-          </button>
-
-          <button class="toggler w-100% mb-1 p-1 flex flex-column gap-1" onclick="toggleFS()">
-            <div class="label-normal w-100% flex flex-middle gap-1">
-              <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
-              <div class="grow t-left">Normal font-size</div>
-            </div>
-            <div class="label-longread w-100% flex flex-middle gap-1">
-              <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
-              <div class="grow t-left">Long read font-size</div>
-            </div>
-          </button>
-
-          <button class="toggler w-100% mb-1 p-1 flex flex-column gap-1" onclick="toggleTheme()">
-            <div class="label-light w-100% flex flex-middle gap-1">
-              <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
-              <div class="grow t-left">Light theme</div>
-            </div>
-            <div class="label-dark w-100% flex flex-middle gap-1">
-              <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
-              <div class="grow t-left">Dark theme</div>
-            </div>
-          </button>
-        </div>
-
+    <div id="js-menu-wrapper">
+      <div class="m-3 bt-thin bb-thin py-3 flex flex-center flex-wrap gap-3 links-underlined-hover-only">
+        <span class="t-gray t-600 t-dark-invert">Version: 3.4.0</span>
+        <a class="t-gray t-800 hover:t-900 t-dark-invert" href="https://github.com/SimonPadbury/baselayer-3">GitHub</a>
+        <span>
+          <a class="t-gray t-800 hover:t-900 t-dark-invert" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> <span class="t-gray t-600 t-dark-invert">(22 KB)</span>
+        </span>
       </div>
-    </nav>
+
+      <nav class="t-white container px-3 py-2">
+        <menu class="pl-0 flex flex-column gap-2 links-not-underlined">
+          <menuitem>
+            <a class="block  p-cell t-gray t-700 hover:t-900 t-dark-invert"  href="/baselayer-3/">Getting started</a>
+          </menuitem>
+          <menuitem>
+            <a class="block  p-cell t-gray t-700 hover:t-900 t-dark-invert"  href="/baselayer-3/typography/">Typography</a>
+          </menuitem>
+          <menuitem>
+            <a class="block  p-cell t-gray t-700 hover:t-900 t-dark-invert"  href="/baselayer-3/layout/">Layout</a>
+          </menuitem>
+          <menuitem>
+            <a class="block bl-heavy t-black t-dark-invert bg-gray bg-200 bg-dark-invert p-cell t-gray t-700 hover:t-900 t-dark-invert"  aria-current="page" href="/baselayer-3/decoration/">Decoration</a></menuitem>
+          <menuitem>
+            <a class="block  p-cell t-gray t-700 hover:t-900 t-dark-invert"  href="/baselayer-3/colors/">Colors</a>
+          </menuitem>
+          <menuitem>
+            <a class="block  p-cell t-gray t-700 hover:t-900 t-dark-invert"  href="/baselayer-3/forms/">Forms</a>
+          </menuitem>
+          <menuitem>
+            <a class="block  p-cell t-gray t-700 hover:t-900 t-dark-invert"  href="/baselayer-3/buttons/">Buttons</a>
+            </menuitem>
+          <menuitem>
+            <a class="block p-cell t-gray t-700 hover:t-900 t-dark-invert" href="/baselayer-3/examples/">Examples</a>
+          </menuitem>
+        </menu>
+      </nav>
+
+      <menu class="mb-3 px-3">
+        <button id="baseSwitch" class="mb-1 p-2 flex flex-start w-100%" type="button" onclick="fontBase()">
+          <div class="w-100% flex flex-middle gap-1">
+            <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
+            <div class="grow t-left">Base font</div>
+          </div>
+        </button>
+
+        <button id="proseSwitch" class="mb-1 p-2 flex flex-start w-100%" type="button" onclick="fontProse()">
+          <div class="w-100% flex flex-middle gap-1">
+            <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
+            <div class="grow t-left">Prose font</div>
+          </div>
+        </button>
+
+        <button id="autoSwitch" class="mb-1 p-2 flex flex-start w-100%" type="button" onclick="themeAuto()">
+          <div class="w-100% flex flex-middle gap-1">
+            <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
+            <div class="grow t-left">Auto theme</div>
+          </div>
+        </button>
+
+        <button id="lightSwitch" class="mb-1 p-2 flex flex-start w-100%" type="button" onclick="themeLight()">
+          <div class="w-100% flex flex-middle gap-1">
+            <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
+            <div class="grow t-left">Light theme</div>
+          </div>
+        </button>
+
+        <button id="darkSwitch" class="p-2 flex flex-start w-100%" type="button" onclick="themeDark()">
+          <div class="w-100% flex flex-middle gap-1">
+            <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
+            <div class="grow t-left">Dark theme</div>
+          </div>
+        </button>
+      </menu>
+    </div>
+
   </div>
 </div>
 
-      <div class="md:col-2">
-        <article>
-          <div class="grid gap-2">
-            <header id="article-title" class="lg:col-1">
-              <div class="wrapper-md pt-4 t-big t-center">
-                <h1 class="t-balance t-semibold">Decoration</h1>
-              </div>
-            </header>
-          
-            <nav id="toc" class="lg:col-2 lg:row-1 lg:row-span-3">
-              <div class="sticky top w-sm h-max-100dvh mx-auto px-2 overflow-y">
-                <p class="h4 t-semibold">Contents</p>
-                <nav class="toc" >
-        <ul><li><a href="#spacing-(margins-and-paddings)">Spacing (margins and paddings)</a><ul><li><a href="#spacing-extras">Spacing extras</a></li></ul></li><li><a href="#borders">Borders</a><ul><li><a href="#border-extra">Border extra</a></li></ul></li><li><a href="#rounded-corners">Rounded corners</a></li><li><a href="#the-img-cover-class">The img-cover class</a></li><li><a href="#opacity">Opacity</a></li></ul>
+
+    <div id="content-wrap" class="grow">
+      <div class="lg:grid lg:equal-4-cols gap-3">
+        <div class="lg:col-span-3">
+          <header id="article-title">
+            <div class="wrapper-md py-4 t-center t-display">
+              <h1 class="my-4 t-balance t-heavy">Decoration</h1>
+            </div>
+          </header>
+        </div>
+        <div class="lg:col-4 lg:row-span-3">
+          <nav id="toc-wrapper" class="sticky top wrapper-sm h-max-100dvh mb-3 pr-2 links-underlined-hover-only overflow-y">
+            <p class="h4 t-semibold">On this page</p>
+            <nav class="toc" >
+        <ul><li><a href="#spacing">Spacing</a><ul><li><a href="#spacing-extras">Spacing extras</a></li></ul></li><li><a href="#borders">Borders</a><ul><li><a href="#border-extra">Border extra</a></li></ul></li><li><a href="#rounded-corners">Rounded corners</a><ul><li><a href="#rounded-corners-extra">Rounded corners extra</a></li></ul></li><li><a href="#the-img-cover-class">The img-cover class</a></li><li><a href="#opacity">Opacity</a></li></ul>
       </nav>
-              </div>
-            </nav>
-
-            <main id="article-content" class="lg:col-1">
-              <div class="content-grid">
-                <h2 id="spacing-(margins-and-paddings)" tabindex="-1">Spacing (margins and paddings)</h2>
-<p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Introduction_to_the_CSS_box_model">Box model</a> margin and padding spacing have both 4 levels based on 4 CSS variables.</p>
+          </nav>
+        </div>
+        <div class="lg:col-span-3">
+          <main id="article-content" class="content-grid">
+            <h2 id="spacing" tabindex="-1">Spacing</h2>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Introduction_to_the_CSS_box_model">Box model</a> margin and padding spacing have both 4 levels based on 4 CSS variables. These spacing variables are also used for gaps (in flexbox and the grid system), and for border radius utilities.</p>
 <p>The smallest level simply adds 0.5rem spacing, whereas levels 2 thorugh 4 increase responsively depending how how much width is available, using <code>clamp()</code> functions to ramp up to 1.5× their base size.</p>
-<p>If the spacing decoration class is <em>not</em> inside a <code>container</code> (see <a href="/baselayer-3/layout/#container-query-powered-layouts">container query powered layouts</a>), the spacing ramp of levels 2 thorugh 4 uses the viewport width unit, <code>vw</code>. But the same spacing utility classes used inside a <code>container</code> will ramp up using the container query inline width unit, <code>cqi</code>. Both these ramps achieve 1.5× their base sizes at approximately 1280px available width.</p>
-<pre><code class="language-css">/*
-Default spacing
-*/
-:root {
-  --sp-1: 0.5rem;
-  --sp-2: clamp(1rem, 0.5rem + 1.25vw, 1.5rem);
-  --sp-3: clamp(2rem, 1rem + 2.5vw, 3rem);
-  --sp-4: clamp(3rem, 1.5rem + 3.75vw, 4.5rem);
-}
-
-/*
-Container query powered spacing
-*/
-.container {
-  --sp-2: clamp(1rem, 0.5rem + 1.25cqi, 1.5rem);
-  --sp-3: clamp(2rem, 1rem + 2.5cqi, 3rem);
-  --sp-4: clamp(3rem, 1.5rem + 3.75cqi, 4.5rem);
+<p>The middle ramp within the clamp uses container query dependant units, <code>cqi</code>. This will either take effect from the container query context on the <code>&lt;body&gt;</code> tag, or from any inner <code>container</code> classes that may be added on block elements (see <a href="/baselayer-3/layout/#container-query-contexts">Layouts/ container query contexts</a>).</p>
+<pre><code class="language-css">:root {
+  --s-1: 0.25rem; /* 4px */
+  --s-2: 0.5rem; /* 8px */
+  --s-3: clamp(1rem, 0.5rem + 1.25cqi, 1.5rem); /* 16px --&gt; 24px */
+  --s-4: clamp(2rem, 1rem + 2.5cqi, 3rem); /* 32px --&gt; 40px */
 }
 </code></pre>
 <p>This makes the negative space (“whitespace”) for spacing levels 2 through 4 larger where there is a larger container (or viewport) width available.</p>
+<div class="my-3 expand overflow-x">
+<table class="table">
+<thead>
+<th>Spacing variable</th>
+<th>Default value</th>
+<th>Margin (e.g.)</th>
+<th>Padding (e.g.)</th>
+<th>Border radius</th>
+<th>Gap (flexbox and grid)</th>
+</thead>
+<tbody>
+<tr>
+<td><code>--s-1</code></td>
+<td><code>0.25rem</code></td>
+<td><code>m-1</code></td>
+<td><code>p-1</code></td>
+<td><code class="t-nowrap">rad-1</code></td>
+<td><code class="t-nowrap">gap-1</code></td>
+</tr>
+<tr>
+<td><code>--s-2</code></td>
+<td><code>0.5rem</code></td>
+<td><code>m-2</code></td>
+<td><code>p-2</code></td>
+<td><code>rad-2</code></td>
+<td><code>gap-2</code></td>
+</tr>
+<tr>
+<td><code>--s-3</code></td>
+<td><code>clamp(1rem, 0.5rem + 1.25cqi, 1.5rem)</code></td>
+<td><code>m-3</code></td>
+<td><code>p-3</code></td>
+<td><code>rad-3</code></td>
+<td><code>gap-3</code></td>
+</tr>
+<tr>
+<td><code>--s-4</code></td>
+<td><code>clamp(2rem, 1rem + 2.5cqi, 3rem)</code></td>
+<td><code>m-4</code></td>
+<td><code>p-4</code></td>
+<td><code>rad-4</code></td>
+<td><code>gap-4</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Spacing example with paddings:</p>
+<div class="mt-3 mb-4 flex flex-column gap-3">
+<div class="b-thin p-1"><code>p-1</code></div>
+<div class="b-thin p-2"><code>p-2</code></div>
+<div class="b-thin p-3"><code>p-3</code></div>
+<div class="b-thin p-4"><code>p-4</code></div>
+</div>
 <p>Both margin and padding spacers are controlled on the 4 sides of blocks, as follows:</p>
 <ul>
-<li>All: <code>m-1</code> through <code>m-4</code> / <code>p-1</code> through <code>p-4</code> (all four sides)</li>
-<li>Top: <code>mt-1</code> through <code>mt-4</code> / <code>pt-1</code> through <code>pt-4</code></li>
-<li>Right: <code>mr-1</code> through <code>mr-4</code> / <code>pr-1</code> through <code>pr-4</code></li>
-<li>Bottom: <code>mb-1</code> through <code>mb-4</code> / <code>pb-1</code> through <code>pb-4</code></li>
-<li>Left: <code>ml-1</code> through <code>ml-4</code> / <code>pl-1</code> through <code>pl-4</code></li>
+<li>All: <code>m-0</code> through <code>m-4</code> / <code>p-0</code> through <code>p-4</code> (all four sides)</li>
+<li>Top: <code>mt-0</code> through <code>mt-4</code> / <code>pt-0</code> through <code>pt-4</code></li>
+<li>Right: <code>mr-0</code> through <code>mr-4</code> / <code>pr-0</code> through <code>pr-4</code></li>
+<li>Bottom: <code>mb-0</code> through <code>mb-4</code> / <code>pb-0</code> through <code>pb-4</code></li>
+<li>Left: <code>ml-0</code> through <code>ml-4</code> / <code>pl-0</code> through <code>pl-4</code></li>
 <li>Inline axis, or x-axis (right and left): <code>mx-1</code> through <code>mx-4</code> / <code>px-4</code> through <code>px-4</code></li>
-<li>Block acis, or y-axis (top and bottom): <code>my-1</code> through <code>my-4</code> / <code>py-4</code> through <code>py-4</code></li>
+<li>Block axis, or y-axis (top and bottom): <code>my-1</code> through <code>my-4</code> / <code>py-4</code> through <code>py-4</code></li>
 </ul>
-<p>Spacing example with paddings:</p>
-<div class="mb-2 b-1 p-1"><code>p-1</code></div>
-<div class="mb-2 b-1 p-2"><code>p-2</code></div>
-<div class="mb-2 b-1 p-3"><code>p-3</code></div>
-<div class="mt-1 mb-2 b-1 p-4"><code>p-4</code></div>
+<p>The zero <code>*-0</code> options (top, roght, bottom, or left) are for removing (resetting) unwanted margin and padding.</p>
 <h3 id="spacing-extras" tabindex="-1">Spacing extras</h3>
 <p>In addition, there are the following specials:</p>
 <ul>
-<li><code>p-cell</code> — adds y-axis padding <code>--sp-1</code> and x-axis padding of double <code>--sp-1</code> for creating menu items. Same as the padding for table cells and buttons</li>
-<li><code>mx-auto</code> — for x-axis margin auto-centering</li>
-<li><code>m-0</code>, <code>mt-0</code>, <code>mb-0</code>, and <code>p-0</code> — for removing (resetting) unwanted space.</li>
+<li><code>p-cell</code> — adds y-axis padding <code>--s-1</code> and x-axis padding of double <code>--s-1</code> for creating menu items. Same as the padding for table cells and buttons</li>
+<li><code>mx-auto</code> — for x-axis margin auto-centering</li>
 </ul>
-<p><code>mb-0</code> is commonly used for removing the bottom margin on the last paragraph (or other typographic block) inside a <code>&lt;div&gt;</code> panel. <code>mt-0</code> is commonly used for removing top margin for headers used in side-columns (e.g. for navigation menus).</p>
-<p>These zero spacing utilities are declared before the spacers above in <code>decoration.css</code> so that you can use them to <em>reset</em> and then use spacers to set spacing the way you want it.</p>
 <h2 id="borders" tabindex="-1">Borders</h2>
 <p>Baselayer provides three thicknesses of border (plus a zero border override):</p>
-<div class="mb-2 b-1 p-1"><code>b-1</code> (1px)</div>
-<div class="mb-2 b-2 p-1"><code>b-2</code> (4px)</div>
-<div class="mb-2 b-3 p-1"><code>b-3</code> (8px)</div>
+<div class="mt-3 mb-4 flex flex-column gap-3">
+<div class="b-thin p-1"><code>b-thin</code> (1px)</div>
+<div class="b-thick p-1"><code>b-thick</code> (4px)</div>
+<div class="b-heavy p-1"><code>b-heavy</code> (8px)</div>
+</div>
 <p>Borders can be set as follows:</p>
 <ul>
 <li>All: <code>b-*</code></li>
@@ -396,56 +437,44 @@ Container query powered spacing
 <li><code>b-0</code> — for removing (resetting) all borders</li>
 </ul>
 <h2 id="rounded-corners" tabindex="-1">Rounded corners</h2>
+<p>All Baselayer border radius classes apply their border radius <em>potentially to all four corners</em>. If you want different radii on different corners of the same element, then you can access each of the spacing variables in your CSS, or set your own values.</p>
+<p><strong>Tip:</strong> If you are putting rounded corners on a block element that contains an image, you will also need to add <code>overflow-clip</code>.</p>
+<p>The first five border radius classes below supply the property <code>border-{...}-radius</code> and the default spacing variable <code>--s-1</code> (0.5rem).</p>
 <ul>
-<li><code>r-2</code> — 4px border radius</li>
-<li><code>r-3</code> — 8px border radius</li>
-<li><code>r-4</code> — 16px border radius</li>
+<li><code>rad</code>, <code>rad-1</code> — <code>border-radius:</code> (all) <code>--s-1</code> (0.5rem)</li>
+<li><code>rad-tl</code> — <code>border-top-left-radius: </code>--s-1`</li>
+<li><code>rad-tr</code> — <code>border-top-right-radius: </code>--s-1`</li>
+<li><code>rad-br</code> — <code>border-bottom-right-radius: </code>--s-1`</li>
+<li><code>rad-bl</code> — <code>border-bottom-left-radius: </code>--s-1`</li>
 </ul>
-<div class="mt-2 mb-3 grid equal-3-cols gap-2">
-  <div class="b-1 r-2 p-1">r-2</div>
-  <div class="b-1 r-3 p-1">r-3</div>
-  <div class="b-1 r-4 p-1">r-4</div>
+<p>Then there are five modifier classes. These only supply a spacing variable — they do not contain the <code>border-{...}-radius</code> property. Therefore, they need to be paired with (at least) one of the five border radius utilities above.</p>
+<ul>
+<li><code>rad-xs</code> — <code>--s-xs</code> 0.25rem</li>
+<li><code>rad-2</code> — <code>--s-2</code> clamp(1rem, 0.5rem + 1.25cqi, 1.5rem)</li>
+<li><code>rad-3</code> — <code>--s-3</code> clamp(2rem, 1rem + 2.5cqi, 3rem)</li>
+<li><code>rad-4</code> — <code>--s-4</code> clamp(3rem, 1.5rem + 3.75cqi, 4.5rem)</li>
+<li><code>rad-pill</code> — <code>--s-pill</code> 99rem</li>
+</ul>
+<p>Examples:</p>
+<div class="expand mt-2 mb-3 grid xs:equal-2-cols sm:equal-3-cols gap-1">
+  <div class="b-thin rad rad-xs px-2 py-4"><code>rad rad-xs</code></div>
+  <div class="b-thin rad px-2 py-4"><code>rad</code> or <code>rad-1</code></div>
+  <div class="b-thin rad rad-2 px-2 py-4"><code>rad rad-2</code></div>
+  <div class="b-thin rad rad-3 px-2 py-4"><code>rad rad-3</code></div>
+  <div class="b-thin rad rad-4 px-2 py-4"><code>rad rad-4</code></div>
+  <div class="b-thin rad rad-pill px-2 py-4"><code>rad rad-pill</code></div>
+  <div class="b-thin rad-tl rad-br rad-3 px-2 py-4"><code>rad-tl rad-br rad-3</code></div>
+  <div class="b-thin rad-tl rad-bl rad-pill px-2 py-4"><code>rad-tl rad-bl rad-pill</code></div>
+  <div class="b-thin rad-tr rad-pill px-2 py-4"><code>rad-tr rad-pill</code></div>
 </div>
-<p><strong>Note:</strong> border-radius classes have <code>overflow: hidden</code> built in, so that they can “clip” the corners of images.</p>
-<p>Border and border-radius variables pair as follows:</p>
-<table class="table t-center">
-  <thead>
-    <tr>
-      <th>Border variable</th>
-      <th>Border-radius variable</th>
-      <th>Value</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code>--b1</code></td>
-      <td>n/a</td>
-      <td><code>1px</code></td>
-    </tr>
-    <tr>
-      <td><code>--b2</code></td>
-      <td><code>--r2</code></td>
-      <td><code>4px</code></td>
-    </tr>
-    <tr>
-      <td><code>--b3</code></td>
-      <td><code>--r3</code></td>
-      <td><code>8px</code></td>
-    </tr>
-    <tr>
-      <td>n/a</td>
-      <td><code>--r4</code></td>
-      <td><code>16px</code></td>
-    </tr>
-  </tbody>
-</table>
-<p><strong>Note:</strong> There is no <code>--r1</code> (a border radius of 1px) or <code>--b4</code> (border radius of 16px) in Baselayer.</p>
+<p>If the element is a square, then <code>rad rad-pill</code> makes a circle.</p>
+<div class="w-xxs mx-auto mb-4">
+<div class="b-thin aspect-ratio-1x1 rad rad-pill p-4 flex flex-center flex-middle"><code>rad <span class="t-nowrap">rad-pill</span></code></div>
+</div>
+<h3 id="rounded-corners-extra" tabindex="-1">Rounded corners extra</h3>
 <ul>
-<li><code>r-pill</code> — 99em border radius (more than sufficient to put x-axis semi-circular ends on even mid-sized blocks)</li>
+<li><code>unrounded</code> — in some sutuations (e.g. if you code-in rounded corners on form elements and buttons), you may need to remove rounded corners with <code>unrounded</code>.</li>
 </ul>
-<div class="mt-2 mb-3 b-1 r-pill p-3">pill</div>
-<p>If <code>r-pill</code> is used on a square, then the result will be a circle.</p>
-<div class="mt-2 mb-3 b-1 r-pill flex flex-center flex-middle t-center" style="width: 280px; height: 280px;">280px²<br>square pill</div>
 <h2 id="the-img-cover-class" tabindex="-1">The <code>img-cover</code> class</h2>
 <p>The Baselayer <code>cover</code> class can be used to make an image expand or contract to fully cover a container block rectangle. It is designed for use on an <code>&lt;img src=&quot;&quot;&gt;</code> tag.</p>
 <pre><code>.img-cover {
@@ -469,54 +498,53 @@ Container query powered spacing
 <p>If you use these on an image over a colored background, then you get a color-tinted image.</p>
 <p>If you have text over an image (e.g. in a hero component), then you can use opacity over a black (or dark color) background to make white text more readable — and <em>vise versa</em>.</p>
 
-              </div>
-            </main>
+          </main>
+        </div>
+        <div class="lg:col-span-3">
+          <footer class="mt-3 content-grid">
+            <nav class="popout grid gap-2 sm:equal-2-cols links-not-underlined">
+              
+              <a class="sm:col-1 my-1 b-thin b-blue b-300 hover:b-500 b-dark-invert rad-1 p-cell flex flex-column gap-1 t-blue t-600 hover:t-700 t-dark-invert hover:bg-blue hover:bg-100 bg-dark-invert"  href="/baselayer-3/layout/">
+                Previous page
+                <span class="h2 m-0 t-normal"> Layout</span>
+              </a>
+              
+              
+              <a class="sm:col-2 my-1 b-thin b-blue b-300 hover:b-500 b-dark-invert rad-1 p-cell flex flex-column gap-1 t-blue t-600 hover:t-700 t-dark-invert t-right hover:bg-blue hover:bg-100 bg-dark-invert" href="/baselayer-3/colors/">
+                Next page
+                <span class="h2 m-0 t-normal">Colors</span>
+              </a>
+              
+            </nav>
+            <div class="mt-4 mb-3 p-2 flex flex-column flex-middle t-center">
+              <a href="/baselayer-3/" class="mb-1 flex flex-column flex-center gap-1 t-no-underline">
+                <svg class="mx-auto" height="48" width="48" viewBox="0 0 111 111" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-miterwrapper:1.5">
+                  <g transform="translate(-294.592 -94.592)">
+                    <circle cx="350" cy="150" r="50" style="fill:none;stroke:currentColor;stroke-width:4px"/>
+                    <path d="M294.167 180H320v-65.833" style="fill:none;stroke:currentColor;stroke-width:4px" transform="translate(10 -10)"/>
+                    <path d="M405.833 180H380v-65.833" style="fill:none;stroke:currentColor;stroke-width:4px" transform="translate(-10 -10)"/>
+                    <circle cx="350" cy="150" r="30" style="fill:none;stroke:currentColor;stroke-width:6px" transform="matrix(.66667 0 0 .66667 116.667 50)"/>
+                    <path d="M310 180h80" style="fill:none;stroke:currentColor;stroke-width:4px"/>
+                    </g>
+                  </svg>
+                <span class="h3 m-0 t-normal t-nowrap">Baselayer CSS</span>
+              </a>
+              <span>Version: 3.4.0</span>
+            </div>
 
-            <footer class="lg:col-1 content-grid">
-              <nav class="popout mt-3 mb-2 p-0 grid gap-2 sm:equal-2-cols">
-                
-                <a class="sm:col-1 my-1 b-1 b-blue b-300 hover:b-900 b-dark-invert r-3 p-cell flex flex-column gap-1 hover:bg-blue hover:bg-100 bg-dark-invert"  href="/baselayer-3/layout/">
-                  Previous page
-                  <span class="h2 m-0 t-normal"> Layout</span>
-                </a>
-                
-                
-                <a class="sm:col-2 my-1 b-1 b-blue b-300 hover:b-900 b-dark-invert r-3 p-cell flex flex-column gap-1 t-right hover:bg-blue hover:bg-100 bg-dark-invert" href="/baselayer-3/colors/">
-                  Next page
-                  <span class="h2 m-0 t-normal">Colors</span>
-                </a>
-                
-              </nav>
-              <div class="p-2 flex flex-column flex-middle t-center">
-                <a href="/baselayer-3/" class="mb-1 flex flex-column flex-center gap-1 t-noline">
-                  <svg class="mx-auto" height="48" width="48" viewBox="0 0 111 111" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-miterwrapper:1.5">
-                    <g transform="translate(-294.592 -94.592)">
-                      <circle cx="350" cy="150" r="50" style="fill:none;stroke:currentColor;stroke-width:4px"/>
-                      <path d="M294.167 180H320v-65.833" style="fill:none;stroke:currentColor;stroke-width:4px" transform="translate(10 -10)"/>
-                      <path d="M405.833 180H380v-65.833" style="fill:none;stroke:currentColor;stroke-width:4px" transform="translate(-10 -10)"/>
-                      <circle cx="350" cy="150" r="30" style="fill:none;stroke:currentColor;stroke-width:6px" transform="matrix(.66667 0 0 .66667 116.667 50)"/>
-                      <path d="M310 180h80" style="fill:none;stroke:currentColor;stroke-width:4px"/>
-                      </g>
-                    </svg>
-                  <span class="h3 m-0 t-normal t-nowrap">Baselayer 3 CSS</span>
-                </a>
-                <span>Version: 3.3.0</span>
-              </div>
-
-              <p class="p-cell flex flex-center flex-wrap gap-2 t-center">
-                <span><a class="t-noline hover:t-line" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> (22.65 KB)</span>
-                <a class="t-noline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3">GitHub Repository</a>
-                <a class="t-noline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3/blob/main/CHANGELOG.md">Changelog</a>
-                <a class="t-noline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3/blob/main/LICENSE">MIT license</a>
-              </p>
-              <p class="t-center"><span>Developer: <a class="t-noline hover:t-line" href="https://github.com/SimonPadbury">Simon Padbury</a></span>
-            </footer>
-          </div>
-        </article>
+            <p class="p-cell flex flex-center flex-wrap gap-4 t-center">
+              <span><a class="t-no-underline hover:t-line" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> (22 KB)</span>
+              <a class="t-no-underline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3">GitHub Repository</a>
+              <a class="t-no-underline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3/blob/main/CHANGELOG.md">Changelog</a>
+              <a class="t-no-underline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3/blob/main/LICENSE">MIT license</a>
+            </p>
+            <p class="t-center"><span>Developer: <a class="t-no-underline hover:t-line" href="https://github.com/SimonPadbury">Simon Padbury</a></span>
+          </footer>
+        </div>
       </div>
-
     </div>
-  </div>
+
+  </div><!-- /#body-wrap -->
 
 </body>
 </html>

@@ -1,4 +1,4 @@
-<!-- 
+<!--
 • Increment version control numbers in
   README.md, baselayer.css, metadata.json,
   package.json, package-lock.json (x2), and
@@ -9,10 +9,23 @@
 
 # Baselayer 3 changelog
 
+## v.3.4.0 -- 27 November 2024
+
+* Focus styling is now based on NHS.uk / GOV.UK design systems
+* Everything is in a _container_, since the BODY tag now has `container-type: inline-size;`
+* Decoration: removed viewport-width dependant spacing (paddings, margins & gaps).
+* Utilities: `.h1` through `.h6` now only affect font-size. They do not include margins and font-weights.
+* Font weights `t-lighter` and `t-bolder` renamed as `t-thin` and `t-heavy`.
+* Text size modifiers: `{base} / t-sm / t-lg / t-long-read / t-display`
+* Colors improved. Codebase swatches. OKLAB color space. Shades now have their white or black color mix built into their shade variables, thereby making downstream color coding easier.
+* Removed: colors no longer have the built-in slight darkening for dark mode.
+* Light and dark mode now using `light-dark()`.
+* Margins, paddings, gaps, and border radius now use the same spacing variables
+
 ## v.3.3.0 -- 9 March 2024
 
-* Changed the version number `v.1` to `v.3` to prevent confusion. This is now Baselayer 3.3.0, not v.1.3.0). (From now on, the docs refer back to v.3.1.x, v.3.2.x etc.)
-* Colour styles refactored to use Hex (#) and `color-mix()` for shades, instead of OKLCH and lightness channels. Color utility classes are mostly unchanged (orange is now amber). The OKLCH color system is still available in this repository as `colors.oklch.css` but it is no loonger used.
+* Changed the version number `v.1` to `v.3` to prevent confusion. This is now Baselayer 3.3.0, not Baselayer 3 v.1.3.0). (From now on, the docs refer back to v.3.1.x, v.3.2.x etc.)
+* Colour styles refactored to use Hex (#) and `color-mix()` for shades, instead of OKLAB and lightness channels. Color utility classes are mostly unchanged (orange is now amber).
 * Form input indicators (e.g. date icon, time icon) are now visible (white) in the dark theme.
 * Removed `:active` from buttons.
 * Added `t-balance` for `text-wrap: balance` on e.g. titles.
@@ -25,20 +38,20 @@
 
 ## v.1.2.4 -- 17 Jan 2024
 
-* Increased upper wrapper of `.t-long-read` to 1.375rem (22px). 
+* Increased upper wrapper of `.t-long-read` to 1.375rem (22px).
 
 ## v.1.2.3 -- 10 Jan 2024
 
 * Improved `box-sizing: border-box`.
 * Transparent 1px solid border on buttons (previously `border: 0`).
-* Added `!important` to typography utilities `t-small` and `t-big`.
+* Added `!important` to typography utilities `t-sm` and `t-lg`.
 * Changed min-height to height on buttons (and `.btn` utility).
 
 ## v.1.2.2 -- 5 Jan 2024
 
 * Minor typographic improvements.
 * Adjusted the orange hue.
- 
+
 ## v.1.2.1 -- 13 Dec 2023
 
 * Improved native font stacks.
@@ -59,7 +72,7 @@ _The big **container query** upgrade._
 * Darkened the dark theme `<body>` element so that `bg-gray bg-900` doesn’t disappear into the page background
 * Removed `t-loose` and `t-tight` as unrequired for a _baselayer_ stylesheet.
 * Removed colors [teal, purple, brown, coolgray, warmgray] -- commented out but retained as examples for inspiration.
-* Added OKLCH lightness `--l1000` variable for use on the dark theme background color.
+* Added OKLAB lightness `--l1000` variable for use on the dark theme background color.
 * Added `font-style: normal; font-style: normal;` to `code`, `kbd`, `samp`, and `pre` tags, so that these classes could be used within italic and bold text without being affected.
 * Removed the NPM package `postcss-custom-media` because it does not work for container queries (only media queries).
 
@@ -89,8 +102,8 @@ _The big **container query** upgrade._
 
 ## v.1.0.0 -- 09 Oct 2023
 
-* A total reinvention of the Baselayer project. Not backwards compatible. 
-* Class names now contain hyphens. 
+* A total reinvention of the Baselayer project. Not backwards compatible.
+* Class names now contain hyphens.
 * New grid system.
-* OKLCH colors for theme and utility classes. A simple grayscale hex (#) fallback for pre-OKLCH browsers.
+* OKLAB colors for theme and utility classes. A simple grayscale hex (#) fallback for pre-OKLAB browsers.
 * `baselayer.css` is less than 22 KB.

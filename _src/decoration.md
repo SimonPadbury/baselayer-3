@@ -8,78 +8,109 @@ prevLink: "Layout"
 nextLink: "Colors"
 ---
 
-## Spacing (margins and paddings)
+## Spacing
 
-[Box model](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Introduction_to_the_CSS_box_model) margin and padding spacing have both 4 levels based on 4 CSS variables. 
+[Box model](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Introduction_to_the_CSS_box_model) margin and padding spacing have both 4 levels based on 4 CSS variables. These spacing variables are also used for gaps (in flexbox and the grid system), and for border radius utilities.
 
 The smallest level simply adds 0.5rem spacing, whereas levels 2 thorugh 4 increase responsively depending how how much width is available, using `clamp()` functions to ramp up to 1.5× their base size.
 
-If the spacing decoration class is _not_ inside a `container` (see [container query powered layouts](/baselayer-3/layout/#container-query-powered-layouts)), the spacing ramp of levels 2 thorugh 4 uses the viewport width unit, `vw`. But the same spacing utility classes used inside a `container` will ramp up using the container query inline width unit, `cqi`. Both these ramps achieve 1.5× their base sizes at approximately 1280px available width.
+The middle ramp within the clamp uses container query dependant units, `cqi`. This will either take effect from the container query context on the `<body>` tag, or from any inner `container` classes that may be added on block elements (see [Layouts/ container query contexts]({{ "/layout/#container-query-contexts" | url }})).
 
 ```css
-/*
-Default spacing
-*/
 :root {
-  --sp-1: 0.5rem;
-  --sp-2: clamp(1rem, 0.5rem + 1.25vw, 1.5rem);
-  --sp-3: clamp(2rem, 1rem + 2.5vw, 3rem);
-  --sp-4: clamp(3rem, 1.5rem + 3.75vw, 4.5rem);
-}
-
-/*
-Container query powered spacing
-*/
-.container {
-  --sp-2: clamp(1rem, 0.5rem + 1.25cqi, 1.5rem);
-  --sp-3: clamp(2rem, 1rem + 2.5cqi, 3rem);
-  --sp-4: clamp(3rem, 1.5rem + 3.75cqi, 4.5rem);
+  --s-1: 0.25rem; /* 4px */
+  --s-2: 0.5rem; /* 8px */
+  --s-3: clamp(1rem, 0.5rem + 1.25cqi, 1.5rem); /* 16px --> 24px */
+  --s-4: clamp(2rem, 1rem + 2.5cqi, 3rem); /* 32px --> 40px */
 }
 ```
 
 This makes the negative space (“whitespace”) for spacing levels 2 through 4 larger where there is a larger container (or viewport) width available.
 
-Both margin and padding spacers are controlled on the 4 sides of blocks, as follows:
-
-* All: `m-1` through `m-4` / `p-1` through `p-4` (all four sides)
-* Top: `mt-1` through `mt-4` / `pt-1` through `pt-4`
-* Right: `mr-1` through `mr-4` / `pr-1` through `pr-4`
-* Bottom: `mb-1` through `mb-4` / `pb-1` through `pb-4`
-* Left: `ml-1` through `ml-4` / `pl-1` through `pl-4`
-* Inline axis, or x-axis (right and left): `mx-1` through `mx-4` / `px-4` through `px-4`
-* Block acis, or y-axis (top and bottom): `my-1` through `my-4` / `py-4` through `py-4`
+<div class="my-3 expand overflow-x">
+<table class="table">
+<thead>
+<th>Spacing variable</th>
+<th>Default value</th>
+<th>Margin (e.g.)</th>
+<th>Padding (e.g.)</th>
+<th>Border radius</th>
+<th>Gap (flexbox and grid)</th>
+</thead>
+<tbody>
+<tr>
+<td><code>--s-1</code></td>
+<td><code>0.25rem</code></td>
+<td><code>m-1</code></td>
+<td><code>p-1</code></td>
+<td><code class="t-nowrap">rad-1</code></td>
+<td><code class="t-nowrap">gap-1</code></td>
+</tr>
+<tr>
+<td><code>--s-2</code></td>
+<td><code>0.5rem</code></td>
+<td><code>m-2</code></td>
+<td><code>p-2</code></td>
+<td><code>rad-2</code></td>
+<td><code>gap-2</code></td>
+</tr>
+<tr>
+<td><code>--s-3</code></td>
+<td><code>clamp(1rem, 0.5rem + 1.25cqi, 1.5rem)</code></td>
+<td><code>m-3</code></td>
+<td><code>p-3</code></td>
+<td><code>rad-3</code></td>
+<td><code>gap-3</code></td>
+</tr>
+<tr>
+<td><code>--s-4</code></td>
+<td><code>clamp(2rem, 1rem + 2.5cqi, 3rem)</code></td>
+<td><code>m-4</code></td>
+<td><code>p-4</code></td>
+<td><code>rad-4</code></td>
+<td><code>gap-4</code></td>
+</tr>
+</tbody>
+</table>
+</div>
 
 Spacing example with paddings:
 
-<div class="mb-2 b-1 p-1"><code>p-1</code></div>
+<div class="mt-3 mb-4 flex flex-column gap-3">
+<div class="b-thin p-1"><code>p-1</code></div>
+<div class="b-thin p-2"><code>p-2</code></div>
+<div class="b-thin p-3"><code>p-3</code></div>
+<div class="b-thin p-4"><code>p-4</code></div>
+</div>
 
-<div class="mb-2 b-1 p-2"><code>p-2</code></div>
+Both margin and padding spacers are controlled on the 4 sides of blocks, as follows:
 
-<div class="mb-2 b-1 p-3"><code>p-3</code></div>
+* All: `m-0` through `m-4` / `p-0` through `p-4` (all four sides)
+* Top: `mt-0` through `mt-4` / `pt-0` through `pt-4`
+* Right: `mr-0` through `mr-4` / `pr-0` through `pr-4`
+* Bottom: `mb-0` through `mb-4` / `pb-0` through `pb-4`
+* Left: `ml-0` through `ml-4` / `pl-0` through `pl-4`
+* Inline axis, or x-axis (right and left): `mx-1` through `mx-4` / `px-4` through `px-4`
+* Block axis, or y-axis (top and bottom): `my-1` through `my-4` / `py-4` through `py-4`
 
-<div class="mt-1 mb-2 b-1 p-4"><code>p-4</code></div>
+The zero `*-0` options (top, roght, bottom, or left) are for removing (resetting) unwanted margin and padding.
 
 ### Spacing extras
 
 In addition, there are the following specials:
 
-* `p-cell` — adds y-axis padding `--sp-1` and x-axis padding of double `--sp-1` for creating menu items. Same as the padding for table cells and buttons
-* `mx-auto` — for x-axis margin auto-centering
-* `m-0`, `mt-0`, `mb-0`, and `p-0` — for removing (resetting) unwanted space.
-
-`mb-0` is commonly used for removing the bottom margin on the last paragraph (or other typographic block) inside a `<div>` panel. `mt-0` is commonly used for removing top margin for headers used in side-columns (e.g. for navigation menus).
-
-These zero spacing utilities are declared before the spacers above in `decoration.css` so that you can use them to _reset_ and then use spacers to set spacing the way you want it.
+* `p-cell` — adds y-axis padding `--s-1` and x-axis padding of double `--s-1` for creating menu items. Same as the padding for table cells and buttons
+* `mx-auto` — for x-axis margin auto-centering
 
 ## Borders
 
 Baselayer provides three thicknesses of border (plus a zero border override):
 
-<div class="mb-2 b-1 p-1"><code>b-1</code> (1px)</div>
-
-<div class="mb-2 b-2 p-1"><code>b-2</code> (4px)</div>
-
-<div class="mb-2 b-3 p-1"><code>b-3</code> (8px)</div>
+<div class="mt-3 mb-4 flex flex-column gap-3">
+<div class="b-thin p-1"><code>b-thin</code> (1px)</div>
+<div class="b-thick p-1"><code>b-thick</code> (4px)</div>
+<div class="b-heavy p-1"><code>b-heavy</code> (8px)</div>
+</div>
 
 Borders can be set as follows:
 
@@ -95,61 +126,49 @@ Borders can be set as follows:
 
 ## Rounded corners
 
-* `r-2` — 4px border radius
-* `r-3` — 8px border radius
-* `r-4` — 16px border radius
+All Baselayer border radius classes apply their border radius _potentially to all four corners_. If you want different radii on different corners of the same element, then you can access each of the spacing variables in your CSS, or set your own values.
 
-<div class="mt-2 mb-3 grid equal-3-cols gap-2">
-  <div class="b-1 r-2 p-1">r-2</div>
-  <div class="b-1 r-3 p-1">r-3</div>
-  <div class="b-1 r-4 p-1">r-4</div>
+**Tip:** If you are putting rounded corners on a block element that contains an image, you will also need to add `overflow-clip`.
+
+The first five border radius classes below supply the property `border-{...}-radius` and the default spacing variable `--s-1` (0.5rem).
+
+* `rad`, `rad-1` — `border-radius:` (all) `--s-1` (0.5rem)
+* `rad-tl` — `border-top-left-radius: `--s-1`
+* `rad-tr` — `border-top-right-radius: `--s-1`
+* `rad-br` — `border-bottom-right-radius: `--s-1`
+* `rad-bl` — `border-bottom-left-radius: `--s-1`
+
+Then there are five modifier classes. These only supply a spacing variable — they do not contain the `border-{...}-radius` property. Therefore, they need to be paired with (at least) one of the five border radius utilities above.
+
+* `rad-xs` — `--s-xs` 0.25rem
+* `rad-2` — `--s-2` clamp(1rem, 0.5rem + 1.25cqi, 1.5rem)
+* `rad-3` — `--s-3` clamp(2rem, 1rem + 2.5cqi, 3rem)
+* `rad-4` — `--s-4` clamp(3rem, 1.5rem + 3.75cqi, 4.5rem)
+* `rad-pill` — `--s-pill` 99rem
+
+Examples:
+
+<div class="expand mt-2 mb-3 grid xs:equal-2-cols sm:equal-3-cols gap-1">
+  <div class="b-thin rad rad-xs px-2 py-4"><code>rad rad-xs</code></div>
+  <div class="b-thin rad px-2 py-4"><code>rad</code> or <code>rad-1</code></div>
+  <div class="b-thin rad rad-2 px-2 py-4"><code>rad rad-2</code></div>
+  <div class="b-thin rad rad-3 px-2 py-4"><code>rad rad-3</code></div>
+  <div class="b-thin rad rad-4 px-2 py-4"><code>rad rad-4</code></div>
+  <div class="b-thin rad rad-pill px-2 py-4"><code>rad rad-pill</code></div>
+  <div class="b-thin rad-tl rad-br rad-3 px-2 py-4"><code>rad-tl rad-br rad-3</code></div>
+  <div class="b-thin rad-tl rad-bl rad-pill px-2 py-4"><code>rad-tl rad-bl rad-pill</code></div>
+  <div class="b-thin rad-tr rad-pill px-2 py-4"><code>rad-tr rad-pill</code></div>
 </div>
 
-**Note:** border-radius classes have `overflow: hidden` built in, so that they can “clip” the corners of images.
+If the element is a square, then `rad rad-pill` makes a circle.
 
-Border and border-radius variables pair as follows:
+<div class="w-xxs mx-auto mb-4">
+<div class="b-thin aspect-ratio-1x1 rad rad-pill p-4 flex flex-center flex-middle"><code>rad <span class="t-nowrap">rad-pill</span></code></div>
+</div>
 
-<table class="table t-center">
-  <thead>
-    <tr>
-      <th>Border variable</th>
-      <th>Border-radius variable</th>
-      <th>Value</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code>--b1</code></td>
-      <td>n/a</td>
-      <td><code>1px</code></td>
-    </tr>
-    <tr>
-      <td><code>--b2</code></td>
-      <td><code>--r2</code></td>
-      <td><code>4px</code></td>
-    </tr>
-    <tr>
-      <td><code>--b3</code></td>
-      <td><code>--r3</code></td>
-      <td><code>8px</code></td>
-    </tr>
-    <tr>
-      <td>n/a</td>
-      <td><code>--r4</code></td>
-      <td><code>16px</code></td>
-    </tr>
-  </tbody>
-</table>
+### Rounded corners extra
 
-**Note:** There is no `--r1` (a border radius of 1px) or `--b4` (border radius of 16px) in Baselayer.
-
-* `r-pill` — 99em border radius (more than sufficient to put x-axis semi-circular ends on even mid-sized blocks)
-
-<div class="mt-2 mb-3 b-1 r-pill p-3">pill</div>
-
-If `r-pill` is used on a square, then the result will be a circle.
-
-<div class="mt-2 mb-3 b-1 r-pill flex flex-center flex-middle t-center" style="width: 280px; height: 280px;">280px²<br>square pill</div>
+* `unrounded` — in some sutuations (e.g. if you code-in rounded corners on form elements and buttons), you may need to remove rounded corners with `unrounded`.
 
 ## The `img-cover` class
 

@@ -14,78 +14,31 @@ A few native font stacks are set in the `root-vars.css` file.
 
 ```
 :root {
-  --t-sans: ui-sans-serif, system-ui, sans-serif;
-  --t-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
-  --t-mono: ui-monospace, Menlo, Consolas, "Courier New", monospace;
-
-  /* Alternative serif font stack (not used anywhere) */
-  --t-old-serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
-
-  --t-base: var(--t-sans);
-  --t-prose: var(--t-serif);
+  --ff-sans: ui-sans-serif, system-ui, Arial, sans-serif;
+  --ff-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --ff-mono: ui-monospace, Menlo, Consolas, "Courier New", monospace;
+  --ff-base: var(--t-sans);
+  --ff-prose: var(--t-serif);
 }
 ```
 
 Everything here is an example, a place to start. Your own `--base` and `--prose` don’t need to be both sans-serif and serif. See [setting font stacks](#setting-font-stacks) for more information.
 
-The Baselayer docs make use of JavaScript and some extra CSS to enable a demo toggle, so that you can switch between `--base` and `--prose` in this main content area.
-
-<p class="flex flex-center">
-  <button class="toggler p-cell flex flex-column gap-1 bg-blue bg-500 hover:bg-600 bg-dark-invert" onclick="toggleFont()">
-    <div class="label-base w-100% flex flex-middle gap-1">
-      <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
-      <div class="grow t-left">Base font</div>
-    </div>
-    <div class="label-prose w-100% flex flex-middle gap-1">
-      <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
-      <div class="grow t-left">Prose font</div>
-    </div>
-  </button>
-</p>
+The Baselayer docs make use of JavaScript and some extra CSS to enable a demo toggle, so that you can switch between `--base` and `--prose` in this main content area — see main menu.
 
 Font stack usage in Baselayer:
 
-* The base font stack is set in the `<body>` tag (in `base.css`) and via the `t-base` utility class.
-* The prose is only available via the `t-prose` utility class
+* The base font stack `--ff-base` is set in the `<body>` tag and via the `t-base` utility class. It is also set on form inputs and on heading tags (using `--h-lh` so that you can override all six headings at once).
+* The prose is only available via the `t-prose` utility class.
 * The monotype is available via the `<code>`, `<kbd>`, and `<samp>` HTML tags, and in the `t-mono` utility class.
 
 ### Setting font stacks
 
 In choosing your own font stacks, you will probably need two fonts that have similar _x-height_, so that you can set them using the same font size and line-height. Some other factors to compare are hights for lowercase ascenders and descenders, letter width, and stroke thickness.
 
-If you prefer Baselayer’s ealier “Old Serif” font stack, this is still available in the variable `--t-old-serif`. You can easily revert to it by putting something like this in your own stylesheet:
-
-```css
-.t-prose {
-  font-family: var(--t-old-serif);
-}
-```
-
 If you want to stick with using native font stacks, the [Modern Font Stacks](https://modernfontstacks.com) website has several examples that you can easily copy.
 
-In choosing your own typefaces from elsewhere, a good place to start is by pairing serif and sans-serif (or slab serif) fonts of the same typeface, if both are available. For example, [Google Fonts](https://fonts.google.com) has several typefaces to choose from, such as:
-
-* Alegreya and Alegreya Sans
-* IBM Plex and IBM Plex Sans
-* Inria Serif and Inria Sans
-* Noto Serif and Noto Sans
-* PT Serif and PT Sans
-* Roboto and Roboto Slab
-* Source Sans 3 and Source Serif 4
-
-Google provides examples of how to use their fonts in your CSS, where the fallback for each is only e.g. `sans-serif` or `serif`. But it may be better to use Baselayer’s native font stack variables instead. For example:
-
-```css
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital@0;1&display=swap');
-
-body {
-  /* Example from Google Fonts */
-  font-family: 'IBM Plex Serif', serif;
-
-  /* You can use this instead */
-  font-family: 'IBM Plex Serif', var(--t-serif);
-}
-```
+In choosing your own typefaces from elsewhere, a good place to start is by pairing serif and sans-serif (or slab serif) fonts of the same typeface, if both are available. [Google Fonts](https://fonts.google.com) has several such typefaces to choose from.
 
 In Baselayer, sizes and weights for the base and prose typefaces can optionally be set independently — but you will still want them to share the same line height. For using another set of sizes and weights for prose, you will need to do some un-commenting in two files: `variables.css` and `typography.css`.
 
@@ -103,16 +56,35 @@ For inspiration:
 * [Pair & Compare](https://www.pairandcompare.net)
 * [Top 50 Google Font Pairings [Handpicked by Pro Designers] (Pagecloud)](https://www.pagecloud.com/blog/best-google-fonts-pairings)
 
-## Typographic block elements
+## Base font size
 
-Most typographic blocks have zero top margin, and bottom margin set to the _line height in rems_ using these two variables:
+The default font size in Baselayer is 100% for small viewports, and bumped up to 112.5% from width 640px up (equivalent to Baselayer width variable `sm`).
 
 ```css
+/* in variables.css */
 :root {
-  --lh: 1.5; /* Base lineheight (no unit) */
-  --mlh: calc(var(--lh) * 1rem); /* margin line height in rems */
+  --fs-base: 100%;
+  --fs-bump: 112.5%;
+}
+
+/* in base.css */
+body{
+  container-type: inline-size;
+  font-family: var(--ff-base);
+  font-size: var(--fs-base);
+}
+@container (min-width: 640px) {
+  body > * {
+    font-size: var(--fs-bump);
+  }
 }
 ```
+
+(As this comfortable reading size hs now a default setting, the `t-long-read` class has been removed as no longer required.)
+
+## Typographic block elements
+
+Most typographic blocks have zero top margin, and bottom margin set to `var(--s-2)` (1rem).
 
 ### Headings
 
@@ -127,41 +99,36 @@ Example heading sizes (using utility classes, so that they don’t show up in th
 
 All headings `<h1>` to `<h6>` and matching utility classes `h1` to `h6` have:
 
-* Headings font sizes set in the variables file. The typographic scale is 1.250 (major third), calculated using the [Type Scale](https://type-scale.com) webapp.
-* Headings also have their font-family set using `--hf: inherit`. This has been done so that you can use the variable to override it. Your headings don’t need to be the same typeface as your paragraphs.
-* Headings font weight is set using `--hfw: var(--bold)` — which you can also override.
-* Headings line heights set using the formula 1em + 0.5rem. Meanwhile the bottom margin is the same as for paragraphs: the line-height of _defaut_ text (1.5) made into rems (1.5rem), set by the variable `--mlh`. (When the default text size is 16px, the line height and margin-bottom of typographic block elements is 24px.)
-* Headings `<h2>` to `<h6>` and matching utility classes `h2` to `h6` also have top margins equal to their respective line heights (so H2 has a bigger top margin than H3, and so on)
+* Headings font sizes set in the variables file.
+* Headings also have their font-family set using `--h-ff: inherit`. This has been done so that you can use the variable to override it. So, your headings don’t need to be the same typeface as your paragraphs.
+* Headings font weight is set using `--h-fw: var(--fwsemibold)` — which you can also override.
+* Headings line heights set using the formula `1em + 0.5rem`.
+* Headings have their bottom margin set the same as for paragraphs, `var(t--mb)`. The top margin for `<h2>` thorugh `<h6>` is double that — except then used as immediate child items of the [content-grid]({{ "/layout/#content-grid" | url }}) where the top margin is reduced to `var(t--mb)`. This is because _margin collapse_ is prevented by CSS grid. (And the top margin of `<h2>` is totally removed when it’s the first immediate child of a `.content-grid`.)
+* Matching utility classes `h2` to `h6` only affect font-size. These utilities do not include margin or font-weight styling.
 
 ```css
 :root {
-  /* Heading font sizes */
-  --h1: 2.441em;
-  --h2: 1.953em;
-  --h3: 1.563em;
+  --h1: 2.25em;
+  --h2: 1.875em;
+  --h3: 1.5em;
   --h4: 1.25em;
-  --h5: 1em;
-  --h6: .8em;
-
-  /* headings font */
-  --hf: inherit;
-
-  /* headings font-weight */
-  --hfw: var(--bold);
-
-  /* headings line-height */
-  --hlh: calc(1em + 0.5rem);
+  --h5: 1.125em;
+  --h6: 1em;
+  --h-ff: inherit; /* headings font-family */
+  --h-fw: var(--fw-semibold);
+  --h-lh: calc(1em + 0.5rem);
+  --h-mt: calc(var(--t-mb) * 2);
 }
 ```
 
 Tips:
 
 1. In some contexts (e.g. in card components) you may not want any built-in spacing for typographic block elements. Then, you can remove margins by using the `m-0` utility class.
-2. You can also remove top margin “remotely” e.g. you can target the first item inside its wrapper using `.your-wrapper:first-child { margin-top: 0; }`, or the first sibling after the `<header>` or `<h1>` e.g. as I have done in these docs: `.content-grid header + * { margin-top: 0; }`. This takes care of any pages that start their content with an `<h2>` as the first element under the title (header) block.
+2. You can also remove top margin “remotely” e.g. you can target the first item inside its wrapper using `.your-wrapper:first-child { margin-top: 0; }`, or the first sibling after the `<header>` or `<h1>` e.g. as I have done in Baselayer: `.content-grid > h2:first-child { margin-top: 0; }`.
 
 ### Block quotes
 
-Baselayer styles `<blockquote>` tags with some inline (x-axis) padding, to give the effect of indentation. This inline padding is set using the responsive spacing variable `--sp-3` so that it increases if there is more available width. Whitespace `--sp-3` is either based on viewport width or container width, depending on context.
+Baselayer styles `<blockquote>` tags with some inline (x-axis) padding, to give the effect of indentation. This inline padding is set using the container-responsive spacing variable `--s-3` so that it increases if there is more available width.
 
 Otherwise, blockquotes have the same as paragraph styling.
 
@@ -229,20 +196,181 @@ For definition lists, the title is bold and the data-item is indented with the s
 
 ## The link tag
 
-The default underline for links has been moved downwards slightly to improve legibility. The link decoration (underscore) thickness has been set at 1px, so that it doesn’t become thicker when used on larger text (e.g. in headings) where link underscores can be too bulky).
+The default underline for links has been moved downwards slightly to improve legibility. The link decoration (underline) thickness has been set at 1px, so that it doesn’t become thicker when used on larger text (e.g. in headings) where link underline can be too bulky). On `:hover`, the link text color becomes slightly darker and underline becomes thicker, increasing to 3px. All these styles are controlled by CSS variables so that you can change them.
 
-Link color is set by `--tc-link`, which is the Baselayer theme middle blue (see [colors]({{ '/colors/' | url }})). The hover state is a shade darker.
+Then there are the following two classes that apply to links, that may be handy in some situations:
+
+* <a class="t-no-underline" href="">This link has no underline</a> — `t-no-underline`
+* <a class="t-underline-hover-only" href="">This link has no underline unless hovered</a> — `t-underline-hover-only`
+
+<div aria-label="Warning" class="popout my-3 bl-heavy b-amber b-400 b-dark-invert p-3 bg-amber bg-200 bg-dark-invert">The browser default, and the best practice for accessability, is to have links indicated by an underline (and the default color of links is blue). But in the context of menus it is permissible to deviate from the best practice, provided there are other visual and non-visual indicators. This is the reason why we should use semantic HTML tags on menus, and and why we should place navigation menus in their expected locations (in sitewide menubar ribbons, sidebars, and footers.</div>
+
+## Menus
+
+* `nav` / `<menu>` / `<menuitem>`
+
+The semantic `<nav>` tag has no styling of its own, other than its being a block element (similar to a `div`). Use it to organize your major navigation blocks of links (whether to other pages in your website, or “on this page”).
+
+Semantic `<menu>` tags are treated by the browser as no different to an `<ul>`, but they are announced as a menu by [screen readers](https://web.dev/articles/semantics-and-screen-readers). Baselayer gives `<menu>`, `<ul>`, and `<ol>` the same styling: some left padding and bottom margin (and you can remove these you don't require them, using [spacing utility classes]({{ "/decoration/#spacing" | url }})).
+
+Using an `<li>` within a `<menu>` will give you bulletpoint block items. This will be OK for sidebars and dropdown menus, for example, but there’s also the `<menuitem>` tag. This is an inline tag (like a `<span>`), and it doesn’t come with a bulletpoint.
+
+This is what you get if you add no styling, other than the Baselayer defaults (but you will want to add more styling):
+
+<nav class="my-3">
+  <menu>
+    <menuitem><a href="">Menu item 1</a></menuitem>
+    <menuitem><a href="">Menu item 2</a></menuitem>
+    <menuitem><a href="">Menu item 3</a></menuitem>
+  </menu>
+</nav>
+
+```html
+<nav>
+  <menu>
+    <menuitem><a href="">Menu item 1</a></menuitem>
+    <menuitem><a href="">Menu item 2</a></menuitem>
+    <menuitem><a href="">Menu item 3</a></menuitem>
+  </menu>
+</nav>
+```
+
+(**Note:** inside a `<menuitem>` can be a link, a button, or other interactive element in a user interface for a web application.)
+
+If you want the group of links to not have underlines, or to have underlines only when hovered (because you intend to style them differently in your menu):
+
+* `links-not-underlined`
+* `links-underlined-hover-only`
+
+And with a few other Baselayer utilities, you have a menubar:
+
+<nav class="mt-3 mb-4">
+  <menu class="p-3 flex flex-wrap gap-4 bg-gray bg-100 bg-dark-invert links-not-underlined">
+    <menuitem><a href="">Menu item 1</a></menuitem>
+    <menuitem><a href="">Menu item 2</a></menuitem>
+    <menuitem><a href="">Menu item 3</a></menuitem>
+  </menu>
+</nav>
+
+```html
+<nav>
+  <menu class="p-3 flex flex-wrap gap-4 bg-gray bg-100 bg-dark-invert links-not-underlined">
+    <menuitem><a href="">Menu item 1</a></menuitem>
+    <menuitem><a href="">Menu item 2</a></menuitem>
+    <menuitem><a href="">Menu item 3</a></menuitem>
+  </menu>
+</nav>
+```
+
+Or a menu for a sidebar or footer buffet:
+
+<nav class="mt-3 mb-4">
+  <menu class="pl-0 flex flex-column gap-3 links-underlined-hover-only">
+    <menuitem><a href="">Menu item 1</a></menuitem>
+    <menuitem><a href="">Menu item 2</a></menuitem>
+    <menuitem><a href="">Menu item 3</a></menuitem>
+  </menu>
+</nav>
+
+```html
+<menu class="pl-0 flex flex-column gap-3 links-underlined-hover-only">
+  <menuitem><a href="">Menu item 1</a></menuitem>
+  <menuitem><a href="">Menu item 2</a></menuitem>
+  <menuitem><a href="">Menu item 3</a></menuitem>
+</menu>
+```
+
+## Text alignment
+
+* `t-right`, `t-center`, and `t-left`
+
+In addition to the (default) text alignment classes above, Baselayer also has several container-query responsive variants, for `xs:`, `sm:`, `md:` and `lg:` container breakpoints widths.
+
+Example: The hearing in the card below is left aligned by default, but becomes center aligned when its _container_ is `sm` (640px) wide and above, using `sm:t-center`:
+
+<div class="my-3 resize-x">
+<div class="container p-2 bg-amber bg-100 bg-dark-invert">
+<p class="h3 t-semibold sm:t-center">A title</p>
+<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni rem animi quaerat accusantium illum architecto, nemo, ex harum voluptatum adipisci eum blanditiis dolorum. Natus debitis quisquam, expedita accusantium quos cumque?</p>
+</div>
+</div>
+
+For more information on Baselayer container queries, see [contaner query contexts]({{ '/layout/#container-query-contexts' | url }}) and [container query powered layouts]({{ '/layout/#container-query-powered-layouts' | url }}).
 
 ## Tables
 
 Baselayer tables are set using the `.table` class.
 
-* Paddings are set by `--p-cell` (see decoration [spacing extras]({{ '/decoration/' | url }}#spacing-extras))
-* Table headers `<th>` are bold. 
+* Table headers `<th>` are bold.
 * Table cells `<th>` and `<td>` have a border set by `var(--b-1)` – the same detail as `<hr>` and [border]({{ '/decoration/' | url }}#borders) utility classes.
-* All cell content is left-aligned. You can change that on the whole `<table>` or on a per-cell basis using the text alignment classes.
+* Table cell paddings are set by `--p-cell` (see decoration [spacing extras]({{ '/decoration/' | url }}#spacing-extras))
+* All cell content is left-aligned. You can change that on the whole `<table>` or on a per-cell basis using the [text alignment](#text-alignment) classes.
+* Optional modifier `table-grid` will add the outline to all `th` and `td` cells.
 
-<table class="mt-2 mb-3 table">
+<div class="mt-3 mb-4">
+<table class="table">
+  <caption>This is a Table Caption</caption>
+  <thead>
+    <tr>
+      <th>Table Header 1</th>
+      <th>Table Header 2</th>
+      <th>Table Header 3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Table content 1.1</td>
+      <td>Table content 2.1</td>
+      <td>Table content 3.1</td>
+    </tr>
+    <tr>
+      <td>Table content 1.2</td>
+      <td>Table content 2.2</td>
+      <td>Table content 3.2</td>
+    </tr>
+    <tr>
+      <td>Table content 1.3</td>
+      <td>Table content 2.3</td>
+      <td>Table content 3.3</td>
+    </tr>
+    <tr>
+      <td>Table content 1.4</td>
+      <td>Table content 2.4</td>
+      <td>Table content 3.4</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+```html
+<table class="table">
+  <caption>This is a Table Caption</caption>
+  <thead>
+    <tr>
+      <th>Table Header 1</th>
+      <th>Table Header 2</th>
+      <th>Table Header 3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Table content 1.1</td>
+      <td>Table content 2.1</td>
+      <td>Table content 3.1</td>
+    </tr>
+    <tr>
+      <td>Table content 1.2</td>
+      <td>Table content 2.2</td>
+      <td>Table content 3.2</td>
+    </tr>
+    ...
+  </tbody>
+</table>
+```
+
+With `table table-grid`:
+
+<table class="mt-3 mb-4 table table-grid">
   <caption>This is a Table Caption</caption>
   <thead>
     <tr>
@@ -275,31 +403,6 @@ Baselayer tables are set using the `.table` class.
   </tbody>
 </table>
 
-```html
-<table class="table">
-  <caption>This is a Table Caption</caption>
-  <thead>
-    <tr>
-      <th>Table Header 1</th>
-      <th>Table Header 2</th>
-      <th>Table Header 3</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Table content 1.1</td>
-      <td>Table content 2.1</td>
-      <td>Table content 3.1</td>
-    </tr>
-    <tr>
-      <td>Table content 1.2</td>
-      <td>Table content 2.2</td>
-      <td>Table content 3.2</td>
-    </tr>
-  </tbody>
-</table>
-```
-
 ### Making wide tables responsive
 
 If you have a lot of content in your table, it will probably break your page layout on small viewports (e.g. phones). The simplest way to make a table “responsive” is to wrap your table in a DIV with the `overflow-x` class to make it horizontally scrollable.
@@ -312,48 +415,19 @@ If you have a lot of content in your table, it will probably break your page lay
 </div>
 ```
 
-## The long-lead utility class 
+## Making text bigger
 
-Intended for long-read essays, articles and blog posts, the `t-long-read` utility class (used on a wrapping element around your article content) will enlarge all text, including any headings, depending on how much width is available.
+The base font size is 100% (usually 16px), bumping up to 112.5% (usually 18px) for more comfortable reading on tablet devices up.
 
-The base font size is expanded to 125% over the middle range — for container widths 640px to 1280px (i.e. same as the `sm` to `md` default breakpoints). Starting from 1rem (16px), this expands the base sext size to 1.375rem (22px). This `clamp()` has been calculated using Petter Walbø Johnsgård’s [Font-size Clamp Generator](https://clamp.font-size.app/).
+Additionally:
 
-The default behavior of `t-long-read` is to be responsive to viewport width using the viewport width unit, `vw`. But the same `t-long-read` utility class _if used inside a `container`_ (see [container query powered layouts](/baselayer-3/layout/#container-query-powered-layouts)) will ramp up using the container query inline width unit, `cqi`.
+1. There’s a `t-lg` class that can be used to make text 1.325em — good for a lead paragraph or important messaging.
+2. Classes `.h1` through `.h6` will resize text the same amount as for heading tag sizes — use when you want to make text larger (or large text smaller) without adversly affecting the SEO heading hierarchy.
+3. The `t-display` wrapping class uses a `clamp()` to raise text from starting size 1.25em up to 1.625rem depending on container size — e.g. used for responsively increasing text size in hero components. An `<h1>` inside a `t-display` will have maximum font size 72px.
 
-These two CSS clamp variables are set in `variables.css`:
+The `t-display` text size clamp have been calculated using Petter Walbø Johnsgård’s [Font-size Clamp Generator](https://clamp.font-size.app/) and changed to a container query width controlled `cqi` unit instead of viewport-width controlled `vm`.
 
-```css
-/*
-Default long-read
-*/
-:root {
-  --fs-long-read: clamp(1rem, 0.625rem + 0.9375vw, 1.375rem);
-}
-
-/*
-Container query powered long-read
-*/
-.container {
-  --fs-long-read: clamp(1rem, 0.625rem + 0.9375cqi, 1.375rem);
-}
-```
-
-The Baselayer docs make use of JavaScript and some extra CSS to enable a demo toggle, so that you can switch between normal and long-read font size in this main article column.
-
-<p class="flex flex-center">
-  <button class="toggler p-cell flex flex-column gap-1 bg-blue bg-500 hover:bg-600 bg-dark-invert" onclick="toggleFS()">
-    <div class="label-normal w-100% flex flex-middle gap-1">
-      <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
-      <div class="grow t-left">Normal font-size</div>
-    </div>
-    <div class="label-longread w-100% flex flex-middle gap-1">
-      <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
-      <div class="grow t-left">Long read font-size</div>
-    </div>
-  </button>
-</p>
-
-## Code blocks
+## Code
 
 `<code>` tags have monospaced text over a pale blue background (set by `--cbgcode`) with a little padding to improve readability.
 
@@ -363,62 +437,13 @@ If the `<code>` tag is wrapped in a `<pre>` tag, then it becomes a block level e
 
 Besides those already introduced, Baselayer also has utility classes for:
 
-* `t-big` — increase font size by 1.25em. Use it directly on a `<p>` to enlarge the font (e.g. for a lead paragraph). Note: don’t use `t-big`  directly on a heading, because that will override the heading size. But you can use it on a wrapping element around a heading that you wish to enlarge (e.g. for a title or hero component).
-* `t-small` (or use the `<small>` HTML tag) — decrease font-size to 0.8em
+* `t-lg` — increase font size by 1.5em. Use it directly on a `<p>` to enlarge the font (e.g. for a lead paragraph).
+* `t-sm` (or use the `<small>` HTML tag) — decrease font-size to 0.8em
 * `t-highlight` (or use the `<mark>` HTML tag) — text highlighter
-* `t-right`, `t-center`, and `t-left` — text alignment
-* `t-lighter`, `t-normal`, `t-semibold`, `t-bold`, `t-heavy` — font weights
+* `t-thin`, `t-normal`, `t-semibold`, `t-bold`, `t-heavy` — font weights
 * `t-italic` — font style italic
 * `t-balance` — balances word-wrap, so that e.g. long headings don't have orphans
 * `t-uppercase` — text transform to capitals
-* `t-noline` — use to remove the underline (underscore) from links where having it may be inappropriate (e.g. in menus)
-* `hover:t-line` – make underline appear on hover (pair as `t-noline hover:t-line` on a link)
-  * Example `t-noline hover:t-line`: <a class="t-noline hover:t-line" href="http://example.com">example</a>
 * `t-nowrap` — prevents text wrapping (spaces behave as non-breaking spaces)
-* `unlist` — sets `list-style-type: none` on `<ol>`, `<ul>`, or `<li>`. You can use this when you want to use a list in a navigation menu. And you can combine it with `p-0` to remove the list inset padding.
 
 **Note:** links can also be styled as though they are buttons using the `btn` utility class. See [buttons]({{ '/buttons/' | url }}).
-
-## Simple menus
-
-If you wrap links in a `<nav>` tag, as you should do when creating a menu, then the links have their underscores removed. (So, there is no need to use `noline` inside a `<nav>` tag.)
-
-Simple menus can created in this way, whether or not you involve an `<ul>` unordered list. 
-
-Example: simple links inside a `<nav>` (spacing controlled by [flex layout](/baselayer-3/layout/#flex-layouts)):
-
-<nav class="mt-2 mb-3 p-2 flex flex-wrap gap-2 bg-gray bg-100 bg-dark-invert">
-  <a href="#/">Home</a>
-  <a href="#/">About</a>
-  <a href="#/">Contact</a>
-</nav>
-
-```
-<nav class="p-2 flex flex-wrap gap-2 bg-gray bg-100 bg-dark-invert">
-  <a href="">Home</a>
-  <a href="">About</a>
-  <a href="">Contact</a>
-</nav>
-```
-
-Read more about Baselayer’s [color utility classes](/baselayer-3/colors/).
-
-Another example: a flex-column involving an unordered list:
-
-<nav class="mt-2 mb-3 b-1 p-2">
-  <ul class="unlist flex flex-column flex-wrap gap-2">
-    <li><a href="#/">Home</a></li>
-    <li><a href="#/">About</a></li>
-    <li><a href="#/">Contact</a></li>
-  </ul>
-</nav>
-
-```
-<nav class="b-1 p-2">
-  <ul class="unlist flex flex-column flex-wrap gap-2">
-    <li><a href="">Home</a></li>
-    <li><a href="">About</a></li>
-    <li><a href="">Contact</a></li>
-  </ul>
-</nav>
-```

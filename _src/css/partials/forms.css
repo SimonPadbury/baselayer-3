@@ -1,62 +1,50 @@
 @layer forms-and-buttons {
-
   fieldset {
     border: var(--b-1);
+    padding: var(--s-2);
   }
 
   label,
   legend {
-    font-family: var(--t-base);
+    font-family: var(--ff-base);
   }
 
   ::placeholder {
-    color: var(--tc-input);
-    opacity: .7;
+    color: var(--tc-form);
+    opacity: 0.7;
   }
 
   input,
   select,
   textarea {
-    outline: 0 none;
-    min-height: var(--h-input);
-    border: 0;
+    min-height: var(--y-form);
+    border: var(--b-form);
     border-radius: unset;
     padding: var(--p-cell);
-    font-family: var(--t-base);
+    font-family: var(--ff-base);
     font-size: inherit;
     text-align: start;
-    color: var(--tc-input);
-    background: var(--bgc-input);
-  }
-
-  input:focus,
-  select:focus,
-  textarea:focus {
-    position: relative;
-    z-index: 1;
-    outline: 0;
-    box-shadow: 0 0 0 4px var(--focus-ring);
+    color: var(--tc-form);
+    background: var(--bgc-form);
   }
 
   select:not([multiple]) {
-    height: var(--h-input);
+    height: var(--y-form);
   }
 
   [type="color"] {
-    width: var(--h-input);
-    height: var(--h-input);
-    padding: .25em;
+    width: var(--y-form);
+    height: var(--y-form);
+    padding: 0.25em;
   }
 
   [type="checkbox"],
   [type="radio"] {
-    display: inline;
-    height: 0.85em;
+    display: inline-block;
     min-height: unset;
-    width: 1em;
   }
 
-  [type=search] {
+  [type="search"] {
     -webkit-appearance: textfield;
     appearance: textfield;
   }
@@ -66,10 +54,6 @@
     font-size: 1em;
     color: white;
     background: var(--bgc-btn);
-  }
-
-  .theme-dark input {
-    color-scheme: dark;
   }
 
   :disabled:hover {
@@ -88,47 +72,31 @@
     position: relative;
     -webkit-appearance: none;
     appearance: none;
-    height: var(--h-input);
+    min-height: var(--y-form);
     display: inline-flex;
     justify-content: center;
     align-items: center;
     margin: 0;
     border: 1px solid transparent;
-    padding: var(--sp-1) 1em;
-    font-family: var(--t-base);
+    padding: var(--s-2) 1em;
+    font-family: var(--ff-base);
     font-size: inherit;
     font-weight: var(--fw-btn);
     text-decoration: none;
     color: var(--tc-btn);
     background: var(--bgc-btn);
     transition: all 0.15s ease;
+    &:hover {
+      text-decoration: none;
+      color: var(--tc-btn-hover);
+      background: var(--bgc-btn-hover);
+      cursor: pointer;
+    }
   }
-
-  button:hover,
-  [type="button"]:hover,
-  [type="submit"]:hover,
-  [type="reset"]:hover,
-  .btn:hover {
-    color: var(--tc-btn-hover);
-    background: var(--bgc-btn-hover);
-    cursor: pointer;
-  }
-
-  button:focus-visible,
-  [type="button"]:focus-visible,
-  [type="submit"]:focus-visible,
-  [type="reset"]:focus-visible {
-    z-index: 1;
-    outline: 0;
-    box-shadow: 0 0 0 4px var(--focus-ring);
-  }
-
-  /* Note: The .btn class doesn’t get this input focus ring. As normal, it will 
-  get the link focus ring insead when you do <a class="btn" href="">...</a>. */
 
   .btn-icon {
-    width: var(--h-input);
-    height: var(--h-input);
+    width: var(--y-form);
+    height: var(--y-form);
     padding: 0;
     line-height: inherit;
   }

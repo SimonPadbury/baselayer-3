@@ -5,485 +5,487 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Colors · Baselayer 3 CSS</title>
+  <title>Colors · Baselayer CSS</title>
 
-  <link rel="stylesheet" href="/baselayer-3/css/min/baselayer.min.css?v=3.3.0">
+  <link rel="stylesheet" href="/baselayer-3/css/min/baselayer.min.css?v=3.4.0">
 
   <style>
-    html {
-      scroll-behavior: smooth;
-    }
-    [aria-current=page] {
-      background: oklch(var(--l900) var(--c02) var(--gray));
-    }
-    .resize-x {
-      margin-inline: -5px;
-      padding: 5px;
-      resize: horizontal;
-      overflow-x: auto;
-      background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='silver' stroke-width='2' stroke-dasharray='8%2c 8' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
-    }
-    button.toggler {
-      height: 3.625em;
-    }
-    .check-box {
-      width: 1rem;
-      height: 1rem;
-    }
+  html {
+  scroll-behavior: smooth;
+}
 
-    .font-base .label-base .check-box::before { content: '✓'; }
-    .font-prose .label-prose .check-box::before { content: '✓'; }
-    .font-normal .label-normal .check-box::before { content: '✓'; }
-    .font-longread .label-longread .check-box::before { content: '✓'; }
-    .theme-light .label-light .check-box::before { content: '✓'; }
-    .theme-dark .label-dark .check-box::before { content: '✓'; }
+.resize-x {
+  margin-inline: -5px;
+  padding: 5px;
+  resize: horizontal;
+  overflow-x: auto;
+  background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='silver' stroke-width='2' stroke-dasharray='8%2c 8' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
+}
 
-    body {
-      container-type: inline-size;
-      container-name: page;
-    }
+button.toggler {
+  height: 3.625em;
+}
+.check-box {
+  width: 1rem;
+  height: 1rem;
+}
 
-    @container page (max-width: 1279px) {
-      #toc ul ul {
-        display: none;
-      }
-    }
+.font-base #baseSwitch .check-box::before {
+  content: "✓";
+}
+.font-prose #proseSwitch .check-box::before {
+  content: "✓";
+}
+.theme-auto #autoSwitch .check-box::before {
+  content: "✓";
+}
+.theme-light #lightSwitch .check-box::before {
+  content: "✓";
+}
+.theme-dark #darkSwitch .check-box::before {
+  content: "✓";
+}
 
-    @container page (min-width: 960px) {
-      #site-title { 
-        max-width: 200px;
-        margin-inline: auto;
-        padding-top: var(--sp-2);
-        justify-content: center;
-      }
-      #site-nav {
-        min-width: var(--w-xs);
-      }
-      .ms-windows #site-nav > div {
-        scrollbar-gutter: stable;
-        overflow-y: hidden;
-      }
-      .ms-windows #site-nav:hover > div {
-        overflow-y: auto;
-      }
-    }
-    @container page (min-width: 1280px) {
-      article > .grid {
-        grid-template-columns: 1fr var(--w-xs);
-      }
-      .ms-windows #toc > div {
-        scrollbar-gutter: stable;
-        overflow-y: hidden;
-      }
-      .ms-windows #toc:hover > div {
-        overflow-y: auto;
-      }
-    }
+.font-prose #content-wrap {
+  font-family: var(--ff-prose);
+}
 
-    .font-longread #article-title,
-    .font-longread #article-content { 
-      font-size: var(--fs-long-read);
-    }
+:target {
+  scroll-margin-top: var(--s-3);
+}
 
-    .font-prose article { font-family: var(--t-prose); }
+pre code {
+  max-height: 80vh;
+  overflow-y: auto;
+}
 
-    h2, h3, h4 {
-      scroll-margin-top: var(--sp-2);
-    }
-    .content-grid header + h2 {
-      margin-top: 0;
-    }
+@container (min-width: 960px) {
+  #content-wrap {
+    width: calc(100vw - var(--w-xs));
+  }
+  #site-nav {
+    position: sticky;
+    top: 0;
+    width: var(--w-xs);
+    height: 100dvh;
+  }
+  #site-title {
+    padding-top: var(--s-3);
+    flex-direction: column;
+    align-self: center;
+  }
+  #site-menu {
+    min-width: var(--w-xs);
+  }
+  .ms-windows #site-nav > div {
+    scrollbar-gutter: stable;
+    overflow-y: hidden;
+  }
+  .ms-windows #site-nav:hover > div {
+    overflow-y: auto;
+  }
+}
 
-    pre code {
-      max-height: 80vh;
-      overflow-y: auto
-    }
+@container (min-width: 1280px) {
+  #toc-wrapper > p {
+    padding-top: var(--s-3);
+  }
+  .ms-windows #toc > div {
+    scrollbar-gutter: stable;
+    overflow-y: hidden;
+  }
+  .ms-windows #toc:hover > div {
+    overflow-y: auto;
+  }
+}
+
+@container page (max-width: 1279px) {
+  #toc ul ul {
+    display: none;
+  }
+}
+
   </style>
 
   <script>
-  const matchMediaDark = window.matchMedia('(prefers-color-scheme: dark)');
-const htmlClassList = document.querySelector('html').classList;
+    // Using sessionStorage so that it is discarded as soon as a visitor leaves this site or closes the current window/tab.
 
-function fontProse() {
-  sessionStorage.setItem('baselayerFont', 'prose');
-  htmlClassList.remove('font-base');
-  htmlClassList.add('font-prose');
-}
+const htmlClassList = document.querySelector("html").classList;
+const lightSwitch = document.querySelector("#lightSwitch");
+const darkSwitch = document.querySelector("#darkSwitch");
+const autoSwitch = document.querySelector("#autoSwitch");
 
 function fontBase() {
-  sessionStorage.setItem('baselayerFont', 'base');
-  htmlClassList.remove('font-prose');
-  htmlClassList.add('font-base');
+  sessionStorage.setItem("baselayerFont", "base");
+  htmlClassList.remove("font-prose");
+  htmlClassList.add("font-base");
 }
 
-function fsLongRead() {
-  sessionStorage.setItem('baselayerFS', 'longread');
-  htmlClassList.remove('font-normal');
-  htmlClassList.add('font-longread');
+function fontProse() {
+  sessionStorage.setItem("baselayerFont", "prose");
+  htmlClassList.remove("font-base");
+  htmlClassList.add("font-prose");
 }
 
-function fsNormal() {
-  sessionStorage.setItem('baselayerFS', 'normal');
-  htmlClassList.remove('font-longread');
-  htmlClassList.add('font-normal');
-}
-
-function themeDark() {
-  sessionStorage.setItem("baselayerTheme", "dark");
-  htmlClassList.remove('theme-light');
-  htmlClassList.add('theme-dark');
+function themeAuto() {
+  sessionStorage.setItem("baselayerTheme", "auto");
+  htmlClassList.add("theme-auto");
+  htmlClassList.remove("theme-light");
+  htmlClassList.remove("theme-dark");
 }
 
 function themeLight() {
   sessionStorage.setItem("baselayerTheme", "light");
-  htmlClassList.remove('theme-dark');
-  htmlClassList.add('theme-light');
+  htmlClassList.remove("theme-auto");
+  htmlClassList.add("theme-light");
+  htmlClassList.remove("theme-dark");
 }
 
-// Toggles
+function themeDark() {
+  sessionStorage.setItem("baselayerTheme", "dark");
+  htmlClassList.remove("theme-auto");
+  htmlClassList.remove("theme-light");
+  htmlClassList.add("theme-dark");
+}
 
-function toggleFont() {
-  if ( sessionStorage.baselayerFont === 'prose' ) {
-    fontBase();
-  } else {
-    fontProse();
-  }
-};
-
-function toggleFS() {
-  if ( sessionStorage.baselayerFS === 'normal' ) {
-    fsLongRead();
-  } else {
-    fsNormal();
-  }
-};
-
-function toggleTheme() {
-  if ( sessionStorage.baselayerTheme === 'dark' ) {
-    themeLight();
-  } else {
-    themeDark();
-  }
-};
-
-// init
+// Init
 
 function baselayerInit() {
-  if (sessionStorage.baselayerTheme === 'dark' || (!('baselayerTheme' in sessionStorage) && matchMediaDark.matches)) {
-    themeDark();
-  } else {
-    themeLight();
+  switch (sessionStorage.baselayerTheme) {
+    case "light":
+      result: themeLight();
+      break;
+    case "dark":
+      result: themeDark();
+      break;
+    default:
+      result: themeAuto();
   }
-  if ( sessionStorage.baselayerFont === 'prose' ) {
+
+  if (sessionStorage.baselayerFont === "prose") {
     fontProse();
   } else {
     fontBase();
   }
-  if ( sessionStorage.baselayerFS === 'longread' ) {
-    fsLongRead();
-  } else {
-    fsNormal();
-  }
-};
+}
 
 baselayerInit();
+
+
     /**
-  * Site Navigation Toggle (Phones)
-  */
+ * Site Navigation Toggle (Phones and tablet in portrait orientation)
+ */
 
 window.addEventListener("DOMContentLoaded", () => {
-  let navButton = document.querySelector('#site-nav-toggle');
-  let menu = document.querySelector('#site-nav-menu');
-  let windowTest = function() {
-    if (window.matchMedia('(max-width: 959px)').matches) {
-      navButton.setAttribute('aria-expanded', 'false');
+  let navButton = document.querySelector("#site-menu-toggle");
+  let menu = document.querySelector("#js-menu-wrapper");
+  let windowTest = function () {
+    if (window.matchMedia("(max-width: 959px)").matches) {
+      navButton.setAttribute("aria-expanded", "false");
       menu.hidden = true;
     } else {
-      navButton.setAttribute('aria-expanded', 'true');
+      navButton.setAttribute("aria-expanded", "true");
       menu.hidden = false;
     }
-  }
+  };
 
   windowTest();
 
-  window.addEventListener('resize', function () {
+  window.addEventListener("resize", function () {
     windowTest();
   });
 
-  navButton.addEventListener('click', function() {
-    let expanded = this.getAttribute('aria-expanded') === 'true' || false;
-    this.setAttribute('aria-expanded', !expanded);
+  navButton.addEventListener("click", function () {
+    let expanded = this.getAttribute("aria-expanded") === "true" || false;
+    this.setAttribute("aria-expanded", !expanded);
     menu.hidden = !menu.hidden;
   });
 });
 
-  </script>
 
-</head>
-<body class="">
-  <script>
     if (navigator.appVersion.indexOf("Win") != -1) {
       document.body.classList.add('ms-windows');
     }
   </script>
-
+</head>
+<body class="">
   <!-- Current page: /baselayer-3/colors/ -->
 
-  <a href="#main-content" tabindex="1" class="inline-block m-1 visually-hidden">Skip to main content</a>
+  <a href="#content-wrap" tabindex="1" class="block p-2 visually-hidden">Skip to page content</a>
 
-  <div class="container w-max-100vw">
-    <div class="h-100-dvh grid">
+  <div id="body-wrap" class="md:flex">
 
-      <div id="site-nav" class="bg-gray bg-100 bg-dark-invert">
+    <div id="site-nav" class="h-100% bg-gray bg-100 bg-dark-invert">
   <div class="sticky top h-max-100dvh overflow-y">
-    <div class="p-cell t-center">
-      <a id="site-title" href="/baselayer-3/" class="h3 m-0 py-1 t-normal flex flex-center flex-middle flex-wrap gap-1 t-reversi hover:t-gray hover:t-800 t-dark-invert t-noline">
-        <svg height="48" width="48" viewBox="0 0 111 111" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-miterwrapper:1.5">
-          <g transform="translate(-294.592 -94.592)">
-            <circle cx="350" cy="150" r="50" style="fill:none;stroke:currentColor;stroke-width:4px"/>
-            <path d="M294.167 180H320v-65.833" style="fill:none;stroke:currentColor;stroke-width:4px" transform="translate(10 -10)"/>
-            <path d="M405.833 180H380v-65.833" style="fill:none;stroke:currentColor;stroke-width:4px" transform="translate(-10 -10)"/>
-            <circle cx="350" cy="150" r="30" style="fill:none;stroke:currentColor;stroke-width:6px" transform="matrix(.66667 0 0 .66667 116.667 50)"/>
-            <path d="M310 180h80" style="fill:none;stroke:currentColor;stroke-width:4px"/>
-            </g>
-          </svg>
-        <span class="t-nowrap">Baselayer 3 CSS</span>
-      </a>
-      <p class="mb-1"><span class="t-gray t-600 t-dark-invert">Version: 3.3.0 •</span> <a class="t-gray t-800 hover:t-900 t-dark-invert t-noline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3">GitHub</a></p>
-      <p class="mb-1"><a class="t-gray t-800 hover:t-900 t-dark-invert t-noline hover:t-line" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> <span class="t-gray t-600 t-dark-invert">(22.65 KB)</span></p>
-    </div>
-
-    <nav role="menu">
-      <button type="button" id="site-nav-toggle" aria-expanded="false" aria-label="Menu" aria-controls="site-nav-menu" class="absolute top right m-2 md:hidden">
+    <div class="flex flex-space-between md:block">
+      <div class="p-cell md:t-center">
+        <a id="site-title" href="/baselayer-3/" class="h3 py-2 t-normal flex flex-center flex-middle gap-2 t-gray t-800 hover:t-black t-dark-invert t-no-underline">
+          <svg height="48" width="48" viewBox="0 0 111 111" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-miterwrapper:1.5">
+            <g transform="translate(-294.592 -94.592)">
+              <circle cx="350" cy="150" r="50" style="fill:none;stroke:currentColor;stroke-width:4px"/>
+              <path d="M294.167 180H320v-65.833" style="fill:none;stroke:currentColor;stroke-width:4px" transform="translate(10 -10)"/>
+              <path d="M405.833 180H380v-65.833" style="fill:none;stroke:currentColor;stroke-width:4px" transform="translate(-10 -10)"/>
+              <circle cx="350" cy="150" r="30" style="fill:none;stroke:currentColor;stroke-width:6px" transform="matrix(.66667 0 0 .66667 116.667 50)"/>
+              <path d="M310 180h80" style="fill:none;stroke:currentColor;stroke-width:4px"/>
+              </g>
+            </svg>
+          <span class="t-nowrap">Baselayer CSS</span>
+        </a>
+      </div>
+      <button type="button" id="site-menu-toggle" aria-expanded="false" aria-label="Menu" aria-controls="site-menu" class="m-3 md:hidden">
         Menu
       </button>
+    </div>
 
-      <div id="site-nav-menu" class="w-xs mx-auto t-center t-white">
-        <div class="my-2 p-cell flex flex-column gap-1">
-          <a class="block p-cell t-gray t-700 hover:t-900 t-dark-invert"  href="/baselayer-3/">Introduction</a>
-          <a class="block p-cell t-gray t-700 hover:t-900 t-dark-invert"  href="/baselayer-3/typography/">Typography</a>
-          <a class="block p-cell t-gray t-700 hover:t-900 t-dark-invert"  href="/baselayer-3/layout/">Layout</a>
-          <a class="block p-cell t-gray t-700 hover:t-900 t-dark-invert"  href="/baselayer-3/decoration/">Decoration</a>
-          <a class="block b-1 p-cell t-gray t-700 hover:t-900 t-dark-invert"  aria-current="page" href="/baselayer-3/colors/">Colors</a>
-          <a class="block p-cell t-gray t-700 hover:t-900 t-dark-invert"  href="/baselayer-3/forms/">Forms</a>
-          <a class="block p-cell t-gray t-700 hover:t-900 t-dark-invert"  href="/baselayer-3/buttons/">Buttons</a>
-          <a class="block p-cell t-gray t-700 hover:t-900 t-dark-invert" href="/baselayer-3/examples/">Examples</a>
-        </div>
-
-        <div class="mb-2 p-cell">
-          <button class="toggler w-100% mb-1 p-1 flex flex-column gap-1" onclick="toggleFont()">
-            <div class="label-base w-100% flex flex-middle gap-1">
-              <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
-              <div class="grow t-left">Base font</div>
-            </div>
-            <div class="label-prose w-100% flex flex-middle gap-1">
-              <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
-              <div class="grow t-left">Prose font</div>
-            </div>
-          </button>
-
-          <button class="toggler w-100% mb-1 p-1 flex flex-column gap-1" onclick="toggleFS()">
-            <div class="label-normal w-100% flex flex-middle gap-1">
-              <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
-              <div class="grow t-left">Normal font-size</div>
-            </div>
-            <div class="label-longread w-100% flex flex-middle gap-1">
-              <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
-              <div class="grow t-left">Long read font-size</div>
-            </div>
-          </button>
-
-          <button class="toggler w-100% mb-1 p-1 flex flex-column gap-1" onclick="toggleTheme()">
-            <div class="label-light w-100% flex flex-middle gap-1">
-              <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
-              <div class="grow t-left">Light theme</div>
-            </div>
-            <div class="label-dark w-100% flex flex-middle gap-1">
-              <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
-              <div class="grow t-left">Dark theme</div>
-            </div>
-          </button>
-        </div>
-
+    <div id="js-menu-wrapper">
+      <div class="m-3 bt-thin bb-thin py-3 flex flex-center flex-wrap gap-3 links-underlined-hover-only">
+        <span class="t-gray t-600 t-dark-invert">Version: 3.4.0</span>
+        <a class="t-gray t-800 hover:t-900 t-dark-invert" href="https://github.com/SimonPadbury/baselayer-3">GitHub</a>
+        <span>
+          <a class="t-gray t-800 hover:t-900 t-dark-invert" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> <span class="t-gray t-600 t-dark-invert">(22 KB)</span>
+        </span>
       </div>
-    </nav>
-  </div>
-</div>
 
-      <div class="md:col-2">
-        <article>
-          <div class="grid gap-2">
-            <header id="article-title" class="lg:col-1">
-              <div class="wrapper-md pt-4 t-big t-center">
-                <h1 class="t-balance t-semibold">Colors</h1>
-              </div>
-            </header>
-          
-            <nav id="toc" class="lg:col-2 lg:row-1 lg:row-span-3">
-              <div class="sticky top w-sm h-max-100dvh mx-auto px-2 overflow-y">
-                <p class="h4 t-semibold">Contents</p>
-                <nav class="toc" >
-        <ul><li><a href="#rationale-for-baselayer%E2%80%99s-color-system">Rationale for Baselayer’s color system</a></li><li><a href="#color-and-shade-utility-classes">Color and shade utility classes</a></li><li><a href="#colors-and-accessibility">Colors and accessibility</a></li><li><a href="#adding-more-colors-and-shades">Adding more colors and shades</a></li><li><a href="#dark-theme">Dark theme</a><ul><li><a href="#the-theme-dark-class">The theme-dark class</a></li><li><a href="#darker-and-inverted-shade-utilities">Darker and inverted shade utilities</a></li><li><a href="#hover-states-for-links-and-buttons">Hover states for links and buttons</a></li><li><a href="#dark-theme-html-body-background-color">Dark theme HTML body background color</a></li><li><a href="#dark%2Flight-theme-toggle">Dark/light theme toggle</a></li></ul></li><li><a href="#other-baselayer-color-utilities">Other Baselayer color utilities</a><ul><li><a href="#black%2C-white%2C-reversi%2C-and-reversi-alt">Black, white, reversi, and reversi-alt</a></li><li><a href="#transparent-background">Transparent background</a></li></ul></li></ul>
+      <nav class="t-white container px-3 py-2">
+        <menu class="pl-0 flex flex-column gap-2 links-not-underlined">
+          <menuitem>
+            <a class="block  p-cell t-gray t-700 hover:t-900 t-dark-invert"  href="/baselayer-3/">Getting started</a>
+          </menuitem>
+          <menuitem>
+            <a class="block  p-cell t-gray t-700 hover:t-900 t-dark-invert"  href="/baselayer-3/typography/">Typography</a>
+          </menuitem>
+          <menuitem>
+            <a class="block  p-cell t-gray t-700 hover:t-900 t-dark-invert"  href="/baselayer-3/layout/">Layout</a>
+          </menuitem>
+          <menuitem>
+            <a class="block  p-cell t-gray t-700 hover:t-900 t-dark-invert"  href="/baselayer-3/decoration/">Decoration</a></menuitem>
+          <menuitem>
+            <a class="block bl-heavy t-black t-dark-invert bg-gray bg-200 bg-dark-invert p-cell t-gray t-700 hover:t-900 t-dark-invert"  aria-current="page" href="/baselayer-3/colors/">Colors</a>
+          </menuitem>
+          <menuitem>
+            <a class="block  p-cell t-gray t-700 hover:t-900 t-dark-invert"  href="/baselayer-3/forms/">Forms</a>
+          </menuitem>
+          <menuitem>
+            <a class="block  p-cell t-gray t-700 hover:t-900 t-dark-invert"  href="/baselayer-3/buttons/">Buttons</a>
+            </menuitem>
+          <menuitem>
+            <a class="block p-cell t-gray t-700 hover:t-900 t-dark-invert" href="/baselayer-3/examples/">Examples</a>
+          </menuitem>
+        </menu>
       </nav>
-              </div>
-            </nav>
 
-            <main id="article-content" class="lg:col-1">
-              <div class="content-grid">
-                <div aria-label="Note" class="popout mb-2 bl-3 b-blue b-200 b-dark-invert p-2 bg-blue bg-100 bg-dark-invert">
-  Since March 2023, all “evergreen” browsers (Chrome, Edge, Firefox, Safari) have capability for the new <code class="bg-blue bg-200 bg-dark-invert">color-mix()</code> function (see <a href="https://caniuse.com/?search=color-mix()">Can I use</a>). Baselayer 3.3.x uses this function to set up a range of shades for its built-in (example) colors. 
+      <menu class="mb-3 px-3">
+        <button id="baseSwitch" class="mb-1 p-2 flex flex-start w-100%" type="button" onclick="fontBase()">
+          <div class="w-100% flex flex-middle gap-1">
+            <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
+            <div class="grow t-left">Base font</div>
+          </div>
+        </button>
+
+        <button id="proseSwitch" class="mb-1 p-2 flex flex-start w-100%" type="button" onclick="fontProse()">
+          <div class="w-100% flex flex-middle gap-1">
+            <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
+            <div class="grow t-left">Prose font</div>
+          </div>
+        </button>
+
+        <button id="autoSwitch" class="mb-1 p-2 flex flex-start w-100%" type="button" onclick="themeAuto()">
+          <div class="w-100% flex flex-middle gap-1">
+            <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
+            <div class="grow t-left">Auto theme</div>
+          </div>
+        </button>
+
+        <button id="lightSwitch" class="mb-1 p-2 flex flex-start w-100%" type="button" onclick="themeLight()">
+          <div class="w-100% flex flex-middle gap-1">
+            <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
+            <div class="grow t-left">Light theme</div>
+          </div>
+        </button>
+
+        <button id="darkSwitch" class="p-2 flex flex-start w-100%" type="button" onclick="themeDark()">
+          <div class="w-100% flex flex-middle gap-1">
+            <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
+            <div class="grow t-left">Dark theme</div>
+          </div>
+        </button>
+      </menu>
+    </div>
+
+  </div>
 </div>
-<p>Example using background <code>bg-*</code> utility classes:</p>
-<div class="full-bleed mb-2 p-2 flex flex-center flex-wrap">
-  <div style="width: max(72px, 160px)">
-    <div class="p-1 t-center"><code class="t-small">bg-blue</code></div>
-    <div class="p-1 t-black t-small bg-blue bg-100">bg-100</div>
-    <div class="p-1 t-black t-small bg-blue bg-200">bg-200</div>
-    <div class="p-1 t-black t-small bg-blue bg-300">bg-300</div>
-    <div class="p-1 t-black t-small bg-blue bg-400">bg-400</div>
-    <div class="p-1 t-white t-small bg-blue bg-500">bg-500</div>
-    <div class="p-1 t-white t-small bg-blue bg-600">bg-600</div>
-    <div class="p-1 t-white t-small bg-blue bg-700">bg-700</div>
-    <div class="p-1 t-white t-small bg-blue bg-800">bg-800</div>
-    <div class="p-1 t-white t-small bg-blue bg-900">bg-900</div>
-  </div>
-  <div style="width: max(72px, 160px)">
-    <div class="p-1 t-center"><code class="t-small">bg-green</code></div>
-    <div class="p-1 t-black t-small bg-green bg-100">bg-100</div>
-    <div class="p-1 t-black t-small bg-green bg-200">bg-200</div>
-    <div class="p-1 t-black t-small bg-green bg-300">bg-300</div>
-    <div class="p-1 t-black t-small bg-green bg-400">bg-400</div>
-    <div class="p-1 t-black t-small bg-green bg-500">bg-500</div>
-    <div class="p-1 t-white t-small bg-green bg-600">bg-600</div>
-    <div class="p-1 t-white t-small bg-green bg-700">bg-700</div>
-    <div class="p-1 t-white t-small bg-green bg-800">bg-800</div>
-    <div class="p-1 t-white t-small bg-green bg-900">bg-900</div>
-  </div>
-  <div style="width: max(72px, 160px)">
-    <div class="p-1 t-center"><code class="t-small">bg-amber</code></div>
-    <div class="p-1 t-black t-small bg-amber bg-100">bg-100</div>
-    <div class="p-1 t-black t-small bg-amber bg-200">bg-200</div>
-    <div class="p-1 t-black t-small bg-amber bg-300">bg-300</div>
-    <div class="p-1 t-black t-small bg-amber bg-400">bg-400</div>
-    <div class="p-1 t-black t-small bg-amber bg-500">bg-500</div>
-    <div class="p-1 t-white t-small bg-amber bg-600">bg-600</div>
-    <div class="p-1 t-white t-small bg-amber bg-700">bg-700</div>
-    <div class="p-1 t-white t-small bg-amber bg-800">bg-800</div>
-    <div class="p-1 t-white t-small bg-amber bg-900">bg-900</div>
-  </div>
-  <div style="width: max(72px, 160px)">
-    <div class="p-1 t-center"><code class="t-small">bg-red</code></div>
-    <div class="p-1 t-black t-small bg-red bg-100">bg-100</div>
-    <div class="p-1 t-black t-small bg-red bg-200">bg-200</div>
-    <div class="p-1 t-black t-small bg-red bg-300">bg-300</div>
-    <div class="p-1 t-black t-small bg-red bg-400">bg-400</div>
-    <div class="p-1 t-white t-small bg-red bg-500">bg-500</div>
-    <div class="p-1 t-white t-small bg-red bg-600">bg-600</div>
-    <div class="p-1 t-white t-small bg-red bg-700">bg-700</div>
-    <div class="p-1 t-white t-small bg-red bg-800">bg-800</div>
-    <div class="p-1 t-white t-small bg-red bg-900">bg-900</div>
-  </div>
-  <div style="width: max(72px, 160px)">
-    <div class="p-1 t-center"><code class="t-small">bg-gray</code></div>
-    <div class="p-1 t-black t-small bg-gray bg-100">bg-100</div>
-    <div class="p-1 t-black t-small bg-gray bg-200">bg-200</div>
-    <div class="p-1 t-black t-small bg-gray bg-300">bg-300</div>
-    <div class="p-1 t-black t-small bg-gray bg-400">bg-400</div>
-    <div class="p-1 t-white t-small bg-gray bg-500">bg-500</div>
-    <div class="p-1 t-white t-small bg-gray bg-600">bg-600</div>
-    <div class="p-1 t-white t-small bg-gray bg-700">bg-700</div>
-    <div class="p-1 t-white t-small bg-gray bg-800">bg-800</div>
-    <div class="p-1 t-white t-small bg-gray bg-900">bg-900</div>
-  </div>
+
+
+    <div id="content-wrap" class="grow">
+      <div class="lg:grid lg:equal-4-cols gap-3">
+        <div class="lg:col-span-3">
+          <header id="article-title">
+            <div class="wrapper-md py-4 t-center t-display">
+              <h1 class="my-4 t-balance t-heavy">Colors</h1>
+            </div>
+          </header>
+        </div>
+        <div class="lg:col-4 lg:row-span-3">
+          <nav id="toc-wrapper" class="sticky top wrapper-sm h-max-100dvh mb-3 pr-2 links-underlined-hover-only overflow-y">
+            <p class="h4 t-semibold">On this page</p>
+            <nav class="toc" >
+        <ul><li><a href="#rationale-for-baselayer%E2%80%99s-color-system">Rationale for Baselayer’s color system</a></li><li><a href="#color-and-shade-utility-classes">Color and shade utility classes</a></li><li><a href="#colors-and-accessibility">Colors and accessibility</a></li><li><a href="#adding-more-colors">Adding more colors</a></li><li><a href="#dark-theme">Dark theme</a><ul><li><a href="#light-and-dark-theme-classes">Light and dark theme classes</a></li><li><a href="#inverting-lightness-levels-for-the-dark-theme">Inverting lightness levels for the dark theme</a></li><li><a href="#dark-theme-html-body-background-color">Dark theme HTML body background color</a></li><li><a href="#what-if-you-don%E2%80%99t-want-a-dark-theme%3F">What if you don’t want a dark theme?</a></li></ul></li><li><a href="#other-baselayer-color-utilities">Other Baselayer color utilities</a><ul><li><a href="#black-and-white">Black and white</a><ul><li><a href="#inverting-black-and-white-for-the-dark-theme">Inverting black and white for the dark theme</a></li></ul></li><li><a href="#transparent-background">Transparent background</a></li></ul></li></ul>
+      </nav>
+          </nav>
+        </div>
+        <div class="lg:col-span-3">
+          <main id="article-content" class="content-grid">
+            <div aria-label="Note" class="popout mb-2 bl-heavy b-blue b-200 b-dark-invert p-3 bg-blue bg-100 bg-dark-invert">
+  Since March 2023, all “evergreen” browsers (Chrome, Edge, Firefox, Safari) have capability for the new <code>color-mix()</code> function (see <a href="https://caniuse.com/?search=color-mix()">Can I use</a>). Baselayer uses this function to set up a range of shades for its built-in (example) colors.
 </div>
 <h2 id="rationale-for-baselayer%E2%80%99s-color-system" tabindex="-1">Rationale for Baselayer’s color system</h2>
-<p>I wanted to develop a color system that was based on CSS variables for generating a series of shades for each color, so that the stylesheet didn’t need to be overloaded with all the shade permutations for each color — most of which you would never use.</p>
-<p>Previously, I experimented with setting <strong>shades based on lightness channels</strong>, first in the <code>hsl</code> (Baselayer 3.1.x) and later in the new <code>oklch</code> color systems (Baselayer 3.2.x). This was successful, but it involved the additional effort of converting colors to OKLCH and to separate out their color channels into different variables, for enabling them to work with the shade channel utilities.</p>
-<p>In Baselayer 3.3, I have switched to setting <strong>shades based on mixing in white or black</strong> using the new <code>color-mix()</code> function (see <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/color-mix">MDN docs: color-mix()</a>). The CSS classes remain the same as before, while the color format is now hex (#) based. This is easier to maintain, and stylesheet is smaller.</p>
-<h2 id="color-and-shade-utility-classes" tabindex="-1">Color and shade utility classes</h2>
-<p>All colors and shades are declared in <code>variables.css</code>.</p>
-<p>Color utility classes (declared in <code>@layer color-setup</code>) are prefixed acording to where the color will be applied:</p>
-<ul>
-<li>Border color:
-<ul>
-<li><code>b-*</code></li>
-<li><code>hover:b-*</code> — border color on hover</li>
-</ul>
-</li>
-<li>Text color:
-<ul>
-<li><code>t-*</code></li>
-<li><code>hover:t-*</code> — text color on hover</li>
-</ul>
-</li>
-<li>Background color:
-<ul>
-<li><code>bg-*</code></li>
-<li><code>hover:bg-*</code> — background color on hover</li>
-</ul>
-</li>
-</ul>
-<p>I have named the colors according to their common names (blue, green, amber, red, gray), instead of opting to name them according to the common user interface (UI) “success”, “warning”, “danger” etc. — so that you can make color utilities or components with colors dedicated to those purposes, meanwhile allowing you to adjust these built-in named colors and also add your own.</p>
-<p>All color utilities “start” at their <code>*-500</code> level, or mid-tone (this is what you will get if you don’t add a shade modifier utility).</p>
-<p>The shade modifier utilities (declared in <code>@layer color-shade</code>) are as follows:</p>
-<ul>
-<li>Border:
-<ul>
-<li><code>b-100</code> through <code>b-900</code></li>
-<li><code>hover:b-100</code> through <code>hover:b-900</code></li>
-</ul>
-</li>
-<li>Text:
-<ul>
-<li><code>t-100</code> through <code>t-900</code></li>
-<li><code>hover:t-100</code> through <code>hover:t-900</code></li>
-</ul>
-</li>
-<li>Background:
-<ul>
-<li><code>bg-100</code> through <code>bg-900</code></li>
-<li><code>hover:bg-100</code> through <code>hover:bg-900</code></li>
-</ul>
-</li>
-</ul>
+<p>I wanted to develop a color system based on interpolating CSS variables for generating a series <em>lightness levels</em> for each color, so that the stylesheet doesn’t need to be loaded with lighness classes for every color — most of which you’d never use.</p>
+<p>After experimenting with variables in <em>lightness channels</em> within color codes, I discovered the new (mid-2023) <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/color-mix">color-mix function</a>. Using <code>color-mix()</code> has proved to be better suited to what I was trying to do. With it we can build a series of lightness levels by mixing in white (tints) or black (shades).</p>
+<p>For repeatability in Baselayer CSS, starting color swatches need to have a mid-range lightness level, but they can be specified using any system. Currently, Baselayer default colors are set using Hex <code>#</code> codes. And the color-mix function now outputs colors in <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/oklch">OKLCH</a> using <code>color-mix(in OKLCH ...)</code> because I this gives perceptually uniform lightness levels.</p>
+<p>The color utility CSS class names remain the same as before (explained below). Example using background <code>bg-*</code> utility classes:</p>
+<div class="full-bleed mt-3 mb-4 p-2 flex flex-center flex-wrap">
+  <div style="width: clamp(96px, 15cqi, 208px)">
+    <div class="p-2 t-center"><code class="t-small">blue</code></div>
+    <div class="p-2 t-black t-small bg-blue bg-100">100</div>
+    <div class="p-2 t-black t-small bg-blue bg-200">200</div>
+    <div class="p-2 t-black t-small bg-blue bg-300">300</div>
+    <div class="p-2 t-black t-small bg-blue bg-400">400</div>
+    <div class="p-2 t-black t-small bg-blue bg-500">500</div>
+    <div class="p-2 t-white t-small bg-blue bg-600">600</div>
+    <div class="p-2 t-white t-small bg-blue bg-700">700</div>
+    <div class="p-2 t-white t-small bg-blue bg-800">800</div>
+    <div class="p-2 t-white t-small bg-blue bg-900">900</div>
+  </div>
+  <div style="width: clamp(96px, 15cqi, 208px)">
+    <div class="p-2 t-center"><code class="t-small">green</code></div>
+    <div class="p-2 t-black t-small bg-green bg-100">100</div>
+    <div class="p-2 t-black t-small bg-green bg-200">200</div>
+    <div class="p-2 t-black t-small bg-green bg-300">300</div>
+    <div class="p-2 t-black t-small bg-green bg-400">400</div>
+    <div class="p-2 t-black t-small bg-green bg-500">500</div>
+    <div class="p-2 t-white t-small bg-green bg-600">600</div>
+    <div class="p-2 t-white t-small bg-green bg-700">700</div>
+    <div class="p-2 t-white t-small bg-green bg-800">800</div>
+    <div class="p-2 t-white t-small bg-green bg-900">900</div>
+  </div>
+  <div style="width: clamp(96px, 15cqi, 208px)">
+    <div class="p-2 t-center"><code class="t-small">amber</code></div>
+    <div class="p-2 t-black t-small bg-amber bg-100">100</div>
+    <div class="p-2 t-black t-small bg-amber bg-200">200</div>
+    <div class="p-2 t-black t-small bg-amber bg-300">300</div>
+    <div class="p-2 t-black t-small bg-amber bg-400">400</div>
+    <div class="p-2 t-black t-small bg-amber bg-500">500</div>
+    <div class="p-2 t-black t-small bg-amber bg-600">600</div>
+    <div class="p-2 t-white t-small bg-amber bg-700">700</div>
+    <div class="p-2 t-white t-small bg-amber bg-800">800</div>
+    <div class="p-2 t-white t-small bg-amber bg-900">900</div>
+  </div>
+  <div style="width: clamp(96px, 15cqi, 208px)">
+    <div class="p-2 t-center"><code class="t-small">red</code></div>
+    <div class="p-2 t-black t-small bg-red bg-100">100</div>
+    <div class="p-2 t-black t-small bg-red bg-200">200</div>
+    <div class="p-2 t-black t-small bg-red bg-300">300</div>
+    <div class="p-2 t-black t-small bg-red bg-400">400</div>
+    <div class="p-2 t-black t-small bg-red bg-500">500</div>
+    <div class="p-2 t-white t-small bg-red bg-600">600</div>
+    <div class="p-2 t-white t-small bg-red bg-700">700</div>
+    <div class="p-2 t-white t-small bg-red bg-800">800</div>
+    <div class="p-2 t-white t-small bg-red bg-900">900</div>
+  </div>
+  <div style="width: clamp(96px, 15cqi, 208px)">
+    <div class="p-2 t-center"><code class="t-small">gray</code></div>
+    <div class="p-2 t-black t-small bg-gray bg-100">100</div>
+    <div class="p-2 t-black t-small bg-gray bg-200">200</div>
+    <div class="p-2 t-black t-small bg-gray bg-300">300</div>
+    <div class="p-2 t-black t-small bg-gray bg-400">400</div>
+    <div class="p-2 t-black t-small bg-gray bg-500">500</div>
+    <div class="p-2 t-white t-small bg-gray bg-600">600</div>
+    <div class="p-2 t-white t-small bg-gray bg-700">700</div>
+    <div class="p-2 t-white t-small bg-gray bg-800">800</div>
+    <div class="p-2 t-white t-small bg-gray bg-900">900</div>
+  </div>
+</div>
 <p>Also available:</p>
 <ol>
-<li><a href="#dark-theme">Dark theme</a>, via the <code>theme-dark</code> wrapper — see .</li>
-<li><code>b-dark-invert</code>, <code>t-dark-invert</code>, and <code>bg-dark-invert</code> modifiers that invert the shade for dark mode, in those situations when you want light elements in light mode to become dark elements in dark mode (and <em>vise versa</em>) — see <a href="#darker-and-inverted-shade-utilities">darker and inverted shade utilities</a>.</li>
-<li>Black, white, reversi, and transparent — see <a href="#other-baselayer-color-utilities">other Baselayer color utilities</a>.</li>
+<li>A built-in <a href="#dark-theme">dark theme</a>.</li>
+<li>Black, white, and transparent — see <a href="#other-baselayer-color-utilities">other Baselayer color utilities</a>.</li>
 </ol>
-<p>Example border, text and background utilities:</p>
-<div class="mt-2 mb-3 flex flex-grow-equal gap-2">
-  <div class="b-3 b-green p-2 flex flex-center flex-middle"><span class="t-nowrap">b-green</span></div>
-  <div class="p-2 flex flex-center flex-middle gap-1 flex-wrap t-green t-600 t-dark-invert"><span class="t-nowrap">t-green</span> <span class="t-nowrap">t-600</span> <span class="t-nowrap">t-dark-invert</span></div>
-  <div class="p-2 flex flex-center flex-middle gap-1 flex-wrap t-black bg-green bg-300"><span class="t-nowrap">bg-green</span> <span class="t-nowrap">bg-200</span></div>
+<h2 id="color-and-shade-utility-classes" tabindex="-1">Color and shade utility classes</h2>
+<p>All colors and lightness levels are declared in <code>variables.css</code>.</p>
+<p>Color utility classes (declared in <code>@layer color</code> in <code>colors.css</code>) are prefixed acording to where the color will be applied — border <code>b-*</code> text <code>t-*</code> or background <code>bg-*</code>. I have named the colors according to their common names (blue, green, amber, red, gray). You can modify the root variables of these colors, and you can <a href="#adding-more-colors">add your own colors</a>.</p>
+<div class="my-4 expand">
+<table class="table">
+<thead>
+<tr>
+<th rowspan="2"></th>
+<th colspan="2" class="t-center bg-gray bg-100 bg-dark-invert">Border Color</th>
+<th colspan="2" class="t-center">Text Color</th>
+<th colspan="2" class="t-center bg-gray bg-100 bg-dark-invert">Background Color</th>
+</tr>
+<tr>
+<th class="t-nowrap bg-gray bg-100 bg-dark-invert">Default state</th>
+<th class="bg-gray bg-100 bg-dark-invert">Hover state</th>
+<th>Default state</th>
+<th>Hover state</th>
+<th class="t-nowrap bg-gray bg-100 bg-dark-invert">Default state</th>
+<th class="bg-gray bg-100 bg-dark-invert">Hover state</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Base color class</td>
+<td class="bg-gray bg-100 bg-dark-invert"><code>b-*</code></td>
+<td class="bg-gray bg-100 bg-dark-invert"><code>hover:b-*</code></td>
+<td><code>t-*</code></td>
+<td><code>hover:t-*</code></td>
+<td class="bg-gray bg-100 bg-dark-invert"><code>bg-*</code></td>
+<td class="bg-gray bg-100 bg-dark-invert"><code>hover:bg-*</code></td>
+</tr>
+<tr>
+<td>Lightness modifier</td>
+<td class="bg-gray bg-100 bg-dark-invert"><code>b-100</code><br>...<br><code>b-900</code></td>
+<td class="bg-gray bg-100 bg-dark-invert"><code>hover:b-100</code><br>...<br><code>hover:b-900</code></td>
+<td><code>t-100</code><br>...<br><code>t-900</code></td>
+<td><code>hover:t-100</code><br>...<br><code>hover:t-900</code></td>
+<td class="bg-gray bg-100 bg-dark-invert"><code>bg-100</code><br>...<br><code>bg-900</code></td>
+<td class="bg-gray bg-100 bg-dark-invert"><code>hover:bg-100</code><br>...<br><code>hover:bg-900</code></td>
+</tr>
+</tbody>
+</table>
 </div>
-<pre><code>&lt;div class=&quot;b-3 b-green&quot;&gt;&lt;/div&gt;
+<p>Example border, text and background utilities:</p>
+<div class="mt-3 mb-4 flex flex-grow-equal gap-1 gap-2">
+  <div class="b-heavy b-green p-3 flex flex-center flex-middle"><span class="t-nowrap">b-green</span></div>
+  <div class="p-3 flex flex-center flex-middle gap-1 flex-wrap t-green t-600 t-dark-invert"><span class="t-nowrap">t-green</span> <span class="t-nowrap">t-600</span> <span class="t-nowrap">t-dark-invert</span></div>
+  <div class="p-3 flex flex-center flex-middle gap-1 flex-wrap t-black bg-green bg-300"><span class="t-nowrap">bg-green</span> <span class="t-nowrap">bg-200</span></div>
+</div>
+<p>See also <a href="#inverting-lightness-levels-for-the-dark-theme">inverting lightness levels for the dark theme</a></p>
+<pre><code>&lt;div class=&quot;b-heavy b-green&quot;&gt;&lt;/div&gt;
 &lt;div class=&quot;t-green t-600 t-dark-invert&quot;&gt;&lt;/div&gt;
 &lt;div class=&quot;t-black bg-green bg-300&quot;&gt;&lt;/div&gt;
 </code></pre>
 <p>Example usage:</p>
-<div aria-label="Note" class="popout mb-2 bl-3 b-amber b-300 p-2 t-black bg-amber bg-100">
-  &#9888; Warning alert panel.
+<div aria-label="Note" class="popout mt-3 mb-4 bl-heavy b-blue b-400 b-dark-invert p-3 t-black t-dark-invert bg-blue bg-200 bg-dark-invert">
+  &star; Note (information) panel.
 </div>
-<pre><code class="language-html">&lt;div aria-label=&quot;Note&quot; class=&quot;popout mb-2 bl-3 b-amber b-300 p-2 t-black bg-amber bg-100&quot;&gt;
-  &amp;#9888; Warning alert panel.
+<pre><code class="language-html">&lt;div aria-label=&quot;Note&quot; class=&quot;popout mt-3 mb-4 bl-heavy b-blue b-400 b-dark-invert p-3 t-black t-dark-invert bg-blue bg-200 bg-dark-invert&quot;&gt;
+  &amp;star; Note (information) panel.
 &lt;/div&gt;
 </code></pre>
-<p>The shades <code>*-100</code> through <code>*-900</code>, if used alone, don’t provide color. But if you use them to supplement one of the other colors above, then that color class will provide the color, and the shade class will set its lightness level.</p>
+<p>The lighness modifiers <code>*-100</code> through <code>*-900</code>, if used alone, do not provide color. But if you use them to supplement one of the base colors above, then that color class will provide the color, and the modifier will set its lightness level.</p>
 <h2 id="colors-and-accessibility" tabindex="-1">Colors and accessibility</h2>
-<div aria-label="Note" class="popout mb-2 bl-3 b-amber b-300 b-dark-invert p-2 bg-amber bg-100 bg-dark-invert">
+<div aria-label="Warning" class="popout mt-3 mb-4 bl-heavy b-amber b-400 b-dark-invert p-3 bg-amber bg-200 bg-dark-invert">
   In any color model, color combinations must be chosen with care so that there is sufficient contrast between text and background colors for purposes of assessibility.
 </div>
-<p>In your text and background color combinations, be careful to ensure that the text is readable — there needs to be an adequate contrast. Generally, you will want to aim at <strong>WCAG level AA</strong> for accessibility compliance.</p>
-<p>For WCAG level AA compliance, most user interface colors need to be <em>darker than the middle shade</em> (i.e. use <code>*-600</code> up) if the text color is white, or <em>lighter than the middle shade</em> (i.e. use <code>*-400</code> down) if the text color is black.</p>
-<p>However, any colors near yellow, such as Baselayer amber, as well as orange and yellow-green (not included) are notoriously difficult for accessibility. You may do better using a lighter background amber and pairing it with black text.</p>
-<form>
+<p>In your text and background color combinations, be careful to ensure that the text is readable — there needs to be an adequate contrast. Most organizations should to aim for <a href="https://www.w3.org/WAI/WCAG2AA-Conformance">WCAG level AA</a> for accessibility requirements.</p>
+<p>For WCAG level AA conformance, most user interface colors need to be <em>darker than the mid-level</em> (i.e. use <code>*-600</code> up) if the text color is white, or <em>lighter than the mid-level</em> (i.e. use <code>*-400</code> down) if the text color is black.</p>
+<p>However, any colors near yellow such as Baselayer amber, as well as orange and yellow-green (not included), are especially difficult for accessibility. You may do better using a lighter background amber and pairing it with black text (or vise versa).</p>
+<form class="my-3">
   <p>
     <button type="button" name="button">Button</button>
     <button class="bg-blue bg-600 hover:bg-700" type="button" name="button">Button</button>
-    <button class="t-black hover:t-black bg-amber bg-400 hover:bg-500" type="button" name="button">Button</button>
-    <button class="b-1 b-green bg-transparent t-green t-600 hover:b-700 hover:t-white hover:bg-green hover:bg-700" type="button" name="button">Button</button>
+    <button class="t-black hover:t-black bg-amber bg-500 hover:bg-600" type="button" name="button">Button</button>
+    <button class="b-thin b-green bg-transparent t-green t-600 hover:b-700 hover:t-white hover:bg-green hover:bg-700" type="button" name="button">Button</button>
   </p>
 </form>
 <p>When colorizing buttons, remember to set their <code>hover:</code> hover state shades too.</p>
@@ -494,10 +496,10 @@ window.addEventListener("DOMContentLoaded", () => {
 &lt;button class=&quot;bg-blue bg-600 hover:bg-700&quot; type=&quot;button&quot; name=&quot;button&quot;&gt;Button&lt;/button&gt;
 
 &lt;!-- Amber button --&gt;
-&lt;button class=&quot;t-black hover:t-black bg-amber bg-400 hover:bg-500&quot; type=&quot;button&quot; name=&quot;button&quot;&gt;Button&lt;/button&gt;
+&lt;button class=&quot;t-black hover:t-black bg-amber bg-500 hover:bg-600&quot; type=&quot;button&quot; name=&quot;button&quot;&gt;Button&lt;/button&gt;
 
 &lt;!-- Green outline (a.k.a. ghost) button --&gt;
-&lt;button class=&quot;b-1 b-green bg-transparent t-green t-600 hover:b-700 hover:t-white hover:bg-green hover:bg-700&quot; type=&quot;button&quot; name=&quot;button&quot;&gt;Button&lt;/button&gt;
+&lt;button class=&quot;b-thin b-green bg-transparent t-green t-600 hover:b-700 hover:t-white hover:bg-green hover:bg-700&quot; type=&quot;button&quot; name=&quot;button&quot;&gt;Button&lt;/button&gt;
 </code></pre>
 <p>Background reading on colors and accessibility:</p>
 <ul>
@@ -513,15 +515,37 @@ window.addEventListener("DOMContentLoaded", () => {
 <li>The <a href="https://coolors.co/contrast-checker/112a46-acc8e5"><em>Coolors</em> contrast checker</a></li>
 <li><a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/Understanding_Colors_and_Luminance">Web Accessibility: Understanding Colors and Luminance (Mozilla Developer Network Docs)</a></li>
 </ul>
-<h2 id="adding-more-colors-and-shades" tabindex="-1">Adding more colors and shades</h2>
+<h2 id="adding-more-colors" tabindex="-1">Adding more colors</h2>
 <p>You can, of course, add any colors you want, and in any format you want.</p>
-<p>However, if you want to use Baselayer 3.3.x’s shade classes <code>-100</code> thorugh <code>-900</code> on your color(s), then you need to start from a mid-tone that works as a <code>-500</code> shade. The <code>color-mix()</code> formulas mix in various levels of white to shades <code>-100</code> through <code>-400</code>, and various levels of black to shades <code>-600</code> through <code>-900</code>.</p>
-<p>Also, you will need to put your color(s) in <code>@layer color-setup {}</code> so that it gets added before <code>@layer color-shades {}</code>.</p>
-<p>You can add your own project colors in any format, but the Baselayer <code>color-mix()</code> formulas will output shade in SRGB format.</p>
+<p>However, if you want to use Baselayer’s lightness modifier classes <code>-100</code> thorugh <code>-900</code> on your colors, then you need to start from a <em>mid-lightness</em> color so that the <code>-100</code> and the <code>-900</code> generated by the <code>color-mix()</code> formulas are distinguishable (not to chose to white or too close to black).</p>
+<p>Also, you will need to put your color(s) in CSS layer <code>@layer colors {}</code> so that they take precence over the Baselayer lightness modifiers and other color utilities.</p>
+<p>You can add your own project colors in any format, but the Baselayer <code>color-mix()</code> formulas will output shade in OKLCH format.</p>
+<p>Examples:</p>
+<pre><code class="language-css">:root {
+  --purple: #9400d3;
+  --teal: #0080A2;
+}
+
+@layer colors {
+  .bg-purple,
+  .hover\:bg-purple:hover {
+    --bgc: var(--purple);
+    background: var(--bgc);
+  }
+  .bg-teal,
+  .hover\:bg-teal:hover {
+    --bgc: var(--teal);
+    background: var(--bgc);
+  }
+}
+</code></pre>
 <h2 id="dark-theme" tabindex="-1">Dark theme</h2>
-<p>Baselayer 3 has a simple dark theme built in. The dark theme is as follows:</p>
-<ol>
-<li>HTML elements are generally flipped from light to dark, or dark to light:
+<p>Baselayer has a simple dark theme built in. Since v.3.4.0, the user’s operating system preference for light or dark mode is automatically detected on the HTML tag:</p>
+<pre><code class="language-css">html {
+  color-scheme: light dark;
+}
+</code></pre>
+<p>For the dark theme, HTML elements are generally flipped from light to dark, or dark to light, as required:</p>
 <ul>
 <li>Body background is near black</li>
 <li>Text is near white</li>
@@ -529,36 +553,60 @@ window.addEventListener("DOMContentLoaded", () => {
 <li>Text links are a lighter blue</li>
 <li>Default buttons are a lighter gray</li>
 </ul>
-</li>
-<li>Color utilities (blue, green, amber, red, gray) are slightly darkened, to make them easier on the eye.</li>
-<li>On hover, the link text color and the default button background color both are made lighter (inverted behavior).</li>
-<li>Color utilities can optionally be inverted by adding the <code>*-dark-invert</code> modifier classes.</li>
-</ol>
-<h3 id="the-theme-dark-class" tabindex="-1">The <code>theme-dark</code> class</h3>
-<p>In <code>baselayer.min.css</code> the dark theme is set by the CSS class <code>theme-dark</code> that can be programatically added to the <code>&lt;html&gt;</code> tag by a <a href="#dark%2Flight-theme-toggle">JavaScript toggle</a>.</p>
-<p>If you don’t want to give your visitors the option to toggle, then you can manually refactor the CSS to make the dark theme simply respond to the <code>prefers-color-scheme: dark</code> instead.</p>
-<pre><code class="language-css">@media (prefers-color-scheme: dark) {
+<p>All the theme color variables in Baselayer (since v.3.4.0) involve a <code>light-dark()</code> CSS function. For example:</p>
+<pre><code class="language-css">:root {
   /*
-  Your dark theme styles
+  Body tag background color
   */
+  --bgc-body: light-dark(
+    white,
+    color-mix(in OKLCH, var(--gray), var(--l1000))
+  );
+
+  /*
+  Base text color (also set on the body tag)
+  */
+  --tc-base: light-dark(
+    color-mix(in OKLCH, var(--gray), var(--l900)),
+    color-mix(in OKLCH, var(--gray), var(--l100))
+  );
 }
 </code></pre>
-<h3 id="darker-and-inverted-shade-utilities" tabindex="-1">Darker and inverted shade utilities</h3>
-<p>Each color shade variant has a darker shade for the dark theme. For example, in dark mode <code>bg-100</code> is slightly darker than in light mode. This makes the shades easier on the eye in dark mode.</p>
-<p>There are, however, circumstances in your design where you don’t want colors to be merely darkened but also inverted (light shades become dark shades, and dark shades become light shades).</p>
-<p>This shade inverting has been built into the dark theme for (classless) <code>&lt;body&gt;</code> background, text, links, form inputs, table borders, and horizontal rules.</p>
-<p>Baselayer 3 has an optinal inverted version of of its shade utilities (for text, border, and background), as well as having them shoghtly darkened. To make this happen, all you need to do is add another modifier class to those elements you wish to shade invert for dark mode.</p>
-<p>Example using <code>bg-blue</code>:</p>
-<pre><code class="language-html">&lt;!-- will slightly darken in dark mode --&gt;
-&lt;div class=&quot;bg-blue bg-100&quot;&gt;&lt;/div&gt;
+<p>Baselayer does not use <code>@media (prefers-color-scheme: dark) {}</code> anywhere.</p>
+<p>The color shade utilities can <a href="#inverting-lightness-levels-for-the-dark-theme">optionally be inverted</a> by adding the <code>*-dark-invert</code> modifier classes.</p>
+<h3 id="light-and-dark-theme-classes" tabindex="-1">Light and dark theme classes</h3>
+<p>If you wish to give your visitors the option to switch between light and dark modes, you can include a JavaScript  that swaps between CSS classes <code>theme-light</code> and <code>theme-dark</code> on the HTML tag. Baselayer has these two tags built in, so that you can implement the style selection:</p>
+<pre><code class="language-css">html {
+  color-scheme: light dark;
+  &amp;.theme-light {
+    color-scheme: light;
+  }
+  &amp;.theme-dark {
+    color-scheme: dark;
+  }
+}
+</code></pre>
+<p>Example implementation: the Baselayer documentation has demo JavaScript switches for light, dark, and auto modes. The auto mode removes <code>theme-light</code> and <code>theme-dark</code> from the <code>&lt;html&gt;</code> tag, so that you simply get the Baselayer default, that is the user’s operating system theme preference setting.</p>
+<h3 id="inverting-lightness-levels-for-the-dark-theme" tabindex="-1">Inverting lightness levels for the dark theme</h3>
+<p>There will be many situations in your design where you want your utility color shades flipped for the dark theme, same way as the background color is flipped from white to near black, and son on. For handling this, Baselayer has three optional <code>*-dark-invert</code> modifier classes that flip the lightness modifier utility values.</p>
+<pre><code class="language-css">/* Border lightness inverter */
+.b-dark-invert
 
-&lt;!-- will slightly darken AND invert in dark mode --&gt;
+/* Text lightness inverter */
+.t-dark-invert
+
+/* Background lightness inverter */
+.bg-dark-invert
+</code></pre>
+<p>Example using <code>bg-blue</code>:</p>
+<pre><code class="language-html">&lt;div class=&quot;bg-blue bg-100&quot;&gt;&lt;/div&gt;
+
 &lt;div class=&quot;bg-blue bg-100 bg-dark-invert&quot;&gt;&lt;/div&gt;
 </code></pre>
-<table class="table">
+<table class="mt-3 mb-4 table">
 <thead>
 <tr class="grid equal-3-cols">
-<th>Shade (lightness)</th>
+<th>Shade</th>
 <th><code>bg-blue</code></th>
 <th><code>bg-blue bg-dark-invert</code></th>
 </tr>
@@ -611,137 +659,51 @@ window.addEventListener("DOMContentLoaded", () => {
 </tr>
 </tbody>
 </table>
-<p>The middle <code>t-500</code>, <code>b-500</code>, and <code>bg-500</code> do not invert, of course. So, e.g. <code>bg-500 bg-dark-invert</code> does not exist in <code>baselayer.css</code>.</p>
-<p class="mb-3 t-bold t-center">Baselayer 3.3.x’s color shades are darkened for the dark theme</p>
-<div class="mb-3 w-100% mx-auto" style="max-width: 30em">
-<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:1.5" viewBox="0 0 121 119"><path d="M20 1.964v100M110 17 30 97M20 101.964h100" style="fill:none;stroke:currentColor;stroke-width:.3px"/><text x="29.038" y="112.923" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor" transform="rotate(-60 29.038 112.923)">100</text><text x="39.038" y="112.923" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor" transform="rotate(-60 39.038 112.923)">200</text><text x="49.038" y="112.923" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor" transform="rotate(-60 49.038 112.923)">300</text><text x="59.038" y="112.923" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor" transform="rotate(-60 59.038 112.923)">400</text><text x="69.038" y="112.923" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor" transform="rotate(-60 69.038 112.923)">500</text><text x="79.038" y="112.923" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor" transform="rotate(-60 79.039 112.923)">600</text><text x="89.039" y="112.923" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor" transform="rotate(-60 89.038 112.923)">700</text><text x="99.039" y="112.923" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor" transform="rotate(-60 99.038 112.923)">800</text><text x="109.039" y="112.923" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor" transform="rotate(-60 109.039 112.923)">900</text><text x="4.843" y="3.456" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor">100%</text><text x="7.161" y="13.456" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor">90%</text><text x="7.161" y="23.456" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor">80%</text><text x="7.161" y="33.456" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor">70%</text><text x="7.161" y="43.456" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor">60%</text><text x="7.161" y="53.456" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor">50%</text><text x="7.161" y="63.456" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor">40%</text><text x="7.161" y="73.456" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor">30%</text><text x="7.161" y="83.456" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor">20%</text><text x="7.161" y="93.456" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor">10%</text><text x="9.478" y="103.456" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor">0%</text><text x="22.695" y="61.259" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor">Light theme shades</text><text x="33.236" y="65.562" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor">(default)</text><text style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor" transform="translate(59.157 25.784)">Dark theme</text><text x="4.05" y="4.167" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor" transform="translate(59.157 25.784)">shades</text><text x="93.776" y="49.956" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor">Inverted dark</text><text x="92.848" y="54.259" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor">theme shades</text><text x="90.856" y="58.192" style="font-family:&quot;Menlo-Regular&quot;,&quot;Menlo&quot;,monospace;font-size:3.333px;fill:currentColor">(*-dark-invert)</text><text x="48.411" y="117.949" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor">Shade sufﬁx number</text><text style="font-family:&quot;Menlo-Regular&quot;,&quot;Menlo&quot;,monospace;font-size:4.167px;fill:currentColor" transform="rotate(-90 41.172 36.518)">color-mix()</text><text x="28.754" style="font-family:&quot;ArialMT&quot;,&quot;Arial&quot;,sans-serif;font-size:4.167px;fill:currentColor" transform="rotate(-90 41.172 36.518)">shade value</text><path d="M20 1.964h-2M20 11.964h-2M20 21.964h-2M20 31.964h-2M20 41.964h-2M20 51.964h-2M20 61.964h-2M20 71.964h-2M20 81.964h-2M20 91.964h-2M20 101.964h-2M30 101.964v2M40 101.964v2M50 101.964v2M60 101.964v2M70 101.964v2M80 101.964v2M90 101.964v2M100 101.964v2M110 101.964v2" style="fill:none;stroke:currentColor;stroke-width:.3px"/><path d="m45.845 77.973 2.155.991-1.13-2.086-1.025 1.095Z" style="fill:currentColor"/><path d="M41 67.964c.008 3.629 3.661 7.759 5.686 9.769" style="fill:none;stroke:currentColor;stroke-width:.5px"/><path d="M74.846 41.509 77 42.5l-1.129-2.086-1.025 1.095Z" style="fill:currentColor"/><path d="M70 31.5c.009 3.629 3.662 7.759 5.687 9.769" style="fill:none;stroke:currentColor;stroke-width:.5px"/><path d="m100.033 68.878-1.13 2.086 2.155-.991-1.025-1.095Z" style="fill:currentColor"/><path d="M105.903 59.964c-.008 3.629-3.661 7.759-5.686 9.769" style="fill:none;stroke:currentColor;stroke-width:.5px"/><path d="M110 16 30 80M30 16l80 64" style="fill:none;stroke:currentColor;stroke-width:.3px;stroke-dasharray:3,3,0,0"/></svg>
-</div>
-<h3 id="hover-states-for-links-and-buttons" tabindex="-1">Hover states for links and buttons</h3>
-<p>In the default light theme, the blue link text becomes a darker blue, and the default gray button becomes a darker gray, on <code>:hover</code> states. But in the dark theme, this behaviour is inverted: links become a lighter blue and buttons become a lighter gray.</p>
-<p>You can easily change this. Lighter and darker options for blue links and gray buttons are included in variables as follows:</p>
-<pre><code class="language-css">.theme-dark {
-  /* text color for links (default) */
-  --tc-link: color-mix(in srgb, var(--blue) calc(var(--l400) * 2), white);
-  --tc-link-lighter: color-mix(in srgb, var(--blue) calc(var(--l300) * 2), white);
-  --tc-link-darker: color-mix(in srgb, var(--blue) calc(var(--l500) * 2), white);
-  --tc-link-hover: var(--tc-link-lighter);
-
-  /* background color for buttons (default) */
-  --bgc-btn: color-mix(in srgb, var(--gray) calc((100% - var(--l600)) * 2), black);
-  --bgc-btn-lighter: color-mix(in srgb, var(--gray) calc((100% - var(--l500)) * 2), white);
-  --bgc-btn-darker: color-mix(in srgb, var(--gray) calc((100% - var(--l700)) * 2), black);
-  --bgc-btn-hover: var(--bgc-btn-lighter);
-}
-</code></pre>
-<p>To make your styled links and buttons have an inverted behavior as above, you need to use <code>*-dark-invert</code> utilities.</p>
+<p>(The middle <code>t-500</code>, <code>b-500</code>, and <code>bg-500</code> do not invert.)</p>
 <h3 id="dark-theme-html-body-background-color" tabindex="-1">Dark theme HTML body background color</h3>
-<p>Baselayer 3’s dark theme <code>&lt;body&gt;</code> color has been made darker than the color shades set by the <code>bg-900</code> utility, so that elements colored by those shades are still visible. For this purpose an shade variable of <code>--l1000</code> has been added. (Therefore, you can  use <code>bg-900</code> or <code>bg-100 bg-dark-invert</code> to color the background of a panel, without it “disappearing” into the body background color.)</p>
-<pre><code class="language-css">.theme-dark {
-  --l1000: 87.5%;
-
-  --bgc-body: color-mix(in srgb, var(--gray) calc((100% - var(--l1000)) * 2), black); /* = #1e1e1e */
+<p>For dark teme, Baselayer’s <code>&lt;body&gt;</code> background color has been set by <code>color-mix(in OKLCH, var(--gray), var(--l1000)</code>. This darkest shade level <code>--l1000</code> (near black) is only used on the <code>&lt;body&gt;</code> tag, and it has been set so that all Baselayer <code>bg-900</code> shades will still be seen by many people.</p>
+<div class="my-4 flex flex-grow-equal gap-1">
+  <div class="rad-1 bg-amber bg-900 aspect-ratio-4x3"></div>
+  <div class="rad-1 bg-red bg-900 aspect-ratio-4x3"></div>
+  <div class="rad-1 bg-green bg-900 aspect-ratio-4x3"></div>
+  <div class="rad-1 bg-blue bg-900 aspect-ratio-4x3"></div>
+  <div class="rad-1 bg-gray bg-900 aspect-ratio-4x3"></div>
+</div>
+<h3 id="what-if-you-don%E2%80%99t-want-a-dark-theme%3F" tabindex="-1">What if you don’t want a dark theme?</h3>
+<p>Then you can simply override or replace the HTML tag as follows:</p>
+<pre><code class="language-css">html {
+  color-scheme: light;
 }
 </code></pre>
-<p>As with all Baselayer’s variables, this dark theme <code>&lt;body&gt;</code> color is an example that you can change to suit the needs of your project.</p>
-<h3 id="dark%2Flight-theme-toggle" tabindex="-1">Dark/light theme toggle</h3>
-<p>Baselayer’s dark/light theme switcher JavaScript uses <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage">sessionStorage</a> in the user’s browser to remember their theme preference as they visit multiple pages in this documentation.</p>
-<p>This script adds the CSS class <code>theme-dark</code> to the <code>&lt;html&gt;</code> tag of the webpage, so that it is implimented (almost) immediately, before the <code>&lt;body&gt;</code> is painted in the browser window.</p>
-<p>The switcher script also adds <code>theme-light</code> to the <code>&lt;html&gt;</code> tag in light mode, but there are no <code>theme-light</code> classes in <code>baselayer.min.css</code>. The <code>theme-light</code> class is merely there for visual confirmation to the deleveloper viewing the browser inspector, and it is used for adjusting the dark/light theme state indicator symbol in the switcher button.</p>
-<p>The theme switcher in the Baselayer docs is built into its <code>switcher.js</code> demo toggling system, that powers the buttons in the sidebar. If you want to use the same dark/light mode toggler, here it is isolated below (no JS framework required):</p>
-<pre><code class="language-js">const matchMediaDark = window.matchMedia('(prefers-color-scheme: dark)');
-const htmlClassList = document.querySelector('html').classList;
-
-function themeDark() {
-  sessionStorage.setItem(&quot;baselayerTheme&quot;, &quot;dark&quot;);
-  htmlClassList.remove('theme-light');
-  htmlClassList.add('theme-dark');
-}
-
-function themeLight() {
-  sessionStorage.setItem(&quot;baselayerTheme&quot;, &quot;light&quot;);
-  htmlClassList.remove('theme-dark');
-  htmlClassList.add('theme-light');
-}
-
-function toggleTheme() {
-  if ( sessionStorage.baselayerTheme === 'dark' ) {
-    themeLight();
-  } else {
-    themeDark();
-  }
-};
-
-function baselayerInit() {
-  if (sessionStorage.baselayerTheme === 'dark' || (!('baselayerTheme' in sessionStorage) &amp;&amp; matchMediaDark.matches)) {
-    themeDark();
-  } else {
-    themeLight();
-  }
-};
-
-baselayerInit();
-</code></pre>
-<p>You will also need a toggle button, like the one in the sidebar. The checkmarks are added in by CSS pseudo-selectors.</p>
-<p class="flex flex-center">
-  <button class="toggler p-cell flex flex-column gap-1 bg-blue bg-600 hover:bg-700 bg-dark-invert" onclick="toggleTheme()">
-    <div class="label-light w-100% flex flex-middle gap-1">
-      <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
-      <div class="grow left">Light theme</div>
-    </div>
-    <div class="label-dark w-100% flex flex-middle gap-1">
-      <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
-      <div class="grow left">Dark theme</div>
-    </div>
-  </button>
-</p>
-<p>Another, simpler example theme toggle button, using glyphs selected from <a href="https://www.amp-what.com">&amp;what;</a></p>
-<style>
-  .theme-dark .theme-toggle span::before { content: '☀️ light '; }
-  .theme-light .theme-toggle span::before { content: '🌙 dark '; }
-</style>
-<p class="flex flex-center">
-  <button class="theme-toggle pl-1 t-reversi-alt bg-reversi" onclick="toggleTheme()">
-    <span>theme</span>
-  </button>
-</p>
-<pre><code>&lt;style&gt;
-  .theme-dark .theme-toggle span::before { content: '☀️ light '; }
-  .theme-light .theme-toggle span::before { content: '🌙 dark '; }
-&lt;/style&gt;
-
-&lt;button class=&quot;theme-toggle pl-1 t-reversi-alt bg-reversi&quot; onclick=&quot;toggleTheme()&quot;&gt;
-  &lt;span&gt;theme&lt;/span&gt;
-&lt;/button&gt;
-</code></pre>
-<p>The simple example above uses <code>bg-reversi</code> to put a “night time” black background behind the moon and a “day time” white background behind the sun, meanwhile <code>t-reversi-</code> flips the text color the opposite way. See <a href="/baselayer-3/colors/#black%2C-white%2C-reversi%2C-and-reversi-alt">black, white, reversi, and reversi-alt</a> below.</p>
+<p>(And you won’t need to use any <code>*-dark-invert</code> classes.)</p>
 <h2 id="other-baselayer-color-utilities" tabindex="-1">Other Baselayer color utilities</h2>
-<div aria-label="Note" class="popout mb-2 bl-3 b-blue b-200 b-dark-invert p-2 bg-blue bg-100 bg-dark-invert">
-  The color utilities for black, white, reversi, reversi-alt, and transparent <em>can’t be used on the same element</em> with the colors and shades above (i.e. as either default or hover states). These other utilities are declared after the colors and shades, and so they will override them. 
+<div aria-label="Note" class="popout mb-3 bl-heavy b-blue b-200 b-dark-invert p-3 bg-blue bg-100 bg-dark-invert">
+  The color utilities for black, white, and transparent <em>can’t be used on the same element</em> with the colors and shades above (i.e. as either default or hover states). These other utilities are declared after the colors and shades, and so they will override them.
 </div>
-<p>Other color utilities included in Baselayer cover black, white, and transparent, as follows:</p>
-<h3 id="black%2C-white%2C-reversi%2C-and-reversi-alt" tabindex="-1">Black, white, reversi, and reversi-alt</h3>
-<p>There are utilities for border color, text color, and background color for each of the following (and <code>hover:</code> prefix states):</p>
+<p>Other color utilities included in Baselayer cover black, white, and transparent.</p>
+<h3 id="black-and-white" tabindex="-1">Black and white</h3>
 <ul>
-<li><code>-black</code> — named color black:</li>
-<li><code>-white</code> — named color white:</li>
-<li><code>-reversi</code> is black on a light theme, white on a dark theme:</li>
-<li><code>-reversi-alt</code> is white on a light theme, black on a dark theme:</li>
+<li><code>*-black</code> — named color black</li>
+<li><code>*-white</code> — named color white</li>
 </ul>
-<div class="mt-2 mb-3 grid gap-1 sm:equal-4-cols">
-<div class="b-1 p-3 t-center t-white bg-black">Black</div>
-<div class="b-1 p-3 t-center t-black bg-white">White</div>
-<div class="b-1 p-3 t-center t-reversi-alt bg-reversi">Reversi</div>
-<div class="b-1 p-3 t-center t-reversi bg-reversi-alt">Reversi-alt</div>
+<div class="my-4 grid gap-1">
+<div class="b-thin p-2 t-center t-white bg-black">t-white bg-black</div>
+<div class="b-thin p-2 t-center t-black bg-white">t-black bg-white</div>
 </div>
-<pre><code class="language-html">&lt;div class=&quot;t-white bg-black&quot;&gt;Black&lt;/div&gt;
+<h4 id="inverting-black-and-white-for-the-dark-theme" tabindex="-1">Inverting black and white for the dark theme</h4>
+<p><strong>New in Baselayer v.3.4.0:</strong> The <code>*-dark-invert</code> classes also work on the black and white utilities, enabling a <a href="https://en.wikipedia.org/wiki/Reversi">reversi</a> effect when the user prefers the dark theme.</p>
+<div class="my-4 grid gap-1">
+<div class="b-thin p-2 t-center t-white t-dark-invert bg-black bg-dark-invert">t-white t-dark-invert bg-black bg-dark-invert</div>
+<div class="b-thin p-2 t-center t-black t-dark-invert bg-white bg-dark-invert">t-black t-dark-invert bg-white bg-dark-invert</div>
+</div>
+<pre><code class="language-html">&lt;div class=&quot;t-white bg-black&quot;&gt;...&lt;/div&gt;
 
-&lt;div class=&quot;t-black bg-white&quot;&gt;White&lt;/div&gt;
+&lt;div class=&quot;t-black bg-white&quot;&gt;...&lt;/div&gt;
 
-&lt;div class=&quot;t-reversi-alt bg-reversi&quot;&gt;Reversi&lt;/div&gt;
+&lt;div class=&quot;t-white t-dark-invert bg-black bg-dark-invert&quot;&gt;...&lt;/div&gt;
 
-&lt;div class=&quot;t-reversi bg-reversi-alt&quot;&gt;Reversi-alt&lt;/div&gt;
+&lt;div class=&quot;t-black t-dark-invert bg-white bg-dark-invert&quot;&gt;...&lt;/div&gt;
 </code></pre>
-<p>You don’t need to use <code>*-dark-invert</code> on the reversi and reversi-alt utilities. And <code>*-dark-invert</code> doesn’t work on the black and white utilities.</p>
 <h3 id="transparent-background" tabindex="-1">Transparent background</h3>
 <p>E.g. for outline buttons.</p>
 <ul>
@@ -753,54 +715,53 @@ baselayerInit();
 </ul>
 <p>There are no hover states of <code>bg-transparent</code>.</p>
 
-              </div>
-            </main>
+          </main>
+        </div>
+        <div class="lg:col-span-3">
+          <footer class="mt-3 content-grid">
+            <nav class="popout grid gap-2 sm:equal-2-cols links-not-underlined">
+              
+              <a class="sm:col-1 my-1 b-thin b-blue b-300 hover:b-500 b-dark-invert rad-1 p-cell flex flex-column gap-1 t-blue t-600 hover:t-700 t-dark-invert hover:bg-blue hover:bg-100 bg-dark-invert"  href="/baselayer-3/decoration/">
+                Previous page
+                <span class="h2 m-0 t-normal"> Decoration</span>
+              </a>
+              
+              
+              <a class="sm:col-2 my-1 b-thin b-blue b-300 hover:b-500 b-dark-invert rad-1 p-cell flex flex-column gap-1 t-blue t-600 hover:t-700 t-dark-invert t-right hover:bg-blue hover:bg-100 bg-dark-invert" href="/baselayer-3/forms/">
+                Next page
+                <span class="h2 m-0 t-normal">Forms</span>
+              </a>
+              
+            </nav>
+            <div class="mt-4 mb-3 p-2 flex flex-column flex-middle t-center">
+              <a href="/baselayer-3/" class="mb-1 flex flex-column flex-center gap-1 t-no-underline">
+                <svg class="mx-auto" height="48" width="48" viewBox="0 0 111 111" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-miterwrapper:1.5">
+                  <g transform="translate(-294.592 -94.592)">
+                    <circle cx="350" cy="150" r="50" style="fill:none;stroke:currentColor;stroke-width:4px"/>
+                    <path d="M294.167 180H320v-65.833" style="fill:none;stroke:currentColor;stroke-width:4px" transform="translate(10 -10)"/>
+                    <path d="M405.833 180H380v-65.833" style="fill:none;stroke:currentColor;stroke-width:4px" transform="translate(-10 -10)"/>
+                    <circle cx="350" cy="150" r="30" style="fill:none;stroke:currentColor;stroke-width:6px" transform="matrix(.66667 0 0 .66667 116.667 50)"/>
+                    <path d="M310 180h80" style="fill:none;stroke:currentColor;stroke-width:4px"/>
+                    </g>
+                  </svg>
+                <span class="h3 m-0 t-normal t-nowrap">Baselayer CSS</span>
+              </a>
+              <span>Version: 3.4.0</span>
+            </div>
 
-            <footer class="lg:col-1 content-grid">
-              <nav class="popout mt-3 mb-2 p-0 grid gap-2 sm:equal-2-cols">
-                
-                <a class="sm:col-1 my-1 b-1 b-blue b-300 hover:b-900 b-dark-invert r-3 p-cell flex flex-column gap-1 hover:bg-blue hover:bg-100 bg-dark-invert"  href="/baselayer-3/decoration/">
-                  Previous page
-                  <span class="h2 m-0 t-normal"> Decoration</span>
-                </a>
-                
-                
-                <a class="sm:col-2 my-1 b-1 b-blue b-300 hover:b-900 b-dark-invert r-3 p-cell flex flex-column gap-1 t-right hover:bg-blue hover:bg-100 bg-dark-invert" href="/baselayer-3/forms/">
-                  Next page
-                  <span class="h2 m-0 t-normal">Forms</span>
-                </a>
-                
-              </nav>
-              <div class="p-2 flex flex-column flex-middle t-center">
-                <a href="/baselayer-3/" class="mb-1 flex flex-column flex-center gap-1 t-noline">
-                  <svg class="mx-auto" height="48" width="48" viewBox="0 0 111 111" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-miterwrapper:1.5">
-                    <g transform="translate(-294.592 -94.592)">
-                      <circle cx="350" cy="150" r="50" style="fill:none;stroke:currentColor;stroke-width:4px"/>
-                      <path d="M294.167 180H320v-65.833" style="fill:none;stroke:currentColor;stroke-width:4px" transform="translate(10 -10)"/>
-                      <path d="M405.833 180H380v-65.833" style="fill:none;stroke:currentColor;stroke-width:4px" transform="translate(-10 -10)"/>
-                      <circle cx="350" cy="150" r="30" style="fill:none;stroke:currentColor;stroke-width:6px" transform="matrix(.66667 0 0 .66667 116.667 50)"/>
-                      <path d="M310 180h80" style="fill:none;stroke:currentColor;stroke-width:4px"/>
-                      </g>
-                    </svg>
-                  <span class="h3 m-0 t-normal t-nowrap">Baselayer 3 CSS</span>
-                </a>
-                <span>Version: 3.3.0</span>
-              </div>
-
-              <p class="p-cell flex flex-center flex-wrap gap-2 t-center">
-                <span><a class="t-noline hover:t-line" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> (22.65 KB)</span>
-                <a class="t-noline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3">GitHub Repository</a>
-                <a class="t-noline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3/blob/main/CHANGELOG.md">Changelog</a>
-                <a class="t-noline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3/blob/main/LICENSE">MIT license</a>
-              </p>
-              <p class="t-center"><span>Developer: <a class="t-noline hover:t-line" href="https://github.com/SimonPadbury">Simon Padbury</a></span>
-            </footer>
-          </div>
-        </article>
+            <p class="p-cell flex flex-center flex-wrap gap-4 t-center">
+              <span><a class="t-no-underline hover:t-line" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> (22 KB)</span>
+              <a class="t-no-underline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3">GitHub Repository</a>
+              <a class="t-no-underline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3/blob/main/CHANGELOG.md">Changelog</a>
+              <a class="t-no-underline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3/blob/main/LICENSE">MIT license</a>
+            </p>
+            <p class="t-center"><span>Developer: <a class="t-no-underline hover:t-line" href="https://github.com/SimonPadbury">Simon Padbury</a></span>
+          </footer>
+        </div>
       </div>
-
     </div>
-  </div>
+
+  </div><!-- /#body-wrap -->
 
 </body>
 </html>

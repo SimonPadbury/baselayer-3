@@ -1,5 +1,4 @@
 @layer typography {
-
   p,
   ol,
   ul,
@@ -10,20 +9,22 @@
   figure,
   figcaption,
   blockquote {
-    margin-block: 0 var(--m-lh);
-    text-wrap: pretty;
+    margin-block: 0 var(--t-mb);
   }
 
   caption {
-    margin-block: var(--sp-1);
+    margin-block: var(--s-2);
   }
 
+  h1 {
+    font-family: var(--h-ff);
+    font-weight: var(--h-fw);
+    line-height: var(--h-lh);
+    margin-block: 0 var(--t-mb);
+  }
   h1,
   .h1 {
     font-size: var(--h1);
-    font-weight: var(--h-fw);
-    line-height: var(--h-lh);
-    margin-block: 0 var(--m-lh);
   }
 
   h2,
@@ -52,71 +53,48 @@
   }
 
   h2,
-  .h2,
   h3,
-  .h3,
   h4,
-  .h4,
   h5,
-  .h5,
-  h6,
-  .h6 {
-    margin-block: var(--h-lh) var(--m-lh);
+  h6 {
+    margin-block: var(--h-mt) var(--t-mb);
+    font-family: var(--h-ff);
     font-weight: var(--h-fw);
     line-height: var(--h-lh);
     text-wrap: balance;
+    .content-grid & {
+      /* This because CSS grid prevents margin-collapse on neighboring grid items */
+      margin-top: calc(var(--h-mt) - var(--t-mb));
+    }
   }
-
-  .content-grid>h2,
-  .content-grid>.h2,
-  .content-grid>h3,
-  .content-grid>.h3,
-  .content-grid>h4,
-  .content-grid>.h4,
-  .content-grid>h5,
-  .content-grid>.h5,
-  .content-grid>h6,
-  .content-grid>.h6 {
-    /* This because CSS grid prevents margin-collapse on grid items */
-    margin-block:
-      calc(var(--h-lh) - var(--m-lh)) var(--m-lh);
-    ;
-  }
-
-  a {
-    text-decoration: underline;
-    color: var(--tc-link);
-    cursor: pointer;
-    transition: all 0.15s ease;
-  }
-
-  a,
-  a * {
-    text-decoration-skip-ink: auto;
-    text-decoration-thickness: var(--d-thick-link);
-    text-underline-offset: var(--d-off-link);
-  }
-
-  a:hover,
-  a:focus {
-    color: var(--tc-link-hover);
+  .content-grid > h2:first-child {
+    margin-top: 0;
   }
 
   ol,
-  ul {
-    margin-block: 0 var(--m-lh);
+  ul,
+  menu {
+    margin-block: 0 var(--t-mb);
     padding-left: 1.5em;
   }
 
-  li ol,
-  li ul,
-  li+li {
-    margin-block: var(--sp-list) 0;
+  li {
+    ol,
+    ul,
+    + li {
+      margin-block: var(--t-mb) 0;
+    }
+  }
+
+  ol ol {
+    list-style-type: lower-alpha;
+    ol {
+      list-style-type: lower-roman;
+    }
   }
 
   dl {
-    margin: 0 0 var(--m-lh);
-    ;
+    margin: 0 0 var(--t-mb);
   }
 
   dt {
@@ -124,33 +102,32 @@
   }
 
   dd {
-    margin: 0 0 var(--sp-list);
+    margin: var(--t-mb) 0;
     padding-left: 1.5em;
   }
 
-  ol ol {
-    list-style-type: lower-alpha;
-  }
-
-  ol ol ol {
-    list-style-type: lower-roman;
+  .unlist {
+    list-style-type: none;
   }
 
   .table {
     width: 100%;
     border-collapse: collapse;
     border-spacing: 0;
+    border-top: var(--b-1);
+    border-bottom: var(--b-1);
   }
-
-  .table th,
-  .table td {
-    border: var(--b-1);
+  th,
+  td {
     padding: var(--p-cell);
     vertical-align: top;
     text-align: left;
+    .table-grid & {
+      border: var(--b-1);
+    }
   }
-
-  .table th {
+  th {
+    border-bottom: var(--b-1);
     font-weight: bold;
   }
 
@@ -164,7 +141,7 @@
 
   blockquote {
     margin-inline: 0;
-    padding-inline: var(--sp-3);
+    padding-inline: var(--s-3);
   }
 
   blockquote p:last-child {
@@ -174,14 +151,16 @@
   code,
   kbd,
   samp {
-    font-family: var(--t-mono);
+    font-family: var(--ff-mono);
     font-style: normal;
     font-weight: normal;
   }
 
   code {
     display: inline-block;
-    padding-inline: .25em;
+    border: var(--b-1);
+    border-radius: var(--s-xs);
+    padding-inline: 0.25em;
     color: var(--tc-code);
     background: var(--bgc-code);
   }
@@ -190,15 +169,17 @@
     font-style: normal;
     font-weight: normal;
     white-space: pre;
-    overflow-x: auto;
-  }
-
-  pre code {
-    display: block;
-    padding: 1em;
-    background: var(--bgc-code);
-    overflow-x: auto;
-    /* so that the background color extends into the hidden overflow area */
+    &:not(:has(code)) {
+      overflow-x: auto;
+    }
+    code {
+      display: block;
+      border-radius: var(--s-1);
+      padding: 1em;
+      background: var(--bgc-code);
+      overflow-x: auto;
+      /* So that the :focus-visible ring works, and so that the background color extends into the overflowing area */
+    }
   }
 
   sub,
@@ -207,40 +188,21 @@
     line-height: 0;
   }
 
-  .unlist,
-  .unlist li {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-  }
-
-  nav a,
-  .t-noline {
-    text-decoration: none;
-  }
-
-  .hover\:t-line:hover {
-    text-decoration: underline;
-    text-decoration-skip-ink: auto;
-    text-decoration-thickness: var(--d-thick-link);
-    text-underline-offset: var(--d-off-link);
-  }
-
   .t-nowrap {
     white-space: nowrap;
   }
 
-  .t-big {
-    font-size: var(--t-big) !important;
+  .t-lg {
+    font-size: var(--fs-lg);
   }
 
   small,
-  .t-small {
-    font-size: var(--t-small) !important;
+  .t-sm {
+    font-size: var(--fs-sm);
   }
 
-  .t-lighter {
-    font-weight: var(--fw-lighter);
+  .t-thin {
+    font-weight: var(--fw-thin);
   }
 
   .t-normal {
@@ -275,6 +237,48 @@
     text-align: left;
   }
 
+  @container (min-width: 640px) {
+    .sm\:t-right {
+      text-align: right;
+    }
+
+    .sm\:t-center {
+      text-align: center;
+    }
+
+    .sm\:t-left {
+      text-align: left;
+    }
+  }
+
+  @container (min-width: 960px) {
+    .md\:t-right {
+      text-align: right;
+    }
+
+    .md\:t-center {
+      text-align: center;
+    }
+
+    .md\:t-left {
+      text-align: left;
+    }
+  }
+
+  @container (min-width: 1280px) {
+    .lg\:t-right {
+      text-align: right;
+    }
+
+    .lg\:t-center {
+      text-align: center;
+    }
+
+    .lg\:t-left {
+      text-align: left;
+    }
+  }
+
   .t-balance {
     text-wrap: balance;
   }
@@ -293,19 +297,23 @@
     font-size: var(--fs-long-read);
   }
 
+  .t-display {
+    font-size: var(--fs-display);
+  }
+
   .t-base {
-    font-family: var(--t-base);
+    font-family: var(--ff-base);
   }
 
   .t-prose {
-    font-family: var(--t-prose);
+    font-family: var(--ff-prose);
   }
 
   /* Un-comment these if required */
 
   /* .t-prose.t-normal,
   .t-prose {
-    font-family: var(--t-prose);
+    font-family: var(--ff-prose);
     font-size: var(--fs-baseprose);
     font-weight: var(--fwprose);
   }
@@ -317,5 +325,4 @@
   .t-prose .t-long-read {
     font-size: var(--fs-long-read-prose);
   } */
-
 }

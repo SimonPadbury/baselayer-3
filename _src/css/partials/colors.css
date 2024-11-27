@@ -10,21 +10,20 @@ Variables:
 --bl = border lightness
 --tc = text color
 --tl = text lightness
---bgc = background color 
+--bgc = background color
 --bgl = background lightness
 */
 
-@layer color-setup {
-
-  [class*=b-] {
+@layer colors {
+  [class*="b-"] {
     --bl: var(--l500);
   }
 
-  [class*=t-] {
+  [class*="t-"] {
     --tl: var(--l500);
   }
 
-  [class*=bg-] {
+  [class*="bg-"] {
     --bgl: var(--l500);
   }
 
@@ -125,265 +124,266 @@ Variables:
   }
 }
 
-@layer color-shade {
+@layer color-lightness {
+  /* Border */
 
-  /* Border shades */
-
-  [class*=b-100],
-  [class*=b-200],
-  [class*=b-300],
-  [class*=b-400],
-  [class*=b-500] {
-    border-color: color-mix(in srgb, var(--bc) calc(var(--bl) * 2), white);
+  [class*="b-100"],
+  [class*="b-200"],
+  [class*="b-300"],
+  [class*="b-400"],
+  [class*="b-500"],
+  [class*="b-600"],
+  [class*="b-700"],
+  [class*="b-800"],
+  [class*="b-900"] {
+    border-color: color-mix(in OKLAB, var(--bc), var(--bl));
   }
 
-  .theme-dark [class*=b-500],
-  [class*=b-600],
-  [class*=b-700],
-  [class*=b-800],
-  [class*=b-900] {
-    border-color: color-mix(in srgb, var(--bc) calc((100% - var(--bl)) * 2), black);
+  .b-dark-invert {
+    &[class*="b-100"],
+    &[class*="b-200"],
+    &[class*="b-300"],
+    &[class*="b-400"],
+    &[class*="b-500"],
+    &[class*="b-600"],
+    &[class*="b-700"],
+    &[class*="b-800"],
+    &[class*="b-900"] {
+      border-color: light-dark(
+        color-mix(in OKLAB, var(--bc), var(--bl)),
+        color-mix(in OKLAB, var(--bc), var(--bli))
+      );
+    }
   }
 
   .b-100,
   .hover\:b-100:hover {
     --bl: var(--l100);
+    --bli: var(--l100i);
   }
 
   .b-200,
   .hover\:b-200:hover {
     --bl: var(--l200);
+    --bli: var(--l200i);
   }
 
   .b-300,
   .hover\:b-300:hover {
     --bl: var(--l300);
+    --bli: var(--l300i);
   }
 
   .b-400,
   .hover\:b-400:hover {
     --bl: var(--l400);
+    --bli: var(--l400i);
   }
 
   .b-500,
   .hover\:b-500:hover {
     --bl: var(--l500);
+    --bli: var(--l500i);
   }
 
   .b-600,
   .hover\:b-600:hover {
     --bl: var(--l600);
+    --bli: var(--l600i);
   }
 
   .b-700,
   .hover\:b-700:hover {
     --bl: var(--l700);
+    --bli: var(--l700i);
   }
 
   .b-800,
   .hover\:b-800:hover {
     --bl: var(--l800);
+    --bli: var(--l800i);
   }
 
   .b-900,
   .hover\:b-900:hover {
     --bl: var(--l900);
+    --bli: var(--l900i);
   }
 
-  /* Text shades */
+  /* Text */
 
-  [class*=t-100],
-  [class*=t-200],
-  [class*=t-300],
-  [class*=t-400],
-  [class*=t-500] {
-    color: color-mix(in srgb, var(--tc) calc(var(--tl) * 2), white);
+  [class*="t-100"],
+  [class*="t-200"],
+  [class*="t-300"],
+  [class*="t-400"],
+  [class*="t-500"],
+  [class*="t-600"],
+  [class*="t-700"],
+  [class*="t-800"],
+  [class*="t-900"] {
+    color: color-mix(in OKLAB, var(--tc), var(--tl));
   }
 
-  .theme-dark [class*=t-500],
-  [class*=t-600],
-  [class*=t-700],
-  [class*=t-800],
-  [class*=t-900] {
-    color: color-mix(in srgb, var(--tc) calc((100% - var(--tl)) * 2), black);
+  .t-dark-invert {
+    &[class*="t-100"],
+    &[class*="t-200"],
+    &[class*="t-300"],
+    &[class*="t-400"],
+    &[class*="t-500"],
+    &[class*="t-600"],
+    &[class*="t-700"],
+    &[class*="t-800"],
+    &[class*="t-900"] {
+      color: light-dark(
+        color-mix(in OKLAB, var(--tc), var(--tl)),
+        color-mix(in OKLAB, var(--tc), var(--tli))
+      );
+    }
   }
 
   .t-100,
   .hover\:t-100:hover {
     --tl: var(--l100);
+    --tli: var(--l100i);
   }
 
   .t-200,
   .hover\:t-200:hover {
     --tl: var(--l200);
+    --tli: var(--l200i);
   }
 
   .t-300,
   .hover\:t-300:hover {
     --tl: var(--l300);
+    --tli: var(--l300i);
   }
 
   .t-400,
   .hover\:t-400:hover {
     --tl: var(--l400);
+    --tli: var(--l400i);
   }
 
   .t-500,
   .hover\:t-500:hover {
     --tl: var(--l500);
+    --tli: var(--l500i);
   }
 
   .t-600,
   .hover\:t-600:hover {
     --tl: var(--l600);
+    --tli: var(--l600i);
   }
 
   .t-700,
   .hover\:t-700:hover {
     --tl: var(--l700);
+    --tli: var(--l700i);
   }
 
   .t-800,
   .hover\:t-800:hover {
     --tl: var(--l800);
+    --tli: var(--l800i);
   }
 
   .t-900,
   .hover\:t-900:hover {
     --tl: var(--l900);
+    --tli: var(--l900i);
   }
 
-  /* Background-shades */
+  /* Background */
 
-  [class*=bg-100],
-  [class*=bg-200],
-  [class*=bg-300],
-  [class*=bg-400],
-  [class*=bg-500] {
-    background: color-mix(in srgb, var(--bgc) calc(var(--bgl) * 2), white);
+  [class*="bg-100"],
+  [class*="bg-200"],
+  [class*="bg-300"],
+  [class*="bg-400"],
+  [class*="bg-500"],
+  [class*="bg-600"],
+  [class*="bg-700"],
+  [class*="bg-800"],
+  [class*="bg-900"] {
+    background: color-mix(in OKLAB, var(--bgc), var(--bgl));
   }
 
-  .theme-dark [class*=bg-500],
-  [class*=bg-600],
-  [class*=bg-700],
-  [class*=bg-800],
-  [class*=bg-900] {
-    background: color-mix(in srgb, var(--bgc) calc((100% - var(--bgl)) * 2), black);
+  .bg-dark-invert {
+    &[class*="bg-100"],
+    &[class*="bg-200"],
+    &[class*="bg-300"],
+    &[class*="bg-400"],
+    &[class*="bg-500"],
+    &[class*="bg-600"],
+    &[class*="bg-700"],
+    &[class*="bg-800"],
+    &[class*="bg-900"] {
+      background-color: light-dark(
+        color-mix(in OKLAB, var(--bgc), var(--bgl)),
+        color-mix(in OKLAB, var(--bgc), var(--bgli))
+      );
+    }
   }
 
   .bg-100,
   .hover\:bg-100:hover {
     --bgl: var(--l100);
+    --bgli: var(--l100i);
   }
 
   .bg-200,
   .hover\:bg-200:hover {
     --bgl: var(--l200);
+    --bgli: var(--l200i);
   }
 
   .bg-300,
   .hover\:bg-300:hover {
     --bgl: var(--l300);
+    --bgli: var(--l300i);
   }
 
   .bg-400,
   .hover\:bg-400:hover {
     --bgl: var(--l400);
+    --bgli: var(--l400i);
   }
 
   .bg-500,
   .hover\:bg-500:hover {
     --bgl: var(--l500);
+    --bgli: var(--l500i);
   }
 
   .bg-600,
   .hover\:bg-600:hover {
     --bgl: var(--l600);
+    --bgli: var(--l600i);
   }
 
   .bg-700,
   .hover\:bg-700:hover {
     --bgl: var(--l700);
+    --bgli: var(--l700i);
   }
 
   .bg-800,
   .hover\:bg-800:hover {
     --bgl: var(--l800);
+    --bgli: var(--l800i);
   }
 
   .bg-900,
   .hover\:bg-900:hover {
     --bgl: var(--l900);
-  }
-
-  /* 
-  Dark theme shade inverters
-  */
-
-  /* Border colors */
-
-  .theme-dark [class*=b-100].b-dark-invert,
-  .theme-dark [class*=b-200].b-dark-invert,
-  .theme-dark [class*=b-300].b-dark-invert,
-  .theme-dark [class*=b-400].b-dark-invert,
-  .theme-dark [class*=b-500].b-dark-invert {
-    border-color: color-mix(in srgb, var(--bc) calc((100% - var(--bl)) * 2), black);
-  }
-
-  .theme-dark [class*=b-600].t-dark-invert,
-  .theme-dark [class*=b-700].t-dark-invert,
-  .theme-dark [class*=b-800].t-dark-invert,
-  .theme-dark [class*=b-900].t-dark-invert {
-    border-color: color-mix(in srgb, var(--bc) calc(var(--bl) * 2), white);
-  }
-
-  /* Text colors (note: no `-500` needed */
-
-  .theme-dark [class*=t-100].t-dark-invert,
-  .theme-dark [class*=t-200].t-dark-invert,
-  .theme-dark [class*=t-300].t-dark-invert,
-  .theme-dark [class*=t-400].t-dark-invert {
-    color: color-mix(in srgb, var(--tc) calc((100% - var(--tl)) * 2), black);
-  }
-
-  .theme-dark [class*=t-600].t-dark-invert,
-  .theme-dark [class*=t-700].t-dark-invert,
-  .theme-dark [class*=t-800].t-dark-invert,
-  .theme-dark [class*=t-900].t-dark-invert {
-    color: color-mix(in srgb, var(--tc) calc(var(--tl) * 2), white);
-  }
-
-  /* Background colors */
-  .theme-dark [class*=bg-100],
-  .theme-dark [class*=bg-200],
-  .theme-dark [class*=bg-300],
-  .theme-dark [class*=bg-400] {
-    background: color-mix(in srgb, var(--bgc) calc(var(--bgl) * 2), white);
-  }
-
-  .theme-dark [class*=bg-600].bg-dark-invert,
-  .theme-dark [class*=bg-700].bg-dark-invert,
-  .theme-dark [class*=bg-800].bg-dark-invert,
-  .theme-dark [class*=bg-900].bg-dark-invert {
-    background: color-mix(in srgb, var(--bgc) calc(var(--bgl) * 2), white);
-  }
-
-  .theme-dark [class*=bg-100].bg-dark-invert,
-  .theme-dark [class*=bg-200].bg-dark-invert,
-  .theme-dark [class*=bg-300].bg-dark-invert,
-  .theme-dark [class*=bg-400].bg-dark-invert {
-    background: color-mix(in srgb, var(--bgc) calc((100% - var(--bgl)) * 2), black);
-  }
-
-  .theme-dark [class*=bg-600].bg-dark-invert,
-  .theme-dark [class*=bg-700].bg-dark-invert,
-  .theme-dark [class*=bg-800].bg-dark-invert,
-  .theme-dark [class*=bg-900].bg-dark-invert {
-    background: color-mix(in srgb, var(--bgc) calc(var(--bgl) * 2), white);
+    --bgli: var(--l900i);
   }
 }
 
 @layer color-other {
+  /* Colors - other */
+
   .bg-transparent:not(:hover) {
     background: transparent;
   }
@@ -392,25 +392,45 @@ Variables:
   .hover\:t-white:hover {
     color: white;
   }
+  .t-white.t-dark-invert,
+  .hover\:t-white.t-dark-invert:hover {
+    color: light-dark(white, black);
+  }
 
   .b-white,
   .hover\:b-white:hover {
     border-color: white;
+  }
+  .b-white.b-dark-invert,
+  .hover\:b-white.b-dark-invert:hover {
+    border-color: light-dark(white, black);
   }
 
   .bg-white,
   .hover\:bg-white:hover {
     background: white;
   }
+  .bg-white.bg-dark-invert,
+  .hover\:bg-white.bg-dark-invert:hover {
+    background: light-dark(white, black);
+  }
 
   .t-black,
   .hover\:t-black:hover {
     color: black;
   }
+  .t-black.t-dark-invert,
+  .hover\:t-black.t-dark-invert:hover {
+    color: light-dark(black, white);
+  }
 
   .b-black,
   .hover\:b-black:hover {
     border-color: black;
+  }
+  .b-black.b-dark-invert,
+  .hover\:b-black.b-dark-invert:hover {
+    border-color: light-dark(black, white);
   }
 
   .bg-black,
@@ -418,63 +438,8 @@ Variables:
     background: black;
   }
 
-  .t-reversi,
-  .hover\:t-reversi:hover {
-    color: black;
-  }
-
-  .b-reversi,
-  .hover\:b-reversi:hover {
-    border-color: black;
-  }
-
-  .bg-reversi,
-  .hover\:bg-reversi:hover {
-    background: black;
-  }
-
-  .theme-dark .t-reversi,
-  .theme-dark .hover\:t-reversi:hover {
-    color: white;
-  }
-
-  .theme-dark .b-reversi,
-  .theme-dark .hover\:b-reversi:hover {
-    border-color: white;
-  }
-
-  .theme-dark .bg-reversi,
-  .theme-dark .hover\:bg-reversi:hover {
-    background: white;
-  }
-
-  .t-reversi-alt,
-  .hover\:t-reversi-alt:hover {
-    color: white;
-  }
-
-  .b-reversi-alt,
-  .hover\:b-reversi-alt:hover {
-    border-color: white;
-  }
-
-  .bg-reversi-alt,
-  .hover\:bg-reversi-alt:hover {
-    background: white;
-  }
-
-  .theme-dark .t-reversi-alt,
-  .theme-dark .hover\:t-reversi-alt:hover {
-    color: black;
-  }
-
-  .theme-dark .b-reversi-alt,
-  .theme-dark .hover\:b-reversi-alt:hover {
-    border-color: black;
-  }
-
-  .theme-dark .bg-reversi-alt,
-  .theme-dark .hover\:bg-reversi-alt:hover {
-    background: black;
+  .bg-black.bg-dark-invert,
+  .hover\:bg-black.bg-dark-invert:hover {
+    background: light-dark(black, white);
   }
 }
