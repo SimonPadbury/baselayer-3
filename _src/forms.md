@@ -131,7 +131,7 @@ On some devices (e.g. iOS Safari), these inputs get modified by number pickers (
 
 ## List and datalist
 
-<label for="input-list1">Favour dog breed:</label>
+<label for="input-list1">Favourite dog breed:</label>
 <input list="dog-breeds" id="input-list1" name="dog-breeds" />
 
 <datalist id="dog-breeds">
