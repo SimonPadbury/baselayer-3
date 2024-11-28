@@ -78,11 +78,11 @@ pre code {
   #toc-wrapper > p {
     padding-top: var(--s-3);
   }
-  .ms-windows #toc > div {
+  .ms-windows #toc-wrapper > div {
     scrollbar-gutter: stable;
     overflow-y: hidden;
   }
-  .ms-windows #toc:hover > div {
+  .ms-windows #toc-wrapper:hover > div {
     overflow-y: auto;
   }
 }
