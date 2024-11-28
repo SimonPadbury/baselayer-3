@@ -202,13 +202,14 @@ window.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-
-    if (navigator.appVersion.indexOf("Win") != -1) {
-      document.body.classList.add('ms-windows');
-    }
   </script>
 </head>
 <body class="">
+  <script>
+  if (navigator.appVersion.indexOf("Win") != -1) {
+      document.body.classList.add('ms-windows');
+    }
+  </script>
   <!-- Current page: /baselayer-3/typography/ -->
 
   <a href="#content-wrap" tabindex="1" class="block p-2 visually-hidden">Skip to page content</a>
