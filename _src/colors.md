@@ -9,17 +9,15 @@ nextLink: "Forms"
 
 ---
 
-<div aria-label="Note" class="popout mb-2 bl-heavy b-blue b-200 b-dark-invert p-3 bg-blue bg-100 bg-dark-invert">
-  Since March 2023, all “evergreen” browsers (Chrome, Edge, Firefox, Safari) have capability for the new <code>color-mix()</code> function (see <a href="https://caniuse.com/?search=color-mix()">Can I use</a>). Baselayer uses this function to set up a range of shades for its built-in (example) colors.
-</div>
+`color-mix(in OKLCH ... )` has been [Baseline:widely available](https://developer.mozilla.org/en-US/docs/Glossary/Baseline/Compatibility) since March 2023 — all “evergreen” browsers (Chrome, Edge, Firefox, Safari) have capability to use it (see [Can I use](https://caniuse.com/?search=color-mix())). Baselayer uses this function to set up a range of lightness levels for its built-in colors.
 
 ## Rationale for Baselayer’s color system
 
 I wanted to develop a color system based on interpolating CSS variables for generating a series _lightness levels_ for each color, so that the stylesheet doesn’t need to be loaded with lighness classes for every color — most of which you’d never use.
 
-After experimenting with variables in _lightness channels_ within color codes, I discovered the new (mid-2023) [color-mix function](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/color-mix). Using `color-mix()` has proved to be better suited to what I was trying to do. With it we can build a series of lightness levels by mixing in white (tints) or black (shades).
+After experimenting with variables in _lightness channels_ within color codes, I discovered the new (mid-2023) [color-mix() function](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/color-mix). Using `color-mix()` is better suited to what I was trying to do. With it we can build a series of lightness levels by mixing in white (for tints) or black (for shades).
 
-For repeatability in Baselayer CSS, starting color swatches need to have a mid-range lightness level, but they can be specified using any system. Currently, Baselayer default colors are set using Hex `#` codes. And the color-mix function now outputs colors in [OKLCH](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/oklch) using `color-mix(in OKLCH ...)` because I this gives perceptually uniform lightness levels.
+For usefulness in Baselayer CSS, starting color swatches need to have a mid-range lightness level, but they can be specified using any system (currently, Baselayer default colors are set using Hex `#` codes). And the color-mix function now outputs colors in [OKLCH](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/oklch) using `color-mix(in OKLCH ...)` because I this gives perceptually uniform lightness levels.
 
 The color utility CSS class names remain the same as before (explained below). Example using background `bg-*` utility classes:
 

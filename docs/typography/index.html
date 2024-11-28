@@ -349,14 +349,23 @@ window.addEventListener("DOMContentLoaded", () => {
 <p>The Baselayer docs make use of JavaScript and some extra CSS to enable a demo toggle, so that you can switch between <code>--base</code> and <code>--prose</code> in this main content area — see main menu.</p>
 <p>Font stack usage in Baselayer:</p>
 <ul>
-<li>The base font stack <code>--ff-base</code> is set in the <code>&lt;body&gt;</code> tag and via the <code>t-base</code> utility class. It is also set on form inputs and on heading tags (using <code>--h-lh</code> so that you can override all six headings at once).</li>
-<li>The prose is only available via the <code>t-prose</code> utility class.</li>
+<li>The base font stack <code>--ff-base</code> is set in the <code>&lt;body&gt;</code> tag and via the <code>t-base</code> utility class. It is also set on form inputs and on heading tags (using <code>--h-ff: inherit;</code> so that you can override and set a different heading typeface).</li>
+<li>The prose is only available via the <code>t-prose</code> utility class. Employ it on your <code>&lt;article&gt;</code> tag, or wherever you need.</li>
 <li>The monotype is available via the <code>&lt;code&gt;</code>, <code>&lt;kbd&gt;</code>, and <code>&lt;samp&gt;</code> HTML tags, and in the <code>t-mono</code> utility class.</li>
 </ul>
 <h3 id="setting-font-stacks" tabindex="-1">Setting font stacks</h3>
 <p>In choosing your own font stacks, you will probably need two fonts that have similar <em>x-height</em>, so that you can set them using the same font size and line-height. Some other factors to compare are hights for lowercase ascenders and descenders, letter width, and stroke thickness.</p>
-<p>If you want to stick with using native font stacks, the <a href="https://modernfontstacks.com">Modern Font Stacks</a> website has several examples that you can easily copy.</p>
-<p>In choosing your own typefaces from elsewhere, a good place to start is by pairing serif and sans-serif (or slab serif) fonts of the same typeface, if both are available. <a href="https://fonts.google.com">Google Fonts</a> has several such typefaces to choose from.</p>
+<p>If you want to stick with using native font stacks (i.e. those that come with computers, tablets, and phones), then the <a href="https://modernfontstacks.com">Modern Font Stacks</a> website has several examples that you can easily copy.</p>
+<p>In choosing your own typefaces from elsewhere, a good place to start is by pairing serif and sans-serif (or slab serif) fonts of the same typeface, if both are available. <a href="https://fonts.google.com">Google Fonts</a> has several such typefaces to choose from, such as:</p>
+<ul>
+<li>Alegreya and Alegreya Sans</li>
+<li>IBM Plex and IBM Plex Sans</li>
+<li>Inria Serif and Inria Sans</li>
+<li>Noto Serif and Noto Sans</li>
+<li>PT Serif and PT Sans</li>
+<li>Roboto and Roboto Slab</li>
+<li>Source Sans 3 and Source Serif 4</li>
+</ul>
 <p>In Baselayer, sizes and weights for the base and prose typefaces can optionally be set independently — but you will still want them to share the same line height. For using another set of sizes and weights for prose, you will need to do some un-commenting in two files: <code>variables.css</code> and <code>typography.css</code>.</p>
 <p>So, for example:</p>
 <ul>
@@ -392,11 +401,11 @@ body{
   }
 }
 </code></pre>
-<p>(As this comfortable reading size hs now a default setting, the <code>t-long-read</code> class has been removed as no longer required.)</p>
+<p>In addition to this base font size bump to 1.125em (18px), Baselayer also has a CSS <code>clamp()</code> controllled <code>t-long-read</code> utility class to further increase the font size on larger devices, for even more comfortable reading of longform articles (see <a href="#making-text-bigger">making text bigger</a>).</p>
 <h2 id="typographic-block-elements" tabindex="-1">Typographic block elements</h2>
 <p>Most typographic blocks have zero top margin, and bottom margin set to <code>var(--s-2)</code> (1rem).</p>
 <h3 id="headings" tabindex="-1">Headings</h3>
-<p>Example heading sizes (using utility classes, so that they don’t show up in the automatic table-of-contents generator):</p>
+<p>Example heading sizes:</p>
 <p class="h1">Heading h1</p>
 <p class="h2">Heading h2</p>
 <p class="h3">Heading h3</p>
@@ -410,7 +419,7 @@ body{
 <li>Headings font weight is set using <code>--h-fw: var(--fwsemibold)</code> — which you can also override.</li>
 <li>Headings line heights set using the formula <code>1em + 0.5rem</code>.</li>
 <li>Headings have their bottom margin set the same as for paragraphs, <code>var(t--mb)</code>. The top margin for <code>&lt;h2&gt;</code> thorugh <code>&lt;h6&gt;</code> is double that — except then used as immediate child items of the <a href="/baselayer-3/layout/#content-grid">content-grid</a> where the top margin is reduced to <code>var(t--mb)</code>. This is because <em>margin collapse</em> is prevented by CSS grid. (And the top margin of <code>&lt;h2&gt;</code> is totally removed when it’s the first immediate child of a <code>.content-grid</code>.)</li>
-<li>Matching utility classes <code>h2</code> to <code>h6</code> only affect font-size. These utilities do not include margin or font-weight styling.</li>
+<li>The matching utility classes <code>h2</code> to <code>h6</code> only affect font-size. These utilities do not include margin or font-weight styling.</li>
 </ul>
 <pre><code class="language-css">:root {
   --h1: 2.25em;
@@ -428,10 +437,10 @@ body{
 <p>Tips:</p>
 <ol>
 <li>In some contexts (e.g. in card components) you may not want any built-in spacing for typographic block elements. Then, you can remove margins by using the <code>m-0</code> utility class.</li>
-<li>You can also remove top margin “remotely” e.g. you can target the first item inside its wrapper using <code>.your-wrapper:first-child { margin-top: 0; }</code>, or the first sibling after the <code>&lt;header&gt;</code> or <code>&lt;h1&gt;</code> e.g. as I have done in Baselayer: <code>.content-grid &gt; h2:first-child { margin-top: 0; }</code>.</li>
+<li>You can also remove top margin indirectly: e.g. you can target the first item inside its wrapper using <code>.your-wrapper:first-child { margin-top: 0; }</code>, or the first sibling after the <code>&lt;header&gt;</code> or <code>&lt;h1&gt;</code>. Same as I have done in Baselayer at <code>.content-grid &gt; h2:first-child { margin-top: 0; }</code>.</li>
 </ol>
 <h3 id="block-quotes" tabindex="-1">Block quotes</h3>
-<p>Baselayer styles <code>&lt;blockquote&gt;</code> tags with some inline (x-axis) padding, to give the effect of indentation. This inline padding is set using the container-responsive spacing variable <code>--s-3</code> so that it increases if there is more available width.</p>
+<p>Baselayer styles <code>&lt;blockquote&gt;</code> tags with some inline (x-axis) padding, to give the effect of indentation. This inline padding is set using the container-responsive spacing variable <code>--s-4</code> so that it increases if there is more available width.</p>
 <p>Otherwise, blockquotes have the same as paragraph styling.</p>
 <blockquote>
 <p>Lorem ipsum dolor sit amet, adipiscing honestatis ius ut, nisl consulatu pro in. Imperdiet evertitur no usu, his te suavitate salutatus. Nullam ridens deterruisset an duo. Cum harum insolens ei, cum probo placerat praesent et.</p>
@@ -480,7 +489,7 @@ body{
   &lt;li&gt;Unordered item&lt;/li&gt;
 &lt;/ul&gt;
 </code></pre>
-<p>For definition lists, the title is bold and the data-item is indented with the same left padding as for the lists (see above).</p>
+<p>For definition lists, the title is bold and the definition data item is indented with the same left padding as for the lists (see above).</p>
 <dl>
   <dt>Definition list title</dt>
   <dd>Definition list data</dd>
@@ -495,21 +504,26 @@ body{
 &lt;/dl&gt;
 </code></pre>
 <h2 id="the-link-tag" tabindex="-1">The link tag</h2>
-<p>The default underline for links has been moved downwards slightly to improve legibility. The link decoration (underline) thickness has been set at 1px, so that it doesn’t become thicker when used on larger text (e.g. in headings) where link underline can be too bulky). On <code>:hover</code>, the link text color becomes slightly darker and underline becomes thicker, increasing to 3px. All these styles are controlled by CSS variables so that you can change them.</p>
+<p>The default underline for links has been moved downwards slightly to improve legibility. The link decoration (underline) thickness has been set at 1px, so that it doesn’t become thicker when used on larger text (e.g. in headings) where link underline can be too bulky).</p>
+<p>On <code>:hover</code>, the link text color becomes slightly darker and underline becomes thicker, increasing to 3px. This thickening of the line helps people who don't see the slight color change.</p>
+<p>All these styles are controlled by CSS variables so that you can change them.</p>
+<ul>
+<li><a href="">This is a link to nowhere</a></li>
+</ul>
 <p>Then there are the following two classes that apply to links, that may be handy in some situations:</p>
 <ul>
 <li><a class="t-no-underline" href="">This link has no underline</a> — <code>t-no-underline</code></li>
 <li><a class="t-underline-hover-only" href="">This link has no underline unless hovered</a> — <code>t-underline-hover-only</code></li>
 </ul>
-<div aria-label="Warning" class="popout my-3 bl-heavy b-amber b-400 b-dark-invert p-3 bg-amber bg-200 bg-dark-invert">The browser default, and the best practice for accessability, is to have links indicated by an underline (and the default color of links is blue). But in the context of menus it is permissible to deviate from the best practice, provided there are other visual and non-visual indicators. This is the reason why we should use semantic HTML tags on menus, and and why we should place navigation menus in their expected locations (in sitewide menubar ribbons, sidebars, and footers.</div>
+<p>The browser default, and the best practice for accessability, is to have links indicated by an underline (and the browser default color of links is blue). But in the context of menus it is permissible to deviate from the best practice, provided there are other visual and non-visual indicators. This is the reason why we should use <a href="https://www.codecademy.com/resources/blog/semantic-html/">semantic HTML</a> tags on menus, and and why we should place navigation menus in their expected locations (in sitewide menubar ribbons, sidebars, and footers.</p>
 <h2 id="menus" tabindex="-1">Menus</h2>
 <ul>
 <li><code>nav</code> / <code>&lt;menu&gt;</code> / <code>&lt;menuitem&gt;</code></li>
 </ul>
 <p>The semantic <code>&lt;nav&gt;</code> tag has no styling of its own, other than its being a block element (similar to a <code>div</code>). Use it to organize your major navigation blocks of links (whether to other pages in your website, or “on this page”).</p>
 <p>Semantic <code>&lt;menu&gt;</code> tags are treated by the browser as no different to an <code>&lt;ul&gt;</code>, but they are announced as a menu by <a href="https://web.dev/articles/semantics-and-screen-readers">screen readers</a>. Baselayer gives <code>&lt;menu&gt;</code>, <code>&lt;ul&gt;</code>, and <code>&lt;ol&gt;</code> the same styling: some left padding and bottom margin (and you can remove these you don't require them, using <a href="/baselayer-3/decoration/#spacing">spacing utility classes</a>).</p>
-<p>Using an <code>&lt;li&gt;</code> within a <code>&lt;menu&gt;</code> will give you bulletpoint block items. This will be OK for sidebars and dropdown menus, for example, but there’s also the <code>&lt;menuitem&gt;</code> tag. This is an inline tag (like a <code>&lt;span&gt;</code>), and it doesn’t come with a bulletpoint.</p>
-<p>This is what you get if you add no styling, other than the Baselayer defaults (but you will want to add more styling):</p>
+<p>Using an <code>&lt;li&gt;</code> within a <code>&lt;menu&gt;</code> will give you bulletpoint block items. This will be OK for sidebars and dropdown menus, for example, but there’s also the <code>&lt;menuitem&gt;</code> tag. This is an inline tag (like a <code>&lt;span&gt;</code> but semantic for menu items), and it doesn’t come with a bulletpoint.</p>
+<p>This is what you get if you add no styling, other than the Baselayer defaults (but of course you will want to add more styling):</p>
 <nav class="my-3">
   <menu>
     <menuitem><a href="">Menu item 1</a></menuitem>
@@ -525,7 +539,12 @@ body{
   &lt;/menu&gt;
 &lt;/nav&gt;
 </code></pre>
-<p>(<strong>Note:</strong> inside a <code>&lt;menuitem&gt;</code> can be a link, a button, or other interactive element in a user interface for a web application.)</p>
+<p>Notes:</p>
+<ol>
+<li>Use <code>&lt;nav&gt;</code> to encapsulate your main navigation and “on this page” navigation. Navs can contain more than one menu, e.g. in dropdowns. The website or brand logo (with a link to the homepage) can be situated within the top <code>&lt;nav&gt;</code> but outside of the menu.</li>
+<li>The <code>&lt;menu&gt;</code> tag can be used in other contexts, e.g. for a list of related links to other websites, or for a set of user interface controls in a web application.</li>
+<li>Inside a <code>&lt;menuitem&gt;</code> can be a link, a button, or other interactive element.</li>
+</ol>
 <p>If you want the group of links to not have underlines, or to have underlines only when hovered (because you intend to style them differently in your menu):</p>
 <ul>
 <li><code>links-not-underlined</code></li>
@@ -565,7 +584,7 @@ body{
 <ul>
 <li><code>t-right</code>, <code>t-center</code>, and <code>t-left</code></li>
 </ul>
-<p>In addition to the (default) text alignment classes above, Baselayer also has several container-query responsive variants, for <code>xs:</code>, <code>sm:</code>, <code>md:</code> and <code>lg:</code> container breakpoints widths.</p>
+<p>In addition to the three simple text alignment classes above, Baselayer also has several container-query responsive variants, for <code>xs:</code>, <code>sm:</code>, <code>md:</code> and <code>lg:</code> container breakpoints widths.</p>
 <p>Example: The hearing in the card below is left aligned by default, but becomes center aligned when its <em>container</em> is <code>sm</code> (640px) wide and above, using <code>sm:t-center</code>:</p>
 <div class="my-3 resize-x">
 <div class="container p-2 bg-amber bg-100 bg-dark-invert">
@@ -676,6 +695,36 @@ body{
 </table>
 <h3 id="making-wide-tables-responsive" tabindex="-1">Making wide tables responsive</h3>
 <p>If you have a lot of content in your table, it will probably break your page layout on small viewports (e.g. phones). The simplest way to make a table “responsive” is to wrap your table in a DIV with the <code>overflow-x</code> class to make it horizontally scrollable.</p>
+<div class="mt-3 mb-4 overflow-x">
+  <table class="table table-grid">
+    <thead>
+      <th>Column title</th>
+      <th>Column title</th>
+      <th>Column title</th>
+      <th>Column title</th>
+      <th>Column title</th>
+      <th>Column title</th>
+      <th>Column title</th>
+      <th>Column title</th>
+      <th>Column title</th>
+      <th>Column title</th>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Tabel cell content</td>
+        <td>Tabel cell content</td>
+        <td>Tabel cell content</td>
+        <td>Tabel cell content</td>
+        <td>Tabel cell content</td>
+        <td>Tabel cell content</td>
+        <td>Tabel cell content</td>
+        <td>Tabel cell content</td>
+        <td>Tabel cell content</td>
+        <td>Tabel cell content</td>
+      </tr>
+    <tbody>
+  </table>
+</div>
 <pre><code class="language-html">&lt;div class=&quot;overflow-x&quot;&gt;
   &lt;table class=&quot;table&quot;&gt;
     ...
@@ -687,12 +736,12 @@ body{
 <p>Additionally:</p>
 <ol>
 <li>There’s a <code>t-lg</code> class that can be used to make text 1.325em — good for a lead paragraph or important messaging.</li>
-<li>Classes <code>.h1</code> through <code>.h6</code> will resize text the same amount as for heading tag sizes — use when you want to make text larger (or large text smaller) without adversly affecting the SEO heading hierarchy.</li>
+<li>Classes <code>.h1</code> through <code>.h6</code> will resize text the same amount as for heading tag sizes — use when you want to make text larger (or large text smaller) without adversly affecting accessibility/ SEO heading hierarchy.</li>
 <li>The <code>t-display</code> wrapping class uses a <code>clamp()</code> to raise text from starting size 1.25em up to 1.625rem depending on container size — e.g. used for responsively increasing text size in hero components. An <code>&lt;h1&gt;</code> inside a <code>t-display</code> will have maximum font size 72px.</li>
 </ol>
 <p>The <code>t-display</code> text size clamp have been calculated using Petter Walbø Johnsgård’s <a href="https://clamp.font-size.app/">Font-size Clamp Generator</a> and changed to a container query width controlled <code>cqi</code> unit instead of viewport-width controlled <code>vm</code>.</p>
 <h2 id="code" tabindex="-1">Code</h2>
-<p><code>&lt;code&gt;</code> tags have monospaced text over a pale blue background (set by <code>--cbgcode</code>) with a little padding to improve readability.</p>
+<p><code>&lt;code&gt;</code> tags have monospaced text (set by <code>--ff-mono</code>) over a white or black background (in light or dark modes), with a thin border and a little padding to improve readability.</p>
 <p>If the <code>&lt;code&gt;</code> tag is wrapped in a <code>&lt;pre&gt;</code> tag, then it becomes a block level element with more padding, a max-width of 100%, and y-axis overflow scrolling.</p>
 <h2 id="other-typographic-utility-classes" tabindex="-1">Other typographic utility classes</h2>
 <p>Besides those already introduced, Baselayer also has utility classes for:</p>

@@ -14,29 +14,27 @@ Ready to use as-is, Baselayer’s {{ metadata.filesize }} (minified) stylesheet 
 
 * A modern CSS reset
 * Minimalist styled classless typographic, and form elements
-* Foundational accessibility features: outline based focus fings and a `visually-hidden` class
+* Reliable accessibility features for assistive technology users
 * A lightweight system of utility classes for controlling dimensions, positioning, flexbox, spacing, borders, text, images, and colors
 * Container query responsive layouts using CSS grid
-* Responsive typography and spacing (margins, paddings, gaps) clases controlled by `clamp()`
-* A `color-mix(in OKLCH)` based shade scale system for utilities for text, borders, and backgrounds
-* Built-in dark mode using `light-dark()`
-* Control of many of these things using CSS `var()` (custom properties)
+* Responsive typography, layout, and spacing
+* A compact color lightness system for text, borders, and backgrounds
+* Built-in dark mode
+* Theming control using CSS variables
 * And more
 
-## Using several modern CSS technologies
+## Modern CSS technologies
 
-Such as:
+Baselayer supports only up-to-date (2023 forward) [baseline compatibility](https://developer.mozilla.org/en-US/docs/Glossary/Baseline/Compatibility) web browsers (Safari, Firefox, Chrome, Edge, etc.). Such as:
 
 * [Container queries (inline-size)](https://caniuse.com/css-container-queries)
-* [Grid](https://caniuse.com/css-grid)
+* [CSS Grid](https://caniuse.com/css-grid)
 * [Math functions (e.g. clamp)](https://caniuse.com/?search=css%20math%20functions)
 * [Custom properties (variables)](https://caniuse.com/css-variables)
 * [color-mix() function](https://caniuse.com/?search=color-mix())
 * [light-dark() function](https://caniuse.com/mdn-css_types_color_light-dark)
 * [CSS class nesting](https://caniuse.com/css-nesting)
 * [Cascade layers](https://caniuse.com/css-cascade-layers)
-
-Baselayer supports only up-to-date (2023 forward) [baseline compatibility](https://developer.mozilla.org/en-US/docs/Glossary/Baseline/Compatibility) web browsers (Safari, Firefox, Chrome, Edge, etc.).
 
 ## Baselayer’s design philosophy
 
@@ -117,12 +115,12 @@ The `visually-hidden` is used to provide additional content for screen-readers, 
 ```
 <a href="#main-content"
   tabindex="1"
-  class="inline-block m-1 visually-hidden"
+  class="block p-2 visually-hidden"
 >
-  Skip to main content
+  Skip to page content
 </a>
 
-<!-- Logo and site menu go in here -->
+<!-- Logo and site navigation menu here -->
 
 <div id="main-content">
   ...

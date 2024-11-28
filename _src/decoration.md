@@ -10,7 +10,7 @@ nextLink: "Colors"
 
 ## Spacing
 
-[Box model](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Introduction_to_the_CSS_box_model) margin and padding spacing have both 4 levels based on 4 CSS variables. These spacing variables are also used for gaps (in flexbox and the grid system), and for border radius utilities.
+[Box model](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Introduction_to_the_CSS_box_model) margin and padding spacing have both 4 levels based on 4 CSS variables. These same spacing variables are also used for gaps (in flexbox and the grid system), and for border radius utilities.
 
 The smallest level simply adds 0.5rem spacing, whereas levels 2 thorugh 4 increase responsively depending how how much width is available, using `clamp()` functions to ramp up to 1.5× their base size.
 
@@ -93,13 +93,13 @@ Both margin and padding spacers are controlled on the 4 sides of blocks, as foll
 * Inline axis, or x-axis (right and left): `mx-1` through `mx-4` / `px-4` through `px-4`
 * Block axis, or y-axis (top and bottom): `my-1` through `my-4` / `py-4` through `py-4`
 
-The zero `*-0` options (top, roght, bottom, or left) are for removing (resetting) unwanted margin and padding.
+The zero `*-0` options (top, right, bottom, left) are for removing (resetting) unwanted margin and padding.
 
 ### Spacing extras
 
 In addition, there are the following specials:
 
-* `p-cell` — adds y-axis padding `--s-1` and x-axis padding of double `--s-1` for creating menu items. Same as the padding for table cells and buttons
+* `p-cell` — adds y-axis padding `--s-1` and x-axis padding of 2 × `--s-1` for creating menu items. Same as the padding for table cells and buttons
 * `mx-auto` — for x-axis margin auto-centering
 
 ## Borders
@@ -132,25 +132,24 @@ All Baselayer border radius classes apply their border radius _potentially to al
 
 The first five border radius classes below supply the property `border-{...}-radius` and the default spacing variable `--s-1` (0.5rem).
 
-* `rad`, `rad-1` — `border-radius:` (all) `--s-1` (0.5rem)
-* `rad-tl` — `border-top-left-radius: `--s-1`
-* `rad-tr` — `border-top-right-radius: `--s-1`
-* `rad-br` — `border-bottom-right-radius: `--s-1`
-* `rad-bl` — `border-bottom-left-radius: `--s-1`
+* `rad`, alias `rad-1` — `border-radius:` (all) `--s-1` (0.5rem)
+* `rad-tl` — `border-top-left-radius:` `--s-1`
+* `rad-tr` — `border-top-right-radius:` `--s-1`
+* `rad-br` — `border-bottom-right-radius:` `--s-1`
+* `rad-bl` — `border-bottom-left-radius:` `--s-1`
 
 Then there are five modifier classes. These only supply a spacing variable — they do not contain the `border-{...}-radius` property. Therefore, they need to be paired with (at least) one of the five border radius utilities above.
 
-* `rad-xs` — `--s-xs` 0.25rem
-* `rad-2` — `--s-2` clamp(1rem, 0.5rem + 1.25cqi, 1.5rem)
-* `rad-3` — `--s-3` clamp(2rem, 1rem + 2.5cqi, 3rem)
-* `rad-4` — `--s-4` clamp(3rem, 1.5rem + 3.75cqi, 4.5rem)
+* `rad-1` — `--s-1` 0.25rem
+* `rad-2` — `--s-1` 0.5rem
+* `rad-3` — `--s-2` clamp(1rem, 0.5rem + 1.25cqi, 1.5rem)
+* `rad-4` — `--s-3` clamp(2rem, 1rem + 2.5cqi, 3rem)
 * `rad-pill` — `--s-pill` 99rem
 
 Examples:
 
 <div class="expand mt-2 mb-3 grid xs:equal-2-cols sm:equal-3-cols gap-1">
-  <div class="b-thin rad rad-xs px-2 py-4"><code>rad rad-xs</code></div>
-  <div class="b-thin rad px-2 py-4"><code>rad</code> or <code>rad-1</code></div>
+  <div class="b-thin rad px-2 py-4"><code>rad</code> or <code> rad rad-1</code></div>
   <div class="b-thin rad rad-2 px-2 py-4"><code>rad rad-2</code></div>
   <div class="b-thin rad rad-3 px-2 py-4"><code>rad rad-3</code></div>
   <div class="b-thin rad rad-4 px-2 py-4"><code>rad rad-4</code></div>
@@ -158,6 +157,7 @@ Examples:
   <div class="b-thin rad-tl rad-br rad-3 px-2 py-4"><code>rad-tl rad-br rad-3</code></div>
   <div class="b-thin rad-tl rad-bl rad-pill px-2 py-4"><code>rad-tl rad-bl rad-pill</code></div>
   <div class="b-thin rad-tr rad-pill px-2 py-4"><code>rad-tr rad-pill</code></div>
+  <div class="b-thin rad-br rad-bl rad-pill px-2 py-4"><code>rad-br rad-bl rad-pill</code></div>
 </div>
 
 If the element is a square, then `rad rad-pill` makes a circle.
@@ -165,10 +165,6 @@ If the element is a square, then `rad rad-pill` makes a circle.
 <div class="w-xxs mx-auto mb-4">
 <div class="b-thin aspect-ratio-1x1 rad rad-pill p-4 flex flex-center flex-middle"><code>rad <span class="t-nowrap">rad-pill</span></code></div>
 </div>
-
-### Rounded corners extra
-
-* `unrounded` — in some sutuations (e.g. if you code-in rounded corners on form elements and buttons), you may need to remove rounded corners with `unrounded`.
 
 ## The `img-cover` class
 

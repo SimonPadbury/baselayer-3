@@ -329,14 +329,14 @@ window.addEventListener("DOMContentLoaded", () => {
           <nav id="toc-wrapper" class="sticky top wrapper-sm h-max-100dvh mb-3 pr-2 links-underlined-hover-only overflow-y">
             <p class="h4 t-semibold">On this page</p>
             <nav class="toc" >
-        <ul><li><a href="#spacing">Spacing</a><ul><li><a href="#spacing-extras">Spacing extras</a></li></ul></li><li><a href="#borders">Borders</a><ul><li><a href="#border-extra">Border extra</a></li></ul></li><li><a href="#rounded-corners">Rounded corners</a><ul><li><a href="#rounded-corners-extra">Rounded corners extra</a></li></ul></li><li><a href="#the-img-cover-class">The img-cover class</a></li><li><a href="#opacity">Opacity</a></li></ul>
+        <ul><li><a href="#spacing">Spacing</a><ul><li><a href="#spacing-extras">Spacing extras</a></li></ul></li><li><a href="#borders">Borders</a><ul><li><a href="#border-extra">Border extra</a></li></ul></li><li><a href="#rounded-corners">Rounded corners</a></li><li><a href="#the-img-cover-class">The img-cover class</a></li><li><a href="#opacity">Opacity</a></li></ul>
       </nav>
           </nav>
         </div>
         <div class="lg:col-span-3">
           <main id="article-content" class="content-grid">
             <h2 id="spacing" tabindex="-1">Spacing</h2>
-<p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Introduction_to_the_CSS_box_model">Box model</a> margin and padding spacing have both 4 levels based on 4 CSS variables. These spacing variables are also used for gaps (in flexbox and the grid system), and for border radius utilities.</p>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Introduction_to_the_CSS_box_model">Box model</a> margin and padding spacing have both 4 levels based on 4 CSS variables. These same spacing variables are also used for gaps (in flexbox and the grid system), and for border radius utilities.</p>
 <p>The smallest level simply adds 0.5rem spacing, whereas levels 2 thorugh 4 increase responsively depending how how much width is available, using <code>clamp()</code> functions to ramp up to 1.5× their base size.</p>
 <p>The middle ramp within the clamp uses container query dependant units, <code>cqi</code>. This will either take effect from the container query context on the <code>&lt;body&gt;</code> tag, or from any inner <code>container</code> classes that may be added on block elements (see <a href="/baselayer-3/layout/#container-query-contexts">Layouts/ container query contexts</a>).</p>
 <pre><code class="language-css">:root {
@@ -410,11 +410,11 @@ window.addEventListener("DOMContentLoaded", () => {
 <li>Inline axis, or x-axis (right and left): <code>mx-1</code> through <code>mx-4</code> / <code>px-4</code> through <code>px-4</code></li>
 <li>Block axis, or y-axis (top and bottom): <code>my-1</code> through <code>my-4</code> / <code>py-4</code> through <code>py-4</code></li>
 </ul>
-<p>The zero <code>*-0</code> options (top, roght, bottom, or left) are for removing (resetting) unwanted margin and padding.</p>
+<p>The zero <code>*-0</code> options (top, right, bottom, left) are for removing (resetting) unwanted margin and padding.</p>
 <h3 id="spacing-extras" tabindex="-1">Spacing extras</h3>
 <p>In addition, there are the following specials:</p>
 <ul>
-<li><code>p-cell</code> — adds y-axis padding <code>--s-1</code> and x-axis padding of double <code>--s-1</code> for creating menu items. Same as the padding for table cells and buttons</li>
+<li><code>p-cell</code> — adds y-axis padding <code>--s-1</code> and x-axis padding of 2 × <code>--s-1</code> for creating menu items. Same as the padding for table cells and buttons</li>
 <li><code>mx-auto</code> — for x-axis margin auto-centering</li>
 </ul>
 <h2 id="borders" tabindex="-1">Borders</h2>
@@ -441,24 +441,23 @@ window.addEventListener("DOMContentLoaded", () => {
 <p><strong>Tip:</strong> If you are putting rounded corners on a block element that contains an image, you will also need to add <code>overflow-clip</code>.</p>
 <p>The first five border radius classes below supply the property <code>border-{...}-radius</code> and the default spacing variable <code>--s-1</code> (0.5rem).</p>
 <ul>
-<li><code>rad</code>, <code>rad-1</code> — <code>border-radius:</code> (all) <code>--s-1</code> (0.5rem)</li>
-<li><code>rad-tl</code> — <code>border-top-left-radius: </code>--s-1`</li>
-<li><code>rad-tr</code> — <code>border-top-right-radius: </code>--s-1`</li>
-<li><code>rad-br</code> — <code>border-bottom-right-radius: </code>--s-1`</li>
-<li><code>rad-bl</code> — <code>border-bottom-left-radius: </code>--s-1`</li>
+<li><code>rad</code>, alias <code>rad-1</code> — <code>border-radius:</code> (all) <code>--s-1</code> (0.5rem)</li>
+<li><code>rad-tl</code> — <code>border-top-left-radius:</code> <code>--s-1</code></li>
+<li><code>rad-tr</code> — <code>border-top-right-radius:</code> <code>--s-1</code></li>
+<li><code>rad-br</code> — <code>border-bottom-right-radius:</code> <code>--s-1</code></li>
+<li><code>rad-bl</code> — <code>border-bottom-left-radius:</code> <code>--s-1</code></li>
 </ul>
 <p>Then there are five modifier classes. These only supply a spacing variable — they do not contain the <code>border-{...}-radius</code> property. Therefore, they need to be paired with (at least) one of the five border radius utilities above.</p>
 <ul>
-<li><code>rad-xs</code> — <code>--s-xs</code> 0.25rem</li>
-<li><code>rad-2</code> — <code>--s-2</code> clamp(1rem, 0.5rem + 1.25cqi, 1.5rem)</li>
-<li><code>rad-3</code> — <code>--s-3</code> clamp(2rem, 1rem + 2.5cqi, 3rem)</li>
-<li><code>rad-4</code> — <code>--s-4</code> clamp(3rem, 1.5rem + 3.75cqi, 4.5rem)</li>
+<li><code>rad-1</code> — <code>--s-1</code> 0.25rem</li>
+<li><code>rad-2</code> — <code>--s-1</code> 0.5rem</li>
+<li><code>rad-3</code> — <code>--s-2</code> clamp(1rem, 0.5rem + 1.25cqi, 1.5rem)</li>
+<li><code>rad-4</code> — <code>--s-3</code> clamp(2rem, 1rem + 2.5cqi, 3rem)</li>
 <li><code>rad-pill</code> — <code>--s-pill</code> 99rem</li>
 </ul>
 <p>Examples:</p>
 <div class="expand mt-2 mb-3 grid xs:equal-2-cols sm:equal-3-cols gap-1">
-  <div class="b-thin rad rad-xs px-2 py-4"><code>rad rad-xs</code></div>
-  <div class="b-thin rad px-2 py-4"><code>rad</code> or <code>rad-1</code></div>
+  <div class="b-thin rad px-2 py-4"><code>rad</code> or <code> rad rad-1</code></div>
   <div class="b-thin rad rad-2 px-2 py-4"><code>rad rad-2</code></div>
   <div class="b-thin rad rad-3 px-2 py-4"><code>rad rad-3</code></div>
   <div class="b-thin rad rad-4 px-2 py-4"><code>rad rad-4</code></div>
@@ -466,15 +465,12 @@ window.addEventListener("DOMContentLoaded", () => {
   <div class="b-thin rad-tl rad-br rad-3 px-2 py-4"><code>rad-tl rad-br rad-3</code></div>
   <div class="b-thin rad-tl rad-bl rad-pill px-2 py-4"><code>rad-tl rad-bl rad-pill</code></div>
   <div class="b-thin rad-tr rad-pill px-2 py-4"><code>rad-tr rad-pill</code></div>
+  <div class="b-thin rad-br rad-bl rad-pill px-2 py-4"><code>rad-br rad-bl rad-pill</code></div>
 </div>
 <p>If the element is a square, then <code>rad rad-pill</code> makes a circle.</p>
 <div class="w-xxs mx-auto mb-4">
 <div class="b-thin aspect-ratio-1x1 rad rad-pill p-4 flex flex-center flex-middle"><code>rad <span class="t-nowrap">rad-pill</span></code></div>
 </div>
-<h3 id="rounded-corners-extra" tabindex="-1">Rounded corners extra</h3>
-<ul>
-<li><code>unrounded</code> — in some sutuations (e.g. if you code-in rounded corners on form elements and buttons), you may need to remove rounded corners with <code>unrounded</code>.</li>
-</ul>
 <h2 id="the-img-cover-class" tabindex="-1">The <code>img-cover</code> class</h2>
 <p>The Baselayer <code>cover</code> class can be used to make an image expand or contract to fully cover a container block rectangle. It is designed for use on an <code>&lt;img src=&quot;&quot;&gt;</code> tag.</p>
 <pre><code>.img-cover {

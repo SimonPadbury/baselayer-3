@@ -64,7 +64,7 @@ A malleable grid without setting equalization on cell widths. In this example, f
   <p class="mb-1"><code>grid gap-1</code></p>
     <div class="grid gap-1">
       <div class="sm:col-1 p-cell bg-gray bg-100 bg-dark-invert"><code>sm:col-1</code> A narrow column</div>
-      <div class="sm:col-2 p-cell bg-gray bg-100 bg-dark-invert"><code>sm:col-2</code> This will be a wide column because it has a lot of content. This will be a wide column because it has a lot of content. This will be a wide column because it has a lot of content. </div>
+      <div class="sm:col-2 p-cell bg-gray bg-100 bg-dark-invert"><code>sm:col-2</code> This will expand to become a wide column because it has a lot of content. This will expand to become a wide column because it has a lot of content. This will expand to become a wide column because it has a lot of content.</div>
       <div class="sm:col-3 p-cell bg-gray bg-100 bg-dark-invert"><code>sm:col-3</code> Another narrow column</div>
   </div>
 </div>
@@ -105,22 +105,12 @@ See [typography]({{ "/typography/" | url }}). `t-lg` simply enlarges by 1.325em.
   <table class="table">
     <thead>
       <th>Default</th>
-      <th><code>t-lg</code> wrapper</th>
       <th><code>t-long-read</code> wrapper</th>
       <th><code>t-display</code> wrapper</th>
     <thead>
     <tbody>
       <tr>
         <td>
-          <h1>Heading 1</h1>
-          <h2>Heading 2</h2>
-          <h3>Heading 3</h3>
-          <h4>Heading 4</h4>
-          <h5>Heading 5</h5>
-          <h6>Heading 6</h6>
-          <p>Paragraph. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni rem animi quaerat accusantium illum architecto, nemo, ex harum voluptatum adipisci eum blanditiis dolorum. Natus debitis quisquam, expedita accusantium quos cumque?</p>
-        </td>
-        <td class="t-lg">
           <h1>Heading 1</h1>
           <h2>Heading 2</h2>
           <h3>Heading 3</h3>
@@ -210,7 +200,7 @@ See [typography]({{ "/typography/" | url }}). `t-lg` simply enlarges by 1.325em.
   <h3 class="h1">Title of this <code>content-grid</code> demo</h3>
   <p><code>content-grid</code> is intended for long-form articles. Its 7-column grid places the content in column 4, where each immediate-child elment will be its own grid item. <code>popout</code> spans rows 3-5. <code>expand</code> spans rows 2-6. <code>full-bleed</code> spans rows 1-7.</p>
   <p>Here’s a styled <code>&lt;p class="popout"&gt;</code>:</p>
-  <div aria-label="Note" class="popout mt-2 mb-3 bt-heavy b-blue b-300 b-dark-invert r-1 p-2 t-black t-dark-invert bg-gray bg-100 bg-dark-invert">
+  <div aria-label="Note" class="popout mt-2 mb-3 bt-heavy b-blue b-300 b-dark-invert rad rad-2 p-2 t-black t-dark-invert bg-gray bg-100 bg-dark-invert">
     &star; Information panel
   </div>
   <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni rem animi quaerat accusantium illum architecto, nemo, ex harum voluptatum adipisci eum blanditiis dolorum. Natus debitis quisquam, expedita accusantium quos cumque?</p>
@@ -255,7 +245,7 @@ Styled by utility classes.
       </div>
     </div>
     <div>
-      <div class="b-thin rad">
+      <div class="b-thin rad rad-2">
         <div class="p-cell t-bold">Card category</div>
         <div class="aspect-ratio-21x9 relative">
           <svg xmlns="http://www.w3.org/2000/svg" class="absolute box img-cover" preserveAspectRatio="xMidYMid slice" width="1000" height="600"><defs><linearGradient id="gradient1" gradientTransform="rotate(45)"><stop offset="5%" stop-color="rgba(255,255,0,.5)"/><stop offset="50%" stop-color="rgba(255,255,255,0)"/><stop offset="95%" stop-color="rgba(255,0,0,.5)"/></linearGradient><linearGradient id="gradient2" gradientTransform="rotate(135)"><stop offset="5%" stop-color="rgba(0,0,255,.5)"/><stop offset="50%" stop-color="rgba(255,255,255,0)"/><stop offset="95%" stop-color="rgba(0,255,0,.5)"/></linearGradient></defs><rect width="100%" height="100%" fill="url('#gradient1')"/><rect width="100%" height="100%" fill="url('#gradient2')"/></svg>

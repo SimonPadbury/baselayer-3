@@ -329,7 +329,7 @@ window.addEventListener("DOMContentLoaded", () => {
           <nav id="toc-wrapper" class="sticky top wrapper-sm h-max-100dvh mb-3 pr-2 links-underlined-hover-only overflow-y">
             <p class="h4 t-semibold">On this page</p>
             <nav class="toc" >
-        <ul><li><a href="#introduction">Introduction</a></li><li><a href="#using-several-modern-css-technologies">Using several modern CSS technologies</a></li><li><a href="#baselayer%E2%80%99s-design-philosophy">Baselayer’s design philosophy</a></li><li><a href="#built-using-postcss">Built using PostCSS</a></li><li><a href="#a-modern-css-reset">A modern CSS reset</a></li><li><a href="#baselayer%E2%80%99s-built-in-accessibility-features">Baselayer’s built-in accessibility features</a><ul><li><a href="#(1.)-focus-states">(1.) Focus states</a></li><li><a href="#(2.)-the-visually-hidden-class">(2.) The visually-hidden class</a></li></ul></li></ul>
+        <ul><li><a href="#introduction">Introduction</a></li><li><a href="#modern-css-technologies">Modern CSS technologies</a></li><li><a href="#baselayer%E2%80%99s-design-philosophy">Baselayer’s design philosophy</a></li><li><a href="#built-using-postcss">Built using PostCSS</a></li><li><a href="#a-modern-css-reset">A modern CSS reset</a></li><li><a href="#baselayer%E2%80%99s-built-in-accessibility-features">Baselayer’s built-in accessibility features</a><ul><li><a href="#(1.)-focus-states">(1.) Focus states</a></li><li><a href="#(2.)-the-visually-hidden-class">(2.) The visually-hidden class</a></li></ul></li></ul>
       </nav>
           </nav>
         </div>
@@ -341,20 +341,20 @@ window.addEventListener("DOMContentLoaded", () => {
 <ul>
 <li>A modern CSS reset</li>
 <li>Minimalist styled classless typographic, and form elements</li>
-<li>Foundational accessibility features: outline based focus fings and a <code>visually-hidden</code> class</li>
+<li>Reliable accessibility features for assistive technology users</li>
 <li>A lightweight system of utility classes for controlling dimensions, positioning, flexbox, spacing, borders, text, images, and colors</li>
 <li>Container query responsive layouts using CSS grid</li>
-<li>Responsive typography and spacing (margins, paddings, gaps) clases controlled by <code>clamp()</code></li>
-<li>A <code>color-mix(in OKLCH)</code> based shade scale system for utilities for text, borders, and backgrounds</li>
-<li>Built-in dark mode using <code>light-dark()</code></li>
-<li>Control of many of these things using CSS <code>var()</code> (custom properties)</li>
+<li>Responsive typography, layout, and spacing</li>
+<li>A compact color lightness system for text, borders, and backgrounds</li>
+<li>Built-in dark mode</li>
+<li>Theming control using CSS variables</li>
 <li>And more</li>
 </ul>
-<h2 id="using-several-modern-css-technologies" tabindex="-1">Using several modern CSS technologies</h2>
-<p>Such as:</p>
+<h2 id="modern-css-technologies" tabindex="-1">Modern CSS technologies</h2>
+<p>Baselayer supports only up-to-date (2023 forward) <a href="https://developer.mozilla.org/en-US/docs/Glossary/Baseline/Compatibility">baseline compatibility</a> web browsers (Safari, Firefox, Chrome, Edge, etc.). Such as:</p>
 <ul>
 <li><a href="https://caniuse.com/css-container-queries">Container queries (inline-size)</a></li>
-<li><a href="https://caniuse.com/css-grid">Grid</a></li>
+<li><a href="https://caniuse.com/css-grid">CSS Grid</a></li>
 <li><a href="https://caniuse.com/?search=css%20math%20functions">Math functions (e.g. clamp)</a></li>
 <li><a href="https://caniuse.com/css-variables">Custom properties (variables)</a></li>
 <li><a href="https://caniuse.com/?search=color-mix()">color-mix() function</a></li>
@@ -362,7 +362,6 @@ window.addEventListener("DOMContentLoaded", () => {
 <li><a href="https://caniuse.com/css-nesting">CSS class nesting</a></li>
 <li><a href="https://caniuse.com/css-cascade-layers">Cascade layers</a></li>
 </ul>
-<p>Baselayer supports only up-to-date (2023 forward) <a href="https://developer.mozilla.org/en-US/docs/Glossary/Baseline/Compatibility">baseline compatibility</a> web browsers (Safari, Firefox, Chrome, Edge, etc.).</p>
 <h2 id="baselayer%E2%80%99s-design-philosophy" tabindex="-1">Baselayer’s design philosophy</h2>
 <p>The design philosophy behind the Baselayer CSS project is as follows:</p>
 <ul>
@@ -427,12 +426,12 @@ window.addEventListener("DOMContentLoaded", () => {
 <p>The <code>visually-hidden</code> is used to provide additional content for screen-readers, for improved accessibility. For example, it is best practice to have “skip link” above the top navigation bar on your website, but have it (visually) hidden for ably sighted users.</p>
 <pre><code>&lt;a href=&quot;#main-content&quot;
   tabindex=&quot;1&quot;
-  class=&quot;inline-block m-1 visually-hidden&quot;
+  class=&quot;block p-2 visually-hidden&quot;
 &gt;
-  Skip to main content
+  Skip to page content
 &lt;/a&gt;
 
-&lt;!-- Logo and site menu go in here --&gt;
+&lt;!-- Logo and site navigation menu here --&gt;
 
 &lt;div id=&quot;main-content&quot;&gt;
   ...

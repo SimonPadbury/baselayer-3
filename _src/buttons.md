@@ -155,7 +155,7 @@ For icon-only buttons, add the CSS class  `btn-icon` and have only a single char
 
 ## Pill buttons
 
-The `r-pill` class on a square icon button will make it circular. (See [decoration: rounded corners](/baselayer-3/decoration/#rounded-corners).)
+Putting `rad rad-pill` on a square icon button will make it circular. (See [decoration: rounded corners](/baselayer-3/decoration/#rounded-corners).)
 
 <form>
   <p class="flex flex-middle">
