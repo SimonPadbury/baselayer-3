@@ -11,7 +11,8 @@
 
 ## v.3.4.0 -- 27 November 2024
 
-* Focus styling is now based on NHS.uk / GOV.UK design systems
+* Focus state styling is now based on UK National Health Service nhs.uk and UK Government GOV.UK design systems.
+* Amber is now closer to yellow, as it is used for focus backgrounds and rings.
 * Everything is in a _container_, since the BODY tag now has `container-type: inline-size;`
 * Decoration: removed viewport-width dependant spacing (paddings, margins & gaps).
 * Utilities: `.h1` through `.h6` now only affect font-size. They do not include margins and font-weights.
@@ -20,7 +21,7 @@
 * Colors improved. Codebase swatches. OKLAB color space. Shades now have their white or black color mix built into their shade variables, thereby making downstream color coding easier.
 * Removed: colors no longer have the built-in slight darkening for dark mode.
 * Light and dark mode now using `light-dark()`.
-* Margins, paddings, gaps, and border radius now use the same spacing variables
+* Margins, paddings, gaps, and border radius now use the same spacing variables.
 
 ## v.3.3.0 -- 9 March 2024
 
