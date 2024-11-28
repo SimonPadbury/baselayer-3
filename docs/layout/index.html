@@ -87,14 +87,14 @@ pre code {
 }
 
 @container (min-width: 1280px) {
-  #toc-wrapper > p {
+  #toc-outer > p {
     padding-top: var(--s-3);
   }
-  .ms-windows #toc-wrapper > div {
+  .ms-windows #toc-outer > div {
     scrollbar-gutter: stable;
     overflow-y: hidden;
   }
-  .ms-windows #toc-wrapper:hover > div {
+  .ms-windows #toc-outer:hover > div {
     overflow-y: auto;
   }
 }
@@ -327,7 +327,7 @@ window.addEventListener("DOMContentLoaded", () => {
           </header>
         </div>
         <div class="lg:col-4 lg:row-span-3">
-          <nav id="toc-wrapper" class="sticky top wrapper-sm h-max-100dvh mb-3 pr-2 links-underlined-hover-only overflow-y">
+          <nav id="toc-outer" class="sticky top wrapper-sm h-max-100dvh mb-3 pr-2 links-underlined-hover-only overflow-y">
             <p class="h4 t-semibold">On this page</p>
             <nav class="toc" >
         <ul><li><a href="#container-query-contexts">Container query contexts</a></li><li><a href="#blocks">Blocks</a></li><li><a href="#dimensions">Dimensions</a><ul><li><a href="#wrappers-(f.k.a.-containers)">Wrappers (f.k.a. containers)</a></li><li><a href="#widths">Widths</a></li><li><a href="#heights">Heights</a></li><li><a href="#box">Box</a></li></ul></li><li><a href="#positions">Positions</a></li><li><a href="#container-query-powered-layouts">Container query powered layouts</a></li><li><a href="#responsive-blocks">Responsive blocks</a></li><li><a href="#flex-layouts">Flex layouts</a><ul><li><a href="#flex-gaps">Flex gaps</a></li><li><a href="#flex-modifiers">Flex modifiers</a></li><li><a href="#flex-item-grow">Flex-item grow</a></li><li><a href="#flex-and-container-queries">Flex and container queries</a></li></ul></li><li><a href="#grid-layouts">Grid layouts</a><ul><li><a href="#setting-up-a-grid">Setting up a grid</a></li><li><a href="#grid-gaps">Grid gaps</a></li><li><a href="#controlling-grid-items">Controlling grid items</a></li><li><a href="#grid-items-and-dense-packing">Grid items and dense packing</a></li><li><a href="#grid-and-container-queries">Grid and container queries</a></li><li><a href="#responsive-grid-layout-tiers-can-be-combined">Responsive grid layout tiers can be combined</a></li></ul></li><li><a href="#invisibility-(hidden)-classes">Invisibility (hidden) classes</a></li><li><a href="#content-grid">Content-grid</a><ul><li><a href="#popout-panels">Popout panels</a></li><li><a href="#expanded-panels">Expanded panels</a></li><li><a href="#full-bleed-panels">Full-bleed panels</a></li></ul></li><li><a href="#aspect-ratios">Aspect ratios</a></li><li><a href="#overflows">Overflows</a><ul><li><a href="#overflow-clip">Overflow clip</a></li></ul></li><li><a href="#floats">Floats</a></li></ul>

@@ -87,14 +87,14 @@ pre code {
 }
 
 @container (min-width: 1280px) {
-  #toc-wrapper > p {
+  #toc-outer > p {
     padding-top: var(--s-3);
   }
-  .ms-windows #toc-wrapper > div {
+  .ms-windows #toc-outer > div {
     scrollbar-gutter: stable;
     overflow-y: hidden;
   }
-  .ms-windows #toc-wrapper:hover > div {
+  .ms-windows #toc-outer:hover > div {
     overflow-y: auto;
   }
 }
@@ -327,7 +327,7 @@ window.addEventListener("DOMContentLoaded", () => {
           </header>
         </div>
         <div class="lg:col-4 lg:row-span-3">
-          <nav id="toc-wrapper" class="sticky top wrapper-sm h-max-100dvh mb-3 pr-2 links-underlined-hover-only overflow-y">
+          <nav id="toc-outer" class="sticky top wrapper-sm h-max-100dvh mb-3 pr-2 links-underlined-hover-only overflow-y">
             <p class="h4 t-semibold">On this page</p>
             <nav class="toc" >
         <ul><li><a href="#spacing">Spacing</a><ul><li><a href="#spacing-extras">Spacing extras</a></li></ul></li><li><a href="#borders">Borders</a><ul><li><a href="#border-extra">Border extra</a></li></ul></li><li><a href="#rounded-corners">Rounded corners</a></li><li><a href="#the-img-cover-class">The img-cover class</a></li><li><a href="#opacity">Opacity</a></li></ul>

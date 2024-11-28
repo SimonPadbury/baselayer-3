@@ -87,14 +87,14 @@ pre code {
 }
 
 @container (min-width: 1280px) {
-  #toc-wrapper > p {
+  #toc-outer > p {
     padding-top: var(--s-3);
   }
-  .ms-windows #toc-wrapper > div {
+  .ms-windows #toc-outer > div {
     scrollbar-gutter: stable;
     overflow-y: hidden;
   }
-  .ms-windows #toc-wrapper:hover > div {
+  .ms-windows #toc-outer:hover > div {
     overflow-y: auto;
   }
 }
@@ -327,7 +327,7 @@ window.addEventListener("DOMContentLoaded", () => {
           </header>
         </div>
         <div class="lg:col-4 lg:row-span-3">
-          <nav id="toc-wrapper" class="sticky top wrapper-sm h-max-100dvh mb-3 pr-2 links-underlined-hover-only overflow-y">
+          <nav id="toc-outer" class="sticky top wrapper-sm h-max-100dvh mb-3 pr-2 links-underlined-hover-only overflow-y">
             <p class="h4 t-semibold">On this page</p>
             <nav class="toc" >
         <ul><li><a href="#textual-form-input-fields">Textual form input fields</a></li><li><a href="#number-inputs">Number inputs</a></li><li><a href="#date-and-time-inputs">Date and time inputs</a></li><li><a href="#color-picker">Color picker</a></li><li><a href="#file-upload">File upload</a></li><li><a href="#select-and-multi-select">Select and multi-select</a></li><li><a href="#list-and-datalist">List and datalist</a></li><li><a href="#text-area-(multiline)">Text area (multiline)</a></li><li><a href="#radio-boxes-and-checkboxes">Radio boxes and checkboxes</a></li><li><a href="#fieldsets-and-legends">Fieldsets and legends</a></li><li><a href="#form-buttons">Form buttons</a></li></ul>

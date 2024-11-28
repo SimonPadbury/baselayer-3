@@ -87,14 +87,14 @@ pre code {
 }
 
 @container (min-width: 1280px) {
-  #toc-wrapper > p {
+  #toc-outer > p {
     padding-top: var(--s-3);
   }
-  .ms-windows #toc-wrapper > div {
+  .ms-windows #toc-outer > div {
     scrollbar-gutter: stable;
     overflow-y: hidden;
   }
-  .ms-windows #toc-wrapper:hover > div {
+  .ms-windows #toc-outer:hover > div {
     overflow-y: auto;
   }
 }
@@ -327,7 +327,7 @@ window.addEventListener("DOMContentLoaded", () => {
           </header>
         </div>
         <div class="lg:col-4 lg:row-span-3">
-          <nav id="toc-wrapper" class="sticky top wrapper-sm h-max-100dvh mb-3 pr-2 links-underlined-hover-only overflow-y">
+          <nav id="toc-outer" class="sticky top wrapper-sm h-max-100dvh mb-3 pr-2 links-underlined-hover-only overflow-y">
             <p class="h4 t-semibold">On this page</p>
             <nav class="toc" >
         <ul><li><a href="#font-stacks">Font stacks</a><ul><li><a href="#setting-font-stacks">Setting font stacks</a></li></ul></li><li><a href="#base-font-size">Base font size</a></li><li><a href="#typographic-block-elements">Typographic block elements</a><ul><li><a href="#headings">Headings</a></li><li><a href="#block-quotes">Block quotes</a></li><li><a href="#lists">Lists</a></li></ul></li><li><a href="#the-link-tag">The link tag</a></li><li><a href="#menus">Menus</a></li><li><a href="#text-alignment">Text alignment</a></li><li><a href="#tables">Tables</a><ul><li><a href="#making-wide-tables-responsive">Making wide tables responsive</a></li></ul></li><li><a href="#making-text-bigger">Making text bigger</a></li><li><a href="#code">Code</a></li><li><a href="#other-typographic-utility-classes">Other typographic utility classes</a></li></ul>
@@ -763,18 +763,18 @@ body{
         <div class="lg:col-span-3">
           <footer class="mt-3 content-grid">
             <nav class="popout grid gap-2 sm:equal-2-cols links-not-underlined">
-              
+
               <a class="sm:col-1 my-1 b-thin b-blue b-300 hover:b-500 b-dark-invert rad-1 p-cell flex flex-column gap-1 t-blue t-600 hover:t-700 t-dark-invert hover:bg-blue hover:bg-100 bg-dark-invert"  href="/baselayer-3/">
                 Previous page
                 <span class="h2 m-0 t-normal"> Introduction</span>
               </a>
-              
-              
+
+
               <a class="sm:col-2 my-1 b-thin b-blue b-300 hover:b-500 b-dark-invert rad-1 p-cell flex flex-column gap-1 t-blue t-600 hover:t-700 t-dark-invert t-right hover:bg-blue hover:bg-100 bg-dark-invert" href="/baselayer-3/layout/">
                 Next page
                 <span class="h2 m-0 t-normal">Layout</span>
               </a>
-              
+
             </nav>
             <div class="mt-4 mb-3 p-2 flex flex-column flex-middle t-center">
               <a href="/baselayer-3/" class="mb-1 flex flex-column flex-center gap-1 t-no-underline">
