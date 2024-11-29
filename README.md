@@ -16,8 +16,10 @@ Ready to use as-is, Baselayer gives you all this and more:
 * Built-in dark mode (requires a simple JavaScript theme toggler — example provided)
 * Control of many of these things using CSS variables (custom properties)
 
-Baselayer uses modern CSS technologies such as grid, functions (e.g. `clamp()`, `color-mix()`, `light-dark()`), `var()` custom properties, and CSS class nesting. Therefore it supports only “Baseline: Widely available” (2023 forward) web browsers such as Safari, Firefox, Chrome, Edge, etc. — see [MDN: Basline compatibility](https://developer.mozilla.org/en-US/docs/Glossary/Baseline/Compatibility).
+Baselayer uses modern CSS technologies such as `grid`, functions (e.g. `clamp()`, `color-mix()`, `light-dark()`), `var()` custom properties, and CSS class nesting. Therefore it supports only [Basline: widely available](https://developer.mozilla.org/en-US/docs/Glossary/Baseline/Compatibility) (mid-2023 forward) web browsers such as Safari, Firefox, Chrome, Edge, etc.
 
 **Documentation:** [https://simonpadbury.github.io/baselayer-3/](https://simonpadbury.github.io/baselayer-3/)
 
 **Changelog:** [https://github.com/SimonPadbury/baselayer-3/blob/main/README.md](https://github.com/baselayer/blob/main/CHANGELOG.md)
+
+**Documentation:** [https://simonpadbury.github.io/baselayer-3/](https://simonpadbury.github.io/baselayer-3/)
