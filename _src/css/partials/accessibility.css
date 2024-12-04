@@ -43,7 +43,8 @@
   select:focus,
   form button:focus,
   button:focus-visible,
-  a:focus-visible > img {
+  a:focus-visible > img,
+  [id]:not(a):focus-visible {
     position: relative;
     box-shadow: 0 0 0 3px black;
     outline: 3px solid var(--amber);

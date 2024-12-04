@@ -9,6 +9,10 @@
 
 # Baselayer 3 changelog
 
+## v.3.4.1 -- 4 December 2024
+
+* Added container query variants  `sm`, `md`, and `lg` of all the flexbox classes.
+
 ## v.3.4.0 -- 27 November 2024
 
 * Focus state styling is now based on UK National Health Service nhs.uk and UK Government GOV.UK design systems.

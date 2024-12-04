@@ -98,6 +98,10 @@
     flex-direction: column;
   }
 
+  .flex-row {
+    flex-direction: row;
+  }
+
   .flex-start {
     justify-content: flex-start;
   }
@@ -139,25 +143,24 @@
   }
 
   /*
-  Invisibility for smaller viewports (“hidden-below”)
+  Gaps - these work for both flexbox (including inside buttons) and the grid system.
+  (However, don’t use these on `content-grid` (see below).)
   */
 
-  @container (max-width: 639px) {
-    .sm\:hidden-below {
-      display: none !important;
-    }
+  .gap-1 {
+    gap: var(--s-1);
   }
 
-  @container (max-width: 959px) {
-    .md\:hidden-below {
-      display: none !important;
-    }
+  .gap-2 {
+    gap: var(--s-2);
   }
 
-  @container (max-width: 1279px) {
-    .lg\:hidden-below {
-      display: none !important;
-    }
+  .gap-3 {
+    gap: var(--s-3);
+  }
+
+  .gap-4 {
+    gap: var(--s-4);
   }
 
   /*
@@ -280,13 +283,111 @@
     --rspan: 4;
   }
 
+  /*
+  Invisibility for smaller viewports (“hidden-below”)
+  */
+
+  @container (max-width: 639px) {
+    .sm\:hidden-below {
+      display: none !important;
+    }
+  }
+
+  @container (max-width: 959px) {
+    .md\:hidden-below {
+      display: none !important;
+    }
+  }
+
+  @container (max-width: 1279px) {
+    .lg\:hidden-below {
+      display: none !important;
+    }
+  }
+
   @container (min-width: 640px) {
+    .sm\:inline-block {
+      display: inline-block;
+    }
+
     .sm\:block {
       display: block;
     }
 
+    .sm\:inline-flex {
+      display: inline-flex;
+    }
+
     .sm\:flex {
       display: flex;
+    }
+
+    .sm\:flex-wrap {
+      flex-wrap: wrap;
+    }
+
+    .sm\:flex-column {
+      flex-direction: column;
+    }
+
+    .sm\:flex-row {
+      flex-direction: row;
+    }
+
+    .sm\:flex-start {
+      justify-content: flex-start;
+    }
+
+    .sm\:flex-center {
+      justify-content: center;
+    }
+
+    .sm\:flex-end {
+      justify-content: flex-end;
+    }
+
+    .sm\:flex-top {
+      align-items: flex-start;
+    }
+
+    .sm\:flex-middle {
+      align-items: center;
+    }
+
+    .sm\:flex-bottom {
+      align-items: flex-end;
+    }
+
+    .sm\:flex-space-between {
+      justify-content: space-between;
+    }
+
+    .sm\:flex-grow-equal > * {
+      flex: 1;
+    }
+
+    .sm\:flex-grow-auto > * {
+      flex: auto;
+    }
+
+    .sm\:grow {
+      flex: 1;
+    }
+
+    .sm\:gap-1 {
+      gap: var(--s-1);
+    }
+
+    .sm\:gap-2 {
+      gap: var(--s-2);
+    }
+
+    .sm\:gap-3 {
+      gap: var(--s-3);
+    }
+
+    .sm\:gap-4 {
+      gap: var(--s-4);
     }
 
     .sm\:hidden {
@@ -375,12 +476,88 @@
   }
 
   @container (min-width: 960px) {
+    .md\:inline-block {
+      display: inline-block;
+    }
+
     .md\:block {
       display: block;
     }
 
+    .md\:inline-flex {
+      display: inline-flex;
+    }
+
     .md\:flex {
       display: flex;
+    }
+
+    .md\:flex-wrap {
+      flex-wrap: wrap;
+    }
+
+    .md\:flex-column {
+      flex-direction: column;
+    }
+
+    .md\:flex-row {
+      flex-direction: row;
+    }
+
+    .md\:flex-start {
+      justify-content: flex-start;
+    }
+
+    .md\:flex-center {
+      justify-content: center;
+    }
+
+    .md\:flex-end {
+      justify-content: flex-end;
+    }
+
+    .md\:flex-top {
+      align-items: flex-start;
+    }
+
+    .md\:flex-middle {
+      align-items: center;
+    }
+
+    .md\:flex-bottom {
+      align-items: flex-end;
+    }
+
+    .md\:flex-space-between {
+      justify-content: space-between;
+    }
+
+    .md\:flex-grow-equal > * {
+      flex: 1;
+    }
+
+    .md\:flex-grow-auto > * {
+      flex: auto;
+    }
+
+    .md\:grow {
+      flex: 1;
+    }
+
+    .md\:gap-1 {
+      gap: var(--s-1);
+    }
+
+    .md\:gap-2 {
+      gap: var(--s-2);
+    }
+
+    .md\:gap-3 {
+      gap: var(--s-3);
+    }
+
+    .md\:gap-4 {
+      gap: var(--s-4);
     }
 
     .md\:hidden {
@@ -469,12 +646,88 @@
   }
 
   @container (min-width: 1280px) {
+    .lg\:inline-block {
+      display: inline-block;
+    }
+
     .lg\:block {
       display: flex;
     }
 
+    .lg\:inline-flex {
+      display: inline-flex;
+    }
+
     .lg\:flex {
-      display: block;
+      display: flex;
+    }
+
+    .lg\:flex-wrap {
+      flex-wrap: wrap;
+    }
+
+    .lg\:flex-column {
+      flex-direction: column;
+    }
+
+    .lg\:flex-row {
+      flex-direction: row;
+    }
+
+    .lg\:flex-start {
+      justify-content: flex-start;
+    }
+
+    .lg\:flex-center {
+      justify-content: center;
+    }
+
+    .lg\:flex-end {
+      justify-content: flex-end;
+    }
+
+    .lg\:flex-top {
+      align-items: flex-start;
+    }
+
+    .lg\:flex-middle {
+      align-items: center;
+    }
+
+    .lg\:flex-bottom {
+      align-items: flex-end;
+    }
+
+    .lg\:flex-space-between {
+      justify-content: space-between;
+    }
+
+    .lg\:flex-grow-equal > * {
+      flex: 1;
+    }
+
+    .lg\:flex-grow-auto > * {
+      flex: auto;
+    }
+
+    .lg\:grow {
+      flex: 1;
+    }
+
+    .lg\:gap-1 {
+      gap: var(--s-1);
+    }
+
+    .lg\:gap-2 {
+      gap: var(--s-2);
+    }
+
+    .lg\:gap-3 {
+      gap: var(--s-3);
+    }
+
+    .lg\:gap-4 {
+      gap: var(--s-4);
     }
 
     .lg\:hidden {
@@ -560,27 +813,6 @@
     .lg\:row-span-4 {
       --rspan: 4;
     }
-  }
-
-  /*
-  Gaps - these work for both flexbox (including inside buttons) and the grid system.
-  (However, don’t use these on `content-grid` (see below).)
-  */
-
-  .gap-1 {
-    gap: var(--s-1);
-  }
-
-  .gap-2 {
-    gap: var(--s-2);
-  }
-
-  .gap-3 {
-    gap: var(--s-3);
-  }
-
-  .gap-4 {
-    gap: var(--s-4);
   }
 
   /*

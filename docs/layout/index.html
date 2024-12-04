@@ -7,7 +7,7 @@
 
   <title>Layout · Baselayer CSS</title>
 
-  <link rel="stylesheet" href="/baselayer-3/css/min/baselayer.min.css?v=3.4.0">
+  <link rel="stylesheet" href="/baselayer-3/css/min/baselayer.min.css?v=3.4.1">
 
   <style>
   html {
@@ -240,10 +240,10 @@ window.addEventListener("DOMContentLoaded", () => {
 
     <div id="js-menu-wrapper">
       <div class="m-3 bt-thin bb-thin py-3 flex flex-center flex-wrap gap-3 links-underlined-hover-only">
-        <span class="t-gray t-600 t-dark-invert">Version: 3.4.0</span>
+        <span class="t-gray t-600 t-dark-invert">Version: 3.4.1</span>
         <a class="t-gray t-800 hover:t-900 t-dark-invert" href="https://github.com/SimonPadbury/baselayer-3">GitHub</a>
         <span>
-          <a class="t-gray t-800 hover:t-900 t-dark-invert" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> <span class="t-gray t-600 t-dark-invert">(22 KB)</span>
+          <a class="t-gray t-800 hover:t-900 t-dark-invert" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> <span class="t-gray t-600 t-dark-invert">(24 KB)</span>
         </span>
       </div>
 
@@ -330,7 +330,7 @@ window.addEventListener("DOMContentLoaded", () => {
           <nav id="toc-outer" class="sticky top w-max-sm h-max-100dvh mx-auto mb-3 px-2 links-underlined-hover-only overflow-y">
             <p class="h4 t-semibold">On this page</p>
             <nav class="toc" >
-        <ul><li><a href="#container-query-contexts">Container query contexts</a></li><li><a href="#blocks">Blocks</a></li><li><a href="#dimensions">Dimensions</a><ul><li><a href="#wrappers-(f.k.a.-containers)">Wrappers (f.k.a. containers)</a></li><li><a href="#widths">Widths</a></li><li><a href="#heights">Heights</a></li><li><a href="#box">Box</a></li></ul></li><li><a href="#positions">Positions</a></li><li><a href="#container-query-powered-layouts">Container query powered layouts</a></li><li><a href="#responsive-blocks">Responsive blocks</a></li><li><a href="#flex-layouts">Flex layouts</a><ul><li><a href="#flex-gaps">Flex gaps</a></li><li><a href="#flex-modifiers">Flex modifiers</a></li><li><a href="#flex-item-grow">Flex-item grow</a></li><li><a href="#flex-and-container-queries">Flex and container queries</a></li></ul></li><li><a href="#grid-layouts">Grid layouts</a><ul><li><a href="#setting-up-a-grid">Setting up a grid</a></li><li><a href="#grid-gaps">Grid gaps</a></li><li><a href="#controlling-grid-items">Controlling grid items</a></li><li><a href="#grid-items-and-dense-packing">Grid items and dense packing</a></li><li><a href="#grid-and-container-queries">Grid and container queries</a></li><li><a href="#responsive-grid-layout-tiers-can-be-combined">Responsive grid layout tiers can be combined</a></li></ul></li><li><a href="#invisibility-(hidden)-classes">Invisibility (hidden) classes</a></li><li><a href="#content-grid">Content-grid</a><ul><li><a href="#popout-panels">Popout panels</a></li><li><a href="#expanded-panels">Expanded panels</a></li><li><a href="#full-bleed-panels">Full-bleed panels</a></li></ul></li><li><a href="#aspect-ratios">Aspect ratios</a></li><li><a href="#overflows">Overflows</a><ul><li><a href="#overflow-clip">Overflow clip</a></li></ul></li><li><a href="#floats">Floats</a></li></ul>
+        <ul><li><a href="#container-query-contexts">Container query contexts</a></li><li><a href="#blocks">Blocks</a></li><li><a href="#dimensions">Dimensions</a><ul><li><a href="#wrappers-(f.k.a.-containers)">Wrappers (f.k.a. containers)</a></li><li><a href="#widths">Widths</a></li><li><a href="#heights">Heights</a></li><li><a href="#box">Box</a></li></ul></li><li><a href="#positions">Positions</a></li><li><a href="#container-query-powered-layouts">Container query powered layouts</a></li><li><a href="#responsive-blocks">Responsive blocks</a></li><li><a href="#flex-layouts">Flex layouts</a><ul><li><a href="#flex-modifiers">Flex modifiers</a></li><li><a href="#flex-gaps">Flex gaps</a></li><li><a href="#flex-item-grow">Flex-item grow</a></li><li><a href="#flex-and-container-queries">Flex and container queries</a></li></ul></li><li><a href="#grid-layouts">Grid layouts</a><ul><li><a href="#setting-up-a-grid">Setting up a grid</a></li><li><a href="#grid-gaps">Grid gaps</a></li><li><a href="#controlling-grid-items">Controlling grid items</a></li><li><a href="#grid-items-and-dense-packing">Grid items and dense packing</a></li><li><a href="#grid-and-container-queries">Grid and container queries</a></li><li><a href="#responsive-grid-layout-tiers-can-be-combined">Responsive grid layout tiers can be combined</a></li></ul></li><li><a href="#invisibility-(hidden)-classes">Invisibility (hidden) classes</a></li><li><a href="#content-grid">Content-grid</a><ul><li><a href="#popout-panels">Popout panels</a></li><li><a href="#expanded-panels">Expanded panels</a></li><li><a href="#full-bleed-panels">Full-bleed panels</a></li></ul></li><li><a href="#aspect-ratios">Aspect ratios</a></li><li><a href="#overflows">Overflows</a><ul><li><a href="#overflow-clip">Overflow clip</a></li></ul></li><li><a href="#floats">Floats</a></li></ul>
       </nav>
           </nav>
         </div>
@@ -413,10 +413,14 @@ window.addEventListener("DOMContentLoaded", () => {
 <li><code>right</code> — right: 0</li>
 <li><code>bottom</code> — bottom: 0</li>
 <li><code>left</code> — left: 0</li>
-<li><code>z-1</code> — z-index: 1</li>
+<li><code>z-1</code> — z-index: 1 — e.g. use low value z-indexes for layering in hero components</li>
 <li><code>z-2</code> — z-index: 2</li>
 <li><code>z-3</code> — z-index: 3</li>
+<li><code>z-997</code> — z-index: 997 — e.g. use high value z-indexed for layering in modals and fixed or sticky menubars</li>
+<li><code>z-998</code> — z-index: 998</li>
+<li><code>z-999</code> — z-index: 999</li>
 </ul>
+<p>Examples: lower value z-index can be used for layering</p>
 <p>For centering and middling, you will also need <a href="#flex-layouts">flex</a>.</p>
 <p>Example:</p>
 <div class="relative mb-3 b-thin aspect-ratio-16x9">
@@ -463,13 +467,14 @@ window.addEventListener("DOMContentLoaded", () => {
 <p><strong>Note:</strong> There are no <code>xs</code> (320px) or <code>xl</code> (1600px) container queries in Baselayer.</p>
 <p>Classes with container query variants are:</p>
 <ol>
-<li><code>block</code> — block wrapper utilities</li>
-<li><code>flex</code> — flexbox wrapper utilities</li>
+<li><code>block</code>, <code>inline-block</code> — block wrapper utilities</li>
+<li><code>flex</code>, <code>inline-flex</code> — flexbox wrapper utilities</li>
 <li><code>grid</code> — grid system wrapper utilities (using CSS Grid)</li>
 <li><code>col</code> and <code>row</code> — grid system column and row utilities</li>
 <li><code>hidden</code> — invisibility utilities</li>
 </ol>
 <p><strong>Note:</strong> <a href="#content-grid">content-grid</a> is not controlled by a container query.</p>
+<p>(Typography alignment classes <code>t-left</code> / <code>t-center</code> / <code>t-right</code> also have container query variants.)</p>
 <p>There are some demos of container query layouts in these docs, each set within their own <code>container</code> context — and they have an x-axis resizer, so that you can play with them (if your device enables you to do so) and see how they work. The resizer is indicated by a dashed border and a “resizer” symbol in the bottom right corner.</p>
 <p>Here is an example resizer with no demo inside:</p>
 <div class="my-3 resize-x">
@@ -484,10 +489,18 @@ window.addEventListener("DOMContentLoaded", () => {
 <h2 id="flex-layouts" tabindex="-1">Flex layouts</h2>
 <p>Flexbox utilities for simple layout, menubars, pagination lists, cards, etc.</p>
 <ul>
-<li><code>inline-flex</code> — inline flexbox at all viewport widths</li>
-<li><code>flex</code> — flexbox at all viewport widths</li>
+<li><code>flex</code> — flexbox at all viewport widths
+<ul>
+<li><code>flex</code> puts flexbox behaviour on <em>flex items</em>, while the <em>flexbox wrapper</em> continues to behave as a block element. And the flex items will behave as blocks.</li>
 </ul>
-<p>Example:</p>
+</li>
+<li><code>inline-flex</code> — inline flexbox at all viewport widths
+<ul>
+<li><code>inline-flex</code> makes the <em>flexbox wrapper</em> itself behave as an inline item (similar to <code>inline-block</code>), as well as putting flexbox behavior on <em>flex items</em> (immediate child elements). And the flex items will behave as inline-blocks.</li>
+</ul>
+</li>
+</ul>
+<p>Examples:</p>
 <div class="my-3 flex">
   <div class="b-thin p-cell">One</div>
   <div class="b-thin p-cell">Two</div>
@@ -501,38 +514,52 @@ window.addEventListener("DOMContentLoaded", () => {
   &lt;div&gt;Four&lt;/div&gt;
 &lt;/div&gt;
 </code></pre>
-<h3 id="flex-gaps" tabindex="-1">Flex gaps</h3>
-<p><code>gap-*</code> — adds a <em>horizontal and vertical</em> gap (same as for <a href="#grid-layouts">grid layouts</a>):</p>
-<ul>
-<li><code>gap-1</code> — using <code>--s-1</code></li>
-<li><code>gap-2</code> — using <code>--s-2</code></li>
-<li><code>gap-3</code> — using <code>--s-3</code></li>
-<li><code>gap-4</code> — using <code>--s-4</code></li>
-</ul>
-<div class="my-3 flex gap-2">
+<div>
+<div class="my-3 inline-flex">
   <div class="b-thin p-cell">One</div>
   <div class="b-thin p-cell">Two</div>
   <div class="b-thin p-cell">Three</div>
-  <div class="b-thin p-cell">Four</div>
 </div>
-<pre><code class="language-html">&lt;div class=&quot;flex gap-2&quot;&gt;
-  &lt;div&gt;One&lt;/div&gt;
-  &lt;div&gt;Two&lt;/div&gt;
-  &lt;div&gt;Three&lt;/div&gt;
-  &lt;div&gt;Four&lt;/div&gt;
+<div class="my-3 inline-flex">
+  <div class="b-thin p-cell">One</div>
+  <div class="b-thin p-cell">Two</div>
+  <div class="b-thin p-cell">Three</div>
+</div>
+<div class="my-3 inline-flex">
+  <div class="b-thin p-cell">One</div>
+  <div class="b-thin p-cell">Two</div>
+  <div class="b-thin p-cell">Three</div>
+</div>
+</div>
+<pre><code class="language-html">&lt;div class=&quot;my-3 inline-flex&quot;&gt;
+  &lt;div class=&quot;b-thin p-cell&quot;&gt;One&lt;/div&gt;
+  &lt;div class=&quot;b-thin p-cell&quot;&gt;Two&lt;/div&gt;
+  &lt;div class=&quot;b-thin p-cell&quot;&gt;Three&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;my-3 inline-flex&quot;&gt;
+  &lt;div class=&quot;b-thin p-cell&quot;&gt;One&lt;/div&gt;
+  &lt;div class=&quot;b-thin p-cell&quot;&gt;Two&lt;/div&gt;
+  &lt;div class=&quot;b-thin p-cell&quot;&gt;Three&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;my-3 inline-flex&quot;&gt;
+  &lt;div class=&quot;b-thin p-cell&quot;&gt;One&lt;/div&gt;
+  &lt;div class=&quot;b-thin p-cell&quot;&gt;Two&lt;/div&gt;
+  &lt;div class=&quot;b-thin p-cell&quot;&gt;Three&lt;/div&gt;
 &lt;/div&gt;
 </code></pre>
 <h3 id="flex-modifiers" tabindex="-1">Flex modifiers</h3>
+<p>Modifiers for <code>flex</code>:</p>
 <ul>
 <li>X-axis: <code>flex-start</code> / <code>flex-center</code> / <code>flex-end</code></li>
 <li>Y-axis: <code>flex-top</code> / <code>flex-middle</code> / <code>flex-bottom</code></li>
 <li><code>flex-wrap</code> — gives you flex-wrap: wrap</li>
 <li><code>flex-column</code> — gives you flex-direction: column</li>
+<li><code>flex-row</code> — gives you flex-direction: row (default behavior)</li>
 <li><code>flex-space-between</code> — gives you justify-content: space-between</li>
 <li><code>flex-grow-equal</code> — makes grid item expand so that they occupy an equal fraction of the total width (or height, if used with <code>flex-column</code>)</li>
 <li><code>flex-grow-auto</code> — makes grid item expand so that they occupy an unequal fraction of the total width (or height, if used with <code>flex-column</code>). Each flex item will expand as required by its respective content.</li>
+<li><code>gap-*</code> — flex (and grid) gaps <a href="#flex-gaps">see below</a></li>
 </ul>
-<p><strong>Note:</strong> the gaps have the same spacing CSS variables as <a href="/baselayer-3/decoration/#spacing-(margins-and-paddings)">margins and paddings</a>.</p>
 <div class="my-3 flex flex-grow-equal">
   <div class="b-thin p-cell">One</div>
   <div class="b-thin p-cell">Two</div>
@@ -572,6 +599,28 @@ window.addEventListener("DOMContentLoaded", () => {
   &lt;div&gt;Four&lt;/div&gt;
 &lt;/div&gt;
 </code></pre>
+<h3 id="flex-gaps" tabindex="-1">Flex gaps</h3>
+<p><code>gap-*</code> — adds a <em>horizontal and vertical</em> gap (same as for <a href="#grid-layouts">grid layouts</a>):</p>
+<ul>
+<li><code>gap-1</code> — using <code>--s-1</code></li>
+<li><code>gap-2</code> — using <code>--s-2</code></li>
+<li><code>gap-3</code> — using <code>--s-3</code></li>
+<li><code>gap-4</code> — using <code>--s-4</code></li>
+</ul>
+<div class="my-3 flex gap-2">
+  <div class="b-thin p-cell">One</div>
+  <div class="b-thin p-cell">Two</div>
+  <div class="b-thin p-cell">Three</div>
+  <div class="b-thin p-cell">Four</div>
+</div>
+<pre><code class="language-html">&lt;div class=&quot;flex gap-2&quot;&gt;
+  &lt;div&gt;One&lt;/div&gt;
+  &lt;div&gt;Two&lt;/div&gt;
+  &lt;div&gt;Three&lt;/div&gt;
+  &lt;div&gt;Four&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<p><strong>Note:</strong> <code>flex</code> and <code>grid</code> these gaps have the same spacing CSS variables as <a href="/baselayer-3/decoration/#spacing-(margins-and-paddings)">margins and paddings</a>.</p>
 <h3 id="flex-item-grow" tabindex="-1">Flex-item grow</h3>
 <ul>
 <li><code>grow</code> — gives you <code>flex-grow: 1</code></li>
@@ -586,33 +635,33 @@ window.addEventListener("DOMContentLoaded", () => {
 &lt;/div&gt;
 </code></pre>
 <h3 id="flex-and-container-queries" tabindex="-1">Flex and container queries</h3>
-<p>Baselayer has three <code>@contaner</code> controlled <code>flex</code> classes that will take effect at the following container widths up — use one of these instead of simply <code>flex</code> on your outer block element:</p>
+<p>Baselayer has <code>@contaner</code> controlled <code>flex</code> and all flex modifier classes (including the <code>gap-*</code> classes) that will take effect at the following container widths up — use one of these instead of simply <code>flex</code> on your outer block element:</p>
 <ul>
-<li><code>sm:flex</code> — flex at container width 640px and up</li>
-<li><code>md:flex</code> — flex at container width 960px and up</li>
-<li><code>lg:flex</code> — flex at container width 1280px and up</li>
+<li><code>sm:flex</code>, <code>sm:flex-start</code> etc. — flex at container width 640px and up</li>
+<li><code>md:flex</code>, <code>md:flex-start</code> etc. — flex at container width 960px and up</li>
+<li><code>lg:flex</code>, <code>lg:flex-start</code> etc. — flex at container width 1280px and up</li>
 </ul>
 <p>Example using a <code>container</code> outer with <code>sm:flex</code>:</p>
 <div class="expand mt-3 mb-4">
   <div class="container resize-x">
-    <nav class="sm:flex gap-2 flex-end">
-      <a class="my-2 btn block" href="#/">Home</a>
-      <a class="my-2 btn block" href="#/">About</a>
-      <a class="my-2 btn block" href="#/">Blog</a>
-      <a class="my-2 btn block" href="#/">Contact</a>
+    <nav class="flex flex-column sm:flex-row gap-2 sm:gap-4 sm:flex-end">
+      <a class="btn flex-start" href="#/">Home</a>
+      <a class="btn flex-start" href="#/">About</a>
+      <a class="btn flex-start" href="#/">Blog</a>
+      <a class="btn flex-start" href="#/">Contact</a>
     </nav>
   </div>
 </div>
 <pre><code class="language-html">&lt;div class=&quot;container&quot;&gt;
-  &lt;nav class=&quot;sm:flex gap-2 flex-end&quot;&gt;
-    &lt;a class=&quot;my-2 btn block&quot; href=&quot;&quot;&gt;Home&lt;/a&gt;
-    &lt;a class=&quot;my-2 btn block&quot; href=&quot;&quot;&gt;About&lt;/a&gt;
-    &lt;a class=&quot;my-2 btn block&quot; href=&quot;&quot;&gt;Blog&lt;/a&gt;
-    &lt;a class=&quot;my-2 btn block&quot; href=&quot;&quot;&gt;Contact&lt;/a&gt;
+  &lt;nav class=&quot;flex flex-column sm:flex-row gap-2 sm:gap-4 sm:flex-end&quot;&gt;
+    &lt;a class=&quot;btn flex-start&quot; href=&quot;#/&quot;&gt;Home&lt;/a&gt;
+    &lt;a class=&quot;btn flex-start&quot; href=&quot;#/&quot;&gt;About&lt;/a&gt;
+    &lt;a class=&quot;btn flex-start&quot; href=&quot;#/&quot;&gt;Blog&lt;/a&gt;
+    &lt;a class=&quot;btn flex-start&quot; href=&quot;#/&quot;&gt;Contact&lt;/a&gt;
   &lt;/nav&gt;
 &lt;/div&gt;
 </code></pre>
-<p>In the example above, each button has a y-axis (block axis) margin, so that they still have whitepace gaps below the <code>sm:flex</code> breakpoint width.</p>
+<p>In the example above, the <code>btn</code> class has inline-flex built in. The effect of <code>btn flex-start</code> will only be noticable when the container width is less than <code>sm</code> (640px).</p>
 <h2 id="grid-layouts" tabindex="-1">Grid layouts</h2>
 <h3 id="setting-up-a-grid" tabindex="-1">Setting up a grid</h3>
 <p>Controlling tracks at <em>grid wrapper</em> level:</p>
@@ -1048,11 +1097,11 @@ window.addEventListener("DOMContentLoaded", () => {
                   </svg>
                 <span class="h3 m-0 t-normal t-nowrap">Baselayer CSS</span>
               </a>
-              <span>Version: 3.4.0</span>
+              <span>Version: 3.4.1</span>
             </div>
 
             <p class="p-cell flex flex-center flex-wrap gap-4 t-center">
-              <span><a class="t-no-underline hover:t-line" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> (22 KB)</span>
+              <span><a class="t-no-underline hover:t-line" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> (24 KB)</span>
               <a class="t-no-underline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3">GitHub Repository</a>
               <a class="t-no-underline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3/blob/main/CHANGELOG.md">Changelog</a>
               <a class="t-no-underline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3/blob/main/LICENSE">MIT license</a>

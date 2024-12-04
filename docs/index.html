@@ -7,7 +7,7 @@
 
   <title>Getting started · Baselayer CSS</title>
 
-  <link rel="stylesheet" href="/baselayer-3/css/min/baselayer.min.css?v=3.4.0">
+  <link rel="stylesheet" href="/baselayer-3/css/min/baselayer.min.css?v=3.4.1">
 
   <style>
   html {
@@ -240,10 +240,10 @@ window.addEventListener("DOMContentLoaded", () => {
 
     <div id="js-menu-wrapper">
       <div class="m-3 bt-thin bb-thin py-3 flex flex-center flex-wrap gap-3 links-underlined-hover-only">
-        <span class="t-gray t-600 t-dark-invert">Version: 3.4.0</span>
+        <span class="t-gray t-600 t-dark-invert">Version: 3.4.1</span>
         <a class="t-gray t-800 hover:t-900 t-dark-invert" href="https://github.com/SimonPadbury/baselayer-3">GitHub</a>
         <span>
-          <a class="t-gray t-800 hover:t-900 t-dark-invert" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> <span class="t-gray t-600 t-dark-invert">(22 KB)</span>
+          <a class="t-gray t-800 hover:t-900 t-dark-invert" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> <span class="t-gray t-600 t-dark-invert">(24 KB)</span>
         </span>
       </div>
 
@@ -338,7 +338,7 @@ window.addEventListener("DOMContentLoaded", () => {
           <main id="article-content" class="content-grid">
             <h2 id="introduction" tabindex="-1">Introduction</h2>
 <p class="t-lg">Designed as a good place to start, Baselayer may be all you need for small projects such as static websites and blogs. Or you may use it as a <em>baselayer</em> to quick-start your mega project.</p>
-<p>Ready to use as-is, Baselayer’s 22 KB (minified) stylesheet gives you all this:</p>
+<p>Ready to use as-is, Baselayer’s 24 KB (minified) stylesheet gives you all this:</p>
 <ul>
 <li>A modern CSS reset</li>
 <li>Minimalist styled classless typographic, and form elements</li>
@@ -367,7 +367,7 @@ window.addEventListener("DOMContentLoaded", () => {
 <p>The design philosophy behind the Baselayer CSS project is as follows:</p>
 <ul>
 <li>Aim at being a good place to start — a <em>baselayer</em> for a web design project.</li>
-<li>Being so small (22 KB), there’s less you need to overwrite in order to style it your own way (and most things in Baselayer can be restyles by CSS variables). So, there’s no need for a purge process to remove a heavy payload of unused Baselayer styles.</li>
+<li>Being so small (24 KB), there’s less you need to overwrite in order to style it your own way (and most things in Baselayer can be restyles by CSS variables). So, there’s no need for a purge process to remove a heavy payload of unused Baselayer styles.</li>
 <li>PostCSS only — no need for Sass, Less, Stylus etc.</li>
 </ul>
 <h2 id="built-using-postcss" tabindex="-1">Built using PostCSS</h2>
@@ -383,16 +383,16 @@ window.addEventListener("DOMContentLoaded", () => {
 <h2 id="baselayer%E2%80%99s-built-in-accessibility-features" tabindex="-1">Baselayer’s built-in accessibility features</h2>
 <p>Baselayer has two “must have” accessibility features built-in.</p>
 <h3 id="(1.)-focus-states" tabindex="-1">(1.) Focus states</h3>
-<p>After experimenting and testing various focus state styles, I have decided to base Baselayer’s on the ones in the design systems of the UK National Health Service <a href="https://design-system.service.gov.uk/get-started/focus-states/">NHS.uk design system</a> and the UK Government <a href="https://design-system.service.gov.uk/get-started/focus-states/">GOV.UK design system</a>.</p>
+<p>After experimenting and testing various focus state styles, I have decided to base Baselayer’s on the ones in the UK National Health Service <a href="https://design-system.service.gov.uk/get-started/focus-states/">NHS.uk design system</a> and the UK Government <a href="https://design-system.service.gov.uk/get-started/focus-states/">GOV.UK design system</a>.</p>
 <ol>
 <li>
 <p>Links receive an amber background, black text and a thick black underline on <code>:focus-visible</code> — so that the element is clearly visible in a wide range of contexts.</p>
 </li>
 <li>
-<p>Interacive elements such as form inputs, form buttons*, collapsible details, and elements with overflowing content[^1] have what looks like a yellow and black “double border” that appears on <code>:focus</code> (actually its created by an outline and a box shadow).</p>
+<p>Interacive elements such as form inputs, form buttons, collapsible details, and elements with overflowing content have what looks like a yellow and black “double border” that appears on <code>:focus</code> (actually its created by an outline and a box shadow).</p>
 </li>
 </ol>
-<p>*<strong>Note:</strong> A <code>&lt;button&gt;</code> that is not within a <code>&lt;form&gt;</code>, and a <code>&lt;button type=&quot;button&quot;&gt;</code> will not receive the <code>:focus</code> ring (but it will receive the ring on <code>:focus-visible</code>). Ths is true for most browsers except Safari: Safari does not show <code>:focus</code> rings on buttons, and it does not place tabbing focus on overflowing elements, or on the color-picker input.</p>
+<p><strong>Note:</strong> A <code>&lt;button&gt;</code> that is not within a <code>&lt;form&gt;</code>, and a <code>&lt;button type=&quot;button&quot;&gt;</code> will not receive the <code>:focus</code> ring (but it will receive the ring on <code>:focus-visible</code>). Ths is true for most browsers except Safari: Safari does not show <code>:focus</code> rings on buttons, and it does not place tabbing focus on overflowing elements, or on the color-picker input.</p>
 <p>These focus states are visible on a wide range of colored backgrounds, in both light and dark themes. (See also <a href="/baselayer-3/colors/#colors-and-accessibility">colors and accessibility</a>.) A z-index raise has been added to prevent the focus ring tucking under a neighbouring item, e.g. in input/button groups.</p>
 <p>Examples:</p>
 <form class="my-3">
@@ -465,11 +465,11 @@ window.addEventListener("DOMContentLoaded", () => {
                   </svg>
                 <span class="h3 m-0 t-normal t-nowrap">Baselayer CSS</span>
               </a>
-              <span>Version: 3.4.0</span>
+              <span>Version: 3.4.1</span>
             </div>
 
             <p class="p-cell flex flex-center flex-wrap gap-4 t-center">
-              <span><a class="t-no-underline hover:t-line" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> (22 KB)</span>
+              <span><a class="t-no-underline hover:t-line" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> (24 KB)</span>
               <a class="t-no-underline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3">GitHub Repository</a>
               <a class="t-no-underline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3/blob/main/CHANGELOG.md">Changelog</a>
               <a class="t-no-underline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3/blob/main/LICENSE">MIT license</a>

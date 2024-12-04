@@ -109,9 +109,14 @@ Baselayer uses `100dvh` (dynamic viewport height) that gives a different viewpor
 * `right` — right: 0
 * `bottom` — bottom: 0
 * `left` — left: 0
-* `z-1` — z-index: 1
+* `z-1` — z-index: 1 — e.g. use low value z-indexes for layering in hero components
 * `z-2` — z-index: 2
 * `z-3` — z-index: 3
+* `z-997` — z-index: 997 — e.g. use high value z-indexed for layering in modals and fixed or sticky menubars
+* `z-998` — z-index: 998
+* `z-999` — z-index: 999
+
+Examples: lower value z-index can be used for layering
 
 For centering and middling, you will also need [flex](#flex-layouts).
 
@@ -168,13 +173,15 @@ There are three `@container` variants for `flex`, `grid`, and `hidden` classes c
 
 Classes with container query variants are:
 
-1. `block` — block wrapper utilities
-2. `flex` — flexbox wrapper utilities
+1. `block`, `inline-block` — block wrapper utilities
+2. `flex`, `inline-flex` — flexbox wrapper utilities
 3. `grid` — grid system wrapper utilities (using CSS Grid)
 4. `col` and `row` — grid system column and row utilities
 5. `hidden` — invisibility utilities
 
 **Note:** [content-grid](#content-grid) is not controlled by a container query.
+
+(Typography alignment classes `t-left` / `t-center` / `t-right` also have container query variants.)
 
 There are some demos of container query layouts in these docs, each set within their own `container` context — and they have an x-axis resizer, so that you can play with them (if your device enables you to do so) and see how they work. The resizer is indicated by a dashed border and a “resizer” symbol in the bottom right corner.
 
@@ -196,10 +203,12 @@ Example: in the template for this documentation, at body-container width 960px a
 
 Flexbox utilities for simple layout, menubars, pagination lists, cards, etc.
 
-* `inline-flex` — inline flexbox at all viewport widths
 * `flex` — flexbox at all viewport widths
+  * `flex` puts flexbox behaviour on _flex items_, while the _flexbox wrapper_ continues to behave as a block element. And the flex items will behave as blocks.
+* `inline-flex` — inline flexbox at all viewport widths
+  * `inline-flex` makes the _flexbox wrapper_ itself behave as an inline item (similar to `inline-block`), as well as putting flexbox behavior on _flex items_ (immediate child elements). And the flex items will behave as inline-blocks.
 
-Example:
+Examples:
 
 <div class="my-3 flex">
   <div class="b-thin p-cell">One</div>
@@ -217,42 +226,55 @@ Example:
 </div>
 ```
 
-### Flex gaps
-
-`gap-*` — adds a _horizontal and vertical_ gap (same as for [grid layouts](#grid-layouts)):
-
-* `gap-1` — using `--s-1`
-* `gap-2` — using `--s-2`
-* `gap-3` — using `--s-3`
-* `gap-4` — using `--s-4`
-
-<div class="my-3 flex gap-2">
+<div>
+<div class="my-3 inline-flex">
   <div class="b-thin p-cell">One</div>
   <div class="b-thin p-cell">Two</div>
   <div class="b-thin p-cell">Three</div>
-  <div class="b-thin p-cell">Four</div>
+</div>
+<div class="my-3 inline-flex">
+  <div class="b-thin p-cell">One</div>
+  <div class="b-thin p-cell">Two</div>
+  <div class="b-thin p-cell">Three</div>
+</div>
+<div class="my-3 inline-flex">
+  <div class="b-thin p-cell">One</div>
+  <div class="b-thin p-cell">Two</div>
+  <div class="b-thin p-cell">Three</div>
+</div>
 </div>
 
 ```html
-<div class="flex gap-2">
-  <div>One</div>
-  <div>Two</div>
-  <div>Three</div>
-  <div>Four</div>
+<div class="my-3 inline-flex">
+  <div class="b-thin p-cell">One</div>
+  <div class="b-thin p-cell">Two</div>
+  <div class="b-thin p-cell">Three</div>
+</div>
+<div class="my-3 inline-flex">
+  <div class="b-thin p-cell">One</div>
+  <div class="b-thin p-cell">Two</div>
+  <div class="b-thin p-cell">Three</div>
+</div>
+<div class="my-3 inline-flex">
+  <div class="b-thin p-cell">One</div>
+  <div class="b-thin p-cell">Two</div>
+  <div class="b-thin p-cell">Three</div>
 </div>
 ```
 
 ### Flex modifiers
 
+Modifiers for `flex`:
+
 * X-axis: `flex-start` / `flex-center` / `flex-end`
 * Y-axis: `flex-top` / `flex-middle` / `flex-bottom`
 * `flex-wrap` — gives you flex-wrap: wrap
 * `flex-column` — gives you flex-direction: column
+* `flex-row` — gives you flex-direction: row (default behavior)
 * `flex-space-between` — gives you justify-content: space-between
 * `flex-grow-equal` — makes grid item expand so that they occupy an equal fraction of the total width (or height, if used with `flex-column`)
 * `flex-grow-auto` — makes grid item expand so that they occupy an unequal fraction of the total width (or height, if used with `flex-column`). Each flex item will expand as required by its respective content.
-
-**Note:** the gaps have the same spacing CSS variables as [margins and paddings]({{ '/decoration/' | url }}#spacing-(margins-and-paddings)).
+* `gap-*` — flex (and grid) gaps [see below](#flex-gaps)
 
 <div class="my-3 flex flex-grow-equal">
   <div class="b-thin p-cell">One</div>
@@ -302,6 +324,33 @@ Example:
 </div>
 ```
 
+### Flex gaps
+
+`gap-*` — adds a _horizontal and vertical_ gap (same as for [grid layouts](#grid-layouts)):
+
+* `gap-1` — using `--s-1`
+* `gap-2` — using `--s-2`
+* `gap-3` — using `--s-3`
+* `gap-4` — using `--s-4`
+
+<div class="my-3 flex gap-2">
+  <div class="b-thin p-cell">One</div>
+  <div class="b-thin p-cell">Two</div>
+  <div class="b-thin p-cell">Three</div>
+  <div class="b-thin p-cell">Four</div>
+</div>
+
+```html
+<div class="flex gap-2">
+  <div>One</div>
+  <div>Two</div>
+  <div>Three</div>
+  <div>Four</div>
+</div>
+```
+
+**Note:** `flex` and `grid` these gaps have the same spacing CSS variables as [margins and paddings]({{ '/decoration/' | url }}#spacing-(margins-and-paddings)).
+
 ### Flex-item grow
 
 * `grow` — gives you `flex-grow: 1`
@@ -320,37 +369,37 @@ Example:
 
 ### Flex and container queries
 
-Baselayer has three `@contaner` controlled `flex` classes that will take effect at the following container widths up — use one of these instead of simply `flex` on your outer block element:
+Baselayer has `@contaner` controlled `flex` and all flex modifier classes (including the `gap-*` classes) that will take effect at the following container widths up — use one of these instead of simply `flex` on your outer block element:
 
-* `sm:flex` — flex at container width 640px and up
-* `md:flex` — flex at container width 960px and up
-* `lg:flex` — flex at container width 1280px and up
+* `sm:flex`, `sm:flex-start` etc. — flex at container width 640px and up
+* `md:flex`, `md:flex-start` etc. — flex at container width 960px and up
+* `lg:flex`, `lg:flex-start` etc. — flex at container width 1280px and up
 
 Example using a `container` outer with `sm:flex`:
 
 <div class="expand mt-3 mb-4">
   <div class="container resize-x">
-    <nav class="sm:flex gap-2 flex-end">
-      <a class="my-2 btn block" href="#/">Home</a>
-      <a class="my-2 btn block" href="#/">About</a>
-      <a class="my-2 btn block" href="#/">Blog</a>
-      <a class="my-2 btn block" href="#/">Contact</a>
+    <nav class="flex flex-column sm:flex-row gap-2 sm:gap-4 sm:flex-end">
+      <a class="btn flex-start" href="#/">Home</a>
+      <a class="btn flex-start" href="#/">About</a>
+      <a class="btn flex-start" href="#/">Blog</a>
+      <a class="btn flex-start" href="#/">Contact</a>
     </nav>
   </div>
 </div>
 
 ```html
 <div class="container">
-  <nav class="sm:flex gap-2 flex-end">
-    <a class="my-2 btn block" href="">Home</a>
-    <a class="my-2 btn block" href="">About</a>
-    <a class="my-2 btn block" href="">Blog</a>
-    <a class="my-2 btn block" href="">Contact</a>
+  <nav class="flex flex-column sm:flex-row gap-2 sm:gap-4 sm:flex-end">
+    <a class="btn flex-start" href="#/">Home</a>
+    <a class="btn flex-start" href="#/">About</a>
+    <a class="btn flex-start" href="#/">Blog</a>
+    <a class="btn flex-start" href="#/">Contact</a>
   </nav>
 </div>
 ```
 
-In the example above, each button has a y-axis (block axis) margin, so that they still have whitepace gaps below the `sm:flex` breakpoint width.
+In the example above, the `btn` class has inline-flex built in. The effect of `btn flex-start` will only be noticable when the container width is less than `sm` (640px).
 
 ## Grid layouts
 
