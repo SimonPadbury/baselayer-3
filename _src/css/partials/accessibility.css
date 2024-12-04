@@ -38,13 +38,13 @@
     background-color: var(--amber) !important;
   }
 
+  /* [id]:not(a):focus-visible, */
   input:focus,
   textarea:focus,
   select:focus,
   form button:focus,
   button:focus-visible,
-  a:focus-visible > img,
-  [id]:not(a):focus-visible {
+  a:focus-visible > img {
     position: relative;
     box-shadow: 0 0 0 3px black;
     outline: 3px solid var(--amber);
