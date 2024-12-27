@@ -9,10 +9,12 @@
     text-decoration-skip-ink: auto;
     text-underline-offset: var(--a-deco-offset);
     text-decoration-thickness: var(--a-deco-thickness);
+    &:hover {
+      color: var(--tc-link-hover);
+    }
     &:not(.t-no-underline):hover {
       text-decoration: underline;
       text-decoration-thickness: var(--a-deco-thickness-hover);
-      color: var(--tc-link-hover);
     }
   }
 

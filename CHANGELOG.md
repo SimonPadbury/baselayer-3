@@ -9,6 +9,10 @@
 
 # Baselayer 3 changelog
 
+## v.3.4.2 -- 27 December 2024
+
+* Hover color state for a.t-no-underline
+
 ## v.3.4.1 -- 4 December 2024
 
 * Added container query variants  `sm`, `md`, and `lg` of all the flexbox classes.
