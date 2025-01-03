@@ -1,4 +1,5 @@
 @layer typography {
+
   p,
   ol,
   ul,
@@ -22,6 +23,7 @@
     line-height: var(--h-lh);
     margin-block: 0 var(--t-mb);
   }
+
   h1,
   .h1 {
     font-size: var(--h1);
@@ -62,12 +64,14 @@
     font-weight: var(--h-fw);
     line-height: var(--h-lh);
     text-wrap: balance;
+
     .content-grid & {
       /* This because CSS grid prevents margin-collapse on neighboring grid items */
       margin-top: calc(var(--h-mt) - var(--t-mb));
     }
   }
-  .content-grid > h2:first-child {
+
+  .content-grid>h2:first-child {
     margin-top: 0;
   }
 
@@ -79,15 +83,17 @@
   }
 
   li {
+
     ol,
     ul,
-    + li {
+    +li {
       margin-block: var(--t-mb) 0;
     }
   }
 
   ol ol {
     list-style-type: lower-alpha;
+
     ol {
       list-style-type: lower-roman;
     }
@@ -117,15 +123,18 @@
     border-top: var(--b-1);
     border-bottom: var(--b-1);
   }
+
   th,
   td {
     padding: var(--p-cell);
     vertical-align: top;
     text-align: left;
+
     .table-grid & {
       border: var(--b-1);
     }
   }
+
   th {
     border-bottom: var(--b-1);
     font-weight: bold;
@@ -169,9 +178,11 @@
     font-style: normal;
     font-weight: normal;
     white-space: pre;
+
     &:not(:has(code)) {
       overflow-x: auto;
     }
+
     code {
       display: block;
       border-radius: var(--s-1);

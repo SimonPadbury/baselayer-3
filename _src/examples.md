@@ -99,7 +99,7 @@ Using `equal-` modifiers on the grid wrapper will both equalize column width and
 
 ## Text sizes
 
-See [typography]({{ "/typography/" | url }}). `t-lg` simply enlarges by 1.325em. `t-long-read` and `t-display` involve a `clamp()`.
+See [typography: making text bigger]({{ "/typography/#making-text-bigger" | url }}). `t-long-read` and `t-display` involve a `clamp()`.
 
 <div class="wrapper-lg overflow-x">
   <table class="table">

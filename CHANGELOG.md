@@ -9,9 +9,13 @@
 
 # Baselayer 3 changelog
 
+## v.3.4.3 -- 3 Jan 2025
+
+* Improved clamp() ramps for `.t-long-read` and `.t-display`
+
 ## v.3.4.2 -- 27 December 2024
 
-* Hover color state for a.t-no-underline
+* Hover color state for `a.t-no-underline`
 
 ## v.3.4.1 -- 4 December 2024
 
