@@ -22,5 +22,3 @@ Baselayer uses modern CSS technologies such as `grid`, functions (e.g. `clamp()`
 **Documentation:** [https://simonpadbury.github.io/baselayer-3/](https://simonpadbury.github.io/baselayer-3/)
 
 **Changelog:** [https://github.com/SimonPadbury/baselayer-3/blob/main/README.md](https://github.com/baselayer/blob/main/CHANGELOG.md)
-
-**Documentation:** [https://simonpadbury.github.io/baselayer-3/](https://simonpadbury.github.io/baselayer-3/)
