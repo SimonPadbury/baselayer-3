@@ -18,7 +18,7 @@ Ready to use as-is, Baselayer’s {{ metadata.filesize }} (minified) stylesheet 
 * A lightweight system of utility classes for controlling dimensions, positioning, spacing, borders, text, and images
 * `@container` query responsive layout utilities using CSS grid and flexbox
 * Responsive typography, layout, and spacing using `clamp()` ramps
-* A compact color lightnesssystem based on `color-mix(in OKLCH)` for text, borders, and backgrounds
+* A compact color lightness system based on `color-mix(in OKLCH)` for text, borders, and backgrounds
 * Built-in dark mode using `light-dark()`
 * Theming control using CSS variables
 * And more
