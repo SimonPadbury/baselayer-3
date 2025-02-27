@@ -768,7 +768,12 @@ There may be situation where you require some element(s) to be displayed on smal
 
 ## Content-grid
 
-`content-grid` is intended for long-read (a.k.a. long-form) prose such as blog losts, news articles, and academic papers. Using a 7 column CSS Grid layout, the default behavior of `content-grid` will place your content in the middle (column 4), where it will have maximum width `--w-cg` = `768px`. It expects your content typographic blocks (headings, paragraphs, lists, tables, etc.), and the panel blocks below, to be its _immediate children_.
+`content-grid` is intended for long-read (a.k.a. long-form) prose such as blog losts, news articles, and academic papers. Using a 7 column CSS Grid layout, the default behavior of `content-grid` will place your content in the middle (column 4), where it will have maximum width `--w-content: 40em`. Therefore: 
+
+* `.content-grid` content column max width 720px (default)
+* `.content-grid.t-long-read` content column max width 900px (default)
+
+`content-grid` expects your content typographic blocks (headings, paragraphs, lists, tables, etc.), and the panel blocks below, to be its _immediate children_.
 
 <div aria-label="Note" class="popout mt-3 mb-4 bl-heavy b-blue b-300 b-dark-invert p-3 bg-blue bg-100 bg-dark-invert">  <strong>Note:</strong> <code>content-grid</code> is not a <a href="#container-query-powered-layouts">container query powered layout</a> — it doesn’t need to be.</code"></div>
 

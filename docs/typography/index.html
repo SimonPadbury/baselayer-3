@@ -736,10 +736,10 @@ body{
 <p>The base font size is 100% (usually 16px), bumping up to 112.5% (usually 18px) for more comfortable reading on tablet devices up.</p>
 <p>Additionally:</p>
 <ol>
-<li>There’s a <code>t-lg</code> class that can be used to make text 1.325em — good for a lead paragraph or important messaging.</li>
+<li>There’s a <code>t-lg</code> class that can be used to make text 1.325em — good for a lead paragraph, large button, or important messaging.</li>
 <li>Classes <code>.h1</code> through <code>.h6</code> will resize text the same amount as for their respective heading tag sizes — use when you want to make text larger (or large text smaller) without adversely affecting accessibility/ SEO heading hierarchy.</li>
-<li>The <code>t-long-read</code> wrapping class uses a <code>clamp()</code> to ramp text from starting size 1em (18px default at 640px container width) up to 1.5em (24px default) depending on container size. E.g. used for responsively increasing text size in <em>article prose components</em>. <code>&lt;h1&gt;</code> inside a <code>t-long-read</code> will have maximum font size approx 54px.</li>
-<li>The <code>t-display</code> wrapping class uses a <code>clamp()</code> to raise text from starting size 1em (18px default at 640px container width) up to 2em (36px default) depending on container size. E.g. used for responsively increasing text size in <em>hero components</em>. <code>&lt;h1&gt;</code> inside a <code>t-display</code> will have maximum font size approx 80px.</li>
+<li>The <code>t-long-read</code> wrapping class uses a <code>clamp()</code> to ramp text from starting size 1em (18px default at 640px container width) up to 1.25em (22.5px default) depending on container size. E.g. used for responsively increasing text size in <em>article prose components</em>. <code>&lt;h1&gt;</code> inside a <code>t-long-read</code> will have maximum font size approx 51px.</li>
+<li>The <code>t-display</code> wrapping class uses a <code>clamp()</code> to raise text from starting size 1em (18px default at 640px container width) up to 2em (36px default) depending on container size. E.g. used for responsively increasing text size in <em>hero components</em>. <code>&lt;h1&gt;</code> inside a <code>t-display</code> will have maximum font size approx 81px.</li>
 </ol>
 <h2 id="code" tabindex="-1">Code</h2>
 <p><code>&lt;code&gt;</code> tags have monospaced text (set by <code>--ff-mono</code>) over a white or black background (in light or dark modes), with a thin border and a little padding to improve readability.</p>

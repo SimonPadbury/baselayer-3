@@ -976,7 +976,12 @@ window.addEventListener("DOMContentLoaded", () => {
 </div>
 </div>
 <h2 id="content-grid" tabindex="-1">Content-grid</h2>
-<p><code>content-grid</code> is intended for long-read (a.k.a. long-form) prose such as blog losts, news articles, and academic papers. Using a 7 column CSS Grid layout, the default behavior of <code>content-grid</code> will place your content in the middle (column 4), where it will have maximum width <code>--w-cg</code> = <code>768px</code>. It expects your content typographic blocks (headings, paragraphs, lists, tables, etc.), and the panel blocks below, to be its <em>immediate children</em>.</p>
+<p><code>content-grid</code> is intended for long-read (a.k.a. long-form) prose such as blog losts, news articles, and academic papers. Using a 7 column CSS Grid layout, the default behavior of <code>content-grid</code> will place your content in the middle (column 4), where it will have maximum width <code>--w-content: 40em</code>. Therefore:</p>
+<ul>
+<li><code>.content-grid</code> content column max width 720px (default)</li>
+<li><code>.content-grid.t-long-read</code> content column max width 900px (default)</li>
+</ul>
+<p><code>content-grid</code> expects your content typographic blocks (headings, paragraphs, lists, tables, etc.), and the panel blocks below, to be its <em>immediate children</em>.</p>
 <div aria-label="Note" class="popout mt-3 mb-4 bl-heavy b-blue b-300 b-dark-invert p-3 bg-blue bg-100 bg-dark-invert">  <strong>Note:</strong> <code>content-grid</code> is not a <a href="#container-query-powered-layouts">container query powered layout</a> — it doesn’t need to be.</code"></div>
 <h3 id="popout-panels" tabindex="-1">Popout panels</h3>
 <p>Use the <code>popout</code> utility class on an immediate child of <code>content-grid</code> to make an element span the middle 3 columns (3 to 5) instead of just column 4. Columns 3 and 5 have width <code>--s-2</code>.</p>
