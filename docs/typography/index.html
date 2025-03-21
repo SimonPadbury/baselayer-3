@@ -7,7 +7,7 @@
 
   <title>Typography · Baselayer CSS</title>
 
-  <link rel="stylesheet" href="/baselayer-3/css/min/baselayer.min.css?v=3.4.3">
+  <link rel="stylesheet" href="/baselayer-3/css/min/baselayer.min.css?v=3.4.4">
 
   <style>
   html {
@@ -25,6 +25,7 @@
 button.toggler {
   height: 3.625em;
 }
+
 .check-box {
   width: 1rem;
   height: 1rem;
@@ -33,21 +34,25 @@ button.toggler {
 .font-base #baseSwitch .check-box::before {
   content: "✓";
 }
+
 .font-prose #proseSwitch .check-box::before {
   content: "✓";
 }
+
 .theme-auto #autoSwitch .check-box::before {
   content: "✓";
 }
+
 .theme-light #lightSwitch .check-box::before {
   content: "✓";
 }
+
 .theme-dark #darkSwitch .check-box::before {
   content: "✓";
 }
 
 .font-prose #content-wrap {
-  font-family: var(--ff-prose);
+  font-family: var(--t-prose);
 }
 
 :target {
@@ -63,37 +68,44 @@ pre code {
   #content-wrap {
     width: calc(100vw - var(--w-xs));
   }
+
   #site-nav {
     position: sticky;
     top: 0;
     width: var(--w-xs);
     height: 100dvh;
   }
+
   #site-title {
     padding-top: var(--s-3);
     flex-direction: column;
     align-self: center;
   }
+
   #site-menu {
     min-width: var(--w-xs);
   }
-  .ms-windows #site-nav > div {
+
+  .ms-windows #site-nav>div {
     scrollbar-gutter: stable;
     overflow-y: hidden;
   }
-  .ms-windows #site-nav:hover > div {
+
+  .ms-windows #site-nav:hover>div {
     overflow-y: auto;
   }
 }
 
 @container (min-width: 1280px) {
-  #toc-outer > p {
+  #toc-outer>p {
     padding-top: var(--s-3);
   }
+
   .ms-windows #toc-outer {
     scrollbar-gutter: stable;
     overflow-y: hidden;
   }
+
   .ms-windows #toc-outer:hover {
     overflow-y: auto;
   }
@@ -104,7 +116,6 @@ pre code {
     display: none;
   }
 }
-
   </style>
 
   <script>
@@ -240,7 +251,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
     <div id="js-menu-wrapper">
       <div class="m-3 bt-thin bb-thin py-3 flex flex-center flex-wrap gap-3 links-underlined-hover-only">
-        <span class="t-gray t-600 t-dark-invert">Version: 3.4.3</span>
+        <span class="t-gray t-600 t-dark-invert">Version: 3.4.4</span>
         <a class="t-gray t-800 hover:t-900 t-dark-invert" href="https://github.com/SimonPadbury/baselayer-3">GitHub</a>
         <span>
           <a class="t-gray t-800 hover:t-900 t-dark-invert" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> <span class="t-gray t-600 t-dark-invert">(24 KB)</span>
@@ -339,18 +350,18 @@ window.addEventListener("DOMContentLoaded", () => {
             <h2 id="font-stacks" tabindex="-1">Font stacks</h2>
 <p>A few native font stacks are set in the <code>root-vars.css</code> file.</p>
 <pre><code>:root {
-  --ff-sans: ui-sans-serif, system-ui, Arial, sans-serif;
-  --ff-serif: ui-serif, Georgia, Cambria, &quot;Times New Roman&quot;, Times, serif;
-  --ff-mono: ui-monospace, Menlo, Consolas, &quot;Courier New&quot;, monospace;
-  --ff-base: var(--t-sans);
-  --ff-prose: var(--t-serif);
+  --t-sans: ui-sans-serif, system-ui, Arial, sans-serif;
+  --t-serif: ui-serif, Georgia, Cambria, &quot;Times New Roman&quot;, Times, serif;
+  --t-mono: ui-monospace, Menlo, Consolas, &quot;Courier New&quot;, monospace;
+  --t-default: var(--t-sans);
+  --t-prose: var(--t-serif);
 }
 </code></pre>
 <p>Everything here is an example, a place to start. Your own <code>--base</code> and <code>--prose</code> don’t need to be both sans-serif and serif. See <a href="#setting-font-stacks">setting font stacks</a> for more information.</p>
 <p>The Baselayer docs make use of JavaScript and some extra CSS to enable a demo toggle, so that you can switch between <code>--base</code> and <code>--prose</code> in this main content area — see main menu.</p>
 <p>Font stack usage in Baselayer:</p>
 <ul>
-<li>The base font stack <code>--ff-base</code> is set in the <code>&lt;body&gt;</code> tag and via the <code>t-base</code> utility class. It is also set on form inputs and on heading tags (using <code>--h-ff: inherit;</code> so that you can override and set a different heading typeface).</li>
+<li>The base font stack <code>--t-default</code> is set in the <code>&lt;body&gt;</code> tag and via the <code>t-base</code> utility class. It is also set on form inputs and on heading tags (using <code>--h-ff: inherit;</code> so that you can override and set a different heading typeface).</li>
 <li>The prose is only available via the <code>t-prose</code> utility class. Employ it on your <code>&lt;article&gt;</code> tag, or wherever you need.</li>
 <li>The monotype is available via the <code>&lt;code&gt;</code>, <code>&lt;kbd&gt;</code>, and <code>&lt;samp&gt;</code> HTML tags, and in the <code>t-mono</code> utility class.</li>
 </ul>
@@ -386,19 +397,19 @@ window.addEventListener("DOMContentLoaded", () => {
 <p>The default font size in Baselayer is 100% for small viewports, and bumped up to 112.5% from width 640px up (equivalent to Baselayer width variable <code>sm</code>).</p>
 <pre><code class="language-css">/* in variables.css */
 :root {
-  --fs-base: 100%;
-  --fs-bump: 112.5%;
+  --t-base: 100%;
+  --t-bump: 112.5%;
 }
 
 /* in base.css */
 body{
   container-type: inline-size;
-  font-family: var(--ff-base);
-  font-size: var(--fs-base);
+  font-family: var(--t-default);
+  font-size: var(--t-base);
 }
 @container (min-width: 640px) {
   body &gt; * {
-    font-size: var(--fs-bump);
+    font-size: var(--t-bump);
   }
 }
 </code></pre>
@@ -430,7 +441,7 @@ body{
   --h5: 1.125em;
   --h6: 1em;
   --h-ff: inherit; /* headings font-family */
-  --h-fw: var(--fw-semibold);
+  --h-fw: var(--t-semibold);
   --h-lh: calc(1em + 0.5rem);
   --h-mt: calc(var(--t-mb) * 2);
 }
@@ -742,7 +753,7 @@ body{
 <li>The <code>t-display</code> wrapping class uses a <code>clamp()</code> to raise text from starting size 1em (18px default at 640px container width) up to 2em (36px default) depending on container size. E.g. used for responsively increasing text size in <em>hero components</em>. <code>&lt;h1&gt;</code> inside a <code>t-display</code> will have maximum font size approx 81px.</li>
 </ol>
 <h2 id="code" tabindex="-1">Code</h2>
-<p><code>&lt;code&gt;</code> tags have monospaced text (set by <code>--ff-mono</code>) over a white or black background (in light or dark modes), with a thin border and a little padding to improve readability.</p>
+<p><code>&lt;code&gt;</code> tags have monospaced text (set by <code>--t-mono</code>) over a white or black background (in light or dark modes), with a thin border and a little padding to improve readability.</p>
 <p>If the <code>&lt;code&gt;</code> tag is wrapped in a <code>&lt;pre&gt;</code> tag, then it becomes a block level element with more padding, a max-width of 100%, and y-axis overflow scrolling.</p>
 <h2 id="other-typographic-utility-classes" tabindex="-1">Other typographic utility classes</h2>
 <p>Besides those already introduced, Baselayer also has utility classes for:</p>
@@ -789,7 +800,7 @@ body{
                   </svg>
                 <span class="h3 m-0 t-normal t-nowrap">Baselayer CSS</span>
               </a>
-              <span>Version: 3.4.3</span>
+              <span>Version: 3.4.4</span>
             </div>
 
             <p class="p-cell flex flex-center flex-wrap gap-4 t-center">

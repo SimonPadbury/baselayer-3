@@ -3,11 +3,15 @@
   README.md, baselayer.css, metadata.json,
   package.json, package-lock.json (x2), and
   this CHANGELOG.md
-• Increment filesize in README.md, and
-  metadata.json.
+• Adjust filesize in README.md and
+  metadata.json if necessary.
 -->
 
 # Baselayer 3 changelog
+
+## v.3.4.4 -- 21 Mar 2025
+
+* Renamed some text variables, so that variable names match respective typographic utility classes (easier to remember).
 
 ## v.3.4.3 -- 3 Jan 2025
 

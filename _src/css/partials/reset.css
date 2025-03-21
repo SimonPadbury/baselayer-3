@@ -21,7 +21,7 @@
   body {
     min-height: 100dvh;
     margin: 0;
-    font-size: var(--ff-base);
+    font-size: var(--t-base);
     line-height: var(--t-lh);
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;

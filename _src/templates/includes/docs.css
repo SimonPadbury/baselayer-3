@@ -13,6 +13,7 @@ html {
 button.toggler {
   height: 3.625em;
 }
+
 .check-box {
   width: 1rem;
   height: 1rem;
@@ -21,21 +22,25 @@ button.toggler {
 .font-base #baseSwitch .check-box::before {
   content: "✓";
 }
+
 .font-prose #proseSwitch .check-box::before {
   content: "✓";
 }
+
 .theme-auto #autoSwitch .check-box::before {
   content: "✓";
 }
+
 .theme-light #lightSwitch .check-box::before {
   content: "✓";
 }
+
 .theme-dark #darkSwitch .check-box::before {
   content: "✓";
 }
 
 .font-prose #content-wrap {
-  font-family: var(--ff-prose);
+  font-family: var(--t-prose);
 }
 
 :target {
@@ -51,37 +56,44 @@ pre code {
   #content-wrap {
     width: calc(100vw - var(--w-xs));
   }
+
   #site-nav {
     position: sticky;
     top: 0;
     width: var(--w-xs);
     height: 100dvh;
   }
+
   #site-title {
     padding-top: var(--s-3);
     flex-direction: column;
     align-self: center;
   }
+
   #site-menu {
     min-width: var(--w-xs);
   }
-  .ms-windows #site-nav > div {
+
+  .ms-windows #site-nav>div {
     scrollbar-gutter: stable;
     overflow-y: hidden;
   }
-  .ms-windows #site-nav:hover > div {
+
+  .ms-windows #site-nav:hover>div {
     overflow-y: auto;
   }
 }
 
 @container (min-width: 1280px) {
-  #toc-outer > p {
+  #toc-outer>p {
     padding-top: var(--s-3);
   }
+
   .ms-windows #toc-outer {
     scrollbar-gutter: stable;
     overflow-y: hidden;
   }
+
   .ms-windows #toc-outer:hover {
     overflow-y: auto;
   }

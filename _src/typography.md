@@ -14,11 +14,11 @@ A few native font stacks are set in the `root-vars.css` file.
 
 ```
 :root {
-  --ff-sans: ui-sans-serif, system-ui, Arial, sans-serif;
-  --ff-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
-  --ff-mono: ui-monospace, Menlo, Consolas, "Courier New", monospace;
-  --ff-base: var(--t-sans);
-  --ff-prose: var(--t-serif);
+  --t-sans: ui-sans-serif, system-ui, Arial, sans-serif;
+  --t-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --t-mono: ui-monospace, Menlo, Consolas, "Courier New", monospace;
+  --t-default: var(--t-sans);
+  --t-prose: var(--t-serif);
 }
 ```
 
@@ -28,7 +28,7 @@ The Baselayer docs make use of JavaScript and some extra CSS to enable a demo to
 
 Font stack usage in Baselayer:
 
-* The base font stack `--ff-base` is set in the `<body>` tag and via the `t-base` utility class. It is also set on form inputs and on heading tags (using `--h-ff: inherit;` so that you can override and set a different heading typeface).
+* The base font stack `--t-default` is set in the `<body>` tag and via the `t-base` utility class. It is also set on form inputs and on heading tags (using `--h-ff: inherit;` so that you can override and set a different heading typeface).
 * The prose is only available via the `t-prose` utility class. Employ it on your `<article>` tag, or wherever you need.
 * The monotype is available via the `<code>`, `<kbd>`, and `<samp>` HTML tags, and in the `t-mono` utility class.
 
@@ -71,19 +71,19 @@ The default font size in Baselayer is 100% for small viewports, and bumped up to
 ```css
 /* in variables.css */
 :root {
-  --fs-base: 100%;
-  --fs-bump: 112.5%;
+  --t-base: 100%;
+  --t-bump: 112.5%;
 }
 
 /* in base.css */
 body{
   container-type: inline-size;
-  font-family: var(--ff-base);
-  font-size: var(--fs-base);
+  font-family: var(--t-default);
+  font-size: var(--t-base);
 }
 @container (min-width: 640px) {
   body > * {
-    font-size: var(--fs-bump);
+    font-size: var(--t-bump);
   }
 }
 ```
@@ -123,7 +123,7 @@ All headings `<h1>` to `<h6>` and matching utility classes `h1` to `h6` have:
   --h5: 1.125em;
   --h6: 1em;
   --h-ff: inherit; /* headings font-family */
-  --h-fw: var(--fw-semibold);
+  --h-fw: var(--t-semibold);
   --h-lh: calc(1em + 0.5rem);
   --h-mt: calc(var(--t-mb) * 2);
 }
@@ -477,7 +477,7 @@ Additionally:
 
 ## Code
 
-`<code>` tags have monospaced text (set by `--ff-mono`) over a white or black background (in light or dark modes), with a thin border and a little padding to improve readability.
+`<code>` tags have monospaced text (set by `--t-mono`) over a white or black background (in light or dark modes), with a thin border and a little padding to improve readability.
 
 If the `<code>` tag is wrapped in a `<pre>` tag, then it becomes a block level element with more padding, a max-width of 100%, and y-axis overflow scrolling.
 

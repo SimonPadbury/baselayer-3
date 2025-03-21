@@ -6,7 +6,7 @@
 
   label,
   legend {
-    font-family: var(--ff-base);
+    font-family: var(--t-default);
   }
 
   ::placeholder {
@@ -21,7 +21,7 @@
     border: var(--b-form);
     border-radius: unset;
     padding: var(--p-cell);
-    font-family: var(--ff-base);
+    font-family: var(--t-default);
     font-size: inherit;
     text-align: start;
     color: var(--tc-form);
@@ -79,13 +79,14 @@
     margin: 0;
     border: 1px solid transparent;
     padding: var(--s-2) 1em;
-    font-family: var(--ff-base);
+    font-family: var(--t-default);
     font-size: inherit;
-    font-weight: var(--fw-btn);
+    font-weight: var(--t-btn);
     text-decoration: none;
     color: var(--tc-btn);
     background: var(--bgc-btn);
     transition: all 0.15s ease;
+
     &:hover {
       text-decoration: none;
       color: var(--tc-btn-hover);

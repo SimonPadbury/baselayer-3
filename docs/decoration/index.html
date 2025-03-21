@@ -7,7 +7,7 @@
 
   <title>Decoration · Baselayer CSS</title>
 
-  <link rel="stylesheet" href="/baselayer-3/css/min/baselayer.min.css?v=3.4.3">
+  <link rel="stylesheet" href="/baselayer-3/css/min/baselayer.min.css?v=3.4.4">
 
   <style>
   html {
@@ -25,6 +25,7 @@
 button.toggler {
   height: 3.625em;
 }
+
 .check-box {
   width: 1rem;
   height: 1rem;
@@ -33,21 +34,25 @@ button.toggler {
 .font-base #baseSwitch .check-box::before {
   content: "✓";
 }
+
 .font-prose #proseSwitch .check-box::before {
   content: "✓";
 }
+
 .theme-auto #autoSwitch .check-box::before {
   content: "✓";
 }
+
 .theme-light #lightSwitch .check-box::before {
   content: "✓";
 }
+
 .theme-dark #darkSwitch .check-box::before {
   content: "✓";
 }
 
 .font-prose #content-wrap {
-  font-family: var(--ff-prose);
+  font-family: var(--t-prose);
 }
 
 :target {
@@ -63,37 +68,44 @@ pre code {
   #content-wrap {
     width: calc(100vw - var(--w-xs));
   }
+
   #site-nav {
     position: sticky;
     top: 0;
     width: var(--w-xs);
     height: 100dvh;
   }
+
   #site-title {
     padding-top: var(--s-3);
     flex-direction: column;
     align-self: center;
   }
+
   #site-menu {
     min-width: var(--w-xs);
   }
-  .ms-windows #site-nav > div {
+
+  .ms-windows #site-nav>div {
     scrollbar-gutter: stable;
     overflow-y: hidden;
   }
-  .ms-windows #site-nav:hover > div {
+
+  .ms-windows #site-nav:hover>div {
     overflow-y: auto;
   }
 }
 
 @container (min-width: 1280px) {
-  #toc-outer > p {
+  #toc-outer>p {
     padding-top: var(--s-3);
   }
+
   .ms-windows #toc-outer {
     scrollbar-gutter: stable;
     overflow-y: hidden;
   }
+
   .ms-windows #toc-outer:hover {
     overflow-y: auto;
   }
@@ -104,7 +116,6 @@ pre code {
     display: none;
   }
 }
-
   </style>
 
   <script>
@@ -240,7 +251,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
     <div id="js-menu-wrapper">
       <div class="m-3 bt-thin bb-thin py-3 flex flex-center flex-wrap gap-3 links-underlined-hover-only">
-        <span class="t-gray t-600 t-dark-invert">Version: 3.4.3</span>
+        <span class="t-gray t-600 t-dark-invert">Version: 3.4.4</span>
         <a class="t-gray t-800 hover:t-900 t-dark-invert" href="https://github.com/SimonPadbury/baselayer-3">GitHub</a>
         <span>
           <a class="t-gray t-800 hover:t-900 t-dark-invert" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> <span class="t-gray t-600 t-dark-invert">(24 KB)</span>
@@ -526,7 +537,7 @@ window.addEventListener("DOMContentLoaded", () => {
                   </svg>
                 <span class="h3 m-0 t-normal t-nowrap">Baselayer CSS</span>
               </a>
-              <span>Version: 3.4.3</span>
+              <span>Version: 3.4.4</span>
             </div>
 
             <p class="p-cell flex flex-center flex-wrap gap-4 t-center">

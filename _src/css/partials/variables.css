@@ -37,25 +37,25 @@
     --b-3: var(--s-2) solid var(--bc-fineline);
 
     /* Native Typeface Stacks */
-    --ff-sans: ui-sans-serif, system-ui, Arial, sans-serif;
-    --ff-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
-    --ff-mono: ui-monospace, Menlo, Consolas, "Courier New", monospace;
-    --ff-base: var(--ff-sans);
-    --ff-prose: var(--ff-serif);
+    --t-sans: ui-sans-serif, system-ui, Arial, sans-serif;
+    --t-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+    --t-mono: ui-monospace, Menlo, Consolas, "Courier New", monospace;
+    --t-default: var(--t-sans);
+    --t-prose: var(--t-serif);
 
     /* Font sizes */
-    --fs-base: 100%;
+    --t-base: 100%;
     /* usually 16px */
-    --fs-bump: 112.5%;
+    --t-bump: 112.5%;
     /* usually 18px */
-    --fs-sm: 0.8em;
-    --fs-lg: 1.325em;
-    --fs-long-read: clamp(1em, 0em + 2.25cqi, 1.25em);
-    --fs-display: clamp(1em, 0em + 2.5cqi, 2em);
+    --t-sm: 0.8em;
+    --t-lg: 1.325em;
+    --t-long-read: clamp(1em, 0em + 2.25cqi, 1.25em);
+    --t-display: clamp(1em, 0em + 2.5cqi, 2em);
     /*
-    fs-base (up tp 640px container width):
+    t-base (up tp 640px container width):
         Default text at 16px. H1 at 36px.
-    fs-bump:
+    t-bump:
         Default text at 18px. H1 at ~41px.
     t-long-read:
         Default text 18px ramps up to 22.5px. H1 will max out at ~51px.
@@ -65,12 +65,12 @@
     */
 
     /* Font weights */
-    --fw-thin: 200;
-    --fw-normal: 400;
-    --fw-semibold: 600;
-    --fw-bold: 700;
-    --fw-heavy: 900;
-    --fw-btn: var(--fw-semibold);
+    --t-thin: 200;
+    --t-normal: 400;
+    --t-semibold: 600;
+    --t-bold: 700;
+    --t-heavy: 900;
+    --t-btn: var(--t-semibold);
 
     /* Forms */
     --b-form: 1px solid var(--bc-form);
@@ -83,14 +83,14 @@
     enlarged by wrapping with `.t-display`
     */
     --h1: 2.25em;
-    --h2: 1.875em;
-    --h3: 1.5em;
-    --h4: 1.25em;
-    --h5: 1.125em;
-    --h6: 1em;
+    --h2: 1.625em;
+    --h3: 1.325em;
+    --h4: 1.115em;
+    --h5: 1em;
+    --h6: 0.9em;
     --h-ff: inherit;
     /* headings font family */
-    --h-fw: var(--fw-semibold);
+    --h-fw: var(--t-semibold);
     --h-lh: calc(1em + 0.5rem);
     --h-mt: calc(var(--t-mb) * 2);
 

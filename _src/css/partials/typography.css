@@ -160,7 +160,7 @@
   code,
   kbd,
   samp {
-    font-family: var(--ff-mono);
+    font-family: var(--t-mono);
     font-style: normal;
     font-weight: normal;
   }
@@ -204,32 +204,32 @@
   }
 
   .t-lg {
-    font-size: var(--fs-lg);
+    font-size: var(--t-lg);
   }
 
   small,
   .t-sm {
-    font-size: var(--fs-sm);
+    font-size: var(--t-sm);
   }
 
   .t-thin {
-    font-weight: var(--fw-thin);
+    font-weight: var(--t-thin);
   }
 
   .t-normal {
-    font-weight: var(--fw-normal);
+    font-weight: var(--t-normal);
   }
 
   .t-semibold {
-    font-weight: var(--fw-semibold);
+    font-weight: var(--t-semibold);
   }
 
   .t-bold {
-    font-weight: var(--fw-bold);
+    font-weight: var(--t-bold);
   }
 
   .t-heavy {
-    font-weight: var(--fw-heavy);
+    font-weight: var(--t-heavy);
   }
 
   .t-italic {
@@ -305,27 +305,27 @@
   }
 
   .t-long-read {
-    font-size: var(--fs-long-read);
+    font-size: var(--t-long-read);
   }
 
   .t-display {
-    font-size: var(--fs-display);
+    font-size: var(--t-display);
   }
 
   .t-base {
-    font-family: var(--ff-base);
+    font-family: var(--t-default);
   }
 
   .t-prose {
-    font-family: var(--ff-prose);
+    font-family: var(--t-prose);
   }
 
   /* Un-comment these if required */
 
   /* .t-prose.t-normal,
   .t-prose {
-    font-family: var(--ff-prose);
-    font-size: var(--fs-baseprose);
+    font-family: var(--t-prose);
+    font-size: var(--t-defaultprose);
     font-weight: var(--fwprose);
   }
   .t-prose.t-bold, .t-prose .t-bold, .t-prose strong {
@@ -334,6 +334,6 @@
   .t-long-read.t-prose,
   .t-long-read .t-prose,
   .t-prose .t-long-read {
-    font-size: var(--fs-long-read-prose);
+    font-size: var(--t-long-read-prose);
   } */
 }

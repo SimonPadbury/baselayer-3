@@ -17,7 +17,7 @@ Baselayer form elements have simple background and focus styling.
     * By involving the form elements as immediate children of [flex layout]({{ '/layout/' | url }}#flex-layouts) or [grid layout]({{ '/layout/' | url }}#grid-layouts) wrappers.
 2. Form inputs (exclusing buttons) and textareas have a 1px solid border colored by `:root { --b-form: var(--tc-base); }`, so that the border will be the same as the default text color (near black on light theme, bear white on dark theme). This border color makes forms stand out more obvious as an interactive element.
 2. Form inputs, textareas, buttons, and the `btn` class, have `font-size: inherit`. This means their font sizes can be modified by any font-size class in Baselayer.
-3. The font-family of form elements, buttons, and `btn` is controlled by `var(--ff-base)` (default is sans-serif).
+3. The font-family of form elements, buttons, and `btn` is controlled by `var(--t-default)` (default is sans-serif).
 
 ## Textual form input fields
 

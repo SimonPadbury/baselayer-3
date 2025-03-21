@@ -1,9 +1,11 @@
 @layer defaults {
   html {
     color-scheme: light dark;
+
     &.theme-light {
       color-scheme: light;
     }
+
     &.theme-dark {
       color-scheme: dark;
     }
@@ -11,14 +13,15 @@
 
   body {
     container-type: inline-size;
-    font-family: var(--ff-base);
-    font-size: var(--fs-base);
+    font-family: var(--t-default);
+    font-size: var(--t-base);
     color: var(--tc-base);
     background-color: var(--bgc-body);
   }
+
   @container (min-width: 640px) {
-    body > * {
-      font-size: var(--fs-bump);
+    body>* {
+      font-size: var(--t-bump);
     }
   }
 }
