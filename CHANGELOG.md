@@ -9,6 +9,11 @@
 
 # Baselayer 3 changelog
 
+## v.3.4.5 -- 2 Apr 2025
+
+* Removed the slight colorchange on `a:hover` -- now affordance is only the underline becoming thicker. This because there was an optical illusion where the underline becoming thicker appeared to lighten the underline while the hover state color was darker.
+* Renamed `links-not-underlined` and `links-no-underline` etc.
+
 ## v.3.4.4 -- 21 Mar 2025
 
 * Renamed some text variables, so that variable names match respective typographic utility classes (easier to remember).

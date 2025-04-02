@@ -7,7 +7,7 @@
 
   <title>Typography · Baselayer CSS</title>
 
-  <link rel="stylesheet" href="/baselayer-3/css/min/baselayer.min.css?v=3.4.4">
+  <link rel="stylesheet" href="/baselayer-3/css/min/baselayer.min.css?v=3.4.5">
 
   <style>
   html {
@@ -251,7 +251,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
     <div id="js-menu-wrapper">
       <div class="m-3 bt-thin bb-thin py-3 flex flex-center flex-wrap gap-3 links-underlined-hover-only">
-        <span class="t-gray t-600 t-dark-invert">Version: 3.4.4</span>
+        <span class="t-gray t-600 t-dark-invert">Version: 3.4.5</span>
         <a class="t-gray t-800 hover:t-900 t-dark-invert" href="https://github.com/SimonPadbury/baselayer-3">GitHub</a>
         <span>
           <a class="t-gray t-800 hover:t-900 t-dark-invert" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> <span class="t-gray t-600 t-dark-invert">(24 KB)</span>
@@ -259,7 +259,7 @@ window.addEventListener("DOMContentLoaded", () => {
       </div>
 
       <nav class="t-white container px-3 py-2">
-        <menu class="pl-0 flex flex-column gap-2 links-not-underlined">
+        <menu class="pl-0 flex flex-column gap-2 links-no-underline">
           <menuitem>
             <a class="block  p-cell t-gray t-700 hover:t-900 t-dark-invert"  href="/baselayer-3/">Getting started</a>
           </menuitem>
@@ -517,8 +517,9 @@ body{
 </code></pre>
 <h2 id="the-link-tag" tabindex="-1">The link tag</h2>
 <p>The default underline for links has been moved downwards slightly to improve legibility. The link decoration (underline) thickness has been set at 1px, so that it doesn’t become thicker when used on larger text (e.g. in headings) where link underline can be too bulky).</p>
-<p>On <code>:hover</code>, the link text color becomes slightly darker and underline becomes thicker, increasing to 3px. This thickening of the line helps people who don't see the slight color change.</p>
-<p>All these styles are controlled by CSS variables so that you can change them.</p>
+<p>On <code>:hover</code>, the link text color remains unchanged and underline becomes thicker, increasing to 3px.</p>
+<p>This thickening of the line is more obvious than a slight color change, such as you see in other CSS starter kits and frameworks. But if you require a color change, you can add your own, e.g. by Baselayer variables or <a href="/baselayer-3/baselayer-3/colors/">color utilities</a>.</p>
+<p>Example:</p>
 <ul>
 <li><a href="">This is a link to nowhere</a></li>
 </ul>
@@ -527,7 +528,7 @@ body{
 <li><a class="t-no-underline" href="">This link has no underline</a> — <code>t-no-underline</code></li>
 <li><a class="t-underline-hover-only" href="">This link has no underline unless hovered</a> — <code>t-underline-hover-only</code></li>
 </ul>
-<p>The browser default, and the best practice for accessability, is to have links indicated by an underline (and the browser default color of links is blue). But in the context of menus it is permissible to deviate from the best practice, provided there are other visual and non-visual indicators. This is the reason why we should use <a href="https://www.codecademy.com/resources/blog/semantic-html/">semantic HTML</a> tags on menus, and and why we should place navigation menus in their expected locations (in sitewide menubar ribbons, sidebars, and footers.</p>
+<p>The browser default, and the best practice for accessability, is to have links indicated by an underline (and the browser default color of links is blue). But in the context of menus it is permissible to deviate from the best practice, provided there are other visual and non-visual indicators. This is the reason why we should use <a href="https://www.codecademy.com/resources/blog/semantic-html/">semantic HTML</a> tags on menus, and and why we should place navigation menus in their expected locations (in sitewide menu-bars, sidebars, and footers).</p>
 <h2 id="menus" tabindex="-1">Menus</h2>
 <ul>
 <li><code>nav</code> / <code>&lt;menu&gt;</code> / <code>&lt;menuitem&gt;</code></li>
@@ -559,22 +560,22 @@ body{
 </ol>
 <p>If you want the group of links to not have underlines, or to have underlines only when hovered (because you intend to style them differently in your menu):</p>
 <ul>
-<li><code>links-not-underlined</code></li>
-<li><code>links-underlined-hover-only</code></li>
+<li><code>links-no-underline</code></li>
+<li><code>links-underline-hover-only</code></li>
 </ul>
 <p>And with a few other Baselayer utilities, you have a menubar:</p>
 <nav class="mt-3 mb-4">
-  <menu class="p-3 flex flex-wrap gap-4 bg-gray bg-100 bg-dark-invert links-not-underlined">
-    <menuitem><a href="">Menu item 1</a></menuitem>
-    <menuitem><a href="">Menu item 2</a></menuitem>
-    <menuitem><a href="">Menu item 3</a></menuitem>
+  <menu class="p-3 flex flex-wrap gap-4 bg-gray bg-100 bg-dark-invert links-no-underline">
+    <menuitem><a class="t-semibold t-gray t-700 hover:t-black t-dark-invert" href="">Menu item 1</a></menuitem>
+    <menuitem><a class="t-semibold t-gray t-700 hover:t-black t-dark-invert" href="">Menu item 2</a></menuitem>
+    <menuitem><a class="t-semibold t-gray t-700 hover:t-black t-dark-invert" href="">Menu item 3</a></menuitem>
   </menu>
 </nav>
 <pre><code class="language-html">&lt;nav&gt;
-  &lt;menu class=&quot;p-3 flex flex-wrap gap-4 bg-gray bg-100 bg-dark-invert links-not-underlined&quot;&gt;
-    &lt;menuitem&gt;&lt;a href=&quot;&quot;&gt;Menu item 1&lt;/a&gt;&lt;/menuitem&gt;
-    &lt;menuitem&gt;&lt;a href=&quot;&quot;&gt;Menu item 2&lt;/a&gt;&lt;/menuitem&gt;
-    &lt;menuitem&gt;&lt;a href=&quot;&quot;&gt;Menu item 3&lt;/a&gt;&lt;/menuitem&gt;
+  &lt;menu class=&quot;p-3 flex flex-wrap gap-4 bg-gray bg-100 bg-dark-invert links-no-underline&quot;&gt;
+    &lt;menuitem&gt;&lt;a class=&quot;t-semibold t-gray t-700 hover:t-black t-dark-invert&quot; href=&quot;&quot;&gt;Menu item 1&lt;/a&gt;&lt;/menuitem&gt;
+    &lt;menuitem&gt;&lt;a class=&quot;t-semibold t-gray t-700 hover:t-black t-dark-invert&quot; href=&quot;&quot;&gt;Menu item 2&lt;/a&gt;&lt;/menuitem&gt;
+    &lt;menuitem&gt;&lt;a class=&quot;t-semibold t-gray t-700 hover:t-black t-dark-invert&quot; href=&quot;&quot;&gt;Menu item 3&lt;/a&gt;&lt;/menuitem&gt;
   &lt;/menu&gt;
 &lt;/nav&gt;
 </code></pre>
@@ -773,7 +774,7 @@ body{
         </div>
         <div class="lg:col-span-3">
           <footer class="mt-3 content-grid">
-            <nav class="popout grid gap-2 sm:equal-2-cols links-not-underlined">
+            <nav class="popout grid gap-2 sm:equal-2-cols links-no-underline">
               
               <a class="sm:col-1 my-1 b-thin b-blue b-300 hover:b-500 b-dark-invert rad-1 p-cell flex flex-column gap-1 t-blue t-600 hover:t-700 t-dark-invert hover:bg-blue hover:bg-100 bg-dark-invert"  href="/baselayer-3/">
                 Previous page
@@ -800,7 +801,7 @@ body{
                   </svg>
                 <span class="h3 m-0 t-normal t-nowrap">Baselayer CSS</span>
               </a>
-              <span>Version: 3.4.4</span>
+              <span>Version: 3.4.5</span>
             </div>
 
             <p class="p-cell flex flex-center flex-wrap gap-4 t-center">

@@ -9,9 +9,7 @@
     text-decoration-skip-ink: auto;
     text-underline-offset: var(--a-deco-offset);
     text-decoration-thickness: var(--a-deco-thickness);
-    &:hover {
-      color: var(--tc-link-hover);
-    }
+
     &:not(.t-no-underline):hover {
       text-decoration: underline;
       text-decoration-thickness: var(--a-deco-thickness-hover);
@@ -20,9 +18,9 @@
 
   .t-no-underline,
   .t-underline-hover-only,
-  .links-not-underlined a,
-  .links-not-underlined a:hover,
-  .links-underlined-hover-only a {
+  .links-no-underline a,
+  .links-no-underline a:hover,
+  .links-underline-hover-only a {
     text-decoration: none;
   }
 
@@ -46,7 +44,7 @@
   select:focus,
   form button:focus,
   button:focus-visible,
-  a:focus-visible > img {
+  a:focus-visible>img {
     position: relative;
     box-shadow: 0 0 0 3px black;
     outline: 3px solid var(--amber);

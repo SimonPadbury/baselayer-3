@@ -206,9 +206,11 @@ For definition lists, the title is bold and the definition data item is indented
 
 The default underline for links has been moved downwards slightly to improve legibility. The link decoration (underline) thickness has been set at 1px, so that it doesn’t become thicker when used on larger text (e.g. in headings) where link underline can be too bulky).
 
-On `:hover`, the link text color becomes slightly darker and underline becomes thicker, increasing to 3px. This thickening of the line helps people who don't see the slight color change.
+On `:hover`, the link text color remains unchanged and underline becomes thicker, increasing to 3px. 
 
-All these styles are controlled by CSS variables so that you can change them.
+This thickening of the line is more obvious than a slight color change, such as you see in other CSS starter kits and frameworks. But if you require a color change, you can add your own, e.g. by Baselayer variables or [color utilities]({{ '/baselayer-3/colors/' | url }}).
+
+Example:
 
 * <a href="">This is a link to nowhere</a>
 
@@ -217,7 +219,7 @@ Then there are the following two classes that apply to links, that may be handy 
 * <a class="t-no-underline" href="">This link has no underline</a> — `t-no-underline`
 * <a class="t-underline-hover-only" href="">This link has no underline unless hovered</a> — `t-underline-hover-only`
 
-The browser default, and the best practice for accessability, is to have links indicated by an underline (and the browser default color of links is blue). But in the context of menus it is permissible to deviate from the best practice, provided there are other visual and non-visual indicators. This is the reason why we should use [semantic HTML](https://www.codecademy.com/resources/blog/semantic-html/) tags on menus, and and why we should place navigation menus in their expected locations (in sitewide menubar ribbons, sidebars, and footers.
+The browser default, and the best practice for accessability, is to have links indicated by an underline (and the browser default color of links is blue). But in the context of menus it is permissible to deviate from the best practice, provided there are other visual and non-visual indicators. This is the reason why we should use [semantic HTML](https://www.codecademy.com/resources/blog/semantic-html/) tags on menus, and and why we should place navigation menus in their expected locations (in sitewide menu-bars, sidebars, and footers).
 
 ## Menus
 
@@ -257,25 +259,25 @@ Notes:
 
 If you want the group of links to not have underlines, or to have underlines only when hovered (because you intend to style them differently in your menu):
 
-* `links-not-underlined`
-* `links-underlined-hover-only`
+* `links-no-underline`
+* `links-underline-hover-only`
 
 And with a few other Baselayer utilities, you have a menubar:
 
 <nav class="mt-3 mb-4">
-  <menu class="p-3 flex flex-wrap gap-4 bg-gray bg-100 bg-dark-invert links-not-underlined">
-    <menuitem><a href="">Menu item 1</a></menuitem>
-    <menuitem><a href="">Menu item 2</a></menuitem>
-    <menuitem><a href="">Menu item 3</a></menuitem>
+  <menu class="p-3 flex flex-wrap gap-4 bg-gray bg-100 bg-dark-invert links-no-underline">
+    <menuitem><a class="t-semibold t-gray t-700 hover:t-black t-dark-invert" href="">Menu item 1</a></menuitem>
+    <menuitem><a class="t-semibold t-gray t-700 hover:t-black t-dark-invert" href="">Menu item 2</a></menuitem>
+    <menuitem><a class="t-semibold t-gray t-700 hover:t-black t-dark-invert" href="">Menu item 3</a></menuitem>
   </menu>
 </nav>
 
 ```html
 <nav>
-  <menu class="p-3 flex flex-wrap gap-4 bg-gray bg-100 bg-dark-invert links-not-underlined">
-    <menuitem><a href="">Menu item 1</a></menuitem>
-    <menuitem><a href="">Menu item 2</a></menuitem>
-    <menuitem><a href="">Menu item 3</a></menuitem>
+  <menu class="p-3 flex flex-wrap gap-4 bg-gray bg-100 bg-dark-invert links-no-underline">
+    <menuitem><a class="t-semibold t-gray t-700 hover:t-black t-dark-invert" href="">Menu item 1</a></menuitem>
+    <menuitem><a class="t-semibold t-gray t-700 hover:t-black t-dark-invert" href="">Menu item 2</a></menuitem>
+    <menuitem><a class="t-semibold t-gray t-700 hover:t-black t-dark-invert" href="">Menu item 3</a></menuitem>
   </menu>
 </nav>
 ```
