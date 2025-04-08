@@ -63,7 +63,6 @@
     font-family: var(--h-ff);
     font-weight: var(--h-fw);
     line-height: var(--h-lh);
-    text-wrap: balance;
 
     .content-grid & {
       /* This because CSS grid prevents margin-collapse on neighboring grid items */
