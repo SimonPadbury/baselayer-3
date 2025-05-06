@@ -451,9 +451,9 @@ window.addEventListener("DOMContentLoaded", () => {
 <h2 id="rounded-corners" tabindex="-1">Rounded corners</h2>
 <p>All Baselayer border radius classes apply their border radius <em>potentially to all four corners</em>. If you want different radii on different corners of the same element, then you can access each of the spacing variables in your CSS, or set your own values.</p>
 <p><strong>Tip:</strong> If you are putting rounded corners on a block element that contains an image, you will also need to add <code>overflow-clip</code>.</p>
-<p>The first five border radius classes below supply the property <code>border-{...}-radius</code> and the default spacing variable <code>--s-1</code> (0.5rem).</p>
+<p>The first five border radius classes below supply the property <code>border-{...}-radius</code> and the default spacing variable <code>--s-1</code> (0.25rem).</p>
 <ul>
-<li><code>rad</code>, alias <code>rad-1</code> — <code>border-radius:</code> (all) <code>--s-1</code> (0.5rem)</li>
+<li><code>rad</code> — <code>border-radius:</code> (all) <code>--s-1</code></li>
 <li><code>rad-tl</code> — <code>border-top-left-radius:</code> <code>--s-1</code></li>
 <li><code>rad-tr</code> — <code>border-top-right-radius:</code> <code>--s-1</code></li>
 <li><code>rad-br</code> — <code>border-bottom-right-radius:</code> <code>--s-1</code></li>
@@ -468,8 +468,8 @@ window.addEventListener("DOMContentLoaded", () => {
 <li><code>rad-pill</code> — <code>--s-pill</code> 99rem</li>
 </ul>
 <p>Examples:</p>
-<div class="expand mt-2 mb-3 grid xs:equal-2-cols sm:equal-3-cols gap-1">
-  <div class="b-thin rad px-2 py-4"><code>rad</code> or <code> rad rad-1</code></div>
+<div class="expand mt-2 mb-3 grid xs:equal-2-cols sm:equal-3-cols gap-1 t-center">
+  <div class="b-thin rad px-2 py-4"><code>rad</code></div>
   <div class="b-thin rad rad-2 px-2 py-4"><code>rad rad-2</code></div>
   <div class="b-thin rad rad-3 px-2 py-4"><code>rad rad-3</code></div>
   <div class="b-thin rad rad-4 px-2 py-4"><code>rad rad-4</code></div>

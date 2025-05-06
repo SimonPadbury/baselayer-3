@@ -130,9 +130,9 @@ All Baselayer border radius classes apply their border radius _potentially to al
 
 **Tip:** If you are putting rounded corners on a block element that contains an image, you will also need to add `overflow-clip`.
 
-The first five border radius classes below supply the property `border-{...}-radius` and the default spacing variable `--s-1` (0.5rem).
+The first five border radius classes below supply the property `border-{...}-radius` and the default spacing variable `--s-1` (0.25rem).
 
-* `rad`, alias `rad-1` — `border-radius:` (all) `--s-1` (0.5rem)
+* `rad` — `border-radius:` (all) `--s-1`
 * `rad-tl` — `border-top-left-radius:` `--s-1`
 * `rad-tr` — `border-top-right-radius:` `--s-1`
 * `rad-br` — `border-bottom-right-radius:` `--s-1`
@@ -148,8 +148,8 @@ Then there are five modifier classes. These only supply a spacing variable — t
 
 Examples:
 
-<div class="expand mt-2 mb-3 grid xs:equal-2-cols sm:equal-3-cols gap-1">
-  <div class="b-thin rad px-2 py-4"><code>rad</code> or <code> rad rad-1</code></div>
+<div class="expand mt-2 mb-3 grid xs:equal-2-cols sm:equal-3-cols gap-1 t-center">
+  <div class="b-thin rad px-2 py-4"><code>rad</code></div>
   <div class="b-thin rad rad-2 px-2 py-4"><code>rad rad-2</code></div>
   <div class="b-thin rad rad-3 px-2 py-4"><code>rad rad-3</code></div>
   <div class="b-thin rad rad-4 px-2 py-4"><code>rad rad-4</code></div>
