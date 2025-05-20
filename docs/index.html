@@ -116,6 +116,46 @@ pre code {
     display: none;
   }
 }
+
+/* Pagefind */
+
+.pagefind-ui__form {
+  position: relative;
+  display: block;
+  margin-top: 1em;
+}
+
+.pagefind-ui__search-input {
+  display: block;
+  width: 100%;
+  border-radius: 3em;
+}
+
+.pagefind-ui__suppressed {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.pagefind-ui__search-clear {
+  position: absolute;
+  top: 0.325rem;
+  right: 0.325rem;
+  z-index: 1;
+  border-radius: 0 3em 3em 0;
+  font-size: 0.85rem;
+  font-weight: normal;
+  background-color: transparent;
+}
+
+.pagefind-ui__results-area {
+  margin-top: var(--s-3);
+}
+
+div:not(.pagefind-ui__result-nested)>.pagefind-ui__result-title {
+  margin-bottom: 0;
+  font-size: var(--h4);
+  font-weight: var(--t-semibold);
+}
   </style>
 
   <script>
@@ -331,6 +371,19 @@ window.addEventListener("DOMContentLoaded", () => {
     <div id="content-wrap" class="grow">
       <div class="lg:grid lg:equal-4-cols gap-3">
         <div class="lg:col-span-3">
+
+          <div id="pagefind-here" class="content-grid">
+            
+            <script src="/baselayer-3/pagefind/pagefind-ui.js"></script>
+            <div id="search"></div>
+            <p class="mt-1 mr-3 mb-0 t-sm t-right">Search powered by <a class="t-underline-none" href="https://pagefind.app" target="_blank">Pagefind</a>.</p>
+            <script>
+                window.addEventListener('DOMContentLoaded', (event) => {
+                    new PagefindUI({ element: "#search", showSubResults: true });
+                });
+            </script>
+          </div>
+
           <header id="article-title">
             <div class="wrapper-md py-4 t-center t-display">
               <h1 class="my-4 t-balance t-bold">Getting started with Baselayer</h1>
@@ -338,7 +391,7 @@ window.addEventListener("DOMContentLoaded", () => {
           </header>
         </div>
         <div class="lg:col-4 lg:row-span-3">
-          <nav id="toc-outer" class="sticky top w-max-sm h-max-100dvh mx-auto mb-3 px-2 links-underlined-hover-only overflow-y">
+          <nav id="toc-outer" class="sticky top w-max-sm h-max-100dvh mx-auto mb-3 px-2 links-underline-hover-only overflow-y">
             <p class="h4 t-semibold">On this page</p>
             <nav class="toc" >
         <ul><li><a href="#introduction">Introduction</a></li><li><a href="#modern-css-technologies">Modern CSS technologies</a></li><li><a href="#baselayer%E2%80%99s-design-philosophy">Baselayer’s design philosophy</a></li><li><a href="#built-using-postcss">Built using PostCSS</a></li><li><a href="#a-modern-css-reset">A modern CSS reset</a></li><li><a href="#baselayer%E2%80%99s-built-in-accessibility-features">Baselayer’s built-in accessibility features</a><ul><li><a href="#(1.)-focus-states">(1.) Focus states</a></li><li><a href="#(2.)-the-visually-hidden-class">(2.) The visually-hidden class</a></li></ul></li></ul>
@@ -378,16 +431,16 @@ window.addEventListener("DOMContentLoaded", () => {
 <p>The design philosophy behind the Baselayer CSS project is as follows:</p>
 <ul>
 <li>Aim at being a good place to start — a <em>baselayer</em> for a web design project.</li>
-<li>Being so small (24 KB), there’s less you need to overwrite in order to style it your own way (and most things in Baselayer can be restyles by CSS variables). So, there’s no need for a purge process to remove a heavy payload of unused Baselayer styles.</li>
-<li>PostCSS only — no need for Sass, Less, Stylus etc.</li>
+<li>Being so small (24 KB), there’s less you need to overwrite in order to style it your own way (and most things in Baselayer can be restyled by CSS variables). So, there’s no need for a purge process to remove a heavy payload of unused Baselayer styles.</li>
+<li>PostCSS only — no preprocessors.</li>
 </ul>
 <h2 id="built-using-postcss" tabindex="-1">Built using PostCSS</h2>
 <p>Baselayer is built using <a href="https://postcss.org">PostCSS</a> and some plugins. The plugins used by Baselayer are:</p>
 <ul>
-<li><a href="https://github.com/postcss/postcss-import">postcss-import</a> — so that Baselayer could be built from separate CSS files, linked together in an <code>index.css</code> using the <code>@import</code> rule, and then inlined</li>
+<li><a href="https://github.com/postcss/postcss-import">postcss-import</a> — so that Baselayer could be built from separate CSS files</li>
 <li><a href="https://cssnano.co">cssnano</a> — to remove comments and minify the output <code>baselayer.min.css</code></li>
 </ul>
-<p><strong>Note:</strong> neither <a href="https://preset-env.cssdb.org">postcss-preset-env</a> nor <a href="https://github.com/postcss/autoprefixer">autoprefixer</a> have been used in Baselayer. And preprocessors such as Sass are not required.</p>
+<p><strong>Note:</strong> neither <a href="https://preset-env.cssdb.org">postcss-preset-env</a> nor <a href="https://github.com/postcss/autoprefixer">autoprefixer</a> have been used in Baselayer. And preprocessors such as Sass, Less, Stylus etc. are not required.</p>
 <h2 id="a-modern-css-reset" tabindex="-1">A modern CSS reset</h2>
 <p>The Baselayer reset is a “best of both” combination of <a href="https://www.joshwcomeau.com/css/custom-css-reset/">Josh W Comeau’s custom CSS reset</a> and <a href="https://andy-bell.co.uk/a-more-modern-css-reset/">Andy Bell’s (more) modern CSS reset”</a>.</p>
 <p>From that basis, Baselayer then takes care of the basics by setting some minimalist, easy-to-read typography, and styles for buttons and forms.</p>

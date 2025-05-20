@@ -36,6 +36,19 @@
     <div id="content-wrap" class="grow">
       <div class="lg:grid lg:equal-4-cols gap-3">
         <div class="lg:col-span-3">
+
+          <div id="pagefind-here" class="content-grid">
+            {#<link href="/baselayer-3/pagefind/pagefind-ui.css" rel="stylesheet">#}
+            <script src="/baselayer-3/pagefind/pagefind-ui.js"></script>
+            <div id="search"></div>
+            <p class="mt-1 mr-3 mb-0 t-sm t-right">Search powered by <a class="t-underline-none" href="https://pagefind.app" target="_blank">Pagefind</a>.</p>
+            <script>
+                window.addEventListener('DOMContentLoaded', (event) => {
+                    new PagefindUI({ element: "#search", showSubResults: true });
+                });
+            </script>
+          </div>
+
           <header id="article-title">
             <div class="wrapper-md py-4 t-center t-display">
               <h1 class="my-4 t-balance t-bold">{{ mainHeading }}</h1>
@@ -43,7 +56,7 @@
           </header>
         </div>
         <div class="lg:col-4 lg:row-span-3">
-          <nav id="toc-outer" class="sticky top w-max-sm h-max-100dvh mx-auto mb-3 px-2 links-underlined-hover-only overflow-y">
+          <nav id="toc-outer" class="sticky top w-max-sm h-max-100dvh mx-auto mb-3 px-2 links-underline-hover-only overflow-y">
             <p class="h4 t-semibold">On this page</p>
             {{ content | toc | safe }}
           </nav>

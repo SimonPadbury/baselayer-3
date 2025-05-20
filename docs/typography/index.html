@@ -116,6 +116,46 @@ pre code {
     display: none;
   }
 }
+
+/* Pagefind */
+
+.pagefind-ui__form {
+  position: relative;
+  display: block;
+  margin-top: 1em;
+}
+
+.pagefind-ui__search-input {
+  display: block;
+  width: 100%;
+  border-radius: 3em;
+}
+
+.pagefind-ui__suppressed {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.pagefind-ui__search-clear {
+  position: absolute;
+  top: 0.325rem;
+  right: 0.325rem;
+  z-index: 1;
+  border-radius: 0 3em 3em 0;
+  font-size: 0.85rem;
+  font-weight: normal;
+  background-color: transparent;
+}
+
+.pagefind-ui__results-area {
+  margin-top: var(--s-3);
+}
+
+div:not(.pagefind-ui__result-nested)>.pagefind-ui__result-title {
+  margin-bottom: 0;
+  font-size: var(--h4);
+  font-weight: var(--t-semibold);
+}
   </style>
 
   <script>
@@ -331,6 +371,19 @@ window.addEventListener("DOMContentLoaded", () => {
     <div id="content-wrap" class="grow">
       <div class="lg:grid lg:equal-4-cols gap-3">
         <div class="lg:col-span-3">
+
+          <div id="pagefind-here" class="content-grid">
+            
+            <script src="/baselayer-3/pagefind/pagefind-ui.js"></script>
+            <div id="search"></div>
+            <p class="mt-1 mr-3 mb-0 t-sm t-right">Search powered by <a class="t-underline-none" href="https://pagefind.app" target="_blank">Pagefind</a>.</p>
+            <script>
+                window.addEventListener('DOMContentLoaded', (event) => {
+                    new PagefindUI({ element: "#search", showSubResults: true });
+                });
+            </script>
+          </div>
+
           <header id="article-title">
             <div class="wrapper-md py-4 t-center t-display">
               <h1 class="my-4 t-balance t-bold">Typography</h1>
@@ -338,7 +391,7 @@ window.addEventListener("DOMContentLoaded", () => {
           </header>
         </div>
         <div class="lg:col-4 lg:row-span-3">
-          <nav id="toc-outer" class="sticky top w-max-sm h-max-100dvh mx-auto mb-3 px-2 links-underlined-hover-only overflow-y">
+          <nav id="toc-outer" class="sticky top w-max-sm h-max-100dvh mx-auto mb-3 px-2 links-underline-hover-only overflow-y">
             <p class="h4 t-semibold">On this page</p>
             <nav class="toc" >
         <ul><li><a href="#font-stacks">Font stacks</a><ul><li><a href="#setting-font-stacks">Setting font stacks</a></li></ul></li><li><a href="#base-font-size">Base font size</a></li><li><a href="#typographic-block-elements">Typographic block elements</a><ul><li><a href="#headings">Headings</a></li><li><a href="#block-quotes">Block quotes</a></li><li><a href="#lists">Lists</a></li></ul></li><li><a href="#the-link-tag">The link tag</a></li><li><a href="#menus">Menus</a></li><li><a href="#text-alignment">Text alignment</a></li><li><a href="#tables">Tables</a><ul><li><a href="#making-wide-tables-responsive">Making wide tables responsive</a></li></ul></li><li><a href="#making-text-bigger">Making text bigger</a></li><li><a href="#code">Code</a></li><li><a href="#other-typographic-utility-classes">Other typographic utility classes</a></li></ul>

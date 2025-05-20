@@ -1,4 +1,4 @@
-## Baselayer 3
+# Baselayer 3
 
 v.3.4.5 • 24 KB (minified) • MIT licence.
 
@@ -22,3 +22,7 @@ Baselayer uses modern CSS technologies such as `grid`, functions (e.g. `clamp()`
 **Documentation:** [https://simonpadbury.github.io/baselayer-3/](https://simonpadbury.github.io/baselayer-3/)
 
 **Changelog:** [https://github.com/SimonPadbury/baselayer-3/blob/main/README.md](https://github.com/baselayer/blob/main/CHANGELOG.md)
+
+---
+
+Docs contain search by [Pagefind](https://pagefind.app).

@@ -5,14 +5,20 @@
   this CHANGELOG.md
 • Adjust filesize in README.md and
   metadata.json if necessary.
+• Remember to `npx -y pagefind --site docs` before deployment.
 -->
 
 # Baselayer 3 changelog
 
+## v.3.4.6 -- 20 May 2025
+
+* renamed `t-no-underline` as `t-underline-none` and `links-no-underlined` as `links-underline-none`.
+* (Added Pagefind to the docs.)
+
 ## v.3.4.5 -- 2 Apr 2025
 
 * Removed the slight colorchange on `a:hover` -- now affordance is only the underline becoming thicker. This because there was an optical illusion where the underline becoming thicker appeared to lighten the underline while the hover state color was darker.
-* Renamed `links-not-underlined` and `links-no-underline` etc.
+* Renamed `links-not-underlined` as `links-no-underline` etc.
 
 ## v.3.4.4 -- 21 Mar 2025
 

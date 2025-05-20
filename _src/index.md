@@ -41,17 +41,17 @@ Baselayer supports only up-to-date (2023 forward) [baseline compatibility](https
 The design philosophy behind the Baselayer CSS project is as follows:
 
 * Aim at being a good place to start — a _baselayer_ for a web design project.
-* Being so small ({{ metadata.filesize }}), there’s less you need to overwrite in order to style it your own way (and most things in Baselayer can be restyles by CSS variables). So, there’s no need for a purge process to remove a heavy payload of unused Baselayer styles.
-* PostCSS only — no need for Sass, Less, Stylus etc.
+* Being so small ({{ metadata.filesize }}), there’s less you need to overwrite in order to style it your own way (and most things in Baselayer can be restyled by CSS variables). So, there’s no need for a purge process to remove a heavy payload of unused Baselayer styles.
+* PostCSS only — no preprocessors.
 
 ## Built using PostCSS
 
 Baselayer is built using [PostCSS](https://postcss.org) and some plugins. The plugins used by Baselayer are:
 
-* [postcss-import](https://github.com/postcss/postcss-import) — so that Baselayer could be built from separate CSS files, linked together in an `index.css` using the `@import` rule, and then inlined
+* [postcss-import](https://github.com/postcss/postcss-import) — so that Baselayer could be built from separate CSS files
 * [cssnano](https://cssnano.co) — to remove comments and minify the output `baselayer.min.css`
 
-**Note:** neither [postcss-preset-env](https://preset-env.cssdb.org) nor [autoprefixer](https://github.com/postcss/autoprefixer) have been used in Baselayer. And preprocessors such as Sass are not required.
+**Note:** neither [postcss-preset-env](https://preset-env.cssdb.org) nor [autoprefixer](https://github.com/postcss/autoprefixer) have been used in Baselayer. And preprocessors such as Sass, Less, Stylus etc. are not required.
 
 ## A modern CSS reset
 
