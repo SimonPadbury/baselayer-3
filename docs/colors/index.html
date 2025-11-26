@@ -7,7 +7,7 @@
 
   <title>Colors · Baselayer CSS</title>
 
-  <link rel="stylesheet" href="/baselayer-3/css/min/baselayer.min.css?v=3.4.6">
+  <link rel="stylesheet" href="/baselayer-3/css/min/baselayer.min.css?v=3.4.7">
 
   <style>
   html {
@@ -291,7 +291,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
     <div id="js-menu-wrapper">
       <div class="m-3 bt-thin bb-thin py-3 flex flex-center flex-wrap gap-3 links-underlined-hover-only">
-        <span class="t-gray t-600 t-dark-invert">Version: 3.4.6</span>
+        <span class="t-gray t-600 t-dark-invert">Version: 3.4.7</span>
         <a class="t-gray t-800 hover:t-900 t-dark-invert" href="https://github.com/SimonPadbury/baselayer-3">GitHub</a>
         <span>
           <a class="t-gray t-800 hover:t-900 t-dark-invert" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> <span class="t-gray t-600 t-dark-invert">(24 KB)</span>
@@ -394,7 +394,7 @@ window.addEventListener("DOMContentLoaded", () => {
           <nav id="toc-outer" class="sticky top w-max-sm h-max-100dvh mx-auto mb-3 px-2 links-underline-hover-only overflow-y">
             <p class="h4 t-semibold">On this page</p>
             <nav class="toc" >
-        <ul><li><a href="#rationale-for-baselayer%E2%80%99s-color-system">Rationale for Baselayer’s color system</a></li><li><a href="#color-and-shade-utility-classes">Color and shade utility classes</a></li><li><a href="#colors-and-accessibility">Colors and accessibility</a></li><li><a href="#adding-more-colors">Adding more colors</a></li><li><a href="#dark-theme">Dark theme</a><ul><li><a href="#light-and-dark-theme-classes">Light and dark theme classes</a></li><li><a href="#inverting-lightness-levels-for-the-dark-theme">Inverting lightness levels for the dark theme</a></li><li><a href="#dark-theme-html-body-background-color">Dark theme HTML body background color</a></li><li><a href="#what-if-you-don%E2%80%99t-want-a-dark-theme%3F">What if you don’t want a dark theme?</a></li></ul></li><li><a href="#other-baselayer-color-utilities">Other Baselayer color utilities</a><ul><li><a href="#black-and-white">Black and white</a><ul><li><a href="#inverting-black-and-white-for-the-dark-theme">Inverting black and white for the dark theme</a></li></ul></li><li><a href="#transparent-background">Transparent background</a></li></ul></li></ul>
+        <ul><li><a href="#rationale-for-baselayer%E2%80%99s-color-system">Rationale for Baselayer’s color system</a></li><li><a href="#color-and-shade-utility-classes">Color and shade utility classes</a></li><li><a href="#colors-and-accessibility">Colors and accessibility</a></li><li><a href="#adding-more-colors">Adding more colors</a></li><li><a href="#dark-theme">Dark theme</a><ul><li><a href="#light-and-dark-theme-classes">Light and dark theme classes</a></li><li><a href="#inverting-lightness-levels-for-the-dark-theme">Inverting lightness levels for the dark theme</a></li><li><a href="#what-if-you-don%E2%80%99t-want-a-dark-theme%3F">What if you don’t want a dark theme?</a></li></ul></li><li><a href="#other-baselayer-color-utilities">Other Baselayer color utilities</a><ul><li><a href="#black-and-white">Black and white</a><ul><li><a href="#inverting-black-and-white-for-the-dark-theme">Inverting black and white for the dark theme</a></li></ul></li><li><a href="#transparent-background">Transparent background</a></li></ul></li></ul>
       </nav>
           </nav>
         </div>
@@ -610,7 +610,7 @@ window.addEventListener("DOMContentLoaded", () => {
 </code></pre>
 <p>For the dark theme, HTML elements are generally flipped from light to dark, or dark to light, as required:</p>
 <ul>
-<li>Body background is near black</li>
+<li>Body background is black</li>
 <li>Text is near white</li>
 <li>Table borders, horizontal rules, form inputs are dark gray</li>
 <li>Text links are a lighter blue</li>
@@ -621,10 +621,7 @@ window.addEventListener("DOMContentLoaded", () => {
   /*
   Body tag background color
   */
-  --bgc-body: light-dark(
-    white,
-    color-mix(in OKLCH, var(--gray), var(--l1000))
-  );
+  --bgc-body: light-dark(white, black);
 
   /*
   Base text color (also set on the body tag)
@@ -723,15 +720,6 @@ window.addEventListener("DOMContentLoaded", () => {
 </tbody>
 </table>
 <p>(The middle <code>t-500</code>, <code>b-500</code>, and <code>bg-500</code> do not invert.)</p>
-<h3 id="dark-theme-html-body-background-color" tabindex="-1">Dark theme HTML body background color</h3>
-<p>For dark teme, Baselayer’s <code>&lt;body&gt;</code> background color has been set by <code>color-mix(in OKLCH, var(--gray), var(--l1000)</code>. This darkest shade level <code>--l1000</code> (near black) is only used on the <code>&lt;body&gt;</code> tag, and it has been set so that all Baselayer <code>bg-900</code> shades will still be seen by many people.</p>
-<div class="my-4 flex flex-grow-equal gap-1">
-  <div class="rad-1 bg-amber bg-900 aspect-ratio-4x3"></div>
-  <div class="rad-1 bg-red bg-900 aspect-ratio-4x3"></div>
-  <div class="rad-1 bg-green bg-900 aspect-ratio-4x3"></div>
-  <div class="rad-1 bg-blue bg-900 aspect-ratio-4x3"></div>
-  <div class="rad-1 bg-gray bg-900 aspect-ratio-4x3"></div>
-</div>
 <h3 id="what-if-you-don%E2%80%99t-want-a-dark-theme%3F" tabindex="-1">What if you don’t want a dark theme?</h3>
 <p>Then you can simply override or replace the HTML tag as follows:</p>
 <pre><code class="language-css">html {
@@ -809,7 +797,7 @@ window.addEventListener("DOMContentLoaded", () => {
                   </svg>
                 <span class="h3 m-0 t-normal t-nowrap">Baselayer CSS</span>
               </a>
-              <span>Version: 3.4.6</span>
+              <span>Version: 3.4.7</span>
             </div>
 
             <p class="p-cell flex flex-center flex-wrap gap-4 t-center">

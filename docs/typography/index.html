@@ -7,7 +7,7 @@
 
   <title>Typography · Baselayer CSS</title>
 
-  <link rel="stylesheet" href="/baselayer-3/css/min/baselayer.min.css?v=3.4.6">
+  <link rel="stylesheet" href="/baselayer-3/css/min/baselayer.min.css?v=3.4.7">
 
   <style>
   html {
@@ -291,7 +291,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
     <div id="js-menu-wrapper">
       <div class="m-3 bt-thin bb-thin py-3 flex flex-center flex-wrap gap-3 links-underlined-hover-only">
-        <span class="t-gray t-600 t-dark-invert">Version: 3.4.6</span>
+        <span class="t-gray t-600 t-dark-invert">Version: 3.4.7</span>
         <a class="t-gray t-800 hover:t-900 t-dark-invert" href="https://github.com/SimonPadbury/baselayer-3">GitHub</a>
         <span>
           <a class="t-gray t-800 hover:t-900 t-dark-invert" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> <span class="t-gray t-600 t-dark-invert">(24 KB)</span>
@@ -402,7 +402,7 @@ window.addEventListener("DOMContentLoaded", () => {
           <main id="article-content" class="content-grid">
             <h2 id="font-stacks" tabindex="-1">Font stacks</h2>
 <p>A few native font stacks are set in the <code>root-vars.css</code> file.</p>
-<pre><code>:root {
+<pre><code class="language-css">:root {
   --t-sans: ui-sans-serif, system-ui, Arial, sans-serif;
   --t-serif: ui-serif, Georgia, Cambria, &quot;Times New Roman&quot;, Times, serif;
   --t-mono: ui-monospace, Menlo, Consolas, &quot;Courier New&quot;, monospace;
@@ -447,11 +447,10 @@ window.addEventListener("DOMContentLoaded", () => {
 <li><a href="https://www.pagecloud.com/blog/best-google-fonts-pairings">Top 50 Google Font Pairings [Handpicked by Pro Designers] (Pagecloud)</a></li>
 </ul>
 <h2 id="base-font-size" tabindex="-1">Base font size</h2>
-<p>The default font size in Baselayer is 100% for small viewports, and bumped up to 112.5% from width 640px up (equivalent to Baselayer width variable <code>sm</code>).</p>
+<p>The default font size in Baselayer is 100%. This is usually 16px.</p>
 <pre><code class="language-css">/* in variables.css */
 :root {
   --t-base: 100%;
-  --t-bump: 112.5%;
 }
 
 /* in base.css */
@@ -460,13 +459,8 @@ body{
   font-family: var(--t-default);
   font-size: var(--t-base);
 }
-@container (min-width: 640px) {
-  body &gt; * {
-    font-size: var(--t-bump);
-  }
-}
 </code></pre>
-<p>In addition to this base font size bump to 1.125em (18px), Baselayer also has a CSS <code>clamp()</code> controllled <code>t-long-read</code> utility class to further increase the font size on larger devices, for even more comfortable reading of longform articles (see <a href="#making-text-bigger">making text bigger</a>).</p>
+<p>See also <a href="#making-text-bigger">making text bigger</a>.</p>
 <h2 id="typographic-block-elements" tabindex="-1">Typographic block elements</h2>
 <p>Most typographic blocks have zero top margin, and bottom margin set to <code>var(--s-2)</code> (1rem).</p>
 <h3 id="headings" tabindex="-1">Headings</h3>
@@ -803,8 +797,8 @@ body{
 <ol>
 <li>There’s a <code>t-lg</code> class that can be used to make text 1.325em — good for a lead paragraph, large button, or important messaging.</li>
 <li>Classes <code>.h1</code> through <code>.h6</code> will resize text the same amount as for their respective heading tag sizes — use when you want to make text larger (or large text smaller) without adversely affecting accessibility/ SEO heading hierarchy.</li>
-<li>The <code>t-long-read</code> wrapping class uses a <code>clamp()</code> to ramp text from starting size 1em (18px default at 640px container width) up to 1.25em (22.5px default) depending on container size. E.g. used for responsively increasing text size in <em>article prose components</em>. <code>&lt;h1&gt;</code> inside a <code>t-long-read</code> will have maximum font size approx 51px.</li>
-<li>The <code>t-display</code> wrapping class uses a <code>clamp()</code> to raise text from starting size 1em (18px default at 640px container width) up to 2em (36px default) depending on container size. E.g. used for responsively increasing text size in <em>hero components</em>. <code>&lt;h1&gt;</code> inside a <code>t-display</code> will have maximum font size approx 81px.</li>
+<li>The <code>t-long-read</code> wrapping class uses a <code>clamp()</code> to ramp text from starting size 1em (usually 16px, assuming that the base fonts size is 100%) up to 1.25em (20px) depending on container size. Used for responsively increasing text size in <em>article prose components</em>. <code>&lt;h1&gt;</code> inside a <code>t-long-read</code> will have maximum font size 36px × 1.25 = 45px.</li>
+<li>The <code>t-display</code> wrapping class uses a <code>clamp()</code> to raise text from starting size 1em (16px) up to 2em (32px) depending on container size. Used for responsively increasing text size in <em>hero components</em>. <code>&lt;h1&gt;</code> inside a <code>t-display</code> will have maximum font size approx 36px × 2 = 72px.</li>
 </ol>
 <h2 id="code" tabindex="-1">Code</h2>
 <p><code>&lt;code&gt;</code> tags have monospaced text (set by <code>--t-mono</code>) over a white or black background (in light or dark modes), with a thin border and a little padding to improve readability.</p>
@@ -854,7 +848,7 @@ body{
                   </svg>
                 <span class="h3 m-0 t-normal t-nowrap">Baselayer CSS</span>
               </a>
-              <span>Version: 3.4.6</span>
+              <span>Version: 3.4.7</span>
             </div>
 
             <p class="p-cell flex flex-center flex-wrap gap-4 t-center">

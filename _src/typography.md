@@ -12,7 +12,7 @@ nextLink: "Layout"
 
 A few native font stacks are set in the `root-vars.css` file.
 
-```
+```css
 :root {
   --t-sans: ui-sans-serif, system-ui, Arial, sans-serif;
   --t-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
@@ -66,13 +66,12 @@ For inspiration:
 
 ## Base font size
 
-The default font size in Baselayer is 100% for small viewports, and bumped up to 112.5% from width 640px up (equivalent to Baselayer width variable `sm`).
+The default font size in Baselayer is 100%. This is usually 16px.
 
 ```css
 /* in variables.css */
 :root {
   --t-base: 100%;
-  --t-bump: 112.5%;
 }
 
 /* in base.css */
@@ -81,14 +80,9 @@ body{
   font-family: var(--t-default);
   font-size: var(--t-base);
 }
-@container (min-width: 640px) {
-  body > * {
-    font-size: var(--t-bump);
-  }
-}
 ```
 
-In addition to this base font size bump to 1.125em (18px), Baselayer also has a CSS `clamp()` controllled `t-long-read` utility class to further increase the font size on larger devices, for even more comfortable reading of longform articles (see [making text bigger]({{ "#making-text-bigger" | url }})).
+See also [making text bigger]({{ "#making-text-bigger" | url }}).
 
 ## Typographic block elements
 
@@ -474,8 +468,8 @@ Additionally:
 
 1. There’s a `t-lg` class that can be used to make text 1.325em — good for a lead paragraph, large button, or important messaging.
 2. Classes `.h1` through `.h6` will resize text the same amount as for their respective heading tag sizes — use when you want to make text larger (or large text smaller) without adversely affecting accessibility/ SEO heading hierarchy.
-3. The `t-long-read` wrapping class uses a `clamp()` to ramp text from starting size 1em (18px default at 640px container width) up to 1.25em (22.5px default) depending on container size. E.g. used for responsively increasing text size in _article prose components_. `<h1>` inside a `t-long-read` will have maximum font size approx 51px.
-4. The `t-display` wrapping class uses a `clamp()` to raise text from starting size 1em (18px default at 640px container width) up to 2em (36px default) depending on container size. E.g. used for responsively increasing text size in _hero components_. `<h1>` inside a `t-display` will have maximum font size approx 81px.
+3. The `t-long-read` wrapping class uses a `clamp()` to ramp text from starting size 1em (usually 16px, assuming that the base fonts size is 100%) up to 1.25em (20px) depending on container size. Used for responsively increasing text size in _article prose components_. `<h1>` inside a `t-long-read` will have maximum font size 36px &times; 1.25 = 45px.
+4. The `t-display` wrapping class uses a `clamp()` to raise text from starting size 1em (16px) up to 2em (32px) depending on container size. Used for responsively increasing text size in _hero components_. `<h1>` inside a `t-display` will have maximum font size approx 36px &times; 2 = 72px.
 
 ## Code
 

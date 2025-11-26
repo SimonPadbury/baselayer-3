@@ -77,7 +77,7 @@
     justify-content: center;
     align-items: center;
     margin: 0;
-    border: 1px solid transparent;
+    border: none;
     padding: var(--s-2) 1em;
     font-family: var(--t-default);
     font-size: inherit;

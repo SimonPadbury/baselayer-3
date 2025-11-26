@@ -258,7 +258,7 @@ html {
 
 For the dark theme, HTML elements are generally flipped from light to dark, or dark to light, as required:
 
-* Body background is near black
+* Body background is black
 * Text is near white
 * Table borders, horizontal rules, form inputs are dark gray
 * Text links are a lighter blue
@@ -271,10 +271,7 @@ All the theme color variables in Baselayer (since v.3.4.0) involve a `light-dark
   /*
   Body tag background color
   */
-  --bgc-body: light-dark(
-    white,
-    color-mix(in OKLCH, var(--gray), var(--l1000))
-  );
+  --bgc-body: light-dark(white, black);
 
   /*
   Base text color (also set on the body tag)
@@ -389,18 +386,6 @@ Example using `bg-blue`:
 </table>
 
 (The middle `t-500`, `b-500`, and `bg-500` do not invert.)
-
-### Dark theme HTML body background color
-
-For dark teme, Baselayer’s `<body>` background color has been set by `color-mix(in OKLCH, var(--gray), var(--l1000)`. This darkest shade level `--l1000` (near black) is only used on the `<body>` tag, and it has been set so that all Baselayer `bg-900` shades will still be seen by many people.
-
-<div class="my-4 flex flex-grow-equal gap-1">
-  <div class="rad-1 bg-amber bg-900 aspect-ratio-4x3"></div>
-  <div class="rad-1 bg-red bg-900 aspect-ratio-4x3"></div>
-  <div class="rad-1 bg-green bg-900 aspect-ratio-4x3"></div>
-  <div class="rad-1 bg-blue bg-900 aspect-ratio-4x3"></div>
-  <div class="rad-1 bg-gray bg-900 aspect-ratio-4x3"></div>
-</div>
 
 ### What if you don’t want a dark theme?
 

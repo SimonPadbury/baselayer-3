@@ -45,22 +45,11 @@
 
         /* Font sizes */
         --t-base: 100%;
-        /* usually 16px */
-        --t-bump: 112.5%;
-        /* usually 18px */
-        --t-sm: 0.8em;
-        --t-lg: 1.325em;
+        --t-sm: 0.875em;
+        --t-lg: 1.25em;
         --t-long-read: clamp(1em, 0em + 2.25cqi, 1.25em);
         --t-display: clamp(1em, 0em + 2.5cqi, 2em);
         /*
-    t-base (up tp 640px container width):
-        Default text at 16px. H1 at 36px.
-    t-bump:
-        Default text at 18px. H1 at ~41px.
-    t-long-read:
-        Default text 18px ramps up to 22.5px. H1 will max out at ~51px.
-    t-display:
-        Default text 18px ramps up to 36px. H1 will max out at ~81px.
     Used https://clamp.font-size.app/ but changed vw to cqi and rem changed to em
     */
 
@@ -114,8 +103,7 @@
         --gray: #808080;
 
         /* Light and dark theme colors */
-        --bgc-body: light-dark(color-mix(in oklch, white),
-                        color-mix(in oklch, var(--gray), var(--l1000)));
+        --bgc-body: light-dark(white, black);
         --tc-base: light-dark(color-mix(in oklch, var(--gray), var(--l900)),
                         color-mix(in oklch, var(--gray), var(--l100)));
         --tc-link: light-dark(color-mix(in oklch, var(--blue), var(--l600)),
@@ -127,8 +115,8 @@
         --bgc-btn-hover: light-dark(color-mix(in oklch, var(--gray), var(--l600)),
                         color-mix(in oklch, var(--gray), var(--l700)));
         --bc-form: var(--bgc-btn);
-        --tc-form: CanvasText;
-        --bgc-form: Canvas;
+        --tc-form: --tc-base;
+        --bgc-form: --bgc-body;
         --tc-code: light-dark(color-mix(in oklch, var(--green), var(--l600)),
                         color-mix(in oklch, var(--green), var(--l300)));
         --bgc-code: light-dark(white, black);
@@ -145,7 +133,6 @@
         --l700: black 18%;
         --l800: black 36%;
         --l900: black 54%;
-        --l1000: black 72%;
 
         /* Color shades inverted (used for `*-dark-invert`) */
         --l100i: black 54%;

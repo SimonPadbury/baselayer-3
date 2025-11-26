@@ -18,10 +18,4 @@
     color: var(--tc-base);
     background-color: var(--bgc-body);
   }
-
-  @container (min-width: 640px) {
-    body>* {
-      font-size: var(--t-bump);
-    }
-  }
 }
