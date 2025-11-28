@@ -3,7 +3,7 @@ Baselayer 3 CSS v.3.4.7
 https://github.com/SimonPadbury/baselayer
 */
 
-@layer defaults, links-and-accessibility, forms-and-buttons, typography, layout, decoration, colors, color-lightness, color-other, ;
+@layer defaults, links-and-accessibility, forms-and-buttons, typography, layout, decoration, colors, color-lightness, color-other;
 
 @import "/partials/variables.css";
 @import "/partials/reset.css";
