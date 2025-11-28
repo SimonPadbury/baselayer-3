@@ -10,13 +10,12 @@
 
 # Baselayer 3 changelog
 
-## v.3.5.7 -- 25 Nov 2025
+## v.3.5.7 -- 28 Nov 2025
 
 * Removed the font size bump for tablets up. Now the default font size is the expected 100% throughout.
 * Adjusted sizes of `--t-sm` and `--t-lg`.
-* Removed `--l1000` (very dark gray) used for the dark theme background. That is now black.
+* Removed `--l1000` (very dark gray) used for the dark theme background. Body background is now `Canvas`.
 * Removed borders from form buttons and `.btn` utility class.
-* Form element background and text colors set by Baselayer (light and dark mode) instead of using  `Canvas` and `CanvasText`.
 
 ## v.3.4.6 -- 20 May 2025
 

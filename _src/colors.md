@@ -256,13 +256,14 @@ html {
 }
 ```
 
-For the dark theme, HTML elements are generally flipped from light to dark, or dark to light, as required:
+For the dark theme, HTML elements are generally flipped from light to dark, or dark to light, as required. The colors are as follows:
 
-* Body background is black
+* Body background is near black, controlled by the browser default `Canvas`.
 * Text is near white
 * Table borders, horizontal rules, form inputs are dark gray
 * Text links are a lighter blue
 * Default buttons are a lighter gray
+* Form elements’ text and background are controlled by `CanvasText` and `Canvas`.
 
 All the theme color variables in Baselayer (since v.3.4.0) involve a `light-dark()` CSS function. For example:
 
@@ -271,7 +272,7 @@ All the theme color variables in Baselayer (since v.3.4.0) involve a `light-dark
   /*
   Body tag background color
   */
-  --bgc-body: light-dark(white, black);
+  --bgc-body: Canvas;
 
   /*
   Base text color (also set on the body tag)
