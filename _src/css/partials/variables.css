@@ -46,7 +46,7 @@
     /* usually 16px */
     --t-bump: 112.5%;
     /* usually 18px */
-    --t-sm: 0.875em;
+    --t-sm: 0.825em;
     --t-lg: 1.325em;
     --t-long-read: clamp(1em, 0em + 2.25cqi, 1.25em);
     --t-display: clamp(1em, 0em + 2.5cqi, 2em);
