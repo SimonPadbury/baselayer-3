@@ -1,6 +1,10 @@
 {
   "title": "Baselayer CSS",
+<<<<<<< HEAD
   "version": "3.4.7",
+=======
+  "version": "3.4.5",
+>>>>>>> parent of 1f17a66 (v.3.4.6)
   "licence": "MIT",
   "filesize": "24 KB",
   "developer": {
