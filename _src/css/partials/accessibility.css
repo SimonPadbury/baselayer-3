@@ -10,13 +10,13 @@
     text-underline-offset: var(--a-deco-offset);
     text-decoration-thickness: var(--a-deco-thickness);
 
-    &:not(.t-no-underline):hover {
+    &:not(.t-underline-none):hover {
       text-decoration: underline;
       text-decoration-thickness: var(--a-deco-thickness-hover);
     }
   }
 
-  .t-no-underline,
+  .t-underline-none,
   .t-underline-hover-only,
   .links-no-underline a,
   .links-no-underline a:hover,

@@ -66,7 +66,7 @@ For inspiration:
 
 ## Base font size
 
-The default font size in Baselayer is 100%. This is usually 16px.
+The default font size in Baselayer is 100% for small viewports, and bumped up to 112.5% from width 640px up (equivalent to Baselayer width variable `sm`).
 
 ```css
 /* in variables.css */
@@ -80,9 +80,15 @@ body{
   font-family: var(--t-default);
   font-size: var(--t-base);
 }
+
+@container (min-width: 640px) {
+  body > * {
+    font-size: var(--t-bump);
+  }
+}
 ```
 
-See also [making text bigger]({{ "#making-text-bigger" | url }}).
+In addition to this base font size bump to 1.125em (18px), Baselayer also has a CSS `clamp()` controllled `t-long-read` utility class to further increase the font size on larger devices, for even more comfortable reading of longform articles (see [making text bigger]({{ "#making-text-bigger" | url }})).
 
 ## Typographic block elements
 
@@ -146,7 +152,7 @@ In Baselayer ordered `<ol>` and unordered `<ul>` have a small amount of left pad
     2. Ordered item two child two
 3. Ordered item three
 
-```
+```html
 <ol>
   <li>Ordered item one</li>
   <li>Ordered item two
@@ -165,7 +171,7 @@ In Baselayer ordered `<ol>` and unordered `<ul>` have a small amount of left pad
     * Unordered item child
 * Unordered item
 
-```
+```html
 <ul>
   <li>Unordered item</li>
   <li>Unordered item
@@ -187,7 +193,7 @@ For definition lists, the title is bold and the definition data item is indented
   <dd>Definition list data</dd>
 </dl>
 
-```
+```html
 <dl>
   <dt>Definition list title</dt>
   <dd>Definition list data</dd>
@@ -210,7 +216,7 @@ Example:
 
 Then there are the following two classes that apply to links, that may be handy in some situations:
 
-* <a class="t-no-underline" href="">This link has no underline</a> — `t-no-underline`
+* <a class="t-underline-none" href="">This link has no underline</a> — `t-underline-none`
 * <a class="t-underline-hover-only" href="">This link has no underline unless hovered</a> — `t-underline-hover-only`
 
 The browser default, and the best practice for accessability, is to have links indicated by an underline (and the browser default color of links is blue). But in the context of menus it is permissible to deviate from the best practice, provided there are other visual and non-visual indicators. This is the reason why we should use [semantic HTML](https://www.codecademy.com/resources/blog/semantic-html/) tags on menus, and and why we should place navigation menus in their expected locations (in sitewide menu-bars, sidebars, and footers).
@@ -253,7 +259,7 @@ Notes:
 
 If you want the group of links to not have underlines, or to have underlines only when hovered (because you intend to style them differently in your menu):
 
-* `links-no-underline`
+* `links-underline-none`
 * `links-underline-hover-only`
 
 And with a few other Baselayer utilities, you have a menubar:
@@ -468,8 +474,8 @@ Additionally:
 
 1. There’s a `t-lg` class that can be used to make text 1.325em — good for a lead paragraph, large button, or important messaging.
 2. Classes `.h1` through `.h6` will resize text the same amount as for their respective heading tag sizes — use when you want to make text larger (or large text smaller) without adversely affecting accessibility/ SEO heading hierarchy.
-3. The `t-long-read` wrapping class uses a `clamp()` to ramp text from starting size 1em (usually 16px, assuming that the base fonts size is 100%) up to 1.25em (20px) depending on container size. Used for responsively increasing text size in _article prose components_. `<h1>` inside a `t-long-read` will have maximum font size 36px &times; 1.25 = 45px.
-4. The `t-display` wrapping class uses a `clamp()` to raise text from starting size 1em (16px) up to 2em (32px) depending on container size. Used for responsively increasing text size in _hero components_. `<h1>` inside a `t-display` will have maximum font size approx 36px &times; 2 = 72px.
+3. The `t-long-read` wrapping class uses a `clamp()` to ramp text from starting size 1em (18px default at 640px container width) up to 1.25em (22.5px default) depending on container size. E.g. used for responsively increasing text size in _article prose components_. `<h1>` inside a `t-long-read` will have maximum font size ~51px.
+4. The `t-display` wrapping class uses a `clamp()` to raise text from starting size 1em (18px default at 640px container width) up to 2em (36px default) depending on container size. E.g. used for responsively increasing text size in _hero components_. `<h1>` inside a `t-display` will have maximum font size ~81px.
 
 ## Code
 

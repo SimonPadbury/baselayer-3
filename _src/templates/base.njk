@@ -83,7 +83,7 @@
               {% endif %}
             </nav>
             <div class="mt-4 mb-3 p-2 flex flex-column flex-middle t-center">
-              <a href="{{ '/' | url }}" class="mb-1 flex flex-column flex-center gap-1 t-no-underline">
+              <a href="{{ '/' | url }}" class="mb-1 flex flex-column flex-center gap-1 t-underline-none">
                 <svg class="mx-auto" height="48" width="48" viewBox="0 0 111 111" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-miterwrapper:1.5">
                   <g transform="translate(-294.592 -94.592)">
                     <circle cx="350" cy="150" r="50" style="fill:none;stroke:currentColor;stroke-width:4px"/>
@@ -99,12 +99,12 @@
             </div>
 
             <p class="p-cell flex flex-center flex-wrap gap-4 t-center">
-              <span><a class="t-no-underline hover:t-line" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> ({{ metadata.filesize }})</span>
-              <a class="t-no-underline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3">GitHub Repository</a>
-              <a class="t-no-underline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3/blob/main/CHANGELOG.md">Changelog</a>
-              <a class="t-no-underline hover:t-line" href="https://github.com/SimonPadbury/baselayer-3/blob/main/LICENSE">MIT license</a>
+              <span><a class="t-underline-none hover:t-line" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> ({{ metadata.filesize }})</span>
+              <a class="t-underline-none hover:t-line" href="https://github.com/SimonPadbury/baselayer-3">GitHub Repository</a>
+              <a class="t-underline-none hover:t-line" href="https://github.com/SimonPadbury/baselayer-3/blob/main/CHANGELOG.md">Changelog</a>
+              <a class="t-underline-none hover:t-line" href="https://github.com/SimonPadbury/baselayer-3/blob/main/LICENSE">MIT license</a>
             </p>
-            <p class="t-center"><span>Developer: <a class="t-no-underline hover:t-line" href="{{ metadata.developer.url }}">{{ metadata.developer.name }}</a></span>
+            <p class="t-center"><span>Developer: <a class="t-underline-none hover:t-line" href="{{ metadata.developer.url }}">{{ metadata.developer.name }}</a></span>
           </footer>
         </div>
       </div>

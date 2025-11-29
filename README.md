@@ -1,10 +1,6 @@
 # Baselayer 3
 
-<<<<<<< HEAD
-v.3.4.7 • 24 KB (minified) • MIT licence.
-=======
-v.3.4.5 • 24 KB (minified) • MIT licence.
->>>>>>> parent of 1f17a66 (v.3.4.6)
+v.3.4.6 • 24 KB (minified) • MIT licence.
 
 Designed as a good place to start, Baselayer may be all you need — for small web projects. Or you may use it as a _baselayer_ to quick-start your mega project.
 

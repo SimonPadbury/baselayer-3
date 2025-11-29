@@ -10,12 +10,9 @@
 
 # Baselayer 3 changelog
 
-## v.3.5.7 -- 28 Nov 2025
+## v.3.5.7 -- 29 Nov 2025
 
-* Removed the font size bump for tablets up. Now the default font size is the expected 100% throughout.
-* Adjusted sizes of `--t-sm` and `--t-lg`.
-* Removed `--l1000` (very dark gray) used for the dark theme background. Body background is now `Canvas`.
-* Removed borders from form buttons and `.btn` utility class.
+* Set zero borders from form buttons and `.btn` utility class.
 
 ## v.3.4.6 -- 20 May 2025
 
@@ -37,7 +34,7 @@
 
 ## v.3.4.2 -- 27 December 2024
 
-* Hover color state for `a.t-no-underline`
+* Hover color state for `a.t-underline-none`
 
 ## v.3.4.1 -- 4 December 2024
 
