@@ -140,6 +140,7 @@ Variables:
   }
 
   .b-dark-invert {
+
     &[class*="b-100"],
     &[class*="b-200"],
     &[class*="b-300"],
@@ -149,10 +150,8 @@ Variables:
     &[class*="b-700"],
     &[class*="b-800"],
     &[class*="b-900"] {
-      border-color: light-dark(
-        color-mix(in OKLAB, var(--bc), var(--bl)),
-        color-mix(in OKLAB, var(--bc), var(--bli))
-      );
+      border-color: light-dark(color-mix(in OKLAB, var(--bc), var(--bl)),
+          color-mix(in OKLAB, var(--bc), var(--bli)));
     }
   }
 
@@ -225,6 +224,7 @@ Variables:
   }
 
   .t-dark-invert {
+
     &[class*="t-100"],
     &[class*="t-200"],
     &[class*="t-300"],
@@ -234,10 +234,8 @@ Variables:
     &[class*="t-700"],
     &[class*="t-800"],
     &[class*="t-900"] {
-      color: light-dark(
-        color-mix(in OKLAB, var(--tc), var(--tl)),
-        color-mix(in OKLAB, var(--tc), var(--tli))
-      );
+      color: light-dark(color-mix(in OKLAB, var(--tc), var(--tl)),
+          color-mix(in OKLAB, var(--tc), var(--tli)));
     }
   }
 
@@ -310,6 +308,7 @@ Variables:
   }
 
   .bg-dark-invert {
+
     &[class*="bg-100"],
     &[class*="bg-200"],
     &[class*="bg-300"],
@@ -319,10 +318,8 @@ Variables:
     &[class*="bg-700"],
     &[class*="bg-800"],
     &[class*="bg-900"] {
-      background-color: light-dark(
-        color-mix(in OKLAB, var(--bgc), var(--bgl)),
-        color-mix(in OKLAB, var(--bgc), var(--bgli))
-      );
+      background-color: light-dark(color-mix(in OKLAB, var(--bgc), var(--bgl)),
+          color-mix(in OKLAB, var(--bgc), var(--bgli)));
     }
   }
 
@@ -392,6 +389,7 @@ Variables:
   .hover\:t-white:hover {
     color: white;
   }
+
   .t-white.t-dark-invert,
   .hover\:t-white.t-dark-invert:hover {
     color: light-dark(white, black);
@@ -401,6 +399,7 @@ Variables:
   .hover\:b-white:hover {
     border-color: white;
   }
+
   .b-white.b-dark-invert,
   .hover\:b-white.b-dark-invert:hover {
     border-color: light-dark(white, black);
@@ -410,6 +409,7 @@ Variables:
   .hover\:bg-white:hover {
     background: white;
   }
+
   .bg-white.bg-dark-invert,
   .hover\:bg-white.bg-dark-invert:hover {
     background: light-dark(white, black);
@@ -419,6 +419,7 @@ Variables:
   .hover\:t-black:hover {
     color: black;
   }
+
   .t-black.t-dark-invert,
   .hover\:t-black.t-dark-invert:hover {
     color: light-dark(black, white);
@@ -428,6 +429,7 @@ Variables:
   .hover\:b-black:hover {
     border-color: black;
   }
+
   .b-black.b-dark-invert,
   .hover\:b-black.b-dark-invert:hover {
     border-color: light-dark(black, white);
