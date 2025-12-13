@@ -35,7 +35,7 @@
     text-decoration: underline;
     /* text-underline-offset: var(--a-deco-offset); */
     text-decoration-thickness: var(--a-deco-thickness-hover);
-    background-color: var(--amber) !important;
+    background-color: var(--color-focus) !important;
   }
 
   /* [id]:not(a):focus-visible, */
@@ -47,7 +47,7 @@
   a:focus-visible>img {
     position: relative;
     box-shadow: 0 0 0 3px black;
-    outline: 3px solid var(--amber);
+    outline: 3px solid var(--color-focus);
     outline-offset: 3px;
     z-index: 1;
   }
