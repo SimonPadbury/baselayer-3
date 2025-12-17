@@ -140,7 +140,6 @@ Variables:
   }
 
   .b-dark-invert {
-
     &[class*="b-100"],
     &[class*="b-200"],
     &[class*="b-300"],
@@ -150,8 +149,10 @@ Variables:
     &[class*="b-700"],
     &[class*="b-800"],
     &[class*="b-900"] {
-      border-color: light-dark(color-mix(in OKLAB, var(--bc), var(--bl)),
-          color-mix(in OKLAB, var(--bc), var(--bli)));
+      border-color: light-dark(
+        color-mix(in OKLAB, var(--bc), var(--bl)),
+        color-mix(in OKLAB, var(--bc), var(--bli))
+      );
     }
   }
 
@@ -224,7 +225,6 @@ Variables:
   }
 
   .t-dark-invert {
-
     &[class*="t-100"],
     &[class*="t-200"],
     &[class*="t-300"],
@@ -234,8 +234,10 @@ Variables:
     &[class*="t-700"],
     &[class*="t-800"],
     &[class*="t-900"] {
-      color: light-dark(color-mix(in OKLAB, var(--tc), var(--tl)),
-          color-mix(in OKLAB, var(--tc), var(--tli)));
+      color: light-dark(
+        color-mix(in OKLAB, var(--tc), var(--tl)),
+        color-mix(in OKLAB, var(--tc), var(--tli))
+      );
     }
   }
 
@@ -308,7 +310,6 @@ Variables:
   }
 
   .bg-dark-invert {
-
     &[class*="bg-100"],
     &[class*="bg-200"],
     &[class*="bg-300"],
@@ -318,8 +319,10 @@ Variables:
     &[class*="bg-700"],
     &[class*="bg-800"],
     &[class*="bg-900"] {
-      background-color: light-dark(color-mix(in OKLAB, var(--bgc), var(--bgl)),
-          color-mix(in OKLAB, var(--bgc), var(--bgli)));
+      background-color: light-dark(
+        color-mix(in OKLAB, var(--bgc), var(--bgl)),
+        color-mix(in OKLAB, var(--bgc), var(--bgli))
+      );
     }
   }
 

@@ -10,7 +10,12 @@
 
 # Baselayer 3 changelog
 
-## v.3.5.7 -- 29 Nov 2025
+## v.3.4.8 -- 17 Dec 2025
+
+* Improved the content-grid `--w-expand` calculation.
+* Removed the base font size bump. Now the base font size stays at 100% (setting 1rem).
+
+## v.3.4.7 -- 29 Nov 2025
 
 * Set zero borders from form buttons and `.btn` utility class.
 

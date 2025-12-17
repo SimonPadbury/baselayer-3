@@ -66,29 +66,7 @@ For inspiration:
 
 ## Base font size
 
-The default font size in Baselayer is 100% for small viewports, and bumped up to 112.5% from width 640px up (equivalent to Baselayer width variable `sm`).
-
-```css
-/* in variables.css */
-:root {
-  --t-base: 100%;
-}
-
-/* in base.css */
-body{
-  container-type: inline-size;
-  font-family: var(--t-default);
-  font-size: var(--t-base);
-}
-
-@container (min-width: 640px) {
-  body > * {
-    font-size: var(--t-bump);
-  }
-}
-```
-
-In addition to this base font size bump to 1.125em (18px), Baselayer also has a CSS `clamp()` controllled `t-long-read` utility class to further increase the font size on larger devices, for even more comfortable reading of longform articles (see [making text bigger]({{ "#making-text-bigger" | url }})).
+The default font size in Baselayer is 100% for small viewports. This sets the value of 1rem—that is 16px on most browserts (in 2025).
 
 ## Typographic block elements
 
@@ -468,14 +446,12 @@ If you have a lot of content in your table, it will probably break your page lay
 
 ## Making text bigger
 
-The base font size is 100% (usually 16px), bumping up to 112.5% (usually 18px) for more comfortable reading on tablet devices up.
-
-Additionally:
+The base font size is 100% (usually 16px). Additionally:
 
 1. There’s a `t-lg` class that can be used to make text 1.325em — good for a lead paragraph, large button, or important messaging.
 2. Classes `.h1` through `.h6` will resize text the same amount as for their respective heading tag sizes — use when you want to make text larger (or large text smaller) without adversely affecting accessibility/ SEO heading hierarchy.
-3. The `t-long-read` wrapping class uses a `clamp()` to ramp text from starting size 1em (18px default at 640px container width) up to 1.25em (22.5px default) depending on container size. E.g. used for responsively increasing text size in _article prose components_. `<h1>` inside a `t-long-read` will have maximum font size ~51px.
-4. The `t-display` wrapping class uses a `clamp()` to raise text from starting size 1em (18px default at 640px container width) up to 2em (36px default) depending on container size. E.g. used for responsively increasing text size in _hero components_. `<h1>` inside a `t-display` will have maximum font size ~81px.
+3. The `t-long-read` wrapping class uses a `clamp()` to ramp text from starting size up to 1.25em (20px default) depending on container size. E.g. used for responsively increasing text size in _article prose components_. `<h1>` inside a `t-long-read` will have maximum font size 45px.
+4. The `t-display` wrapping class uses a `clamp()` to raise text from starting size 1em (18px default at 640px container width) up to 2em (32px default) depending on container size. E.g. used for responsively increasing text size in _hero components_. `<h1>` inside a `t-display` will have maximum font size 72px.
 
 ## Code
 
