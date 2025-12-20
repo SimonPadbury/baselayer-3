@@ -112,7 +112,7 @@ Keyboard-tab through these links and buttons to see the focus rings:
 
 The `visually-hidden` is used to provide additional content for screen-readers, for improved accessibility. For example, it is best practice to have “skip link” above the top navigation bar on your website, but have it (visually) hidden for ably sighted users.
 
-```
+```html
 <a href="#main-content"
   tabindex="1"
   class="block p-2 visually-hidden"

@@ -46,7 +46,7 @@ So, if you want a button to stretch full-width, you can add `class="w100%"` or y
 
 <button class="w-100% my-2" type="button" name="button">Button</button>
 
-```
+```html
 <button class="w-100%" type="button" name="button">
   Button
 </button>
@@ -61,7 +61,7 @@ For example, here’s a full-width button with a down-caret icon and spacing con
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"></rect><polyline points="208 96 128 176 48 96" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"></polyline></svg>
 </button>
 
-```
+```html
 <button class="flex-space-between" type="button" name="button">
   Button
   <!-- Icon -->
@@ -88,7 +88,7 @@ When colorizing buttons, remember to set their `hover:` hover state shades too.
   </p>
 </form>
 
-```
+```html
 <!-- Default button -->
 <button type="button" name="button">Button</button>
 
@@ -151,7 +151,7 @@ Putting `rad rad-pill` on a square icon button will make it circular. (See [deco
   </p>
 </form>
 
-```
+```html
 <button class="rad rad-pill" type="button" name="button">Button</button>
 
 <button class="btn-icon rad rad-pill" type="button" name="button">I</button>
@@ -169,7 +169,7 @@ You can also use the typographic size classes `t-sm` and `t-lg` to modify button
   <button type="button" name="button" class="t-lg">Button</button>
 </form>
 
-```
+```html
 <form class="flex flex-middle gap-1">
   <button type="button" name="button" class="t-sm">Button</button>
   <button type="button" name="button">Button</button>

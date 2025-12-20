@@ -10,7 +10,7 @@ nextLink: "Colors"
 
 ## Spacing
 
-[Box model](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Introduction_to_the_CSS_box_model) margin and padding spacing have both 4 levels based on 4 CSS variables. These same spacing variables are also used for gaps (in flexbox and the grid system), and for border radius utilities.
+[Box model](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Introduction_to_the_CSS_box_model) margin and padding spacing have 4 levels based on 4 CSS variables. These same spacing variables are also used for gaps (in flexbox and grid system), and for border radius utilities.
 
 The smallest level simply adds 0.5rem spacing, whereas levels 2 thorugh 4 increase responsively depending how how much width is available, using `clamp()` functions to ramp up to 1.5× their base size.
 
@@ -21,7 +21,7 @@ The middle ramp within the clamp uses container query dependant units, `cqi`. Th
   --s-1: 0.25rem; /* 4px */
   --s-2: 0.5rem; /* 8px */
   --s-3: clamp(1rem, 0.5rem + 1.25cqi, 1.5rem); /* 16px --> 24px */
-  --s-4: clamp(2rem, 1rem + 2.5cqi, 3rem); /* 32px --> 40px */
+  --s-4: clamp(2rem, 1rem + 2.5cqi, 3rem); /* 32px --> 48px */
 }
 ```
 
@@ -172,7 +172,7 @@ If the element is a square, then `rad rad-pill` makes a circle.
 
 The Baselayer `cover` class can be used to make an image expand or contract to fully cover a container block rectangle. It is designed for use on an `<img src="">` tag.
 
-```
+```css
 .img-cover {
   width: 100%;
   height: 100%;

@@ -54,7 +54,6 @@
   }
 
   /* Background colors */
-
   .bg-blue {
     --bgc: var(--blue);
     background: var(--bgc);

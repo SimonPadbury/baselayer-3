@@ -835,7 +835,7 @@ Example colored stripe using `full-bleed`:
  <code>full-bleed</code> — expands to the full width of the avilable space. If there are no sidebars, it will reach the sides of the viewport.
 </div>
 
-```
+```html
 <div class="full-bleed">
  Full bleed panel content...
 </div>

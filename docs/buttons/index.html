@@ -429,7 +429,7 @@ window.addEventListener("DOMContentLoaded", () => {
 <p>In Baselayer, buttons are pre-styled with <code>display: inline-flex</code> and centering and middling flexbox alignment.</p>
 <p>So, if you want a button to stretch full-width, you can add <code>class=&quot;w100%&quot;</code> or you can override the inline-flex by adding <code>class=&quot;flex&quot;</code>. (Do not use <code>class=&quot;block&quot;</code> on a button (or <code>.btn</code>) because that will override its inline flexbox.)</p>
 <p><button class="w-100% my-2" type="button" name="button">Button</button></p>
-<pre><code>&lt;button class=&quot;w-100%&quot; type=&quot;button&quot; name=&quot;button&quot;&gt;
+<pre><code class="language-html">&lt;button class=&quot;w-100%&quot; type=&quot;button&quot; name=&quot;button&quot;&gt;
   Button
 &lt;/button&gt;
 </code></pre>
@@ -439,7 +439,7 @@ window.addEventListener("DOMContentLoaded", () => {
   Button
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"></rect><polyline points="208 96 128 176 48 96" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"></polyline></svg>
 </button>
-<pre><code>&lt;button class=&quot;flex-space-between&quot; type=&quot;button&quot; name=&quot;button&quot;&gt;
+<pre><code class="language-html">&lt;button class=&quot;flex-space-between&quot; type=&quot;button&quot; name=&quot;button&quot;&gt;
   Button
   &lt;!-- Icon --&gt;
   &lt;svg&gt;...&lt;/svg&gt;
@@ -458,7 +458,7 @@ window.addEventListener("DOMContentLoaded", () => {
     <a class="btn b-thin b-green bg-transparent t-green t-600 hover:t-white hover:bg-green hover:bg-600" href="#/">Link “button”</a>
   </p>
 </form>
-<pre><code>&lt;!-- Default button --&gt;
+<pre><code class="language-html">&lt;!-- Default button --&gt;
 &lt;button type=&quot;button&quot; name=&quot;button&quot;&gt;Button&lt;/button&gt;
 
 &lt;!-- Blue button --&gt;
@@ -507,7 +507,7 @@ window.addEventListener("DOMContentLoaded", () => {
     </button>
   </p>
 </form>
-<pre><code>&lt;button class=&quot;rad rad-pill&quot; type=&quot;button&quot; name=&quot;button&quot;&gt;Button&lt;/button&gt;
+<pre><code class="language-html">&lt;button class=&quot;rad rad-pill&quot; type=&quot;button&quot; name=&quot;button&quot;&gt;Button&lt;/button&gt;
 
 &lt;button class=&quot;btn-icon rad rad-pill&quot; type=&quot;button&quot; name=&quot;button&quot;&gt;I&lt;/button&gt;
 </code></pre>
@@ -519,7 +519,7 @@ window.addEventListener("DOMContentLoaded", () => {
   <button type="button" name="button">Button</button>
   <button type="button" name="button" class="t-lg">Button</button>
 </form>
-<pre><code>&lt;form class=&quot;flex flex-middle gap-1&quot;&gt;
+<pre><code class="language-html">&lt;form class=&quot;flex flex-middle gap-1&quot;&gt;
   &lt;button type=&quot;button&quot; name=&quot;button&quot; class=&quot;t-sm&quot;&gt;Button&lt;/button&gt;
   &lt;button type=&quot;button&quot; name=&quot;button&quot;&gt;Button&lt;/button&gt;
   &lt;button type=&quot;button&quot; name=&quot;button&quot; class=&quot;t-lg&quot;&gt;Button&lt;/button&gt;

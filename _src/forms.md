@@ -222,7 +222,7 @@ Border, background, and text color utilities can be used.
   </p>
 </form>
 
-```
+```html
 <form action="">
   <p>
     <button type="button" name="button">Button</button>

@@ -401,14 +401,14 @@ window.addEventListener("DOMContentLoaded", () => {
         <div class="lg:col-span-3">
           <main id="article-content" class="content-grid">
             <h2 id="spacing" tabindex="-1">Spacing</h2>
-<p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Introduction_to_the_CSS_box_model">Box model</a> margin and padding spacing have both 4 levels based on 4 CSS variables. These same spacing variables are also used for gaps (in flexbox and the grid system), and for border radius utilities.</p>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Introduction_to_the_CSS_box_model">Box model</a> margin and padding spacing have 4 levels based on 4 CSS variables. These same spacing variables are also used for gaps (in flexbox and grid system), and for border radius utilities.</p>
 <p>The smallest level simply adds 0.5rem spacing, whereas levels 2 thorugh 4 increase responsively depending how how much width is available, using <code>clamp()</code> functions to ramp up to 1.5× their base size.</p>
 <p>The middle ramp within the clamp uses container query dependant units, <code>cqi</code>. This will either take effect from the container query context on the <code>&lt;body&gt;</code> tag, or from any inner <code>container</code> classes that may be added on block elements (see <a href="/baselayer-3/layout/#container-query-contexts">Layouts/ container query contexts</a>).</p>
 <pre><code class="language-css">:root {
   --s-1: 0.25rem; /* 4px */
   --s-2: 0.5rem; /* 8px */
   --s-3: clamp(1rem, 0.5rem + 1.25cqi, 1.5rem); /* 16px --&gt; 24px */
-  --s-4: clamp(2rem, 1rem + 2.5cqi, 3rem); /* 32px --&gt; 40px */
+  --s-4: clamp(2rem, 1rem + 2.5cqi, 3rem); /* 32px --&gt; 48px */
 }
 </code></pre>
 <p>This makes the negative space (“whitespace”) for spacing levels 2 through 4 larger where there is a larger container (or viewport) width available.</p>
@@ -540,7 +540,7 @@ window.addEventListener("DOMContentLoaded", () => {
 </div>
 <h2 id="the-img-cover-class" tabindex="-1">The <code>img-cover</code> class</h2>
 <p>The Baselayer <code>cover</code> class can be used to make an image expand or contract to fully cover a container block rectangle. It is designed for use on an <code>&lt;img src=&quot;&quot;&gt;</code> tag.</p>
-<pre><code>.img-cover {
+<pre><code class="language-css">.img-cover {
   width: 100%;
   height: 100%;
   object-fit: cover;

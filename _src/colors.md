@@ -447,7 +447,6 @@ If you want “lightness levels” between white and black, then use grays.
 
 E.g. for outline buttons.
 
-* Transparent:
-    * `bg-transparent`
+* Transparent: `bg-transparent`
 
 There are no hover states of `bg-transparent`.
