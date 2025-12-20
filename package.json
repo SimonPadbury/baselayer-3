@@ -1,6 +1,6 @@
 {
   "name": "baselayer-3",
-  "version": "3.4.8",
+  "version": "3.5.0",
   "description": "A modern starter CSS library with container queries, a real CSS grid system, clamp() powered typography and spacing sizes, OKLAB color utilities, and custom properties.",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

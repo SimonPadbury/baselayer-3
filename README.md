@@ -1,6 +1,6 @@
 # Baselayer 3
 
-v.3.4.8 • 24 KB (minified) • MIT licence.
+v.3.5.0 • 24 KB (minified) • MIT licence.
 
 Designed as a good place to start, Baselayer may be all you need — for small web projects. Or you may use it as a _baselayer_ to quick-start your mega project.
 
@@ -13,7 +13,7 @@ Ready to use as-is, Baselayer gives you all this:
 * `@container` query responsive layout utilities using CSS grid and flexbox
 * Responsive typography, layout, and spacing using `clamp()` ramps
 * A compact color lightnesssystem based on `color-mix(in OKLCH)` for text, borders, and backgrounds
-* Built-in dark mode using `light-dark()`
+* Built-in dark mode using `light-dark()`, and `dark:` utilities for lightness levels
 * Theming control using CSS variables
 * And more
 

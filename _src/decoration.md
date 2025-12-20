@@ -140,10 +140,12 @@ The first five border radius classes below supply the property `border-{...}-rad
 
 Then there are five modifier classes. These only supply a spacing variable — they do not contain the `border-{...}-radius` property. Therefore, they need to be paired with (at least) one of the five border radius utilities above.
 
-* `rad-1` — `--s-1` 0.25rem
-* `rad-2` — `--s-1` 0.5rem
-* `rad-3` — `--s-2` clamp(1rem, 0.5rem + 1.25cqi, 1.5rem)
-* `rad-4` — `--s-3` clamp(2rem, 1rem + 2.5cqi, 3rem)
+* `rad`,<br>
+`rad-1` — `--s-1` 0.25rem<br>
+(`rad` comes with `--s-1` by defaut, so `rad-1` is redundant.)
+* `rad-2` — `--s-2` 0.5rem
+* `rad-3` — `--s-3` clamp(1rem, 0.5rem + 1.25cqi, 1.5rem)
+* `rad-4` — `--s-4` clamp(2rem, 1rem + 2.5cqi, 3rem)
 * `rad-pill` — `--s-pill` 99rem
 
 Examples:

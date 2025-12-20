@@ -1,29 +1,4 @@
-@layer links-and-accessibility {
-  /* Accessibility */
-
-  a {
-    text-decoration: underline;
-    color: var(--tc-link);
-    cursor: pointer;
-    transition: all 0.15s ease;
-    text-decoration-skip-ink: auto;
-    text-underline-offset: var(--a-deco-offset);
-    text-decoration-thickness: var(--a-deco-thickness);
-
-    &:not(.t-underline-none):hover {
-      text-decoration: underline;
-      text-decoration-thickness: var(--a-deco-thickness-hover);
-    }
-  }
-
-  .t-underline-none,
-  .t-underline-hover-only,
-  .links-no-underline a,
-  .links-no-underline a:hover,
-  .links-underline-hover-only a {
-    text-decoration: none;
-  }
-
+@layer accessibility {
   /*
    * Based on the design systems of the UK Government (GOV.UK) and the UK National Health Service (NHS)
    * https://design-system.service.gov.uk/get-started/focus-states/
@@ -33,18 +8,16 @@
     outline: none;
     color: black !important;
     text-decoration: underline;
-    /* text-underline-offset: var(--a-deco-offset); */
     text-decoration-thickness: var(--a-deco-thickness-hover);
     background-color: var(--color-focus) !important;
   }
 
-  /* [id]:not(a):focus-visible, */
   input:focus,
   textarea:focus,
   select:focus,
   form button:focus,
   button:focus-visible,
-  a:focus-visible>img {
+  a:focus-visible > img {
     position: relative;
     box-shadow: 0 0 0 3px black;
     outline: 3px solid var(--color-focus);

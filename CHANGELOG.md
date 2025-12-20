@@ -5,10 +5,20 @@
   this CHANGELOG.md
 • Adjust filesize in README.md and
   metadata.json if necessary.
-• Remember to `npx -y pagefind --site docs` before deployment.
+• Remember to do `npx -y pagefind --site docs` before deployment.
 -->
 
 # Baselayer 3 changelog
+
+## v.3.5.0
+
+* Major refactoring of the color utilities, so that more versatile dark mode lightness levels have been added, using prefix `dark:`. And `*-dark-invert` has been removed.
+* With `*-dark-invert` removed, it was necessary to add `*-reversi` classes for black and white, so that these can be flipped for dark mode when required.
+* Variable `--bc-fineline` is now simply `--bc`, so that it plays well with the new color styles.
+* Added `.table-fixed` modifier.
+* Heading font-sizes have been enlarged.
+* Font stacks have been simplified. Now only `sans-serif`, `serif`, and `monospace` support older browsers. Evergreen browsers get `ui-sans-serif`, `ui-serif` and `ui-monospace`.
+* Other minor improvements.
 
 ## v.3.4.8 -- 17 Dec 2025
 

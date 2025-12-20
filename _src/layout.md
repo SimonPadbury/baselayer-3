@@ -8,7 +8,7 @@ prevLink: "Typography"
 nextLink: "Decoration"
 ---
 
-<div aria-label="Note" class="popout mb-3 bl-heavy b-blue b-300 b-dark-invert p-3 bg-blue bg-100 bg-dark-invert">
+<div aria-label="Note" class="popout mb-3 bl-heavy b-blue b-400 dark:b-600 p-3 bg-blue bg-100 dark:bg-900">
   Since September 2023, all “evergreen” browsers (Chrome, Edge, Firefox, Safari) have capability for the new CSS Container Queries (see <a href="https://caniuse.com/?search=container">Can I use: Container Queries</a>). So, Baselayer now has <a href="#container-query-powered-layouts">container query powered layouts</a> to control <code>flex</code>, <code>grid</code>, and <code>hidden</code> utility classes.
 </div>
 
@@ -37,10 +37,10 @@ Spacing variables `--s-3` and `--s-4` involve a `clamp()` that has its middle va
 
 Baselayer’s `wrapper` classes add a constrained layout width, inline margin (x-axis) auto centering, and side edge whitespace when the viewport width is at or narrower then the wrapper width.
 
-<div aria-label="Note" class="popout mb-3 bl-heavy b-blue b-300 b-dark-invert p-3 bg-blue bg-100 bg-dark-invert">  Baselayer’s <em>wrapper</em> classes were formerly known as <em>container</em> classes, copying the name from other CSS frameworks such as Bootstrap. But after switching from <code>@media</code> queries to <code">@container</code> queries, a context-container was required for parent elements of container query controlled layout systems. Therefore, the Baselayer <code>container</code> class is now exclusively used for that purpose. See <a href="#container-query-powered-layouts">container query powered layouts</a>.
+<div aria-label="Note" class="popout mb-3 bl-heavy b-blue b-400 dark:b-600 p-3 bg-blue bg-100 dark:bg-900">  Baselayer’s <em>wrapper</em> classes were formerly known as <em>container</em> classes, copying the name from other CSS frameworks such as Bootstrap. But after switching from <code>@media</code> queries to <code">@container</code> queries, a context-container was required for parent elements of container query controlled layout systems. Therefore, the Baselayer <code>container</code> class is now exclusively used for that purpose. See <a href="#container-query-powered-layouts">container query powered layouts</a>.
 </div>
 
-The centered layout `wrapper` is set up as follows:
+The centered layout `wrapper` is set up as follows.
 
 In `variables.css`:
 
@@ -73,13 +73,11 @@ The difference between width utilities and wrapper utilities is that wrappers ha
 
 * `wrapper-xs` / `w-max-xs` — maximum width 320px
 * `wrapper-sm` / `w-max-sm` — maximum width 640px
-* `wrapper-content` / `w-max-content` — maximum width 40rem
+* `wrapper-content` / `w-max-content` — maximum width 66ch
 * `wrapper-md` / `w-max-md` — maximum width 960px
 * `wrapper-lg` / `w-max-lg` — maximum width 1280px
 * `wrapper-xl` / `w-max-xl` — maximum width 1600px
 * `wrapper` — maximum width 1600px
-
-The `-content` width constraints max out at 40rem, giving a comfortable ~67 characters per line for paragraphs.
 
 Four more:
 
@@ -127,7 +125,7 @@ Example:
   <div class="absolute right h-100% flex flex-middle"><code>Right</code></div>
   <div class="absolute bottom w-100% t-center"><code>Bottom</code></div>
   <div class="absolute left h-100% flex flex-middle"><code>Left</code></div>
-  <div class="absolute box flex flex-center flex-middle t-center"><code>Mentered<br>and middled</code></div>
+  <div class="absolute box flex flex-center flex-middle t-center"><code>Centered<br>and middled</code></div>
 </div>
 
 ```html
@@ -160,7 +158,7 @@ Example:
 
 Since Baselayer 3.4.0, the `<body>` tag provides a _container query context_, using `container-type: inline-size`. Additionally you can set another (inner) container query context ising the `container` class.
 
-<div aria-label="Warning" class="popout mb-3 bl-heavy b-amber b-300 b-dark-invert p-3 bg-amber bg-100 bg-dark-invert">The <code>container</code> class does not constrain the outer element’s width in any way. You may also need to control the widths of your content with e.g. <a href="#centered-layout-wrappers">wrapper</a> or <a href="#widths">width</a> utilities, or by placing the container within a grid cell, etc.
+<div aria-label="Warning" class="popout mb-3 bl-heavy b-amber b-500 dark:b-600 p-3 bg-amber bg-200 dark:bg-900">The <code>container</code> class does not constrain the outer element’s width in any way. You may also need to control the widths of your content with e.g. <a href="#centered-layout-wrappers">wrapper</a> or <a href="#widths">width</a> utilities, or by placing the container within a grid cell, etc.
 </div>
 
 There are three `@container` variants for `flex`, `grid`, and `hidden` classes corresponding to prefix widths:
@@ -704,7 +702,7 @@ There may be situation where you require some element(s) to be displayed on smal
     <tr class="bt-thick">
       <td><code class="t-nowrap">sm:hidden-below</code></td>
       <td>
-        <div class="sm:hidden-below p-cell bg-green bg-200 bg-dark-invert">Example</div>
+        <div class="sm:hidden-below p-cell bg-green bg-200 dark:bg-800">Example</div>
       </td>
       <td>✗</td>
       <td>✓</td>
@@ -714,7 +712,7 @@ There may be situation where you require some element(s) to be displayed on smal
     <tr>
       <td><code class="t-nowrap">md:hidden-below</code></td>
       <td>
-        <div class="md:hidden-below p-cell bg-green bg-200 bg-dark-invert">Example</div>
+        <div class="md:hidden-below p-cell bg-green bg-200 dark:bg-800">Example</div>
       </td>
       <td>✗</td>
       <td>✗</td>
@@ -724,7 +722,7 @@ There may be situation where you require some element(s) to be displayed on smal
     <tr>
       <td><code>lg:hidden-below</code></td>
       <td>
-        <div class="lg:hidden-below p-cell bg-green bg-200 bg-dark-invert">Example</div>
+        <div class="lg:hidden-below p-cell bg-green bg-200 dark:bg-800">Example</div>
       </td>
       <td>✗</td>
       <td>✗</td>
@@ -734,7 +732,7 @@ There may be situation where you require some element(s) to be displayed on smal
     <tr class="bt-thick">
       <td><code>sm:hidden</code></td>
       <td>
-        <div class="sm:hidden p-cell bg-green bg-200 bg-dark-invert">Example</div>
+        <div class="sm:hidden p-cell bg-green bg-200 dark:bg-800">Example</div>
       </td>
       <td>✓</td>
       <td>✗</td>
@@ -744,7 +742,7 @@ There may be situation where you require some element(s) to be displayed on smal
     <tr>
       <td><code>md:hidden</code></td>
       <td>
-        <div class="md:hidden p-cell bg-green bg-200 bg-dark-invert">Example</div>
+        <div class="md:hidden p-cell bg-green bg-200 dark:bg-800">Example</div>
       </td>
       <td>✓</td>
       <td>✓</td>
@@ -754,7 +752,7 @@ There may be situation where you require some element(s) to be displayed on smal
     <tr>
       <td><code>lg:hidden</code></td>
       <td>
-        <div class="lg:hidden p-cell bg-green bg-200 bg-dark-invert">Example</div>
+        <div class="lg:hidden p-cell bg-green bg-200 dark:bg-800">Example</div>
       </td>
       <td>✓</td>
       <td>✓</td>
@@ -775,7 +773,7 @@ There may be situation where you require some element(s) to be displayed on smal
 
 `content-grid` expects your content typographic blocks (headings, paragraphs, lists, tables, etc.), and the panel blocks below, to be its _immediate children_.
 
-<div aria-label="Note" class="popout mt-3 mb-4 bl-heavy b-blue b-300 b-dark-invert p-3 bg-blue bg-100 bg-dark-invert">  <strong>Note:</strong> <code>content-grid</code> is not a <a href="#container-query-powered-layouts">container query powered layout</a> — it doesn’t need to be.</code"></div>
+<div aria-label="Note" class="popout mt-3 mb-4 bl-heavy b-blue b-400 dark:b-600 p-3 bg-blue bg-100 dark:bg-900">  <strong>Note:</strong> <code>content-grid</code> is not a <a href="#container-query-powered-layouts">container query powered layout</a> — it doesn’t need to be.</code"></div>
 
 ### Popout panels
 
@@ -783,12 +781,12 @@ Use the `popout` utility class on an immediate child of `content-grid` to make a
 
 Example information panel using `popout`:
 
-<div aria-label="Note" class="popout mt-3 mb-4 bt-heavy b-blue b-300 b-dark-invert rad-1 p-3 bg-gray bg-100 bg-dark-invert">
+<div aria-label="Note" class="popout mt-3 mb-4 bt-heavy b-blue b-300 dark:bg-700 rad p-3 bg-gray bg-100 dark:bg-900">
   &star; Information panel
 </div>
 
 ```html
-<div aria-label="Note" class="popout mb-2 bt-heavy b-blue b-300 b-dark-invert rad-1 p-2 t-black bg-gray bg-100 bg-dark-invert">
+<div aria-label="Note" class="popout mt-3 mb-4 bt-heavy b-blue b-300 dark:bg-700 rad p-3 bg-gray bg-100 dark:bg-900">
   &star; Information panel
 </div>
 ```

@@ -181,7 +181,7 @@ Groups of form elements can be wrapped in `<fieldset>` tags. Add a `<legend>` to
   </fieldset>
 </form>
 
-```
+```html
 <form action="">
   <fieldset class="flex">
     <legend>Example e-newsletter subscribe</legend>
@@ -192,6 +192,24 @@ Groups of form elements can be wrapped in `<fieldset>` tags. Add a `<legend>` to
 ```
 
 **Note:** In the example above, the Baselayer `flex` class has been used to align these form elements side-by-side, and then `grow` has been used to expand the email input field. A `<legend>` is also included — but since its text incorporates with the `<fieldset>` wrapping border line, it will not be controlled by the flexbox rule.
+
+## Adding colors to form elements
+
+Border, background, and text color utilities can be used.
+
+<form class="mt-2 mb-3">
+  <label for="example-input-text">Label</label>
+  <input class="b-thick b-red" type="text" id="example-input-text" placeholder="Enter some text here">
+  <input class="b-thick b-green" type="text" id="example-input-text" placeholder="Enter some text here">
+</form>
+
+```html
+<label for="example-input-text">Label</label>
+
+<input class="b-thick b-red" type="text" id="example-input-text" placeholder="Enter some text here">
+
+<input class="b-thick b-green" type="text" id="example-input-text" placeholder="Enter some text here">
+```
 
 ## Form buttons
 

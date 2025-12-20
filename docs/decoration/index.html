@@ -7,7 +7,7 @@
 
   <title>Decoration · Baselayer CSS</title>
 
-  <link rel="stylesheet" href="/baselayer-3/css/min/baselayer.min.css?v=3.4.8">
+  <link rel="stylesheet" href="/baselayer-3/css/min/baselayer.min.css?v=3.5.0">
 
   <style>
   html {
@@ -267,11 +267,11 @@ window.addEventListener("DOMContentLoaded", () => {
 
   <div id="body-wrap" class="md:flex">
 
-    <div id="site-nav" class="h-100% bg-gray bg-100 bg-dark-invert">
+    <div id="site-nav" class="h-100% bg-gray bg-100 dark:bg-900">
   <div class="sticky top h-max-100dvh overflow-y">
     <div class="flex flex-space-between md:block">
       <div class="p-cell md:t-center">
-        <a id="site-title" href="/baselayer-3/" class="h3 py-2 t-normal flex flex-center flex-middle gap-2 t-gray t-800 hover:t-black t-dark-invert t-underline-none">
+        <a id="site-title" href="/baselayer-3/" class="h3 py-2 t-normal flex flex-center flex-middle gap-2 t-gray t-800 dark:t-200 hover:t-reversi t-underline-none">
           <svg height="48" width="48" viewBox="0 0 111 111" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-miterwrapper:1.5">
             <g transform="translate(-294.592 -94.592)">
               <circle cx="350" cy="150" r="50" style="fill:none;stroke:currentColor;stroke-width:4px"/>
@@ -285,43 +285,43 @@ window.addEventListener("DOMContentLoaded", () => {
         </a>
       </div>
       <button type="button" id="site-menu-toggle" aria-expanded="false" aria-label="Menu" aria-controls="site-menu" class="m-3 md:hidden">
-        Menu
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256"><path d="M228,128a12,12,0,0,1-12,12H40a12,12,0,0,1,0-24H216A12,12,0,0,1,228,128ZM40,76H216a12,12,0,0,0,0-24H40a12,12,0,0,0,0,24ZM216,180H40a12,12,0,0,0,0,24H216a12,12,0,0,0,0-24Z"></path></svg>
       </button>
     </div>
 
     <div id="js-menu-wrapper">
       <div class="m-3 bt-thin bb-thin py-3 flex flex-center flex-wrap gap-3 links-underlined-hover-only">
-        <span class="t-gray t-600 t-dark-invert">Version: 3.4.8</span>
-        <a class="t-gray t-800 hover:t-900 t-dark-invert" href="https://github.com/SimonPadbury/baselayer-3">GitHub</a>
+        <span class="t-gray t-600 dark:t-400">Version: 3.5.0</span>
+        <a class="t-gray t-800 dark:t-200 hover:t-900 hover:dark:t-100" href="https://github.com/SimonPadbury/baselayer-3">GitHub</a>
         <span>
-          <a class="t-gray t-800 hover:t-900 t-dark-invert" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> <span class="t-gray t-600 t-dark-invert">(24 KB)</span>
+          <a class="t-gray t-800 dark:t-200 hover:t-900 hover:dark:t-100" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> <span class="t-gray t-600 t-dark-invert">(24 KB)</span>
         </span>
       </div>
 
       <nav class="t-white container px-3 py-2">
-        <menu class="pl-0 flex flex-column gap-2 links-no-underline">
+        <menu class="pl-0 flex flex-column gap-2 links-underline-none">
           <menuitem>
-            <a class="block  p-cell t-gray t-700 hover:t-900 t-dark-invert"  href="/baselayer-3/">Getting started</a>
+            <a class="block  p-cell t-gray t-700 dark:t-300 hover:t-900 hover:dark:t-100"  href="/baselayer-3/">Getting started</a>
           </menuitem>
           <menuitem>
-            <a class="block  p-cell t-gray t-700 hover:t-900 t-dark-invert"  href="/baselayer-3/typography/">Typography</a>
+            <a class="block  p-cell t-gray t-700 dark:t-300 hover:t-900 hover:dark:t-100"  href="/baselayer-3/typography/">Typography</a>
           </menuitem>
           <menuitem>
-            <a class="block  p-cell t-gray t-700 hover:t-900 t-dark-invert"  href="/baselayer-3/layout/">Layout</a>
+            <a class="block  p-cell t-gray t-700 dark:t-300 hover:t-900 hover:dark:t-100"  href="/baselayer-3/layout/">Layout</a>
           </menuitem>
           <menuitem>
-            <a class="block bl-heavy t-black t-dark-invert bg-gray bg-200 bg-dark-invert p-cell t-gray t-700 hover:t-900 t-dark-invert"  aria-current="page" href="/baselayer-3/decoration/">Decoration</a></menuitem>
+            <a class="block bl-heavy b-gray b-300 dark:b-700 t-reversi bg-gray bg-200 dark:bg-800 p-cell t-gray t-700 dark:t-300 hover:t-900 hover:dark:t-100"  aria-current="page" href="/baselayer-3/decoration/">Decoration</a></menuitem>
           <menuitem>
-            <a class="block  p-cell t-gray t-700 hover:t-900 t-dark-invert"  href="/baselayer-3/colors/">Colors</a>
+            <a class="block  p-cell t-gray t-700 dark:t-300 hover:t-900 hover:dark:t-100"  href="/baselayer-3/colors/">Colors</a>
           </menuitem>
           <menuitem>
-            <a class="block  p-cell t-gray t-700 hover:t-900 t-dark-invert"  href="/baselayer-3/forms/">Forms</a>
+            <a class="block  p-cell t-gray t-700 dark:t-300 hover:t-900 hover:dark:t-100"  href="/baselayer-3/forms/">Forms</a>
           </menuitem>
           <menuitem>
-            <a class="block  p-cell t-gray t-700 hover:t-900 t-dark-invert"  href="/baselayer-3/buttons/">Buttons</a>
+            <a class="block  p-cell t-gray t-700 dark:t-300 hover:t-900 hover:dark:t-100"  href="/baselayer-3/buttons/">Buttons</a>
             </menuitem>
           <menuitem>
-            <a class="block p-cell t-gray t-700 hover:t-900 t-dark-invert" href="/baselayer-3/examples/">Examples</a>
+            <a class="block p-cell t-gray t-700 dark:t-300 hover:t-900 hover:dark:t-100" href="/baselayer-3/examples/">Examples</a>
           </menuitem>
         </menu>
       </nav>
@@ -514,10 +514,12 @@ window.addEventListener("DOMContentLoaded", () => {
 </ul>
 <p>Then there are five modifier classes. These only supply a spacing variable — they do not contain the <code>border-{...}-radius</code> property. Therefore, they need to be paired with (at least) one of the five border radius utilities above.</p>
 <ul>
-<li><code>rad-1</code> — <code>--s-1</code> 0.25rem</li>
-<li><code>rad-2</code> — <code>--s-1</code> 0.5rem</li>
-<li><code>rad-3</code> — <code>--s-2</code> clamp(1rem, 0.5rem + 1.25cqi, 1.5rem)</li>
-<li><code>rad-4</code> — <code>--s-3</code> clamp(2rem, 1rem + 2.5cqi, 3rem)</li>
+<li><code>rad</code>,<br>
+<code>rad-1</code> — <code>--s-1</code> 0.25rem<br>
+(<code>rad</code> comes with <code>--s-1</code> by defaut, so <code>rad-1</code> is redundant.)</li>
+<li><code>rad-2</code> — <code>--s-2</code> 0.5rem</li>
+<li><code>rad-3</code> — <code>--s-3</code> clamp(1rem, 0.5rem + 1.25cqi, 1.5rem)</li>
+<li><code>rad-4</code> — <code>--s-4</code> clamp(2rem, 1rem + 2.5cqi, 3rem)</li>
 <li><code>rad-pill</code> — <code>--s-pill</code> 99rem</li>
 </ul>
 <p>Examples:</p>
@@ -561,19 +563,20 @@ window.addEventListener("DOMContentLoaded", () => {
 
           </main>
         </div>
+
         <div class="lg:col-span-3">
           <footer class="mt-3 content-grid">
-            <nav class="popout grid gap-2 sm:equal-2-cols links-no-underline">
+            <nav class="popout grid gap-2 sm:equal-2-cols links-underline-none">
               
-              <a class="sm:col-1 my-1 b-thin b-blue b-300 hover:b-500 b-dark-invert rad-1 p-cell flex flex-column gap-1 t-blue t-600 hover:t-700 t-dark-invert hover:bg-blue hover:bg-100 bg-dark-invert"  href="/baselayer-3/layout/">
+              <a class="sm:col-1 my-1 b-thin b-blue b-300 hover:b-500 dark:b-700 rad-1 p-cell flex flex-column gap-1 t-blue t-600 hover:t-700 dark:t-400 bg-blue hover:bg-100 hover:dark:bg-800"  href="/baselayer-3/layout/">
                 Previous page
-                <span class="h2 m-0 t-normal"> Layout</span>
+                <span class="h3 m-0 t-normal"> Layout</span>
               </a>
               
               
-              <a class="sm:col-2 my-1 b-thin b-blue b-300 hover:b-500 b-dark-invert rad-1 p-cell flex flex-column gap-1 t-blue t-600 hover:t-700 t-dark-invert t-right hover:bg-blue hover:bg-100 bg-dark-invert" href="/baselayer-3/colors/">
+              <a class="sm:col-2 my-1 b-thin b-blue b-300 hover:b-500 dark:b-700 rad-1 p-cell flex flex-column gap-1 t-blue t-600 hover:t-700 dark:t-400 t-right bg-blue hover:bg-100 hover:dark:bg-800" href="/baselayer-3/colors/">
                 Next page
-                <span class="h2 m-0 t-normal">Colors</span>
+                <span class="h3 m-0 t-normal">Colors</span>
               </a>
               
             </nav>
@@ -590,16 +593,16 @@ window.addEventListener("DOMContentLoaded", () => {
                   </svg>
                 <span class="h3 m-0 t-normal t-nowrap">Baselayer CSS</span>
               </a>
-              <span>Version: 3.4.8</span>
+              <span>Version: 3.5.0</span>
             </div>
 
             <p class="p-cell flex flex-center flex-wrap gap-4 t-center">
-              <span><a class="t-underline-none hover:t-line" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> (24 KB)</span>
-              <a class="t-underline-none hover:t-line" href="https://github.com/SimonPadbury/baselayer-3">GitHub Repository</a>
-              <a class="t-underline-none hover:t-line" href="https://github.com/SimonPadbury/baselayer-3/blob/main/CHANGELOG.md">Changelog</a>
-              <a class="t-underline-none hover:t-line" href="https://github.com/SimonPadbury/baselayer-3/blob/main/LICENSE">MIT license</a>
+              <span><a class="t-underline-hover-only" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> (24 KB)</span>
+              <a class="t-underline-hover-only" href="https://github.com/SimonPadbury/baselayer-3">GitHub Repository</a>
+              <a class="t-underline-hover-only" href="https://github.com/SimonPadbury/baselayer-3/blob/main/CHANGELOG.md">Changelog</a>
+              <a class="t-underline-hover-only" href="https://github.com/SimonPadbury/baselayer-3/blob/main/LICENSE">MIT license</a>
             </p>
-            <p class="t-center"><span>Developer: <a class="t-underline-none hover:t-line" href="https://github.com/SimonPadbury">Simon Padbury</a></span>
+            <p class="t-center"><span>Developer: <a class="t-underline-hover-only" href="https://github.com/SimonPadbury">Simon Padbury</a></span>
           </footer>
         </div>
       </div>

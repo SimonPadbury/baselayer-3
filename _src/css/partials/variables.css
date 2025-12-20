@@ -29,14 +29,14 @@
   /* table cells, form inputs, and a utility class */
 
   /* Borders */
-  --b-1: 1px solid var(--bc-fineline);
-  --b-2: var(--s-1) solid var(--bc-fineline);
-  --b-3: var(--s-2) solid var(--bc-fineline);
+  --b-1: 1px solid var(--bc);
+  --b-2: var(--s-1) solid var(--bc);
+  --b-3: var(--s-2) solid var(--bc);
 
   /* Native Typeface Stacks */
-  --t-sans: ui-sans-serif, system-ui, Arial, sans-serif;
-  --t-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
-  --t-mono: ui-monospace, Menlo, Consolas, "Courier New", monospace;
+  --t-sans: ui-sans-serif, sans-serif;
+  --t-serif: ui-serif, serif;
+  --t-mono: ui-monospace, monospace;
   --t-default: var(--t-sans);
   --t-prose: var(--t-serif);
 
@@ -68,12 +68,12 @@
     Set heading sizes using ems, so that all headings can be `clamp()`
     enlarged by wrapping with `.t-display`
     */
-  --h1: 2.25em;
-  --h2: 1.625em;
-  --h3: 1.325em;
-  --h4: 1.115em;
-  --h5: 1em;
-  --h6: 0.9em;
+  --h1: 3em;
+  --h2: 2.25em;
+  --h3: 1.625em;
+  --h4: 1.325em;
+  --h5: 1.115em;
+  --h6: 1em;
   --h-ff: inherit;
   /* headings font family */
   --h-fw: var(--t-semibold);
@@ -93,11 +93,11 @@
   /* link decoration thickness :hover */
 
   /* Theme base colors */
-  --blue: #0040ff;
-  --green: #128a12;
-  --amber: #e6de00;
-  --red: #e60000;
-  --gray: #808080;
+  --blue: #4166f5;
+  --green: #00a550;
+  --amber: #ffba00;
+  --red: #e34234;
+  --gray: #838996;
 
   /* Light and dark theme colors */
   --bgc-body: light-dark(white, color-mix(in oklch, var(--gray), var(--l1000)));
@@ -127,12 +127,13 @@
     color-mix(in oklch, var(--green), var(--l300))
   );
   --bgc-code: light-dark(white, black);
-  --bc-fineline: light-dark(
+  --bc: light-dark(
     color-mix(in oklch, var(--gray), var(--l300)),
     color-mix(in oklch, var(--gray), var(--l700))
   );
+  --color-focus: var(--amber);
 
-  /* Color shades */
+  /* Color lightness levels */
   --l100: white 90%;
   --l200: white 72%;
   --l300: white 54%;
@@ -143,14 +144,4 @@
   --l800: black 36%;
   --l900: black 54%;
   --l1000: black 72%;
-  /* Color shades inverted (used for `*-dark-invert`) */
-  --l100i: black 54%;
-  --l200i: black 36%;
-  --l300i: black 18%;
-  --l400i: black 0%;
-  --l500i: white 18%;
-  --l600i: white 36%;
-  --l700i: white 54%;
-  --l800i: white 72%;
-  --l900i: white 90%;
 }

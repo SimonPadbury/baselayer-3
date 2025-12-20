@@ -14,9 +14,9 @@ A few native font stacks are set in the `root-vars.css` file.
 
 ```css
 :root {
-  --t-sans: ui-sans-serif, system-ui, Arial, sans-serif;
-  --t-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
-  --t-mono: ui-monospace, Menlo, Consolas, "Courier New", monospace;
+  --t-sans: ui-sans-serif, sans-serif;
+  --t-serif: ui-serif, serif;
+  --t-mono: ui-monospace, monospace;
   --t-default: var(--t-sans);
   --t-prose: var(--t-serif);
 }
@@ -87,18 +87,18 @@ All headings `<h1>` to `<h6>` and matching utility classes `h1` to `h6` have:
 
 * Headings font sizes set in the variables file.
 * Headings also have their font-family set using `--h-ff: inherit`. This has been done so that you can use the variable to override it. So, your headings don’t need to be the same typeface as your paragraphs.
-* Headings font weight is set using `--h-fw: var(--fwsemibold)` — which you can also override.
+* Headings font weight is set using `--h-fw: var(--t-semibold)` — which you can also override.
 * Headings line heights set using the formula `1em + 0.5rem`.
 * Headings have their bottom margin set the same as for paragraphs, `var(t--mb)`. The top margin for `<h2>` thorugh `<h6>` is double that — except then used as immediate child items of the [content-grid]({{ "/layout/#content-grid" | url }}) where the top margin is reduced to `var(t--mb)`. This is because _margin collapse_ is prevented by CSS grid. (And the top margin of `<h2>` is totally removed when it’s the first immediate child of a `.content-grid`.)
 * The matching utility classes `h2` to `h6` only affect font-size. These utilities do not include margin or font-weight styling.
 
 ```css
 :root {
-  --h1: 2.25em;
-  --h2: 1.875em;
-  --h3: 1.5em;
-  --h4: 1.25em;
-  --h5: 1.125em;
+  --h1: 3em;
+  --h2: 2.25em;
+  --h3: 1.625em;
+  --h4: 1.325em;
+  --h5: 1.115em;
   --h6: 1em;
   --h-ff: inherit; /* headings font-family */
   --h-fw: var(--t-semibold);
@@ -243,19 +243,19 @@ If you want the group of links to not have underlines, or to have underlines onl
 And with a few other Baselayer utilities, you have a menubar:
 
 <nav class="mt-3 mb-4">
-  <menu class="p-3 flex flex-wrap gap-4 bg-gray bg-100 bg-dark-invert links-no-underline">
-    <menuitem><a class="t-semibold t-gray t-700 hover:t-black t-dark-invert" href="">Menu item 1</a></menuitem>
-    <menuitem><a class="t-semibold t-gray t-700 hover:t-black t-dark-invert" href="">Menu item 2</a></menuitem>
-    <menuitem><a class="t-semibold t-gray t-700 hover:t-black t-dark-invert" href="">Menu item 3</a></menuitem>
+  <menu class="p-3 flex flex-wrap gap-4 bg-gray bg-100 dark:bg-900 links-underline-none">
+    <menuitem><a class="t-semibold t-gray t-700 dark:t-300 hover:t-reversi" href="">Menu item 1</a></menuitem>
+    <menuitem><a class="t-semibold t-gray t-700 dark:t-300 hover:t-reversi" href="">Menu item 2</a></menuitem>
+    <menuitem><a class="t-semibold t-gray t-700 dark:t-300 hover:t-reversi" href="">Menu item 3</a></menuitem>
   </menu>
 </nav>
 
 ```html
 <nav>
-  <menu class="p-3 flex flex-wrap gap-4 bg-gray bg-100 bg-dark-invert links-no-underline">
-    <menuitem><a class="t-semibold t-gray t-700 hover:t-black t-dark-invert" href="">Menu item 1</a></menuitem>
-    <menuitem><a class="t-semibold t-gray t-700 hover:t-black t-dark-invert" href="">Menu item 2</a></menuitem>
-    <menuitem><a class="t-semibold t-gray t-700 hover:t-black t-dark-invert" href="">Menu item 3</a></menuitem>
+  <menu class="p-3 flex flex-wrap gap-4 bg-gray bg-100 dark:bg-900 links-underline-none">
+    <menuitem><a class="t-semibold t-gray t-700 dark:t-300 hover:t-reversi" href="">Menu item 1</a></menuitem>
+    <menuitem><a class="t-semibold t-gray t-700 dark:t-300 hover:t-reversi" href="">Menu item 2</a></menuitem>
+    <menuitem><a class="t-semibold t-gray t-700 dark:t-300 hover:t-reversi" href="">Menu item 3</a></menuitem>
   </menu>
 </nav>
 ```
@@ -263,7 +263,7 @@ And with a few other Baselayer utilities, you have a menubar:
 Or a menu for a sidebar or footer buffet:
 
 <nav class="mt-3 mb-4">
-  <menu class="pl-0 flex flex-column gap-3 links-underlined-hover-only">
+  <menu class="pl-0 flex flex-column gap-3 links-underline-hover-only">
     <menuitem><a href="">Menu item 1</a></menuitem>
     <menuitem><a href="">Menu item 2</a></menuitem>
     <menuitem><a href="">Menu item 3</a></menuitem>
@@ -271,11 +271,13 @@ Or a menu for a sidebar or footer buffet:
 </nav>
 
 ```html
-<menu class="pl-0 flex flex-column gap-3 links-underlined-hover-only">
-  <menuitem><a href="">Menu item 1</a></menuitem>
-  <menuitem><a href="">Menu item 2</a></menuitem>
-  <menuitem><a href="">Menu item 3</a></menuitem>
-</menu>
+<nav>
+  <menu class="pl-0 flex flex-column gap-3 links-underline-hover-only">
+    <menuitem><a href="">Menu item 1</a></menuitem>
+    <menuitem><a href="">Menu item 2</a></menuitem>
+    <menuitem><a href="">Menu item 3</a></menuitem>
+  </menu>
+</nav>
 ```
 
 ## Text alignment
@@ -284,11 +286,11 @@ Or a menu for a sidebar or footer buffet:
 
 In addition to the three simple text alignment classes above, Baselayer also has several container-query responsive variants, for `xs:`, `sm:`, `md:` and `lg:` container breakpoints widths.
 
-Example: The hearing in the card below is left aligned by default, but becomes center aligned when its _container_ is `sm` (640px) wide and above, using `sm:t-center`:
+Example: The hearing in the card below is left aligned by default, but becomes center aligned when its _container_ is `xs` (320px) wide and above, using `xs:t-center`:
 
 <div class="my-3 resize-x">
-<div class="container p-2 bg-amber bg-100 bg-dark-invert">
-<p class="h3 t-semibold sm:t-center">A title</p>
+<div class="container p-2 bg-amber bg-200 dark:bg-900">
+<p class="h3 t-semibold xs:t-center">A title</p>
 <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni rem animi quaerat accusantium illum architecto, nemo, ex harum voluptatum adipisci eum blanditiis dolorum. Natus debitis quisquam, expedita accusantium quos cumque?</p>
 </div>
 </div>
@@ -304,6 +306,7 @@ Baselayer tables are set using the `.table` class.
 * Table cell paddings are set by `--p-cell` (see decoration [spacing extras]({{ '/decoration/' | url }}#spacing-extras))
 * All cell content is left-aligned. You can change that on the whole `<table>` or on a per-cell basis using the [text alignment](#text-alignment) classes.
 * Optional modifier `table-grid` will add the outline to all `th` and `td` cells.
+* Optional modifier `table-fixed` will force cells to have the same (fixed) width.
 
 <div class="mt-3 mb-4">
 <table class="table">
@@ -449,9 +452,9 @@ If you have a lot of content in your table, it will probably break your page lay
 The base font size is 100% (usually 16px). Additionally:
 
 1. There’s a `t-lg` class that can be used to make text 1.325em — good for a lead paragraph, large button, or important messaging.
-2. Classes `.h1` through `.h6` will resize text the same amount as for their respective heading tag sizes — use when you want to make text larger (or large text smaller) without adversely affecting accessibility/ SEO heading hierarchy.
-3. The `t-long-read` wrapping class uses a `clamp()` to ramp text from starting size up to 1.25em (20px default) depending on container size. E.g. used for responsively increasing text size in _article prose components_. `<h1>` inside a `t-long-read` will have maximum font size 45px.
-4. The `t-display` wrapping class uses a `clamp()` to raise text from starting size 1em (18px default at 640px container width) up to 2em (32px default) depending on container size. E.g. used for responsively increasing text size in _hero components_. `<h1>` inside a `t-display` will have maximum font size 72px.
+2. Classes `.h1` through `.h6` will resize text the same amount as for their respective heading tag sizes — use when you want to make text bigger (or large text smaller) without adversely affecting accessibility/ SEO heading hierarchy.
+3. The `t-long-read` wrapping class uses a `clamp()` to ramp text from starting size up to 1.25em (20px default) depending on container size. E.g. used for responsively increasing text size in _article prose components_. `<h1>` inside a `t-long-read` will have maximum font size 60px.
+4. The `t-display` wrapping class uses a `clamp()` to raise text from starting size 1em (18px default at 640px container width) up to 2em (32px default) depending on container size. E.g. used for responsively increasing text size in _hero components_. `<h1>` inside a `t-display` will have maximum font size 96px.
 
 ## Code
 

@@ -7,7 +7,7 @@
 
   <title>Typography · Baselayer CSS</title>
 
-  <link rel="stylesheet" href="/baselayer-3/css/min/baselayer.min.css?v=3.4.8">
+  <link rel="stylesheet" href="/baselayer-3/css/min/baselayer.min.css?v=3.5.0">
 
   <style>
   html {
@@ -267,11 +267,11 @@ window.addEventListener("DOMContentLoaded", () => {
 
   <div id="body-wrap" class="md:flex">
 
-    <div id="site-nav" class="h-100% bg-gray bg-100 bg-dark-invert">
+    <div id="site-nav" class="h-100% bg-gray bg-100 dark:bg-900">
   <div class="sticky top h-max-100dvh overflow-y">
     <div class="flex flex-space-between md:block">
       <div class="p-cell md:t-center">
-        <a id="site-title" href="/baselayer-3/" class="h3 py-2 t-normal flex flex-center flex-middle gap-2 t-gray t-800 hover:t-black t-dark-invert t-underline-none">
+        <a id="site-title" href="/baselayer-3/" class="h3 py-2 t-normal flex flex-center flex-middle gap-2 t-gray t-800 dark:t-200 hover:t-reversi t-underline-none">
           <svg height="48" width="48" viewBox="0 0 111 111" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-miterwrapper:1.5">
             <g transform="translate(-294.592 -94.592)">
               <circle cx="350" cy="150" r="50" style="fill:none;stroke:currentColor;stroke-width:4px"/>
@@ -285,43 +285,43 @@ window.addEventListener("DOMContentLoaded", () => {
         </a>
       </div>
       <button type="button" id="site-menu-toggle" aria-expanded="false" aria-label="Menu" aria-controls="site-menu" class="m-3 md:hidden">
-        Menu
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256"><path d="M228,128a12,12,0,0,1-12,12H40a12,12,0,0,1,0-24H216A12,12,0,0,1,228,128ZM40,76H216a12,12,0,0,0,0-24H40a12,12,0,0,0,0,24ZM216,180H40a12,12,0,0,0,0,24H216a12,12,0,0,0,0-24Z"></path></svg>
       </button>
     </div>
 
     <div id="js-menu-wrapper">
       <div class="m-3 bt-thin bb-thin py-3 flex flex-center flex-wrap gap-3 links-underlined-hover-only">
-        <span class="t-gray t-600 t-dark-invert">Version: 3.4.8</span>
-        <a class="t-gray t-800 hover:t-900 t-dark-invert" href="https://github.com/SimonPadbury/baselayer-3">GitHub</a>
+        <span class="t-gray t-600 dark:t-400">Version: 3.5.0</span>
+        <a class="t-gray t-800 dark:t-200 hover:t-900 hover:dark:t-100" href="https://github.com/SimonPadbury/baselayer-3">GitHub</a>
         <span>
-          <a class="t-gray t-800 hover:t-900 t-dark-invert" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> <span class="t-gray t-600 t-dark-invert">(24 KB)</span>
+          <a class="t-gray t-800 dark:t-200 hover:t-900 hover:dark:t-100" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> <span class="t-gray t-600 t-dark-invert">(24 KB)</span>
         </span>
       </div>
 
       <nav class="t-white container px-3 py-2">
-        <menu class="pl-0 flex flex-column gap-2 links-no-underline">
+        <menu class="pl-0 flex flex-column gap-2 links-underline-none">
           <menuitem>
-            <a class="block  p-cell t-gray t-700 hover:t-900 t-dark-invert"  href="/baselayer-3/">Getting started</a>
+            <a class="block  p-cell t-gray t-700 dark:t-300 hover:t-900 hover:dark:t-100"  href="/baselayer-3/">Getting started</a>
           </menuitem>
           <menuitem>
-            <a class="block bl-heavy b-gray b-300 b-dark-invert t-black t-dark-invert bg-gray bg-200 bg-dark-invert p-cell t-gray t-700 hover:t-900 t-dark-invert"  aria-current="page" href="/baselayer-3/typography/">Typography</a>
+            <a class="block bl-heavy b-gray b-300 dark:b-700 t-reversi bg-gray bg-200 dark:bg-800 p-cell t-gray t-700 dark:t-300 hover:t-900 hover:dark:t-100"  aria-current="page" href="/baselayer-3/typography/">Typography</a>
           </menuitem>
           <menuitem>
-            <a class="block  p-cell t-gray t-700 hover:t-900 t-dark-invert"  href="/baselayer-3/layout/">Layout</a>
+            <a class="block  p-cell t-gray t-700 dark:t-300 hover:t-900 hover:dark:t-100"  href="/baselayer-3/layout/">Layout</a>
           </menuitem>
           <menuitem>
-            <a class="block  p-cell t-gray t-700 hover:t-900 t-dark-invert"  href="/baselayer-3/decoration/">Decoration</a></menuitem>
+            <a class="block  p-cell t-gray t-700 dark:t-300 hover:t-900 hover:dark:t-100"  href="/baselayer-3/decoration/">Decoration</a></menuitem>
           <menuitem>
-            <a class="block  p-cell t-gray t-700 hover:t-900 t-dark-invert"  href="/baselayer-3/colors/">Colors</a>
+            <a class="block  p-cell t-gray t-700 dark:t-300 hover:t-900 hover:dark:t-100"  href="/baselayer-3/colors/">Colors</a>
           </menuitem>
           <menuitem>
-            <a class="block  p-cell t-gray t-700 hover:t-900 t-dark-invert"  href="/baselayer-3/forms/">Forms</a>
+            <a class="block  p-cell t-gray t-700 dark:t-300 hover:t-900 hover:dark:t-100"  href="/baselayer-3/forms/">Forms</a>
           </menuitem>
           <menuitem>
-            <a class="block  p-cell t-gray t-700 hover:t-900 t-dark-invert"  href="/baselayer-3/buttons/">Buttons</a>
+            <a class="block  p-cell t-gray t-700 dark:t-300 hover:t-900 hover:dark:t-100"  href="/baselayer-3/buttons/">Buttons</a>
             </menuitem>
           <menuitem>
-            <a class="block p-cell t-gray t-700 hover:t-900 t-dark-invert" href="/baselayer-3/examples/">Examples</a>
+            <a class="block p-cell t-gray t-700 dark:t-300 hover:t-900 hover:dark:t-100" href="/baselayer-3/examples/">Examples</a>
           </menuitem>
         </menu>
       </nav>
@@ -403,9 +403,9 @@ window.addEventListener("DOMContentLoaded", () => {
             <h2 id="font-stacks" tabindex="-1">Font stacks</h2>
 <p>A few native font stacks are set in the <code>root-vars.css</code> file.</p>
 <pre><code class="language-css">:root {
-  --t-sans: ui-sans-serif, system-ui, Arial, sans-serif;
-  --t-serif: ui-serif, Georgia, Cambria, &quot;Times New Roman&quot;, Times, serif;
-  --t-mono: ui-monospace, Menlo, Consolas, &quot;Courier New&quot;, monospace;
+  --t-sans: ui-sans-serif, sans-serif;
+  --t-serif: ui-serif, serif;
+  --t-mono: ui-monospace, monospace;
   --t-default: var(--t-sans);
   --t-prose: var(--t-serif);
 }
@@ -462,17 +462,17 @@ window.addEventListener("DOMContentLoaded", () => {
 <ul>
 <li>Headings font sizes set in the variables file.</li>
 <li>Headings also have their font-family set using <code>--h-ff: inherit</code>. This has been done so that you can use the variable to override it. So, your headings don’t need to be the same typeface as your paragraphs.</li>
-<li>Headings font weight is set using <code>--h-fw: var(--fwsemibold)</code> — which you can also override.</li>
+<li>Headings font weight is set using <code>--h-fw: var(--t-semibold)</code> — which you can also override.</li>
 <li>Headings line heights set using the formula <code>1em + 0.5rem</code>.</li>
 <li>Headings have their bottom margin set the same as for paragraphs, <code>var(t--mb)</code>. The top margin for <code>&lt;h2&gt;</code> thorugh <code>&lt;h6&gt;</code> is double that — except then used as immediate child items of the <a href="/baselayer-3/layout/#content-grid">content-grid</a> where the top margin is reduced to <code>var(t--mb)</code>. This is because <em>margin collapse</em> is prevented by CSS grid. (And the top margin of <code>&lt;h2&gt;</code> is totally removed when it’s the first immediate child of a <code>.content-grid</code>.)</li>
 <li>The matching utility classes <code>h2</code> to <code>h6</code> only affect font-size. These utilities do not include margin or font-weight styling.</li>
 </ul>
 <pre><code class="language-css">:root {
-  --h1: 2.25em;
-  --h2: 1.875em;
-  --h3: 1.5em;
-  --h4: 1.25em;
-  --h5: 1.125em;
+  --h1: 3em;
+  --h2: 2.25em;
+  --h3: 1.625em;
+  --h4: 1.325em;
+  --h5: 1.115em;
   --h6: 1em;
   --h-ff: inherit; /* headings font-family */
   --h-fw: var(--t-semibold);
@@ -599,43 +599,45 @@ window.addEventListener("DOMContentLoaded", () => {
 </ul>
 <p>And with a few other Baselayer utilities, you have a menubar:</p>
 <nav class="mt-3 mb-4">
-  <menu class="p-3 flex flex-wrap gap-4 bg-gray bg-100 bg-dark-invert links-no-underline">
-    <menuitem><a class="t-semibold t-gray t-700 hover:t-black t-dark-invert" href="">Menu item 1</a></menuitem>
-    <menuitem><a class="t-semibold t-gray t-700 hover:t-black t-dark-invert" href="">Menu item 2</a></menuitem>
-    <menuitem><a class="t-semibold t-gray t-700 hover:t-black t-dark-invert" href="">Menu item 3</a></menuitem>
+  <menu class="p-3 flex flex-wrap gap-4 bg-gray bg-100 dark:bg-900 links-underline-none">
+    <menuitem><a class="t-semibold t-gray t-700 dark:t-300 hover:t-reversi" href="">Menu item 1</a></menuitem>
+    <menuitem><a class="t-semibold t-gray t-700 dark:t-300 hover:t-reversi" href="">Menu item 2</a></menuitem>
+    <menuitem><a class="t-semibold t-gray t-700 dark:t-300 hover:t-reversi" href="">Menu item 3</a></menuitem>
   </menu>
 </nav>
 <pre><code class="language-html">&lt;nav&gt;
-  &lt;menu class=&quot;p-3 flex flex-wrap gap-4 bg-gray bg-100 bg-dark-invert links-no-underline&quot;&gt;
-    &lt;menuitem&gt;&lt;a class=&quot;t-semibold t-gray t-700 hover:t-black t-dark-invert&quot; href=&quot;&quot;&gt;Menu item 1&lt;/a&gt;&lt;/menuitem&gt;
-    &lt;menuitem&gt;&lt;a class=&quot;t-semibold t-gray t-700 hover:t-black t-dark-invert&quot; href=&quot;&quot;&gt;Menu item 2&lt;/a&gt;&lt;/menuitem&gt;
-    &lt;menuitem&gt;&lt;a class=&quot;t-semibold t-gray t-700 hover:t-black t-dark-invert&quot; href=&quot;&quot;&gt;Menu item 3&lt;/a&gt;&lt;/menuitem&gt;
+  &lt;menu class=&quot;p-3 flex flex-wrap gap-4 bg-gray bg-100 dark:bg-900 links-underline-none&quot;&gt;
+    &lt;menuitem&gt;&lt;a class=&quot;t-semibold t-gray t-700 dark:t-300 hover:t-reversi&quot; href=&quot;&quot;&gt;Menu item 1&lt;/a&gt;&lt;/menuitem&gt;
+    &lt;menuitem&gt;&lt;a class=&quot;t-semibold t-gray t-700 dark:t-300 hover:t-reversi&quot; href=&quot;&quot;&gt;Menu item 2&lt;/a&gt;&lt;/menuitem&gt;
+    &lt;menuitem&gt;&lt;a class=&quot;t-semibold t-gray t-700 dark:t-300 hover:t-reversi&quot; href=&quot;&quot;&gt;Menu item 3&lt;/a&gt;&lt;/menuitem&gt;
   &lt;/menu&gt;
 &lt;/nav&gt;
 </code></pre>
 <p>Or a menu for a sidebar or footer buffet:</p>
 <nav class="mt-3 mb-4">
-  <menu class="pl-0 flex flex-column gap-3 links-underlined-hover-only">
+  <menu class="pl-0 flex flex-column gap-3 links-underline-hover-only">
     <menuitem><a href="">Menu item 1</a></menuitem>
     <menuitem><a href="">Menu item 2</a></menuitem>
     <menuitem><a href="">Menu item 3</a></menuitem>
   </menu>
 </nav>
-<pre><code class="language-html">&lt;menu class=&quot;pl-0 flex flex-column gap-3 links-underlined-hover-only&quot;&gt;
-  &lt;menuitem&gt;&lt;a href=&quot;&quot;&gt;Menu item 1&lt;/a&gt;&lt;/menuitem&gt;
-  &lt;menuitem&gt;&lt;a href=&quot;&quot;&gt;Menu item 2&lt;/a&gt;&lt;/menuitem&gt;
-  &lt;menuitem&gt;&lt;a href=&quot;&quot;&gt;Menu item 3&lt;/a&gt;&lt;/menuitem&gt;
-&lt;/menu&gt;
+<pre><code class="language-html">&lt;nav&gt;
+  &lt;menu class=&quot;pl-0 flex flex-column gap-3 links-underline-hover-only&quot;&gt;
+    &lt;menuitem&gt;&lt;a href=&quot;&quot;&gt;Menu item 1&lt;/a&gt;&lt;/menuitem&gt;
+    &lt;menuitem&gt;&lt;a href=&quot;&quot;&gt;Menu item 2&lt;/a&gt;&lt;/menuitem&gt;
+    &lt;menuitem&gt;&lt;a href=&quot;&quot;&gt;Menu item 3&lt;/a&gt;&lt;/menuitem&gt;
+  &lt;/menu&gt;
+&lt;/nav&gt;
 </code></pre>
 <h2 id="text-alignment" tabindex="-1">Text alignment</h2>
 <ul>
 <li><code>t-right</code>, <code>t-center</code>, and <code>t-left</code></li>
 </ul>
 <p>In addition to the three simple text alignment classes above, Baselayer also has several container-query responsive variants, for <code>xs:</code>, <code>sm:</code>, <code>md:</code> and <code>lg:</code> container breakpoints widths.</p>
-<p>Example: The hearing in the card below is left aligned by default, but becomes center aligned when its <em>container</em> is <code>sm</code> (640px) wide and above, using <code>sm:t-center</code>:</p>
+<p>Example: The hearing in the card below is left aligned by default, but becomes center aligned when its <em>container</em> is <code>xs</code> (320px) wide and above, using <code>xs:t-center</code>:</p>
 <div class="my-3 resize-x">
-<div class="container p-2 bg-amber bg-100 bg-dark-invert">
-<p class="h3 t-semibold sm:t-center">A title</p>
+<div class="container p-2 bg-amber bg-200 dark:bg-900">
+<p class="h3 t-semibold xs:t-center">A title</p>
 <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni rem animi quaerat accusantium illum architecto, nemo, ex harum voluptatum adipisci eum blanditiis dolorum. Natus debitis quisquam, expedita accusantium quos cumque?</p>
 </div>
 </div>
@@ -648,6 +650,7 @@ window.addEventListener("DOMContentLoaded", () => {
 <li>Table cell paddings are set by <code>--p-cell</code> (see decoration <a href="/baselayer-3/decoration/#spacing-extras">spacing extras</a>)</li>
 <li>All cell content is left-aligned. You can change that on the whole <code>&lt;table&gt;</code> or on a per-cell basis using the <a href="#text-alignment">text alignment</a> classes.</li>
 <li>Optional modifier <code>table-grid</code> will add the outline to all <code>th</code> and <code>td</code> cells.</li>
+<li>Optional modifier <code>table-fixed</code> will force cells to have the same (fixed) width.</li>
 </ul>
 <div class="mt-3 mb-4">
 <table class="table">
@@ -782,9 +785,9 @@ window.addEventListener("DOMContentLoaded", () => {
 <p>The base font size is 100% (usually 16px). Additionally:</p>
 <ol>
 <li>There’s a <code>t-lg</code> class that can be used to make text 1.325em — good for a lead paragraph, large button, or important messaging.</li>
-<li>Classes <code>.h1</code> through <code>.h6</code> will resize text the same amount as for their respective heading tag sizes — use when you want to make text larger (or large text smaller) without adversely affecting accessibility/ SEO heading hierarchy.</li>
-<li>The <code>t-long-read</code> wrapping class uses a <code>clamp()</code> to ramp text from starting size up to 1.25em (20px default) depending on container size. E.g. used for responsively increasing text size in <em>article prose components</em>. <code>&lt;h1&gt;</code> inside a <code>t-long-read</code> will have maximum font size 45px.</li>
-<li>The <code>t-display</code> wrapping class uses a <code>clamp()</code> to raise text from starting size 1em (18px default at 640px container width) up to 2em (32px default) depending on container size. E.g. used for responsively increasing text size in <em>hero components</em>. <code>&lt;h1&gt;</code> inside a <code>t-display</code> will have maximum font size 72px.</li>
+<li>Classes <code>.h1</code> through <code>.h6</code> will resize text the same amount as for their respective heading tag sizes — use when you want to make text bigger (or large text smaller) without adversely affecting accessibility/ SEO heading hierarchy.</li>
+<li>The <code>t-long-read</code> wrapping class uses a <code>clamp()</code> to ramp text from starting size up to 1.25em (20px default) depending on container size. E.g. used for responsively increasing text size in <em>article prose components</em>. <code>&lt;h1&gt;</code> inside a <code>t-long-read</code> will have maximum font size 60px.</li>
+<li>The <code>t-display</code> wrapping class uses a <code>clamp()</code> to raise text from starting size 1em (18px default at 640px container width) up to 2em (32px default) depending on container size. E.g. used for responsively increasing text size in <em>hero components</em>. <code>&lt;h1&gt;</code> inside a <code>t-display</code> will have maximum font size 96px.</li>
 </ol>
 <h2 id="code" tabindex="-1">Code</h2>
 <p><code>&lt;code&gt;</code> tags have monospaced text (set by <code>--t-mono</code>) over a white or black background (in light or dark modes), with a thin border and a little padding to improve readability.</p>
@@ -805,19 +808,20 @@ window.addEventListener("DOMContentLoaded", () => {
 
           </main>
         </div>
+
         <div class="lg:col-span-3">
           <footer class="mt-3 content-grid">
-            <nav class="popout grid gap-2 sm:equal-2-cols links-no-underline">
+            <nav class="popout grid gap-2 sm:equal-2-cols links-underline-none">
               
-              <a class="sm:col-1 my-1 b-thin b-blue b-300 hover:b-500 b-dark-invert rad-1 p-cell flex flex-column gap-1 t-blue t-600 hover:t-700 t-dark-invert hover:bg-blue hover:bg-100 bg-dark-invert"  href="/baselayer-3/">
+              <a class="sm:col-1 my-1 b-thin b-blue b-300 hover:b-500 dark:b-700 rad-1 p-cell flex flex-column gap-1 t-blue t-600 hover:t-700 dark:t-400 bg-blue hover:bg-100 hover:dark:bg-800"  href="/baselayer-3/">
                 Previous page
-                <span class="h2 m-0 t-normal"> Introduction</span>
+                <span class="h3 m-0 t-normal"> Introduction</span>
               </a>
               
               
-              <a class="sm:col-2 my-1 b-thin b-blue b-300 hover:b-500 b-dark-invert rad-1 p-cell flex flex-column gap-1 t-blue t-600 hover:t-700 t-dark-invert t-right hover:bg-blue hover:bg-100 bg-dark-invert" href="/baselayer-3/layout/">
+              <a class="sm:col-2 my-1 b-thin b-blue b-300 hover:b-500 dark:b-700 rad-1 p-cell flex flex-column gap-1 t-blue t-600 hover:t-700 dark:t-400 t-right bg-blue hover:bg-100 hover:dark:bg-800" href="/baselayer-3/layout/">
                 Next page
-                <span class="h2 m-0 t-normal">Layout</span>
+                <span class="h3 m-0 t-normal">Layout</span>
               </a>
               
             </nav>
@@ -834,16 +838,16 @@ window.addEventListener("DOMContentLoaded", () => {
                   </svg>
                 <span class="h3 m-0 t-normal t-nowrap">Baselayer CSS</span>
               </a>
-              <span>Version: 3.4.8</span>
+              <span>Version: 3.5.0</span>
             </div>
 
             <p class="p-cell flex flex-center flex-wrap gap-4 t-center">
-              <span><a class="t-underline-none hover:t-line" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> (24 KB)</span>
-              <a class="t-underline-none hover:t-line" href="https://github.com/SimonPadbury/baselayer-3">GitHub Repository</a>
-              <a class="t-underline-none hover:t-line" href="https://github.com/SimonPadbury/baselayer-3/blob/main/CHANGELOG.md">Changelog</a>
-              <a class="t-underline-none hover:t-line" href="https://github.com/SimonPadbury/baselayer-3/blob/main/LICENSE">MIT license</a>
+              <span><a class="t-underline-hover-only" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> (24 KB)</span>
+              <a class="t-underline-hover-only" href="https://github.com/SimonPadbury/baselayer-3">GitHub Repository</a>
+              <a class="t-underline-hover-only" href="https://github.com/SimonPadbury/baselayer-3/blob/main/CHANGELOG.md">Changelog</a>
+              <a class="t-underline-hover-only" href="https://github.com/SimonPadbury/baselayer-3/blob/main/LICENSE">MIT license</a>
             </p>
-            <p class="t-center"><span>Developer: <a class="t-underline-none hover:t-line" href="https://github.com/SimonPadbury">Simon Padbury</a></span>
+            <p class="t-center"><span>Developer: <a class="t-underline-hover-only" href="https://github.com/SimonPadbury">Simon Padbury</a></span>
           </footer>
         </div>
       </div>

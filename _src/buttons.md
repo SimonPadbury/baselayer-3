@@ -73,23 +73,9 @@ Down-caret SVG icon from [Phosphor Icons](https://phosphoricons.com/), with colo
 
 Another way to control the width of a button is _from outside of it_ — by wrapping the button in a `grid` so that the button adopts the dimensions of a grid item.
 
-## Adding colors
+## Adding colors to buttons
 
 Border, background, and text color utilities can be used.
-
-<form class="mt-2 mb-3">
-  <label for="example-input-text">Label</label>
-  <input class="b-thick b-red" type="text" id="example-input-text" placeholder="Enter some text here">
-  <input class="b-thick b-green" type="text" id="example-input-text" placeholder="Enter some text here">
-</form>
-
-```
-<label for="example-input-text">Label</label>
-
-<input class="b-thick b-red" type="text" id="example-input-text" placeholder="Enter some text here">
-
-<input class="b-thick b-green" type="text" id="example-input-text" placeholder="Enter some text here">
-```
 
 When colorizing buttons, remember to set their `hover:` hover state shades too.
 
@@ -98,7 +84,7 @@ When colorizing buttons, remember to set their `hover:` hover state shades too.
     <button type="button" name="button">Button</button>
     <button class="bg-blue bg-600 hover:bg-700" type="button" name="button">Button</button>
     <button class="t-black hover:t-black bg-amber bg-400 hover:bg-500" type="button" name="button">Button</button>
-    <a class="btn b-green bg-transparent t-green hover:t-white hover:bg-green" href="#/">Link “button”</a>
+    <a class="btn b-thin b-green bg-transparent t-green t-600 hover:t-white hover:bg-green hover:bg-600" href="#/">Link “button”</a>
   </p>
 </form>
 
@@ -113,8 +99,7 @@ When colorizing buttons, remember to set their `hover:` hover state shades too.
 <button class="t-black hover:t-black bg-amber bg-400 hover:bg-500" type="button" name="button">Button</button>
 
 <!-- Green outline (a.k.a. ghost) link “button” -->
-
-<a class="btn b-green bg-transparent t-green hover:t-white hover:bg-green" href="#/">Link “button”</a>
+<a class="btn b-thin b-green bg-transparent t-green t-600 hover:t-white hover:bg-green hover:bg-600" href="#/">Link “button”</a>
 ```
 
 ## Buttons with icons

@@ -17,11 +17,11 @@ layout: base-fw.njk
 
 **Note:** `container` is simply used for adding a [container query context]({{ "/layout/#container-query-contexts" | url }}) — it doesn’t add any constraints.
 
-<div class="wrapper mb-1 p-1 bg-gray bg-100 bg-dark-invert">wrapper / wrapper-xl — max 1600px</div>
-<div class="wrapper-lg mb-1 p-1 bg-gray bg-100 bg-dark-invert">wrapper-lg — max 1280px</div>
-<div class="wrapper-md mb-1 p-1 bg-gray bg-100 bg-dark-invert">wrapper-md — max 960px</div>
-<div class="wrapper-sm mb-1 p-1 bg-gray bg-100 bg-dark-invert">wrapper-sm — max 640px</div>
-<div class="wrapper-xs mb-1 p-1 bg-gray bg-100 bg-dark-invert">wrapper-xs — max 320px</div>
+<div class="wrapper mb-1 p-1 bg-gray bg-100 dark:bg-900">wrapper / wrapper-xl — max 1600px</div>
+<div class="wrapper-lg mb-1 p-1 bg-gray bg-100 dark:bg-900">wrapper-lg — max 1280px</div>
+<div class="wrapper-md mb-1 p-1 bg-gray bg-100 dark:bg-900">wrapper-md — max 960px</div>
+<div class="wrapper-sm mb-1 p-1 bg-gray bg-100 dark:bg-900">wrapper-sm — max 640px</div>
+<div class="wrapper-xs mb-1 p-1 bg-gray bg-100 dark:bg-900">wrapper-xs — max 320px</div>
 
 * * *
 
@@ -32,7 +32,7 @@ layout: base-fw.njk
   <label class="inline-block px-1 t-white bg-red bg-600">Required</label>
   <label class="inline-block px-1 t-white bg-green bg-600">Success</label>
   <label class="inline-block px-1 t-white bg-blue bg-600">Information</label>
-  <label class="inline-block px-1 bg-gray bg-200 bg-dark-invert">Uncategorized</label>
+  <label class="inline-block px-1 bg-gray bg-200 dark:bg-800">Uncategorized</label>
 </div>
 
 * * *
@@ -63,9 +63,9 @@ A malleable grid without setting equalization on cell widths. In this example, f
 <div class="wrapper mb-3">
   <p class="mb-1"><code>grid gap-1</code></p>
     <div class="grid gap-1">
-      <div class="sm:col-1 p-cell bg-gray bg-100 bg-dark-invert"><code>sm:col-1</code> A narrow column</div>
-      <div class="sm:col-2 p-cell bg-gray bg-100 bg-dark-invert"><code>sm:col-2</code> This will expand to become a wide column because it has a lot of content. This will expand to become a wide column because it has a lot of content. This will expand to become a wide column because it has a lot of content.</div>
-      <div class="sm:col-3 p-cell bg-gray bg-100 bg-dark-invert"><code>sm:col-3</code> Another narrow column</div>
+      <div class="sm:col-1 p-cell bg-gray bg-100 dark:bg-900"><code>sm:col-1</code> A narrow column</div>
+      <div class="sm:col-2 p-cell bg-gray bg-100 dark:bg-900"><code>sm:col-2</code> This will expand to become a wide column because it has a lot of content. This will expand to become a wide column because it has a lot of content. This will expand to become a wide column because it has a lot of content.</div>
+      <div class="sm:col-3 p-cell bg-gray bg-100 dark:bg-900"><code>sm:col-3</code> Another narrow column</div>
   </div>
 </div>
 
@@ -74,24 +74,24 @@ Using `equal-` modifiers on the grid wrapper will both equalize column width and
 <div class="wrapper">
 <code>grid sm:equal-2-cols gap-2</code>
 <div class="mt-1 mb-2 grid sm:equal-2-cols gap-2">
-  <div class="p-1 bg-gray bg-100 bg-dark-invert">#</div>
-  <div class="p-1 bg-gray bg-100 bg-dark-invert">#</div>
+  <div class="p-1 bg-gray bg-100 dark:bg-900">#</div>
+  <div class="p-1 bg-gray bg-100 dark:bg-900">#</div>
 </div>
 <code>grid sm:equal-2-cols md:equal-3-cols gap-2</code>
 <div class="mt-1 mb-2 grid sm:equal-2-cols md:equal-3-cols gap-2">
-  <div class="p-1 bg-gray bg-100 bg-dark-invert">#</div>
-  <div class="p-1 bg-gray bg-100 bg-dark-invert">#</div>
-  <div class="p-1 bg-gray bg-100 bg-dark-invert">#</div>
-  <div class="p-1 bg-gray bg-100 bg-dark-invert">#</div>
-  <div class="sm:col-span-2 p-1 bg-gray bg-100 bg-dark-invert"><code>sm:col-span-2</code></div>
+  <div class="p-1 bg-gray bg-100 dark:bg-900">#</div>
+  <div class="p-1 bg-gray bg-100 dark:bg-900">#</div>
+  <div class="p-1 bg-gray bg-100 dark:bg-900">#</div>
+  <div class="p-1 bg-gray bg-100 dark:bg-900">#</div>
+  <div class="sm:col-span-2 p-1 bg-gray bg-100 dark:bg-900"><code>sm:col-span-2</code></div>
 </div>
 <p><code>sm:grid</code> takes effect at 640px up. Below 640px, <code>gap-2</code> will have no effect.</p>
 <code>sm:grid sm:equal-4-cols gap-2</code>
 <div class="mt-1 mb-2 sm:grid sm:equal-4-cols gap-2">
-  <div class="p-1 bg-gray bg-100 bg-dark-invert">#</div>
-  <div class="sm:col-span-2 p-1 bg-gray bg-100 bg-dark-invert"><code>sm:col-span-2</code></div>
-  <div class="sm:col-span-3 p-1 bg-gray bg-100 bg-dark-invert"><code>sm:col-span-3</code></div>
-  <div class="sm:col-4 sm:row-1 sm:row-span-2 p-1 bg-gray bg-100 bg-dark-invert"><code>sm:col-4 sm:row-1 sm:row-span-2</code></div>
+  <div class="p-1 bg-gray bg-100 dark:bg-900">#</div>
+  <div class="sm:col-span-2 p-1 bg-gray bg-100 dark:bg-900"><code>sm:col-span-2</code></div>
+  <div class="sm:col-span-3 p-1 bg-gray bg-100 dark:bg-900"><code>sm:col-span-3</code></div>
+  <div class="sm:col-4 sm:row-1 sm:row-span-2 p-1 bg-gray bg-100 dark:bg-900"><code>sm:col-4 sm:row-1 sm:row-span-2</code></div>
 </div>
 </div><!-- /.wrapper -->
 
@@ -200,7 +200,7 @@ See [typography: making text bigger]({{ "/typography/#making-text-bigger" | url 
   <h3 class="h1">Title of this <code>content-grid</code> demo</h3>
   <p><code>content-grid</code> is intended for long-form articles. Its 7-column grid places the content in column 4, where each immediate-child elment will be its own grid item. <code>popout</code> spans rows 3-5. <code>expand</code> spans rows 2-6. <code>full-bleed</code> spans rows 1-7.</p>
   <p>Here’s a styled <code>&lt;p class="popout"&gt;</code>:</p>
-  <div aria-label="Note" class="popout mt-2 mb-3 bt-heavy b-blue b-300 b-dark-invert rad rad-2 p-2 t-black t-dark-invert bg-gray bg-100 bg-dark-invert">
+  <div aria-label="Note" class="popout mt-2 mb-3 bt-heavy b-blue b-300 b-dark-invert rad rad-2 p-2 t-reversi bg-gray bg-100 dark:bg-900">
     &star; Information panel
   </div>
   <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni rem animi quaerat accusantium illum architecto, nemo, ex harum voluptatum adipisci eum blanditiis dolorum. Natus debitis quisquam, expedita accusantium quos cumque?</p>
@@ -208,8 +208,8 @@ See [typography: making text bigger]({{ "/typography/#making-text-bigger" | url 
   <div class="expand mt-2 mb-3 aspect-ratio-16x9 flex flex-center flex-middle relative">
     <svg xmlns="http://www.w3.org/2000/svg" class="absolute box img-cover" preserveAspectRatio="xMidYMid slice" width="1000" height="600"><defs><linearGradient id="gradient1" gradientTransform="rotate(45)"><stop offset="5%" stop-color="rgba(255,255,0,.5)"/><stop offset="50%" stop-color="rgba(255,255,255,0)"/><stop offset="95%" stop-color="rgba(255,0,0,.5)"/></linearGradient><linearGradient id="gradient2" gradientTransform="rotate(135)"><stop offset="5%" stop-color="rgba(0,0,255,.5)"/><stop offset="50%" stop-color="rgba(255,255,255,0)"/><stop offset="95%" stop-color="rgba(0,255,0,.5)"/></linearGradient></defs><rect width="100%" height="100%" fill="url('#gradient1')"/><rect width="100%" height="100%" fill="url('#gradient2')"/></svg>
     <div class="z-1 wrapper-content py-3">
-      <p class="h1 t-bold">This example text may or may not distort the 16×9 aspect ratio that has been given to this demo component.</p>
-      <p class="h1 t-bold">The SVG image rectangle will be 1280px by 720px if your viewport is big enough. See what it does on a narrow viewport width (e.g. phone).</p>
+      <p class="h2 t-bold">This example text may or may not distort the 16×9 aspect ratio that has been given to this demo component.</p>
+      <p class="h2 t-bold">The SVG image rectangle will be 1280px × 720px if your viewport is big enough. See what it does on a narrow viewport width (e.g. phone).</p>
     </div>
   </div>
   <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni rem animi quaerat accusantium illum architecto, nemo, ex harum voluptatum adipisci eum blanditiis dolorum. Natus debitis quisquam, expedita accusantium quos cumque?</p>
@@ -229,18 +229,18 @@ Styled by utility classes.
 <div class="wrapper">
   <div class="grid md:equal-2-cols gap-3">
     <div>
-      <p>Without <code>*-dark-invert</code></p>
+      <p>Without dark mode lightness levels using <code>dark:</code></p>
       <div aria-label="Note" class="mb-2 bt-heavy b-blue b-300 rad p-2 t-black bg-gray bg-100">
         <span class="t-lg">&star;</span> Information panel
       </div>
       <div aria-label="Note" class="mb-2 bl-heavy b-amber b-500 p-2 t-black bg-amber bg-200">
         <span class="t-lg">&#9888;</span> Warning alert panel.
       </div>
-      <p>With <code>*-dark-invert</code></p>
-      <div aria-label="Note" class="mb-2 bt-heavy b-blue b-300 rad p-2 t-black t-dark-invert bg-gray bg-100 bg-dark-invert">
+      <p>With <code>dark:</code></p>
+      <div aria-label="Note" class="mb-2 bt-heavy b-blue b-300 rad p-2 t-reversi bg-gray bg-100 dark:bg-900">
         <span class="t-lg">&star;</span> Information panel
       </div>
-      <div aria-label="Note" class="mb-2 bl-heavy b-amber b-500 p-2 t-black t-dark-invert bg-amber bg-200 bg-dark-invert">
+      <div aria-label="Note" class="mb-2 bl-heavy b-amber b-500 p-2 t-reversi bg-amber bg-200 dark:bg-900">
         <span class="t-lg">&#9888;</span> Warning alert panel.
       </div>
     </div>

@@ -66,19 +66,20 @@
             {{ content | safe }}
           </main>
         </div>
+
         <div class="lg:col-span-3">
           <footer class="mt-3 content-grid">
-            <nav class="popout grid gap-2 sm:equal-2-cols links-no-underline">
+            <nav class="popout grid gap-2 sm:equal-2-cols links-underline-none">
               {% if prevPage %}
-              <a class="sm:col-1 my-1 b-thin b-blue b-300 hover:b-500 b-dark-invert rad-1 p-cell flex flex-column gap-1 t-blue t-600 hover:t-700 t-dark-invert hover:bg-blue hover:bg-100 bg-dark-invert"  href="{{ prevPage | url }}">
+              <a class="sm:col-1 my-1 b-thin b-blue b-300 hover:b-500 dark:b-700 rad-1 p-cell flex flex-column gap-1 t-blue t-600 hover:t-700 dark:t-400 bg-blue hover:bg-100 hover:dark:bg-800"  href="{{ prevPage | url }}">
                 Previous page
-                <span class="h2 m-0 t-normal"> {{ prevLink if prevLink else "Previous page" }}</span>
+                <span class="h3 m-0 t-normal"> {{ prevLink if prevLink else "Previous page" }}</span>
               </a>
               {% endif %}
               {% if nextPage %}
-              <a class="sm:col-2 my-1 b-thin b-blue b-300 hover:b-500 b-dark-invert rad-1 p-cell flex flex-column gap-1 t-blue t-600 hover:t-700 t-dark-invert t-right hover:bg-blue hover:bg-100 bg-dark-invert" href="{{ nextPage | url }}">
+              <a class="sm:col-2 my-1 b-thin b-blue b-300 hover:b-500 dark:b-700 rad-1 p-cell flex flex-column gap-1 t-blue t-600 hover:t-700 dark:t-400 t-right bg-blue hover:bg-100 hover:dark:bg-800" href="{{ nextPage | url }}">
                 Next page
-                <span class="h2 m-0 t-normal">{{ nextLink if nextLink else "Next page" }}</span>
+                <span class="h3 m-0 t-normal">{{ nextLink if nextLink else "Next page" }}</span>
               </a>
               {% endif %}
             </nav>
@@ -99,12 +100,12 @@
             </div>
 
             <p class="p-cell flex flex-center flex-wrap gap-4 t-center">
-              <span><a class="t-underline-none hover:t-line" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> ({{ metadata.filesize }})</span>
-              <a class="t-underline-none hover:t-line" href="https://github.com/SimonPadbury/baselayer-3">GitHub Repository</a>
-              <a class="t-underline-none hover:t-line" href="https://github.com/SimonPadbury/baselayer-3/blob/main/CHANGELOG.md">Changelog</a>
-              <a class="t-underline-none hover:t-line" href="https://github.com/SimonPadbury/baselayer-3/blob/main/LICENSE">MIT license</a>
+              <span><a class="t-underline-hover-only" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> ({{ metadata.filesize }})</span>
+              <a class="t-underline-hover-only" href="https://github.com/SimonPadbury/baselayer-3">GitHub Repository</a>
+              <a class="t-underline-hover-only" href="https://github.com/SimonPadbury/baselayer-3/blob/main/CHANGELOG.md">Changelog</a>
+              <a class="t-underline-hover-only" href="https://github.com/SimonPadbury/baselayer-3/blob/main/LICENSE">MIT license</a>
             </p>
-            <p class="t-center"><span>Developer: <a class="t-underline-none hover:t-line" href="{{ metadata.developer.url }}">{{ metadata.developer.name }}</a></span>
+            <p class="t-center"><span>Developer: <a class="t-underline-hover-only" href="{{ metadata.developer.url }}">{{ metadata.developer.name }}</a></span>
           </footer>
         </div>
       </div>

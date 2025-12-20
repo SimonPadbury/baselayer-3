@@ -1,8 +1,8 @@
-<div id="site-nav" class="h-100% bg-gray bg-100 bg-dark-invert">
+<div id="site-nav" class="h-100% bg-gray bg-100 dark:bg-900">
   <div class="sticky top h-max-100dvh overflow-y">
     <div class="flex flex-space-between md:block">
       <div class="p-cell md:t-center">
-        <a id="site-title" href="{{ '/' | url }}" class="h3 py-2 t-normal flex flex-center flex-middle gap-2 t-gray t-800 hover:t-black t-dark-invert t-underline-none">
+        <a id="site-title" href="{{ '/' | url }}" class="h3 py-2 t-normal flex flex-center flex-middle gap-2 t-gray t-800 dark:t-200 hover:t-reversi t-underline-none">
           <svg height="48" width="48" viewBox="0 0 111 111" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-miterwrapper:1.5">
             <g transform="translate(-294.592 -94.592)">
               <circle cx="350" cy="150" r="50" style="fill:none;stroke:currentColor;stroke-width:4px"/>
@@ -16,43 +16,43 @@
         </a>
       </div>
       <button type="button" id="site-menu-toggle" aria-expanded="false" aria-label="Menu" aria-controls="site-menu" class="m-3 md:hidden">
-        Menu
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256"><path d="M228,128a12,12,0,0,1-12,12H40a12,12,0,0,1,0-24H216A12,12,0,0,1,228,128ZM40,76H216a12,12,0,0,0,0-24H40a12,12,0,0,0,0,24ZM216,180H40a12,12,0,0,0,0,24H216a12,12,0,0,0,0-24Z"></path></svg>
       </button>
     </div>
 
     <div id="js-menu-wrapper">
       <div class="m-3 bt-thin bb-thin py-3 flex flex-center flex-wrap gap-3 links-underlined-hover-only">
-        <span class="t-gray t-600 t-dark-invert">Version: {{ metadata.version }}</span>
-        <a class="t-gray t-800 hover:t-900 t-dark-invert" href="https://github.com/SimonPadbury/baselayer-3">GitHub</a>
+        <span class="t-gray t-600 dark:t-400">Version: {{ metadata.version }}</span>
+        <a class="t-gray t-800 dark:t-200 hover:t-900 hover:dark:t-100" href="https://github.com/SimonPadbury/baselayer-3">GitHub</a>
         <span>
-          <a class="t-gray t-800 hover:t-900 t-dark-invert" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> <span class="t-gray t-600 t-dark-invert">({{ metadata.filesize }})</span>
+          <a class="t-gray t-800 dark:t-200 hover:t-900 hover:dark:t-100" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> <span class="t-gray t-600 t-dark-invert">({{ metadata.filesize }})</span>
         </span>
       </div>
 
       <nav class="t-white container px-3 py-2">
-        <menu class="pl-0 flex flex-column gap-2 links-no-underline">
+        <menu class="pl-0 flex flex-column gap-2 links-underline-none">
           <menuitem>
-            <a class="block {% if page.url == '/' %}bl-heavy b-gray b-300 b-dark-invert t-black t-dark-invert bg-gray bg-200 bg-dark-invert{% endif %} p-cell t-gray t-700 hover:t-900 t-dark-invert" {% if page.url == '/' %} aria-current="page"{% endif %} href="{{ '/' | url }}">Getting started</a>
+            <a class="block {% if page.url == '/' %}bl-heavy b-gray b-300 dark:b-700 t-reversi bg-gray bg-200 dark:bg-800{% endif %} p-cell t-gray t-700 dark:t-300 hover:t-900 hover:dark:t-100" {% if page.url == '/' %} aria-current="page"{% endif %} href="{{ '/' | url }}">Getting started</a>
           </menuitem>
           <menuitem>
-            <a class="block {% if 'typography' in page.url %}bl-heavy b-gray b-300 b-dark-invert t-black t-dark-invert bg-gray bg-200 bg-dark-invert{% endif %} p-cell t-gray t-700 hover:t-900 t-dark-invert" {% if 'typography' in page.url %} aria-current="page"{% endif %} href="{{ '/typography/' | url }}">Typography</a>
+            <a class="block {% if 'typography' in page.url %}bl-heavy b-gray b-300 dark:b-700 t-reversi bg-gray bg-200 dark:bg-800{% endif %} p-cell t-gray t-700 dark:t-300 hover:t-900 hover:dark:t-100" {% if 'typography' in page.url %} aria-current="page"{% endif %} href="{{ '/typography/' | url }}">Typography</a>
           </menuitem>
           <menuitem>
-            <a class="block {% if 'layout' in page.url %}bl-heavy t-black t-dark-invert bg-gray bg-200 bg-dark-invert{% endif %} p-cell t-gray t-700 hover:t-900 t-dark-invert" {% if 'layout' in page.url %} aria-current="page"{% endif %} href="{{ '/layout/' | url }}">Layout</a>
+            <a class="block {% if 'layout' in page.url %}bl-heavy b-gray b-300 dark:b-700 t-reversi bg-gray bg-200 dark:bg-800{% endif %} p-cell t-gray t-700 dark:t-300 hover:t-900 hover:dark:t-100" {% if 'layout' in page.url %} aria-current="page"{% endif %} href="{{ '/layout/' | url }}">Layout</a>
           </menuitem>
           <menuitem>
-            <a class="block {% if 'decoration' in page.url %}bl-heavy t-black t-dark-invert bg-gray bg-200 bg-dark-invert{% endif %} p-cell t-gray t-700 hover:t-900 t-dark-invert" {% if 'decoration' in page.url %} aria-current="page"{% endif %} href="{{ '/decoration/' | url }}">Decoration</a></menuitem>
+            <a class="block {% if 'decoration' in page.url %}bl-heavy b-gray b-300 dark:b-700 t-reversi bg-gray bg-200 dark:bg-800{% endif %} p-cell t-gray t-700 dark:t-300 hover:t-900 hover:dark:t-100" {% if 'decoration' in page.url %} aria-current="page"{% endif %} href="{{ '/decoration/' | url }}">Decoration</a></menuitem>
           <menuitem>
-            <a class="block {% if 'colors' in page.url %}bl-heavy t-black t-dark-invert bg-gray bg-200 bg-dark-invert{% endif %} p-cell t-gray t-700 hover:t-900 t-dark-invert" {% if 'colors' in page.url %} aria-current="page"{% endif %} href="{{ '/colors/' | url }}">Colors</a>
+            <a class="block {% if 'colors' in page.url %}bl-heavy b-gray b-300 dark:b-700 t-reversi bg-gray bg-200 dark:bg-800{% endif %} p-cell t-gray t-700 dark:t-300 hover:t-900 hover:dark:t-100" {% if 'colors' in page.url %} aria-current="page"{% endif %} href="{{ '/colors/' | url }}">Colors</a>
           </menuitem>
           <menuitem>
-            <a class="block {% if 'forms' in page.url %}bl-heavy t-black t-dark-invert bg-gray bg-200 bg-dark-invert{% endif %} p-cell t-gray t-700 hover:t-900 t-dark-invert" {% if 'forms' in page.url %} aria-current="page"{% endif %} href="{{ '/forms/' | url }}">Forms</a>
+            <a class="block {% if 'forms' in page.url %}bl-heavy b-gray b-300 dark:b-700 t-reversi bg-gray bg-200 dark:bg-800{% endif %} p-cell t-gray t-700 dark:t-300 hover:t-900 hover:dark:t-100" {% if 'forms' in page.url %} aria-current="page"{% endif %} href="{{ '/forms/' | url }}">Forms</a>
           </menuitem>
           <menuitem>
-            <a class="block {% if 'buttons' in page.url %}bl-heavy t-black t-dark-invert bg-gray bg-200 bg-dark-invert{% endif %} p-cell t-gray t-700 hover:t-900 t-dark-invert" {% if 'buttons' in page.url %} aria-current="page"{% endif %} href="{{ '/buttons/' | url }}">Buttons</a>
+            <a class="block {% if 'buttons' in page.url %}bl-heavy b-gray b-300 dark:b-700 t-reversi bg-gray bg-200 dark:bg-800{% endif %} p-cell t-gray t-700 dark:t-300 hover:t-900 hover:dark:t-100" {% if 'buttons' in page.url %} aria-current="page"{% endif %} href="{{ '/buttons/' | url }}">Buttons</a>
             </menuitem>
           <menuitem>
-            <a class="block p-cell t-gray t-700 hover:t-900 t-dark-invert" href="{{ '/examples/' | url }}">Examples</a>
+            <a class="block p-cell t-gray t-700 dark:t-300 hover:t-900 hover:dark:t-100" href="{{ '/examples/' | url }}">Examples</a>
           </menuitem>
         </menu>
       </nav>
