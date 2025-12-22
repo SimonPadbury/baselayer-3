@@ -74,14 +74,14 @@ Most typographic blocks have zero top margin, and bottom margin set to `var(--s-
 
 ### Headings
 
-Example heading sizes:
+Example headings:
 
-<p class="h1">Heading h1</p>
-<p class="h2">Heading h2</p>
-<p class="h3">Heading h3</p>
-<p class="h4">Heading h4</p>
-<p class="h5">Heading h5</p>
-<p class="h6">Heading h6</p>
+<p class="h1 t-semibold">Heading h1</p>
+<p class="h2 t-semibold">Heading h2</p>
+<p class="h3 t-semibold">Heading h3</p>
+<p class="h4 t-semibold">Heading h4</p>
+<p class="h5 t-semibold">Heading h5</p>
+<p class="h6 t-semibold">Heading h6</p>
 
 All headings `<h1>` to `<h6>` and matching utility classes `h1` to `h6` have:
 
@@ -94,12 +94,12 @@ All headings `<h1>` to `<h6>` and matching utility classes `h1` to `h6` have:
 
 ```css
 :root {
-  --h1: 3em;
-  --h2: 2.25em;
-  --h3: 1.625em;
-  --h4: 1.325em;
-  --h5: 1.115em;
-  --h6: 1em;
+  --h1: 2.25em;
+  --h2: 1.625em;
+  --h3: 1.325em;
+  --h4: 1.115em;
+  --h5: 1em;
+  --h6: 0.875em;
   --h-ff: inherit; /* headings font-family */
   --h-fw: var(--t-semibold);
   --h-lh: calc(1em + 0.5rem);
@@ -453,8 +453,8 @@ The base font size is 100% (usually 16px). Additionally:
 
 1. There’s a `t-lg` class that can be used to make text 1.325em — good for a lead paragraph, large button, or important messaging.
 2. Classes `.h1` through `.h6` will resize text the same amount as for their respective heading tag sizes — use when you want to make text bigger (or large text smaller) without adversely affecting accessibility/ SEO heading hierarchy.
-3. The `t-long-read` wrapping class uses a `clamp()` to ramp text from starting size up to 1.25em (20px default) depending on container size. E.g. used for responsively increasing text size in _article prose components_. `<h1>` inside a `t-long-read` will have maximum font size 60px.
-4. The `t-display` wrapping class uses a `clamp()` to raise text from starting size 1em (18px default at 640px container width) up to 2em (32px default) depending on container size. E.g. used for responsively increasing text size in _hero components_. `<h1>` inside a `t-display` will have maximum font size 96px.
+3. The `t-long-read` wrapping class uses a `clamp()` to ramp text from starting size 1em up to 1.25em (20px default) depending on container size. E.g. used for responsively increasing text size in _article prose components_. `<h1>` inside a `t-long-read` will have maximum font size 45px.
+4. The `t-display` wrapping class uses a `clamp()` to raise text from starting size 1em up to 2.5em (40px default) depending on container size. E.g. used for responsively increasing text size in _hero components_. `<h1>` inside a `t-display` will have maximum font size 90px.
 
 ## Code
 

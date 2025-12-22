@@ -44,8 +44,8 @@
   --t-base: 100%;
   --t-sm: 0.825em;
   --t-lg: 1.325em;
-  --t-long-read: clamp(1em, 0em + 2.25cqi, 1.25em);
-  --t-display: clamp(1em, 0em + 2.5cqi, 2em);
+  --t-long-read: clamp(1em, 0.5em + 1.25cqi, 1.25em);
+  --t-display: clamp(1em, -2em + 7.5cqi, 2.5em);
   /*
     Used https://clamp.font-size.app/ but changed vw to cqi and rem changed to em
     */
@@ -68,12 +68,12 @@
     Set heading sizes using ems, so that all headings can be `clamp()`
     enlarged by wrapping with `.t-display`
     */
-  --h1: 3em;
-  --h2: 2.25em;
-  --h3: 1.625em;
-  --h4: 1.325em;
-  --h5: 1.115em;
-  --h6: 1em;
+  --h1: 2.25em;
+  --h2: 1.625em;
+  --h3: 1.325em;
+  --h4: 1.115em;
+  --h5: 1em;
+  --h6: 0.875em;
   --h-ff: inherit;
   /* headings font family */
   --h-fw: var(--t-semibold);

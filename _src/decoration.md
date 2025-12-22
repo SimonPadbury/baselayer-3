@@ -164,7 +164,7 @@ Examples:
 
 If the element is a square, then `rad rad-pill` makes a circle.
 
-<div class="w-xxs mx-auto mb-4">
+<div class="w-xs mx-auto mb-4">
 <div class="b-thin aspect-ratio-1x1 rad rad-pill p-4 flex flex-center flex-middle"><code>rad <span class="t-nowrap">rad-pill</span></code></div>
 </div>
 

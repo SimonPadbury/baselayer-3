@@ -441,12 +441,12 @@ window.addEventListener("DOMContentLoaded", () => {
 <p>320px intervals. <code>w-</code> classes will have widths 100% until their max width. <code>wrapper-</code> classes will have widths (100% minus side space) until their max width.</p>
 <p>The difference between width utilities and wrapper utilities is that wrappers have x-axis side padding and x-axis centering (see above).</p>
 <ul>
-<li><code>wrapper-xs</code> / <code>w-max-xs</code> — maximum width 320px</li>
-<li><code>wrapper-sm</code> / <code>w-max-sm</code> — maximum width 640px</li>
-<li><code>wrapper-content</code> / <code>w-max-content</code> — maximum width 66ch</li>
-<li><code>wrapper-md</code> / <code>w-max-md</code> — maximum width 960px</li>
-<li><code>wrapper-lg</code> / <code>w-max-lg</code> — maximum width 1280px</li>
-<li><code>wrapper-xl</code> / <code>w-max-xl</code> — maximum width 1600px</li>
+<li><code>wrapper-xs</code> / <code>w-xs</code> — maximum width 320px</li>
+<li><code>wrapper-sm</code> / <code>w-sm</code> — maximum width 640px</li>
+<li><code>wrapper-content</code> / <code>w-content</code> — maximum width 66ch</li>
+<li><code>wrapper-md</code> / <code>w-md</code> — maximum width 960px</li>
+<li><code>wrapper-lg</code> / <code>w-lg</code> — maximum width 1280px</li>
+<li><code>wrapper-xl</code> / <code>w-xl</code> — maximum width 1600px</li>
 <li><code>wrapper</code> — maximum width 1600px</li>
 </ul>
 <p>Four more:</p>
@@ -454,7 +454,7 @@ window.addEventListener("DOMContentLoaded", () => {
 <li><code>w-100%</code> — width expands to 100% of available space</li>
 <li><code>w-100vw</code> — width expands to 100vw (viewport width)</li>
 <li><code>w-max-100vw</code> — width constrained to 100vw (viewport width)</li>
-<li><code>w-fit-content</code> — width constrained to content max-width (for “shrink wrapping”)</li>
+<li><code>w-fit-content</code> — width constrained to the max-width of its content (use this for “shrink wrapping”)</li>
 </ul>
 <h3 id="heights" tabindex="-1">Heights</h3>
 <ul>

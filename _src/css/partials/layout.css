@@ -855,7 +855,7 @@
   }
 
   /*
-  wrappers (f.k.a. containers) and max-widths
+  wrappers (f.k.a. containers) and widths
   */
 
   .wrapper,
@@ -865,36 +865,36 @@
     margin-inline: auto;
   }
 
-  [class*="w-max-"] {
+  [class*="w-"] {
     width: min(100%, var(--w-max));
   }
 
   .wrapper-xs,
-  .w-max-xs {
+  .w-xs {
     --w-max: var(--w-xs);
   }
 
   .wrapper-sm,
-  .w-max-sm {
+  .w-sm {
     --w-max: var(--w-sm);
   }
 
   .wrapper-md,
-  .w-max-md {
+  .w-md {
     --w-max: var(--w-md);
   }
 
   .wrapper-content,
-  .w-max-content {
+  .w-content {
     --w-max: var(--w-content);
   }
   .wrapper-lg,
-  .w-max-lg {
+  .w-lg {
     --w-max: var(--w-lg);
   }
 
   .wrapper-xl,
-  .w-max-xl {
+  .w-xl {
     --w-max: var(--w-xl);
   }
 

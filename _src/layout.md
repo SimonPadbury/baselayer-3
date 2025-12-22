@@ -71,12 +71,12 @@ There are several `wrapper` utilities, with maximum widths same as the width uti
 
 The difference between width utilities and wrapper utilities is that wrappers have x-axis side padding and x-axis centering (see above).
 
-* `wrapper-xs` / `w-max-xs` — maximum width 320px
-* `wrapper-sm` / `w-max-sm` — maximum width 640px
-* `wrapper-content` / `w-max-content` — maximum width 66ch
-* `wrapper-md` / `w-max-md` — maximum width 960px
-* `wrapper-lg` / `w-max-lg` — maximum width 1280px
-* `wrapper-xl` / `w-max-xl` — maximum width 1600px
+* `wrapper-xs` / `w-xs` — maximum width 320px
+* `wrapper-sm` / `w-sm` — maximum width 640px
+* `wrapper-content` / `w-content` — maximum width 66ch
+* `wrapper-md` / `w-md` — maximum width 960px
+* `wrapper-lg` / `w-lg` — maximum width 1280px
+* `wrapper-xl` / `w-xl` — maximum width 1600px
 * `wrapper` — maximum width 1600px
 
 Four more:
@@ -84,7 +84,7 @@ Four more:
 * `w-100%` — width expands to 100% of available space
 * `w-100vw` — width expands to 100vw (viewport width)
 * `w-max-100vw` — width constrained to 100vw (viewport width)
-* `w-fit-content` — width constrained to content max-width (for “shrink wrapping”)
+* `w-fit-content` — width constrained to the max-width of its content (use this for “shrink wrapping”)
 
 ### Heights
 

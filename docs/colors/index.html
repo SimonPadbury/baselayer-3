@@ -735,23 +735,28 @@ window.addEventListener("DOMContentLoaded", () => {
 <p>Other color utilities included in Baselayer cover black, white, and transparent.</p>
 <h3 id="black%2C-white%2C-and-reversi" tabindex="-1">Black, white, and reversi</h3>
 <p>Black and white are explicitly named colors in baselayer. They do not have lightness levels.</p>
+<p><strong>New in Baselayer v.3.5:</strong> If you want something black in the light theme but white in the dark theme (and vise versa), Baselayer has <code>*-reversi</code> and <code>*-reversi-flip</code> classes that handle this. See <a href="https://en.wikipedia.org/wiki/Reversi">reversi</a>.</p>
 <ul>
 <li><code>*-black</code> — named color black</li>
 <li><code>*-white</code> — named color white</li>
-</ul>
-<p>If you want “lightness levels” between white and black, then use grays.</p>
-<div class="my-4 grid gap-1">
-<div class="b-thin p-2 t-center t-white bg-black">t-white bg-black</div>
-<div class="b-thin p-2 t-center t-black bg-white">t-black bg-white</div>
-</div>
-<p><strong>New in Baselayer v.3.5:</strong> If you want something black in the light theme but white in the dark theme (and vise versa), Baselayer has <code>*-reversi</code> and <code>*-reversi-flip</code> classes that handle this. See <a href="https://en.wikipedia.org/wiki/Reversi">reversi</a>.</p>
-<ul>
 <li><code>*-reversi</code> — black for light theme; white for dark theme</li>
 <li><code>*-reversi-flip</code> — white for light theme; black for dark theme</li>
 </ul>
-<div class="my-4 grid gap-1">
-<div class="b-thin p-2 t-center t-reversi-flip bg-reversi">t-reversi-flip bg-reversi</div>
-<div class="b-thin p-2 t-center t-reversi bg-reversi-flip">t-reversi bg-reversi-flip</div>
+<div class="my-2 flex flex-center gap-2">
+<div class="w-xs">
+<div class="b-thin aspect-ratio-1x1 rad rad-pill p-4 flex flex-center flex-middle t-center t-white bg-black"><span>t-white<br> bg-black</span></div>
+</div>
+<div class="w-xs">
+<div class="b-thin aspect-ratio-1x1 rad rad-pill p-4 flex flex-center flex-middle t-center t-black bg-white"><span>t-black<br> bg-white</span></div>
+</div>
+</div>
+<div class="mb-3 flex flex-center gap-2">
+<div class="w-xs">
+<div class="b-thin aspect-ratio-1x1 rad rad-pill p-4 flex flex-center t-center flex-middle t-reversi-flip bg-reversi"><span>t-reversi-flip<br> bg-reversi</span></div>
+</div>
+<div class="w-xs">
+<div class="b-thin aspect-ratio-1x1 rad rad-pill p-4 flex flex-center flex-middle t-center t-reversi bg-reversi-flip"><span>t-reversi<br> bg-reversi-flip</span></div>
+</div>
 </div>
 <pre><code class="language-html">&lt;div class=&quot;t-white bg-black&quot;&gt;...&lt;/div&gt;
 
@@ -761,6 +766,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
 &lt;div class=&quot;t-reversi bg-reversi-flip&quot;&gt;...&lt;/div&gt;
 </code></pre>
+<p>If you want “lightness levels” between white and black, then use grays.</p>
 <h3 id="transparent-background" tabindex="-1">Transparent background</h3>
 <p>E.g. for outline buttons.</p>
 <ul>

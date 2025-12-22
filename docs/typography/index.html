@@ -451,13 +451,13 @@ window.addEventListener("DOMContentLoaded", () => {
 <h2 id="typographic-block-elements" tabindex="-1">Typographic block elements</h2>
 <p>Most typographic blocks have zero top margin, and bottom margin set to <code>var(--s-2)</code> (1rem).</p>
 <h3 id="headings" tabindex="-1">Headings</h3>
-<p>Example heading sizes:</p>
-<p class="h1">Heading h1</p>
-<p class="h2">Heading h2</p>
-<p class="h3">Heading h3</p>
-<p class="h4">Heading h4</p>
-<p class="h5">Heading h5</p>
-<p class="h6">Heading h6</p>
+<p>Example headings:</p>
+<p class="h1 t-semibold">Heading h1</p>
+<p class="h2 t-semibold">Heading h2</p>
+<p class="h3 t-semibold">Heading h3</p>
+<p class="h4 t-semibold">Heading h4</p>
+<p class="h5 t-semibold">Heading h5</p>
+<p class="h6 t-semibold">Heading h6</p>
 <p>All headings <code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code> and matching utility classes <code>h1</code> to <code>h6</code> have:</p>
 <ul>
 <li>Headings font sizes set in the variables file.</li>
@@ -468,12 +468,12 @@ window.addEventListener("DOMContentLoaded", () => {
 <li>The matching utility classes <code>h2</code> to <code>h6</code> only affect font-size. These utilities do not include margin or font-weight styling.</li>
 </ul>
 <pre><code class="language-css">:root {
-  --h1: 3em;
-  --h2: 2.25em;
-  --h3: 1.625em;
-  --h4: 1.325em;
-  --h5: 1.115em;
-  --h6: 1em;
+  --h1: 2.25em;
+  --h2: 1.625em;
+  --h3: 1.325em;
+  --h4: 1.115em;
+  --h5: 1em;
+  --h6: 0.875em;
   --h-ff: inherit; /* headings font-family */
   --h-fw: var(--t-semibold);
   --h-lh: calc(1em + 0.5rem);
@@ -786,8 +786,8 @@ window.addEventListener("DOMContentLoaded", () => {
 <ol>
 <li>There’s a <code>t-lg</code> class that can be used to make text 1.325em — good for a lead paragraph, large button, or important messaging.</li>
 <li>Classes <code>.h1</code> through <code>.h6</code> will resize text the same amount as for their respective heading tag sizes — use when you want to make text bigger (or large text smaller) without adversely affecting accessibility/ SEO heading hierarchy.</li>
-<li>The <code>t-long-read</code> wrapping class uses a <code>clamp()</code> to ramp text from starting size up to 1.25em (20px default) depending on container size. E.g. used for responsively increasing text size in <em>article prose components</em>. <code>&lt;h1&gt;</code> inside a <code>t-long-read</code> will have maximum font size 60px.</li>
-<li>The <code>t-display</code> wrapping class uses a <code>clamp()</code> to raise text from starting size 1em (18px default at 640px container width) up to 2em (32px default) depending on container size. E.g. used for responsively increasing text size in <em>hero components</em>. <code>&lt;h1&gt;</code> inside a <code>t-display</code> will have maximum font size 96px.</li>
+<li>The <code>t-long-read</code> wrapping class uses a <code>clamp()</code> to ramp text from starting size 1em up to 1.25em (20px default) depending on container size. E.g. used for responsively increasing text size in <em>article prose components</em>. <code>&lt;h1&gt;</code> inside a <code>t-long-read</code> will have maximum font size 45px.</li>
+<li>The <code>t-display</code> wrapping class uses a <code>clamp()</code> to raise text from starting size 1em up to 2.5em (40px default) depending on container size. E.g. used for responsively increasing text size in <em>hero components</em>. <code>&lt;h1&gt;</code> inside a <code>t-display</code> will have maximum font size 90px.</li>
 </ol>
 <h2 id="code" tabindex="-1">Code</h2>
 <p><code>&lt;code&gt;</code> tags have monospaced text (set by <code>--t-mono</code>) over a white or black background (in light or dark modes), with a thin border and a little padding to improve readability.</p>

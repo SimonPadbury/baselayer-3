@@ -413,24 +413,28 @@ Other color utilities included in Baselayer cover black, white, and transparent.
 
 Black and white are explicitly named colors in baselayer. They do not have lightness levels.
 
-* `*-black` — named color black
-* `*-white` — named color white
-
-If you want “lightness levels” between white and black, then use grays.
-
-<div class="my-4 grid gap-1">
-<div class="b-thin p-2 t-center t-white bg-black">t-white bg-black</div>
-<div class="b-thin p-2 t-center t-black bg-white">t-black bg-white</div>
-</div>
-
 **New in Baselayer v.3.5:** If you want something black in the light theme but white in the dark theme (and vise versa), Baselayer has `*-reversi` and `*-reversi-flip` classes that handle this. See [reversi](https://en.wikipedia.org/wiki/Reversi).
 
+* `*-black` — named color black
+* `*-white` — named color white
 * `*-reversi` — black for light theme; white for dark theme
 * `*-reversi-flip` — white for light theme; black for dark theme
 
-<div class="my-4 grid gap-1">
-<div class="b-thin p-2 t-center t-reversi-flip bg-reversi">t-reversi-flip bg-reversi</div>
-<div class="b-thin p-2 t-center t-reversi bg-reversi-flip">t-reversi bg-reversi-flip</div>
+<div class="my-2 flex flex-center gap-2">
+<div class="w-xs">
+<div class="b-thin aspect-ratio-1x1 rad rad-pill p-4 flex flex-center flex-middle t-center t-white bg-black"><span>t-white<br> bg-black</span></div>
+</div>
+<div class="w-xs">
+<div class="b-thin aspect-ratio-1x1 rad rad-pill p-4 flex flex-center flex-middle t-center t-black bg-white"><span>t-black<br> bg-white</span></div>
+</div>
+</div>
+<div class="mb-3 flex flex-center gap-2">
+<div class="w-xs">
+<div class="b-thin aspect-ratio-1x1 rad rad-pill p-4 flex flex-center t-center flex-middle t-reversi-flip bg-reversi"><span>t-reversi-flip<br> bg-reversi</span></div>
+</div>
+<div class="w-xs">
+<div class="b-thin aspect-ratio-1x1 rad rad-pill p-4 flex flex-center flex-middle t-center t-reversi bg-reversi-flip"><span>t-reversi<br> bg-reversi-flip</span></div>
+</div>
 </div>
 
 ```html
@@ -442,6 +446,8 @@ If you want “lightness levels” between white and black, then use grays.
 
 <div class="t-reversi bg-reversi-flip">...</div>
 ```
+
+If you want “lightness levels” between white and black, then use grays.
 
 ### Transparent background
 
