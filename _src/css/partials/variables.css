@@ -45,7 +45,7 @@
   --t-sm: 0.825em;
   --t-lg: 1.325em;
   --t-long-read: clamp(1em, 0.5em + 1.25cqi, 1.25em);
-  --t-display: clamp(1em, -2em + 7.5cqi, 2.5em);
+  --t-display: clamp(1em, -1em + 5cqi, 2em);
   /*
     Used https://clamp.font-size.app/ but changed vw to cqi and rem changed to em
     */

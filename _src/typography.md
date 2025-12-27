@@ -492,7 +492,7 @@ The base font size is 100% (usually 16px). Additionally:
 1. There’s a `t-lg` class that can be used to make text 1.325em — good for a lead paragraph, large button, or important messaging.
 2. Classes `.h1` through `.h6` will resize text the same amount as for their respective heading tag sizes — use when you want to make text bigger (or large text smaller) without adversely affecting accessibility/ SEO heading hierarchy.
 3. The `t-long-read` wrapping class uses a `clamp()` to ramp text from starting size 1em up to 1.25em (20px default) depending on container size. E.g. used for responsively increasing text size in _article prose components_. `<h1>` inside a `t-long-read` will have maximum font size 45px.
-4. The `t-display` wrapping class uses a `clamp()` to raise text from starting size 1em up to 2.5em (40px default) depending on container size. E.g. used for responsively increasing text size in _hero components_. `<h1>` inside a `t-display` will have maximum font size 90px.
+4. The `t-display` wrapping class uses a `clamp()` to raise text from starting size 1em up to 2.5em (40px default) depending on container size. E.g. used for responsively increasing text size in _hero components_. `<h1>` inside a `t-display` will have maximum font size 72px.
 
 ## Code
 
