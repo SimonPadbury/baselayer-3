@@ -10,6 +10,10 @@
 
 # Baselayer 3 changelog
 
+## v.3.5.1 -- 27 Dec 2025
+
+* Added capability to have `t-underline-none` on inner elements within links (e.g. on explainer or excerpt text), so that _panel links_ can be easily created. Useful for media elements, cards, hero blocks, etc.
+
 ## v.3.5.0 -- 22 Dec 2025
 
 * Major refactoring of the color utilities, so that more versatile dark mode lightness levels have been added, using prefix `dark:`. And `*-dark-invert` has been removed.

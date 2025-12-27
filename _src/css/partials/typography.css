@@ -81,11 +81,22 @@
     text-decoration-skip-ink: auto;
     text-underline-offset: var(--a-deco-offset);
     text-decoration-thickness: var(--a-deco-thickness);
+  }
 
-    &:not(.t-underline-none):hover {
-      text-decoration: underline;
-      text-decoration-thickness: var(--a-deco-thickness-hover);
-    }
+  a:has(.t-underline-none):not(.t-underline-hover-only)
+    :not(.t-underline-none) {
+    text-decoration: underline;
+  }
+
+  a:not(.t-underline-none):hover,
+  a:has(.t-underline-none):hover :not(.t-underline-none) {
+    text-decoration: underline;
+    text-decoration-thickness: var(--a-deco-thickness-hover);
+  }
+
+  a:has(.t-underline-none),
+  a:has(.t-underline-none):hover {
+    text-decoration: none;
   }
 
   .t-underline-none,

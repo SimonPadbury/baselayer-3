@@ -180,17 +180,19 @@ For definition lists, the title is bold and the definition data item is indented
 </dl>
 ```
 
-## The link tag
+## Links and menus
 
 The default underline for links has been moved downwards slightly to improve legibility. The link decoration (underline) thickness has been set at 1px, so that it doesn’t become thicker when used on larger text (e.g. in headings) where link underline can be too bulky).
 
-On `:hover`, the link text color remains unchanged and underline becomes thicker, increasing to 3px. 
+On `:hover`, the link text color remains unchanged and underline becomes thicker, increasing to 3px.
 
 This thickening of the line is more obvious than a slight color change, such as you see in other CSS starter kits and frameworks. But if you require a color change, you can add your own, e.g. by Baselayer variables or [color utilities]({{ '/baselayer-3/colors/' | url }}).
 
 Example:
 
 * <a href="">This is a link to nowhere</a>
+
+### Link utilities
 
 Then there are the following two classes that apply to links, that may be handy in some situations:
 
@@ -199,7 +201,43 @@ Then there are the following two classes that apply to links, that may be handy 
 
 The browser default, and the best practice for accessability, is to have links indicated by an underline (and the browser default color of links is blue). But in the context of menus it is permissible to deviate from the best practice, provided there are other visual and non-visual indicators. This is the reason why we should use [semantic HTML](https://www.codecademy.com/resources/blog/semantic-html/) tags on menus, and and why we should place navigation menus in their expected locations (in sitewide menu-bars, sidebars, and footers).
 
-## Menus
+### Panel links
+
+There may be situations where you have a link that contains some accompanying text that you don’t want to receive the `<a href="">` (link) underline. Examples where this may be used: media object, card or hero component, where you want the whole thing to behave as a “big button”.
+
+In this case, you don’t want to place the `t-underline-none` on the `<a href="">` itself, but only on the inner element.
+
+You will also want to style the outer `<a href="">` e.g. with the `block` utility (for `display:block`), and add more styles to this inner element text, so that it is not the same color as the link label.
+
+In the example below, see how only the inner element _not_ styled with `t-underline-none` behaves as the link text.
+
+<a class="my-3 p-3 bg-gray bg-100 dark:bg-900" href="#/">
+    <p>Link label (title)</p>
+    <p class="mb-0 t-gray t-900 dark:t-100 t-underline-none">Lorem ipsum dolor sit amet ...</p>
+</a>
+
+```html
+<a href="">
+    <p>Link label (title)</p>
+    <p class="t-underline-none">Lorem ipsum dolor sit amet ...</p>
+</a>
+```
+
+Another example: here `t-underline-hover-only` has also been added to the `<a href="">`:
+
+<a class="my-3 p-3 t-underline-hover-only bg-gray bg-100 dark:bg-900" href="#/">
+    <p>Link label (title)</p>
+    <p class="mb-0 t-gray t-900 dark:t-100 t-underline-none">Lorem ipsum dolor sit amet ...</p>
+</a>
+
+```html
+<a class="t-underline-hover-only" href="">
+    <p>Link label (title)</p>
+    <p class="t-underline-none">Lorem ipsum dolor sit amet ...</p>
+</a>
+```
+
+### Menus
 
 * `nav` / `<menu>` / `<menuitem>`
 
@@ -235,14 +273,14 @@ Notes:
 2. The `<menu>` tag can be used in other contexts, e.g. for a list of related links to other websites, or for a set of user interface controls in a web application.
 3. Inside a `<menuitem>` can be a link, a button, or other interactive element.
 
-If you want the group of links to not have underlines, or to have underlines only when hovered (because you intend to style them differently in your menu):
+If you want a group of links (in a menu) to not have underlines, or to have underlines only when hovered, the following wrapper classes are available in Baselayer:
 
 * `links-underline-none`
 * `links-underline-hover-only`
 
-And with a few other Baselayer utilities, you have a menubar:
+And now, with a few other Baselayer utilities, you have a menubar:
 
-<nav class="mt-3 mb-4">
+<nav class="my-3">
   <menu class="p-3 flex flex-wrap gap-4 bg-gray bg-100 dark:bg-900 links-underline-none">
     <menuitem><a class="t-semibold t-gray t-700 dark:t-300 hover:t-reversi" href="">Menu item 1</a></menuitem>
     <menuitem><a class="t-semibold t-gray t-700 dark:t-300 hover:t-reversi" href="">Menu item 2</a></menuitem>
@@ -262,7 +300,7 @@ And with a few other Baselayer utilities, you have a menubar:
 
 Or a menu for a sidebar or footer buffet:
 
-<nav class="mt-3 mb-4">
+<nav class="my-3">
   <menu class="pl-0 flex flex-column gap-3 links-underline-hover-only">
     <menuitem><a href="">Menu item 1</a></menuitem>
     <menuitem><a href="">Menu item 2</a></menuitem>

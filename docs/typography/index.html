@@ -7,7 +7,7 @@
 
   <title>Typography · Baselayer CSS</title>
 
-  <link rel="stylesheet" href="/baselayer-3/css/min/baselayer.min.css?v=3.5.0">
+  <link rel="stylesheet" href="/baselayer-3/css/min/baselayer.min.css?v=3.5.1">
 
   <style>
   html {
@@ -291,7 +291,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
     <div id="js-menu-wrapper">
       <div class="m-3 bt-thin bb-thin py-3 flex flex-center flex-wrap gap-3 links-underlined-hover-only">
-        <span class="t-gray t-600 dark:t-400">Version: 3.5.0</span>
+        <span class="t-gray t-600 dark:t-400">Version: 3.5.1</span>
         <a class="t-gray t-800 dark:t-200 hover:t-900 hover:dark:t-100" href="https://github.com/SimonPadbury/baselayer-3">GitHub</a>
         <span>
           <a class="t-gray t-800 dark:t-200 hover:t-900 hover:dark:t-100" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> <span class="t-gray t-600 t-dark-invert">(24 KB)</span>
@@ -394,7 +394,7 @@ window.addEventListener("DOMContentLoaded", () => {
           <nav id="toc-outer" class="sticky top w-max-sm h-max-100dvh mx-auto mb-3 px-2 links-underline-hover-only overflow-y">
             <p class="h4 t-semibold">On this page</p>
             <nav class="toc" >
-        <ul><li><a href="#font-stacks">Font stacks</a><ul><li><a href="#setting-font-stacks">Setting font stacks</a></li></ul></li><li><a href="#base-font-size">Base font size</a></li><li><a href="#typographic-block-elements">Typographic block elements</a><ul><li><a href="#headings">Headings</a></li><li><a href="#block-quotes">Block quotes</a></li><li><a href="#lists">Lists</a></li></ul></li><li><a href="#the-link-tag">The link tag</a></li><li><a href="#menus">Menus</a></li><li><a href="#text-alignment">Text alignment</a></li><li><a href="#tables">Tables</a><ul><li><a href="#making-wide-tables-responsive">Making wide tables responsive</a></li></ul></li><li><a href="#making-text-bigger">Making text bigger</a></li><li><a href="#code">Code</a></li><li><a href="#other-typographic-utility-classes">Other typographic utility classes</a></li></ul>
+        <ul><li><a href="#font-stacks">Font stacks</a><ul><li><a href="#setting-font-stacks">Setting font stacks</a></li></ul></li><li><a href="#base-font-size">Base font size</a></li><li><a href="#typographic-block-elements">Typographic block elements</a><ul><li><a href="#headings">Headings</a></li><li><a href="#block-quotes">Block quotes</a></li><li><a href="#lists">Lists</a></li></ul></li><li><a href="#links-and-menus">Links and menus</a><ul><li><a href="#link-utilities">Link utilities</a></li><li><a href="#panel-links">Panel links</a></li><li><a href="#menus">Menus</a></li></ul></li><li><a href="#text-alignment">Text alignment</a></li><li><a href="#tables">Tables</a><ul><li><a href="#making-wide-tables-responsive">Making wide tables responsive</a></li></ul></li><li><a href="#making-text-bigger">Making text bigger</a></li><li><a href="#code">Code</a></li><li><a href="#other-typographic-utility-classes">Other typographic utility classes</a></li></ul>
       </nav>
           </nav>
         </div>
@@ -549,7 +549,7 @@ window.addEventListener("DOMContentLoaded", () => {
   &lt;dd&gt;Definition list data&lt;/dd&gt;
 &lt;/dl&gt;
 </code></pre>
-<h2 id="the-link-tag" tabindex="-1">The link tag</h2>
+<h2 id="links-and-menus" tabindex="-1">Links and menus</h2>
 <p>The default underline for links has been moved downwards slightly to improve legibility. The link decoration (underline) thickness has been set at 1px, so that it doesn’t become thicker when used on larger text (e.g. in headings) where link underline can be too bulky).</p>
 <p>On <code>:hover</code>, the link text color remains unchanged and underline becomes thicker, increasing to 3px.</p>
 <p>This thickening of the line is more obvious than a slight color change, such as you see in other CSS starter kits and frameworks. But if you require a color change, you can add your own, e.g. by Baselayer variables or <a href="/baselayer-3/baselayer-3/colors/">color utilities</a>.</p>
@@ -557,13 +557,38 @@ window.addEventListener("DOMContentLoaded", () => {
 <ul>
 <li><a href="">This is a link to nowhere</a></li>
 </ul>
+<h3 id="link-utilities" tabindex="-1">Link utilities</h3>
 <p>Then there are the following two classes that apply to links, that may be handy in some situations:</p>
 <ul>
 <li><a class="t-underline-none" href="">This link has no underline</a> — <code>t-underline-none</code></li>
 <li><a class="t-underline-hover-only" href="">This link has no underline unless hovered</a> — <code>t-underline-hover-only</code></li>
 </ul>
 <p>The browser default, and the best practice for accessability, is to have links indicated by an underline (and the browser default color of links is blue). But in the context of menus it is permissible to deviate from the best practice, provided there are other visual and non-visual indicators. This is the reason why we should use <a href="https://www.codecademy.com/resources/blog/semantic-html/">semantic HTML</a> tags on menus, and and why we should place navigation menus in their expected locations (in sitewide menu-bars, sidebars, and footers).</p>
-<h2 id="menus" tabindex="-1">Menus</h2>
+<h3 id="panel-links" tabindex="-1">Panel links</h3>
+<p>There may be situations where you have a link that contains some accompanying text that you don’t want to receive the <code>&lt;a href=&quot;&quot;&gt;</code> (link) underline. Examples where this may be used: media object, card or hero component, where you want the whole thing to behave as a “big button”.</p>
+<p>In this case, you don’t want to place the <code>t-underline-none</code> on the <code>&lt;a href=&quot;&quot;&gt;</code> itself, but only on the inner element.</p>
+<p>You will also want to style the outer <code>&lt;a href=&quot;&quot;&gt;</code> e.g. with the <code>block</code> utility (for <code>display:block</code>), and add more styles to this inner element text, so that it is not the same color as the link label.</p>
+<p>In the example below, see how only the inner element <em>not</em> styled with <code>t-underline-none</code> behaves as the link text.</p>
+<a class="my-3 p-3 bg-gray bg-100 dark:bg-900" href="#/">
+    <p>Link label (title)</p>
+    <p class="mb-0 t-gray t-900 dark:t-100 t-underline-none">Lorem ipsum dolor sit amet ...</p>
+</a>
+<pre><code class="language-html">&lt;a href=&quot;&quot;&gt;
+    &lt;p&gt;Link label (title)&lt;/p&gt;
+    &lt;p class=&quot;t-underline-none&quot;&gt;Lorem ipsum dolor sit amet ...&lt;/p&gt;
+&lt;/a&gt;
+</code></pre>
+<p>Another example: here <code>t-underline-hover-only</code> has also been added to the <code>&lt;a href=&quot;&quot;&gt;</code>:</p>
+<a class="my-3 p-3 t-underline-hover-only bg-gray bg-100 dark:bg-900" href="#/">
+    <p>Link label (title)</p>
+    <p class="mb-0 t-gray t-900 dark:t-100 t-underline-none">Lorem ipsum dolor sit amet ...</p>
+</a>
+<pre><code class="language-html">&lt;a class=&quot;t-underline-hover-only&quot; href=&quot;&quot;&gt;
+    &lt;p&gt;Link label (title)&lt;/p&gt;
+    &lt;p class=&quot;t-underline-none&quot;&gt;Lorem ipsum dolor sit amet ...&lt;/p&gt;
+&lt;/a&gt;
+</code></pre>
+<h3 id="menus" tabindex="-1">Menus</h3>
 <ul>
 <li><code>nav</code> / <code>&lt;menu&gt;</code> / <code>&lt;menuitem&gt;</code></li>
 </ul>
@@ -592,13 +617,13 @@ window.addEventListener("DOMContentLoaded", () => {
 <li>The <code>&lt;menu&gt;</code> tag can be used in other contexts, e.g. for a list of related links to other websites, or for a set of user interface controls in a web application.</li>
 <li>Inside a <code>&lt;menuitem&gt;</code> can be a link, a button, or other interactive element.</li>
 </ol>
-<p>If you want the group of links to not have underlines, or to have underlines only when hovered (because you intend to style them differently in your menu):</p>
+<p>If you want a group of links (in a menu) to not have underlines, or to have underlines only when hovered, the following wrapper classes are available in Baselayer:</p>
 <ul>
 <li><code>links-underline-none</code></li>
 <li><code>links-underline-hover-only</code></li>
 </ul>
-<p>And with a few other Baselayer utilities, you have a menubar:</p>
-<nav class="mt-3 mb-4">
+<p>And now, with a few other Baselayer utilities, you have a menubar:</p>
+<nav class="my-3">
   <menu class="p-3 flex flex-wrap gap-4 bg-gray bg-100 dark:bg-900 links-underline-none">
     <menuitem><a class="t-semibold t-gray t-700 dark:t-300 hover:t-reversi" href="">Menu item 1</a></menuitem>
     <menuitem><a class="t-semibold t-gray t-700 dark:t-300 hover:t-reversi" href="">Menu item 2</a></menuitem>
@@ -614,7 +639,7 @@ window.addEventListener("DOMContentLoaded", () => {
 &lt;/nav&gt;
 </code></pre>
 <p>Or a menu for a sidebar or footer buffet:</p>
-<nav class="mt-3 mb-4">
+<nav class="my-3">
   <menu class="pl-0 flex flex-column gap-3 links-underline-hover-only">
     <menuitem><a href="">Menu item 1</a></menuitem>
     <menuitem><a href="">Menu item 2</a></menuitem>
@@ -838,7 +863,7 @@ window.addEventListener("DOMContentLoaded", () => {
                   </svg>
                 <span class="h3 m-0 t-normal t-nowrap">Baselayer CSS</span>
               </a>
-              <span>Version: 3.5.0</span>
+              <span>Version: 3.5.1</span>
             </div>
 
             <p class="p-cell flex flex-center flex-wrap gap-4 t-center">
