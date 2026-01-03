@@ -651,7 +651,7 @@
     }
 
     .lg\:block {
-      display: flex;
+      display: block;
     }
 
     .lg\:inline-flex {
