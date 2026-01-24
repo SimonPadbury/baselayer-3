@@ -1,16 +1,14 @@
 /*!
-Baselayer 3 CSS v.3.5.1
+Baselayer 3 CSS v.3.5.2
 https://github.com/SimonPadbury/baselayer
 */
-
-@layer base, accessibility, typography, forms-and-buttons, layout, decoration, colors;
 
 @import "/partials/variables.css";
 @import "/partials/reset.css";
 @import "/partials/base.css";
 @import "/partials/accessibility.css";
-@import "/partials/forms.css";
 @import "/partials/typography.css";
+@import "/partials/forms.css";
 @import "/partials/layout.css";
 @import "/partials/decoration.css";
 @import "/partials/colors.css";

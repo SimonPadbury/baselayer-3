@@ -55,7 +55,7 @@ Baselayer is built using [PostCSS](https://postcss.org) and some plugins. The pl
 
 ## A modern CSS reset
 
-The Baselayer reset is a “best of both” combination of [Josh W Comeau’s custom CSS reset](https://www.joshwcomeau.com/css/custom-css-reset/) and [Andy Bell’s (more) modern CSS reset”](https://andy-bell.co.uk/a-more-modern-css-reset/).
+The Baselayer reset is a combination of [Josh W Comeau’s custom CSS reset](https://www.joshwcomeau.com/css/custom-css-reset/), [Andy Bell’s (more) modern CSS reset”](https://andy-bell.co.uk/a-more-modern-css-reset/), and [Vale (Declan Chidlow)’s Opinionated CSS Reset](https://vale.rocks/posts/css-reset).
 
 From that basis, Baselayer then takes care of the basics by setting some minimalist, easy-to-read typography, and styles for buttons and forms.
 

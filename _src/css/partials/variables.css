@@ -80,7 +80,7 @@
   --h-lh: calc(1em + 0.5rem);
   --h-mt: calc(var(--t-mb) * 2);
 
-  --t-mb: 1rem;
+  --t-mb: 0.75rem;
   /* typographic elements margin-bottom */
   --t-lh: 1.5;
   /* Base line-height (no unit required) */

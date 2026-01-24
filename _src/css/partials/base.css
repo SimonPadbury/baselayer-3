@@ -1,21 +1,19 @@
-@layer base {
-  html {
-    color-scheme: light dark;
+html {
+  color-scheme: light dark;
 
-    &.theme-light {
-      color-scheme: light;
-    }
-
-    &.theme-dark {
-      color-scheme: dark;
-    }
+  &.theme-light {
+    color-scheme: light;
   }
 
-  body {
-    container-type: inline-size;
-    font-family: var(--t-default);
-    font-size: var(--t-base);
-    color: var(--tc-base);
-    background-color: var(--bgc-body);
+  &.theme-dark {
+    color-scheme: dark;
   }
+}
+
+body {
+  container-type: inline-size;
+  font-family: var(--t-default);
+  font-size: var(--t-base);
+  color: var(--tc-base);
+  background-color: var(--bgc-body);
 }

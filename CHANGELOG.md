@@ -10,6 +10,11 @@
 
 # Baselayer 3 changelog
 
+## v.3.5.2 -- 24 Jan 2026
+
+* Improvements to CSS reset.
+* Removed @layers as they are not necessary.
+
 ## v.3.5.1 -- 27 Dec 2025
 
 * Added capability to have `t-underline-none` on inner elements within links (e.g. on explainer or excerpt text), so that _panel links_ can be easily created. Useful for media elements, cards, hero blocks, etc.
