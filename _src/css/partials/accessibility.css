@@ -1,36 +1,38 @@
-/*
+@layer bl-accessibility {
+  /*
    * Based on the design systems of the UK Government (GOV.UK) and the UK National Health Service (NHS)
    * https://design-system.service.gov.uk/get-started/focus-states/
    * https://service-manual.nhs.uk/design-system/styles/focus-state
    */
-a:focus-visible {
-  outline: none;
-  color: black !important;
-  text-decoration: underline;
-  text-decoration-thickness: var(--a-deco-thickness-hover);
-  background-color: var(--color-focus) !important;
-}
+  a:focus-visible {
+    outline: none;
+    color: black !important;
+    text-decoration: underline;
+    text-decoration-thickness: var(--a-deco-thickness-hover);
+    background-color: var(--color-focus) !important;
+  }
 
-input:focus,
-textarea:focus,
-select:focus,
-form button:focus,
-button:focus-visible,
-a:focus-visible > img {
-  position: relative;
-  box-shadow: 0 0 0 3px black;
-  outline: 3px solid var(--color-focus);
-  outline-offset: 3px;
-  z-index: 1;
-}
+  input:focus,
+  textarea:focus,
+  select:focus,
+  form button:focus,
+  button:focus-visible,
+  a:focus-visible > img {
+    position: relative;
+    box-shadow: 0 0 0 3px black;
+    outline: 3px solid var(--color-focus);
+    outline-offset: 3px;
+    z-index: 1;
+  }
 
-/* Screen-eader only (and appears when tabbing, etc.) */
-.visually-hidden:not(:focus):not(:active) {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  clip: rect(0 0 0 0);
-  clip-path: inset(50%);
-  overflow: hidden;
-  white-space: nowrap;
+  /* Screen-eader only (and appears when tabbing, etc.) */
+  .visually-hidden:not(:focus):not(:active) {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    overflow: hidden;
+    white-space: nowrap;
+  }
 }

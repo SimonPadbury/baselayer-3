@@ -1,4 +1,4 @@
-@layer layout {
+@layer bl-layout {
   .container {
     container-type: inline-size;
   }

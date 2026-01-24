@@ -1,4 +1,4 @@
-@layer decoration {
+@layer bl-decoration {
   .mx-auto {
     margin-inline: auto;
   }

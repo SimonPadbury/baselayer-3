@@ -1,503 +1,505 @@
-/* Border colors */
-
-.b-blue {
-  --bc: var(--blue);
-  border-color: var(--bc);
-}
-
-.b-green {
-  --bc: var(--green);
-  border-color: var(--bc);
-}
-
-.b-amber {
-  --bc: var(--amber);
-  border-color: var(--bc);
-}
-
-.b-red {
-  --bc: var(--red);
-  border-color: var(--bc);
-}
-
-.b-gray {
-  --bc: var(--gray);
-  border-color: var(--bc);
-}
-
-/* Text colors */
-
-.t-blue {
-  --tc: var(--blue);
-  color: var(--tc);
-}
-
-.t-green {
-  --tc: var(--green);
-  color: var(--tc);
-}
-
-.t-amber {
-  --tc: var(--amber);
-  color: var(--tc);
-}
-
-.t-red {
-  --tc: var(--red);
-  color: var(--tc);
-}
-
-.t-gray {
-  --tc: var(--gray);
-  color: var(--tc);
-}
-
-/* Background colors */
-.bg-blue {
-  --bgc: var(--blue);
-  background: var(--bgc);
-}
-
-.bg-green {
-  --bgc: var(--green);
-  background: var(--bgc);
-}
-
-.bg-amber {
-  --bgc: var(--amber);
-  background: var(--bgc);
-}
-
-.bg-red {
-  --bgc: var(--red);
-  background: var(--bgc);
-}
-
-.bg-gray {
-  --bgc: var(--gray);
-  background: var(--bgc);
-}
-
-/* Border lightness levels */
-
-[class*="b-100"],
-[class*="b-200"],
-[class*="b-300"],
-[class*="b-400"],
-[class*="b-500"],
-[class*="b-600"],
-[class*="b-700"],
-[class*="b-800"],
-[class*="b-900"] {
-  border-color: color-mix(in OKLAB, var(--bc), var(--bl));
-}
-/* Use `.hover:dark:b-100` NOT `.dark:hover:b-100` */
-[class*="dark:b-100"],
-[class*="dark:b-200"],
-[class*="dark:b-300"],
-[class*="dark:b-400"],
-[class*="dark:b-500"],
-[class*="dark:b-600"],
-[class*="dark:b-700"],
-[class*="dark:b-800"],
-[class*="dark:b-900"] {
-  border-color: light-dark(
-    color-mix(in OKLAB, var(--bc), var(--bl)),
-    color-mix(in OKLAB, var(--bc), var(--bld))
-  );
-}
-
-.b-100,
-.hover\:b-100:hover {
-  --bl: var(--l100);
-}
-
-.b-200,
-.hover\:b-200:hover {
-  --bl: var(--l200);
-}
-
-.b-300,
-.hover\:b-300:hover {
-  --bl: var(--l300);
-}
-
-.b-400,
-.hover\:b-400:hover {
-  --bl: var(--l400);
-}
-
-.b-500,
-.hover\:b-500:hover {
-  --bl: var(--l500);
-}
-
-.b-600,
-.hover\:b-600:hover {
-  --bl: var(--l600);
-}
-
-.b-700,
-.hover\:b-700:hover {
-  --bl: var(--l700);
-}
-
-.b-800,
-.hover\:b-800:hover {
-  --bl: var(--l800);
-}
-
-.b-900,
-.hover\:b-900:hover {
-  --bl: var(--l900);
-}
-
-.dark\:b-100,
-.hover\:dark\:b-100:hover {
-  --bld: var(--l100);
-}
-
-.dark\:b-200,
-.hover\:dark\:b-200:hover {
-  --bld: var(--l200);
-}
-
-.dark\:b-300,
-.hover\:dark\:b-300:hover {
-  --bld: var(--l300);
-}
-
-.dark\:b-400,
-.hover\:dark\:b-400:hover {
-  --bld: var(--l400);
-}
-
-.dark\:b-500,
-.hover\:dark\:b-500:hover {
-  --bld: var(--l500);
-}
-
-.dark\:b-600,
-.hover\:dark\:b-600:hover {
-  --bld: var(--l600);
-}
-
-.dark\:b-700,
-.hover\:dark\:b-700:hover {
-  --bld: var(--l700);
-}
-
-.dark\:b-800,
-.hover\:dark\:b-800:hover {
-  --bld: var(--l800);
-}
-
-.dark\:b-900,
-.hover\:dark\:b-900:hover {
-  --bld: var(--l900);
-}
-
-/* Text lightness levels */
-
-[class*="t-100"],
-[class*="t-200"],
-[class*="t-300"],
-[class*="t-400"],
-[class*="t-500"],
-[class*="t-600"],
-[class*="t-700"],
-[class*="t-800"],
-[class*="t-900"] {
-  color: color-mix(in OKLAB, var(--tc), var(--tl));
-}
-/* Use `.hover:dark:t-100` NOT `.dark:hover:t-100` */
-[class*="dark:t-100"],
-[class*="dark:t-200"],
-[class*="dark:t-300"],
-[class*="dark:t-400"],
-[class*="dark:t-500"],
-[class*="dark:t-600"],
-[class*="dark:t-700"],
-[class*="dark:t-800"],
-[class*="dark:t-900"] {
-  color: light-dark(
-    color-mix(in OKLAB, var(--tc), var(--tl)),
-    color-mix(in OKLAB, var(--tc), var(--tld))
-  );
-}
-
-.t-100,
-.hover\:t-100:hover {
-  --tl: var(--l100);
-}
-
-.t-200,
-.hover\:t-200:hover {
-  --tl: var(--l200);
-}
-
-.t-300,
-.hover\:t-300:hover {
-  --tl: var(--l300);
-}
-
-.t-400,
-.hover\:t-400:hover {
-  --tl: var(--l400);
-}
-
-.t-500,
-.hover\:t-500:hover {
-  --tl: var(--l500);
-}
-
-.t-600,
-.hover\:t-600:hover {
-  --tl: var(--l600);
-}
-
-.t-700,
-.hover\:t-700:hover {
-  --tl: var(--l700);
-}
-
-.t-800,
-.hover\:t-800:hover {
-  --tl: var(--l800);
-}
-
-.t-900,
-.hover\:t-900:hover {
-  --tl: var(--l900);
-}
-
-.dark\:t-100,
-.hover\:dark\:t-100:hover {
-  --tld: var(--l100);
-}
-
-.dark\:t-200,
-.hover\:dark\:t-200:hover {
-  --tld: var(--l200);
-}
-
-.dark\:t-300,
-.hover\:dark\:t-300:hover {
-  --tld: var(--l300);
-}
-
-.dark\:t-400,
-.hover\:dark\:t-400:hover {
-  --tld: var(--l400);
-}
-
-.dark\:t-500,
-.hover\:dark\:t-500:hover {
-  --tld: var(--l500);
-}
-
-.dark\:t-600,
-.hover\:dark\:t-600:hover {
-  --tld: var(--l600);
-}
-
-.dark\:t-700,
-.hover\:dark\:t-700:hover {
-  --tld: var(--l700);
-}
-
-.dark\:t-800,
-.hover\:dark\:t-800:hover {
-  --tld: var(--l800);
-}
-
-.dark\:t-900,
-.hover\:dark\:t-900:hover {
-  --tld: var(--l900);
-}
-
-/* Background lightness levels */
-
-[class*="bg-100"],
-[class*="bg-200"],
-[class*="bg-300"],
-[class*="bg-400"],
-[class*="bg-500"],
-[class*="bg-600"],
-[class*="bg-700"],
-[class*="bg-800"],
-[class*="bg-900"] {
-  background: color-mix(in OKLAB, var(--bgc), var(--bgl));
-}
-
-/* USE `hover:dark:bg-100` NOT `dark:hover:bg-100` */
-[class*="dark:bg-100"],
-[class*="dark:bg-200"],
-[class*="dark:bg-300"],
-[class*="dark:bg-400"],
-[class*="dark:bg-500"],
-[class*="dark:bg-600"],
-[class*="dark:bg-700"],
-[class*="dark:bg-800"],
-[class*="dark:bg-900"] {
-  background: light-dark(
-    color-mix(in OKLAB, var(--bgc), var(--bgl)),
-    color-mix(in OKLAB, var(--bgc), var(--bgld))
-  );
-}
-
-.bg-100,
-.hover\:bg-100:hover {
-  --bgl: var(--l100);
-}
-
-.bg-200,
-.hover\:bg-200:hover {
-  --bgl: var(--l200);
-}
-
-.bg-300,
-.hover\:bg-300:hover {
-  --bgl: var(--l300);
-}
-
-.bg-400,
-.hover\:bg-400:hover {
-  --bgl: var(--l400);
-}
-
-.bg-500,
-.hover\:bg-500:hover {
-  --bgl: var(--l500);
-}
-
-.bg-600,
-.hover\:bg-600:hover {
-  --bgl: var(--l600);
-}
-
-.bg-700,
-.hover\:bg-700:hover {
-  --bgl: var(--l700);
-}
-
-.bg-800,
-.hover\:bg-800:hover {
-  --bgl: var(--l800);
-}
-
-.bg-900,
-.hover\:bg-900:hover {
-  --bgl: var(--l900);
-}
-
-.dark\:bg-100,
-.hover\:dark\:bg-100:hover {
-  --bgld: var(--l100);
-}
-
-.dark\:bg-200,
-.hover\:dark\:bg-200:hover {
-  --bgld: var(--l200);
-}
-
-.dark\:bg-300,
-.hover\:dark\:bg-300:hover {
-  --bgld: var(--l300);
-}
-
-.dark\:bg-400,
-.hover\:dark\:bg-400:hover {
-  --bgld: var(--l400);
-}
-
-.dark\:bg-500,
-.hover\:dark\:bg-500:hover {
-  --bgld: var(--l500);
-}
-
-.dark\:bg-600,
-.hover\:dark\:bg-600:hover {
-  --bgld: var(--l600);
-}
-
-.dark\:bg-700,
-.hover\:dark\:bg-700:hover {
-  --bgld: var(--l700);
-}
-
-.dark\:bg-800,
-.hover\:dark\:bg-800:hover {
-  --bgld: var(--l800);
-}
-
-.dark\:bg-900,
-.hover\:dark\:bg-900:hover {
-  --bgld: var(--l900);
-}
-
-/* Colors - other*/
-
-.bg-transparent:not(:hover) {
-  background: transparent;
-}
-
-.b-white,
-.hover\:b-white:hover {
-  border-color: white;
-}
-
-.t-white,
-.hover\:t-white:hover {
-  color: white;
-}
-
-.bg-white,
-.hover\:bg-white:hover {
-  background: white;
-}
-
-.b-black,
-.hover\:b-black:hover {
-  border-color: black;
-}
-
-.t-black,
-.hover\:t-black:hover {
-  color: black;
-}
-
-.bg-black,
-.hover\:bg-black:hover {
-  background: black;
-}
-
-.b-reversi,
-.hover\:b-reversi:hover {
-  border-color: light-dark(black, white);
-}
-
-.b-reversi-flip,
-.hover\:b-reversi-flip:hover {
-  border-color: light-dark(white, black);
-}
-
-.t-reversi,
-.hover\:t-reversi:hover {
-  color: light-dark(black, white);
-}
-
-.t-reversi-flip,
-.hover\:t-reversi-flip:hover {
-  color: light-dark(white, black);
-}
-
-.bg-reversi,
-.hover\:bg-reversi:hover {
-  background: light-dark(black, white);
-}
-
-.bg-reversi-flip,
-.hover\:bg-reversi-flip:hover {
-  background: light-dark(white, black);
+@layer bl-colors {
+  /* Border colors */
+
+  .b-blue {
+    --bc: var(--blue);
+    border-color: var(--bc);
+  }
+
+  .b-green {
+    --bc: var(--green);
+    border-color: var(--bc);
+  }
+
+  .b-amber {
+    --bc: var(--amber);
+    border-color: var(--bc);
+  }
+
+  .b-red {
+    --bc: var(--red);
+    border-color: var(--bc);
+  }
+
+  .b-gray {
+    --bc: var(--gray);
+    border-color: var(--bc);
+  }
+
+  /* Text colors */
+
+  .t-blue {
+    --tc: var(--blue);
+    color: var(--tc);
+  }
+
+  .t-green {
+    --tc: var(--green);
+    color: var(--tc);
+  }
+
+  .t-amber {
+    --tc: var(--amber);
+    color: var(--tc);
+  }
+
+  .t-red {
+    --tc: var(--red);
+    color: var(--tc);
+  }
+
+  .t-gray {
+    --tc: var(--gray);
+    color: var(--tc);
+  }
+
+  /* Background colors */
+  .bg-blue {
+    --bgc: var(--blue);
+    background: var(--bgc);
+  }
+
+  .bg-green {
+    --bgc: var(--green);
+    background: var(--bgc);
+  }
+
+  .bg-amber {
+    --bgc: var(--amber);
+    background: var(--bgc);
+  }
+
+  .bg-red {
+    --bgc: var(--red);
+    background: var(--bgc);
+  }
+
+  .bg-gray {
+    --bgc: var(--gray);
+    background: var(--bgc);
+  }
+
+  /* Border lightness levels */
+
+  [class*="b-100"],
+  [class*="b-200"],
+  [class*="b-300"],
+  [class*="b-400"],
+  [class*="b-500"],
+  [class*="b-600"],
+  [class*="b-700"],
+  [class*="b-800"],
+  [class*="b-900"] {
+    border-color: color-mix(in OKLAB, var(--bc), var(--bl));
+  }
+  /* Use `.hover:dark:b-100` NOT `.dark:hover:b-100` */
+  [class*="dark:b-100"],
+  [class*="dark:b-200"],
+  [class*="dark:b-300"],
+  [class*="dark:b-400"],
+  [class*="dark:b-500"],
+  [class*="dark:b-600"],
+  [class*="dark:b-700"],
+  [class*="dark:b-800"],
+  [class*="dark:b-900"] {
+    border-color: light-dark(
+      color-mix(in OKLAB, var(--bc), var(--bl)),
+      color-mix(in OKLAB, var(--bc), var(--bld))
+    );
+  }
+
+  .b-100,
+  .hover\:b-100:hover {
+    --bl: var(--l100);
+  }
+
+  .b-200,
+  .hover\:b-200:hover {
+    --bl: var(--l200);
+  }
+
+  .b-300,
+  .hover\:b-300:hover {
+    --bl: var(--l300);
+  }
+
+  .b-400,
+  .hover\:b-400:hover {
+    --bl: var(--l400);
+  }
+
+  .b-500,
+  .hover\:b-500:hover {
+    --bl: var(--l500);
+  }
+
+  .b-600,
+  .hover\:b-600:hover {
+    --bl: var(--l600);
+  }
+
+  .b-700,
+  .hover\:b-700:hover {
+    --bl: var(--l700);
+  }
+
+  .b-800,
+  .hover\:b-800:hover {
+    --bl: var(--l800);
+  }
+
+  .b-900,
+  .hover\:b-900:hover {
+    --bl: var(--l900);
+  }
+
+  .dark\:b-100,
+  .hover\:dark\:b-100:hover {
+    --bld: var(--l100);
+  }
+
+  .dark\:b-200,
+  .hover\:dark\:b-200:hover {
+    --bld: var(--l200);
+  }
+
+  .dark\:b-300,
+  .hover\:dark\:b-300:hover {
+    --bld: var(--l300);
+  }
+
+  .dark\:b-400,
+  .hover\:dark\:b-400:hover {
+    --bld: var(--l400);
+  }
+
+  .dark\:b-500,
+  .hover\:dark\:b-500:hover {
+    --bld: var(--l500);
+  }
+
+  .dark\:b-600,
+  .hover\:dark\:b-600:hover {
+    --bld: var(--l600);
+  }
+
+  .dark\:b-700,
+  .hover\:dark\:b-700:hover {
+    --bld: var(--l700);
+  }
+
+  .dark\:b-800,
+  .hover\:dark\:b-800:hover {
+    --bld: var(--l800);
+  }
+
+  .dark\:b-900,
+  .hover\:dark\:b-900:hover {
+    --bld: var(--l900);
+  }
+
+  /* Text lightness levels */
+
+  [class*="t-100"],
+  [class*="t-200"],
+  [class*="t-300"],
+  [class*="t-400"],
+  [class*="t-500"],
+  [class*="t-600"],
+  [class*="t-700"],
+  [class*="t-800"],
+  [class*="t-900"] {
+    color: color-mix(in OKLAB, var(--tc), var(--tl));
+  }
+  /* Use `.hover:dark:t-100` NOT `.dark:hover:t-100` */
+  [class*="dark:t-100"],
+  [class*="dark:t-200"],
+  [class*="dark:t-300"],
+  [class*="dark:t-400"],
+  [class*="dark:t-500"],
+  [class*="dark:t-600"],
+  [class*="dark:t-700"],
+  [class*="dark:t-800"],
+  [class*="dark:t-900"] {
+    color: light-dark(
+      color-mix(in OKLAB, var(--tc), var(--tl)),
+      color-mix(in OKLAB, var(--tc), var(--tld))
+    );
+  }
+
+  .t-100,
+  .hover\:t-100:hover {
+    --tl: var(--l100);
+  }
+
+  .t-200,
+  .hover\:t-200:hover {
+    --tl: var(--l200);
+  }
+
+  .t-300,
+  .hover\:t-300:hover {
+    --tl: var(--l300);
+  }
+
+  .t-400,
+  .hover\:t-400:hover {
+    --tl: var(--l400);
+  }
+
+  .t-500,
+  .hover\:t-500:hover {
+    --tl: var(--l500);
+  }
+
+  .t-600,
+  .hover\:t-600:hover {
+    --tl: var(--l600);
+  }
+
+  .t-700,
+  .hover\:t-700:hover {
+    --tl: var(--l700);
+  }
+
+  .t-800,
+  .hover\:t-800:hover {
+    --tl: var(--l800);
+  }
+
+  .t-900,
+  .hover\:t-900:hover {
+    --tl: var(--l900);
+  }
+
+  .dark\:t-100,
+  .hover\:dark\:t-100:hover {
+    --tld: var(--l100);
+  }
+
+  .dark\:t-200,
+  .hover\:dark\:t-200:hover {
+    --tld: var(--l200);
+  }
+
+  .dark\:t-300,
+  .hover\:dark\:t-300:hover {
+    --tld: var(--l300);
+  }
+
+  .dark\:t-400,
+  .hover\:dark\:t-400:hover {
+    --tld: var(--l400);
+  }
+
+  .dark\:t-500,
+  .hover\:dark\:t-500:hover {
+    --tld: var(--l500);
+  }
+
+  .dark\:t-600,
+  .hover\:dark\:t-600:hover {
+    --tld: var(--l600);
+  }
+
+  .dark\:t-700,
+  .hover\:dark\:t-700:hover {
+    --tld: var(--l700);
+  }
+
+  .dark\:t-800,
+  .hover\:dark\:t-800:hover {
+    --tld: var(--l800);
+  }
+
+  .dark\:t-900,
+  .hover\:dark\:t-900:hover {
+    --tld: var(--l900);
+  }
+
+  /* Background lightness levels */
+
+  [class*="bg-100"],
+  [class*="bg-200"],
+  [class*="bg-300"],
+  [class*="bg-400"],
+  [class*="bg-500"],
+  [class*="bg-600"],
+  [class*="bg-700"],
+  [class*="bg-800"],
+  [class*="bg-900"] {
+    background: color-mix(in OKLAB, var(--bgc), var(--bgl));
+  }
+
+  /* USE `hover:dark:bg-100` NOT `dark:hover:bg-100` */
+  [class*="dark:bg-100"],
+  [class*="dark:bg-200"],
+  [class*="dark:bg-300"],
+  [class*="dark:bg-400"],
+  [class*="dark:bg-500"],
+  [class*="dark:bg-600"],
+  [class*="dark:bg-700"],
+  [class*="dark:bg-800"],
+  [class*="dark:bg-900"] {
+    background: light-dark(
+      color-mix(in OKLAB, var(--bgc), var(--bgl)),
+      color-mix(in OKLAB, var(--bgc), var(--bgld))
+    );
+  }
+
+  .bg-100,
+  .hover\:bg-100:hover {
+    --bgl: var(--l100);
+  }
+
+  .bg-200,
+  .hover\:bg-200:hover {
+    --bgl: var(--l200);
+  }
+
+  .bg-300,
+  .hover\:bg-300:hover {
+    --bgl: var(--l300);
+  }
+
+  .bg-400,
+  .hover\:bg-400:hover {
+    --bgl: var(--l400);
+  }
+
+  .bg-500,
+  .hover\:bg-500:hover {
+    --bgl: var(--l500);
+  }
+
+  .bg-600,
+  .hover\:bg-600:hover {
+    --bgl: var(--l600);
+  }
+
+  .bg-700,
+  .hover\:bg-700:hover {
+    --bgl: var(--l700);
+  }
+
+  .bg-800,
+  .hover\:bg-800:hover {
+    --bgl: var(--l800);
+  }
+
+  .bg-900,
+  .hover\:bg-900:hover {
+    --bgl: var(--l900);
+  }
+
+  .dark\:bg-100,
+  .hover\:dark\:bg-100:hover {
+    --bgld: var(--l100);
+  }
+
+  .dark\:bg-200,
+  .hover\:dark\:bg-200:hover {
+    --bgld: var(--l200);
+  }
+
+  .dark\:bg-300,
+  .hover\:dark\:bg-300:hover {
+    --bgld: var(--l300);
+  }
+
+  .dark\:bg-400,
+  .hover\:dark\:bg-400:hover {
+    --bgld: var(--l400);
+  }
+
+  .dark\:bg-500,
+  .hover\:dark\:bg-500:hover {
+    --bgld: var(--l500);
+  }
+
+  .dark\:bg-600,
+  .hover\:dark\:bg-600:hover {
+    --bgld: var(--l600);
+  }
+
+  .dark\:bg-700,
+  .hover\:dark\:bg-700:hover {
+    --bgld: var(--l700);
+  }
+
+  .dark\:bg-800,
+  .hover\:dark\:bg-800:hover {
+    --bgld: var(--l800);
+  }
+
+  .dark\:bg-900,
+  .hover\:dark\:bg-900:hover {
+    --bgld: var(--l900);
+  }
+
+  /* Colors - other*/
+
+  .bg-transparent:not(:hover) {
+    background: transparent;
+  }
+
+  .b-white,
+  .hover\:b-white:hover {
+    border-color: white;
+  }
+
+  .t-white,
+  .hover\:t-white:hover {
+    color: white;
+  }
+
+  .bg-white,
+  .hover\:bg-white:hover {
+    background: white;
+  }
+
+  .b-black,
+  .hover\:b-black:hover {
+    border-color: black;
+  }
+
+  .t-black,
+  .hover\:t-black:hover {
+    color: black;
+  }
+
+  .bg-black,
+  .hover\:bg-black:hover {
+    background: black;
+  }
+
+  .b-reversi,
+  .hover\:b-reversi:hover {
+    border-color: light-dark(black, white);
+  }
+
+  .b-reversi-flip,
+  .hover\:b-reversi-flip:hover {
+    border-color: light-dark(white, black);
+  }
+
+  .t-reversi,
+  .hover\:t-reversi:hover {
+    color: light-dark(black, white);
+  }
+
+  .t-reversi-flip,
+  .hover\:t-reversi-flip:hover {
+    color: light-dark(white, black);
+  }
+
+  .bg-reversi,
+  .hover\:bg-reversi:hover {
+    background: light-dark(black, white);
+  }
+
+  .bg-reversi-flip,
+  .hover\:bg-reversi-flip:hover {
+    background: light-dark(white, black);
+  }
 }

@@ -13,4 +13,4 @@ https://github.com/SimonPadbury/baselayer
 @import "/partials/decoration.css";
 @import "/partials/colors.css";
 
-@layer variables, reset, base, accessibility, typography, forms-and-buttons, layout, decoration, colors;
+@layer bl-variables, bl-reset, bl-base, bl-accessibility, bl-typography, bl-forms-and-buttons, bl-layout, bl-decoration, bl-colors;
