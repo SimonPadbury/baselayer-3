@@ -13,7 +13,6 @@
 ## v.3.5.2 -- 24 Jan 2026
 
 * Improvements to CSS reset.
-* Removed @layers as they are not necessary.
 
 ## v.3.5.1 -- 27 Dec 2025
 

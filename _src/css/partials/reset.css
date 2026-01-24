@@ -1,88 +1,90 @@
-/**
+@layer reset {
+  /**
   * CSS Reset -- based on:
   * https://www.joshwcomeau.com/css/custom-css-reset/
   * https://andy-bell.co.uk/a-more-modern-css-reset/
   * https://vale.rocks/posts/css-reset
   */
 
-html {
-  -moz-text-size-adjust: none;
-  -webkit-text-size-adjust: none;
-  text-size-adjust: none;
-  -webkit-font-smoothing: antialiased;
-  block-size: 100%;
-  scrollbar-gutter: stable;
-}
+  html {
+    -moz-text-size-adjust: none;
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
+    -webkit-font-smoothing: antialiased;
+    block-size: 100%;
+    scrollbar-gutter: stable;
+  }
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
 
-* {
-  padding: 0;
-  margin: 0;
-}
+  * {
+    padding: 0;
+    margin: 0;
+  }
 
-body {
-  min-block-size: 100%;
-  min-height: 100dvh;
-  margin: 0;
-  font-size: var(--t-base);
-  line-height: var(--t-lh);
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-}
+  body {
+    min-block-size: 100%;
+    min-height: 100dvh;
+    margin: 0;
+    font-size: var(--t-base);
+    line-height: var(--t-lh);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
 
-img,
-picture,
-video,
-canvas {
-  display: block;
-  max-inline-size: 100%;
-  block-size: auto;
-}
+  img,
+  picture,
+  video,
+  canvas {
+    display: block;
+    max-inline-size: 100%;
+    block-size: auto;
+  }
 
-svg {
-  max-inline-size: 100%;
-}
+  svg {
+    max-inline-size: 100%;
+  }
 
-svg:not([fill]) {
-  fill: currentColor;
-}
+  svg:not([fill]) {
+    fill: currentColor;
+  }
 
-input,
-button,
-textarea,
-select {
-  font: inherit;
-}
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+  }
 
-textarea {
-  resize: vertical;
-}
+  textarea {
+    resize: vertical;
+  }
 
-fieldset,
-iframe {
-  border: 0;
-}
+  fieldset,
+  iframe {
+    border: 0;
+  }
 
-summary {
-  cursor: pointer;
-}
+  summary {
+    cursor: pointer;
+  }
 
-abbr[title] {
-  cursor: help;
-  text-decoration-line: underline;
-  text-decoration-style: dotted;
-}
+  abbr[title] {
+    cursor: help;
+    text-decoration-line: underline;
+    text-decoration-style: dotted;
+  }
 
-:target {
-  scroll-margin-block: 5ex;
-}
+  :target {
+    scroll-margin-block: 5ex;
+  }
 
-:disabled {
-  opacity: 0.8;
-  cursor: not-allowed;
+  :disabled {
+    opacity: 0.8;
+    cursor: not-allowed;
+  }
 }
