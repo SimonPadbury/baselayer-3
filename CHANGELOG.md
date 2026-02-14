@@ -10,6 +10,10 @@
 
 # Baselayer 3 changelog
 
+## v.3.5.3 -- 14 Feb 2026
+
+* Refactored heading tag (and heading size utilities) font-sizes to _major third_ typographic scale. This is set in the root variables by `--t-scale: 1,25;`
+
 ## v.3.5.2 -- 24 Jan 2026
 
 * Improvements to CSS reset.

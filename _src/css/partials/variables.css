@@ -69,12 +69,19 @@
     Set heading sizes using ems, so that all headings can be `clamp()`
     enlarged by wrapping with `.t-display`
     */
-    --h1: 2.25em;
+    --t-scale: 1.25;
+    --h6: var(--t-base);
+    --h5: calc(var(--h6) * var(--t-scale));
+    --h4: calc(var(--h5) * var(--t-scale));
+    --h3: calc(var(--h4) * var(--t-scale));
+    --h2: calc(var(--h3) * var(--t-scale));
+    --h1: calc(var(--h2) * var(--t-scale));
+    /* --h1: 2.25em;
     --h2: 1.625em;
     --h3: 1.325em;
     --h4: 1.115em;
     --h5: 1em;
-    --h6: 0.875em;
+    --h6: 0.875em; */
     --h-ff: inherit;
     /* headings font family */
     --h-fw: var(--t-semibold);

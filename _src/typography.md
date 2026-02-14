@@ -66,13 +66,21 @@ For inspiration:
 
 ## Base font size
 
-The default font size in Baselayer is 100% for small viewports. This sets the value of 1rem—that is 16px on most browserts (in 2025).
+The default font size in Baselayer is 100% for small viewports. This sets the value of 1rem—that is 16px on most browsers (in 2025).
+
+```css
+:root {
+  --t-base: 100%;
+}
+```
 
 ## Typographic block elements
 
-Most typographic blocks have zero top margin, and bottom margin set to `var(--s-2)` (1rem).
+Most typographic blocks have zero top margin, and bottom margin set to `var(--s-2)` (1rem)—same bottom margin as for paragraphs.
 
 ### Headings
+
+Heading sizes are set using a _major third_ typographic scale root variable. The font size for `h6` and utility class `.h6` is not increased by this scale (remains with the base font size, 100%). After that, each heading size is 1.25&times; greater.
 
 Example headings:
 
@@ -83,23 +91,72 @@ Example headings:
 <p class="h5 t-semibold">Heading h5</p>
 <p class="h6 t-semibold">Heading h6</p>
 
+```css
+:root {
+  --t-scale: 1.25;
+
+  --h6: var(--t-base);
+  --h5: calc(var(--h6) * var(--t-scale));
+  --h4: calc(var(--h5) * var(--t-scale));
+  --h3: calc(var(--h4) * var(--t-scale));
+  --h2: calc(var(--h3) * var(--t-scale));
+  --h1: calc(var(--h2) * var(--t-scale));
+}
+```
+
+<table class="mt-3 mb-4 table">
+  <thead>
+    <tr>
+      <th>Heading Level</th>
+      <th>Calculated Font Size (em)</th>
+      <th>Equivalent Size in Pixels (px)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>h6</td>
+      <td class="t-center">1</td>
+      <td class="t-center">16</td>
+    </tr>
+    <tr>
+      <td>h5</td>
+      <td class="t-center">1.25</td>
+      <td class="t-center">20</td>
+    </tr>
+    <tr>
+      <td>h4</td>
+      <td class="t-center">~1.56</td>
+      <td class="t-center">25</td>
+    </tr>
+    <tr>
+      <td>h3</td>
+      <td class="t-center">~1.95</td>
+      <td class="t-center">31.25</td>
+    </tr>
+    <tr>
+      <td>h2</td>
+      <td class="t-center">~2.44</td>
+      <td class="t-center">~39.06</td>
+    </tr>
+    <tr>
+      <td>h1</td>
+      <td class="t-center">~3.05</td>
+      <td class="t-center">~48.83</td>
+    </tr>
+  </tbody>
+</table>
+
 All headings `<h1>` to `<h6>` and matching utility classes `h1` to `h6` have:
 
-* Headings font sizes set in the variables file.
-* Headings also have their font-family set using `--h-ff: inherit`. This has been done so that you can use the variable to override it. So, your headings don’t need to be the same typeface as your paragraphs.
+* Headings font sizes set in the variables file (see above).
+* Headings font family set using `--h-ff: inherit`. This has been done so that you can use the variable to override it — your headings don’t need to be the same typeface as your paragraphs.
 * Headings font weight is set using `--h-fw: var(--t-semibold)` — which you can also override.
 * Headings line heights set using the formula `1em + 0.5rem`.
 * Headings have their bottom margin set the same as for paragraphs, `var(t--mb)`. The top margin for `<h2>` thorugh `<h6>` is double that — except then used as immediate child items of the [content-grid]({{ "/layout/#content-grid" | url }}) where the top margin is reduced to `var(t--mb)`. This is because _margin collapse_ is prevented by CSS grid. (And the top margin of `<h2>` is totally removed when it’s the first immediate child of a `.content-grid`.)
-* The matching utility classes `h2` to `h6` only affect font-size. These utilities do not include margin or font-weight styling.
+* The matching utility classes `h2` to `h6` only affect font-size. They do not include margin or font-weight styling.
 
 ```css
 :root {
-  --h1: 2.25em;
-  --h2: 1.625em;
-  --h3: 1.325em;
-  --h4: 1.115em;
-  --h5: 1em;
-  --h6: 0.875em;
   --h-ff: inherit; /* headings font-family */
   --h-fw: var(--t-semibold);
   --h-lh: calc(1em + 0.5rem);
@@ -109,7 +166,7 @@ All headings `<h1>` to `<h6>` and matching utility classes `h1` to `h6` have:
 
 Tips:
 
-1. In some contexts (e.g. in card components) you may not want any built-in spacing for typographic block elements. Then, you can remove margins by using the `m-0` utility class.
+1. In some contexts (e.g. in card components) you may not want any built-in spacing for typographic block elements. Then, you can remove margins by using the `mb-0` utility class.
 2. You can also remove top margin indirectly: e.g. you can target the first item inside its wrapper using `.your-wrapper:first-child { margin-top: 0; }`, or the first sibling after the `<header>` or `<h1>`. Same as I have done in Baselayer at `.content-grid > h2:first-child { margin-top: 0; }`.
 
 ### Block quotes
@@ -490,9 +547,9 @@ If you have a lot of content in your table, it will probably break your page lay
 The base font size is 100% (usually 16px). Additionally:
 
 1. There’s a `t-lg` class that can be used to make text 1.325em — good for a lead paragraph, large button, or important messaging.
-2. Classes `.h1` through `.h6` will resize text the same amount as for their respective heading tag sizes — use when you want to make text bigger (or large text smaller) without adversely affecting accessibility/ SEO heading hierarchy.
-3. The `t-long-read` wrapping class uses a `clamp()` to ramp text from starting size 1em up to 1.25em (20px default) depending on container size. E.g. used for responsively increasing text size in _article prose components_. `<h1>` inside a `t-long-read` will have maximum font size 45px.
-4. The `t-display` wrapping class uses a `clamp()` to raise text from starting size 1em up to 2.5em (40px default) depending on container size. E.g. used for responsively increasing text size in _hero components_. `<h1>` inside a `t-display` will have maximum font size 72px.
+2. Classes `.h1` through `.h6` will resize text the same amount as for their respective heading tag sizes — use these when you want to make text bigger (or large text smaller) without adversely affecting accessibility/ SEO heading hierarchy.
+3. The `t-long-read` wrapping class uses a `clamp()` to ramp text from starting size 1em up to 1.25em (20px default) depending on container size. E.g. used for responsively increasing text size in _article prose components_. `<h1>` inside a `t-long-read` will have maximum font size 61px.
+4. The `t-display` wrapping class uses a `clamp()` to raise text from starting size 1em up to 2.5em (40px default) depending on container size. E.g. used for responsively increasing text size in _hero components_. `<h1>` inside a `t-display` will have maximum font size 97px.
 
 ## Code
 

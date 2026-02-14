@@ -7,7 +7,7 @@
 
   <title>Typography · Baselayer CSS</title>
 
-  <link rel="stylesheet" href="/baselayer-3/css/min/baselayer.min.css?v=3.5.2">
+  <link rel="stylesheet" href="/baselayer-3/css/min/baselayer.min.css?v=3.5.3">
 
   <style>
   html {
@@ -291,7 +291,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
     <div id="js-menu-wrapper">
       <div class="m-3 bt-thin bb-thin py-3 flex flex-center flex-wrap gap-3 links-underlined-hover-only">
-        <span class="t-gray t-600 dark:t-400">Version: 3.5.2</span>
+        <span class="t-gray t-600 dark:t-400">Version: 3.5.3</span>
         <a class="t-gray t-800 dark:t-200 hover:t-900 hover:dark:t-100" href="https://github.com/SimonPadbury/baselayer-3">GitHub</a>
         <span>
           <a class="t-gray t-800 dark:t-200 hover:t-900 hover:dark:t-100" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> <span class="t-gray t-600 t-dark-invert">(25 KB)</span>
@@ -447,10 +447,15 @@ window.addEventListener("DOMContentLoaded", () => {
 <li><a href="https://www.pagecloud.com/blog/best-google-fonts-pairings">Top 50 Google Font Pairings [Handpicked by Pro Designers] (Pagecloud)</a></li>
 </ul>
 <h2 id="base-font-size" tabindex="-1">Base font size</h2>
-<p>The default font size in Baselayer is 100% for small viewports. This sets the value of 1rem—that is 16px on most browserts (in 2025).</p>
+<p>The default font size in Baselayer is 100% for small viewports. This sets the value of 1rem—that is 16px on most browsers (in 2025).</p>
+<pre><code class="language-css">:root {
+  --t-base: 100%;
+}
+</code></pre>
 <h2 id="typographic-block-elements" tabindex="-1">Typographic block elements</h2>
-<p>Most typographic blocks have zero top margin, and bottom margin set to <code>var(--s-2)</code> (1rem).</p>
+<p>Most typographic blocks have zero top margin, and bottom margin set to <code>var(--s-2)</code> (1rem)—same bottom margin as for paragraphs.</p>
 <h3 id="headings" tabindex="-1">Headings</h3>
+<p>Heading sizes are set using a <em>major third</em> typographic scale root variable. The font size for <code>h6</code> and utility class <code>.h6</code> is not increased by this scale (remains with the base font size, 100%). After that, each heading size is 1.25× greater.</p>
 <p>Example headings:</p>
 <p class="h1 t-semibold">Heading h1</p>
 <p class="h2 t-semibold">Heading h2</p>
@@ -458,22 +463,68 @@ window.addEventListener("DOMContentLoaded", () => {
 <p class="h4 t-semibold">Heading h4</p>
 <p class="h5 t-semibold">Heading h5</p>
 <p class="h6 t-semibold">Heading h6</p>
+<pre><code class="language-css">:root {
+  --t-scale: 1.25;
+
+  --h6: var(--t-base);
+  --h5: calc(var(--h6) * var(--t-scale));
+  --h4: calc(var(--h5) * var(--t-scale));
+  --h3: calc(var(--h4) * var(--t-scale));
+  --h2: calc(var(--h3) * var(--t-scale));
+  --h1: calc(var(--h2) * var(--t-scale));
+}
+</code></pre>
+<table class="mt-3 mb-4 table">
+  <thead>
+    <tr>
+      <th>Heading Level</th>
+      <th>Calculated Font Size (em)</th>
+      <th>Equivalent Size in Pixels (px)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>h6</td>
+      <td class="t-center">1</td>
+      <td class="t-center">16</td>
+    </tr>
+    <tr>
+      <td>h5</td>
+      <td class="t-center">1.25</td>
+      <td class="t-center">20</td>
+    </tr>
+    <tr>
+      <td>h4</td>
+      <td class="t-center">~1.56</td>
+      <td class="t-center">25</td>
+    </tr>
+    <tr>
+      <td>h3</td>
+      <td class="t-center">~1.95</td>
+      <td class="t-center">31.25</td>
+    </tr>
+    <tr>
+      <td>h2</td>
+      <td class="t-center">~2.44</td>
+      <td class="t-center">~39.06</td>
+    </tr>
+    <tr>
+      <td>h1</td>
+      <td class="t-center">~3.05</td>
+      <td class="t-center">~48.83</td>
+    </tr>
+  </tbody>
+</table>
 <p>All headings <code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code> and matching utility classes <code>h1</code> to <code>h6</code> have:</p>
 <ul>
-<li>Headings font sizes set in the variables file.</li>
-<li>Headings also have their font-family set using <code>--h-ff: inherit</code>. This has been done so that you can use the variable to override it. So, your headings don’t need to be the same typeface as your paragraphs.</li>
+<li>Headings font sizes set in the variables file (see above).</li>
+<li>Headings font family set using <code>--h-ff: inherit</code>. This has been done so that you can use the variable to override it — your headings don’t need to be the same typeface as your paragraphs.</li>
 <li>Headings font weight is set using <code>--h-fw: var(--t-semibold)</code> — which you can also override.</li>
 <li>Headings line heights set using the formula <code>1em + 0.5rem</code>.</li>
 <li>Headings have their bottom margin set the same as for paragraphs, <code>var(t--mb)</code>. The top margin for <code>&lt;h2&gt;</code> thorugh <code>&lt;h6&gt;</code> is double that — except then used as immediate child items of the <a href="/baselayer-3/layout/#content-grid">content-grid</a> where the top margin is reduced to <code>var(t--mb)</code>. This is because <em>margin collapse</em> is prevented by CSS grid. (And the top margin of <code>&lt;h2&gt;</code> is totally removed when it’s the first immediate child of a <code>.content-grid</code>.)</li>
-<li>The matching utility classes <code>h2</code> to <code>h6</code> only affect font-size. These utilities do not include margin or font-weight styling.</li>
+<li>The matching utility classes <code>h2</code> to <code>h6</code> only affect font-size. They do not include margin or font-weight styling.</li>
 </ul>
 <pre><code class="language-css">:root {
-  --h1: 2.25em;
-  --h2: 1.625em;
-  --h3: 1.325em;
-  --h4: 1.115em;
-  --h5: 1em;
-  --h6: 0.875em;
   --h-ff: inherit; /* headings font-family */
   --h-fw: var(--t-semibold);
   --h-lh: calc(1em + 0.5rem);
@@ -482,7 +533,7 @@ window.addEventListener("DOMContentLoaded", () => {
 </code></pre>
 <p>Tips:</p>
 <ol>
-<li>In some contexts (e.g. in card components) you may not want any built-in spacing for typographic block elements. Then, you can remove margins by using the <code>m-0</code> utility class.</li>
+<li>In some contexts (e.g. in card components) you may not want any built-in spacing for typographic block elements. Then, you can remove margins by using the <code>mb-0</code> utility class.</li>
 <li>You can also remove top margin indirectly: e.g. you can target the first item inside its wrapper using <code>.your-wrapper:first-child { margin-top: 0; }</code>, or the first sibling after the <code>&lt;header&gt;</code> or <code>&lt;h1&gt;</code>. Same as I have done in Baselayer at <code>.content-grid &gt; h2:first-child { margin-top: 0; }</code>.</li>
 </ol>
 <h3 id="block-quotes" tabindex="-1">Block quotes</h3>
@@ -810,9 +861,9 @@ window.addEventListener("DOMContentLoaded", () => {
 <p>The base font size is 100% (usually 16px). Additionally:</p>
 <ol>
 <li>There’s a <code>t-lg</code> class that can be used to make text 1.325em — good for a lead paragraph, large button, or important messaging.</li>
-<li>Classes <code>.h1</code> through <code>.h6</code> will resize text the same amount as for their respective heading tag sizes — use when you want to make text bigger (or large text smaller) without adversely affecting accessibility/ SEO heading hierarchy.</li>
-<li>The <code>t-long-read</code> wrapping class uses a <code>clamp()</code> to ramp text from starting size 1em up to 1.25em (20px default) depending on container size. E.g. used for responsively increasing text size in <em>article prose components</em>. <code>&lt;h1&gt;</code> inside a <code>t-long-read</code> will have maximum font size 45px.</li>
-<li>The <code>t-display</code> wrapping class uses a <code>clamp()</code> to raise text from starting size 1em up to 2.5em (40px default) depending on container size. E.g. used for responsively increasing text size in <em>hero components</em>. <code>&lt;h1&gt;</code> inside a <code>t-display</code> will have maximum font size 72px.</li>
+<li>Classes <code>.h1</code> through <code>.h6</code> will resize text the same amount as for their respective heading tag sizes — use these when you want to make text bigger (or large text smaller) without adversely affecting accessibility/ SEO heading hierarchy.</li>
+<li>The <code>t-long-read</code> wrapping class uses a <code>clamp()</code> to ramp text from starting size 1em up to 1.25em (20px default) depending on container size. E.g. used for responsively increasing text size in <em>article prose components</em>. <code>&lt;h1&gt;</code> inside a <code>t-long-read</code> will have maximum font size 61px.</li>
+<li>The <code>t-display</code> wrapping class uses a <code>clamp()</code> to raise text from starting size 1em up to 2.5em (40px default) depending on container size. E.g. used for responsively increasing text size in <em>hero components</em>. <code>&lt;h1&gt;</code> inside a <code>t-display</code> will have maximum font size 97px.</li>
 </ol>
 <h2 id="code" tabindex="-1">Code</h2>
 <p><code>&lt;code&gt;</code> tags have monospaced text (set by <code>--t-mono</code>) over a white or black background (in light or dark modes), with a thin border and a little padding to improve readability.</p>
@@ -863,7 +914,7 @@ window.addEventListener("DOMContentLoaded", () => {
                   </svg>
                 <span class="h3 m-0 t-normal t-nowrap">Baselayer CSS</span>
               </a>
-              <span>Version: 3.5.2</span>
+              <span>Version: 3.5.3</span>
             </div>
 
             <p class="p-cell flex flex-center flex-wrap gap-4 t-center">
