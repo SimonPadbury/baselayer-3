@@ -110,14 +110,14 @@
       color-mix(in oklch, var(--gray), var(--l100))
     );
     --tc-link: light-dark(
-      color-mix(in oklch, var(--blue), var(--l600)),
+      color-mix(in oklch, var(--blue), var(--l500)),
       color-mix(in oklch, var(--blue), var(--l400))
     );
     --tc-btn: white;
     --tc-btn-hover: white;
     --bgc-btn: light-dark(
-      color-mix(in oklch, var(--gray), var(--l500)),
-      color-mix(in oklch, var(--gray), var(--l600))
+      color-mix(in oklch, var(--gray), var(--l450)),
+      color-mix(in oklch, var(--gray), var(--l550))
     );
     --bgc-btn-hover: light-dark(
       color-mix(in oklch, var(--gray), var(--l600)),
