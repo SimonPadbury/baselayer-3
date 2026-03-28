@@ -81,8 +81,9 @@
   }
 
   a {
+    --tc: var(--tc-link);
     text-decoration: underline;
-    color: var(--tc-link);
+    color: var(--tc);
     cursor: pointer;
     transition: all 0.15s ease;
     text-decoration-skip-ink: auto;
