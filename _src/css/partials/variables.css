@@ -46,10 +46,9 @@
     --t-sm: 0.825em;
     --t-lg: 1.325em;
     --t-long-read: clamp(1em, 0.5em + 1.25cqi, 1.25em);
-    --t-display: clamp(1em, -1em + 5cqi, 2em);
-    /*
-    Used https://clamp.font-size.app/ but changed vw to cqi and rem changed to em
-    */
+    --t-comfort: clamp(1em, 0.375em + 1.5625cqi, 1.625em);
+    --t-display: clamp(1em, 0.2em + 2cqi, 2rem);
+    /* Used https://clamp.font-size.app/ but changed vw to cqi and rem changed to em */
 
     /* Font weights */
     --t-thin: 200;
@@ -76,12 +75,6 @@
     --h3: calc(var(--h4) * var(--t-scale));
     --h2: calc(var(--h3) * var(--t-scale));
     --h1: calc(var(--h2) * var(--t-scale));
-    /* --h1: 2.25em;
-    --h2: 1.625em;
-    --h3: 1.325em;
-    --h4: 1.115em;
-    --h5: 1em;
-    --h6: 0.875em; */
     --h-ff: inherit;
     /* headings font family */
     --h-fw: var(--t-semibold);
@@ -145,15 +138,25 @@
     --color-focus: var(--amber);
 
     /* Color lightness levels */
-    --l100: white 90%;
-    --l200: white 72%;
-    --l300: white 54%;
-    --l400: white 36%;
-    --l500: white 18%;
-    --l600: black 0%;
-    --l700: black 18%;
-    --l800: black 36%;
-    --l900: black 54%;
-    --l1000: black 72%;
+    --l50: white 95%;
+    --l100: white 84%;
+    --l150: white 74%;
+    --l200: white 63%;
+    --l250: white 53%;
+    --l300: white 42%;
+    --l350: white 32%;
+    --l400: white 21%;
+    --l450: white 11%;
+    --l500: black 0%;
+    --l550: black 8%;
+    --l600: black 17%;
+    --l650: black 26%;
+    --l700: black 34%;
+    --l750: black 42%;
+    --l800: black 51%;
+    --l850: black 60%;
+    --l900: black 68%;
+    --l950: black 76%;
+    --l1000: black 85%;
   }
 }

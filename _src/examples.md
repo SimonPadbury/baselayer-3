@@ -99,13 +99,14 @@ Using `equal-` modifiers on the grid wrapper will both equalize column width and
 
 ## Text sizes
 
-See [typography: making text bigger]({{ "/typography/#making-text-bigger" | url }}). `t-long-read` and `t-display` involve a `clamp()`.
+See [typography: making text bigger]({{ "/typography/#making-text-bigger" | url }}). `t-long-read`, `t-comfort`, and `t-display` involve a `clamp()`.
 
-<div class="wrapper-lg overflow-x">
+<div class="wrapper-xl overflow-x">
   <table class="table">
     <thead>
       <th>Default</th>
       <th><code>t-long-read</code> wrapper</th>
+      <th><code>t-comfort</code> wrapper</th>
       <th><code>t-display</code> wrapper</th>
     <thead>
     <tbody>
@@ -128,6 +129,15 @@ See [typography: making text bigger]({{ "/typography/#making-text-bigger" | url 
           <h6>Heading 6</h6>
           <p>Paragraph. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni rem animi quaerat accusantium illum architecto, nemo, ex harum voluptatum adipisci eum blanditiis dolorum. Natus debitis quisquam, expedita accusantium quos cumque?</p>
         </td>
+        <td class="t-comfort">
+          <h1>Heading 1</h1>
+          <h2>Heading 2</h2>
+          <h3>Heading 3</h3>
+          <h4>Heading 4</h4>
+          <h5>Heading 5</h5>
+          <h6>Heading 6</h6>
+          <p>Paragraph. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni rem animi quaerat accusantium illum architecto, nemo, ex harum voluptatum adipisci eum blanditiis dolorum. Natus debitis quisquam, expedita accusantium quos cumque?</p>
+        </td>
         <td class="t-display">
           <h1>Heading 1</h1>
           <h2>Heading 2</h2>
@@ -135,6 +145,7 @@ See [typography: making text bigger]({{ "/typography/#making-text-bigger" | url 
           <h4>Heading 4</h4>
           <h5>Heading 5</h5>
           <h6>Heading 6</h6>
+          <p>Paragraph. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni rem animi quaerat accusantium illum architecto, nemo, ex harum voluptatum adipisci eum blanditiis dolorum. Natus debitis quisquam, expedita accusantium quos cumque?</p>
         </td>
       </tr>
     </tbody>

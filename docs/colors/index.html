@@ -7,7 +7,7 @@
 
   <title>Colors · Baselayer CSS</title>
 
-  <link rel="stylesheet" href="/baselayer-3/css/min/baselayer.min.css?v=3.5.3">
+  <link rel="stylesheet" href="/baselayer-3/css/min/baselayer.min.css?v=3.5.4">
 
   <style>
   html {
@@ -291,7 +291,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
     <div id="js-menu-wrapper">
       <div class="m-3 bt-thin bb-thin py-3 flex flex-center flex-wrap gap-3 links-underlined-hover-only">
-        <span class="t-gray t-600 dark:t-400">Version: 3.5.3</span>
+        <span class="t-gray t-600 dark:t-400">Version: 3.5.4</span>
         <a class="t-gray t-800 dark:t-200 hover:t-900 hover:dark:t-100" href="https://github.com/SimonPadbury/baselayer-3">GitHub</a>
         <span>
           <a class="t-gray t-800 dark:t-200 hover:t-900 hover:dark:t-100" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> <span class="t-gray t-600 t-dark-invert">(25 KB)</span>
@@ -385,7 +385,7 @@ window.addEventListener("DOMContentLoaded", () => {
           </div>
 
           <header id="article-title">
-            <div class="wrapper-md py-4 t-center t-display">
+            <div class="wrapper-md py-3 t-center t-comfort">
               <h1 class="my-4 t-balance t-bold">Colors</h1>
             </div>
           </header>
@@ -400,10 +400,10 @@ window.addEventListener("DOMContentLoaded", () => {
         </div>
         <div class="lg:col-span-3">
           <main id="article-content" class="content-grid">
-            <p><code>color-mix(in OKLCH ... )</code> has been <a href="https://developer.mozilla.org/en-US/docs/Glossary/Baseline/Compatibility">Baseline:widely available</a> since March 2023 — all “evergreen” browsers (Chrome, Edge, Firefox, Safari) have capability to use it (see <a href="https://caniuse.com/?search=color-mix()">Can I use</a>). Baselayer uses this function to set up a range of lightness levels for its built-in colors.</p>
+            <p><code>color-mix(in OKLCH ... )</code> has been <a href="https://developer.mozilla.org/en-US/docs/Glossary/Baseline/Compatibility">Baseline:widely available</a> since March 2023 — all “evergreen” browsers (Chrome, Edge, Firefox, Safari) have capability to use it (see <a href="https://caniuse.com/?search=color-mix()">Can I use</a>). Baselayer uses this function to set up a range of lightness levels for its five built-in colors.</p>
 <h2 id="rationale-for-baselayer%E2%80%99s-color-system" tabindex="-1">Rationale for Baselayer’s color system</h2>
 <p>I wanted to develop a color system based on interpolating CSS variables for generating a series <em>lightness levels</em> for each color, so that the stylesheet doesn’t need to be loaded with lighness classes for every color — most of which you’d never use.</p>
-<p>After experimenting with variables in <em>lightness channels</em> within color codes, I discovered the new (mid-2023) <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/color-mix">color-mix() function</a>. Using <code>color-mix()</code> is better suited to what I was trying to do. With it we can build a series of lightness levels by mixing in white (for tints) or black (for shades).</p>
+<p>After experimenting with variables in <em>lightness channels</em> within color codes, I discovered the new (mid-2023) <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/color-mix">color-mix() function</a>. Using <code>color-mix() </code> is better suited to what I was trying to do. With it we can build a series of lightness levels by mixing in white (for tints) or black (for shades).</p>
 <p>For usefulness in Baselayer CSS, starting color swatches need to have a mid-range lightness level, but they can be specified using any system (currently, Baselayer default colors are set using Hex <code>#</code> codes).</p>
 <table class="table table-fixed">
 <thead>
@@ -421,7 +421,7 @@ window.addEventListener("DOMContentLoaded", () => {
 <td><div class="p-3 rad bg-gray">&nbsp;<div></td>
 </tbody>
 </table>
-<p>And the color-mix function now outputs colors in <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/oklch">OKLCH</a> using <code>color-mix(in OKLCH ...)</code> because this gives perceptually uniform lightness levels.</p>
+<p>And the color-mix function now outputs colors in <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/oklch">OKLCH</a> using <code>color-mix(in OKLCH ...) </code> because this gives perceptually uniform lightness levels.</p>
 <p>The color utility CSS class names remain the same as before (explained below). Example using background <code>bg-*</code> utility classes:</p>
 <div class="full-bleed mt-3 mb-4 p-2 flex flex-center flex-wrap">
   <div style="width: clamp(96px, 15cqi, 208px)">
@@ -524,6 +524,36 @@ window.addEventListener("DOMContentLoaded", () => {
 </tbody>
 </table>
 </div>
+<p>Notes on lightness levels:</p>
+<ol>
+<li>The utility class lightness level suffixes go up in hundreds, from <code>-100</code> to <code>.900</code>.</li>
+<li>However, the CSS variable lightness level suffixes go up in fifties, from <code>--l50</code> to <code>--l1000</code> — giving you more options.</li>
+</ol>
+<pre><code class="language-css">@layer bl-variables {
+  :root {
+    --l50: white 95%;
+    --l100: white 84%;
+    --l150: white 74%;
+    --l200: white 63%;
+    --l250: white 53%;
+    --l300: white 42%;
+    --l350: white 32%;
+    --l400: white 21%;
+    --l450: white 11%;
+    --l500: black 0%;
+    --l550: black 8%;
+    --l600: black 17%;
+    --l650: black 26%;
+    --l700: black 34%;
+    --l750: black 42%;
+    --l800: black 51%;
+    --l850: black 60%;
+    --l900: black 68%;
+    --l950: black 76%;
+    --l1000: black 85%;
+  }
+}
+</code></pre>
 <p>Example border, text and background utilities:</p>
 <div class="mt-3 mb-4 flex flex-grow-equal gap-1 gap-2">
   <div class="b-heavy b-green p-3 flex flex-center flex-middle"><span class="t-nowrap">b-green</span></div>
@@ -589,7 +619,6 @@ window.addEventListener("DOMContentLoaded", () => {
 <h2 id="adding-more-colors" tabindex="-1">Adding more colors</h2>
 <p>You can, of course, add any colors you want, and in any format you want.</p>
 <p>However, if you want to use Baselayer’s lightness modifier classes <code>-100</code> thorugh <code>-900</code> on your colors, then you need to start from a <em>mid-lightness</em> color so that the <code>-100</code> and the <code>-900</code> generated by the <code>color-mix()</code> formulas are distinguishable (not to chose to white or too close to black).</p>
-<p>Also, you will need to put your color(s) in CSS layer <code>@layer colors {}</code> so that they take precence over the Baselayer lightness modifiers and other color utilities.</p>
 <p>You can add your own project colors in any format, but the Baselayer <code>color-mix()</code> formulas will output shade in OKLCH format.</p>
 <p>Examples:</p>
 <pre><code class="language-css">:root {
@@ -597,17 +626,33 @@ window.addEventListener("DOMContentLoaded", () => {
   --teal: #0080A2;
 }
 
-@layer colors {
-  .bg-purple {
-    --bgc: var(--purple);
-    background: var(--bgc);
-  }
-  .bg-teal {
-    --bgc: var(--teal);
-    background: var(--bgc);
-  }
+/* If you want to create your own utility classes */
+
+/* Border colors */
+.b-purple {
+  --bc: var(--purple);
+}
+.b-teal {
+  --bc: var(--teal);
+}
+
+/* Text colors */
+.t-purple {
+  --tc: var(--purple);
+}
+.t-teal {
+  --tc: var(--teal);
+}
+
+/* Background colors*/
+.bg-purple {
+  --bgc: var(--purple);
+}
+.bg-teal {
+  --bgc: var(--teal);
 }
 </code></pre>
+<p><strong>Note:</strong> you only need to put the CSS variables within the utility classes. Baselayer will handle everything else, including the lightness level utilities and dark theme utilities.</p>
 <h2 id="dark-theme" tabindex="-1">Dark theme</h2>
 <p>Baselayer has a simple dark theme built in. Since v.3.4.0, the user’s operating system preference for light or dark mode is automatically detected on the HTML tag:</p>
 <pre><code class="language-css">html {
@@ -630,7 +675,7 @@ window.addEventListener("DOMContentLoaded", () => {
   */
   --bgc-body: light-dark(
     white,
-    color-mix(in oklch, var(--gray), var(--l1000)));
+    color-mix(in oklch, var(--gray), var(--l950)));
 
   /*
   Base text color (also set on the body tag)
@@ -737,10 +782,10 @@ window.addEventListener("DOMContentLoaded", () => {
 <p>Black and white are explicitly named colors in baselayer. They do not have lightness levels.</p>
 <p><strong>New in Baselayer v.3.5:</strong> If you want something black in the light theme but white in the dark theme (and vise versa), Baselayer has <code>*-reversi</code> and <code>*-reversi-flip</code> classes that handle this. See <a href="https://en.wikipedia.org/wiki/Reversi">reversi</a>.</p>
 <ul>
-<li><code>*-black</code> — named color black</li>
-<li><code>*-white</code> — named color white</li>
-<li><code>*-reversi</code> — black for light theme; white for dark theme</li>
-<li><code>*-reversi-flip</code> — white for light theme; black for dark theme</li>
+<li><code>*-black</code> / <code>hover:*-black</code> — named color black</li>
+<li><code>*-white</code> / <code>hover:*-white</code> — named color white</li>
+<li><code>*-reversi</code> / <code>hover:*-reversi</code> — black for light theme; white for dark theme</li>
+<li><code>*-reversi-flip</code> / <code>hover:*-reversi-flip</code> — white for light theme; black for dark theme</li>
 </ul>
 <div class="my-2 flex flex-center gap-2">
 <div class="w-xs">
@@ -806,7 +851,7 @@ window.addEventListener("DOMContentLoaded", () => {
                   </svg>
                 <span class="h3 m-0 t-normal t-nowrap">Baselayer CSS</span>
               </a>
-              <span>Version: 3.5.3</span>
+              <span>Version: 3.5.4</span>
             </div>
 
             <p class="p-cell flex flex-center flex-wrap gap-4 t-center">

@@ -1,82 +1,93 @@
 @layer bl-colors {
   /* Border colors */
 
-  .b-blue {
+  [class*="b-"] {
+    border-color: var(--bc);
+  }
+  [class*="t-"] {
+    color: var(--tc);
+  }
+  [class*="bg-"] {
+    background: var(--bgc);
+  }
+
+  .b-blue,
+  .hover\:b-blue:hover {
     --bc: var(--blue);
-    border-color: var(--bc);
   }
 
-  .b-green {
+  .b-green,
+  .hover\:b-green:hover {
     --bc: var(--green);
-    border-color: var(--bc);
   }
 
-  .b-amber {
+  .b-amber,
+  .hover\:b-amber:hover {
     --bc: var(--amber);
-    border-color: var(--bc);
   }
 
-  .b-red {
+  .b-red,
+  .hover\:b-red:hover {
     --bc: var(--red);
-    border-color: var(--bc);
   }
 
-  .b-gray {
+  .b-gray,
+  .hover\:b-gray:hover {
     --bc: var(--gray);
-    border-color: var(--bc);
   }
 
   /* Text colors */
 
-  .t-blue {
+  .t-blue,
+  .hover\:t-blue:hover {
     --tc: var(--blue);
-    color: var(--tc);
   }
 
-  .t-green {
+  .t-green,
+  .hover\:t-green:hover {
     --tc: var(--green);
-    color: var(--tc);
   }
 
-  .t-amber {
+  .t-amber,
+  .hover\:t-amber:hover {
     --tc: var(--amber);
-    color: var(--tc);
   }
 
-  .t-red {
+  .t-red,
+  .hover\:t-red:hover {
     --tc: var(--red);
-    color: var(--tc);
   }
 
-  .t-gray {
+  .t-gray,
+  .hover\:t-gray:hover {
     --tc: var(--gray);
-    color: var(--tc);
   }
 
   /* Background colors */
-  .bg-blue {
+
+  .bg-blue,
+  .hover\:bg-blue:hover {
     --bgc: var(--blue);
-    background: var(--bgc);
   }
 
-  .bg-green {
+  .bg-green,
+  .hover\:bg-green:hover {
     --bgc: var(--green);
-    background: var(--bgc);
   }
 
-  .bg-amber {
+  .bg-amber,
+  .hover\:bg-amber:hover {
     --bgc: var(--amber);
-    background: var(--bgc);
   }
 
-  .bg-red {
+  .bg-red,
+  .hover\:bg-red:hover {
     --bgc: var(--red);
-    background: var(--bgc);
   }
 
-  .bg-gray {
+  .bg-gray,
+  .hover\:bg-gray:hover {
     --bgc: var(--gray);
-    background: var(--bgc);
   }
 
   /* Border lightness levels */
@@ -437,10 +448,10 @@
     --bgld: var(--l900);
   }
 
-  /* Colors - other*/
+  /* Colors - other */
 
-  .bg-transparent:not(:hover) {
-    background: transparent;
+  .b-currentcolor {
+    border-color: currentColor;
   }
 
   .b-white,

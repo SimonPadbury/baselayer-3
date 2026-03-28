@@ -370,6 +370,10 @@
     font-size: var(--t-long-read);
   }
 
+  .t-comfort {
+    font-size: var(--t-comfort);
+  }
+
   .t-display {
     font-size: var(--t-display);
   }

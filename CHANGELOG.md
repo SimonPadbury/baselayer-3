@@ -10,9 +10,14 @@
 
 # Baselayer 3 changelog
 
+## v.3.5.4 -- 28 Mar 2026
+
+* Added `t-comfort` enlarged text wrapper (between `t-long-read` and `t-display`).
+* Improved the color lightness levels variables. Now the CSS variable lightness level suffixes go up in fifties, from `--l50` to `--l1000` (while the utility classes still go out in hundreds, from `-100` to `-900`).
+
 ## v.3.5.3 -- 14 Feb 2026
 
-* Refactored heading tag (and heading size utilities) font-sizes to _major third_ typographic scale. This is set in the root variables by `--t-scale: 1,25;`
+* Refactored heading tag (and heading size utilities) font-sizes to _major third_ typographic scale. This is set in the root variables by `--t-scale: 1.25;`
 
 ## v.3.5.2 -- 24 Jan 2026
 
