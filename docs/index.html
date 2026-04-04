@@ -7,7 +7,7 @@
 
   <title>Getting started · Baselayer CSS</title>
 
-  <link rel="stylesheet" href="/baselayer-3/css/min/baselayer.min.css?v=3.5.4">
+  <link rel="stylesheet" href="/baselayer-3/css/min/baselayer.min.css?v=3.5.5">
 
   <style>
   html {
@@ -263,7 +263,7 @@ window.addEventListener("DOMContentLoaded", () => {
   </script>
   <!-- Current page: /baselayer-3/ -->
 
-  <a href="#content-wrap" tabindex="1" class="block p-2 visually-hidden">Skip to page content</a>
+  <a href="#content-wrap" tabindex="1" class="inline-block m-2 visually-hidden">Skip to page content</a>
 
   <div id="body-wrap" class="md:flex">
 
@@ -291,7 +291,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
     <div id="js-menu-wrapper">
       <div class="m-3 bt-thin bb-thin py-3 flex flex-center flex-wrap gap-3 links-underlined-hover-only">
-        <span class="t-gray t-600 dark:t-400">Version: 3.5.4</span>
+        <span class="t-gray t-600 dark:t-400">Version: 3.5.5</span>
         <a class="t-gray t-800 dark:t-200 hover:t-900 hover:dark:t-100" href="https://github.com/SimonPadbury/baselayer-3">GitHub</a>
         <span>
           <a class="t-gray t-800 dark:t-200 hover:t-900 hover:dark:t-100" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> <span class="t-gray t-600 t-dark-invert">(25 KB)</span>
@@ -394,7 +394,7 @@ window.addEventListener("DOMContentLoaded", () => {
           <nav id="toc-outer" class="sticky top w-sm h-max-100dvh mx-auto mb-3 px-2 links-underline-hover-only overflow-y">
             <p class="h4 t-semibold">On this page</p>
             <nav class="toc" >
-        <ul><li><a href="#introduction">Introduction</a></li><li><a href="#modern-css-technologies">Modern CSS technologies</a></li><li><a href="#baselayer%E2%80%99s-design-philosophy">Baselayer’s design philosophy</a></li><li><a href="#built-using-postcss">Built using PostCSS</a></li><li><a href="#a-modern-css-reset">A modern CSS reset</a></li><li><a href="#baselayer%E2%80%99s-built-in-accessibility-features">Baselayer’s built-in accessibility features</a><ul><li><a href="#(1.)-focus-states">(1.) Focus states</a></li><li><a href="#(2.)-the-visually-hidden-class">(2.) The visually-hidden class</a></li></ul></li></ul>
+        <ul><li><a href="#introduction">Introduction</a></li><li><a href="#modern-css-technologies">Modern CSS technologies</a></li><li><a href="#baselayer%E2%80%99s-design-philosophy">Baselayer’s design philosophy</a></li><li><a href="#built-using-postcss">Built using PostCSS</a></li><li><a href="#a-modern-css-reset">A modern CSS reset</a></li><li><a href="#baselayer%E2%80%99s-built-in-accessibility-features">Baselayer’s built-in accessibility features</a><ul><li><a href="#(1.)-focus-states">(1.) Focus states</a></li><li><a href="#(2.)-the-visually-hidden-(screen-reader-only)-class">(2.) The visually-hidden (screen-reader only) class</a></li></ul></li></ul>
       </nav>
           </nav>
         </div>
@@ -447,17 +447,13 @@ window.addEventListener("DOMContentLoaded", () => {
 <h2 id="baselayer%E2%80%99s-built-in-accessibility-features" tabindex="-1">Baselayer’s built-in accessibility features</h2>
 <p>Baselayer has two “must have” accessibility features built-in.</p>
 <h3 id="(1.)-focus-states" tabindex="-1">(1.) Focus states</h3>
+<p>Baselayer uses the browser’s built-in focus ring styles, slightly improved by a thickeing the  ring and moving it out a little to improve legibility of link text. In modern browsers the focus ring is clearly visible in a range of contexts, and in both light and dark themes. (See also <a href="/baselayer-3/colors/#colors-and-accessibility">colors and accessibility</a>.) A z-index raise has been added to prevent the focus ring tucking under a neighbouring item, e.g. in input/button groups.</p>
+<pre><code class="language-css">:focus-visible {
+  outline: 0.125rem solid -webkit-focus-ring-color;
+  outline-offset: 0.125rem;
+}
+</code></pre>
 <p>After experimenting and testing various focus state styles, I have decided to base Baselayer’s on the ones in the UK National Health Service <a href="https://design-system.service.gov.uk/get-started/focus-states/">NHS.uk design system</a> and the UK Government <a href="https://design-system.service.gov.uk/get-started/focus-states/">GOV.UK design system</a>.</p>
-<ol>
-<li>
-<p>Links receive an amber background, black text and a thick black underline on <code>:focus-visible</code> — so that the element is clearly visible in a wide range of contexts.</p>
-</li>
-<li>
-<p>Interacive elements such as form inputs, form buttons, collapsible details, and elements with overflowing content have what looks like a yellow and black “double border” that appears on <code>:focus</code> (actually its created by an outline and a box shadow).</p>
-</li>
-</ol>
-<p><strong>Note:</strong> A <code>&lt;button&gt;</code> that is not within a <code>&lt;form&gt;</code>, and a <code>&lt;button type=&quot;button&quot;&gt;</code> will not receive the <code>:focus</code> ring (but it will receive the ring on <code>:focus-visible</code>). Ths is true for most browsers except Safari: Safari does not show <code>:focus</code> rings on buttons, and it does not place tabbing focus on overflowing elements, or on the color-picker input.</p>
-<p>These focus states are visible on a wide range of colored backgrounds, in both light and dark themes. (See also <a href="/baselayer-3/colors/#colors-and-accessibility">colors and accessibility</a>.) A z-index raise has been added to prevent the focus ring tucking under a neighbouring item, e.g. in input/button groups.</p>
 <p>Examples:</p>
 <form class="my-3">
   <fieldset class="flex">
@@ -487,7 +483,7 @@ window.addEventListener("DOMContentLoaded", () => {
     </div>
   </div>
 </div>
-<h3 id="(2.)-the-visually-hidden-class" tabindex="-1">(2.) The <code>visually-hidden</code> class</h3>
+<h3 id="(2.)-the-visually-hidden-(screen-reader-only)-class" tabindex="-1">(2.) The visually-hidden (screen-reader only) class</h3>
 <p>The <code>visually-hidden</code> is used to provide additional content for screen-readers, for improved accessibility. For example, it is best practice to have “skip link” above the top navigation bar on your website, but have it (visually) hidden for ably sighted users.</p>
 <pre><code class="language-html">&lt;a href=&quot;#main-content&quot;
   tabindex=&quot;1&quot;
@@ -530,7 +526,7 @@ window.addEventListener("DOMContentLoaded", () => {
                   </svg>
                 <span class="h3 m-0 t-normal t-nowrap">Baselayer CSS</span>
               </a>
-              <span>Version: 3.5.4</span>
+              <span>Version: 3.5.5</span>
             </div>
 
             <p class="p-cell flex flex-center flex-wrap gap-4 t-center">

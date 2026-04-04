@@ -65,15 +65,16 @@ Baselayer has two “must have” accessibility features built-in.
 
 ### (1.) Focus states
 
+Baselayer uses the browser’s built-in focus ring styles, slightly improved by a thickeing the  ring and moving it out a little to improve legibility of link text. In modern browsers the focus ring is clearly visible in a range of contexts, and in both light and dark themes. (See also [colors and accessibility]({{ "/colors/#colors-and-accessibility" | url }}).) A z-index raise has been added to prevent the focus ring tucking under a neighbouring item, e.g. in input/button groups.
+
+```css
+:focus-visible {
+  outline: 0.125rem solid -webkit-focus-ring-color;
+  outline-offset: 0.125rem;
+}
+```
+
 After experimenting and testing various focus state styles, I have decided to base Baselayer’s on the ones in the UK National Health Service [NHS.uk design system](https://design-system.service.gov.uk/get-started/focus-states/) and the UK Government [GOV.UK design system](https://design-system.service.gov.uk/get-started/focus-states/).
-
-1. Links receive an amber background, black text and a thick black underline on `:focus-visible` — so that the element is clearly visible in a wide range of contexts.
-
-2. Interacive elements such as form inputs, form buttons, collapsible details, and elements with overflowing content have what looks like a yellow and black “double border” that appears on `:focus` (actually its created by an outline and a box shadow).
-
-**Note:** A `<button>` that is not within a `<form>`, and a `<button type="button">` will not receive the `:focus` ring (but it will receive the ring on `:focus-visible`). Ths is true for most browsers except Safari: Safari does not show `:focus` rings on buttons, and it does not place tabbing focus on overflowing elements, or on the color-picker input.
-
-These focus states are visible on a wide range of colored backgrounds, in both light and dark themes. (See also [colors and accessibility]({{ "/colors/#colors-and-accessibility" | url }}).) A z-index raise has been added to prevent the focus ring tucking under a neighbouring item, e.g. in input/button groups.
 
 Examples:
 
@@ -108,7 +109,7 @@ Keyboard-tab through these links and buttons to see the focus rings:
   </div>
 </div>
 
-### (2.) The `visually-hidden` class
+### (2.) The visually-hidden (screen-reader only) class
 
 The `visually-hidden` is used to provide additional content for screen-readers, for improved accessibility. For example, it is best practice to have “skip link” above the top navigation bar on your website, but have it (visually) hidden for ably sighted users.
 

@@ -10,6 +10,11 @@
 
 # Baselayer 3 changelog
 
+## v.3.5.5 -- 4 Apr 2026
+
+* Simplified the sccessibility focus states by reverting to the browser deaults (modern evergreen browser defaults are good), but improved by thickening and ofsetting the ring, and raising its z-index.
+* Added the class name `sr-only` to `visually-hidden`.
+
 ## v.3.5.4 -- 28 Mar 2026
 
 * Added `t-comfort` enlarged text wrapper (between `t-long-read` and `t-display`).

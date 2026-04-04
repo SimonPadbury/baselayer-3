@@ -1,31 +1,12 @@
 @layer bl-accessibility {
-  /*
-   * Based on the design systems of the UK Government (GOV.UK) and the UK National Health Service (NHS)
-   * https://design-system.service.gov.uk/get-started/focus-states/
-   * https://service-manual.nhs.uk/design-system/styles/focus-state
-   */
-  a:focus-visible {
-    outline: none;
-    color: black !important;
-    text-decoration: underline;
-    text-decoration-thickness: var(--a-deco-thickness-hover);
-    background-color: var(--color-focus) !important;
-  }
-
-  input:focus,
-  textarea:focus,
-  select:focus,
-  form button:focus,
-  button:focus-visible,
-  a:focus-visible > img {
-    position: relative;
-    box-shadow: 0 0 0 3px black;
-    outline: 3px solid var(--color-focus);
-    outline-offset: 3px;
+  :focus-visible {
+    outline: 0.125rem solid -webkit-focus-ring-color;
+    outline-offset: 0.125rem;
     z-index: 1;
   }
 
-  /* Screen-eader only (and appears when tabbing, etc.) */
+  /* Screen-reader only (and appears when tabbing, etc.) */
+  .sr-only:not(:focus):not(:active),
   .visually-hidden:not(:focus):not(:active) {
     position: absolute;
     width: 1px;
