@@ -86,18 +86,18 @@ pre code {
     min-width: var(--w-xs);
   }
 
-  .ms-windows #site-nav>div {
+  .ms-windows #site-nav > div {
     scrollbar-gutter: stable;
     overflow-y: hidden;
   }
 
-  .ms-windows #site-nav:hover>div {
+  .ms-windows #site-nav:hover > div {
     overflow-y: auto;
   }
 }
 
 @container (min-width: 1280px) {
-  #toc-outer>p {
+  #toc-outer > p {
     padding-top: var(--s-3);
   }
 
@@ -144,18 +144,19 @@ pre code {
   border-radius: 0 3em 3em 0;
   font-size: 0.85rem;
   font-weight: normal;
-  background-color: transparent;
+  background: transparent;
 }
 
 .pagefind-ui__results-area {
   margin-top: var(--s-3);
 }
 
-div:not(.pagefind-ui__result-nested)>.pagefind-ui__result-title {
+div:not(.pagefind-ui__result-nested) > .pagefind-ui__result-title {
   margin-bottom: 0;
   font-size: var(--h4);
   font-weight: var(--t-semibold);
 }
+
   </style>
 
   <script>
@@ -631,28 +632,34 @@ window.addEventListener("DOMContentLoaded", () => {
 /* Border colors */
 .b-purple {
   --bc: var(--purple);
+  border-color: var(--bc);
 }
 .b-teal {
   --bc: var(--teal);
+  border-color: var(--bc);
 }
 
 /* Text colors */
 .t-purple {
   --tc: var(--purple);
+  color: var(--tc);
 }
 .t-teal {
   --tc: var(--teal);
+  border-color: var(--tc);
 }
 
 /* Background colors*/
 .bg-purple {
   --bgc: var(--purple);
+  background: var(--bgc);
 }
 .bg-teal {
   --bgc: var(--teal);
+  background: var(--bgc);
 }
 </code></pre>
-<p><strong>Note:</strong> you only need to put the CSS variables within the utility classes. Baselayer will handle everything else, including the lightness level utilities and dark theme utilities.</p>
+<p><strong>Note:</strong> you need to declate the colors as CSS variables so that they are available for the lightness utilities.</p>
 <h2 id="dark-theme" tabindex="-1">Dark theme</h2>
 <p>Baselayer has a simple dark theme built in. Since v.3.4.0, the user’s operating system preference for light or dark mode is automatically detected on the HTML tag:</p>
 <pre><code class="language-css">html {

@@ -276,29 +276,35 @@ Examples:
 /* Border colors */
 .b-purple {
   --bc: var(--purple);
+  border-color: var(--bc);
 }
 .b-teal {
   --bc: var(--teal);
+  border-color: var(--bc);
 }
 
 /* Text colors */
 .t-purple {
   --tc: var(--purple);
+  color: var(--tc);
 }
 .t-teal {
   --tc: var(--teal);
+  border-color: var(--tc);
 }
 
 /* Background colors*/
 .bg-purple {
   --bgc: var(--purple);
+  background: var(--bgc);
 }
 .bg-teal {
   --bgc: var(--teal);
+  background: var(--bgc);
 }
 ```
 
-**Note:** you only need to put the CSS variables within the utility classes. Baselayer will handle everything else, including the lightness level utilities and dark theme utilities.
+**Note:** you need to declate the colors as CSS variables so that they are available for the lightness utilities.
 
 ## Dark theme
 

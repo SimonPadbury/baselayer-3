@@ -16,6 +16,6 @@
     font-family: var(--t-default);
     font-size: var(--t-base);
     color: var(--tc-base);
-    background-color: var(--bgc-body);
+    background: var(--bgc-body);
   }
 }

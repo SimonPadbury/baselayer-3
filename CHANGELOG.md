@@ -14,6 +14,7 @@
 
 * Simplified the sccessibility focus states by reverting to the browser deaults (modern evergreen browser defaults are good), but improved by thickening and ofsetting the ring, and raising its z-index.
 * Added the class name `sr-only` to `visually-hidden`.
+* Bug fix for colors.
 
 ## v.3.5.4 -- 28 Mar 2026
 

@@ -1,7 +1,7 @@
 @layer bl-colors {
   /* Border colors */
 
-  [class*="b-"] {
+  /* [class*="b-"] {
     border-color: var(--bc);
   }
   [class*="t-"] {
@@ -9,31 +9,36 @@
   }
   [class*="bg-"] {
     background: var(--bgc);
-  }
+  } */
 
   .b-blue,
   .hover\:b-blue:hover {
     --bc: var(--blue);
+    border-color: var(--bc);
   }
 
   .b-green,
   .hover\:b-green:hover {
     --bc: var(--green);
+    border-color: var(--bc);
   }
 
   .b-amber,
   .hover\:b-amber:hover {
     --bc: var(--amber);
+    border-color: var(--bc);
   }
 
   .b-red,
   .hover\:b-red:hover {
     --bc: var(--red);
+    border-color: var(--bc);
   }
 
   .b-gray,
   .hover\:b-gray:hover {
     --bc: var(--gray);
+    border-color: var(--bc);
   }
 
   /* Text colors */
@@ -41,26 +46,31 @@
   .t-blue,
   .hover\:t-blue:hover {
     --tc: var(--blue);
+    color: var(--tc);
   }
 
   .t-green,
   .hover\:t-green:hover {
     --tc: var(--green);
+    color: var(--tc);
   }
 
   .t-amber,
   .hover\:t-amber:hover {
     --tc: var(--amber);
+    color: var(--tc);
   }
 
   .t-red,
   .hover\:t-red:hover {
     --tc: var(--red);
+    color: var(--tc);
   }
 
   .t-gray,
   .hover\:t-gray:hover {
     --tc: var(--gray);
+    color: var(--tc);
   }
 
   /* Background colors */
@@ -68,26 +78,31 @@
   .bg-blue,
   .hover\:bg-blue:hover {
     --bgc: var(--blue);
+    background: var(--bgc);
   }
 
   .bg-green,
   .hover\:bg-green:hover {
     --bgc: var(--green);
+    background: var(--bgc);
   }
 
   .bg-amber,
   .hover\:bg-amber:hover {
     --bgc: var(--amber);
+    background: var(--bgc);
   }
 
   .bg-red,
   .hover\:bg-red:hover {
     --bgc: var(--red);
+    background: var(--bgc);
   }
 
   .bg-gray,
   .hover\:bg-gray:hover {
     --bgc: var(--gray);
+    background: var(--bgc);
   }
 
   /* Border lightness levels */
