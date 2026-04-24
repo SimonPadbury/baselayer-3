@@ -18,7 +18,7 @@ Ready to use as-is, Baselayer’s {{ metadata.filesize }} (minified) stylesheet 
 * A lightweight system of utility classes for controlling dimensions, positioning, spacing, borders, text, and images
 * `@container` query responsive layout utilities using CSS grid and flexbox
 * Responsive typography, layout, and spacing using `clamp()` ramps
-* A compact color lightness system based on `color-mix(in OKLCH)` for text, borders, and backgrounds
+* A compact color lightness system based on `oklch()` for text, borders, and backgrounds
 * Built-in dark mode using `light-dark()`
 * Theming control using CSS variables
 * And more
@@ -31,7 +31,7 @@ Baselayer supports only up-to-date (2023 forward) [baseline compatibility](https
 * [CSS Grid](https://caniuse.com/css-grid)
 * [Math functions (e.g. clamp)](https://caniuse.com/?search=css%20math%20functions)
 * [Custom properties (variables)](https://caniuse.com/css-variables)
-* [color-mix() function](https://caniuse.com/?search=color-mix())
+* [oklch() function](https://caniuse.com/?search=oklch())
 * [light-dark() function](https://caniuse.com/mdn-css_types_color_light-dark)
 * [CSS class nesting](https://caniuse.com/css-nesting)
 * [Cascade layers](https://caniuse.com/css-cascade-layers)
@@ -65,7 +65,10 @@ Baselayer has two “must have” accessibility features built-in.
 
 ### (1.) Focus states
 
-Baselayer uses the browser’s built-in focus ring styles, slightly improved by a thickeing the  ring and moving it out a little to improve legibility of link text. In modern browsers the focus ring is clearly visible in a range of contexts, and in both light and dark themes. (See also [colors and accessibility]({{ "/colors/#colors-and-accessibility" | url }}).) A z-index raise has been added to prevent the focus ring tucking under a neighbouring item, e.g. in input/button groups.
+Baselayer uses the browser’s built-in focus ring styles, slightly improved by a thickeing the  ring and moving it out a little to improve legibility of link text. In modern browsers the focus ring is clearly visible in a range of contexts, and in both light and dark themes. A z-index raise has been added to prevent the focus ring tucking under a neighbouring item, e.g. in input/button groups.
+
+See also [colors and accessibility]({{ "/colors/#colors-and-accessibility" | url }}).
+
 
 ```css
 :focus-visible {
@@ -73,8 +76,6 @@ Baselayer uses the browser’s built-in focus ring styles, slightly improved by 
   outline-offset: 0.125rem;
 }
 ```
-
-After experimenting and testing various focus state styles, I have decided to base Baselayer’s on the ones in the UK National Health Service [NHS.uk design system](https://design-system.service.gov.uk/get-started/focus-states/) and the UK Government [GOV.UK design system](https://design-system.service.gov.uk/get-started/focus-states/).
 
 Examples:
 

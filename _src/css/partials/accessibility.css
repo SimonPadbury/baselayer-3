@@ -1,19 +1,17 @@
-@layer bl-accessibility {
-  :focus-visible {
-    outline: 0.125rem solid -webkit-focus-ring-color;
-    outline-offset: 0.125rem;
-    z-index: 1;
-  }
+:focus-visible {
+  outline: 2px solid -webkit-focus-ring-color;
+  outline-offset: 2px;
+  z-index: 1;
+}
 
-  /* Screen-reader only (and appears when tabbing, etc.) */
-  .sr-only:not(:focus):not(:active),
-  .visually-hidden:not(:focus):not(:active) {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    clip: rect(0 0 0 0);
-    clip-path: inset(50%);
-    overflow: hidden;
-    white-space: nowrap;
-  }
+/* Screen-reader only (and appears when tabbing, etc.) */
+.sr-only:not(:focus):not(:active),
+.visually-hidden:not(:focus):not(:active) {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  overflow: hidden;
+  white-space: nowrap;
 }

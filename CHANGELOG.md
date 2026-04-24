@@ -10,9 +10,15 @@
 
 # Baselayer 3 changelog
 
+## v.3.5.6 -- 24 Apr 2026
+
+* Improvements to colors: switched from using `color-mix()` to `oklch()` throughout.
+* Color lightness level root variables are now in increments 100 (the 50’s variables have been removed).
+* CSS partials are now placed in import layers `@import url layer()`. The `@layer {}` wrappers have been removed from each partial file.
+
 ## v.3.5.5 -- 4 Apr 2026
 
-* Simplified the sccessibility focus states by reverting to the browser deaults (modern evergreen browser defaults are good), but improved by thickening and ofsetting the ring, and raising its z-index.
+* Simplified the accessibility focus states by reverting to the browser defaults (modern evergreen browser defaults are good), but improved by thickening and offsetting the ring, and raising its z-index.
 * Added the class name `sr-only` to `visually-hidden`.
 * Bug fix for colors.
 

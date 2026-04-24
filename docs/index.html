@@ -7,7 +7,7 @@
 
   <title>Getting started · Baselayer CSS</title>
 
-  <link rel="stylesheet" href="/baselayer-3/css/min/baselayer.min.css?v=3.5.5">
+  <link rel="stylesheet" href="/baselayer-3/css/min/baselayer.min.css?v=3.5.6">
 
   <style>
   html {
@@ -292,10 +292,10 @@ window.addEventListener("DOMContentLoaded", () => {
 
     <div id="js-menu-wrapper">
       <div class="m-3 bt-thin bb-thin py-3 flex flex-center flex-wrap gap-3 links-underlined-hover-only">
-        <span class="t-gray t-600 dark:t-400">Version: 3.5.5</span>
+        <span class="t-gray t-600 dark:t-400">Version: 3.5.6</span>
         <a class="t-gray t-800 dark:t-200 hover:t-900 hover:dark:t-100" href="https://github.com/SimonPadbury/baselayer-3">GitHub</a>
         <span>
-          <a class="t-gray t-800 dark:t-200 hover:t-900 hover:dark:t-100" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> <span class="t-gray t-600 t-dark-invert">(25 KB)</span>
+          <a class="t-gray t-800 dark:t-200 hover:t-900 hover:dark:t-100" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> <span class="t-gray t-600 t-dark-invert">(26 KB)</span>
         </span>
       </div>
 
@@ -403,7 +403,7 @@ window.addEventListener("DOMContentLoaded", () => {
           <main id="article-content" class="content-grid">
             <h2 id="introduction" tabindex="-1">Introduction</h2>
 <p class="t-lg">Designed as a good place to start, Baselayer may be all you need for small projects such as static websites and blogs. Or you may use it as a <em>baselayer</em> to quick-start your mega project.</p>
-<p>Ready to use as-is, Baselayer’s 25 KB (minified) stylesheet gives you all this:</p>
+<p>Ready to use as-is, Baselayer’s 26 KB (minified) stylesheet gives you all this:</p>
 <ul>
 <li>A modern CSS reset</li>
 <li>Minimalist styled classless typographic, and form elements</li>
@@ -411,7 +411,7 @@ window.addEventListener("DOMContentLoaded", () => {
 <li>A lightweight system of utility classes for controlling dimensions, positioning, spacing, borders, text, and images</li>
 <li><code>@container</code> query responsive layout utilities using CSS grid and flexbox</li>
 <li>Responsive typography, layout, and spacing using <code>clamp()</code> ramps</li>
-<li>A compact color lightness system based on <code>color-mix(in OKLCH)</code> for text, borders, and backgrounds</li>
+<li>A compact color lightness system based on <code>oklch()</code> for text, borders, and backgrounds</li>
 <li>Built-in dark mode using <code>light-dark()</code></li>
 <li>Theming control using CSS variables</li>
 <li>And more</li>
@@ -423,7 +423,7 @@ window.addEventListener("DOMContentLoaded", () => {
 <li><a href="https://caniuse.com/css-grid">CSS Grid</a></li>
 <li><a href="https://caniuse.com/?search=css%20math%20functions">Math functions (e.g. clamp)</a></li>
 <li><a href="https://caniuse.com/css-variables">Custom properties (variables)</a></li>
-<li><a href="https://caniuse.com/?search=color-mix()">color-mix() function</a></li>
+<li><a href="https://caniuse.com/?search=oklch()">oklch() function</a></li>
 <li><a href="https://caniuse.com/mdn-css_types_color_light-dark">light-dark() function</a></li>
 <li><a href="https://caniuse.com/css-nesting">CSS class nesting</a></li>
 <li><a href="https://caniuse.com/css-cascade-layers">Cascade layers</a></li>
@@ -432,7 +432,7 @@ window.addEventListener("DOMContentLoaded", () => {
 <p>The design philosophy behind the Baselayer CSS project is as follows:</p>
 <ul>
 <li>Aim at being a good place to start — a <em>baselayer</em> for a web design project.</li>
-<li>Being so small (25 KB), there’s less you need to overwrite in order to style it your own way (and most things in Baselayer can be restyled by CSS variables). So, there’s no need for a purge process to remove a heavy payload of unused Baselayer styles.</li>
+<li>Being so small (26 KB), there’s less you need to overwrite in order to style it your own way (and most things in Baselayer can be restyled by CSS variables). So, there’s no need for a purge process to remove a heavy payload of unused Baselayer styles.</li>
 <li>PostCSS only — no preprocessors.</li>
 </ul>
 <h2 id="built-using-postcss" tabindex="-1">Built using PostCSS</h2>
@@ -448,13 +448,13 @@ window.addEventListener("DOMContentLoaded", () => {
 <h2 id="baselayer%E2%80%99s-built-in-accessibility-features" tabindex="-1">Baselayer’s built-in accessibility features</h2>
 <p>Baselayer has two “must have” accessibility features built-in.</p>
 <h3 id="(1.)-focus-states" tabindex="-1">(1.) Focus states</h3>
-<p>Baselayer uses the browser’s built-in focus ring styles, slightly improved by a thickeing the  ring and moving it out a little to improve legibility of link text. In modern browsers the focus ring is clearly visible in a range of contexts, and in both light and dark themes. (See also <a href="/baselayer-3/colors/#colors-and-accessibility">colors and accessibility</a>.) A z-index raise has been added to prevent the focus ring tucking under a neighbouring item, e.g. in input/button groups.</p>
+<p>Baselayer uses the browser’s built-in focus ring styles, slightly improved by a thickeing the  ring and moving it out a little to improve legibility of link text. In modern browsers the focus ring is clearly visible in a range of contexts, and in both light and dark themes. A z-index raise has been added to prevent the focus ring tucking under a neighbouring item, e.g. in input/button groups.</p>
+<p>See also <a href="/baselayer-3/colors/#colors-and-accessibility">colors and accessibility</a>.</p>
 <pre><code class="language-css">:focus-visible {
   outline: 0.125rem solid -webkit-focus-ring-color;
   outline-offset: 0.125rem;
 }
 </code></pre>
-<p>After experimenting and testing various focus state styles, I have decided to base Baselayer’s on the ones in the UK National Health Service <a href="https://design-system.service.gov.uk/get-started/focus-states/">NHS.uk design system</a> and the UK Government <a href="https://design-system.service.gov.uk/get-started/focus-states/">GOV.UK design system</a>.</p>
 <p>Examples:</p>
 <form class="my-3">
   <fieldset class="flex">
@@ -527,11 +527,11 @@ window.addEventListener("DOMContentLoaded", () => {
                   </svg>
                 <span class="h3 m-0 t-normal t-nowrap">Baselayer CSS</span>
               </a>
-              <span>Version: 3.5.5</span>
+              <span>Version: 3.5.6</span>
             </div>
 
             <p class="p-cell flex flex-center flex-wrap gap-4 t-center">
-              <span><a class="t-underline-hover-only" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> (25 KB)</span>
+              <span><a class="t-underline-hover-only" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> (26 KB)</span>
               <a class="t-underline-hover-only" href="https://github.com/SimonPadbury/baselayer-3">GitHub Repository</a>
               <a class="t-underline-hover-only" href="https://github.com/SimonPadbury/baselayer-3/blob/main/CHANGELOG.md">Changelog</a>
               <a class="t-underline-hover-only" href="https://github.com/SimonPadbury/baselayer-3/blob/main/LICENSE">MIT license</a>

@@ -14,9 +14,9 @@ nextLink: "Forms"
 
 I wanted to develop a color system based on interpolating CSS variables for generating a series _lightness levels_ for each color, so that the stylesheet doesn’t need to be loaded with lighness classes for every color — most of which you’d never use.
 
-After experimenting with variables in _lightness channels_ within color codes, I discovered the new (mid-2023) [color-mix() function](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/color-mix). Using `color-mix() ` is better suited to what I was trying to do. With it we can build a series of lightness levels by mixing in white (for tints) or black (for shades).
+**Since Baselayer 3.5.6:** From there, Baselayer’s `oklch( ... )` function (baseline [widely available since 2023](https://caniuse.com/?search=oklch)) takes the hue (h) and chroma (c) values out of the base color, and adjusts the lightness level (l) to 50% (matching Baselayer’s built-in middle lightness, `--l500`). This enables a *perceptually uniform* system of lightness levels (see later).
 
-For usefulness in Baselayer CSS, starting color swatches need to have a mid-range lightness level, but they can be specified using any system (currently, Baselayer default colors are set using Hex `#` codes).
+In Baselayer CSS, default colors are set using Hex `#` codes). But if/when you add your own in all other color system, the `oklch( ... )` function can handle it.
 
 <table class="table table-fixed">
 <thead>
@@ -35,8 +35,6 @@ For usefulness in Baselayer CSS, starting color swatches need to have a mid-rang
 </tbody>
 </table>
 
-And the color-mix function now outputs colors in [OKLCH](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/oklch) using `color-mix(in OKLCH ...) ` because this gives perceptually uniform lightness levels.
-
 The color utility CSS class names remain the same as before (explained below). Example using background `bg-*` utility classes:
 
 <div class="full-bleed mt-3 mb-4 p-2 flex flex-center flex-wrap">
@@ -46,7 +44,7 @@ The color utility CSS class names remain the same as before (explained below). E
     <div class="p-2 t-black t-small bg-blue bg-200">200</div>
     <div class="p-2 t-black t-small bg-blue bg-300">300</div>
     <div class="p-2 t-black t-small bg-blue bg-400">400</div>
-    <div class="p-2 t-black t-small bg-blue bg-500">500</div>
+    <div class="p-2 t-white t-small bg-blue bg-500">500</div>
     <div class="p-2 t-white t-small bg-blue bg-600">600</div>
     <div class="p-2 t-white t-small bg-blue bg-700">700</div>
     <div class="p-2 t-white t-small bg-blue bg-800">800</div>
@@ -58,7 +56,7 @@ The color utility CSS class names remain the same as before (explained below). E
     <div class="p-2 t-black t-small bg-green bg-200">200</div>
     <div class="p-2 t-black t-small bg-green bg-300">300</div>
     <div class="p-2 t-black t-small bg-green bg-400">400</div>
-    <div class="p-2 t-black t-small bg-green bg-500">500</div>
+    <div class="p-2 t-white t-small bg-green bg-500">500</div>
     <div class="p-2 t-white t-small bg-green bg-600">600</div>
     <div class="p-2 t-white t-small bg-green bg-700">700</div>
     <div class="p-2 t-white t-small bg-green bg-800">800</div>
@@ -70,8 +68,8 @@ The color utility CSS class names remain the same as before (explained below). E
     <div class="p-2 t-black t-small bg-amber bg-200">200</div>
     <div class="p-2 t-black t-small bg-amber bg-300">300</div>
     <div class="p-2 t-black t-small bg-amber bg-400">400</div>
-    <div class="p-2 t-black t-small bg-amber bg-500">500</div>
-    <div class="p-2 t-black t-small bg-amber bg-600">600</div>
+    <div class="p-2 t-white t-small bg-amber bg-500">500</div>
+    <div class="p-2 t-white t-small bg-amber bg-600">600</div>
     <div class="p-2 t-white t-small bg-amber bg-700">700</div>
     <div class="p-2 t-white t-small bg-amber bg-800">800</div>
     <div class="p-2 t-white t-small bg-amber bg-900">900</div>
@@ -82,7 +80,7 @@ The color utility CSS class names remain the same as before (explained below). E
     <div class="p-2 t-black t-small bg-red bg-200">200</div>
     <div class="p-2 t-black t-small bg-red bg-300">300</div>
     <div class="p-2 t-black t-small bg-red bg-400">400</div>
-    <div class="p-2 t-black t-small bg-red bg-500">500</div>
+    <div class="p-2 t-white t-small bg-red bg-500">500</div>
     <div class="p-2 t-white t-small bg-red bg-600">600</div>
     <div class="p-2 t-white t-small bg-red bg-700">700</div>
     <div class="p-2 t-white t-small bg-red bg-800">800</div>
@@ -94,7 +92,7 @@ The color utility CSS class names remain the same as before (explained below). E
     <div class="p-2 t-black t-small bg-gray bg-200">200</div>
     <div class="p-2 t-black t-small bg-gray bg-300">300</div>
     <div class="p-2 t-black t-small bg-gray bg-400">400</div>
-    <div class="p-2 t-black t-small bg-gray bg-500">500</div>
+    <div class="p-2 t-white t-small bg-gray bg-500">500</div>
     <div class="p-2 t-white t-small bg-gray bg-600">600</div>
     <div class="p-2 t-white t-small bg-gray bg-700">700</div>
     <div class="p-2 t-white t-small bg-gray bg-800">800</div>
@@ -148,31 +146,21 @@ Color utility classes (declared in `@layer color` in `colors.css`) are prefixed 
 Notes on lightness levels:
 
 1. The utility class lightness level suffixes go up in hundreds, from `-100` to `.900`.
-2. However, the CSS variable lightness level suffixes go up in fifties, from `--l50` to `--l1000` — giving you more options.
+2. You can use these levels in your own CSS. You are also free to do whatever you want.
 
 ```css
 @layer bl-variables {
   :root {
-    --l50: white 95%;
-    --l100: white 84%;
-    --l150: white 74%;
-    --l200: white 63%;
-    --l250: white 53%;
-    --l300: white 42%;
-    --l350: white 32%;
-    --l400: white 21%;
-    --l450: white 11%;
-    --l500: black 0%;
-    --l550: black 8%;
-    --l600: black 17%;
-    --l650: black 26%;
-    --l700: black 34%;
-    --l750: black 42%;
-    --l800: black 51%;
-    --l850: black 60%;
-    --l900: black 68%;
-    --l950: black 76%;
-    --l1000: black 85%;
+    --l100: 98%;
+    --l200: 86%;
+    --l300: 74%;
+    --l400: 62%;
+    --l500: 50%;
+    --l600: 42%;
+    --l700: 34%;
+    --l800: 26%;
+    --l900: 18%;
+    --l1000: 10%;
   }
 }
 ```
@@ -209,7 +197,7 @@ The lighness modifiers `*-100` through `*-900`, if used alone, do not provide co
 
 ## Colors and accessibility
 
-<div aria-label="Warning" class="popout mt-3 mb-4 bl-heavy b-amber b-400 dark:b-600 p-3 bg-amber bg-200 dark:bg-900">
+<div aria-label="Warning" class="popout mt-3 mb-4 bl-heavy b-amber b-300 dark:b-600 p-3 bg-amber bg-100 dark:bg-800">
   In any color model, color combinations must be chosen with care so that there is sufficient contrast between text and background colors for purposes of assessibility.
 </div>
 
@@ -222,8 +210,8 @@ However, any colors near yellow such as Baselayer amber, as well as orange and y
 <form class="my-3">
   <p>
     <button type="button" name="button">Button</button>
-    <button class="bg-blue bg-600 hover:bg-700" type="button" name="button">Button</button>
-    <button class="t-black hover:t-black bg-amber bg-500 hover:bg-600" type="button" name="button">Button</button>
+    <button class="bg-blue bg-500 hover:bg-600" type="button" name="button">Button</button>
+    <button class="bg-amber bg-500 hover:bg-600" type="button" name="button">Button</button>
     <button class="b-thin b-green bg-transparent t-green t-600 hover:t-white hover:bg-green hover:bg-600" type="button" name="button">Button</button>
   </p>
 </form>
@@ -238,7 +226,7 @@ When colorizing buttons, remember to set their `hover:` hover state shades too.
 <button class="bg-blue bg-600 hover:bg-700" type="button" name="button">Button</button>
 
 <!-- Amber button -->
-<button class="t-black hover:t-black bg-amber bg-500 hover:bg-600" type="button" name="button">Button</button>
+<button class="bg-amber bg-500 hover:bg-600" type="button" name="button">Button</button>
 
 <!-- Green outline (a.k.a. ghost) button -->
 <button class="b-thin b-green bg-transparent t-green t-600 hover:t-white hover:bg-green hover:bg-600" type="button" name="button">Button</button>

@@ -7,7 +7,7 @@
 
   <title>Colors · Baselayer CSS</title>
 
-  <link rel="stylesheet" href="/baselayer-3/css/min/baselayer.min.css?v=3.5.5">
+  <link rel="stylesheet" href="/baselayer-3/css/min/baselayer.min.css?v=3.5.6">
 
   <style>
   html {
@@ -292,10 +292,10 @@ window.addEventListener("DOMContentLoaded", () => {
 
     <div id="js-menu-wrapper">
       <div class="m-3 bt-thin bb-thin py-3 flex flex-center flex-wrap gap-3 links-underlined-hover-only">
-        <span class="t-gray t-600 dark:t-400">Version: 3.5.5</span>
+        <span class="t-gray t-600 dark:t-400">Version: 3.5.6</span>
         <a class="t-gray t-800 dark:t-200 hover:t-900 hover:dark:t-100" href="https://github.com/SimonPadbury/baselayer-3">GitHub</a>
         <span>
-          <a class="t-gray t-800 dark:t-200 hover:t-900 hover:dark:t-100" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> <span class="t-gray t-600 t-dark-invert">(25 KB)</span>
+          <a class="t-gray t-800 dark:t-200 hover:t-900 hover:dark:t-100" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> <span class="t-gray t-600 t-dark-invert">(26 KB)</span>
         </span>
       </div>
 
@@ -404,8 +404,8 @@ window.addEventListener("DOMContentLoaded", () => {
             <p><code>color-mix(in OKLCH ... )</code> has been <a href="https://developer.mozilla.org/en-US/docs/Glossary/Baseline/Compatibility">Baseline:widely available</a> since March 2023 — all “evergreen” browsers (Chrome, Edge, Firefox, Safari) have capability to use it (see <a href="https://caniuse.com/?search=color-mix()">Can I use</a>). Baselayer uses this function to set up a range of lightness levels for its five built-in colors.</p>
 <h2 id="rationale-for-baselayer%E2%80%99s-color-system" tabindex="-1">Rationale for Baselayer’s color system</h2>
 <p>I wanted to develop a color system based on interpolating CSS variables for generating a series <em>lightness levels</em> for each color, so that the stylesheet doesn’t need to be loaded with lighness classes for every color — most of which you’d never use.</p>
-<p>After experimenting with variables in <em>lightness channels</em> within color codes, I discovered the new (mid-2023) <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/color-mix">color-mix() function</a>. Using <code>color-mix() </code> is better suited to what I was trying to do. With it we can build a series of lightness levels by mixing in white (for tints) or black (for shades).</p>
-<p>For usefulness in Baselayer CSS, starting color swatches need to have a mid-range lightness level, but they can be specified using any system (currently, Baselayer default colors are set using Hex <code>#</code> codes).</p>
+<p><strong>Since Baselayer 3.5.6:</strong> From there, Baselayer’s <code>oklch( ... )</code> function (baseline <a href="https://caniuse.com/?search=oklch">widely available since 2023</a>) takes the hue (h) and chroma (c) values out of the base color, and adjusts the lightness level (l) to 50% (matching Baselayer’s built-in middle lightness, <code>--l500</code>). This enables a <em>perceptually uniform</em> system of lightness levels (see later).</p>
+<p>In Baselayer CSS, default colors are set using Hex <code>#</code> codes). But if/when you add your own in all other color system, the <code>oklch( ... )</code> function can handle it.</p>
 <table class="table table-fixed">
 <thead>
 <th>Blue</th>
@@ -422,7 +422,6 @@ window.addEventListener("DOMContentLoaded", () => {
 <td><div class="p-3 rad bg-gray">&nbsp;<div></td>
 </tbody>
 </table>
-<p>And the color-mix function now outputs colors in <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/oklch">OKLCH</a> using <code>color-mix(in OKLCH ...) </code> because this gives perceptually uniform lightness levels.</p>
 <p>The color utility CSS class names remain the same as before (explained below). Example using background <code>bg-*</code> utility classes:</p>
 <div class="full-bleed mt-3 mb-4 p-2 flex flex-center flex-wrap">
   <div style="width: clamp(96px, 15cqi, 208px)">
@@ -431,7 +430,7 @@ window.addEventListener("DOMContentLoaded", () => {
     <div class="p-2 t-black t-small bg-blue bg-200">200</div>
     <div class="p-2 t-black t-small bg-blue bg-300">300</div>
     <div class="p-2 t-black t-small bg-blue bg-400">400</div>
-    <div class="p-2 t-black t-small bg-blue bg-500">500</div>
+    <div class="p-2 t-white t-small bg-blue bg-500">500</div>
     <div class="p-2 t-white t-small bg-blue bg-600">600</div>
     <div class="p-2 t-white t-small bg-blue bg-700">700</div>
     <div class="p-2 t-white t-small bg-blue bg-800">800</div>
@@ -443,7 +442,7 @@ window.addEventListener("DOMContentLoaded", () => {
     <div class="p-2 t-black t-small bg-green bg-200">200</div>
     <div class="p-2 t-black t-small bg-green bg-300">300</div>
     <div class="p-2 t-black t-small bg-green bg-400">400</div>
-    <div class="p-2 t-black t-small bg-green bg-500">500</div>
+    <div class="p-2 t-white t-small bg-green bg-500">500</div>
     <div class="p-2 t-white t-small bg-green bg-600">600</div>
     <div class="p-2 t-white t-small bg-green bg-700">700</div>
     <div class="p-2 t-white t-small bg-green bg-800">800</div>
@@ -455,8 +454,8 @@ window.addEventListener("DOMContentLoaded", () => {
     <div class="p-2 t-black t-small bg-amber bg-200">200</div>
     <div class="p-2 t-black t-small bg-amber bg-300">300</div>
     <div class="p-2 t-black t-small bg-amber bg-400">400</div>
-    <div class="p-2 t-black t-small bg-amber bg-500">500</div>
-    <div class="p-2 t-black t-small bg-amber bg-600">600</div>
+    <div class="p-2 t-white t-small bg-amber bg-500">500</div>
+    <div class="p-2 t-white t-small bg-amber bg-600">600</div>
     <div class="p-2 t-white t-small bg-amber bg-700">700</div>
     <div class="p-2 t-white t-small bg-amber bg-800">800</div>
     <div class="p-2 t-white t-small bg-amber bg-900">900</div>
@@ -467,7 +466,7 @@ window.addEventListener("DOMContentLoaded", () => {
     <div class="p-2 t-black t-small bg-red bg-200">200</div>
     <div class="p-2 t-black t-small bg-red bg-300">300</div>
     <div class="p-2 t-black t-small bg-red bg-400">400</div>
-    <div class="p-2 t-black t-small bg-red bg-500">500</div>
+    <div class="p-2 t-white t-small bg-red bg-500">500</div>
     <div class="p-2 t-white t-small bg-red bg-600">600</div>
     <div class="p-2 t-white t-small bg-red bg-700">700</div>
     <div class="p-2 t-white t-small bg-red bg-800">800</div>
@@ -479,7 +478,7 @@ window.addEventListener("DOMContentLoaded", () => {
     <div class="p-2 t-black t-small bg-gray bg-200">200</div>
     <div class="p-2 t-black t-small bg-gray bg-300">300</div>
     <div class="p-2 t-black t-small bg-gray bg-400">400</div>
-    <div class="p-2 t-black t-small bg-gray bg-500">500</div>
+    <div class="p-2 t-white t-small bg-gray bg-500">500</div>
     <div class="p-2 t-white t-small bg-gray bg-600">600</div>
     <div class="p-2 t-white t-small bg-gray bg-700">700</div>
     <div class="p-2 t-white t-small bg-gray bg-800">800</div>
@@ -528,30 +527,20 @@ window.addEventListener("DOMContentLoaded", () => {
 <p>Notes on lightness levels:</p>
 <ol>
 <li>The utility class lightness level suffixes go up in hundreds, from <code>-100</code> to <code>.900</code>.</li>
-<li>However, the CSS variable lightness level suffixes go up in fifties, from <code>--l50</code> to <code>--l1000</code> — giving you more options.</li>
+<li>You can use these levels in your own CSS. You are also free to do whatever you want.</li>
 </ol>
 <pre><code class="language-css">@layer bl-variables {
   :root {
-    --l50: white 95%;
-    --l100: white 84%;
-    --l150: white 74%;
-    --l200: white 63%;
-    --l250: white 53%;
-    --l300: white 42%;
-    --l350: white 32%;
-    --l400: white 21%;
-    --l450: white 11%;
-    --l500: black 0%;
-    --l550: black 8%;
-    --l600: black 17%;
-    --l650: black 26%;
-    --l700: black 34%;
-    --l750: black 42%;
-    --l800: black 51%;
-    --l850: black 60%;
-    --l900: black 68%;
-    --l950: black 76%;
-    --l1000: black 85%;
+    --l100: 98%;
+    --l200: 86%;
+    --l300: 74%;
+    --l400: 62%;
+    --l500: 50%;
+    --l600: 42%;
+    --l700: 34%;
+    --l800: 26%;
+    --l900: 18%;
+    --l1000: 10%;
   }
 }
 </code></pre>
@@ -576,7 +565,7 @@ window.addEventListener("DOMContentLoaded", () => {
 </code></pre>
 <p>The lighness modifiers <code>*-100</code> through <code>*-900</code>, if used alone, do not provide color. But if you use them to supplement one of the base colors above, then that color class will provide the color, and the modifier will set its lightness level.</p>
 <h2 id="colors-and-accessibility" tabindex="-1">Colors and accessibility</h2>
-<div aria-label="Warning" class="popout mt-3 mb-4 bl-heavy b-amber b-400 dark:b-600 p-3 bg-amber bg-200 dark:bg-900">
+<div aria-label="Warning" class="popout mt-3 mb-4 bl-heavy b-amber b-300 dark:b-600 p-3 bg-amber bg-100 dark:bg-800">
   In any color model, color combinations must be chosen with care so that there is sufficient contrast between text and background colors for purposes of assessibility.
 </div>
 <p>In your text and background color combinations, be careful to ensure that the text is readable — there needs to be an adequate contrast. Most organizations should to aim for <a href="https://www.w3.org/WAI/WCAG2AA-Conformance">WCAG level AA</a> for accessibility requirements.</p>
@@ -585,8 +574,8 @@ window.addEventListener("DOMContentLoaded", () => {
 <form class="my-3">
   <p>
     <button type="button" name="button">Button</button>
-    <button class="bg-blue bg-600 hover:bg-700" type="button" name="button">Button</button>
-    <button class="t-black hover:t-black bg-amber bg-500 hover:bg-600" type="button" name="button">Button</button>
+    <button class="bg-blue bg-500 hover:bg-600" type="button" name="button">Button</button>
+    <button class="bg-amber bg-500 hover:bg-600" type="button" name="button">Button</button>
     <button class="b-thin b-green bg-transparent t-green t-600 hover:t-white hover:bg-green hover:bg-600" type="button" name="button">Button</button>
   </p>
 </form>
@@ -598,7 +587,7 @@ window.addEventListener("DOMContentLoaded", () => {
 &lt;button class=&quot;bg-blue bg-600 hover:bg-700&quot; type=&quot;button&quot; name=&quot;button&quot;&gt;Button&lt;/button&gt;
 
 &lt;!-- Amber button --&gt;
-&lt;button class=&quot;t-black hover:t-black bg-amber bg-500 hover:bg-600&quot; type=&quot;button&quot; name=&quot;button&quot;&gt;Button&lt;/button&gt;
+&lt;button class=&quot;bg-amber bg-500 hover:bg-600&quot; type=&quot;button&quot; name=&quot;button&quot;&gt;Button&lt;/button&gt;
 
 &lt;!-- Green outline (a.k.a. ghost) button --&gt;
 &lt;button class=&quot;b-thin b-green bg-transparent t-green t-600 hover:t-white hover:bg-green hover:bg-600&quot; type=&quot;button&quot; name=&quot;button&quot;&gt;Button&lt;/button&gt;
@@ -858,11 +847,11 @@ window.addEventListener("DOMContentLoaded", () => {
                   </svg>
                 <span class="h3 m-0 t-normal t-nowrap">Baselayer CSS</span>
               </a>
-              <span>Version: 3.5.5</span>
+              <span>Version: 3.5.6</span>
             </div>
 
             <p class="p-cell flex flex-center flex-wrap gap-4 t-center">
-              <span><a class="t-underline-hover-only" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> (25 KB)</span>
+              <span><a class="t-underline-hover-only" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> (26 KB)</span>
               <a class="t-underline-hover-only" href="https://github.com/SimonPadbury/baselayer-3">GitHub Repository</a>
               <a class="t-underline-hover-only" href="https://github.com/SimonPadbury/baselayer-3/blob/main/CHANGELOG.md">Changelog</a>
               <a class="t-underline-hover-only" href="https://github.com/SimonPadbury/baselayer-3/blob/main/LICENSE">MIT license</a>
