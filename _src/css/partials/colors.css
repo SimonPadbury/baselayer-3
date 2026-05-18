@@ -539,7 +539,7 @@
 
 .bg-reversi-flip,
 .hover\:bg-reversi-flip:hover {
-  --bgc: #000;
-  --bgcd: #fff;
+  --bgc: #fff;
+  --bgcd: #000;
   background: light-dark(var(--bgc), var(--bgcd));
 }
