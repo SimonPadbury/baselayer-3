@@ -456,62 +456,90 @@
   border-color: currentColor;
 }
 
-.b-white,
-.hover\:b-white:hover {
-  border-color: white;
+.b-transparent {
+  --bc: transparent;
+  border-color: var(--bc);
 }
 
-.t-white,
-.hover\:t-white:hover {
-  color: white;
+.b-white,
+.hover\:b-white:hover {
+  --bc: #fff;
+  border-color: var(--bc);
+}
+
+.hover\:t-white:hover,
+.t-white {
+  --tc: #fff;
+  color: var(--tc);
 }
 
 .bg-white,
 .hover\:bg-white:hover {
-  background: white;
+  --bgc: #fff;
+  background: var(--bgc);
 }
 
 .b-black,
 .hover\:b-black:hover {
-  border-color: black;
+  --bc: #000;
+  border-color: var(--bc);
 }
 
-.t-black,
-.hover\:t-black:hover {
-  color: black;
+.hover\:t-black:hover,
+.t-black {
+  --tc: #000;
+  color: var(--tc);
 }
 
 .bg-black,
 .hover\:bg-black:hover {
-  background: black;
+  --bgc: #000;
+  background: var(--bgc);
+}
+
+.bg-transparent {
+  --bgc: transparent;
+  background: var(--bgc);
 }
 
 .b-reversi,
 .hover\:b-reversi:hover {
-  border-color: light-dark(black, white);
+  --bc: #000;
+  --bcd: #fff;
+  border-color: light-dark(var(--bgc), var(--bcd));
 }
 
 .b-reversi-flip,
 .hover\:b-reversi-flip:hover {
-  border-color: light-dark(white, black);
+  --bc: #fff;
+  --bcd: #000;
+  border-color: light-dark(var(--bcd), var(--bgc));
 }
 
 .t-reversi,
 .hover\:t-reversi:hover {
-  color: light-dark(black, white);
+  --tc: #000;
+  --tcd: #fff;
+  color: light-dark(var(--tc), var(--tcd));
 }
 
 .t-reversi-flip,
 .hover\:t-reversi-flip:hover {
-  color: light-dark(white, black);
+  --tc: #fff;
+  --tcd: #000;
+  color: light-dark(var(--tc), var(--tcd));
 }
 
 .bg-reversi,
 .hover\:bg-reversi:hover {
-  background: light-dark(black, white);
+  --bgc: #000;
+  --bgcd: #fff;
+  background: light-dark(var(--bgc), var(--bgcd));
 }
 
 .bg-reversi-flip,
 .hover\:bg-reversi-flip:hover {
-  background: light-dark(white, black);
+  --bgc: #000;
+  --bgcd: #fff;
+  background: light-dark(var(--bgc), var(--bgcd));
 }

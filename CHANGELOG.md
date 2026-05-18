@@ -10,6 +10,10 @@
 
 # Baselayer 3 changelog
 
+## v.3.5.7 -- 18 May 2026
+
+* Set color utilities `transparent`, `black` and `white` first as variables, so that they could play well with all the other colors when inherited (nested) and when used in combination in hover states and dark mode.
+
 ## v.3.5.6 -- 24 Apr 2026
 
 * Improvements to colors: switched from using `color-mix()` to `oklch()` throughout.

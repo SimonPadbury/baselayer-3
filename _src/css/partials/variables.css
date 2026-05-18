@@ -105,12 +105,8 @@
   --red: #cf000f;
   --gray: #767676; */
 
-
   /* Light and dark theme colors */
-  --bgc-body: light-dark(
-    white,
-    oklch(from var(--gray) var(--l1000) c h)
-  );
+  --bgc-body: light-dark(white, oklch(from var(--gray) var(--l1000) c h));
   --tc-base: light-dark(
     oklch(from var(--gray) var(--l900) c h),
     oklch(from var(--gray) var(--l100) c h)
