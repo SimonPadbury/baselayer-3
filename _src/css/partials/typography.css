@@ -1,7 +1,4 @@
 p,
-ol,
-ul,
-dl,
 li,
 pre,
 table,
@@ -9,7 +6,7 @@ fieldset,
 figure,
 figcaption,
 blockquote {
-  margin-block: 0 var(--t-mb);
+  margin-block: var(--t-mt) 0;
   hanging-punctuation: first allow-end last;
 }
 caption {
@@ -25,7 +22,7 @@ h1 {
   font-family: var(--h-ff);
   font-weight: var(--h-fw);
   line-height: var(--h-lh);
-  margin-block: 0 var(--t-mb);
+  margin-block: 0;
 }
 
 h1,
@@ -63,20 +60,11 @@ h3,
 h4,
 h5,
 h6 {
-  margin-block: var(--h-mt) var(--t-mb);
+  margin-block: var(--t-mt) 0;
   font-family: var(--h-ff);
   font-weight: var(--h-fw);
   line-height: var(--h-lh);
   font-variant-numeric: lining-nums;
-
-  .content-grid & {
-    /* This because CSS grid prevents margin-collapse on neighboring grid items */
-    margin-top: calc(var(--h-mt) - var(--t-mb));
-  }
-}
-
-.content-grid > h2:first-child {
-  margin-top: 0;
 }
 
 a {
@@ -90,8 +78,7 @@ a {
   text-decoration-thickness: var(--a-deco-thickness);
 }
 
-a:has(.t-underline-none):not(.t-underline-hover-only)
-  :not(.t-underline-none) {
+a:has(.t-underline-none):not(.t-underline-hover-only) :not(.t-underline-none) {
   text-decoration: underline;
 }
 
@@ -117,16 +104,8 @@ a:has(.t-underline-none):hover {
 ol,
 ul,
 menu {
-  margin-block: 0 var(--t-mb);
+  margin-block: 0;
   padding-left: 1.5em;
-}
-
-li {
-  ol,
-  ul,
-  + li {
-    margin-block: var(--t-mb) 0;
-  }
 }
 
 ol ol {
@@ -138,7 +117,7 @@ ol ol {
 }
 
 dl {
-  margin: 0 0 var(--t-mb);
+  margin: var(--t-mt) 0 0;
 }
 
 dt {
@@ -146,7 +125,7 @@ dt {
 }
 
 dd {
-  margin: var(--t-mb) 0;
+  margin: var(--t-mt) 0;
   padding-left: 1.5em;
 }
 

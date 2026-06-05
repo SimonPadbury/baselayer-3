@@ -835,6 +835,9 @@ Content grid
   > * {
     grid-column: content;
   }
+  > :first-child {
+    margin-top: 0; /* overrides typographic block element top margin for first child */
+  }
 }
 
 .popout {

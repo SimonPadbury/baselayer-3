@@ -10,6 +10,12 @@
 
 # Baselayer 3 changelog
 
+## v.3.6.0 -- 05 Jun 2026
+
+* Switched the traditional (following Bootstrap) typographic block element 1rem bottom margin to 1em top margin. Now headings (and other larger text) have more whitespace above built-in.
+* Removed the additional top margin above headings as this is no longer required.
+* Removed block padding from `ol` and `ul`. Now all spacing is controlled by the top margin of list items.
+
 ## v.3.5.7 -- 18 May 2026
 
 * Set color utilities `transparent`, `black` and `white` first as variables, so that they could play well with all the other colors when inherited (nested) and when used in combination in hover states and dark mode.

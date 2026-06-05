@@ -76,7 +76,9 @@ The default font size in Baselayer is 100% for small viewports. This sets the va
 
 ## Typographic block elements
 
-Most typographic blocks have zero top margin, and bottom margin set to `var(--s-2)` (1rem)—same bottom margin as for paragraphs.
+Until Baselayer v.3.5.x, most typographic blocks had zero top margin, and a small bottom margin—following the traditional Bootstrap CSS. But from v.3.6.0 on, Baselayer has been flipped to have zero bottom margin, and a top margin set to variable `--t-mt: 1em`. I have adopted this CSS pattern after being introduced to it by Kevin Powell in [one of his videos on YouTube](https://youtu.be/CU8Plk-53RU).
+
+The effect is visually the same in most cases. But as the top margin is set as `1em`, and _ems_ are controlled by font size, this means that headings (and other enlarged text) will get more whitespace above them.
 
 ### Headings
 
