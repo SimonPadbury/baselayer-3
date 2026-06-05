@@ -12,12 +12,12 @@ Ready to use as-is, Baselayer gives you all this:
 * A lightweight system of utility classes for controlling dimensions, positioning, spacing, borders, text, and images
 * `@container` query responsive layout utilities using CSS grid and flexbox
 * Responsive typography, layout, and spacing using `clamp()` ramps
-* A compact color lightnesssystem based on `color-mix(in OKLCH)` for text, borders, and backgrounds
+* A compact color lightness system based on `oklch()` for text, borders, and backgrounds
 * Built-in dark mode using `light-dark()`, and `dark:` utilities for lightness levels
 * Theming control using CSS variables
 * And more
 
-Baselayer uses modern CSS technologies such as `grid`, functions (e.g. `clamp()`, `color-mix()`, `light-dark()`), `var()` custom properties, and CSS class nesting. Therefore it supports only [Basline: widely available](https://developer.mozilla.org/en-US/docs/Glossary/Baseline/Compatibility) (mid-2023 forward) web browsers such as Safari, Firefox, Chrome, Edge, etc.
+Baselayer uses modern CSS technologies such as `grid`, functions (e.g. `clamp()`, `oklch()`, `light-dark()`), `var()` custom properties, and CSS class nesting. Therefore it supports only [Basline: widely available](https://developer.mozilla.org/en-US/docs/Glossary/Baseline/Compatibility) (mid-2023 forward) web browsers such as Safari, Firefox, Chrome, Edge, etc.
 
 **Documentation:** [https://simonpadbury.github.io/baselayer-3/](https://simonpadbury.github.io/baselayer-3/)
 
