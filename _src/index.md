@@ -13,7 +13,7 @@ nextLink: "Typography"
 Ready to use as-is, Baselayer’s {{ metadata.filesize }} (minified) stylesheet gives you all this:
 
 * A modern CSS reset
-* Minimalist styled classless typographic, and form elements
+* Minimalist styled classless typography and form elements
 * Reliable accessibility features for assistive technology users
 * A lightweight system of utility classes for controlling dimensions, positioning, spacing, borders, text, and images
 * `@container` query responsive layout utilities using CSS grid and flexbox
@@ -41,8 +41,9 @@ Baselayer supports only up-to-date (2023 forward) [baseline compatibility](https
 The design philosophy behind the Baselayer CSS project is as follows:
 
 * Aim at being a good place to start — a _baselayer_ for a web design project.
+* Do “most things most people want” out of the box.
 * Being so small ({{ metadata.filesize }}), there’s less you need to overwrite in order to style it your own way (and most things in Baselayer can be restyled by CSS variables). So, there’s no need for a purge process to remove a heavy payload of unused Baselayer styles.
-* PostCSS only — no preprocessors.
+* No CSS preprocessing.
 
 ## Built using PostCSS
 
@@ -65,7 +66,7 @@ Baselayer has two “must have” accessibility features built-in.
 
 ### (1.) Focus states
 
-Baselayer uses the browser’s built-in focus ring styles, slightly improved by a thickeing the  ring and moving it out a little to improve legibility of link text. In modern browsers the focus ring is clearly visible in a range of contexts, and in both light and dark themes. A z-index raise has been added to prevent the focus ring tucking under a neighbouring item, e.g. in input/button groups.
+Baselayer uses the browser’s built-in focus ring styles, slightly improved by a thickening the  ring and moving it out a little to improve legibility of link text. In modern browsers the focus ring is clearly visible in a range of contexts, and in both light and dark themes. A z-index raise has been added to prevent the focus ring tucking under a neighbouring item, e.g. in input/button groups.
 
 See also [colors and accessibility]({{ "/colors/#colors-and-accessibility" | url }}).
 
@@ -91,21 +92,21 @@ Keyboard-tab through these links and buttons to see the focus rings:
 
 <div class="my-3 b-thin">
   <div class="grid sm:equal-4-cols">
-    <div class="p-3 flex flex-column flex-center flex-middle bg-white bg-dark-invert">
-    <p><a href="/#">Link</a></p>
-    <p><button type="button">Button</button></p>
+    <div class="p-3 flex flex-column flex-center flex-middle bg-white flow">
+      <p><a href="/#">Link</a></p>
+      <p><button type="button">Button</button></p>
     </div>
-    <div class="p-3 flex flex-column flex-center flex-middle bg-blue bg-700">
-    <p><a class="t-blue t-200 hover:t-300" href="/#">Link</a></p>
-    <p><button class="r-2" type="button">Button</button></p>
+    <div class="p-3 flex flex-column flex-center flex-middle bg-blue bg-700 flow">
+      <p><a class="t-blue t-200 hover:t-300" href="/#">Link</a></p>
+      <p><button class="r-2" type="button">Button</button></p>
     </div>
-    <div class="p-3 flex flex-column flex-center flex-middle bg-red bg-500 bg-dark-invert">
-    <p><a class="t-blue t-200 hover:t-300" href="/#">Link</a></p>
-    <p><button class="r-2" type="button">Button</button></p>
+    <div class="p-3 flex flex-column flex-center flex-middle bg-red bg-500 flow">
+      <p><a class="t-blue t-200 hover:t-300" href="/#">Link</a></p>
+      <p><button class="r-2" type="button">Button</button></p>
     </div>
-    <div class="p-3 flex flex-column flex-center flex-middle bg-black bg-dark-invert">
-    <p><a class="t-blue t-200 t-dark-invert hover:t-300" href="/#">Link</a></p>
-    <p><button class="r-pill" type="button">Button</button></p>
+    <div class="p-3 flex flex-column flex-center flex-middle bg-black flow">
+      <p><a class="t-blue t-200 t-dark-invert hover:t-300" href="/#">Link</a></p>
+      <p><button class="r-pill" type="button">Button</button></p>
     </div>
   </div>
 </div>

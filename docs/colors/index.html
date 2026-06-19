@@ -7,19 +7,115 @@
 
   <title>Colors · Baselayer CSS</title>
 
-  <link rel="stylesheet" href="/baselayer-3/css/min/baselayer.min.css?v=3.6.0">
+  <link rel="stylesheet" href="/baselayer-3/css/min/baselayer.min.css?v=3.7.0">
 
   <style>
-  html {
+  :root {
+  --w-page: var(--w-xxl); /* For XXL */
+  --w-sidebar: var(--w-xxs); /* For XXS */
+}
+
+html {
   scroll-behavior: smooth;
 }
 
-.resize-x {
-  margin-inline: -5px;
-  padding: 5px;
-  resize: horizontal;
-  overflow-x: auto;
-  background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='silver' stroke-width='2' stroke-dasharray='8%2c 8' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
+.body-wrap {
+  min-height: 100dvh;
+}
+.page-container {
+  width: min(100%, var(--w-page));
+  margin: 0 auto;
+}
+
+@media (min-width: 1024px) {
+  .page-container {
+    display: grid;
+    grid-template-columns: var(--w-sidebar) 1fr;
+  }
+  .left-sidebar {
+    grid-column: 1;
+    grid-row: 2;
+    border-right: var(--b-thin);
+    width: var(--w-sidebar);
+  }
+  .main-frame {
+    grid-column: 2;
+    grid-row: 2;
+  }
+  /* .main-pane {
+    display: flex;
+  }
+  .content-panel {
+    margin-inline: auto;
+  } */
+}
+
+@media (min-width: 1280px) {
+  .main-frame {
+    display: grid;
+    grid-template-columns: 1fr var(--w-sidebar);
+  }
+  .main-pane {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .right-sidebar {
+    grid-column: 2;
+    grid-row: 1;
+  }
+}
+
+@container (min-width: 1024px) {
+  #site-nav {
+    position: sticky;
+    top: 0;
+    width: var(--w-xxs);
+    height: 100dvh;
+  }
+
+  #site-title {
+    padding-top: var(--s-3);
+    flex-direction: column;
+    align-self: center;
+  }
+
+  #site-menu {
+    min-width: var(--w-xxs);
+  }
+
+  .ms-windows #site-nav > div {
+    scrollbar-gutter: stable;
+    overflow-y: hidden;
+  }
+
+  .ms-windows #site-nav:hover > div {
+    overflow-y: auto;
+  }
+}
+
+#toc-outer li {
+  margin-block: 0.5em;
+}
+
+@container (min-width: 1280px) {
+  #toc-outer > p {
+    padding-block: 0.5em;
+  }
+
+  .ms-windows #toc-outer {
+    scrollbar-gutter: stable;
+    overflow-y: hidden;
+  }
+
+  .ms-windows #toc-outer:hover {
+    overflow-y: auto;
+  }
+}
+
+@container (max-width: 1279px) {
+  #toc-outer ul ul {
+    display: none;
+  }
 }
 
 button.toggler {
@@ -64,97 +160,12 @@ pre code {
   overflow-y: auto;
 }
 
-@container (min-width: 960px) {
-  #content-wrap {
-    width: calc(100vw - var(--w-xs));
-  }
-
-  #site-nav {
-    position: sticky;
-    top: 0;
-    width: var(--w-xs);
-    height: 100dvh;
-  }
-
-  #site-title {
-    padding-top: var(--s-3);
-    flex-direction: column;
-    align-self: center;
-  }
-
-  #site-menu {
-    min-width: var(--w-xs);
-  }
-
-  .ms-windows #site-nav > div {
-    scrollbar-gutter: stable;
-    overflow-y: hidden;
-  }
-
-  .ms-windows #site-nav:hover > div {
-    overflow-y: auto;
-  }
-}
-
-@container (min-width: 1280px) {
-  #toc-outer > p {
-    padding-top: var(--s-3);
-  }
-
-  .ms-windows #toc-outer {
-    scrollbar-gutter: stable;
-    overflow-y: hidden;
-  }
-
-  .ms-windows #toc-outer:hover {
-    overflow-y: auto;
-  }
-}
-
-@container page (max-width: 1279px) {
-  #toc ul ul {
-    display: none;
-  }
-}
-
-/* Pagefind */
-
-.pagefind-ui__form {
-  position: relative;
-  display: block;
-  margin-top: 1em;
-}
-
-.pagefind-ui__search-input {
-  display: block;
-  width: 100%;
-  border-radius: 3em;
-}
-
-.pagefind-ui__suppressed {
-  opacity: 0;
-  pointer-events: none;
-}
-
-.pagefind-ui__search-clear {
-  position: absolute;
-  top: 0.325rem;
-  right: 0.325rem;
-  z-index: 1;
-  border-radius: 0 3em 3em 0;
-  font-size: 0.85rem;
-  font-weight: normal;
-  background: transparent;
-}
-
-.pagefind-ui__results-area {
-  margin-top: var(--s-3);
-}
-
-div:not(.pagefind-ui__result-nested) > .pagefind-ui__result-title {
-  margin-bottom: 0;
-  font-size: var(--h4);
-  font-weight: var(--t-semibold);
+.resize-x {
+  margin-inline: -5px;
+  padding: 5px;
+  resize: horizontal;
+  overflow-x: auto;
+  background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='silver' stroke-width='2' stroke-dasharray='8%2c 8' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
 }
 
   </style>
@@ -232,7 +243,7 @@ window.addEventListener("DOMContentLoaded", () => {
   let navButton = document.querySelector("#site-menu-toggle");
   let menu = document.querySelector("#js-menu-wrapper");
   let windowTest = function () {
-    if (window.matchMedia("(max-width: 959px)").matches) {
+    if (window.matchMedia("(max-width: 1023px)").matches) {
       navButton.setAttribute("aria-expanded", "false");
       menu.hidden = true;
     } else {
@@ -266,13 +277,13 @@ window.addEventListener("DOMContentLoaded", () => {
 
   <a href="#content-wrap" tabindex="1" class="inline-block m-2 visually-hidden">Skip to page content</a>
 
-  <div id="body-wrap" class="md:flex">
-
-    <div id="site-nav" class="h-100% bg-gray bg-100 dark:bg-900">
+  <div class="page-container">
+    <div class="left-sidebar">
+      <div id="site-nav" class="h-100% bg-gray bg-100 dark:bg-900">
   <div class="sticky top h-max-100dvh overflow-y">
     <div class="flex flex-space-between md:block">
       <div class="p-cell md:t-center">
-        <a id="site-title" href="/baselayer-3/" class="h4 py-2 t-normal flex flex-center flex-middle gap-2 t-gray t-800 dark:t-200 hover:t-reversi t-underline-none">
+        <a id="site-title" href="/baselayer-3/" class="h4 t-normal flex flex-center flex-middle gap-1 t-gray t-800 dark:t-200 hover:t-reversi t-underline-none">
           <svg height="48" width="48" viewBox="0 0 111 111" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-miterwrapper:1.5">
             <g transform="translate(-294.592 -94.592)">
               <circle cx="350" cy="150" r="50" style="fill:none;stroke:currentColor;stroke-width:4px"/>
@@ -285,22 +296,22 @@ window.addEventListener("DOMContentLoaded", () => {
           <span class="t-nowrap">Baselayer CSS</span>
         </a>
       </div>
-      <button type="button" id="site-menu-toggle" aria-expanded="false" aria-label="Menu" aria-controls="site-menu" class="m-3 md:hidden">
+      <button type="button" id="site-menu-toggle" aria-expanded="false" aria-label="Menu" aria-controls="site-menu" class="m-1 md:hidden">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256"><path d="M228,128a12,12,0,0,1-12,12H40a12,12,0,0,1,0-24H216A12,12,0,0,1,228,128ZM40,76H216a12,12,0,0,0,0-24H40a12,12,0,0,0,0,24ZM216,180H40a12,12,0,0,0,0,24H216a12,12,0,0,0,0-24Z"></path></svg>
       </button>
     </div>
 
     <div id="js-menu-wrapper">
-      <div class="m-3 bt-thin bb-thin py-3 flex flex-center flex-wrap gap-3 links-underlined-hover-only">
-        <span class="t-gray t-600 dark:t-400">Version: 3.6.0</span>
+      <div class="m-2 bt-thin bb-thin py-2 flex flex-center flex-wrap gap-2 links-underlined-hover-only">
+        <span class="t-gray t-600 dark:t-400">Version: 3.7.0</span>
         <a class="t-gray t-800 dark:t-200 hover:t-900 hover:dark:t-100" href="https://github.com/SimonPadbury/baselayer-3">GitHub</a>
         <span>
-          <a class="t-gray t-800 dark:t-200 hover:t-900 hover:dark:t-100" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> <span class="t-gray t-600 t-dark-invert">(26 KB)</span>
+          <a class="t-gray t-800 dark:t-200 hover:t-900 hover:dark:t-100" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> <span class="t-gray t-600 t-dark-invert">(27 KB)</span>
         </span>
       </div>
 
       <nav class="t-white container px-3 py-2">
-        <menu class="pl-0 flex flex-column gap-2 links-underline-none">
+        <menu class="pl-0 flex flex-column gap-1 links-underline-none">
           <menuitem>
             <a class="block  p-cell t-gray t-700 dark:t-300 hover:t-900 hover:dark:t-100"  href="/baselayer-3/">Getting started</a>
           </menuitem>
@@ -313,7 +324,7 @@ window.addEventListener("DOMContentLoaded", () => {
           <menuitem>
             <a class="block  p-cell t-gray t-700 dark:t-300 hover:t-900 hover:dark:t-100"  href="/baselayer-3/decoration/">Decoration</a></menuitem>
           <menuitem>
-            <a class="block bl-heavy b-gray b-300 dark:b-700 t-reversi bg-gray bg-200 dark:bg-800 p-cell t-gray t-700 dark:t-300 hover:t-900 hover:dark:t-100"  aria-current="page" href="/baselayer-3/colors/">Colors</a>
+            <a class="block bl-thick b-gray b-300 dark:b-700 t-reversi bg-gray bg-200 dark:bg-800 p-cell t-gray t-700 dark:t-300 hover:t-900 hover:dark:t-100"  aria-current="page" href="/baselayer-3/colors/">Colors</a>
           </menuitem>
           <menuitem>
             <a class="block  p-cell t-gray t-700 dark:t-300 hover:t-900 hover:dark:t-100"  href="/baselayer-3/forms/">Forms</a>
@@ -327,36 +338,36 @@ window.addEventListener("DOMContentLoaded", () => {
         </menu>
       </nav>
 
-      <menu class="my-2 px-3">
-        <button id="baseSwitch" class="mb-1 p-2 flex flex-start w-100%" type="button" onclick="fontBase()">
+      <menu class="my-2 px-3 flex flex-column gap-1">
+        <button id="baseSwitch" class="flex flex-start w-100%" type="button" onclick="fontBase()">
           <div class="w-100% flex flex-middle gap-1">
             <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
             <div class="grow t-left">Base font</div>
           </div>
         </button>
 
-        <button id="proseSwitch" class="mb-1 p-2 flex flex-start w-100%" type="button" onclick="fontProse()">
+        <button id="proseSwitch" class="flex flex-start w-100%" type="button" onclick="fontProse()">
           <div class="w-100% flex flex-middle gap-1">
             <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
             <div class="grow t-left">Prose font</div>
           </div>
         </button>
 
-        <button id="autoSwitch" class="mb-1 p-2 flex flex-start w-100%" type="button" onclick="themeAuto()">
+        <button id="autoSwitch" class="flex flex-start w-100%" type="button" onclick="themeAuto()">
           <div class="w-100% flex flex-middle gap-1">
             <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
             <div class="grow t-left">Auto theme</div>
           </div>
         </button>
 
-        <button id="lightSwitch" class="mb-1 p-2 flex flex-start w-100%" type="button" onclick="themeLight()">
+        <button id="lightSwitch" class="flex flex-start w-100%" type="button" onclick="themeLight()">
           <div class="w-100% flex flex-middle gap-1">
             <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
             <div class="grow t-left">Light theme</div>
           </div>
         </button>
 
-        <button id="darkSwitch" class="p-2 flex flex-start w-100%" type="button" onclick="themeDark()">
+        <button id="darkSwitch" class="flex flex-start w-100%" type="button" onclick="themeDark()">
           <div class="w-100% flex flex-middle gap-1">
             <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
             <div class="grow t-left">Dark theme</div>
@@ -368,62 +379,31 @@ window.addEventListener("DOMContentLoaded", () => {
   </div>
 </div>
 
-
-    <div id="content-wrap" class="grow">
-      <div class="lg:grid lg:equal-4-cols gap-3">
-        <div class="lg:col-span-3">
-
-          <div id="pagefind-here" class="content-grid">
-            
-            <script src="/baselayer-3/pagefind/pagefind-ui.js"></script>
-            <div id="search"></div>
-            <p class="mt-1 mr-3 mb-0 t-sm t-right">Search powered by <a class="t-underline-none" href="https://pagefind.app" target="_blank">Pagefind</a>.</p>
-            <script>
-                window.addEventListener('DOMContentLoaded', (event) => {
-                    new PagefindUI({ element: "#search", showSubResults: true });
-                });
-            </script>
-          </div>
-
-          <header id="article-title">
-            <div class="wrapper-md py-3 t-center t-comfort">
-              <h1 class="my-4 t-balance t-bold">Colors</h1>
+    </div>
+    <div class="main-frame">
+      <aside class="right-sidebar lg:hidden-below">
+        <div id="toc-outer" class="sticky top wrapper-content h-max-100dvh pb-4 links-underline-hover-only overflow-y">
+          <p class="h4 t-semibold">On this page</p>
+          <nav class="toc" >
+        <ul><li><a href="#color-and-shade-utility-classes">Color and shade utility classes</a></li><li><a href="#colors-and-accessibility">Colors and accessibility</a></li><li><a href="#how-baselayer-css-handles-color">How Baselayer CSS handles color</a></li><li><a href="#how-the-dark-theme-works">How the dark theme works</a><ul><li><a href="#light-and-dark-theme-classes">Light and dark theme classes</a></li><li><a href="#dark-theme-lightness-levels">Dark theme lightness levels</a></li><li><a href="#what-if-you-don%E2%80%99t-want-a-dark-theme%3F">What if you don’t want a dark theme?</a></li></ul></li><li><a href="#other-baselayer-color-utilities">Other Baselayer color utilities</a><ul><li><a href="#black%2C-white%2C-and-reversi">Black, white, and reversi</a></li><li><a href="#transparent-background">Transparent background</a></li></ul></li></ul>
+      </nav>
+        </div>
+      </aside>
+      <div class="main-pane">
+        <div class="main-pane-content container">
+          <header id="article-title" class="content-grid">
+            <div class="aspect-ratio-16x9 relative">
+              <h1 class="box place-center my-3 t-balance t-center">Colors</h1>
             </div>
           </header>
-        </div>
-        <div class="lg:col-4 lg:row-span-3">
-          <nav id="toc-outer" class="sticky top w-sm h-max-100dvh mx-auto mb-4 px-2 links-underline-hover-only overflow-y">
-            <p class="h4 t-semibold">On this page</p>
-            <nav class="toc" >
-        <ul><li><a href="#rationale-for-baselayer%E2%80%99s-color-system">Rationale for Baselayer’s color system</a></li><li><a href="#color-and-shade-utility-classes">Color and shade utility classes</a></li><li><a href="#colors-and-accessibility">Colors and accessibility</a></li><li><a href="#adding-more-colors">Adding more colors</a></li><li><a href="#dark-theme">Dark theme</a><ul><li><a href="#light-and-dark-theme-classes">Light and dark theme classes</a></li><li><a href="#dark-theme-lightness-levels">Dark theme lightness levels</a></li><li><a href="#what-if-you-don%E2%80%99t-want-a-dark-theme%3F">What if you don’t want a dark theme?</a></li></ul></li><li><a href="#other-baselayer-color-utilities">Other Baselayer color utilities</a><ul><li><a href="#black%2C-white%2C-and-reversi">Black, white, and reversi</a></li><li><a href="#transparent-background">Transparent background</a></li></ul></li></ul>
-      </nav>
-          </nav>
-        </div>
-        <div class="lg:col-span-3">
-          <main id="article-content" class="content-grid">
-            <p><code>color-mix(in OKLCH ... )</code> has been <a href="https://developer.mozilla.org/en-US/docs/Glossary/Baseline/Compatibility">Baseline:widely available</a> since March 2023 — all “evergreen” browsers (Chrome, Edge, Firefox, Safari) have capability to use it (see <a href="https://caniuse.com/?search=color-mix()">Can I use</a>). Baselayer uses this function to set up a range of lightness levels for its five built-in colors.</p>
-<h2 id="rationale-for-baselayer%E2%80%99s-color-system" tabindex="-1">Rationale for Baselayer’s color system</h2>
-<p>I wanted to develop a color system based on interpolating CSS variables for generating a series <em>lightness levels</em> for each color, so that the stylesheet doesn’t need to be loaded with lighness classes for every color — most of which you’d never use.</p>
-<p><strong>Since Baselayer 3.5.6:</strong> From there, Baselayer’s <code>oklch( ... )</code> function (baseline <a href="https://caniuse.com/?search=oklch">widely available since 2023</a>) takes the hue (h) and chroma (c) values out of the base color, and adjusts the lightness level (l) to 50% (matching Baselayer’s built-in middle lightness, <code>--l500</code>). This enables a <em>perceptually uniform</em> system of lightness levels (see later).</p>
-<p>In Baselayer CSS, default colors are set using Hex <code>#</code> codes). But if/when you add your own in all other color system, the <code>oklch( ... )</code> function can handle it.</p>
-<table class="table table-fixed">
-<thead>
-<th>Blue</th>
-<th>Green</th>
-<th>Amber</th>
-<th>Red</th>
-<th>Gray</th>
-</thead>
-<tbody>
-<td><div class="p-3 rad bg-blue">&nbsp;<div></td>
-<td><div class="p-3 rad bg-green">&nbsp;<div></td>
-<td><div class="p-3 rad bg-amber">&nbsp;<div></td>
-<td><div class="p-3 rad bg-red">&nbsp;<div></td>
-<td><div class="p-3 rad bg-gray">&nbsp;<div></td>
-</tbody>
-</table>
-<p>The color utility CSS class names remain the same as before (explained below). Example using background <code>bg-*</code> utility classes:</p>
-<div class="full-bleed mt-3 mb-4 p-2 flex flex-center flex-wrap">
+          <main class="content-grid flow">
+            <p>Baselayer’s color utility class system is based on using the modern CSS <code>oklch()</code> function and a series of interpolated lightness level variables that enable the lightness level utility classes to work. The lightnsses for color each class are not pre-created, unlike with other CSS frameworks.</p>
+<p>So in the HTML, you first choose the color utility class, then you choose the lightness level class separately. Handled this way, the stylesheet doesn’t need to be loaded with lighness classes for every color — most of which you’d never use.</p>
+<p>The <code>oklch()</code> function has been <a href="https://developer.mozilla.org/en-US/docs/Glossary/Baseline/Compatibility">baseline: widely available</a> since March 2023. All “evergreen” browsers (Chrome, Edge, Firefox, Safari) have capability to use it (see <a href="https://caniuse.com/?search=color-mix()">Can I use</a>).</p>
+<p>In setting up the lightness utility classes, Baselayer’s <code>oklch()</code> formulas take the hue (h) and chroma (c) values out of the base color variables, and adjusts the lightness level (l) to 50% (matching Baselayer’s built-in middle lightness, i.e. <code>--l500</code>). This enables a <em>perceptually uniform</em> system of lightness levels.</p>
+<p>The five Baselayer built-in theme colors are set using Hex <code>#</code> codes). But if/when you add your own in all other color system, the <code>oklch( ... )</code> formulas can handle it.</p>
+<p>Example using background <code>bg-*</code> utility classes:</p>
+<div class="full-bleed my-3 p-2 flex flex-center flex-wrap">
   <div style="width: clamp(96px, 15cqi, 208px)">
     <div class="p-2 t-center"><code class="t-small">blue</code></div>
     <div class="p-2 t-black t-small bg-blue bg-100">100</div>
@@ -488,7 +468,7 @@ window.addEventListener("DOMContentLoaded", () => {
 <p>Also available:</p>
 <ol>
 <li>A built-in <a href="#dark-theme">dark theme</a>.</li>
-<li>Black, white, and transparent — see <a href="#other-baselayer-color-utilities">other Baselayer color utilities</a>.</li>
+<li><code>black</code>, <code>white</code>, <code>reversi</code>, <code>reversi-flip</code>, and <code>transparent</code> — see <a href="#other-baselayer-color-utilities">other Baselayer color utilities</a>.</li>
 </ol>
 <h2 id="color-and-shade-utility-classes" tabindex="-1">Color and shade utility classes</h2>
 <p>All colors and lightness levels are declared in <code>variables.css</code>.</p>
@@ -503,16 +483,19 @@ window.addEventListener("DOMContentLoaded", () => {
 <th colspan="2" class="t-center bg-gray bg-100 dark:bg-900">Background Color</th>
 </tr>
 <tr>
-<th class="t-nowrap bg-gray bg-100 dark:bg-900">Default state</th>
+<th class="bg-gray bg-100 dark:bg-900">Default state</th>
 <th class="bg-gray bg-100 dark:bg-900">Hover state</th>
 <th>Default state</th>
 <th>Hover state</th>
-<th class="t-nowrap bg-gray bg-100 dark:bg-900">Default state</th>
+<th class="bg-gray bg-100 dark:bg-900">Default state</th>
 <th class="bg-gray bg-100 dark:bg-900">Hover state</th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="bb-thin">
+<td colspan="7" class="p-0 px-1 t-heavy t-loose t-uppercase bg-gray bg-200 dark:bg-800">Light theme (default)</td>
+</tr>
+<tr class="bb-thin">
 <td>Lightness modifier</td>
 <td class="bg-gray bg-100 dark:bg-900"><code>b-100</code><br>...<br><code>b-900</code></td>
 <td class="bg-gray bg-100 dark:bg-900"><code>hover:b-100</code><br>...<br><code>hover:b-900</code></td>
@@ -521,57 +504,49 @@ window.addEventListener("DOMContentLoaded", () => {
 <td class="bg-gray bg-100 dark:bg-900"><code>bg-100</code><br>...<br><code>bg-900</code></td>
 <td class="bg-gray bg-100 dark:bg-900"><code>hover:bg-100</code><br>...<br><code>hover:bg-900</code></td>
 </tr>
+<tr class="bb-thin">
+<td colspan="7" class="p-0 px-1 t-heavy t-loose t-uppercase bg-gray bg-200 dark:bg-800">Dark theme*</td>
+</tr>
+<tr>
+<td>Lightness modifier</td>
+<td class="bg-gray bg-100 dark:bg-900"><code>dark:b-100</code><br>...<br><code>dark:b-900</code></td>
+<td class="bg-gray bg-100 dark:bg-900"><code>hover:dark:b-100</code><br>...<br><code>hover:dark:b-900</code></td>
+<td><code>dark:t-100</code><br>...<br><code>dark:t-900</code></td>
+<td><code>hover:dark:t-100</code><br>...<br><code>hover:dark:t-900</code></td>
+<td class="bg-gray bg-100 dark:bg-900"><code>dark:bg-100</code><br>...<br><code>dark:bg-900</code></td>
+<td class="bg-gray bg-100 dark:bg-900"><code>hover:dark:bg-100</code><br>...<br><code>hover:dark:bg-900</code></td>
+</tr>
 </tbody>
 </table>
+<p class="mt-1 t-center">* Use <code>hover:dark:b-100</code> NOT <code>`dark:hover:b-100`</code> etc.
 </div>
-<p>Notes on lightness levels:</p>
-<ol>
-<li>The utility class lightness level suffixes go up in hundreds, from <code>-100</code> to <code>.900</code>.</li>
-<li>You can use these levels in your own CSS. You are also free to do whatever you want.</li>
-</ol>
-<pre><code class="language-css">@layer bl-variables {
-  :root {
-    --l100: 98%;
-    --l200: 86%;
-    --l300: 74%;
-    --l400: 62%;
-    --l500: 50%;
-    --l600: 42%;
-    --l700: 34%;
-    --l800: 26%;
-    --l900: 18%;
-    --l1000: 10%;
-  }
-}
-</code></pre>
 <p>Example border, text and background utilities:</p>
-<div class="mt-3 mb-4 flex flex-grow-equal gap-1 gap-2">
+<div class="my-4 flex flex-grow-equal gap-1 gap-2">
   <div class="b-heavy b-green p-3 flex flex-center flex-middle"><span class="t-nowrap">b-green</span></div>
   <div class="p-3 flex flex-center flex-middle gap-1 flex-wrap t-heavy t-green t-700 dark:t-300"><span class="t-nowrap">t-green</span> <span class="t-nowrap">t-700</span> <span class="t-nowrap">dark:t-300</span></div>
   <div class="p-3 flex flex-center flex-middle gap-1 flex-wrap t-black bg-green bg-300"><span class="t-nowrap">bg-green</span> <span class="t-nowrap">bg-200</span></div>
 </div>
-<pre><code>&lt;div class=&quot;b-heavy b-green&quot;&gt;&lt;/div&gt;
+<pre><code class="language-html">&lt;div class=&quot;b-heavy b-green&quot;&gt;&lt;/div&gt;
+
 &lt;div class=&quot;t-heavy t-green t-700 dark:t-300&quot;&gt;&lt;/div&gt;
+
 &lt;div class=&quot;t-black bg-green bg-300&quot;&gt;&lt;/div&gt;
 </code></pre>
 <p>See also <a href="#dark-theme-lightness-levels">dark theme lightness levels</a> and <a href="#black%2C-white%2C-and-reversi">black, white, and reversi</a>.</p>
 <p>Example usage:</p>
-<div aria-label="Note" class="popout mt-3 mb-4 bl-heavy b-blue b-400 dark:b-600 p-3 t-reversi bg-blue bg-200 dark:bg-800">
+<div aria-label="Note" class="popout my-4 bl-heavy b-blue b-400 dark:b-600 p-3 t-reversi bg-blue bg-200 dark:bg-800">
   &star; Note (information) panel.
 </div>
-<pre><code class="language-html">&lt;div aria-label=&quot;Note&quot; class=&quot;popout mt-3 mb-4 bl-heavy b-blue b-400 dark:b-600 p-3 t-reversi bg-blue bg-200 dark:bg-800&quot;&gt;
+<pre><code class="language-html">&lt;div aria-label=&quot;Note&quot; class=&quot;popout my-3 bl-heavy b-blue b-400 dark:b-600 p-3 t-reversi bg-blue bg-200 dark:bg-800&quot;&gt;
   &amp;star; Note (information) panel.
 &lt;/div&gt;
 </code></pre>
 <p>The lighness modifiers <code>*-100</code> through <code>*-900</code>, if used alone, do not provide color. But if you use them to supplement one of the base colors above, then that color class will provide the color, and the modifier will set its lightness level.</p>
 <h2 id="colors-and-accessibility" tabindex="-1">Colors and accessibility</h2>
-<div aria-label="Warning" class="popout mt-3 mb-4 bl-heavy b-amber b-300 dark:b-600 p-3 bg-amber bg-100 dark:bg-800">
-  In any color model, color combinations must be chosen with care so that there is sufficient contrast between text and background colors for purposes of assessibility.
-</div>
+<p>In any color model, color combinations must be chosen with care so that there is sufficient contrast between text and background colors for purposes of assessibility.</p>
 <p>In your text and background color combinations, be careful to ensure that the text is readable — there needs to be an adequate contrast. Most organizations should to aim for <a href="https://www.w3.org/WAI/WCAG2AA-Conformance">WCAG level AA</a> for accessibility requirements.</p>
-<p>For WCAG level AA conformance, most user interface colors need to be <em>darker than the mid-level</em> (i.e. use <code>*-600</code> up) if the text color is white, or <em>lighter than the mid-level</em> (i.e. use <code>*-400</code> down) if the text color is black.</p>
-<p>However, any colors near yellow such as Baselayer amber, as well as orange and yellow-green (not included), are especially difficult for accessibility. You may do better using a lighter background amber and pairing it with black text (or vise versa).</p>
-<form class="my-3">
+<p>For WCAG level AA conformance, most user interface colors need to be <em>mid-level</em> (i.e. use <code>*-500</code> up) if the text color is white, or <em>lighter than the mid-level</em> (i.e. use <code>*-400</code> down) if the text color is black.</p>
+<form class="my-4">
   <p>
     <button type="button" name="button">Button</button>
     <button class="bg-blue bg-500 hover:bg-600" type="button" name="button">Button</button>
@@ -579,7 +554,7 @@ window.addEventListener("DOMContentLoaded", () => {
     <button class="b-thin b-green bg-transparent t-green t-600 hover:t-white hover:bg-green hover:bg-600" type="button" name="button">Button</button>
   </p>
 </form>
-<p>When colorizing buttons, remember to set their <code>hover:</code> hover state shades too.</p>
+<p>When colorizing buttons (and link pseudo-buttons), remember to set their <code>hover:</code> hover state shades too.</p>
 <pre><code class="language-html">&lt;!-- Default button --&gt;
 &lt;button type=&quot;button&quot; name=&quot;button&quot;&gt;Button&lt;/button&gt;
 
@@ -606,10 +581,68 @@ window.addEventListener("DOMContentLoaded", () => {
 <li>The <a href="https://coolors.co/contrast-checker/112a46-acc8e5"><em>Coolors</em> contrast checker</a></li>
 <li><a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/Understanding_Colors_and_Luminance">Web Accessibility: Understanding Colors and Luminance (Mozilla Developer Network Docs)</a></li>
 </ul>
-<h2 id="adding-more-colors" tabindex="-1">Adding more colors</h2>
-<p>You can, of course, add any colors you want, and in any format you want.</p>
-<p>However, if you want to use Baselayer’s lightness modifier classes <code>-100</code> thorugh <code>-900</code> on your colors, then you need to start from a <em>mid-lightness</em> color so that the <code>-100</code> and the <code>-900</code> generated by the <code>color-mix()</code> formulas are distinguishable (not to chose to white or too close to black).</p>
-<p>You can add your own project colors in any format, but the Baselayer <code>color-mix()</code> formulas will output shade in OKLCH format.</p>
+<h2 id="how-baselayer-css-handles-color" tabindex="-1">How Baselayer CSS handles color</h2>
+<p>Baselayer handles color in a 4-step process:</p>
+<ol>
+<li>
+<p>The 5 baselayer colors are first declared as CSS variables:</p>
+<pre><code class="language-css">@layer bl-variables {
+  :root {
+    /* Theme base colors */
+    --blue: #4166f5;
+    --green: #00a550;
+    --amber: #ffba00;
+    --red: #e34234;
+    --gray: #838996;
+  }
+}
+</code></pre>
+</li>
+<li>
+<p>The utility class lightness level suffixes go up in hundreds, from <code>-100</code> to <code>-1000</code>. (The <code>-1000</code> is only used once in Baselayer, for setting the dark theme <code>&lt;body&gt;</code> background. Levels <code>-100</code> to <code>-900</code> are used in the lightness utility classes.)</p>
+<pre><code class="language-css">@layer bl-variables {
+  :root {
+    --l100: 98%;
+    --l200: 86%;
+    --l300: 74%;
+    --l400: 62%;
+    --l500: 50%;
+    --l600: 42%;
+    --l700: 34%;
+    --l800: 26%;
+    --l900: 18%;
+    --l1000: 10%;
+  }
+}
+</code></pre>
+</li>
+<li>
+<p>In the variables file, Baselayer colors are set up using the formula. For example, in the base text color:</p>
+<pre><code class="language-css">@layer bl-variables {
+  :root {
+    --tc-base: background-color: light-dark(
+      oklch(from var(--gray) var(--l900) c h),
+      oklch(from var(--gray) var(--l100) c h)
+    );
+  }
+}
+</code></pre>
+</li>
+<li>
+<p>Finally, the variable is used in a style rule:</p>
+<pre><code class="language-css">@layer bl-reset {
+  body {
+    color: var(--tc-base);
+  }
+}
+</code></pre>
+</li>
+</ol>
+<p>You can, of course, add any colors you want, and in any format you want. But if you want to add colors in a way that integrates with the Baselayer system, do this:</p>
+<ol>
+<li>You need to declare your colors first as CSS variables (preferably in the <code>:root{}</code>), so that they are available for the lightness utility classes.</li>
+<li>You need to insert your colors <em>before</em> the Baselayer <code>@layer bl-colors</code> so that  your colors can make use of the Baselayer color shades.</li>
+</ol>
 <p>Examples:</p>
 <pre><code class="language-css">:root {
   --purple: #9400d3;
@@ -619,47 +652,55 @@ window.addEventListener("DOMContentLoaded", () => {
 /* If you want to create your own utility classes */
 
 /* Border colors */
-.b-purple {
-  --bc: var(--purple);
-  border-color: var(--bc);
-}
-.b-teal {
+
+.b-teal,
+.hover\:b-teal:hover {
   --bc: var(--teal);
-  border-color: var(--bc);
+  border-color: oklch(from var(--bc) var(--bl, 50%) c h);
+}
+.b-purple,
+.hover\:b-purple:hover {
+  --bc: var(--purple);
+  border-color: oklch(from var(--bc) var(--bl, 50%) c h);
 }
 
 /* Text colors */
-.t-purple {
+
+.t-purple,
+.hover\:t-purple:hover {
   --tc: var(--purple);
-  color: var(--tc);
+  color: oklch(from var(--tc) var(--tl, 50%) c h);
 }
-.t-teal {
+.t-teal,
+.hover\:t-teal:hover {
   --tc: var(--teal);
-  border-color: var(--tc);
+  color: oklch(from var(--tc) var(--tl, 50%) c h);
 }
 
-/* Background colors*/
-.bg-purple {
+/* Background colors */
+
+.bg-purple,
+.hover\:bg-purple:hover {
   --bgc: var(--purple);
-  background: var(--bgc);
+  background: oklch(from var(--bgc) var(--bgl, 50%) c h);
 }
-.bg-teal {
+.bg-teal,
+.hover\:bg-teal:hover {
   --bgc: var(--teal);
-  background: var(--bgc);
+  background: oklch(from var(--bgc) var(--bgl, 50%) c h);
 }
 </code></pre>
-<p><strong>Note:</strong> you need to declate the colors as CSS variables so that they are available for the lightness utilities.</p>
-<h2 id="dark-theme" tabindex="-1">Dark theme</h2>
-<p>Baselayer has a simple dark theme built in. Since v.3.4.0, the user’s operating system preference for light or dark mode is automatically detected on the HTML tag:</p>
+<h2 id="how-the-dark-theme-works" tabindex="-1">How the dark theme works</h2>
+<p>Baselayer has a simple dark theme built in. Since v.3.4.0, the user’s operating system preference for light or dark mode is automatically detected on the HTML tag by the following CSS:</p>
 <pre><code class="language-css">html {
   color-scheme: light dark;
 }
 </code></pre>
-<p>For the dark theme, HTML elements are generally flipped from light to dark, or dark to light, as required. The colors are as follows:</p>
+<p>For the dark theme, HTML elements are generally flipped from light to dark, or dark to light, as required. The colors are shifted as follows:</p>
 <ul>
 <li>Body background is near black</li>
 <li>Text is near white</li>
-<li>Table borders, horizontal rules, form inputs are dark gray</li>
+<li>Table borders, horizontal rules, form inputs are a darker gray</li>
 <li>Text links are a lighter blue</li>
 <li>Default buttons are a lighter gray</li>
 <li>Form elements’ text and background are switched the same as base text and body in dark mode</li>
@@ -760,7 +801,7 @@ window.addEventListener("DOMContentLoaded", () => {
 &lt;a href=&quot;&quot; class=&quot;... hover:dark:bg-900&quot;&gt;Link&lt;/a&gt;
 
 &lt;!-- This will not work --&gt;
-&lt;a href=&quot;&quot; class=&quot;... dark:hover:bg-900&quot;&gt;Link&lt;/a&gt;
+&lt;a href=&quot;&quot; class=&quot;... hover:dark:bg-900&quot;&gt;Link&lt;/a&gt;
 </code></pre>
 <h3 id="what-if-you-don%E2%80%99t-want-a-dark-theme%3F" tabindex="-1">What if you don’t want a dark theme?</h3>
 <p>Then you can simply override or replace the HTML tag as follows:</p>
@@ -815,12 +856,8 @@ window.addEventListener("DOMContentLoaded", () => {
 </ul>
 <p>There are no hover states of <code>bg-transparent</code>.</p>
 
-          </main>
-        </div>
-
-        <div class="lg:col-span-3">
-          <footer class="mt-3 content-grid">
-            <nav class="popout grid gap-2 sm:equal-2-cols links-underline-none">
+            <hr>
+            <nav class="expand grid gap-2 sm:equal-2-cols links-underline-none">
               
               <a class="sm:col-1 my-1 b-thin b-blue b-300 hover:b-500 dark:b-700 rad-1 p-cell flex flex-column gap-1 t-blue t-600 hover:t-700 dark:t-400 bg-blue hover:bg-100 hover:dark:bg-800"  href="/baselayer-3/decoration/">
                 Previous page
@@ -834,7 +871,9 @@ window.addEventListener("DOMContentLoaded", () => {
               </a>
               
             </nav>
-            <div class="mt-4 mb-3 p-2 flex flex-column flex-middle t-center">
+          </main>
+          <div class="container-md">
+                        <div class="mt-4 mb-3 p-2 flex flex-column flex-middle t-center">
               <a href="/baselayer-3/" class="mb-1 flex flex-column flex-center gap-1 t-underline-none">
                 <svg class="mx-auto" height="48" width="48" viewBox="0 0 111 111" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-miterwrapper:1.5">
                   <g transform="translate(-294.592 -94.592)">
@@ -847,22 +886,22 @@ window.addEventListener("DOMContentLoaded", () => {
                   </svg>
                 <span class="h3 m-0 t-normal t-nowrap">Baselayer CSS</span>
               </a>
-              <span>Version: 3.6.0</span>
+              <span>Version: 3.7.0</span>
             </div>
 
             <p class="p-cell flex flex-center flex-wrap gap-4 t-center">
-              <span><a class="t-underline-hover-only" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> (26 KB)</span>
+              <span><a class="t-underline-hover-only" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> (27 KB)</span>
               <a class="t-underline-hover-only" href="https://github.com/SimonPadbury/baselayer-3">GitHub Repository</a>
               <a class="t-underline-hover-only" href="https://github.com/SimonPadbury/baselayer-3/blob/main/CHANGELOG.md">Changelog</a>
               <a class="t-underline-hover-only" href="https://github.com/SimonPadbury/baselayer-3/blob/main/LICENSE">MIT license</a>
             </p>
             <p class="t-center"><span>Developer: <a class="t-underline-hover-only" href="https://github.com/SimonPadbury">Simon Padbury</a></span>
-          </footer>
+
+          </div>
         </div>
       </div>
     </div>
-
-  </div><!-- /#body-wrap -->
+  </div>
 
 </body>
 </html>

@@ -1,6 +1,6 @@
 # Baselayer 3
 
-v.3.6.0 • 26 KB (minified) • MIT licence.
+v.3.7.0 • 27 KB (minified) • MIT licence.
 
 Designed as a good place to start, Baselayer may be all you need — for small web projects. Or you may use it as a _baselayer_ to quick-start your mega project.
 
@@ -22,7 +22,3 @@ Baselayer uses modern CSS technologies such as `grid`, functions (e.g. `clamp()`
 **Documentation:** [https://simonpadbury.github.io/baselayer-3/](https://simonpadbury.github.io/baselayer-3/)
 
 **Changelog:** [https://github.com/SimonPadbury/baselayer-3/blob/main/README.md](https://github.com/baselayer/blob/main/CHANGELOG.md)
-
----
-
-Docs contain search by [Pagefind](https://pagefind.app).

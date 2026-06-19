@@ -19,9 +19,8 @@ textarea {
   min-height: var(--y-form);
   border: var(--b-form);
   border-radius: unset;
-  padding: var(--p-cell);
+  padding: var(--p-btn);
   font-family: var(--t-default);
-  font-size: inherit;
   text-align: start;
   color: var(--tc-form);
   background: var(--bgc-form);
@@ -76,11 +75,9 @@ button,
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  margin: 0;
   border: none;
-  padding: var(--s-2) 1em;
+  padding: var(--p-btn);
   font-family: var(--t-default);
-  font-size: inherit;
   font-weight: var(--t-btn);
   text-decoration: none;
   color: var(--tc-btn);

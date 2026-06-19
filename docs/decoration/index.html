@@ -7,19 +7,115 @@
 
   <title>Decoration · Baselayer CSS</title>
 
-  <link rel="stylesheet" href="/baselayer-3/css/min/baselayer.min.css?v=3.6.0">
+  <link rel="stylesheet" href="/baselayer-3/css/min/baselayer.min.css?v=3.7.0">
 
   <style>
-  html {
+  :root {
+  --w-page: var(--w-xxl); /* For XXL */
+  --w-sidebar: var(--w-xxs); /* For XXS */
+}
+
+html {
   scroll-behavior: smooth;
 }
 
-.resize-x {
-  margin-inline: -5px;
-  padding: 5px;
-  resize: horizontal;
-  overflow-x: auto;
-  background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='silver' stroke-width='2' stroke-dasharray='8%2c 8' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
+.body-wrap {
+  min-height: 100dvh;
+}
+.page-container {
+  width: min(100%, var(--w-page));
+  margin: 0 auto;
+}
+
+@media (min-width: 1024px) {
+  .page-container {
+    display: grid;
+    grid-template-columns: var(--w-sidebar) 1fr;
+  }
+  .left-sidebar {
+    grid-column: 1;
+    grid-row: 2;
+    border-right: var(--b-thin);
+    width: var(--w-sidebar);
+  }
+  .main-frame {
+    grid-column: 2;
+    grid-row: 2;
+  }
+  /* .main-pane {
+    display: flex;
+  }
+  .content-panel {
+    margin-inline: auto;
+  } */
+}
+
+@media (min-width: 1280px) {
+  .main-frame {
+    display: grid;
+    grid-template-columns: 1fr var(--w-sidebar);
+  }
+  .main-pane {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .right-sidebar {
+    grid-column: 2;
+    grid-row: 1;
+  }
+}
+
+@container (min-width: 1024px) {
+  #site-nav {
+    position: sticky;
+    top: 0;
+    width: var(--w-xxs);
+    height: 100dvh;
+  }
+
+  #site-title {
+    padding-top: var(--s-3);
+    flex-direction: column;
+    align-self: center;
+  }
+
+  #site-menu {
+    min-width: var(--w-xxs);
+  }
+
+  .ms-windows #site-nav > div {
+    scrollbar-gutter: stable;
+    overflow-y: hidden;
+  }
+
+  .ms-windows #site-nav:hover > div {
+    overflow-y: auto;
+  }
+}
+
+#toc-outer li {
+  margin-block: 0.5em;
+}
+
+@container (min-width: 1280px) {
+  #toc-outer > p {
+    padding-block: 0.5em;
+  }
+
+  .ms-windows #toc-outer {
+    scrollbar-gutter: stable;
+    overflow-y: hidden;
+  }
+
+  .ms-windows #toc-outer:hover {
+    overflow-y: auto;
+  }
+}
+
+@container (max-width: 1279px) {
+  #toc-outer ul ul {
+    display: none;
+  }
 }
 
 button.toggler {
@@ -64,97 +160,12 @@ pre code {
   overflow-y: auto;
 }
 
-@container (min-width: 960px) {
-  #content-wrap {
-    width: calc(100vw - var(--w-xs));
-  }
-
-  #site-nav {
-    position: sticky;
-    top: 0;
-    width: var(--w-xs);
-    height: 100dvh;
-  }
-
-  #site-title {
-    padding-top: var(--s-3);
-    flex-direction: column;
-    align-self: center;
-  }
-
-  #site-menu {
-    min-width: var(--w-xs);
-  }
-
-  .ms-windows #site-nav > div {
-    scrollbar-gutter: stable;
-    overflow-y: hidden;
-  }
-
-  .ms-windows #site-nav:hover > div {
-    overflow-y: auto;
-  }
-}
-
-@container (min-width: 1280px) {
-  #toc-outer > p {
-    padding-top: var(--s-3);
-  }
-
-  .ms-windows #toc-outer {
-    scrollbar-gutter: stable;
-    overflow-y: hidden;
-  }
-
-  .ms-windows #toc-outer:hover {
-    overflow-y: auto;
-  }
-}
-
-@container page (max-width: 1279px) {
-  #toc ul ul {
-    display: none;
-  }
-}
-
-/* Pagefind */
-
-.pagefind-ui__form {
-  position: relative;
-  display: block;
-  margin-top: 1em;
-}
-
-.pagefind-ui__search-input {
-  display: block;
-  width: 100%;
-  border-radius: 3em;
-}
-
-.pagefind-ui__suppressed {
-  opacity: 0;
-  pointer-events: none;
-}
-
-.pagefind-ui__search-clear {
-  position: absolute;
-  top: 0.325rem;
-  right: 0.325rem;
-  z-index: 1;
-  border-radius: 0 3em 3em 0;
-  font-size: 0.85rem;
-  font-weight: normal;
-  background: transparent;
-}
-
-.pagefind-ui__results-area {
-  margin-top: var(--s-3);
-}
-
-div:not(.pagefind-ui__result-nested) > .pagefind-ui__result-title {
-  margin-bottom: 0;
-  font-size: var(--h4);
-  font-weight: var(--t-semibold);
+.resize-x {
+  margin-inline: -5px;
+  padding: 5px;
+  resize: horizontal;
+  overflow-x: auto;
+  background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='silver' stroke-width='2' stroke-dasharray='8%2c 8' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
 }
 
   </style>
@@ -232,7 +243,7 @@ window.addEventListener("DOMContentLoaded", () => {
   let navButton = document.querySelector("#site-menu-toggle");
   let menu = document.querySelector("#js-menu-wrapper");
   let windowTest = function () {
-    if (window.matchMedia("(max-width: 959px)").matches) {
+    if (window.matchMedia("(max-width: 1023px)").matches) {
       navButton.setAttribute("aria-expanded", "false");
       menu.hidden = true;
     } else {
@@ -266,13 +277,13 @@ window.addEventListener("DOMContentLoaded", () => {
 
   <a href="#content-wrap" tabindex="1" class="inline-block m-2 visually-hidden">Skip to page content</a>
 
-  <div id="body-wrap" class="md:flex">
-
-    <div id="site-nav" class="h-100% bg-gray bg-100 dark:bg-900">
+  <div class="page-container">
+    <div class="left-sidebar">
+      <div id="site-nav" class="h-100% bg-gray bg-100 dark:bg-900">
   <div class="sticky top h-max-100dvh overflow-y">
     <div class="flex flex-space-between md:block">
       <div class="p-cell md:t-center">
-        <a id="site-title" href="/baselayer-3/" class="h4 py-2 t-normal flex flex-center flex-middle gap-2 t-gray t-800 dark:t-200 hover:t-reversi t-underline-none">
+        <a id="site-title" href="/baselayer-3/" class="h4 t-normal flex flex-center flex-middle gap-1 t-gray t-800 dark:t-200 hover:t-reversi t-underline-none">
           <svg height="48" width="48" viewBox="0 0 111 111" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-miterwrapper:1.5">
             <g transform="translate(-294.592 -94.592)">
               <circle cx="350" cy="150" r="50" style="fill:none;stroke:currentColor;stroke-width:4px"/>
@@ -285,22 +296,22 @@ window.addEventListener("DOMContentLoaded", () => {
           <span class="t-nowrap">Baselayer CSS</span>
         </a>
       </div>
-      <button type="button" id="site-menu-toggle" aria-expanded="false" aria-label="Menu" aria-controls="site-menu" class="m-3 md:hidden">
+      <button type="button" id="site-menu-toggle" aria-expanded="false" aria-label="Menu" aria-controls="site-menu" class="m-1 md:hidden">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256"><path d="M228,128a12,12,0,0,1-12,12H40a12,12,0,0,1,0-24H216A12,12,0,0,1,228,128ZM40,76H216a12,12,0,0,0,0-24H40a12,12,0,0,0,0,24ZM216,180H40a12,12,0,0,0,0,24H216a12,12,0,0,0,0-24Z"></path></svg>
       </button>
     </div>
 
     <div id="js-menu-wrapper">
-      <div class="m-3 bt-thin bb-thin py-3 flex flex-center flex-wrap gap-3 links-underlined-hover-only">
-        <span class="t-gray t-600 dark:t-400">Version: 3.6.0</span>
+      <div class="m-2 bt-thin bb-thin py-2 flex flex-center flex-wrap gap-2 links-underlined-hover-only">
+        <span class="t-gray t-600 dark:t-400">Version: 3.7.0</span>
         <a class="t-gray t-800 dark:t-200 hover:t-900 hover:dark:t-100" href="https://github.com/SimonPadbury/baselayer-3">GitHub</a>
         <span>
-          <a class="t-gray t-800 dark:t-200 hover:t-900 hover:dark:t-100" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> <span class="t-gray t-600 t-dark-invert">(26 KB)</span>
+          <a class="t-gray t-800 dark:t-200 hover:t-900 hover:dark:t-100" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> <span class="t-gray t-600 t-dark-invert">(27 KB)</span>
         </span>
       </div>
 
       <nav class="t-white container px-3 py-2">
-        <menu class="pl-0 flex flex-column gap-2 links-underline-none">
+        <menu class="pl-0 flex flex-column gap-1 links-underline-none">
           <menuitem>
             <a class="block  p-cell t-gray t-700 dark:t-300 hover:t-900 hover:dark:t-100"  href="/baselayer-3/">Getting started</a>
           </menuitem>
@@ -311,7 +322,7 @@ window.addEventListener("DOMContentLoaded", () => {
             <a class="block  p-cell t-gray t-700 dark:t-300 hover:t-900 hover:dark:t-100"  href="/baselayer-3/layout/">Layout</a>
           </menuitem>
           <menuitem>
-            <a class="block bl-heavy b-gray b-300 dark:b-700 t-reversi bg-gray bg-200 dark:bg-800 p-cell t-gray t-700 dark:t-300 hover:t-900 hover:dark:t-100"  aria-current="page" href="/baselayer-3/decoration/">Decoration</a></menuitem>
+            <a class="block bl-thick b-gray b-300 dark:b-700 t-reversi bg-gray bg-200 dark:bg-800 p-cell t-gray t-700 dark:t-300 hover:t-900 hover:dark:t-100"  aria-current="page" href="/baselayer-3/decoration/">Decoration</a></menuitem>
           <menuitem>
             <a class="block  p-cell t-gray t-700 dark:t-300 hover:t-900 hover:dark:t-100"  href="/baselayer-3/colors/">Colors</a>
           </menuitem>
@@ -327,36 +338,36 @@ window.addEventListener("DOMContentLoaded", () => {
         </menu>
       </nav>
 
-      <menu class="my-2 px-3">
-        <button id="baseSwitch" class="mb-1 p-2 flex flex-start w-100%" type="button" onclick="fontBase()">
+      <menu class="my-2 px-3 flex flex-column gap-1">
+        <button id="baseSwitch" class="flex flex-start w-100%" type="button" onclick="fontBase()">
           <div class="w-100% flex flex-middle gap-1">
             <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
             <div class="grow t-left">Base font</div>
           </div>
         </button>
 
-        <button id="proseSwitch" class="mb-1 p-2 flex flex-start w-100%" type="button" onclick="fontProse()">
+        <button id="proseSwitch" class="flex flex-start w-100%" type="button" onclick="fontProse()">
           <div class="w-100% flex flex-middle gap-1">
             <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
             <div class="grow t-left">Prose font</div>
           </div>
         </button>
 
-        <button id="autoSwitch" class="mb-1 p-2 flex flex-start w-100%" type="button" onclick="themeAuto()">
+        <button id="autoSwitch" class="flex flex-start w-100%" type="button" onclick="themeAuto()">
           <div class="w-100% flex flex-middle gap-1">
             <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
             <div class="grow t-left">Auto theme</div>
           </div>
         </button>
 
-        <button id="lightSwitch" class="mb-1 p-2 flex flex-start w-100%" type="button" onclick="themeLight()">
+        <button id="lightSwitch" class="flex flex-start w-100%" type="button" onclick="themeLight()">
           <div class="w-100% flex flex-middle gap-1">
             <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
             <div class="grow t-left">Light theme</div>
           </div>
         </button>
 
-        <button id="darkSwitch" class="p-2 flex flex-start w-100%" type="button" onclick="themeDark()">
+        <button id="darkSwitch" class="flex flex-start w-100%" type="button" onclick="themeDark()">
           <div class="w-100% flex flex-middle gap-1">
             <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
             <div class="grow t-left">Dark theme</div>
@@ -368,50 +379,35 @@ window.addEventListener("DOMContentLoaded", () => {
   </div>
 </div>
 
-
-    <div id="content-wrap" class="grow">
-      <div class="lg:grid lg:equal-4-cols gap-3">
-        <div class="lg:col-span-3">
-
-          <div id="pagefind-here" class="content-grid">
-            
-            <script src="/baselayer-3/pagefind/pagefind-ui.js"></script>
-            <div id="search"></div>
-            <p class="mt-1 mr-3 mb-0 t-sm t-right">Search powered by <a class="t-underline-none" href="https://pagefind.app" target="_blank">Pagefind</a>.</p>
-            <script>
-                window.addEventListener('DOMContentLoaded', (event) => {
-                    new PagefindUI({ element: "#search", showSubResults: true });
-                });
-            </script>
-          </div>
-
-          <header id="article-title">
-            <div class="wrapper-md py-3 t-center t-comfort">
-              <h1 class="my-4 t-balance t-bold">Decoration</h1>
+    </div>
+    <div class="main-frame">
+      <aside class="right-sidebar lg:hidden-below">
+        <div id="toc-outer" class="sticky top wrapper-content h-max-100dvh pb-4 links-underline-hover-only overflow-y">
+          <p class="h4 t-semibold">On this page</p>
+          <nav class="toc" >
+        <ul><li><a href="#spacing">Spacing</a><ul><li><a href="#spacing-extras">Spacing extras</a></li></ul></li><li><a href="#borders">Borders</a><ul><li><a href="#border-extras">Border extras</a></li></ul></li><li><a href="#rounded-corners">Rounded corners</a></li><li><a href="#the-img-cover-class">The img-cover class</a></li><li><a href="#opacity">Opacity</a></li></ul>
+      </nav>
+        </div>
+      </aside>
+      <div class="main-pane">
+        <div class="main-pane-content container">
+          <header id="article-title" class="content-grid">
+            <div class="aspect-ratio-16x9 relative">
+              <h1 class="box place-center my-3 t-balance t-center">Decoration</h1>
             </div>
           </header>
-        </div>
-        <div class="lg:col-4 lg:row-span-3">
-          <nav id="toc-outer" class="sticky top w-sm h-max-100dvh mx-auto mb-4 px-2 links-underline-hover-only overflow-y">
-            <p class="h4 t-semibold">On this page</p>
-            <nav class="toc" >
-        <ul><li><a href="#spacing">Spacing</a><ul><li><a href="#spacing-extras">Spacing extras</a></li></ul></li><li><a href="#borders">Borders</a><ul><li><a href="#border-extra">Border extra</a></li></ul></li><li><a href="#rounded-corners">Rounded corners</a></li><li><a href="#the-img-cover-class">The img-cover class</a></li><li><a href="#opacity">Opacity</a></li></ul>
-      </nav>
-          </nav>
-        </div>
-        <div class="lg:col-span-3">
-          <main id="article-content" class="content-grid">
+          <main class="content-grid flow">
             <h2 id="spacing" tabindex="-1">Spacing</h2>
 <p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Introduction_to_the_CSS_box_model">Box model</a> margin and padding spacing have 4 levels based on 4 CSS variables. These same spacing variables are also used for gaps (in flexbox and grid system), and for border radius utilities.</p>
-<p>The smallest level simply adds 0.5rem spacing, whereas levels 2 thorugh 4 increase responsively depending how how much width is available, using <code>clamp()</code> functions to ramp up to 1.5× their base size.</p>
-<p>The middle ramp within the clamp uses container query dependant units, <code>cqi</code>. This will either take effect from the container query context on the <code>&lt;body&gt;</code> tag, or from any inner <code>container</code> classes that may be added on block elements (see <a href="/baselayer-3/layout/#container-query-contexts">Layouts/ container query contexts</a>).</p>
 <pre><code class="language-css">:root {
-  --s-1: 0.25rem; /* 4px */
-  --s-2: 0.5rem; /* 8px */
-  --s-3: clamp(1rem, 0.5rem + 1.25cqi, 1.5rem); /* 16px --&gt; 24px */
-  --s-4: clamp(2rem, 1rem + 2.5cqi, 3rem); /* 32px --&gt; 48px */
+  --s-tiny: 0.25rem
+  --s-1: 0.5rem;
+  --s-2: 1rem;
+  --s-3: clamp(1.5rem, 0.5rem + 1.25cqi, 2rem);
+  --s-4: clamp(2rem, 1rem + 2.5cqi, 3rem);
 }
 </code></pre>
+<p>Spacing levels <code>--s-3</code> and <code>--s-4</code> increase responsively (to <code>@container</code> width, see <a href="/baselayer-3/layout/#container-query-contexts">container query contexts</a>)) depending how how much width is available, using <code>clamp()</code> functions.</p>
 <p>This makes the negative space (“whitespace”) for spacing levels 2 through 4 larger where there is a larger container (or viewport) width available.</p>
 <div class="my-3 expand overflow-x">
 <table class="table">
@@ -421,31 +417,39 @@ window.addEventListener("DOMContentLoaded", () => {
 <th>Margin (e.g.)</th>
 <th>Padding (e.g.)</th>
 <th>Border radius</th>
-<th>Gap (flexbox and grid)</th>
+<th>Gap (flexbox or grid)</th>
 </thead>
 <tbody>
 <tr>
-<td><code>--s-1</code></td>
+<td><code class="t-nowrap">--s-tiny</code></td>
 <td><code>0.25rem</code></td>
+<td><code>m-tiny</code></td>
+<td><code>p-tiny</code></td>
+<td><code class="t-nowrap">rounded-tiny</code></td>
+<td><code class="t-nowrap">gap-tiny</code></td>
+</tr>
+<tr>
+<td><code>--s-1</code></td>
+<td><code>0.5rem</code></td>
 <td><code>m-1</code></td>
 <td><code>p-1</code></td>
-<td><code class="t-nowrap">rad-1</code></td>
+<td><code class="t-nowrap">rounded,<br>rounded-1</code></td>
 <td><code class="t-nowrap">gap-1</code></td>
 </tr>
 <tr>
 <td><code>--s-2</code></td>
-<td><code>0.5rem</code></td>
+<td><code>1rem</code></td>
 <td><code>m-2</code></td>
 <td><code>p-2</code></td>
-<td><code>rad-2</code></td>
+<td><code>rounded-2</code></td>
 <td><code>gap-2</code></td>
 </tr>
 <tr>
 <td><code>--s-3</code></td>
-<td><code>clamp(1rem, 0.5rem + 1.25cqi, 1.5rem)</code></td>
+<td><code>clamp(1.5rem, 0.5rem + 1.25cqi, 2rem)</code></td>
 <td><code>m-3</code></td>
 <td><code>p-3</code></td>
-<td><code>rad-3</code></td>
+<td><code>rounded-3</code></td>
 <td><code>gap-3</code></td>
 </tr>
 <tr>
@@ -453,7 +457,7 @@ window.addEventListener("DOMContentLoaded", () => {
 <td><code>clamp(2rem, 1rem + 2.5cqi, 3rem)</code></td>
 <td><code>m-4</code></td>
 <td><code>p-4</code></td>
-<td><code>rad-4</code></td>
+<td><code>rounded-4</code></td>
 <td><code>gap-4</code></td>
 </tr>
 </tbody>
@@ -461,11 +465,13 @@ window.addEventListener("DOMContentLoaded", () => {
 </div>
 <p>Spacing example with paddings:</p>
 <div class="mt-3 mb-4 flex flex-column gap-3">
+<div class="b-thin p-tiny"><code>p-tiny</code></div>
 <div class="b-thin p-1"><code>p-1</code></div>
 <div class="b-thin p-2"><code>p-2</code></div>
 <div class="b-thin p-3"><code>p-3</code></div>
 <div class="b-thin p-4"><code>p-4</code></div>
 </div>
+<p>Plus, there are zero <code>*-0</code> options (top, right, bottom, left) are for removing (resetting) unwanted margin and padding (and <code>unrounded</code> for removing border radius (see <a href="#rounded-corners">rounded corners</a>)).</p>
 <p>Both margin and padding spacers are controlled on the 4 sides of blocks, as follows:</p>
 <ul>
 <li>All: <code>m-0</code> through <code>m-4</code> / <code>p-0</code> through <code>p-4</code> (all four sides)</li>
@@ -473,14 +479,13 @@ window.addEventListener("DOMContentLoaded", () => {
 <li>Right: <code>mr-0</code> through <code>mr-4</code> / <code>pr-0</code> through <code>pr-4</code></li>
 <li>Bottom: <code>mb-0</code> through <code>mb-4</code> / <code>pb-0</code> through <code>pb-4</code></li>
 <li>Left: <code>ml-0</code> through <code>ml-4</code> / <code>pl-0</code> through <code>pl-4</code></li>
-<li>Inline axis, or x-axis (right and left): <code>mx-1</code> through <code>mx-4</code> / <code>px-4</code> through <code>px-4</code></li>
-<li>Block axis, or y-axis (top and bottom): <code>my-1</code> through <code>my-4</code> / <code>py-4</code> through <code>py-4</code></li>
+<li>Inline axis, or x-axis (right and left): <code>mx-tiny</code> through <code>mx-4</code> / <code>px-4</code> through <code>px-4</code></li>
+<li>Block axis, or y-axis (top and bottom): <code>my-tiny</code> through <code>my-4</code> / <code>py-4</code> through <code>py-4</code></li>
 </ul>
-<p>The zero <code>*-0</code> options (top, right, bottom, left) are for removing (resetting) unwanted margin and padding.</p>
 <h3 id="spacing-extras" tabindex="-1">Spacing extras</h3>
 <p>In addition, there are the following specials:</p>
 <ul>
-<li><code>p-cell</code> — adds y-axis padding <code>--s-1</code> and x-axis padding of 2 × <code>--s-1</code> for creating menu items. Same as the padding for table cells and buttons</li>
+<li><code>p-cell</code> — adds padding <code>0.5rem 1rem</code> for creating menu items. Same as the padding for table cells and buttons</li>
 <li><code>mx-auto</code> — for x-axis margin auto-centering</li>
 </ul>
 <h2 id="borders" tabindex="-1">Borders</h2>
@@ -498,46 +503,48 @@ window.addEventListener("DOMContentLoaded", () => {
 <li>Bottom: <code>bb-*</code></li>
 <li>Left: <code>bl-*</code></li>
 </ul>
-<h3 id="border-extra" tabindex="-1">Border extra</h3>
+<h3 id="border-extras" tabindex="-1">Border extras</h3>
 <ul>
 <li><code>b-0</code> — for removing (resetting) all borders</li>
+<li><code>b-currentColor</code> — for setting border color the same as its respective or inherited text color</li>
 </ul>
+<p>For more on border colors see <a href="/baselayer-3/colors/">colors</a>.</p>
 <h2 id="rounded-corners" tabindex="-1">Rounded corners</h2>
 <p>All Baselayer border radius classes apply their border radius <em>potentially to all four corners</em>. If you want different radii on different corners of the same element, then you can access each of the spacing variables in your CSS, or set your own values.</p>
 <p><strong>Tip:</strong> If you are putting rounded corners on a block element that contains an image, you will also need to add <code>overflow-clip</code>.</p>
 <p>The first five border radius classes below supply the property <code>border-{...}-radius</code> and the default spacing variable <code>--s-1</code> (0.25rem).</p>
 <ul>
-<li><code>rad</code> — <code>border-radius:</code> (all) <code>--s-1</code></li>
-<li><code>rad-tl</code> — <code>border-top-left-radius:</code> <code>--s-1</code></li>
-<li><code>rad-tr</code> — <code>border-top-right-radius:</code> <code>--s-1</code></li>
-<li><code>rad-br</code> — <code>border-bottom-right-radius:</code> <code>--s-1</code></li>
-<li><code>rad-bl</code> — <code>border-bottom-left-radius:</code> <code>--s-1</code></li>
+<li><code>rounded</code> — <code>border-radius:</code> (all) <code>--s-1</code></li>
+<li><code>rounded-tl</code> — <code>border-top-left-radius:</code> <code>--s-1</code></li>
+<li><code>rounded-tr</code> — <code>border-top-right-radius:</code> <code>--s-1</code></li>
+<li><code>rounded-br</code> — <code>border-bottom-right-radius:</code> <code>--s-1</code></li>
+<li><code>rounded-bl</code> — <code>border-bottom-left-radius:</code> <code>--s-1</code></li>
 </ul>
 <p>Then there are five modifier classes. These only supply a spacing variable — they do not contain the <code>border-{...}-radius</code> property. Therefore, they need to be paired with (at least) one of the five border radius utilities above.</p>
 <ul>
-<li><code>rad</code>,<br>
-<code>rad-1</code> — <code>--s-1</code> 0.25rem<br>
-(<code>rad</code> comes with <code>--s-1</code> by defaut, so <code>rad-1</code> is redundant.)</li>
-<li><code>rad-2</code> — <code>--s-2</code> 0.5rem</li>
-<li><code>rad-3</code> — <code>--s-3</code> clamp(1rem, 0.5rem + 1.25cqi, 1.5rem)</li>
-<li><code>rad-4</code> — <code>--s-4</code> clamp(2rem, 1rem + 2.5cqi, 3rem)</li>
-<li><code>rad-pill</code> — <code>--s-pill</code> 99rem</li>
+<li><code>rounded-tiny</code> — <code>--s-tiny</code> 0.25rem</li>
+<li><code>rounded</code>, <code>rounded-1</code> — <code>--s-1</code> 0.5rem<br>
+(<code>rounded</code> comes with <code>--s-1</code> by defaut, so <code>rad-1</code> is redundant.)</li>
+<li><code>rounded-2</code> — <code>--s-2</code> 0.5rem</li>
+<li><code>rounded-3</code> — <code>--s-3</code> clamp(1.5rem, 0.5rem + 1.25cqi, 2rem)</li>
+<li><code>rounded-4</code> — <code>--s-4</code> clamp(2rem, 1rem + 2.5cqi, 3rem)</li>
+<li><code>rounded-pill</code> — <code>--s-pill</code> 99rem</li>
 </ul>
 <p>Examples:</p>
 <div class="expand mt-2 mb-3 grid xs:equal-2-cols sm:equal-3-cols gap-1 t-center">
-  <div class="b-thin rad px-2 py-4"><code>rad</code></div>
-  <div class="b-thin rad rad-2 px-2 py-4"><code>rad rad-2</code></div>
-  <div class="b-thin rad rad-3 px-2 py-4"><code>rad rad-3</code></div>
-  <div class="b-thin rad rad-4 px-2 py-4"><code>rad rad-4</code></div>
-  <div class="b-thin rad rad-pill px-2 py-4"><code>rad rad-pill</code></div>
-  <div class="b-thin rad-tl rad-br rad-3 px-2 py-4"><code>rad-tl rad-br rad-3</code></div>
-  <div class="b-thin rad-tl rad-bl rad-pill px-2 py-4"><code>rad-tl rad-bl rad-pill</code></div>
-  <div class="b-thin rad-tr rad-pill px-2 py-4"><code>rad-tr rad-pill</code></div>
-  <div class="b-thin rad-br rad-bl rad-pill px-2 py-4"><code>rad-br rad-bl rad-pill</code></div>
+  <div class="b-thin rounded rounded-tiny px-2 py-4"><code>rounded rounded-tiny</code></div>
+  <div class="b-thin rounded px-2 py-4"><code>rounded</code></div>
+  <div class="b-thin rounded rounded-2 px-2 py-4"><code>rounded rounded-2</code></div>
+  <div class="b-thin rounded rounded-3 px-2 py-4"><code>rounded rounded-3</code></div>
+  <div class="b-thin rounded rounded-4 px-2 py-4"><code>rounded rounded-4</code></div>
+  <div class="b-thin rounded rounded-pill px-2 py-4"><code>rounded rounded-pill</code></div>
+  <div class="b-thin rounded-tl rounded-br rounded-3 px-2 py-4"><code>rounded-tl rounded-br rounded-3</code></div>
+  <div class="b-thin rounded-tl rounded-bl rounded-pill px-2 py-4"><code>rounded-tl rounded-bl rounded-pill</code></div>
+  <div class="b-thin rounded-tr rounded-pill px-2 py-4"><code>rounded-tr rounded-pill</code></div>
 </div>
-<p>If the element is a square, then <code>rad rad-pill</code> makes a circle.</p>
-<div class="w-xs mx-auto mb-4">
-<div class="b-thin aspect-ratio-1x1 rad rad-pill p-4 flex flex-center flex-middle"><code>rad <span class="t-nowrap">rad-pill</span></code></div>
+<p>If the element is a square, then <code>rounded rounded-pill</code> makes a circle.</p>
+<div class="w-xxs mx-auto mb-4">
+<div class="b-thin aspect-ratio-1x1 rounded rounded-pill p-4 flex flex-center flex-middle"><code>rounded <span class="t-nowrap">rounded-pill</span></code></div>
 </div>
 <h2 id="the-img-cover-class" tabindex="-1">The <code>img-cover</code> class</h2>
 <p>The Baselayer <code>cover</code> class can be used to make an image expand or contract to fully cover a container block rectangle. It is designed for use on an <code>&lt;img src=&quot;&quot;&gt;</code> tag.</p>
@@ -562,12 +569,8 @@ window.addEventListener("DOMContentLoaded", () => {
 <p>If you use these on an image over a colored background, then you get a color-tinted image.</p>
 <p>If you have text over an image (e.g. in a hero component), then you can use opacity over a black (or dark color) background to make white text more readable — and <em>vise versa</em>.</p>
 
-          </main>
-        </div>
-
-        <div class="lg:col-span-3">
-          <footer class="mt-3 content-grid">
-            <nav class="popout grid gap-2 sm:equal-2-cols links-underline-none">
+            <hr>
+            <nav class="expand grid gap-2 sm:equal-2-cols links-underline-none">
               
               <a class="sm:col-1 my-1 b-thin b-blue b-300 hover:b-500 dark:b-700 rad-1 p-cell flex flex-column gap-1 t-blue t-600 hover:t-700 dark:t-400 bg-blue hover:bg-100 hover:dark:bg-800"  href="/baselayer-3/layout/">
                 Previous page
@@ -581,7 +584,9 @@ window.addEventListener("DOMContentLoaded", () => {
               </a>
               
             </nav>
-            <div class="mt-4 mb-3 p-2 flex flex-column flex-middle t-center">
+          </main>
+          <div class="container-md">
+                        <div class="mt-4 mb-3 p-2 flex flex-column flex-middle t-center">
               <a href="/baselayer-3/" class="mb-1 flex flex-column flex-center gap-1 t-underline-none">
                 <svg class="mx-auto" height="48" width="48" viewBox="0 0 111 111" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-miterwrapper:1.5">
                   <g transform="translate(-294.592 -94.592)">
@@ -594,22 +599,22 @@ window.addEventListener("DOMContentLoaded", () => {
                   </svg>
                 <span class="h3 m-0 t-normal t-nowrap">Baselayer CSS</span>
               </a>
-              <span>Version: 3.6.0</span>
+              <span>Version: 3.7.0</span>
             </div>
 
             <p class="p-cell flex flex-center flex-wrap gap-4 t-center">
-              <span><a class="t-underline-hover-only" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> (26 KB)</span>
+              <span><a class="t-underline-hover-only" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> (27 KB)</span>
               <a class="t-underline-hover-only" href="https://github.com/SimonPadbury/baselayer-3">GitHub Repository</a>
               <a class="t-underline-hover-only" href="https://github.com/SimonPadbury/baselayer-3/blob/main/CHANGELOG.md">Changelog</a>
               <a class="t-underline-hover-only" href="https://github.com/SimonPadbury/baselayer-3/blob/main/LICENSE">MIT license</a>
             </p>
             <p class="t-center"><span>Developer: <a class="t-underline-hover-only" href="https://github.com/SimonPadbury">Simon Padbury</a></span>
-          </footer>
+
+          </div>
         </div>
       </div>
     </div>
-
-  </div><!-- /#body-wrap -->
+  </div>
 
 </body>
 </html>

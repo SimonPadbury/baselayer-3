@@ -34,6 +34,10 @@
   left: 0;
 }
 
+.place-center {
+  place-self: center;
+}
+
 .z-1 {
   z-index: 1;
 }
@@ -44,6 +48,18 @@
 
 .z-3 {
   z-index: 3;
+}
+
+.z-997 {
+  z-index: 997;
+}
+
+.z-998 {
+  z-index: 998;
+}
+
+.z-999 {
+  z-index: 999;
 }
 
 .float-right {
@@ -71,6 +87,14 @@
 
 .overflow-clip {
   overflow: clip;
+}
+
+.block {
+  display: block;
+}
+
+.inline-block {
+  display: inline-block;
 }
 
 .block {
@@ -129,7 +153,8 @@
   justify-content: space-between;
 }
 
-.flex-grow-equal > * {
+.flex-grow-equal > *,
+.grow {
   flex: 1;
 }
 
@@ -137,14 +162,14 @@
   flex: auto;
 }
 
-.grow {
-  flex: 1;
-}
-
 /*
 Gaps - these work for both flexbox (including inside buttons) and the grid system.
 (However, don’t use these on `content-grid` (see below).)
 */
+
+.gap-tiny {
+  gap: var(--s-tiny);
+}
 
 .gap-1 {
   gap: var(--s-1);
@@ -286,13 +311,19 @@ Grid system
 Invisibility for smaller viewports (“hidden-below”)
 */
 
-@container (max-width: 639px) {
+@container (max-width: 511px) {
+  .xs\:hidden-below {
+    display: none !important;
+  }
+}
+
+@container (max-width: 767px) {
   .sm\:hidden-below {
     display: none !important;
   }
 }
 
-@container (max-width: 959px) {
+@container (max-width: 1023px) {
   .md\:hidden-below {
     display: none !important;
   }
@@ -304,13 +335,168 @@ Invisibility for smaller viewports (“hidden-below”)
   }
 }
 
-@container (min-width: 640px) {
-  .sm\:inline-block {
+@container (min-width: 512px) {
+  .xs\:hidden {
+    display: none !important;
+  }
+
+  .xs\:block {
+    display: block;
+  }
+
+  .xs\:inline-block {
     display: inline-block;
+  }
+
+  .xs\:inline-flex {
+    display: inline-flex;
+  }
+
+  .xs\:flex {
+    display: flex;
+  }
+
+  .xs\:flex-wrap {
+    flex-wrap: wrap;
+  }
+
+  .xs\:flex-column {
+    flex-direction: column;
+  }
+
+  .xs\:flex-row {
+    flex-direction: row;
+  }
+
+  .xs\:flex-start {
+    justify-content: flex-start;
+  }
+
+  .xs\:flex-center {
+    justify-content: center;
+  }
+
+  .xs\:flex-end {
+    justify-content: flex-end;
+  }
+
+  .xs\:flex-top {
+    align-items: flex-start;
+  }
+
+  .xs\:flex-middle {
+    align-items: center;
+  }
+
+  .xs\:flex-bottom {
+    align-items: flex-end;
+  }
+
+  .xs\:flex-space-between {
+    justify-content: space-between;
+  }
+
+  .xs\:flex-grow-equal > *,
+  .xs\:grow {
+    flex: 1;
+  }
+
+  .xs\:flex-grow-auto > * {
+    flex: auto;
+  }
+
+  .xs\:grid {
+    display: grid;
+  }
+
+  .xs\:equal-2-cols {
+    --cols: 2;
+  }
+
+  .xs\:equal-3-cols {
+    --cols: 3;
+  }
+
+  .xs\:equal-4-cols {
+    --cols: 4;
+  }
+
+  .xs\:col-1 {
+    --col: 1;
+  }
+
+  .xs\:col-2 {
+    --col: 2;
+  }
+
+  .xs\:col-3 {
+    --col: 3;
+  }
+
+  .xs\:col-4 {
+    --col: 4;
+  }
+
+  .xs\:col-span-1 {
+    --cspan: 1;
+  }
+
+  .xs\:col-span-2 {
+    --cspan: 2;
+  }
+
+  .xs\:col-span-3 {
+    --cspan: 3;
+  }
+
+  .xs\:col-span-4 {
+    --cspan: 4;
+  }
+
+  .xs\:row-1 {
+    --row: 1;
+  }
+
+  .xs\:row-2 {
+    --row: 2;
+  }
+
+  .xs\:row-3 {
+    --row: 3;
+  }
+
+  .xs\:row-4 {
+    --row: 4;
+  }
+
+  .xs\:row-span-1 {
+    --rspan: 1;
+  }
+
+  .xs\:row-span-2 {
+    --rspan: 2;
+  }
+
+  .xs\:row-span-3 {
+    --rspan: 3;
+  }
+
+  .xs\:row-span-4 {
+    --rspan: 4;
+  }
+}
+
+@container (min-width: 768px) {
+  .sm\:hidden {
+    display: none !important;
   }
 
   .sm\:block {
     display: block;
+  }
+
+  .sm\:inline-block {
+    display: inline-block;
   }
 
   .sm\:inline-flex {
@@ -361,36 +547,13 @@ Invisibility for smaller viewports (“hidden-below”)
     justify-content: space-between;
   }
 
-  .sm\:flex-grow-equal > * {
+  .sm\:flex-grow-equal > *,
+  .sm\:grow {
     flex: 1;
   }
 
   .sm\:flex-grow-auto > * {
     flex: auto;
-  }
-
-  .sm\:grow {
-    flex: 1;
-  }
-
-  .sm\:gap-1 {
-    gap: var(--s-1);
-  }
-
-  .sm\:gap-2 {
-    gap: var(--s-2);
-  }
-
-  .sm\:gap-3 {
-    gap: var(--s-3);
-  }
-
-  .sm\:gap-4 {
-    gap: var(--s-4);
-  }
-
-  .sm\:hidden {
-    display: none !important;
   }
 
   .sm\:grid {
@@ -474,13 +637,17 @@ Invisibility for smaller viewports (“hidden-below”)
   }
 }
 
-@container (min-width: 960px) {
-  .md\:inline-block {
-    display: inline-block;
+@container (min-width: 1024px) {
+  .md\:hidden {
+    display: none !important;
   }
 
   .md\:block {
     display: block;
+  }
+
+  .md\:inline-block {
+    display: inline-block;
   }
 
   .md\:inline-flex {
@@ -531,36 +698,13 @@ Invisibility for smaller viewports (“hidden-below”)
     justify-content: space-between;
   }
 
-  .md\:flex-grow-equal > * {
+  .md\:flex-grow-equal > *,
+  .md\:grow {
     flex: 1;
   }
 
   .md\:flex-grow-auto > * {
     flex: auto;
-  }
-
-  .md\:grow {
-    flex: 1;
-  }
-
-  .md\:gap-1 {
-    gap: var(--s-1);
-  }
-
-  .md\:gap-2 {
-    gap: var(--s-2);
-  }
-
-  .md\:gap-3 {
-    gap: var(--s-3);
-  }
-
-  .md\:gap-4 {
-    gap: var(--s-4);
-  }
-
-  .md\:hidden {
-    display: none !important;
   }
 
   .md\:grid {
@@ -645,12 +789,16 @@ Invisibility for smaller viewports (“hidden-below”)
 }
 
 @container (min-width: 1280px) {
-  .lg\:inline-block {
-    display: inline-block;
+  .lg\:hidden {
+    display: none !important;
   }
 
   .lg\:block {
     display: block;
+  }
+
+  .lg\:inline-block {
+    display: inline-block;
   }
 
   .lg\:inline-flex {
@@ -701,36 +849,13 @@ Invisibility for smaller viewports (“hidden-below”)
     justify-content: space-between;
   }
 
-  .lg\:flex-grow-equal > * {
+  .lg\:flex-grow-equal > *,
+  .lg\:grow {
     flex: 1;
   }
 
   .lg\:flex-grow-auto > * {
     flex: auto;
-  }
-
-  .lg\:grow {
-    flex: 1;
-  }
-
-  .lg\:gap-1 {
-    gap: var(--s-1);
-  }
-
-  .lg\:gap-2 {
-    gap: var(--s-2);
-  }
-
-  .lg\:gap-3 {
-    gap: var(--s-3);
-  }
-
-  .lg\:gap-4 {
-    gap: var(--s-4);
-  }
-
-  .lg\:hidden {
-    display: none !important;
   }
 
   .lg\:grid {
@@ -819,24 +944,33 @@ Content grid
 */
 
 .content-grid {
-  --full: minmax(var(--s-3), 1fr);
+  --full: minmax(var(--w-content-gutter), 1fr);
   --expand: minmax(0, var(--w-expand));
-  --pop: minmax(0, var(--s-3));
-  --content: min(var(--w-content), 100% - (var(--s-3) * 2));
+  --pop: minmax(0, var(--w-content-gutter));
+  --content: min(var(--w-content), 100% - (var(--w-content-gutter) * 2));
+  --w-expand: calc(
+    ((var(--w-expand-max) - var(--w-content)) / 2) - (var(--w-content-gutter))
+  );
+
   display: grid;
   grid-template-columns:
-    [full-start] var(--full)
-    [expand-start] var(--expand)
-    [popout-start] var(--pop)
-    [content-start] var(--content) [content-end]
-    var(--pop) [popout-end]
-    var(--expand) [expand-end]
-    var(--full) [full-end];
+    [full-start]
+    var(--full)
+    [expand-start]
+    var(--expand)
+    [popout-start]
+    var(--pop)
+    [content-start]
+    var(--content)
+    [content-end]
+    var(--pop)
+    [popout-end]
+    var(--expand)
+    [expand-end]
+    var(--full)
+    [full-end];
   > * {
     grid-column: content;
-  }
-  > :first-child {
-    margin-top: 0; /* overrides typographic block element top margin for first child */
   }
 }
 
@@ -860,15 +994,20 @@ Content grid
 wrappers (f.k.a. containers) and widths
 */
 
+[class*="w-"] {
+  width: min(100%, var(--w-max));
+}
+
 .wrapper,
+.wrapper-xxl,
 [class*="wrapper-"] {
-  --w-max: var(--w-xl);
-  width: min(100% - (var(--s-3) * 2), var(--w-max));
+  --w-max: var(--w-xxl);
+  width: min(100% - var(--s-4), var(--w-max));
   margin-inline: auto;
 }
 
-[class*="w-"] {
-  width: min(100%, var(--w-max));
+.w-xxs {
+  --w-max: var(--w-xxs);
 }
 
 .wrapper-xs,
@@ -886,10 +1025,6 @@ wrappers (f.k.a. containers) and widths
   --w-max: var(--w-md);
 }
 
-.wrapper-content,
-.w-content {
-  --w-max: var(--w-content);
-}
 .wrapper-lg,
 .w-lg {
   --w-max: var(--w-lg);
@@ -898,6 +1033,13 @@ wrappers (f.k.a. containers) and widths
 .wrapper-xl,
 .w-xl {
   --w-max: var(--w-xl);
+}
+
+/* For -xxl see above */
+
+.wrapper-content,
+.w-content {
+  --w-max: var(--w-content);
 }
 
 .w-100\% {
@@ -929,6 +1071,7 @@ wrappers (f.k.a. containers) and widths
 }
 
 .box {
+  position: absolute;
   inset: 0;
 }
 

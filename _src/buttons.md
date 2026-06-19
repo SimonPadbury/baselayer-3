@@ -42,7 +42,7 @@ Baselayer form elements have simple background, hovers and focus styling (border
 
 In Baselayer, buttons are pre-styled with `display: inline-flex` and centering and middling flexbox alignment.
 
-So, if you want a button to stretch full-width, you can add `class="w100%"` or you can override the inline-flex by adding `class="flex"`. (Do not use `class="block"` on a button (or `.btn`) because that will override its inline flexbox.)
+So, if you want a button to stretch full-width, you can add `class="w-100%"` or you can override the inline-flex by adding `class="flex"`. (Do not use `class="block"` on a button (or `.btn`) because that will override its inline flexbox.)
 
 <button class="w-100% my-2" type="button" name="button">Button</button>
 
@@ -140,12 +140,12 @@ For icon-only buttons, add the CSS class  `btn-icon` and have only a single char
 
 ## Pill buttons
 
-Putting `rad rad-pill` on a square icon button will make it circular. (See [decoration: rounded corners](/baselayer-3/decoration/#rounded-corners).)
+Putting `rounded rounded-pill` on a square icon button will make it circular. (See [decoration: rounded corners]({{ "/decoration/#rounded-corners" | url }}).)
 
 <form>
   <p class="flex flex-middle">
-    <button class="rad rad-pill" type="button" name="button">Button</button>&nbsp;
-    <button class="btn-icon rad rad-pill" type="button" name="button">
+    <button class="rounded rounded-pill" type="button" name="button">Button</button>&nbsp;
+    <button class="btn-icon rounded rounded-pill" type="button" name="button">
       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"></rect><line x1="40" y1="128" x2="216" y2="128" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"></line><polyline points="144 56 216 128 144 200" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"></polyline></svg>
     </button>
   </p>
@@ -163,10 +163,18 @@ Buttons (and the `btn` utility) will resize according to the font-size of the bl
 
 You can also use the typographic size classes `t-sm` and `t-lg` to modify buttons directly.
 
-<form class="mt-2 mb-3 flex flex-middle gap-1">
-  <button type="button" name="button" class="t-sm">Button</button>
-  <button type="button" name="button">Button</button>
-  <button type="button" name="button" class="t-lg">Button</button>
+<form class="mt-2 mb-3">
+  <div class="flex flex-middle gap-1">
+    <button type="button" name="button" class="t-sm">Button</button>
+    <button type="button" name="button">Button</button>
+    <button type="button" name="button" class="t-lg">Button</button>
+  </div>
+  <hr class="my-2">
+  <div class="flex flex-middle gap-1">
+    <a href="#" class="btn t-sm">Link “button”</a>
+    <a href="#" class="btn">Link “button”</a>
+    <a href="#" class="btn t-lg">Link “button”</a>
+  </div>
 </form>
 
 ```html
@@ -174,10 +182,14 @@ You can also use the typographic size classes `t-sm` and `t-lg` to modify button
   <button type="button" name="button" class="t-sm">Button</button>
   <button type="button" name="button">Button</button>
   <button type="button" name="button" class="t-lg">Button</button>
+
+  <a href="#" class="btn t-sm">Link “button”</a>
+  <a href="#" class="btn">Link “button”</a>
+  <a href="#" class="btn t-lg">Link “button”</a>
 </form>
 ```
 
 Notes on buttons:
 
-1. Button x-axis padding is `1em`, so that it will also respond to the text size of the button.
-2. Buttons have the same min-height as form input fields, so that they can be used in combination.
+1. Button padding is set using `--p-btn: 0.5em 1em;`, so that it will also respond to the text size of the button.
+2. Buttons and form elements have the same min-height and padding, so that they can be used in combination.

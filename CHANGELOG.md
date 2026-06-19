@@ -10,15 +10,28 @@
 
 # Baselayer 3 changelog
 
+## v.3.7.0 -- 16 Jun 2027
+
+* Further improvement of typographic block element control by incorporating Andy Bell’s `.flow` utility.
+* Changed container query breakpoint widths from `xs:` 320, `sm:` 640, and `md:` 960 (320px increments), and added one more, to the more common `xs:` 512, `sm:` 768, `md:` 1024, and `lg` 1280 (256px increments). Added *width variables* `xxs` and `xxl` and adjusted `xl` (`lg` is unchanged). So now `xxs` 256, `xs` 512, `sm` 768, `md` 1024, `lg` 1280, `xl` 1536, and `xxl` 1792.
+* Improved spacing size variables `--s-1` thorugh `--s-4`, mainly so that `--s-1` is 0.5rem and `--s-2` is 1rem — as expected by designers more familiar with working on an 8px grid. And added `--s-tiny` for 0.25rem and all `*-tiny` spacing utilities (margins, paddings, gaps, and border-radius).
+* Renamed `.rad-*` classes as `.rounded-*`.
+* Renamed `.unlist` as `.list-style-type-none`.
+* Added `.place-center`.
+* Added `b-currentColor`.
+* Added `z-997`, `z-998` and `z-999` (previously in the docs but missing from the CSS).
+* Button padding now set using ems, so that it is dependant on font size.
+* Merged `base.css` into `reset.css`.
+
 ## v.3.6.0 -- 05 Jun 2026
 
-* Switched the traditional (following Bootstrap) typographic block element 1rem bottom margin to 1em top margin. Now headings (and other larger text) have more whitespace above built-in.
+* Switched the traditional (following Bootstrap) typographic block element 1rem bottom margin to 1em top margin (inspired by Kevin Powell). Now headings (and other larger text) have more whitespace above built-in.
 * Removed the additional top margin above headings as this is no longer required.
 * Removed block padding from `ol` and `ul`. Now all spacing is controlled by the top margin of list items.
 
 ## v.3.5.7 -- 18 May 2026
 
-* Set color utilities `transparent`, `black` and `white` first as variables, so that they could play well with all the other colors when inherited (nested) and when used in combination in hover states and dark mode.
+* Set color utilities `transparent`, `black` and `white` first as variables, so that they can play well with all the other colors when inherited (nested) and when used in combination in hover states and dark mode.
 
 ## v.3.5.6 -- 24 Apr 2026
 
@@ -53,7 +66,7 @@
 
 * Major refactoring of the color utilities, so that more versatile dark mode lightness levels have been added, using prefix `dark:`. And `*-dark-invert` has been removed.
 * With `*-dark-invert` removed, it was necessary to add `*-reversi` classes for black and white, so that these can be flipped for dark mode when required.
-* Variable `--bc-fineline` is now simply `--bc`, so that it plays well with the new color styles.
+* Variable `--bc-tinyline` is now simply `--bc`, so that it plays well with the new color styles.
 * Added `.table-fixed` modifier.
 * Font stacks have been simplified. Now only `sans-serif`, `serif`, and `monospace` support older browsers. Evergreen browsers get `ui-sans-serif`, `ui-serif` and `ui-monospace`.
 * `w-max` width classes are now simply `w-`.

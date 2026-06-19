@@ -6,7 +6,7 @@ window.addEventListener("DOMContentLoaded", () => {
   let navButton = document.querySelector("#site-menu-toggle");
   let menu = document.querySelector("#js-menu-wrapper");
   let windowTest = function () {
-    if (window.matchMedia("(max-width: 959px)").matches) {
+    if (window.matchMedia("(max-width: 1023px)").matches) {
       navButton.setAttribute("aria-expanded", "false");
       menu.hidden = true;
     } else {

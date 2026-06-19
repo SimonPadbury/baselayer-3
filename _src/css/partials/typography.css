@@ -1,18 +1,3 @@
-p,
-li,
-pre,
-table,
-fieldset,
-figure,
-figcaption,
-blockquote {
-  margin-block: var(--t-mt) 0;
-  hanging-punctuation: first allow-end last;
-}
-caption {
-  margin-block: var(--s-2);
-}
-
 p {
   text-wrap: pretty;
   font-variant-numeric: proportional-nums;
@@ -55,16 +40,29 @@ h6,
   font-size: var(--h6);
 }
 
+h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  margin-block: var(--t-mt) 0;
   font-family: var(--h-ff);
   font-weight: var(--h-fw);
   line-height: var(--h-lh);
   font-variant-numeric: lining-nums;
+}
+
+/* 
+Flow class for spacing between typographic elements. 
+Based on Andy Bell’s `.flow` utility, https://piccalil.li/blog/my-favourite-3-lines-of-css/ 
+*/
+.flow > * + *:not(hr) {
+  margin-top: var(--s-flow, 1em);
+}
+
+:where(h1, h2, h3, h4, h5, .h1, .h2, .h3, .h4, .h5)
+  + :where(h2, h3, h4, h5, h6, .h2, .h3, .h4, .h5, .h6) {
+  margin-top: var(--s-between-headings, var(--s-1)) !important;
 }
 
 a {
@@ -104,8 +102,7 @@ a:has(.t-underline-none):hover {
 ol,
 ul,
 menu {
-  margin-block: 0;
-  padding-left: 1.5em;
+  padding-left: var(--s-list, 1.5rem);
 }
 
 ol ol {
@@ -116,8 +113,12 @@ ol ol {
   }
 }
 
-dl {
-  margin: var(--t-mt) 0 0;
+ul ul {
+  list-style-type: circle;
+
+  ul {
+    list-style-type: square;
+  }
 }
 
 dt {
@@ -125,17 +126,20 @@ dt {
 }
 
 dd {
-  margin: var(--t-mt) 0;
-  padding-left: 1.5em;
+  padding-left: var(--s-list, 1.5rem);
 }
 
-.unlist {
+.list-style-type-none {
   list-style-type: none;
 }
 
 time,
 table {
   font-variant-numeric: tabular-nums lining-nums slashed-zero;
+}
+
+caption {
+  margin-block: var(--s-2);
 }
 
 .table {
@@ -179,8 +183,8 @@ blockquote {
   padding-inline: var(--s-4);
 }
 
-blockquote p:last-child {
-  margin-bottom: 0;
+blockquote > *:first-child {
+  margin-top: 0;
 }
 
 code,
@@ -275,7 +279,7 @@ small,
   text-align: left;
 }
 
-@container (min-width: 320px) {
+@container (min-width: 512px) {
   .xs\:t-right {
     text-align: right;
   }
@@ -289,7 +293,7 @@ small,
   }
 }
 
-@container (min-width: 640px) {
+@container (min-width: 768px) {
   .sm\:t-right {
     text-align: right;
   }
@@ -303,7 +307,7 @@ small,
   }
 }
 
-@container (min-width: 960px) {
+@container (min-width: 1024px) {
   .md\:t-right {
     text-align: right;
   }
@@ -317,7 +321,7 @@ small,
   }
 }
 
-@container (min-width: 1280px) {
+@container (min-width: 1020px) {
   .lg\:t-right {
     text-align: right;
   }

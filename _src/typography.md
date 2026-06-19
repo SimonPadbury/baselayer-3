@@ -52,8 +52,8 @@ In Baselayer, sizes and weights for the base and prose typefaces can optionally 
 
 So, for example:
 
-* If your chosen base typeface has an _x-height_ much larger than your chosen prose typeface, then you can set the prose font-size slightly larger, or the base slightly smaller.
-* If your base typeface has thicker strokes so that it “looks darker” than your prose typeface, then you may want to set your base font-weight slightly lighter, to `300` (if this is available) while retaining your prose font-weight at the normal `400`.
+* If your chosen prose typeface has an _x-height_ much different than your chosen base typeface, then [font-size-adjust](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/font-size-adjust) can help.
+* If your base typeface has thicker strokes so that it “looks darker” than your prose typeface, then you may want to set your base font-weight slightly lighter. Variable fonts with font weight can allow fine tuning.
 
 For inspiration:
 
@@ -76,22 +76,48 @@ The default font size in Baselayer is 100% for small viewports. This sets the va
 
 ## Typographic block elements
 
-Until Baselayer v.3.5.x, most typographic blocks had zero top margin, and a small bottom margin—following the traditional Bootstrap CSS. But from v.3.6.0 on, Baselayer has been flipped to have zero bottom margin, and a top margin set to variable `--t-mt: 1em`. I have adopted this CSS pattern after being introduced to it by Kevin Powell in [one of his videos on YouTube](https://youtu.be/CU8Plk-53RU).
+Previously in Baselayer, typographic blocks had zero top margin, and a small bottom margin—following the traditional Bootstrap CSS. But since Baselayer v.3.7.x, all block elements including typographic blocks have _no built-in margin_ (margin is removed in the CSS reset). This gives you full control of whitespace in your design of components.
 
-The effect is visually the same in most cases. But as the top margin is set as `1em`, and _ems_ are controlled by font size, this means that headings (and other enlarged text) will get more whitespace above them.
+### The typographic block `flow` utility
+
+Then I discovered a [YouTube video by Kevin Powell](https://youtu.be/CU8Plk-53RU) in which he flips the typographic block whitespace to become a top margin and sets it using _ems_, so that it is bigger for bigger font sizes (headings). This enabled the typographic styles to be simplified.
+
+Subsequently I found [Andy Bell’s typographic flow utility class](https://piccalil.li/blog/my-favourite-3-lines-of-css/) to be a further improvement, enabling you to add back typographic whitepace (as top margin using ems) only where you need it in your prose or long read content areas. So now this `flow` utility has been added to Baselayer since v.3.7.x.
+
+I have also added an override for situaions where you may have a sub-sub heading immediately following a sub-heading. The top margin of the lower level heading is reduced.
+
+```css
+/* In reset.css */
+
+* {
+  margin:  0;
+  padding: 0;
+}
+
+/* In typography.css */
+
+.flow > * + *:not(hr) {
+  margin-top: var(--s-flow, 1em);
+}
+
+:where(h1, h2, h3, h4, h5, .h1, .h2, .h3, .h4, .h5)
+  + :where(h2, h3, h4, h5, h6, .h2, .h3, .h4, .h5, .h6) {
+  margin-top: var(--s-between-headings, --s-1) !important;
+}
+```
 
 ### Headings
 
-Heading sizes are set using a _major third_ typographic scale root variable. The font size for `h6` and utility class `.h6` is not increased by this scale (remains with the base font size, 100%). After that, each heading size is 1.25&times; greater.
+Heading sizes are set using a _major third_ typographic scale root variable. The font size for `h6` and utility class `.h6` is not increased by this scale (remains with the base font size, 1em). After that, each heading size is 1.25&times; greater.
 
 Example headings:
 
-<p class="h1 t-semibold">Heading h1</p>
+<p class="h1 mt-3 t-semibold">Heading h1</p>
 <p class="h2 t-semibold">Heading h2</p>
 <p class="h3 t-semibold">Heading h3</p>
 <p class="h4 t-semibold">Heading h4</p>
 <p class="h5 t-semibold">Heading h5</p>
-<p class="h6 t-semibold">Heading h6</p>
+<p class="h6 mb-3 t-semibold">Heading h6</p>
 
 ```css
 :root {
@@ -106,7 +132,7 @@ Example headings:
 }
 ```
 
-<table class="mt-3 mb-4 table">
+<table class="table">
   <thead>
     <tr>
       <th>Heading Level</th>
@@ -148,28 +174,22 @@ Example headings:
   </tbody>
 </table>
 
-All headings `<h1>` to `<h6>` and matching utility classes `h1` to `h6` have:
+Notes on headings in Baselayer:
 
 * Headings font sizes set in the variables file (see above).
 * Headings font family set using `--h-ff: inherit`. This has been done so that you can use the variable to override it — your headings don’t need to be the same typeface as your paragraphs.
 * Headings font weight is set using `--h-fw: var(--t-semibold)` — which you can also override.
 * Headings line heights set using the formula `1em + 0.5rem`.
-* Headings have their bottom margin set the same as for paragraphs, `var(t--mb)`. The top margin for `<h2>` thorugh `<h6>` is double that — except then used as immediate child items of the [content-grid]({{ "/layout/#content-grid" | url }}) where the top margin is reduced to `var(t--mb)`. This is because _margin collapse_ is prevented by CSS grid. (And the top margin of `<h2>` is totally removed when it’s the first immediate child of a `.content-grid`.)
-* The matching utility classes `h2` to `h6` only affect font-size. They do not include margin or font-weight styling.
+* The matching heading size utility classes `h2` to `h6` only affect font-size. They do not include font-weight styling.
+* The CSS reset removes margin and padding from headings. Typographic block spacing can be controlled by the `flow` (see [the typographic block flow utility](#the-typographic-block-flow-utility)). You could also incorporate the `flow` styling directly into your `<article>` tag in your design layout, the typographic block elements are its immediate children.
 
 ```css
 :root {
   --h-ff: inherit; /* headings font-family */
   --h-fw: var(--t-semibold);
   --h-lh: calc(1em + 0.5rem);
-  --h-mt: calc(var(--t-mb) * 2);
 }
 ```
-
-Tips:
-
-1. In some contexts (e.g. in card components) you may not want any built-in spacing for typographic block elements. Then, you can remove margins by using the `mb-0` utility class.
-2. You can also remove top margin indirectly: e.g. you can target the first item inside its wrapper using `.your-wrapper:first-child { margin-top: 0; }`, or the first sibling after the `<header>` or `<h1>`. Same as I have done in Baselayer at `.content-grid > h2:first-child { margin-top: 0; }`.
 
 ### Block quotes
 
@@ -181,7 +201,7 @@ Otherwise, blockquotes have the same as paragraph styling.
 
 ### Lists
 
-In Baselayer ordered `<ol>` and unordered `<ul>` have a small amount of left padding. But Baselayer separates list items `<li>` to make them more obvious by setting a small top margin _between_ list items (smaller than the top margin between paragraphs), and the same amount _above_ nested `<ol>` and `<ul>`. This makes ordered and unordered lists have an even spacing like this:
+In Baselayer ordered `<ol>` and unordered `<ul>` have a small amount of left padding, to give them a left indent.
 
 1. Ordered item one
 2. Ordered item two
@@ -221,7 +241,7 @@ In Baselayer ordered `<ol>` and unordered `<ul>` have a small amount of left pad
 </ul>
 ```
 
-For definition lists, the title is bold and the definition data item is indented with the same left padding as for the lists (see above).
+For definition lists (dictionary lists), the title is bold and the definition data item is indented with the same left padding as for the lists (see above).
 
 <dl>
   <dt>Definition list title</dt>
@@ -243,13 +263,13 @@ For definition lists, the title is bold and the definition data item is indented
 
 The default underline for links has been moved downwards slightly to improve legibility. The link decoration (underline) thickness has been set at 1px, so that it doesn’t become thicker when used on larger text (e.g. in headings) where link underline can be too bulky).
 
-On `:hover`, the link text color remains unchanged and underline becomes thicker, increasing to 3px.
+On `:hover`, the link text color remains unchanged. Instead, the visual cue that “this text is a clickable link” is indicated by underline becoming thicker, increasing to 3px.
 
-This thickening of the line is more obvious than a slight color change, such as you see in other CSS starter kits and frameworks. But if you require a color change, you can add your own, e.g. by Baselayer variables or [color utilities]({{ '/baselayer-3/colors/' | url }}).
+This thickening of the line is more obvious than a slight color change, such as you see in other CSS starter kits and frameworks. But if you require a color change, you can add your own, e.g. by Baselayer variables or [color utilities]({{ '/colors' | url }}).
 
 Example:
 
-* <a href="">This is a link to nowhere</a>
+* <a href="">This is a link to nowhere</a> as a demonstration
 
 ### Link utilities
 
@@ -257,6 +277,8 @@ Then there are the following two classes that apply to links, that may be handy 
 
 * <a class="t-underline-none" href="">This link has no underline</a> — `t-underline-none`
 * <a class="t-underline-hover-only" href="">This link has no underline unless hovered</a> — `t-underline-hover-only`
+
+When you remove the underline completely, you will want to add back affordance e.g. by changing the text or background color on hover.
 
 The browser default, and the best practice for accessability, is to have links indicated by an underline (and the browser default color of links is blue). But in the context of menus it is permissible to deviate from the best practice, provided there are other visual and non-visual indicators. This is the reason why we should use [semantic HTML](https://www.codecademy.com/resources/blog/semantic-html/) tags on menus, and and why we should place navigation menus in their expected locations (in sitewide menu-bars, sidebars, and footers).
 
@@ -271,14 +293,14 @@ You will also want to style the outer `<a href="">` e.g. with the `block` utilit
 In the example below, see how only the inner element _not_ styled with `t-underline-none` behaves as the link text.
 
 <a class="my-3 p-3 bg-gray bg-100 dark:bg-900" href="#/">
-    <p>Link label (title)</p>
-    <p class="mb-0 t-gray t-900 dark:t-100 t-underline-none">Lorem ipsum dolor sit amet ...</p>
+  <p>Link label (title)</p>
+  <p class="mb-0 t-gray t-900 dark:t-100 t-underline-none">Lorem ipsum dolor sit amet ...</p>
 </a>
 
 ```html
 <a href="">
-    <p>Link label (title)</p>
-    <p class="t-underline-none">Lorem ipsum dolor sit amet ...</p>
+  <p>Link label (title)</p>
+  <p class="t-underline-none">Lorem ipsum dolor sit amet ...</p>
 </a>
 ```
 
@@ -340,7 +362,7 @@ If you want a group of links (in a menu) to not have underlines, or to have unde
 And now, with a few other Baselayer utilities, you have a menubar:
 
 <nav class="my-3">
-  <menu class="p-3 flex flex-wrap gap-4 bg-gray bg-100 dark:bg-900 links-underline-none">
+  <menu class="p-2 flex flex-wrap gap-4 bg-gray bg-100 dark:bg-900 links-underline-none">
     <menuitem><a class="t-semibold t-gray t-700 dark:t-300 hover:t-reversi" href="">Menu item 1</a></menuitem>
     <menuitem><a class="t-semibold t-gray t-700 dark:t-300 hover:t-reversi" href="">Menu item 2</a></menuitem>
     <menuitem><a class="t-semibold t-gray t-700 dark:t-300 hover:t-reversi" href="">Menu item 3</a></menuitem>
@@ -349,7 +371,7 @@ And now, with a few other Baselayer utilities, you have a menubar:
 
 ```html
 <nav>
-  <menu class="p-3 flex flex-wrap gap-4 bg-gray bg-100 dark:bg-900 links-underline-none">
+  <menu class="p-2 flex flex-wrap gap-4 bg-gray bg-100 dark:bg-900 links-underline-none">
     <menuitem><a class="t-semibold t-gray t-700 dark:t-300 hover:t-reversi" href="">Menu item 1</a></menuitem>
     <menuitem><a class="t-semibold t-gray t-700 dark:t-300 hover:t-reversi" href="">Menu item 2</a></menuitem>
     <menuitem><a class="t-semibold t-gray t-700 dark:t-300 hover:t-reversi" href="">Menu item 3</a></menuitem>
@@ -360,7 +382,7 @@ And now, with a few other Baselayer utilities, you have a menubar:
 Or a menu for a sidebar or footer buffet:
 
 <nav class="my-3">
-  <menu class="pl-0 flex flex-column gap-3 links-underline-hover-only">
+  <menu class="pl-0 flex flex-column gap-2 links-underline-hover-only">
     <menuitem><a href="">Menu item 1</a></menuitem>
     <menuitem><a href="">Menu item 2</a></menuitem>
     <menuitem><a href="">Menu item 3</a></menuitem>
@@ -369,7 +391,7 @@ Or a menu for a sidebar or footer buffet:
 
 ```html
 <nav>
-  <menu class="pl-0 flex flex-column gap-3 links-underline-hover-only">
+  <menu class="pl-0 flex flex-column gap-2 links-underline-hover-only">
     <menuitem><a href="">Menu item 1</a></menuitem>
     <menuitem><a href="">Menu item 2</a></menuitem>
     <menuitem><a href="">Menu item 3</a></menuitem>
@@ -381,9 +403,9 @@ Or a menu for a sidebar or footer buffet:
 
 * `t-right`, `t-center`, and `t-left`
 
-In addition to the three simple text alignment classes above, Baselayer also has several container-query responsive variants, for `xs:`, `sm:`, `md:` and `lg:` container breakpoints widths.
+In addition to the three simple text alignment classes above, Baselayer also has several container-query responsive variants, for `xs:`, `sm:`, `md:`, and `lg:` container breakpoints widths (corresponding to the four container breakpoints for the Baselayer [grid layout]({{ "/layout/#grid-layouts" | url }})) system).
 
-Example: The hearing in the card below is left aligned by default, but becomes center aligned when its _container_ is `xs` (320px) wide and above, using `xs:t-center`:
+Example: The hearing in the card below is left aligned by default, but becomes center aligned when its _container_ is `xs` (512px) wide and above, using `xs:t-center`:
 
 <div class="my-3 resize-x">
 <div class="container p-2 bg-amber bg-200 dark:bg-900">
@@ -405,7 +427,6 @@ Baselayer tables are set using the `.table` class.
 * Optional modifier `table-grid` will add the outline to all `th` and `td` cells.
 * Optional modifier `table-fixed` will force cells to have the same (fixed) width.
 
-<div class="mt-3 mb-4">
 <table class="table">
   <caption>This is a Table Caption</caption>
   <thead>
@@ -438,7 +459,6 @@ Baselayer tables are set using the `.table` class.
     </tr>
   </tbody>
 </table>
-</div>
 
 ```html
 <table class="table">
@@ -468,7 +488,7 @@ Baselayer tables are set using the `.table` class.
 
 With `table table-grid`:
 
-<table class="mt-3 mb-4 table table-grid">
+<table class="table table-grid">
   <caption>This is a Table Caption</caption>
   <thead>
     <tr>
@@ -505,7 +525,7 @@ With `table table-grid`:
 
 If you have a lot of content in your table, it will probably break your page layout on small viewports (e.g. phones). The simplest way to make a table “responsive” is to wrap your table in a DIV with the `overflow-x` class to make it horizontally scrollable.
 
-<div class="mt-3 mb-4 overflow-x">
+<div class="overflow-x">
   <table class="table table-grid">
     <thead>
       <th>Column title</th>
@@ -553,6 +573,8 @@ The base font size is 100% (16px default). Additionally:
 3. The `t-long-read` wrapping class uses a `clamp()` to ramp text from starting size 1em up to 1.25em (20px default) depending on container size. E.g. used for responsively increasing text size in _article prose components_. `<h1>` inside a `t-long-read` will have maximum font size 61px.
 4. The `t-comfort` wrapping class uses a `clamp()` to raise text from starting size 1em up to 1.625em (26px default) depending on container size. E.g. used for responsively increasing text size in _comfortable reading components_. `<h1>` inside a `t-display` will have maximum font size 79px.
 5. The `t-display` wrapping class uses a `clamp()` to raise text from starting size 1em up to 2em (32px default) depending on container size. E.g. used for responsively increasing text size in _hero components_. `<h1>` inside a `t-display` will have maximum font size 97px.
+
+There’s a demo of these in [examples]({{ "/examples/#text-sizes" | url }}).
 
 ## Code
 

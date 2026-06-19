@@ -21,7 +21,7 @@ Baselayer form elements have simple background and focus styling.
 
 ## Textual form input fields
 
-<form action="">
+<form action="" class="flow">
   <p>
     <label for="example-input-text">Text</label>
     <input type="text" id="example-input-text" name="example" placeholder="Enter text">
@@ -50,7 +50,7 @@ Baselayer form elements have simple background and focus styling.
 
 On touch screens, these inputs invoke the numeric keyboard instead of the text keyboard.
 
-<form action="">
+<form action="" class="flow">
   <p>
     <label for="example-input-tel">Telephone number</label>
     <input type="tel" id="example-input-tel" name="example" placeholder="Telephone number">
@@ -65,7 +65,7 @@ On touch screens, these inputs invoke the numeric keyboard instead of the text k
 
 On some devices (e.g. iOS Safari), these inputs get modified by date pickers, etc. The shape of the input fields gets changed.
 
-<form action="">
+<form action="" class="flow">
   <p>
     <label for="example-input-date">Date</label>
     <input type="date" id="example-input-date" name="example">
@@ -84,7 +84,7 @@ On some devices (e.g. iOS Safari), these inputs get modified by date pickers, et
 
 Invokes the device’s color picker.
 
-<form action="">
+<form action="" class="flow">
   <p>
     <label for="example-input-color">Color</label>
     <input type="color" id="example-input-color" placeholder="#fff">
@@ -93,7 +93,7 @@ Invokes the device’s color picker.
 
 ## File upload
 
-<form action="">
+<form action="" class="flow">
   <p>
     <label for="example-input-file">File input</label>
     <input class="w100%" type="file" id="example-input-file" accept="image/png, image/jpeg">
@@ -106,7 +106,7 @@ Invokes the device’s color picker.
 
 On some devices (e.g. iOS Safari), these inputs get modified by number pickers (dropdowns).
 
-<form action="">
+<form action="" class="flow">
   <p>
     <label for="example-select1">Example select</label>
     <select id="example-select1">
@@ -144,14 +144,14 @@ On some devices (e.g. iOS Safari), these inputs get modified by number pickers (
 
 ## Text area (multiline)
 
-<form action="">
+<form action="" class="flow">
     <label for="example-textarea">Example textarea</label><br>
     <textarea id="example-textarea"></textarea>
 </form>
 
 ## Radio boxes and checkboxes
 
-<form action="">
+<form action="" class="flow">
   <p class="my2">Radio boxes:</p>
   <input type="radio" id="example-radio-1" name="example-radio" value="banana">
   <label for="example-radio-1">Banana</label><br>
@@ -173,7 +173,7 @@ On some devices (e.g. iOS Safari), these inputs get modified by number pickers (
 
 Groups of form elements can be wrapped in `<fieldset>` tags. Add a `<legend>` to provide a special title for the entire fieldset.
 
-<form action="">
+<form action="" class="flow">
   <fieldset class="flex">
     <legend>Example e-newsletter subscribe</legend>
     <input class="w-100%" type="email" id="example-input-email" placeholder="Enter email">
@@ -197,7 +197,7 @@ Groups of form elements can be wrapped in `<fieldset>` tags. Add a `<legend>` to
 
 Border, background, and text color utilities can be used.
 
-<form class="mt-2 mb-3">
+<form class="flow">
   <label for="example-input-text">Label</label>
   <input class="b-thick b-red" type="text" id="example-input-text" placeholder="Enter some text here">
   <input class="b-thick b-green" type="text" id="example-input-text" placeholder="Enter some text here">
@@ -213,7 +213,7 @@ Border, background, and text color utilities can be used.
 
 ## Form buttons
 
-<form action="">
+<form action="" class="flow">
   <p>
     <button type="button" name="button">Button</button>
     <input type="button" name="input" value="Input Button">
@@ -233,4 +233,4 @@ Border, background, and text color utilities can be used.
 </form>
 ```
 
-See [buttons](/baselayer-3/buttons) for more information.
+See [buttons]({{ "/buttons/" | url }})) for more information.

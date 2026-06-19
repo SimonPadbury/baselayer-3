@@ -105,7 +105,7 @@
 [class*="b-900"] {
   border-color: oklch(from var(--bc) var(--bl) c h);
 }
-/* Use `.hover:dark:b-100` NOT `.dark:hover:b-100` */
+/* Use `hover:dark:b-100` NOT `dark:hover:b-100` */
 [class*="dark:b-100"],
 [class*="dark:b-200"],
 [class*="dark:b-300"],

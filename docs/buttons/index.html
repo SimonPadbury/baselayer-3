@@ -7,19 +7,115 @@
 
   <title>Buttons · Baselayer CSS</title>
 
-  <link rel="stylesheet" href="/baselayer-3/css/min/baselayer.min.css?v=3.6.0">
+  <link rel="stylesheet" href="/baselayer-3/css/min/baselayer.min.css?v=3.7.0">
 
   <style>
-  html {
+  :root {
+  --w-page: var(--w-xxl); /* For XXL */
+  --w-sidebar: var(--w-xxs); /* For XXS */
+}
+
+html {
   scroll-behavior: smooth;
 }
 
-.resize-x {
-  margin-inline: -5px;
-  padding: 5px;
-  resize: horizontal;
-  overflow-x: auto;
-  background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='silver' stroke-width='2' stroke-dasharray='8%2c 8' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
+.body-wrap {
+  min-height: 100dvh;
+}
+.page-container {
+  width: min(100%, var(--w-page));
+  margin: 0 auto;
+}
+
+@media (min-width: 1024px) {
+  .page-container {
+    display: grid;
+    grid-template-columns: var(--w-sidebar) 1fr;
+  }
+  .left-sidebar {
+    grid-column: 1;
+    grid-row: 2;
+    border-right: var(--b-thin);
+    width: var(--w-sidebar);
+  }
+  .main-frame {
+    grid-column: 2;
+    grid-row: 2;
+  }
+  /* .main-pane {
+    display: flex;
+  }
+  .content-panel {
+    margin-inline: auto;
+  } */
+}
+
+@media (min-width: 1280px) {
+  .main-frame {
+    display: grid;
+    grid-template-columns: 1fr var(--w-sidebar);
+  }
+  .main-pane {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .right-sidebar {
+    grid-column: 2;
+    grid-row: 1;
+  }
+}
+
+@container (min-width: 1024px) {
+  #site-nav {
+    position: sticky;
+    top: 0;
+    width: var(--w-xxs);
+    height: 100dvh;
+  }
+
+  #site-title {
+    padding-top: var(--s-3);
+    flex-direction: column;
+    align-self: center;
+  }
+
+  #site-menu {
+    min-width: var(--w-xxs);
+  }
+
+  .ms-windows #site-nav > div {
+    scrollbar-gutter: stable;
+    overflow-y: hidden;
+  }
+
+  .ms-windows #site-nav:hover > div {
+    overflow-y: auto;
+  }
+}
+
+#toc-outer li {
+  margin-block: 0.5em;
+}
+
+@container (min-width: 1280px) {
+  #toc-outer > p {
+    padding-block: 0.5em;
+  }
+
+  .ms-windows #toc-outer {
+    scrollbar-gutter: stable;
+    overflow-y: hidden;
+  }
+
+  .ms-windows #toc-outer:hover {
+    overflow-y: auto;
+  }
+}
+
+@container (max-width: 1279px) {
+  #toc-outer ul ul {
+    display: none;
+  }
 }
 
 button.toggler {
@@ -64,97 +160,12 @@ pre code {
   overflow-y: auto;
 }
 
-@container (min-width: 960px) {
-  #content-wrap {
-    width: calc(100vw - var(--w-xs));
-  }
-
-  #site-nav {
-    position: sticky;
-    top: 0;
-    width: var(--w-xs);
-    height: 100dvh;
-  }
-
-  #site-title {
-    padding-top: var(--s-3);
-    flex-direction: column;
-    align-self: center;
-  }
-
-  #site-menu {
-    min-width: var(--w-xs);
-  }
-
-  .ms-windows #site-nav > div {
-    scrollbar-gutter: stable;
-    overflow-y: hidden;
-  }
-
-  .ms-windows #site-nav:hover > div {
-    overflow-y: auto;
-  }
-}
-
-@container (min-width: 1280px) {
-  #toc-outer > p {
-    padding-top: var(--s-3);
-  }
-
-  .ms-windows #toc-outer {
-    scrollbar-gutter: stable;
-    overflow-y: hidden;
-  }
-
-  .ms-windows #toc-outer:hover {
-    overflow-y: auto;
-  }
-}
-
-@container page (max-width: 1279px) {
-  #toc ul ul {
-    display: none;
-  }
-}
-
-/* Pagefind */
-
-.pagefind-ui__form {
-  position: relative;
-  display: block;
-  margin-top: 1em;
-}
-
-.pagefind-ui__search-input {
-  display: block;
-  width: 100%;
-  border-radius: 3em;
-}
-
-.pagefind-ui__suppressed {
-  opacity: 0;
-  pointer-events: none;
-}
-
-.pagefind-ui__search-clear {
-  position: absolute;
-  top: 0.325rem;
-  right: 0.325rem;
-  z-index: 1;
-  border-radius: 0 3em 3em 0;
-  font-size: 0.85rem;
-  font-weight: normal;
-  background: transparent;
-}
-
-.pagefind-ui__results-area {
-  margin-top: var(--s-3);
-}
-
-div:not(.pagefind-ui__result-nested) > .pagefind-ui__result-title {
-  margin-bottom: 0;
-  font-size: var(--h4);
-  font-weight: var(--t-semibold);
+.resize-x {
+  margin-inline: -5px;
+  padding: 5px;
+  resize: horizontal;
+  overflow-x: auto;
+  background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='silver' stroke-width='2' stroke-dasharray='8%2c 8' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
 }
 
   </style>
@@ -232,7 +243,7 @@ window.addEventListener("DOMContentLoaded", () => {
   let navButton = document.querySelector("#site-menu-toggle");
   let menu = document.querySelector("#js-menu-wrapper");
   let windowTest = function () {
-    if (window.matchMedia("(max-width: 959px)").matches) {
+    if (window.matchMedia("(max-width: 1023px)").matches) {
       navButton.setAttribute("aria-expanded", "false");
       menu.hidden = true;
     } else {
@@ -266,13 +277,13 @@ window.addEventListener("DOMContentLoaded", () => {
 
   <a href="#content-wrap" tabindex="1" class="inline-block m-2 visually-hidden">Skip to page content</a>
 
-  <div id="body-wrap" class="md:flex">
-
-    <div id="site-nav" class="h-100% bg-gray bg-100 dark:bg-900">
+  <div class="page-container">
+    <div class="left-sidebar">
+      <div id="site-nav" class="h-100% bg-gray bg-100 dark:bg-900">
   <div class="sticky top h-max-100dvh overflow-y">
     <div class="flex flex-space-between md:block">
       <div class="p-cell md:t-center">
-        <a id="site-title" href="/baselayer-3/" class="h4 py-2 t-normal flex flex-center flex-middle gap-2 t-gray t-800 dark:t-200 hover:t-reversi t-underline-none">
+        <a id="site-title" href="/baselayer-3/" class="h4 t-normal flex flex-center flex-middle gap-1 t-gray t-800 dark:t-200 hover:t-reversi t-underline-none">
           <svg height="48" width="48" viewBox="0 0 111 111" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-miterwrapper:1.5">
             <g transform="translate(-294.592 -94.592)">
               <circle cx="350" cy="150" r="50" style="fill:none;stroke:currentColor;stroke-width:4px"/>
@@ -285,22 +296,22 @@ window.addEventListener("DOMContentLoaded", () => {
           <span class="t-nowrap">Baselayer CSS</span>
         </a>
       </div>
-      <button type="button" id="site-menu-toggle" aria-expanded="false" aria-label="Menu" aria-controls="site-menu" class="m-3 md:hidden">
+      <button type="button" id="site-menu-toggle" aria-expanded="false" aria-label="Menu" aria-controls="site-menu" class="m-1 md:hidden">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256"><path d="M228,128a12,12,0,0,1-12,12H40a12,12,0,0,1,0-24H216A12,12,0,0,1,228,128ZM40,76H216a12,12,0,0,0,0-24H40a12,12,0,0,0,0,24ZM216,180H40a12,12,0,0,0,0,24H216a12,12,0,0,0,0-24Z"></path></svg>
       </button>
     </div>
 
     <div id="js-menu-wrapper">
-      <div class="m-3 bt-thin bb-thin py-3 flex flex-center flex-wrap gap-3 links-underlined-hover-only">
-        <span class="t-gray t-600 dark:t-400">Version: 3.6.0</span>
+      <div class="m-2 bt-thin bb-thin py-2 flex flex-center flex-wrap gap-2 links-underlined-hover-only">
+        <span class="t-gray t-600 dark:t-400">Version: 3.7.0</span>
         <a class="t-gray t-800 dark:t-200 hover:t-900 hover:dark:t-100" href="https://github.com/SimonPadbury/baselayer-3">GitHub</a>
         <span>
-          <a class="t-gray t-800 dark:t-200 hover:t-900 hover:dark:t-100" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> <span class="t-gray t-600 t-dark-invert">(26 KB)</span>
+          <a class="t-gray t-800 dark:t-200 hover:t-900 hover:dark:t-100" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> <span class="t-gray t-600 t-dark-invert">(27 KB)</span>
         </span>
       </div>
 
       <nav class="t-white container px-3 py-2">
-        <menu class="pl-0 flex flex-column gap-2 links-underline-none">
+        <menu class="pl-0 flex flex-column gap-1 links-underline-none">
           <menuitem>
             <a class="block  p-cell t-gray t-700 dark:t-300 hover:t-900 hover:dark:t-100"  href="/baselayer-3/">Getting started</a>
           </menuitem>
@@ -319,7 +330,7 @@ window.addEventListener("DOMContentLoaded", () => {
             <a class="block  p-cell t-gray t-700 dark:t-300 hover:t-900 hover:dark:t-100"  href="/baselayer-3/forms/">Forms</a>
           </menuitem>
           <menuitem>
-            <a class="block bl-heavy b-gray b-300 dark:b-700 t-reversi bg-gray bg-200 dark:bg-800 p-cell t-gray t-700 dark:t-300 hover:t-900 hover:dark:t-100"  aria-current="page" href="/baselayer-3/buttons/">Buttons</a>
+            <a class="block bl-thick b-gray b-300 dark:b-700 t-reversi bg-gray bg-200 dark:bg-800 p-cell t-gray t-700 dark:t-300 hover:t-900 hover:dark:t-100"  aria-current="page" href="/baselayer-3/buttons/">Buttons</a>
             </menuitem>
           <menuitem>
             <a class="block p-cell t-gray t-700 dark:t-300 hover:t-900 hover:dark:t-100" href="/baselayer-3/examples/">Examples</a>
@@ -327,36 +338,36 @@ window.addEventListener("DOMContentLoaded", () => {
         </menu>
       </nav>
 
-      <menu class="my-2 px-3">
-        <button id="baseSwitch" class="mb-1 p-2 flex flex-start w-100%" type="button" onclick="fontBase()">
+      <menu class="my-2 px-3 flex flex-column gap-1">
+        <button id="baseSwitch" class="flex flex-start w-100%" type="button" onclick="fontBase()">
           <div class="w-100% flex flex-middle gap-1">
             <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
             <div class="grow t-left">Base font</div>
           </div>
         </button>
 
-        <button id="proseSwitch" class="mb-1 p-2 flex flex-start w-100%" type="button" onclick="fontProse()">
+        <button id="proseSwitch" class="flex flex-start w-100%" type="button" onclick="fontProse()">
           <div class="w-100% flex flex-middle gap-1">
             <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
             <div class="grow t-left">Prose font</div>
           </div>
         </button>
 
-        <button id="autoSwitch" class="mb-1 p-2 flex flex-start w-100%" type="button" onclick="themeAuto()">
+        <button id="autoSwitch" class="flex flex-start w-100%" type="button" onclick="themeAuto()">
           <div class="w-100% flex flex-middle gap-1">
             <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
             <div class="grow t-left">Auto theme</div>
           </div>
         </button>
 
-        <button id="lightSwitch" class="mb-1 p-2 flex flex-start w-100%" type="button" onclick="themeLight()">
+        <button id="lightSwitch" class="flex flex-start w-100%" type="button" onclick="themeLight()">
           <div class="w-100% flex flex-middle gap-1">
             <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
             <div class="grow t-left">Light theme</div>
           </div>
         </button>
 
-        <button id="darkSwitch" class="p-2 flex flex-start w-100%" type="button" onclick="themeDark()">
+        <button id="darkSwitch" class="flex flex-start w-100%" type="button" onclick="themeDark()">
           <div class="w-100% flex flex-middle gap-1">
             <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
             <div class="grow t-left">Dark theme</div>
@@ -368,39 +379,24 @@ window.addEventListener("DOMContentLoaded", () => {
   </div>
 </div>
 
-
-    <div id="content-wrap" class="grow">
-      <div class="lg:grid lg:equal-4-cols gap-3">
-        <div class="lg:col-span-3">
-
-          <div id="pagefind-here" class="content-grid">
-            
-            <script src="/baselayer-3/pagefind/pagefind-ui.js"></script>
-            <div id="search"></div>
-            <p class="mt-1 mr-3 mb-0 t-sm t-right">Search powered by <a class="t-underline-none" href="https://pagefind.app" target="_blank">Pagefind</a>.</p>
-            <script>
-                window.addEventListener('DOMContentLoaded', (event) => {
-                    new PagefindUI({ element: "#search", showSubResults: true });
-                });
-            </script>
-          </div>
-
-          <header id="article-title">
-            <div class="wrapper-md py-3 t-center t-comfort">
-              <h1 class="my-4 t-balance t-bold">Buttons</h1>
-            </div>
-          </header>
-        </div>
-        <div class="lg:col-4 lg:row-span-3">
-          <nav id="toc-outer" class="sticky top w-sm h-max-100dvh mx-auto mb-4 px-2 links-underline-hover-only overflow-y">
-            <p class="h4 t-semibold">On this page</p>
-            <nav class="toc" >
+    </div>
+    <div class="main-frame">
+      <aside class="right-sidebar lg:hidden-below">
+        <div id="toc-outer" class="sticky top wrapper-content h-max-100dvh pb-4 links-underline-hover-only overflow-y">
+          <p class="h4 t-semibold">On this page</p>
+          <nav class="toc" >
         <ul><li><a href="#button-types-and-link-%E2%80%9Cpseudo-buttons%E2%80%9D">Button types and link “pseudo-buttons”</a></li><li><a href="#full-width-buttons">Full-width buttons</a></li><li><a href="#adding-colors-to-buttons">Adding colors to buttons</a></li><li><a href="#buttons-with-icons">Buttons with icons</a></li><li><a href="#pill-buttons">Pill buttons</a></li><li><a href="#button-sizes">Button sizes</a></li></ul>
       </nav>
-          </nav>
         </div>
-        <div class="lg:col-span-3">
-          <main id="article-content" class="content-grid">
+      </aside>
+      <div class="main-pane">
+        <div class="main-pane-content container">
+          <header id="article-title" class="content-grid">
+            <div class="aspect-ratio-16x9 relative">
+              <h1 class="box place-center my-3 t-balance t-center">Buttons</h1>
+            </div>
+          </header>
+          <main class="content-grid flow">
             <p>Baselayer form elements have simple background, hovers and focus styling (border is set to <code>1px solid transparent</code>).</p>
 <h3 id="button-types-and-link-%E2%80%9Cpseudo-buttons%E2%80%9D" tabindex="-1">Button types and link “pseudo-buttons”</h3>
 <form class="mt-2 mb-3">
@@ -428,7 +424,7 @@ window.addEventListener("DOMContentLoaded", () => {
 </ol>
 <h2 id="full-width-buttons" tabindex="-1">Full-width buttons</h2>
 <p>In Baselayer, buttons are pre-styled with <code>display: inline-flex</code> and centering and middling flexbox alignment.</p>
-<p>So, if you want a button to stretch full-width, you can add <code>class=&quot;w100%&quot;</code> or you can override the inline-flex by adding <code>class=&quot;flex&quot;</code>. (Do not use <code>class=&quot;block&quot;</code> on a button (or <code>.btn</code>) because that will override its inline flexbox.)</p>
+<p>So, if you want a button to stretch full-width, you can add <code>class=&quot;w-100%&quot;</code> or you can override the inline-flex by adding <code>class=&quot;flex&quot;</code>. (Do not use <code>class=&quot;block&quot;</code> on a button (or <code>.btn</code>) because that will override its inline flexbox.)</p>
 <p><button class="w-100% my-2" type="button" name="button">Button</button></p>
 <pre><code class="language-html">&lt;button class=&quot;w-100%&quot; type=&quot;button&quot; name=&quot;button&quot;&gt;
   Button
@@ -499,11 +495,11 @@ window.addEventListener("DOMContentLoaded", () => {
   </p>
 </form>
 <h2 id="pill-buttons" tabindex="-1">Pill buttons</h2>
-<p>Putting <code>rad rad-pill</code> on a square icon button will make it circular. (See <a href="/baselayer-3/decoration/#rounded-corners">decoration: rounded corners</a>.)</p>
+<p>Putting <code>rounded rounded-pill</code> on a square icon button will make it circular. (See <a href="/baselayer-3/decoration/#rounded-corners">decoration: rounded corners</a>.)</p>
 <form>
   <p class="flex flex-middle">
-    <button class="rad rad-pill" type="button" name="button">Button</button>&nbsp;
-    <button class="btn-icon rad rad-pill" type="button" name="button">
+    <button class="rounded rounded-pill" type="button" name="button">Button</button>&nbsp;
+    <button class="btn-icon rounded rounded-pill" type="button" name="button">
       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"></rect><line x1="40" y1="128" x2="216" y2="128" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"></line><polyline points="144 56 216 128 144 200" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"></polyline></svg>
     </button>
   </p>
@@ -515,29 +511,37 @@ window.addEventListener("DOMContentLoaded", () => {
 <h2 id="button-sizes" tabindex="-1">Button sizes</h2>
 <p>Buttons (and the <code>btn</code> utility) will resize according to the font-size of the block that they are inside.</p>
 <p>You can also use the typographic size classes <code>t-sm</code> and <code>t-lg</code> to modify buttons directly.</p>
-<form class="mt-2 mb-3 flex flex-middle gap-1">
-  <button type="button" name="button" class="t-sm">Button</button>
-  <button type="button" name="button">Button</button>
-  <button type="button" name="button" class="t-lg">Button</button>
+<form class="mt-2 mb-3">
+  <div class="flex flex-middle gap-1">
+    <button type="button" name="button" class="t-sm">Button</button>
+    <button type="button" name="button">Button</button>
+    <button type="button" name="button" class="t-lg">Button</button>
+  </div>
+  <hr class="my-2">
+  <div class="flex flex-middle gap-1">
+    <a href="#" class="btn t-sm">Link “button”</a>
+    <a href="#" class="btn">Link “button”</a>
+    <a href="#" class="btn t-lg">Link “button”</a>
+  </div>
 </form>
 <pre><code class="language-html">&lt;form class=&quot;flex flex-middle gap-1&quot;&gt;
   &lt;button type=&quot;button&quot; name=&quot;button&quot; class=&quot;t-sm&quot;&gt;Button&lt;/button&gt;
   &lt;button type=&quot;button&quot; name=&quot;button&quot;&gt;Button&lt;/button&gt;
   &lt;button type=&quot;button&quot; name=&quot;button&quot; class=&quot;t-lg&quot;&gt;Button&lt;/button&gt;
+
+  &lt;a href=&quot;#&quot; class=&quot;btn t-sm&quot;&gt;Link “button”&lt;/a&gt;
+  &lt;a href=&quot;#&quot; class=&quot;btn&quot;&gt;Link “button”&lt;/a&gt;
+  &lt;a href=&quot;#&quot; class=&quot;btn t-lg&quot;&gt;Link “button”&lt;/a&gt;
 &lt;/form&gt;
 </code></pre>
 <p>Notes on buttons:</p>
 <ol>
-<li>Button x-axis padding is <code>1em</code>, so that it will also respond to the text size of the button.</li>
-<li>Buttons have the same min-height as form input fields, so that they can be used in combination.</li>
+<li>Button padding is set using <code>--p-btn: 0.5em 1em;</code>, so that it will also respond to the text size of the button.</li>
+<li>Buttons and form elements have the same min-height and padding, so that they can be used in combination.</li>
 </ol>
 
-          </main>
-        </div>
-
-        <div class="lg:col-span-3">
-          <footer class="mt-3 content-grid">
-            <nav class="popout grid gap-2 sm:equal-2-cols links-underline-none">
+            <hr>
+            <nav class="expand grid gap-2 sm:equal-2-cols links-underline-none">
               
               <a class="sm:col-1 my-1 b-thin b-blue b-300 hover:b-500 dark:b-700 rad-1 p-cell flex flex-column gap-1 t-blue t-600 hover:t-700 dark:t-400 bg-blue hover:bg-100 hover:dark:bg-800"  href="/baselayer-3/forms/">
                 Previous page
@@ -551,7 +555,9 @@ window.addEventListener("DOMContentLoaded", () => {
               </a>
               
             </nav>
-            <div class="mt-4 mb-3 p-2 flex flex-column flex-middle t-center">
+          </main>
+          <div class="container-md">
+                        <div class="mt-4 mb-3 p-2 flex flex-column flex-middle t-center">
               <a href="/baselayer-3/" class="mb-1 flex flex-column flex-center gap-1 t-underline-none">
                 <svg class="mx-auto" height="48" width="48" viewBox="0 0 111 111" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-miterwrapper:1.5">
                   <g transform="translate(-294.592 -94.592)">
@@ -564,22 +570,22 @@ window.addEventListener("DOMContentLoaded", () => {
                   </svg>
                 <span class="h3 m-0 t-normal t-nowrap">Baselayer CSS</span>
               </a>
-              <span>Version: 3.6.0</span>
+              <span>Version: 3.7.0</span>
             </div>
 
             <p class="p-cell flex flex-center flex-wrap gap-4 t-center">
-              <span><a class="t-underline-hover-only" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> (26 KB)</span>
+              <span><a class="t-underline-hover-only" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> (27 KB)</span>
               <a class="t-underline-hover-only" href="https://github.com/SimonPadbury/baselayer-3">GitHub Repository</a>
               <a class="t-underline-hover-only" href="https://github.com/SimonPadbury/baselayer-3/blob/main/CHANGELOG.md">Changelog</a>
               <a class="t-underline-hover-only" href="https://github.com/SimonPadbury/baselayer-3/blob/main/LICENSE">MIT license</a>
             </p>
             <p class="t-center"><span>Developer: <a class="t-underline-hover-only" href="https://github.com/SimonPadbury">Simon Padbury</a></span>
-          </footer>
+
+          </div>
         </div>
       </div>
     </div>
-
-  </div><!-- /#body-wrap -->
+  </div>
 
 </body>
 </html>

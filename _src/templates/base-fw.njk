@@ -10,17 +10,11 @@
   <link rel="stylesheet" href="{{ '/css/min/baselayer.min.css' | url }}{{ '?v=' + metadata.version }}">
 
   <style>
-    header > h1 {
-      width: var(--w-xl);
-      margin-inline: auto;
-    }
+    header > h1,
     main > h2,
+    main > p,
     main > hr {
-      width: min(100% - (var(--s-2) * 2), var(--w-xl));
-      margin-inline: auto;
-    }
-    main > p {
-      width: min(100% - (var(--s-2) * 2), var(--w-xl));
+      width: min(100% - var(--s-4), var(--w-xxl));
       margin-inline: auto;
     }
 
@@ -40,12 +34,12 @@
 
   <a href="#main-content" tabindex="1" class="inline-block m-1 visually-hidden">Skip to main content</a>
 
-  <header class="wrapper my-2">
+  <header class="my-2">
     <h1>{{ mainHeading }}</h1>
   </header>
 
-  <main>
-  {{ content | safe }}
+  <main class="flow" id="main-content">
+    {{ content | safe }}
   </main>
 </body>
 </html>

@@ -8,36 +8,19 @@ prevLink: "Decoration"
 nextLink: "Forms"
 ---
 
-`color-mix(in OKLCH ... )` has been [Baseline:widely available](https://developer.mozilla.org/en-US/docs/Glossary/Baseline/Compatibility) since March 2023 — all “evergreen” browsers (Chrome, Edge, Firefox, Safari) have capability to use it (see [Can I use](https://caniuse.com/?search=color-mix())). Baselayer uses this function to set up a range of lightness levels for its five built-in colors.
+Baselayer’s color utility class system is based on using the modern CSS `oklch()` function and a series of interpolated lightness level variables that enable the lightness level utility classes to work. The lightnsses for color each class are not pre-created, unlike with other CSS frameworks.
 
-## Rationale for Baselayer’s color system
+So in the HTML, you first choose the color utility class, then you choose the lightness level class separately. Handled this way, the stylesheet doesn’t need to be loaded with lighness classes for every color — most of which you’d never use.
 
-I wanted to develop a color system based on interpolating CSS variables for generating a series _lightness levels_ for each color, so that the stylesheet doesn’t need to be loaded with lighness classes for every color — most of which you’d never use.
+The `oklch()` function has been [baseline: widely available](https://developer.mozilla.org/en-US/docs/Glossary/Baseline/Compatibility) since March 2023. All “evergreen” browsers (Chrome, Edge, Firefox, Safari) have capability to use it (see [Can I use](https://caniuse.com/?search=color-mix())).
 
-**Since Baselayer 3.5.6:** From there, Baselayer’s `oklch( ... )` function (baseline [widely available since 2023](https://caniuse.com/?search=oklch)) takes the hue (h) and chroma (c) values out of the base color, and adjusts the lightness level (l) to 50% (matching Baselayer’s built-in middle lightness, `--l500`). This enables a *perceptually uniform* system of lightness levels (see later).
+In setting up the lightness utility classes, Baselayer’s `oklch()` formulas take the hue (h) and chroma (c) values out of the base color variables, and adjusts the lightness level (l) to 50% (matching Baselayer’s built-in middle lightness, i.e. `--l500`). This enables a _perceptually uniform_ system of lightness levels.
 
-In Baselayer CSS, default colors are set using Hex `#` codes). But if/when you add your own in all other color system, the `oklch( ... )` function can handle it.
+The five Baselayer built-in theme colors are set using Hex `#` codes). But if/when you add your own in all other color system, the `oklch( ... )` formulas can handle it.
 
-<table class="table table-fixed">
-<thead>
-<th>Blue</th>
-<th>Green</th>
-<th>Amber</th>
-<th>Red</th>
-<th>Gray</th>
-</thead>
-<tbody>
-<td><div class="p-3 rad bg-blue">&nbsp;<div></td>
-<td><div class="p-3 rad bg-green">&nbsp;<div></td>
-<td><div class="p-3 rad bg-amber">&nbsp;<div></td>
-<td><div class="p-3 rad bg-red">&nbsp;<div></td>
-<td><div class="p-3 rad bg-gray">&nbsp;<div></td>
-</tbody>
-</table>
+Example using background `bg-*` utility classes:
 
-The color utility CSS class names remain the same as before (explained below). Example using background `bg-*` utility classes:
-
-<div class="full-bleed mt-3 mb-4 p-2 flex flex-center flex-wrap">
+<div class="full-bleed my-3 p-2 flex flex-center flex-wrap">
   <div style="width: clamp(96px, 15cqi, 208px)">
     <div class="p-2 t-center"><code class="t-small">blue</code></div>
     <div class="p-2 t-black t-small bg-blue bg-100">100</div>
@@ -103,7 +86,7 @@ The color utility CSS class names remain the same as before (explained below). E
 Also available:
 
 1. A built-in [dark theme](#dark-theme).
-2. Black, white, and transparent — see [other Baselayer color utilities](#other-baselayer-color-utilities).
+2. `black`, `white`, `reversi`, `reversi-flip`, and `transparent` — see [other Baselayer color utilities](#other-baselayer-color-utilities).
 
 ## Color and shade utility classes
 
@@ -121,16 +104,19 @@ Color utility classes (declared in `@layer color` in `colors.css`) are prefixed 
 <th colspan="2" class="t-center bg-gray bg-100 dark:bg-900">Background Color</th>
 </tr>
 <tr>
-<th class="t-nowrap bg-gray bg-100 dark:bg-900">Default state</th>
+<th class="bg-gray bg-100 dark:bg-900">Default state</th>
 <th class="bg-gray bg-100 dark:bg-900">Hover state</th>
 <th>Default state</th>
 <th>Hover state</th>
-<th class="t-nowrap bg-gray bg-100 dark:bg-900">Default state</th>
+<th class="bg-gray bg-100 dark:bg-900">Default state</th>
 <th class="bg-gray bg-100 dark:bg-900">Hover state</th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="bb-thin">
+<td colspan="7" class="p-0 px-1 t-heavy t-loose t-uppercase bg-gray bg-200 dark:bg-800">Light theme (default)</td>
+</tr>
+<tr class="bb-thin">
 <td>Lightness modifier</td>
 <td class="bg-gray bg-100 dark:bg-900"><code>b-100</code><br>...<br><code>b-900</code></td>
 <td class="bg-gray bg-100 dark:bg-900"><code>hover:b-100</code><br>...<br><code>hover:b-900</code></td>
@@ -139,43 +125,36 @@ Color utility classes (declared in `@layer color` in `colors.css`) are prefixed 
 <td class="bg-gray bg-100 dark:bg-900"><code>bg-100</code><br>...<br><code>bg-900</code></td>
 <td class="bg-gray bg-100 dark:bg-900"><code>hover:bg-100</code><br>...<br><code>hover:bg-900</code></td>
 </tr>
+<tr class="bb-thin">
+<td colspan="7" class="p-0 px-1 t-heavy t-loose t-uppercase bg-gray bg-200 dark:bg-800">Dark theme*</td>
+</tr>
+<tr>
+<td>Lightness modifier</td>
+<td class="bg-gray bg-100 dark:bg-900"><code>dark:b-100</code><br>...<br><code>dark:b-900</code></td>
+<td class="bg-gray bg-100 dark:bg-900"><code>hover:dark:b-100</code><br>...<br><code>hover:dark:b-900</code></td>
+<td><code>dark:t-100</code><br>...<br><code>dark:t-900</code></td>
+<td><code>hover:dark:t-100</code><br>...<br><code>hover:dark:t-900</code></td>
+<td class="bg-gray bg-100 dark:bg-900"><code>dark:bg-100</code><br>...<br><code>dark:bg-900</code></td>
+<td class="bg-gray bg-100 dark:bg-900"><code>hover:dark:bg-100</code><br>...<br><code>hover:dark:bg-900</code></td>
+</tr>
 </tbody>
 </table>
+<p class="mt-1 t-center">* Use <code>hover:dark:b-100</code> NOT <code>`dark:hover:b-100`</code> etc.
 </div>
-
-Notes on lightness levels:
-
-1. The utility class lightness level suffixes go up in hundreds, from `-100` to `.900`.
-2. You can use these levels in your own CSS. You are also free to do whatever you want.
-
-```css
-@layer bl-variables {
-  :root {
-    --l100: 98%;
-    --l200: 86%;
-    --l300: 74%;
-    --l400: 62%;
-    --l500: 50%;
-    --l600: 42%;
-    --l700: 34%;
-    --l800: 26%;
-    --l900: 18%;
-    --l1000: 10%;
-  }
-}
-```
 
 Example border, text and background utilities:
 
-<div class="mt-3 mb-4 flex flex-grow-equal gap-1 gap-2">
+<div class="my-4 flex flex-grow-equal gap-1 gap-2">
   <div class="b-heavy b-green p-3 flex flex-center flex-middle"><span class="t-nowrap">b-green</span></div>
   <div class="p-3 flex flex-center flex-middle gap-1 flex-wrap t-heavy t-green t-700 dark:t-300"><span class="t-nowrap">t-green</span> <span class="t-nowrap">t-700</span> <span class="t-nowrap">dark:t-300</span></div>
   <div class="p-3 flex flex-center flex-middle gap-1 flex-wrap t-black bg-green bg-300"><span class="t-nowrap">bg-green</span> <span class="t-nowrap">bg-200</span></div>
 </div>
 
-```
+```html
 <div class="b-heavy b-green"></div>
+
 <div class="t-heavy t-green t-700 dark:t-300"></div>
+
 <div class="t-black bg-green bg-300"></div>
 ```
 
@@ -183,12 +162,12 @@ See also [dark theme lightness levels](#dark-theme-lightness-levels) and [black,
 
 Example usage:
 
-<div aria-label="Note" class="popout mt-3 mb-4 bl-heavy b-blue b-400 dark:b-600 p-3 t-reversi bg-blue bg-200 dark:bg-800">
+<div aria-label="Note" class="popout my-4 bl-heavy b-blue b-400 dark:b-600 p-3 t-reversi bg-blue bg-200 dark:bg-800">
   &star; Note (information) panel.
 </div>
 
 ```html
-<div aria-label="Note" class="popout mt-3 mb-4 bl-heavy b-blue b-400 dark:b-600 p-3 t-reversi bg-blue bg-200 dark:bg-800">
+<div aria-label="Note" class="popout my-3 bl-heavy b-blue b-400 dark:b-600 p-3 t-reversi bg-blue bg-200 dark:bg-800">
   &star; Note (information) panel.
 </div>
 ```
@@ -197,17 +176,13 @@ The lighness modifiers `*-100` through `*-900`, if used alone, do not provide co
 
 ## Colors and accessibility
 
-<div aria-label="Warning" class="popout mt-3 mb-4 bl-heavy b-amber b-300 dark:b-600 p-3 bg-amber bg-100 dark:bg-800">
-  In any color model, color combinations must be chosen with care so that there is sufficient contrast between text and background colors for purposes of assessibility.
-</div>
+In any color model, color combinations must be chosen with care so that there is sufficient contrast between text and background colors for purposes of assessibility.
 
 In your text and background color combinations, be careful to ensure that the text is readable — there needs to be an adequate contrast. Most organizations should to aim for [WCAG level AA](https://www.w3.org/WAI/WCAG2AA-Conformance) for accessibility requirements.
 
-For WCAG level AA conformance, most user interface colors need to be _darker than the mid-level_ (i.e. use `*-600` up) if the text color is white, or _lighter than the mid-level_ (i.e. use `*-400` down) if the text color is black.
+For WCAG level AA conformance, most user interface colors need to be _mid-level_ (i.e. use `*-500` up) if the text color is white, or _lighter than the mid-level_ (i.e. use `*-400` down) if the text color is black.
 
-However, any colors near yellow such as Baselayer amber, as well as orange and yellow-green (not included), are especially difficult for accessibility. You may do better using a lighter background amber and pairing it with black text (or vise versa).
-
-<form class="my-3">
+<form class="my-4">
   <p>
     <button type="button" name="button">Button</button>
     <button class="bg-blue bg-500 hover:bg-600" type="button" name="button">Button</button>
@@ -216,7 +191,7 @@ However, any colors near yellow such as Baselayer amber, as well as orange and y
   </p>
 </form>
 
-When colorizing buttons, remember to set their `hover:` hover state shades too.
+When colorizing buttons (and link pseudo-buttons), remember to set their `hover:` hover state shades too.
 
 ```html
 <!-- Default button -->
@@ -243,13 +218,71 @@ Background reading on colors and accessibility:
 * The [_Coolors_ contrast checker](https://coolors.co/contrast-checker/112a46-acc8e5)
 * [Web Accessibility: Understanding Colors and Luminance (Mozilla Developer Network Docs)](https://developer.mozilla.org/en-US/docs/Web/Accessibility/Understanding_Colors_and_Luminance)
 
-## Adding more colors
+## How Baselayer CSS handles color
 
-You can, of course, add any colors you want, and in any format you want.
+Baselayer handles color in a 4-step process:
 
-However, if you want to use Baselayer’s lightness modifier classes `-100` thorugh `-900` on your colors, then you need to start from a _mid-lightness_ color so that the `-100` and the `-900` generated by the `color-mix()` formulas are distinguishable (not to chose to white or too close to black).
+1. The 5 baselayer colors are first declared as CSS variables:
 
-You can add your own project colors in any format, but the Baselayer `color-mix()` formulas will output shade in OKLCH format.
+    ```css
+    @layer bl-variables {
+      :root {
+        /* Theme base colors */
+        --blue: #4166f5;
+        --green: #00a550;
+        --amber: #ffba00;
+        --red: #e34234;
+        --gray: #838996;
+      }
+    }
+    ```
+
+2. The utility class lightness level suffixes go up in hundreds, from `-100` to `-1000`. (The `-1000` is only used once in Baselayer, for setting the dark theme `<body>` background. Levels `-100` to `-900` are used in the lightness utility classes.)
+
+    ```css
+    @layer bl-variables {
+      :root {
+        --l100: 98%;
+        --l200: 86%;
+        --l300: 74%;
+        --l400: 62%;
+        --l500: 50%;
+        --l600: 42%;
+        --l700: 34%;
+        --l800: 26%;
+        --l900: 18%;
+        --l1000: 10%;
+      }
+    }
+    ```
+
+3. In the variables file, Baselayer colors are set up using the formula. For example, in the base text color:
+
+    ```css
+    @layer bl-variables {
+      :root {
+        --tc-base: background-color: light-dark(
+          oklch(from var(--gray) var(--l900) c h),
+          oklch(from var(--gray) var(--l100) c h)
+        );
+      }
+    }
+    ```
+
+4. Finally, the variable is used in a style rule:
+
+    ```css
+    @layer bl-reset {
+      body {
+        color: var(--tc-base);
+      }
+    }
+    ```
+
+You can, of course, add any colors you want, and in any format you want. But if you want to add colors in a way that integrates with the Baselayer system, do this:
+
+1. You need to declare your colors first as CSS variables (preferably in the `:root{}`), so that they are available for the lightness utility classes.
+2. You need to insert your colors _before_ the Baselayer `@layer bl-colors` so that  your colors can make use of the Baselayer color shades.
 
 Examples:
 
@@ -262,41 +295,48 @@ Examples:
 /* If you want to create your own utility classes */
 
 /* Border colors */
-.b-purple {
-  --bc: var(--purple);
-  border-color: var(--bc);
-}
-.b-teal {
+
+.b-teal,
+.hover\:b-teal:hover {
   --bc: var(--teal);
-  border-color: var(--bc);
+  border-color: oklch(from var(--bc) var(--bl, 50%) c h);
+}
+.b-purple,
+.hover\:b-purple:hover {
+  --bc: var(--purple);
+  border-color: oklch(from var(--bc) var(--bl, 50%) c h);
 }
 
 /* Text colors */
-.t-purple {
+
+.t-purple,
+.hover\:t-purple:hover {
   --tc: var(--purple);
-  color: var(--tc);
+  color: oklch(from var(--tc) var(--tl, 50%) c h);
 }
-.t-teal {
+.t-teal,
+.hover\:t-teal:hover {
   --tc: var(--teal);
-  border-color: var(--tc);
+  color: oklch(from var(--tc) var(--tl, 50%) c h);
 }
 
-/* Background colors*/
-.bg-purple {
+/* Background colors */
+
+.bg-purple,
+.hover\:bg-purple:hover {
   --bgc: var(--purple);
-  background: var(--bgc);
+  background: oklch(from var(--bgc) var(--bgl, 50%) c h);
 }
-.bg-teal {
+.bg-teal,
+.hover\:bg-teal:hover {
   --bgc: var(--teal);
-  background: var(--bgc);
+  background: oklch(from var(--bgc) var(--bgl, 50%) c h);
 }
 ```
 
-**Note:** you need to declate the colors as CSS variables so that they are available for the lightness utilities.
+## How the dark theme works
 
-## Dark theme
-
-Baselayer has a simple dark theme built in. Since v.3.4.0, the user’s operating system preference for light or dark mode is automatically detected on the HTML tag:
+Baselayer has a simple dark theme built in. Since v.3.4.0, the user’s operating system preference for light or dark mode is automatically detected on the HTML tag by the following CSS:
 
 ```css
 html {
@@ -304,11 +344,11 @@ html {
 }
 ```
 
-For the dark theme, HTML elements are generally flipped from light to dark, or dark to light, as required. The colors are as follows:
+For the dark theme, HTML elements are generally flipped from light to dark, or dark to light, as required. The colors are shifted as follows:
 
 * Body background is near black
 * Text is near white
-* Table borders, horizontal rules, form inputs are dark gray
+* Table borders, horizontal rules, form inputs are a darker gray
 * Text links are a lighter blue
 * Default buttons are a lighter gray
 * Form elements’ text and background are switched the same as base text and body in dark mode
@@ -426,7 +466,7 @@ Notes:
 <a href="" class="... hover:dark:bg-900">Link</a>
 
 <!-- This will not work -->
-<a href="" class="... dark:hover:bg-900">Link</a>
+<a href="" class="... hover:dark:bg-900">Link</a>
 ```
 
 ### What if you don’t want a dark theme?
