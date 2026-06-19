@@ -78,7 +78,7 @@ The difference between width utilities and wrapper utilities is that wrappers ha
 * `wrapper-md` / `w-md` — maximum width 1024px
 * `wrapper-lg` / `w-lg` — maximum width 1280px
 * `wrapper-xl` / `w-xl` — maximum width 1536px
-* `wrapper` `wrapper-xxl` / `w-xxl` — maximum width 1792px
+* `wrapper` / `wrapper-xxl` / `w-xxl` — maximum width 1792px
 
 Four more:
 
