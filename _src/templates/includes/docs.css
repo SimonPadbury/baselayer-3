@@ -7,9 +7,6 @@ html {
   scroll-behavior: smooth;
 }
 
-.body-wrap {
-  min-height: 100dvh;
-}
 .page-container {
   width: min(100%, var(--w-page));
   margin: 0 auto;
@@ -30,12 +27,6 @@ html {
     grid-column: 2;
     grid-row: 2;
   }
-  /* .main-pane {
-    display: flex;
-  }
-  .content-panel {
-    margin-inline: auto;
-  } */
 }
 
 @media (min-width: 1280px) {

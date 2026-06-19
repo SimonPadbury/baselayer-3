@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="/baselayer-3/css/min/baselayer.min.css?v=3.7.0">
 
   <style>
-  :root {
+    :root {
   --w-page: var(--w-xxl); /* For XXL */
   --w-sidebar: var(--w-xxs); /* For XXS */
 }
@@ -19,9 +19,6 @@ html {
   scroll-behavior: smooth;
 }
 
-.body-wrap {
-  min-height: 100dvh;
-}
 .page-container {
   width: min(100%, var(--w-page));
   margin: 0 auto;
@@ -42,12 +39,6 @@ html {
     grid-column: 2;
     grid-row: 2;
   }
-  /* .main-pane {
-    display: flex;
-  }
-  .content-panel {
-    margin-inline: auto;
-  } */
 }
 
 @media (min-width: 1280px) {
@@ -422,16 +413,16 @@ window.addEventListener("DOMContentLoaded", () => {
 
 :root {
   ...
-  --s-2: clamp(2rem, 1rem + 2.5cqi, 3rem);
+  --s-4: clamp(2rem, 1rem + 2.5cqi, 3rem);
   ...
-  --w-xl: 1600px;
+  --w-xxl: 1792px;
 }
 
 /* In layout.css */
 
 .wrapper,
 [class*=&quot;wrapper-&quot;] {
-  --w-max: var(--w-xl);
+  --w-max: var(--w-xxl);
   width: min(100% - var(--s-4), var(--w-max));
   margin-inline: auto;
 }

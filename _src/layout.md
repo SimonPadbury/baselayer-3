@@ -46,16 +46,16 @@ The centered layout `wrapper` is set up as follows:
 
 :root {
   ...
-  --s-2: clamp(2rem, 1rem + 2.5cqi, 3rem);
+  --s-4: clamp(2rem, 1rem + 2.5cqi, 3rem);
   ...
-  --w-xl: 1600px;
+  --w-xxl: 1792px;
 }
 
 /* In layout.css */
 
 .wrapper,
 [class*="wrapper-"] {
-  --w-max: var(--w-xl);
+  --w-max: var(--w-xxl);
   width: min(100% - var(--s-4), var(--w-max));
   margin-inline: auto;
 }
