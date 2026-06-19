@@ -29,7 +29,7 @@
         </span>
       </div>
 
-      <nav class="t-white container px-3 py-2">
+      <nav class="p-2">
         <menu class="pl-0 flex flex-column gap-1 links-underline-none">
           <menuitem>
             <a class="block {% if page.url == '/' %}bl-thick b-gray b-300 dark:b-700 t-reversi bg-gray bg-200 dark:bg-800{% endif %} p-cell t-gray t-700 dark:t-300 hover:t-900 hover:dark:t-100" {% if page.url == '/' %} aria-current="page"{% endif %} href="{{ '/' | url }}">Getting started</a>
@@ -57,7 +57,7 @@
         </menu>
       </nav>
 
-      <menu class="my-2 px-3 flex flex-column gap-1">
+      <menu class="p-2 flex flex-column gap-1">
         <button id="baseSwitch" class="flex flex-start w-100%" type="button" onclick="fontBase()">
           <div class="w-100% flex flex-middle gap-1">
             <div class="check-box flex flex-center flex-middle t-black bg-white"></div>
