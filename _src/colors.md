@@ -475,11 +475,7 @@ And you won’t need to use any `dark:` prefixed classes.
 
 ## Other Baselayer color utilities
 
-<div aria-label="Note" class="popout mb-3 bl-heavy b-blue b-200 dark:b-600 p-3 bg-blue bg-100 dark:bg-900">
-  The color utilities for black, white, and transparent <em>can’t be used on the same element</em> with the colors and shades above (i.e. as either default or hover states). These other utilities are declared after the colors and shades, and so they will override them.
-</div>
-
-Other color utilities included in Baselayer cover black, white, and transparent.
+Other color utilities included in Baselayer cover black, white, reversi, reversi-flip, and transparent (for background only).
 
 ### Black, white, and reversi
 
