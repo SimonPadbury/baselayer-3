@@ -343,6 +343,7 @@ Examples:
 
 `gap-*` — adds a *horizontal and vertical* gap (same as for [grid layouts](#grid-layouts)):
 
+* `gap-tiny` — using `--s-tiny`
 * `gap-1` — using `--s-1`
 * `gap-2` — using `--s-2`
 * `gap-3` — using `--s-3`
