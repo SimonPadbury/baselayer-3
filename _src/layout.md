@@ -61,13 +61,13 @@ The centered layout `wrapper` is set up as follows:
 }
 ```
 
-Wrapper side spacing is provided by `--s-4` when the viewport width is less than `--w-max`. This adds a minimum of 2rem (32px) negative space (commonly known as *whitespace*, though it is not always white) right and left of the wrapper, to prevent text being difficult to read when up against the sides of the viewport.
+Wrapper side spacing is provided by `--s-4` when the viewport width is less than `--w-max`. This adds a some negative space (commonly known as *whitespace*, though it is not always white) right and left of the wrapper, to prevent text being difficult to read when up against the sides of the viewport.
 
 There are several `wrapper` utilities, with maximum widths same as the width utilities (see below).
 
 ### Widths
 
-320px intervals. `w-` classes will have widths 100% until their max width. `wrapper-` classes will have widths (100% minus side space) until their max width.
+256px intervals. `w-` classes will have widths 100% until their max width. `wrapper-` classes will have widths (100% minus side space) until their max width.
 
 The difference between width utilities and wrapper utilities is that wrappers have x-axis side padding and x-axis centering (see above).
 

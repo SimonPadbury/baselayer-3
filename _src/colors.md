@@ -225,47 +225,41 @@ Baselayer handles color in a 4-step process:
 1. The 5 baselayer colors are first declared as CSS variables:
 
     ```css
-    @layer bl-variables {
-      :root {
-        /* Theme base colors */
-        --blue: #4166f5;
-        --green: #00a550;
-        --amber: #ffba00;
-        --red: #e34234;
-        --gray: #838996;
-      }
+    :root {
+      /* Theme base colors */
+      --blue: #4166f5;
+      --green: #00a550;
+      --amber: #ffba00;
+      --red: #e34234;
+      --gray: #838996;
     }
     ```
 
 2. The utility class lightness level suffixes go up in hundreds, from `-100` to `-1000`. (The `-1000` is only used once in Baselayer, for setting the dark theme `<body>` background. Levels `-100` to `-900` are used in the lightness utility classes.)
 
     ```css
-    @layer bl-variables {
-      :root {
-        --l100: 98%;
-        --l200: 86%;
-        --l300: 74%;
-        --l400: 62%;
-        --l500: 50%;
-        --l600: 42%;
-        --l700: 34%;
-        --l800: 26%;
-        --l900: 18%;
-        --l1000: 10%;
-      }
+    :root {
+      --l100: 98%;
+      --l200: 86%;
+      --l300: 74%;
+      --l400: 62%;
+      --l500: 50%;
+      --l600: 42%;
+      --l700: 34%;
+      --l800: 26%;
+      --l900: 18%;
+      --l1000: 10%;
     }
     ```
 
 3. In the variables file, Baselayer colors are set up using the formula. For example, in the base text color:
 
     ```css
-    @layer bl-variables {
-      :root {
-        --tc-base: background-color: light-dark(
-          oklch(from var(--gray) var(--l900) c h),
-          oklch(from var(--gray) var(--l100) c h)
-        );
-      }
+    :root {
+      --tc-base: background-color: light-dark(
+        oklch(from var(--gray) var(--l900) c h),
+        oklch(from var(--gray) var(--l100) c h)
+      );
     }
     ```
 

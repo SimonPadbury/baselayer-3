@@ -577,45 +577,39 @@ window.addEventListener("DOMContentLoaded", () => {
 <ol>
 <li>
 <p>The 5 baselayer colors are first declared as CSS variables:</p>
-<pre><code class="language-css">@layer bl-variables {
-  :root {
-    /* Theme base colors */
-    --blue: #4166f5;
-    --green: #00a550;
-    --amber: #ffba00;
-    --red: #e34234;
-    --gray: #838996;
-  }
+<pre><code class="language-css">:root {
+  /* Theme base colors */
+  --blue: #4166f5;
+  --green: #00a550;
+  --amber: #ffba00;
+  --red: #e34234;
+  --gray: #838996;
 }
 </code></pre>
 </li>
 <li>
 <p>The utility class lightness level suffixes go up in hundreds, from <code>-100</code> to <code>-1000</code>. (The <code>-1000</code> is only used once in Baselayer, for setting the dark theme <code>&lt;body&gt;</code> background. Levels <code>-100</code> to <code>-900</code> are used in the lightness utility classes.)</p>
-<pre><code class="language-css">@layer bl-variables {
-  :root {
-    --l100: 98%;
-    --l200: 86%;
-    --l300: 74%;
-    --l400: 62%;
-    --l500: 50%;
-    --l600: 42%;
-    --l700: 34%;
-    --l800: 26%;
-    --l900: 18%;
-    --l1000: 10%;
-  }
+<pre><code class="language-css">:root {
+  --l100: 98%;
+  --l200: 86%;
+  --l300: 74%;
+  --l400: 62%;
+  --l500: 50%;
+  --l600: 42%;
+  --l700: 34%;
+  --l800: 26%;
+  --l900: 18%;
+  --l1000: 10%;
 }
 </code></pre>
 </li>
 <li>
 <p>In the variables file, Baselayer colors are set up using the formula. For example, in the base text color:</p>
-<pre><code class="language-css">@layer bl-variables {
-  :root {
-    --tc-base: background-color: light-dark(
-      oklch(from var(--gray) var(--l900) c h),
-      oklch(from var(--gray) var(--l100) c h)
-    );
-  }
+<pre><code class="language-css">:root {
+  --tc-base: background-color: light-dark(
+    oklch(from var(--gray) var(--l900) c h),
+    oklch(from var(--gray) var(--l100) c h)
+  );
 }
 </code></pre>
 </li>
