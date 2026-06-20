@@ -40,6 +40,8 @@ select:not([multiple]) {
 [type="radio"] {
   display: inline-block;
   min-height: unset;
+  width: 1em;
+  height: 1em;
 }
 
 [type="search"] {
