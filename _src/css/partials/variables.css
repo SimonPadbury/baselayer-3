@@ -101,7 +101,6 @@
     oklch(from var(--blue) var(--l400) c h)
   );
   --tc-btn: white;
-  --tc-btn-hover: white;
   --bgc-btn: light-dark(
     oklch(from var(--gray) var(--l500) c h),
     oklch(from var(--gray) var(--l600) c h)
