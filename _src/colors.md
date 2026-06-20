@@ -92,7 +92,7 @@ Also available:
 
 All colors and lightness levels are declared in `variables.css`.
 
-Color utility classes (declared in `@layer color` in `colors.css`) are prefixed acording to where the color will be applied — border `b-*` text `t-*` or background `bg-*`. I have named the colors according to their common names (blue, green, amber, red, gray). You can modify the root variables of these colors, and you can [add your own colors](#adding-more-colors).
+Color utility classes (declared in `colors.css`) are prefixed acording to where the color will be applied — border `b-*` text `t-*` or background `bg-*`. I have named the colors according to their common names (blue, green, amber, red, gray). You can modify the root variables of these colors, and you can [add your own colors](#adding-more-colors).
 
 <div class="my-4 expand">
 <table class="table">
@@ -266,10 +266,8 @@ Baselayer handles color in a 4-step process:
 4. Finally, the variable is used in a style rule:
 
     ```css
-    @layer bl-reset {
-      body {
-        color: var(--tc-base);
-      }
+    body {
+      color: var(--tc-base);
     }
     ```
 

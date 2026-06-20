@@ -463,7 +463,7 @@ window.addEventListener("DOMContentLoaded", () => {
 </ol>
 <h2 id="color-and-shade-utility-classes" tabindex="-1">Color and shade utility classes</h2>
 <p>All colors and lightness levels are declared in <code>variables.css</code>.</p>
-<p>Color utility classes (declared in <code>@layer color</code> in <code>colors.css</code>) are prefixed acording to where the color will be applied — border <code>b-*</code> text <code>t-*</code> or background <code>bg-*</code>. I have named the colors according to their common names (blue, green, amber, red, gray). You can modify the root variables of these colors, and you can <a href="#adding-more-colors">add your own colors</a>.</p>
+<p>Color utility classes (declared in <code>colors.css</code>) are prefixed acording to where the color will be applied — border <code>b-*</code> text <code>t-*</code> or background <code>bg-*</code>. I have named the colors according to their common names (blue, green, amber, red, gray). You can modify the root variables of these colors, and you can <a href="#adding-more-colors">add your own colors</a>.</p>
 <div class="my-4 expand">
 <table class="table">
 <thead>
@@ -615,10 +615,8 @@ window.addEventListener("DOMContentLoaded", () => {
 </li>
 <li>
 <p>Finally, the variable is used in a style rule:</p>
-<pre><code class="language-css">@layer bl-reset {
-  body {
-    color: var(--tc-base);
-  }
+<pre><code class="language-css">body {
+  color: var(--tc-base);
 }
 </code></pre>
 </li>
