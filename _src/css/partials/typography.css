@@ -208,7 +208,8 @@ code {
 pre {
   font-style: normal;
   font-weight: normal;
-  white-space: pre;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
 
   &:not(:has(code)) {
     overflow-x: auto;
