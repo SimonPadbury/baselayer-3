@@ -106,7 +106,7 @@ Keyboard-tab through these links and buttons to see the focus rings:
     </div>
     <div class="p-3 flex flex-column flex-center flex-middle bg-black flow">
       <p><a class="t-blue t-200 t-dark-invert hover:t-300" href="/#">Link</a></p>
-      <p><button class="rounded-pill" type="button">Button</button></p>
+      <p><button class="rounded rounded-pill" type="button">Button</button></p>
     </div>
   </div>
 </div>
