@@ -7,7 +7,7 @@
 
   <title>Decoration · Baselayer CSS</title>
 
-  <link rel="stylesheet" href="/baselayer-3/css/min/baselayer.min.css?v=3.7.0">
+  <link rel="stylesheet" href="/baselayer-3/css/min/baselayer.min.css?v=3.7.1">
 
   <style>
     :root {
@@ -294,7 +294,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
     <div id="js-menu-wrapper">
       <div class="m-2 bt-thin bb-thin py-2 flex flex-center flex-wrap gap-2 links-underlined-hover-only">
-        <span class="t-gray t-600 dark:t-400">Version: 3.7.0</span>
+        <span class="t-gray t-600 dark:t-400">Version: 3.7.1</span>
         <a class="t-gray t-800 dark:t-200 hover:t-900 hover:dark:t-100" href="https://github.com/SimonPadbury/baselayer-3">GitHub</a>
         <span>
           <a class="t-gray t-800 dark:t-200 hover:t-900 hover:dark:t-100" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> <span class="t-gray t-600 t-dark-invert">(27 KB)</span>
@@ -389,7 +389,7 @@ window.addEventListener("DOMContentLoaded", () => {
           </header>
           <main class="content-grid flow">
             <h2 id="spacing" tabindex="-1">Spacing</h2>
-<p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Introduction_to_the_CSS_box_model">Box model</a> margin and padding spacing have 4 levels based on 4 CSS variables. These same spacing variables are also used for gaps (in flexbox and grid system), and for border radius utilities.</p>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Introduction_to_the_CSS_box_model">Box model</a> margin and padding spacing have 5 levels based on 5 CSS variables. These same spacing variables are also used for gaps (in flexbox and grid system), and for border radius utilities.</p>
 <pre><code class="language-css">:root {
   --s-tiny: 0.25rem
   --s-1: 0.5rem;
@@ -398,8 +398,7 @@ window.addEventListener("DOMContentLoaded", () => {
   --s-4: clamp(2rem, 1rem + 2.5cqi, 3rem);
 }
 </code></pre>
-<p>Spacing levels <code>--s-3</code> and <code>--s-4</code> increase responsively (to <code>@container</code> width, see <a href="/baselayer-3/layout/#container-query-contexts">container query contexts</a>)) depending how how much width is available, using <code>clamp()</code> functions.</p>
-<p>This makes the negative space (“whitespace”) for spacing levels 2 through 4 larger where there is a larger container (or viewport) width available.</p>
+<p>Spacing levels <code>--s-3</code> and <code>--s-4</code> increase responsively (to <code>@container</code> width, see <a href="/baselayer-3/layout/#container-query-contexts">container query contexts</a>) depending how how much width is available, using <code>clamp()</code> functions. This makes the negative space (“whitespace”) for spacing levels 3 and 4 larger where there is a larger container (or viewport) width available.</p>
 <div class="my-3 expand overflow-x">
 <table class="table">
 <thead>
@@ -538,7 +537,7 @@ window.addEventListener("DOMContentLoaded", () => {
 <div class="b-thin aspect-ratio-1x1 rounded rounded-pill p-4 flex flex-center flex-middle"><code>rounded <span class="t-nowrap">rounded-pill</span></code></div>
 </div>
 <h2 id="the-img-cover-class" tabindex="-1">The <code>img-cover</code> class</h2>
-<p>The Baselayer <code>cover</code> class can be used to make an image expand or contract to fully cover a container block rectangle. It is designed for use on an <code>&lt;img src=&quot;&quot;&gt;</code> tag.</p>
+<p>Codebase’s <code>img-cover</code> class can be used to make an image expand or contract to fully cover a container block rectangle. It is designed for use on an <code>&lt;img src=&quot;&quot;&gt;</code> tag.</p>
 <pre><code class="language-css">.img-cover {
   width: 100%;
   height: 100%;
@@ -547,7 +546,6 @@ window.addEventListener("DOMContentLoaded", () => {
   overflow: hidden;
 }
 </code></pre>
-<p>An example of <code>img-cover</code> being used can be seen in the <a href="/baselayer-3/layout/#expanded-panels">expanded panel</a> example.</p>
 <h2 id="opacity" tabindex="-1">Opacity</h2>
 <p>Opacities (with hover states):</p>
 <ul>
@@ -558,7 +556,7 @@ window.addEventListener("DOMContentLoaded", () => {
 </ul>
 <p>The hover states are provided in case you want an image inside a link to change opacity on hover.</p>
 <p>If you use these on an image over a colored background, then you get a color-tinted image.</p>
-<p>If you have text over an image (e.g. in a hero component), then you can use opacity over a black (or dark color) background to make white text more readable — and <em>vise versa</em>.</p>
+<p>If you have text over an image (e.g. in a hero component), then you can use opacity over a black (or dark color) background to make white text more readable — and <em>vice versa</em>.</p>
 
             <hr>
             <nav class="expand grid gap-2 sm:equal-2-cols links-underline-none">
@@ -590,7 +588,7 @@ window.addEventListener("DOMContentLoaded", () => {
                   </svg>
                 <span class="h3 m-0 t-normal t-nowrap">Baselayer CSS</span>
               </a>
-              <span>Version: 3.7.0</span>
+              <span>Version: 3.7.1</span>
             </div>
 
             <p class="p-cell flex flex-center flex-wrap gap-4 t-center">

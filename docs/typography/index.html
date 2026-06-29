@@ -7,7 +7,7 @@
 
   <title>Typography · Baselayer CSS</title>
 
-  <link rel="stylesheet" href="/baselayer-3/css/min/baselayer.min.css?v=3.7.0">
+  <link rel="stylesheet" href="/baselayer-3/css/min/baselayer.min.css?v=3.7.1">
 
   <style>
     :root {
@@ -294,7 +294,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
     <div id="js-menu-wrapper">
       <div class="m-2 bt-thin bb-thin py-2 flex flex-center flex-wrap gap-2 links-underlined-hover-only">
-        <span class="t-gray t-600 dark:t-400">Version: 3.7.0</span>
+        <span class="t-gray t-600 dark:t-400">Version: 3.7.1</span>
         <a class="t-gray t-800 dark:t-200 hover:t-900 hover:dark:t-100" href="https://github.com/SimonPadbury/baselayer-3">GitHub</a>
         <span>
           <a class="t-gray t-800 dark:t-200 hover:t-900 hover:dark:t-100" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> <span class="t-gray t-600 t-dark-invert">(27 KB)</span>
@@ -376,7 +376,7 @@ window.addEventListener("DOMContentLoaded", () => {
         <div id="toc-outer" class="sticky top w-content h-max-100dvh mx-auto px-2 pb-4 links-underline-hover-only overflow-y">
           <p class="h4 t-semibold">On this page</p>
           <nav class="toc" >
-        <ul><li><a href="#font-stacks">Font stacks</a><ul><li><a href="#setting-font-stacks">Setting font stacks</a></li></ul></li><li><a href="#base-font-size">Base font size</a></li><li><a href="#typographic-block-elements">Typographic block elements</a><ul><li><a href="#the-typographic-block-flow-utility">The typographic block flow utility</a></li><li><a href="#headings">Headings</a></li><li><a href="#block-quotes">Block quotes</a></li><li><a href="#lists">Lists</a></li></ul></li><li><a href="#links-and-menus">Links and menus</a><ul><li><a href="#link-utilities">Link utilities</a></li><li><a href="#panel-links">Panel links</a></li><li><a href="#menus">Menus</a></li></ul></li><li><a href="#text-alignment">Text alignment</a></li><li><a href="#tables">Tables</a><ul><li><a href="#making-wide-tables-responsive">Making wide tables responsive</a></li></ul></li><li><a href="#making-text-bigger">Making text bigger</a></li><li><a href="#code">Code</a></li><li><a href="#other-typographic-utility-classes">Other typographic utility classes</a></li></ul>
+        <ul><li><a href="#font-stacks">Font stacks</a><ul><li><a href="#setting-font-stacks">Setting font stacks</a></li></ul></li><li><a href="#base-font-size">Base font size</a></li><li><a href="#typographic-block-elements">Typographic block elements</a><ul><li><a href="#the-typographic-block-flow-utility">The typographic block flow utility</a></li><li><a href="#headings">Headings</a></li><li><a href="#block-quotes">Block quotes</a></li><li><a href="#lists">Lists</a></li></ul></li><li><a href="#links-and-menus">Links and menus</a><ul><li><a href="#link-utilities">Link utilities</a></li><li><a href="#panel-links">Panel links</a></li><li><a href="#menus">Menus</a></li></ul></li><li><a href="#text-alignment">Text alignment</a></li><li><a href="#tables">Tables</a><ul><li><a href="#making-wide-tables-responsive">Making wide tables responsive</a></li></ul></li><li><a href="#making-text-bigger">Making text bigger</a><ul><li><a href="#font-size-multipliers">Font size multipliers</a></li><li><a href="#responsive-font-size-multipliers">Responsive font size multipliers</a></li></ul></li><li><a href="#code">Code</a></li><li><a href="#other-typographic-utility-classes">Other typographic utility classes</a></li></ul>
       </nav>
         </div>
       </aside>
@@ -465,8 +465,8 @@ window.addEventListener("DOMContentLoaded", () => {
 }
 </code></pre>
 <h3 id="headings" tabindex="-1">Headings</h3>
-<p>Heading sizes are set using a <em>major third</em> typographic scale root variable. The font size for <code>h6</code> and utility class <code>.h6</code> is not increased by this scale (remains with the base font size, 1em). After that, each heading size is 1.25× greater.</p>
-<p>Example headings:</p>
+<p>Heading sizes are set a simple typographic scale (but set in <strong>em</strong>, not pt or px). The font size for <code>h6</code> and utility class <code>.h6</code> is not increased by this scale (remains the same as the base font size).</p>
+<p>Example headings (using heading-size utility classes):</p>
 <p class="h1 mt-3 t-semibold">Heading h1</p>
 <p class="h2 t-semibold">Heading h2</p>
 <p class="h3 t-semibold">Heading h3</p>
@@ -474,22 +474,20 @@ window.addEventListener("DOMContentLoaded", () => {
 <p class="h5 t-semibold">Heading h5</p>
 <p class="h6 mb-3 t-semibold">Heading h6</p>
 <pre><code class="language-css">:root {
-  --t-scale: 1.25;
-
-  --h6: var(--t-base);
-  --h5: calc(var(--h6) * var(--t-scale));
-  --h4: calc(var(--h5) * var(--t-scale));
-  --h3: calc(var(--h4) * var(--t-scale));
-  --h2: calc(var(--h3) * var(--t-scale));
-  --h1: calc(var(--h2) * var(--t-scale));
+  --h1: 2.5em;
+  --h2: 1.875em;
+  --h3: 1.5em;
+  --h4: 1.25em;
+  --h5: 1.125em;
+  --h6: 1em;
 }
 </code></pre>
 <table class="table">
   <thead>
     <tr>
       <th>Heading Level</th>
-      <th>Calculated Font Size (em)</th>
-      <th>Equivalent Size in Pixels (px)</th>
+      <th>Font Size in em</th>
+      <th>Equivalent Size in pixels (px)</th>
     </tr>
   </thead>
   <tbody>
@@ -500,28 +498,28 @@ window.addEventListener("DOMContentLoaded", () => {
     </tr>
     <tr>
       <td>h5</td>
+      <td class="t-center">1.125</td>
+      <td class="t-center">18</td>
+    </tr>
+    <tr>
+      <td>h4</td>
       <td class="t-center">1.25</td>
       <td class="t-center">20</td>
     </tr>
     <tr>
-      <td>h4</td>
-      <td class="t-center">~1.56</td>
-      <td class="t-center">25</td>
-    </tr>
-    <tr>
       <td>h3</td>
-      <td class="t-center">~1.95</td>
-      <td class="t-center">31.25</td>
+      <td class="t-center">1.5</td>
+      <td class="t-center">24</td>
     </tr>
     <tr>
       <td>h2</td>
-      <td class="t-center">~2.44</td>
-      <td class="t-center">~39.06</td>
+      <td class="t-center">1.875</td>
+      <td class="t-center">30px</td>
     </tr>
     <tr>
       <td>h1</td>
-      <td class="t-center">~3.05</td>
-      <td class="t-center">~48.83</td>
+      <td class="t-center">2.5</td>
+      <td class="t-center">40px</td>
     </tr>
   </tbody>
 </table>
@@ -840,16 +838,16 @@ window.addEventListener("DOMContentLoaded", () => {
     </thead>
     <tbody>
       <tr>
-        <td>Tabel cell content</td>
-        <td>Tabel cell content</td>
-        <td>Tabel cell content</td>
-        <td>Tabel cell content</td>
-        <td>Tabel cell content</td>
-        <td>Tabel cell content</td>
-        <td>Tabel cell content</td>
-        <td>Tabel cell content</td>
-        <td>Tabel cell content</td>
-        <td>Tabel cell content</td>
+        <td>Table cell content</td>
+        <td>Table cell content</td>
+        <td>Table cell content</td>
+        <td>Table cell content</td>
+        <td>Table cell content</td>
+        <td>Table cell content</td>
+        <td>Table cell content</td>
+        <td>Table cell content</td>
+        <td>Table cell content</td>
+        <td>Table cell content</td>
       </tr>
     <tbody>
   </table>
@@ -862,23 +860,58 @@ window.addEventListener("DOMContentLoaded", () => {
 </code></pre>
 <h2 id="making-text-bigger" tabindex="-1">Making text bigger</h2>
 <p>The base font size is 100% (16px default). Additionally:</p>
+<h3 id="font-size-multipliers" tabindex="-1">Font size multipliers</h3>
 <ol>
 <li>There’s a <code>t-lg</code> class that can be used to make text 1.325em — good for a lead paragraph, large button, or important messaging.</li>
 <li>Classes <code>.h1</code> through <code>.h6</code> will resize text the same amount as for their respective heading tag sizes — use these when you want to make text bigger (or large text smaller) without adversely affecting accessibility/ SEO heading hierarchy.</li>
-<li>The <code>t-long-read</code> wrapping class uses a <code>clamp()</code> to ramp text from starting size 1em up to 1.25em (20px default) depending on container size. E.g. used for responsively increasing text size in <em>article prose components</em>. <code>&lt;h1&gt;</code> inside a <code>t-long-read</code> will have maximum font size 61px.</li>
-<li>The <code>t-comfort</code> wrapping class uses a <code>clamp()</code> to raise text from starting size 1em up to 1.625em (26px default) depending on container size. E.g. used for responsively increasing text size in <em>comfortable reading components</em>. <code>&lt;h1&gt;</code> inside a <code>t-display</code> will have maximum font size 79px.</li>
-<li>The <code>t-display</code> wrapping class uses a <code>clamp()</code> to raise text from starting size 1em up to 2em (32px default) depending on container size. E.g. used for responsively increasing text size in <em>hero components</em>. <code>&lt;h1&gt;</code> inside a <code>t-display</code> will have maximum font size 97px.</li>
 </ol>
-<p>There’s a demo of these in <a href="/baselayer-3/examples/#text-sizes">examples</a>.</p>
+<h3 id="responsive-font-size-multipliers" tabindex="-1">Responsive font size multipliers</h3>
+<p>In small container (or viewport) widths, these three utilities below do nothing. But with wider stace available, they use a CSS <code>clamp()</code> to ramp up the size to a maximum.</p>
+<ol>
+<li>The <code>t-long-read</code> wrapping class ramps text up from 1× to 1.25× depending on container size.</li>
+<li>The <code>t-comfort</code> wrapping class ramps text up from 1× to 1.625× depending on container size.</li>
+<li>The <code>t-display</code> wrapping class ramps text up from 1× to 2× depending on container size.</li>
+</ol>
+<p>The calculated max pixel sizes are as follows:</p>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Type size</th>
+      <th class="t-balance t-center">Paragraph max font size (px)</th>
+      <th class="t-balance t-center">H1 max font size (px)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Base</td>
+      <td class="t-center">16px</td>
+      <td class="t-center">40px</td>
+    </tr>
+    <tr>
+      <td><code class="t-nowrap">t-long-read</code></td>
+      <td class="t-center"><mark>20px</mark></td>
+      <td class="t-center">50px</td>
+    </tr>
+    <tr>
+      <td><code>t-comfort</code></td>
+      <td class="t-center">26px</td>
+      <td class="t-center">65px</td>
+    </tr>
+    <tr>
+      <td><code>t-display</code></td>
+      <td class="t-center">32px</td>
+      <td class="t-center">80px</td>
+    </tr>
+  </tbody>
+</table>
+<p>There’s a demo of these text size utilities in <a href="/baselayer-3/examples/#text-sizes">examples</a>.</p>
 <h2 id="code" tabindex="-1">Code</h2>
 <p><code>&lt;code&gt;</code> tags have monospaced text (set by <code>--t-mono</code>) over a white or black background (in light or dark modes), with a thin border and a little padding to improve readability.</p>
 <p>If the <code>&lt;code&gt;</code> tag is wrapped in a <code>&lt;pre&gt;</code> tag, then it becomes a block level element with more padding, a max-width of 100%, and y-axis overflow scrolling.</p>
 <h2 id="other-typographic-utility-classes" tabindex="-1">Other typographic utility classes</h2>
 <p>Besides those already introduced, Baselayer also has utility classes for:</p>
 <ul>
-<li><code>t-lg</code> — increase font size by 1.5em. Use it directly on a <code>&lt;p&gt;</code> to enlarge the font (e.g. for a lead paragraph).</li>
 <li><code>t-sm</code> (or use the <code>&lt;small&gt;</code> HTML tag) — decrease font-size to 0.8em</li>
-<li><code>t-highlight</code> (or use the <code>&lt;mark&gt;</code> HTML tag) — text highlighter</li>
 <li><code>t-thin</code>, <code>t-normal</code>, <code>t-semibold</code>, <code>t-bold</code>, <code>t-heavy</code> — font weights</li>
 <li><code>t-italic</code> — font style italic</li>
 <li><code>t-balance</code> — balances word-wrap, so that e.g. long headings don't have orphans</li>
@@ -917,7 +950,7 @@ window.addEventListener("DOMContentLoaded", () => {
                   </svg>
                 <span class="h3 m-0 t-normal t-nowrap">Baselayer CSS</span>
               </a>
-              <span>Version: 3.7.0</span>
+              <span>Version: 3.7.1</span>
             </div>
 
             <p class="p-cell flex flex-center flex-wrap gap-4 t-center">

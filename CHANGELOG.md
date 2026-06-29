@@ -10,7 +10,11 @@
 
 # Baselayer 3 changelog
 
-## v.3.7.0 -- 16 Jun 2027
+## v.3.7.1 -- 29 Jun 2026
+
+* Switched to a simple traditional typographic scale.
+
+## v.3.7.0 -- 16 Jun 2026
 
 * Further improvement of typographic block element control by incorporating Andy Bell’s `.flow` utility.
 * Changed container query breakpoint widths from `xs:` 320, `sm:` 640, and `md:` 960 (320px increments), and added one more, to the more common `xs:` 512, `sm:` 768, `md:` 1024, and `lg` 1280 (256px increments). Added *width variables* `xxs` and `xxl` and adjusted `xl` (`lg` is unchanged). So now `xxs` 256, `xs` 512, `sm` 768, `md` 1024, `lg` 1280, `xl` 1536, and `xxl` 1792.

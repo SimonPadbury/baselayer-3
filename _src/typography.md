@@ -108,9 +108,9 @@ I have also added an override for situaions where you may have a sub-sub heading
 
 ### Headings
 
-Heading sizes are set using a _major third_ typographic scale root variable. The font size for `h6` and utility class `.h6` is not increased by this scale (remains with the base font size, 1em). After that, each heading size is 1.25&times; greater.
+Heading sizes are set a simple typographic scale (but set in **em**, not pt or px). The font size for `h6` and utility class `.h6` is not increased by this scale (remains the same as the base font size).
 
-Example headings:
+Example headings (using heading-size utility classes):
 
 <p class="h1 mt-3 t-semibold">Heading h1</p>
 <p class="h2 t-semibold">Heading h2</p>
@@ -121,14 +121,12 @@ Example headings:
 
 ```css
 :root {
-  --t-scale: 1.25;
-
-  --h6: var(--t-base);
-  --h5: calc(var(--h6) * var(--t-scale));
-  --h4: calc(var(--h5) * var(--t-scale));
-  --h3: calc(var(--h4) * var(--t-scale));
-  --h2: calc(var(--h3) * var(--t-scale));
-  --h1: calc(var(--h2) * var(--t-scale));
+  --h1: 2.5em;
+  --h2: 1.875em;
+  --h3: 1.5em;
+  --h4: 1.25em;
+  --h5: 1.125em;
+  --h6: 1em;
 }
 ```
 
@@ -136,8 +134,8 @@ Example headings:
   <thead>
     <tr>
       <th>Heading Level</th>
-      <th>Calculated Font Size (em)</th>
-      <th>Equivalent Size in Pixels (px)</th>
+      <th>Font Size in em</th>
+      <th>Equivalent Size in pixels (px)</th>
     </tr>
   </thead>
   <tbody>
@@ -148,28 +146,28 @@ Example headings:
     </tr>
     <tr>
       <td>h5</td>
+      <td class="t-center">1.125</td>
+      <td class="t-center">18</td>
+    </tr>
+    <tr>
+      <td>h4</td>
       <td class="t-center">1.25</td>
       <td class="t-center">20</td>
     </tr>
     <tr>
-      <td>h4</td>
-      <td class="t-center">~1.56</td>
-      <td class="t-center">25</td>
-    </tr>
-    <tr>
       <td>h3</td>
-      <td class="t-center">~1.95</td>
-      <td class="t-center">31.25</td>
+      <td class="t-center">1.5</td>
+      <td class="t-center">24</td>
     </tr>
     <tr>
       <td>h2</td>
-      <td class="t-center">~2.44</td>
-      <td class="t-center">~39.06</td>
+      <td class="t-center">1.875</td>
+      <td class="t-center">30px</td>
     </tr>
     <tr>
       <td>h1</td>
-      <td class="t-center">~3.05</td>
-      <td class="t-center">~48.83</td>
+      <td class="t-center">2.5</td>
+      <td class="t-center">40px</td>
     </tr>
   </tbody>
 </table>
@@ -541,16 +539,16 @@ If you have a lot of content in your table, it will probably break your page lay
     </thead>
     <tbody>
       <tr>
-        <td>Tabel cell content</td>
-        <td>Tabel cell content</td>
-        <td>Tabel cell content</td>
-        <td>Tabel cell content</td>
-        <td>Tabel cell content</td>
-        <td>Tabel cell content</td>
-        <td>Tabel cell content</td>
-        <td>Tabel cell content</td>
-        <td>Tabel cell content</td>
-        <td>Tabel cell content</td>
+        <td>Table cell content</td>
+        <td>Table cell content</td>
+        <td>Table cell content</td>
+        <td>Table cell content</td>
+        <td>Table cell content</td>
+        <td>Table cell content</td>
+        <td>Table cell content</td>
+        <td>Table cell content</td>
+        <td>Table cell content</td>
+        <td>Table cell content</td>
       </tr>
     <tbody>
   </table>
@@ -568,13 +566,54 @@ If you have a lot of content in your table, it will probably break your page lay
 
 The base font size is 100% (16px default). Additionally:
 
+### Font size multipliers
+
 1. There’s a `t-lg` class that can be used to make text 1.325em — good for a lead paragraph, large button, or important messaging.
 2. Classes `.h1` through `.h6` will resize text the same amount as for their respective heading tag sizes — use these when you want to make text bigger (or large text smaller) without adversely affecting accessibility/ SEO heading hierarchy.
-3. The `t-long-read` wrapping class uses a `clamp()` to ramp text from starting size 1em up to 1.25em (20px default) depending on container size. E.g. used for responsively increasing text size in _article prose components_. `<h1>` inside a `t-long-read` will have maximum font size 61px.
-4. The `t-comfort` wrapping class uses a `clamp()` to raise text from starting size 1em up to 1.625em (26px default) depending on container size. E.g. used for responsively increasing text size in _comfortable reading components_. `<h1>` inside a `t-display` will have maximum font size 79px.
-5. The `t-display` wrapping class uses a `clamp()` to raise text from starting size 1em up to 2em (32px default) depending on container size. E.g. used for responsively increasing text size in _hero components_. `<h1>` inside a `t-display` will have maximum font size 97px.
 
-There’s a demo of these in [examples]({{ "/examples/#text-sizes" | url }}).
+### Responsive font size multipliers
+
+In small container (or viewport) widths, these three utilities below do nothing. But with wider stace available, they use a CSS `clamp()` to ramp up the size to a maximum.
+
+1. The `t-long-read` wrapping class ramps text up from 1× to 1.25× depending on container size.
+2. The `t-comfort` wrapping class ramps text up from 1× to 1.625× depending on container size.
+3. The `t-display` wrapping class ramps text up from 1× to 2× depending on container size.
+
+The calculated max pixel sizes are as follows:
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Type size</th>
+      <th class="t-balance t-center">Paragraph max font size (px)</th>
+      <th class="t-balance t-center">H1 max font size (px)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Base</td>
+      <td class="t-center">16px</td>
+      <td class="t-center">40px</td>
+    </tr>
+    <tr>
+      <td><code class="t-nowrap">t-long-read</code></td>
+      <td class="t-center"><mark>20px</mark></td>
+      <td class="t-center">50px</td>
+    </tr>
+    <tr>
+      <td><code>t-comfort</code></td>
+      <td class="t-center">26px</td>
+      <td class="t-center">65px</td>
+    </tr>
+    <tr>
+      <td><code>t-display</code></td>
+      <td class="t-center">32px</td>
+      <td class="t-center">80px</td>
+    </tr>
+  </tbody>
+</table>
+
+There’s a demo of these text size utilities in [examples]({{ "/examples/#text-sizes" | url }}).
 
 ## Code
 
@@ -586,9 +625,7 @@ If the `<code>` tag is wrapped in a `<pre>` tag, then it becomes a block level e
 
 Besides those already introduced, Baselayer also has utility classes for:
 
-* `t-lg` — increase font size by 1.5em. Use it directly on a `<p>` to enlarge the font (e.g. for a lead paragraph).
 * `t-sm` (or use the `<small>` HTML tag) — decrease font-size to 0.8em
-* `t-highlight` (or use the `<mark>` HTML tag) — text highlighter
 * `t-thin`, `t-normal`, `t-semibold`, `t-bold`, `t-heavy` — font weights
 * `t-italic` — font style italic
 * `t-balance` — balances word-wrap, so that e.g. long headings don't have orphans

@@ -10,7 +10,7 @@ nextLink: "Colors"
 
 ## Spacing
 
-[Box model](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Introduction_to_the_CSS_box_model) margin and padding spacing have 4 levels based on 4 CSS variables. These same spacing variables are also used for gaps (in flexbox and grid system), and for border radius utilities.
+[Box model](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Introduction_to_the_CSS_box_model) margin and padding spacing have 5 levels based on 5 CSS variables. These same spacing variables are also used for gaps (in flexbox and grid system), and for border radius utilities.
 
 ```css
 :root {
@@ -22,9 +22,7 @@ nextLink: "Colors"
 }
 ```
 
-Spacing levels `--s-3` and `--s-4` increase responsively (to `@container` width, see [container query contexts]({{ "/layout/#container-query-contexts" | url }}))) depending how how much width is available, using `clamp()` functions.
-
-This makes the negative space (“whitespace”) for spacing levels 2 through 4 larger where there is a larger container (or viewport) width available.
+Spacing levels `--s-3` and `--s-4` increase responsively (to `@container` width, see [container query contexts]({{ "/layout/#container-query-contexts" | url }})) depending how how much width is available, using `clamp()` functions. This makes the negative space (“whitespace”) for spacing levels 3 and 4 larger where there is a larger container (or viewport) width available.
 
 <div class="my-3 expand overflow-x">
 <table class="table">
@@ -181,7 +179,7 @@ If the element is a square, then `rounded rounded-pill` makes a circle.
 
 ## The `img-cover` class
 
-The Baselayer `cover` class can be used to make an image expand or contract to fully cover a container block rectangle. It is designed for use on an `<img src="">` tag.
+Codebase’s `img-cover` class can be used to make an image expand or contract to fully cover a container block rectangle. It is designed for use on an `<img src="">` tag.
 
 ```css
 .img-cover {
@@ -193,8 +191,6 @@ The Baselayer `cover` class can be used to make an image expand or contract to f
 }
 ```
 
-An example of `img-cover` being used can be seen in the [expanded panel]({{ '/layout/#expanded-panels' | url }}) example.
-
 ## Opacity
 
 Opacities (with hover states):
@@ -202,10 +198,10 @@ Opacities (with hover states):
 * `opacity-25%` / `hover:opacity-25%`
 * `opacity-50%` / `hover:opacity-50%`
 * `opacity-75%` / `hover:opacity-75%`
-*  `hover:opacity-100%` — a reset that removes opacity on hover
+* `hover:opacity-100%` — a reset that removes opacity on hover
 
 The hover states are provided in case you want an image inside a link to change opacity on hover.
 
 If you use these on an image over a colored background, then you get a color-tinted image.
 
-If you have text over an image (e.g. in a hero component), then you can use opacity over a black (or dark color) background to make white text more readable — and _vise versa_.
+If you have text over an image (e.g. in a hero component), then you can use opacity over a black (or dark color) background to make white text more readable — and _vice versa_.
