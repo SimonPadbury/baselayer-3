@@ -427,6 +427,38 @@
   border-radius: 999em;
 }
 
+[class*="bs"] {
+  transition: box-shadow 0.15s ease-in-out;
+}
+
+.bs-0 {
+  box-shadow: none;
+}
+
+.bs-1,
+.hover\:bs-1:hover {
+  box-shadow:
+    0 2px 5px -2px oklch(0 0 0 /0.4),
+    0 4px 15px -4px oklch(0 0 0 /0.2),
+    inset 0 1px 0 oklch(1 0 0 / 0.15);
+}
+
+.bs-2,
+.hover\:bs-2:hover {
+  box-shadow:
+    0 5px 10px -2px oklch(0 0 0 /0.3),
+    0 10px 30px -4px oklch(0 0 0 /0.15),
+    inset 0 1px 0 oklch(1 0 0 / 0.15);
+}
+
+.bs-3,
+.hover\:bs-3:hover {
+  box-shadow:
+    0 10px 20px -2px oklch(0 0 0 /0.2),
+    0 20px 60px -4px oklch(0 0 0 /0.1),
+    inset 0 1px 0 oklch(1 0 0 / 0.1);
+}
+
 .img-cover {
   height: 100%;
   object-fit: cover !important;

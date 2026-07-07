@@ -165,6 +165,38 @@ If the element is a square, then `rounded rounded-pill` makes a circle.
 <div class="b-thin aspect-ratio-1x1 rounded rounded-pill p-4 flex flex-center flex-middle"><code>rounded <span class="t-nowrap">rounded-pill</span></code></div>
 </div>
 
+## Box shadows
+
+`bs-1` / `bs-2` / `bs-3`
+
+Baselayer box shadows are intended to represent layer “lifts” along the z-axis. The higher a layer is lifted from the page, the less sharpness and more spread the box shadow has. This also means that the higher the suffix, the fainter the shadow becomes as it is spread over a wider area.</p>
+
+**Note:** box shadows require a lighter layer behind them, else they will not be seen, especially in the dark theme.
+
+<div class="my-3 p-3 flex flex-wrap gap-3 bg-gray bg-100 dark:bg-600">
+  <div class="bs-1 p-2">bs-1</div>
+  <div class="bs-2 p-2">bs-2</div>
+  <div class="bs-3 p-2">bs-3</div>
+</div>
+
+Lighting is simulated as from the front top center, so more of the shadow is cast at the bottom the element. There's also a slight inset-shadow lighening (i.e. subtle highlight) of the top of the panel.
+
+```html
+<div class="bs-1">bs-1</div>
+
+<div class="bs-2">bs-2</div>
+
+<div class="bs-3">bs-3</div>
+```
+
+Baselayer also has hover states for each of the 3 levels of box shadows. Hover over the panels below to see them in action.
+
+<div class="my-3 p-3 flex flex-wrap gap-3 bg-gray bg-100 dark:bg-600">
+  <div class="hover:bs-1 p-2">hover:bs-1</div>
+  <div class="hover:bs-2 p-2">hover:bs-2</div>
+  <div class="hover:bs-3 p-2">hover:bs-3</div>
+</div>
+
 ## Image contain and cover
 
 `img-contain` and `img-cover` are designed for use on an `<img src="">` tag.
