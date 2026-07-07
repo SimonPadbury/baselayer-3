@@ -126,7 +126,7 @@ button.toggler {
   content: "✓";
 }
 
-.font-prose #content-wrap {
+.font-prose .main-pane-content {
   font-family: var(--t-prose);
 }
 

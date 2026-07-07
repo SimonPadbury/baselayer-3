@@ -11,8 +11,8 @@
   --w-lg: 1280px;
   --w-xl: 1536px;
   --w-xxl: 1792px;
-  /* Container grid */
-  --w-content: 66ch;
+  /* Content grid */
+  --w-content: var(--w-sm);
   --w-content-gutter: var(--s-3);
   --w-expand-max: var(--w-md);
 
@@ -25,25 +25,25 @@
   --s-flow: 1em;
   --s-list: 1.5rem;
   --p-cell: 0.5rem 1rem;
-  --p-btn: 0.5em 1em;
+  --p-form: 0.5em 1em; /* and buttons */
   --pill: 99rem;
 
   /* Borders */
-  --b-1: 1px solid var(--bc);
-  --b-2: var(--s-tiny) solid var(--bc);
-  --b-3: var(--s-1) solid var(--bc);
+  --b-thin: 1px solid var(--bc-detail);
+  --b-thick: var(--s-tiny) solid var(--bc-detail);
+  --b-heavy: var(--s-1) solid var(--bc-detail);
 
   /* Native Typeface Stacks */
   --t-sans: ui-sans-serif, sans-serif;
   --t-serif: ui-serif, serif;
   --t-mono: ui-monospace, monospace;
-  --t-default: var(--t-sans);
+  --t-base-ff: var(--t-sans);
   --t-prose: var(--t-serif);
 
   /* Font sizes */
-  --t-base: 100%;
-  --t-sm: 0.825em;
-  --t-lg: 1.325em;
+  --t-base-fs: 100%;
+  --t-sm: 0.75em;
+  --t-lg: 1.25em;
   --t-long-read: clamp(1em, 0.5em + 1.25cqi, 1.25em);
   --t-comfort: clamp(1em, 0.375em + 1.5625cqi, 1.625em);
   --t-display: clamp(1em, 0.2em + 2cqi, 2rem);
@@ -57,7 +57,7 @@
   --t-btn: var(--t-semibold);
 
   /* Forms */
-  --b-form: 1px solid var(--bc-form);
+  --b-form: var(--b-thin);
   --y-form: 2.5em;
 
   /*
@@ -71,23 +71,20 @@
   --h4: 1.25em;
   --h5: 1.125em;
   --h6: 1em;
-  --h-ff: inherit;
   /* headings font family */
+  --h-ff: inherit;
   --h-fw: var(--t-semibold);
   --h-lh: calc(1em + 0.5rem);
   --t-lh: 1.5;
 
-  /* links */
-  --a-deco-offset: 0.3em;
-  --a-deco-thickness: 1px;
-  --a-deco-thickness-hover: 3px;
-
   /* Theme base colors */
-  --blue: #4166f5;
-  --green: #00a550;
-  --amber: #ffba00;
-  --red: #e34234;
-  --gray: #838996;
+  --blue: #2563eb;
+  --green: #16a34a;
+  --amber: #d97706;
+  --red: #dc2626;
+  --gray: #767676;
+  --black: #000000;
+  --white: #ffffff;
 
   /* Light and dark theme colors */
   --bgc-body: light-dark(white, oklch(from var(--gray) var(--l1000) c h));
@@ -95,42 +92,27 @@
     oklch(from var(--gray) var(--l900) c h),
     oklch(from var(--gray) var(--l100) c h)
   );
-  --tc-link: light-dark(
-    oklch(from var(--blue) var(--l500) c h),
-    oklch(from var(--blue) var(--l400) c h)
-  );
+  --tc-link: var(--blue);
   --tc-btn: white;
-  --bgc-btn: light-dark(
-    oklch(from var(--gray) var(--l500) c h),
-    oklch(from var(--gray) var(--l600) c h)
-  );
-  --bgc-btn-hover: light-dark(
-    oklch(from var(--gray) var(--l600) c h),
-    oklch(from var(--gray) var(--l700) c h)
-  );
-  --bc-form: var(--bgc-btn);
-  --tc-form: --tc-base;
-  --bgc-form: --bgc-body;
+  --bgc-btn: var(--gray);
+  --tc-form: var(--tc-base);
+  --bgc-form: var(--bgc-body);
   --tc-code: light-dark(
-    oklch(from var(--green) var(--l600) c h),
+    oklch(from var(--green) var(--l500) c h),
     oklch(from var(--green) var(--l300) c h)
   );
   --bgc-code: light-dark(white, black);
-  --bc: light-dark(
-    oklch(from var(--gray) var(--l300) c h),
-    oklch(from var(--gray) var(--l700) c h)
-  );
-  --color-focus: var(--amber);
+  --bc-detail: oklch(from var(--gray) var(--l500) c h / 0.5);
 
   /* Color lightness levels */
-  --l100: 98%;
-  --l200: 86%;
-  --l300: 74%;
-  --l400: 62%;
-  --l500: 50%;
-  --l600: 42%;
-  --l700: 34%;
-  --l800: 26%;
-  --l900: 18%;
-  --l1000: 10%;
+  --l100: 97%;
+  --l200: 87.5%;
+  --l300: 78%;
+  --l400: 68.5%;
+  --l500: 59%;
+  --l600: 49.5%;
+  --l700: 40%;
+  --l800: 30.5%;
+  --l900: 21%;
+  --l1000: 11.5%;
 }

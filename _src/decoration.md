@@ -1,6 +1,6 @@
 ---
 title: Decoration
-mainHeading: Decoration
+mainHeading: "Baselayer 3: Decoration"
 layout: base.njk
 prevPage: "/layout/"
 nextPage: "/colors/"
@@ -135,40 +135,28 @@ For more on border colors see [colors]({{ "/colors/" | url }}).
 
 ## Rounded corners
 
-All Baselayer border radius classes apply their border radius _potentially to all four corners_. If you want different radii on different corners of the same element, then you can access each of the spacing variables in your CSS, or set your own values.
+All Baselayer border radius classes apply their border radius potentially to all four corners. If you want different radii on different corners of the same element, then you can access each of the spacing variables in your CSS, or set your own values.
 
 **Tip:** If you are putting rounded corners on a block element that contains an image, you will also need to add `overflow-clip`.
 
-The first five border radius classes below supply the property `border-{...}-radius` and the default spacing variable `--s-1` (0.25rem).
+There are five modifier classes. These only supply a spacing variable.
 
-* `rounded` — `border-radius:` (all) `--s-1`
-* `rounded-tl` — `border-top-left-radius:` `--s-1`
-* `rounded-tr` — `border-top-right-radius:` `--s-1`
-* `rounded-br` — `border-bottom-right-radius:` `--s-1`
-* `rounded-bl` — `border-bottom-left-radius:` `--s-1`
-
-Then there are five modifier classes. These only supply a spacing variable — they do not contain the `border-{...}-radius` property. Therefore, they need to be paired with (at least) one of the five border radius utilities above.
-
-* `rounded-tiny` — `--s-tiny` 0.25rem
-* `rounded`, `rounded-1` — `--s-1` 0.5rem<br>
-(`rounded` comes with `--s-1` by defaut, so `rad-1` is redundant.)
-* `rounded-2` — `--s-2` 0.5rem
-* `rounded-3` — `--s-3` clamp(1.5rem, 0.5rem + 1.25cqi, 2rem)
-* `rounded-4` — `--s-4` clamp(2rem, 1rem + 2.5cqi, 3rem)
-* `rounded-pill` — `--s-pill` 99rem
+* `rounded-tiny` — `--s-tiny`
+* `rounded` — `--s-1` (alias `rounded-1`)
+* `rounded-2` — `--s-2`
+* `rounded-3` — `--s-3`
+* `rounded-4` — `--s-4`
+* `rounded-pill` — 999em
 
 Examples:
 
-<div class="expand mt-2 mb-3 grid xs:equal-2-cols sm:equal-3-cols gap-1 t-center">
-  <div class="b-thin rounded rounded-tiny px-2 py-4"><code>rounded rounded-tiny</code></div>
+<div class="expand my-3 grid xs:equal-2-cols sm:equal-3-cols gap-2 t-center">
+  <div class="b-thin rounded-tiny px-2 py-4"><code>rounded-tiny</code></div>
   <div class="b-thin rounded px-2 py-4"><code>rounded</code></div>
-  <div class="b-thin rounded rounded-2 px-2 py-4"><code>rounded rounded-2</code></div>
-  <div class="b-thin rounded rounded-3 px-2 py-4"><code>rounded rounded-3</code></div>
-  <div class="b-thin rounded rounded-4 px-2 py-4"><code>rounded rounded-4</code></div>
-  <div class="b-thin rounded rounded-pill px-2 py-4"><code>rounded rounded-pill</code></div>
-  <div class="b-thin rounded-tl rounded-br rounded-3 px-2 py-4"><code>rounded-tl rounded-br rounded-3</code></div>
-  <div class="b-thin rounded-tl rounded-bl rounded-pill px-2 py-4"><code>rounded-tl rounded-bl rounded-pill</code></div>
-  <div class="b-thin rounded-tr rounded-pill px-2 py-4"><code>rounded-tr rounded-pill</code></div>
+  <div class="b-thin rounded-2 px-2 py-4"><code>rounded-2</code></div>
+  <div class="b-thin rounded-3 px-2 py-4"><code>rounded-3</code></div>
+  <div class="b-thin rounded-4 px-2 py-4"><code>rounded-4</code></div>
+  <div class="b-thin rounded-pill px-2 py-4"><code>rounded-pill</code></div>
 </div>
 
 If the element is a square, then `rounded rounded-pill` makes a circle.
@@ -177,31 +165,17 @@ If the element is a square, then `rounded rounded-pill` makes a circle.
 <div class="b-thin aspect-ratio-1x1 rounded rounded-pill p-4 flex flex-center flex-middle"><code>rounded <span class="t-nowrap">rounded-pill</span></code></div>
 </div>
 
-## The `img-cover` class
+## Image contain and cover
 
-Codebase’s `img-cover` class can be used to make an image expand or contract to fully cover a container block rectangle. It is designed for use on an `<img src="">` tag.
+`img-contain` and `img-cover` are designed for use on an `<img src="">` tag.
 
-```css
-.img-cover {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  overflow: hidden;
-}
-```
+The `img-contain` class can be used to make an image expand or contract so that it is fully seen within a wrapper, without distorting the image. If the image aspect ratio is taller than the wrapper, then some empty space will appear right and left of the image. And if the image aspect ratio is wider than the wrapper, then some empty space will appear to the top and bottom of the image.
 
-## Opacity
+The `img-cover` class can be used to make an image expand or contract to fully cover a wrapper block rectangle. If the image aspect ratio is taller than the wrapper, then its top and bottom will seem to be cropped. And if the image aspect ratio is wider than the wrapper, then its right and left sides will seem to be cropped.
 
-Opacities (with hover states):
+There are also some image alignment modifiers that can be paired with `img-cover`.
 
-* `opacity-25%` / `hover:opacity-25%`
-* `opacity-50%` / `hover:opacity-50%`
-* `opacity-75%` / `hover:opacity-75%`
-* `hover:opacity-100%` — a reset that removes opacity on hover
-
-The hover states are provided in case you want an image inside a link to change opacity on hover.
-
-If you use these on an image over a colored background, then you get a color-tinted image.
-
-If you have text over an image (e.g. in a hero component), then you can use opacity over a black (or dark color) background to make white text more readable — and _vice versa_.
+* `img-cover img-cover-top` — ensures the top part of the image is in view
+* `img-cover img-cover-right` — ensures the right part of the image is in view
+* `img-cover img-cover-bottom` — ensures the bottom part of the image is in view
+* `img-cover img-cover-left` — ensures the left part of the image is in view

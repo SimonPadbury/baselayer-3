@@ -7,7 +7,7 @@
 
   <title>Decoration · Baselayer CSS</title>
 
-  <link rel="stylesheet" href="/baselayer-3/css/min/baselayer.min.css?v=3.7.1">
+  <link rel="stylesheet" href="/baselayer-3/css/min/baselayer.min.css?v=3.8.0">
 
   <style>
     :root {
@@ -138,7 +138,7 @@ button.toggler {
   content: "✓";
 }
 
-.font-prose #content-wrap {
+.font-prose .main-pane-content {
   font-family: var(--t-prose);
 }
 
@@ -274,7 +274,7 @@ window.addEventListener("DOMContentLoaded", () => {
   <div class="sticky top h-max-100dvh overflow-y">
     <div class="flex flex-space-between md:block">
       <div class="p-cell md:t-center">
-        <a id="site-title" href="/baselayer-3/" class="h4 t-normal flex flex-center flex-middle gap-1 t-gray t-800 dark:t-200 hover:t-reversi t-underline-none">
+        <a id="site-title" href="/baselayer-3/" class="h4 t-normal flex flex-center flex-middle gap-1 t-reversi t-underline-none">
           <svg height="48" width="48" viewBox="0 0 111 111" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-miterwrapper:1.5">
             <g transform="translate(-294.592 -94.592)">
               <circle cx="350" cy="150" r="50" style="fill:none;stroke:currentColor;stroke-width:4px"/>
@@ -287,44 +287,47 @@ window.addEventListener("DOMContentLoaded", () => {
           <span class="t-nowrap">Baselayer CSS</span>
         </a>
       </div>
-      <button type="button" id="site-menu-toggle" aria-expanded="false" aria-label="Menu" aria-controls="site-menu" class="m-1 md:hidden">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256"><path d="M228,128a12,12,0,0,1-12,12H40a12,12,0,0,1,0-24H216A12,12,0,0,1,228,128ZM40,76H216a12,12,0,0,0,0-24H40a12,12,0,0,0,0,24ZM216,180H40a12,12,0,0,0,0,24H216a12,12,0,0,0,0-24Z"></path></svg>
+      <div>
+        <button type="button" id="site-menu-toggle" aria-expanded="false" aria-label="Menu" aria-controls="site-menu" class="m-1 aspect-ratio-1x1 p-0 relative md:hidden">
+        <svg class="box place-center" xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" viewBox="0 0 256 256"><path d="M228,128a12,12,0,0,1-12,12H40a12,12,0,0,1,0-24H216A12,12,0,0,1,228,128ZM40,76H216a12,12,0,0,0,0-24H40a12,12,0,0,0,0,24ZM216,180H40a12,12,0,0,0,0,24H216a12,12,0,0,0,0-24Z"></path></svg>
       </button>
+      </div>
     </div>
 
     <div id="js-menu-wrapper">
       <div class="m-2 bt-thin bb-thin py-2 flex flex-center flex-wrap gap-2 links-underlined-hover-only">
-        <span class="t-gray t-600 dark:t-400">Version: 3.7.1</span>
-        <a class="t-gray t-800 dark:t-200 hover:t-900 hover:dark:t-100" href="https://github.com/SimonPadbury/baselayer-3">GitHub</a>
+        <span class="t-gray t-600 dark:t-400">Version: 3.8.0</span>
+        <a class="t-gray t-700 dark:t-300" href="https://github.com/SimonPadbury/baselayer-3">GitHub</a>
         <span>
-          <a class="t-gray t-800 dark:t-200 hover:t-900 hover:dark:t-100" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> <span class="t-gray t-600 t-dark-invert">(27 KB)</span>
+          <a class="t-gray t-700 dark:t-300" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> <span class="t-gray t-600 dark:t-400">(26 KB)</span>
         </span>
       </div>
 
       <nav class="p-2">
-        <menu class="pl-0 flex flex-column gap-1 links-underline-none">
+        <p class="h4 t-semibold">Documentation</p>
+        <menu class="mt-2 pl-0 flex flex-column gap-1 links-underline-none">
           <menuitem>
-            <a class="block  p-cell t-gray t-700 dark:t-300 hover:t-900 hover:dark:t-100"  href="/baselayer-3/">Getting started</a>
+            <a class="block  p-cell t-gray t-600 dark:t-300"  href="/baselayer-3/">Getting started</a>
           </menuitem>
           <menuitem>
-            <a class="block  p-cell t-gray t-700 dark:t-300 hover:t-900 hover:dark:t-100"  href="/baselayer-3/typography/">Typography</a>
+            <a class="block  p-cell t-gray t-600 dark:t-300"  href="/baselayer-3/typography/">Typography</a>
           </menuitem>
           <menuitem>
-            <a class="block  p-cell t-gray t-700 dark:t-300 hover:t-900 hover:dark:t-100"  href="/baselayer-3/layout/">Layout</a>
+            <a class="block  p-cell t-gray t-600 dark:t-300"  href="/baselayer-3/layout/">Layout</a>
           </menuitem>
           <menuitem>
-            <a class="block bl-thick b-gray b-300 dark:b-700 t-reversi bg-gray bg-200 dark:bg-800 p-cell t-gray t-700 dark:t-300 hover:t-900 hover:dark:t-100"  aria-current="page" href="/baselayer-3/decoration/">Decoration</a></menuitem>
+            <a class="block bl-thick b-gray b-300 dark:b-700 t-reversi bg-gray bg-200 dark:bg-800 p-cell t-gray t-600 dark:t-300"  aria-current="page" href="/baselayer-3/decoration/">Decoration</a></menuitem>
           <menuitem>
-            <a class="block  p-cell t-gray t-700 dark:t-300 hover:t-900 hover:dark:t-100"  href="/baselayer-3/colors/">Colors</a>
+            <a class="block  p-cell t-gray t-600 dark:t-300"  href="/baselayer-3/colors/">Colors</a>
           </menuitem>
           <menuitem>
-            <a class="block  p-cell t-gray t-700 dark:t-300 hover:t-900 hover:dark:t-100"  href="/baselayer-3/forms/">Forms</a>
+            <a class="block  p-cell t-gray t-600 dark:t-300"  href="/baselayer-3/forms/">Forms</a>
           </menuitem>
           <menuitem>
-            <a class="block  p-cell t-gray t-700 dark:t-300 hover:t-900 hover:dark:t-100"  href="/baselayer-3/buttons/">Buttons</a>
+            <a class="block  p-cell t-gray t-600 dark:t-300"  href="/baselayer-3/buttons/">Buttons</a>
             </menuitem>
           <menuitem>
-            <a class="block p-cell t-gray t-700 dark:t-300 hover:t-900 hover:dark:t-100" href="/baselayer-3/examples/">Examples</a>
+            <a class="block p-cell t-gray t-600 dark:t-300" href="/baselayer-3/examples/">Examples</a>
           </menuitem>
         </menu>
       </nav>
@@ -376,15 +379,15 @@ window.addEventListener("DOMContentLoaded", () => {
         <div id="toc-outer" class="sticky top w-content h-max-100dvh mx-auto px-2 pb-4 links-underline-hover-only overflow-y">
           <p class="h4 t-semibold">On this page</p>
           <nav class="toc" >
-        <ul><li><a href="#spacing">Spacing</a><ul><li><a href="#spacing-extras">Spacing extras</a></li></ul></li><li><a href="#borders">Borders</a><ul><li><a href="#border-extras">Border extras</a></li></ul></li><li><a href="#rounded-corners">Rounded corners</a></li><li><a href="#the-img-cover-class">The img-cover class</a></li><li><a href="#opacity">Opacity</a></li></ul>
+        <ul><li><a href="#spacing">Spacing</a><ul><li><a href="#spacing-extras">Spacing extras</a></li></ul></li><li><a href="#borders">Borders</a><ul><li><a href="#border-extras">Border extras</a></li></ul></li><li><a href="#rounded-corners">Rounded corners</a></li><li><a href="#image-contain-and-cover">Image contain and cover</a></li></ul>
       </nav>
         </div>
       </aside>
       <div class="main-pane">
         <div class="main-pane-content container">
-          <header id="article-title" class="content-grid">
-            <div class="aspect-ratio-16x9 relative">
-              <h1 class="box place-center my-3 t-balance t-center">Decoration</h1>
+          <header id="article-title" class="wrapper-md">
+            <div class="py-4 t-comfort">
+              <h1 class="py-4 t-thin t-balance t-center">Baselayer 3: Decoration</h1>
             </div>
           </header>
           <main class="content-grid flow">
@@ -500,82 +503,60 @@ window.addEventListener("DOMContentLoaded", () => {
 </ul>
 <p>For more on border colors see <a href="/baselayer-3/colors/">colors</a>.</p>
 <h2 id="rounded-corners" tabindex="-1">Rounded corners</h2>
-<p>All Baselayer border radius classes apply their border radius <em>potentially to all four corners</em>. If you want different radii on different corners of the same element, then you can access each of the spacing variables in your CSS, or set your own values.</p>
+<p>All Baselayer border radius classes apply their border radius potentially to all four corners. If you want different radii on different corners of the same element, then you can access each of the spacing variables in your CSS, or set your own values.</p>
 <p><strong>Tip:</strong> If you are putting rounded corners on a block element that contains an image, you will also need to add <code>overflow-clip</code>.</p>
-<p>The first five border radius classes below supply the property <code>border-{...}-radius</code> and the default spacing variable <code>--s-1</code> (0.25rem).</p>
+<p>There are five modifier classes. These only supply a spacing variable.</p>
 <ul>
-<li><code>rounded</code> — <code>border-radius:</code> (all) <code>--s-1</code></li>
-<li><code>rounded-tl</code> — <code>border-top-left-radius:</code> <code>--s-1</code></li>
-<li><code>rounded-tr</code> — <code>border-top-right-radius:</code> <code>--s-1</code></li>
-<li><code>rounded-br</code> — <code>border-bottom-right-radius:</code> <code>--s-1</code></li>
-<li><code>rounded-bl</code> — <code>border-bottom-left-radius:</code> <code>--s-1</code></li>
-</ul>
-<p>Then there are five modifier classes. These only supply a spacing variable — they do not contain the <code>border-{...}-radius</code> property. Therefore, they need to be paired with (at least) one of the five border radius utilities above.</p>
-<ul>
-<li><code>rounded-tiny</code> — <code>--s-tiny</code> 0.25rem</li>
-<li><code>rounded</code>, <code>rounded-1</code> — <code>--s-1</code> 0.5rem<br>
-(<code>rounded</code> comes with <code>--s-1</code> by defaut, so <code>rad-1</code> is redundant.)</li>
-<li><code>rounded-2</code> — <code>--s-2</code> 0.5rem</li>
-<li><code>rounded-3</code> — <code>--s-3</code> clamp(1.5rem, 0.5rem + 1.25cqi, 2rem)</li>
-<li><code>rounded-4</code> — <code>--s-4</code> clamp(2rem, 1rem + 2.5cqi, 3rem)</li>
-<li><code>rounded-pill</code> — <code>--s-pill</code> 99rem</li>
+<li><code>rounded-tiny</code> — <code>--s-tiny</code></li>
+<li><code>rounded</code> — <code>--s-1</code> (alias <code>rounded-1</code>)</li>
+<li><code>rounded-2</code> — <code>--s-2</code></li>
+<li><code>rounded-3</code> — <code>--s-3</code></li>
+<li><code>rounded-4</code> — <code>--s-4</code></li>
+<li><code>rounded-pill</code> — 999em</li>
 </ul>
 <p>Examples:</p>
-<div class="expand mt-2 mb-3 grid xs:equal-2-cols sm:equal-3-cols gap-1 t-center">
-  <div class="b-thin rounded rounded-tiny px-2 py-4"><code>rounded rounded-tiny</code></div>
+<div class="expand my-3 grid xs:equal-2-cols sm:equal-3-cols gap-2 t-center">
+  <div class="b-thin rounded-tiny px-2 py-4"><code>rounded-tiny</code></div>
   <div class="b-thin rounded px-2 py-4"><code>rounded</code></div>
-  <div class="b-thin rounded rounded-2 px-2 py-4"><code>rounded rounded-2</code></div>
-  <div class="b-thin rounded rounded-3 px-2 py-4"><code>rounded rounded-3</code></div>
-  <div class="b-thin rounded rounded-4 px-2 py-4"><code>rounded rounded-4</code></div>
-  <div class="b-thin rounded rounded-pill px-2 py-4"><code>rounded rounded-pill</code></div>
-  <div class="b-thin rounded-tl rounded-br rounded-3 px-2 py-4"><code>rounded-tl rounded-br rounded-3</code></div>
-  <div class="b-thin rounded-tl rounded-bl rounded-pill px-2 py-4"><code>rounded-tl rounded-bl rounded-pill</code></div>
-  <div class="b-thin rounded-tr rounded-pill px-2 py-4"><code>rounded-tr rounded-pill</code></div>
+  <div class="b-thin rounded-2 px-2 py-4"><code>rounded-2</code></div>
+  <div class="b-thin rounded-3 px-2 py-4"><code>rounded-3</code></div>
+  <div class="b-thin rounded-4 px-2 py-4"><code>rounded-4</code></div>
+  <div class="b-thin rounded-pill px-2 py-4"><code>rounded-pill</code></div>
 </div>
 <p>If the element is a square, then <code>rounded rounded-pill</code> makes a circle.</p>
 <div class="w-xxs mx-auto mb-4">
 <div class="b-thin aspect-ratio-1x1 rounded rounded-pill p-4 flex flex-center flex-middle"><code>rounded <span class="t-nowrap">rounded-pill</span></code></div>
 </div>
-<h2 id="the-img-cover-class" tabindex="-1">The <code>img-cover</code> class</h2>
-<p>Codebase’s <code>img-cover</code> class can be used to make an image expand or contract to fully cover a container block rectangle. It is designed for use on an <code>&lt;img src=&quot;&quot;&gt;</code> tag.</p>
-<pre><code class="language-css">.img-cover {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  overflow: hidden;
-}
-</code></pre>
-<h2 id="opacity" tabindex="-1">Opacity</h2>
-<p>Opacities (with hover states):</p>
+<h2 id="image-contain-and-cover" tabindex="-1">Image contain and cover</h2>
+<p><code>img-contain</code> and <code>img-cover</code> are designed for use on an <code>&lt;img src=&quot;&quot;&gt;</code> tag.</p>
+<p>The <code>img-contain</code> class can be used to make an image expand or contract so that it is fully seen within a wrapper, without distorting the image. If the image aspect ratio is taller than the wrapper, then some empty space will appear right and left of the image. And if the image aspect ratio is wider than the wrapper, then some empty space will appear to the top and bottom of the image.</p>
+<p>The <code>img-cover</code> class can be used to make an image expand or contract to fully cover a wrapper block rectangle. If the image aspect ratio is taller than the wrapper, then its top and bottom will seem to be cropped. And if the image aspect ratio is wider than the wrapper, then its right and left sides will seem to be cropped.</p>
+<p>There are also some image alignment modifiers that can be paired with <code>img-cover</code>.</p>
 <ul>
-<li><code>opacity-25%</code> / <code>hover:opacity-25%</code></li>
-<li><code>opacity-50%</code> / <code>hover:opacity-50%</code></li>
-<li><code>opacity-75%</code> / <code>hover:opacity-75%</code></li>
-<li><code>hover:opacity-100%</code> — a reset that removes opacity on hover</li>
+<li><code>img-cover img-cover-top</code> — ensures the top part of the image is in view</li>
+<li><code>img-cover img-cover-right</code> — ensures the right part of the image is in view</li>
+<li><code>img-cover img-cover-bottom</code> — ensures the bottom part of the image is in view</li>
+<li><code>img-cover img-cover-left</code> — ensures the left part of the image is in view</li>
 </ul>
-<p>The hover states are provided in case you want an image inside a link to change opacity on hover.</p>
-<p>If you use these on an image over a colored background, then you get a color-tinted image.</p>
-<p>If you have text over an image (e.g. in a hero component), then you can use opacity over a black (or dark color) background to make white text more readable — and <em>vice versa</em>.</p>
 
             <hr>
-            <nav class="expand grid gap-2 sm:equal-2-cols links-underline-none">
+            <nav class="expand grid gap-2 sm:equal-2-cols">
               
-              <a class="sm:col-1 my-1 b-thin b-blue b-300 hover:b-500 dark:b-700 rad-1 p-cell flex flex-column gap-1 t-blue t-600 hover:t-700 dark:t-400 bg-blue hover:bg-100 hover:dark:bg-800"  href="/baselayer-3/layout/">
-                Previous page
+              <a class="sm:col-1 my-1 b-thin rounded p-cell flex flex-column flex-top gap-1 t-underline-hover-only hover:bg-blue bg-100 dark:bg-900"  href="/baselayer-3/layout/">
+                <span class="t-blue t-underline-none">Previous page</span>
                 <span class="h3 m-0 t-normal"> Layout</span>
               </a>
               
               
-              <a class="sm:col-2 my-1 b-thin b-blue b-300 hover:b-500 dark:b-700 rad-1 p-cell flex flex-column gap-1 t-blue t-600 hover:t-700 dark:t-400 t-right bg-blue hover:bg-100 hover:dark:bg-800" href="/baselayer-3/colors/">
-                Next page
+              <a class="sm:col-2 my-1 b-thin rounded p-cell flex flex-column flex-bottom gap-1 t-right t-underline-hover-only hover:bg-blue bg-100 dark:bg-900" href="/baselayer-3/colors/">
+                <span class="t-blue t-underline-none">Next page</span>
                 <span class="h3 m-0 t-normal">Colors</span>
               </a>
               
             </nav>
           </main>
           <div class="container-md">
-                        <div class="mt-4 mb-3 p-2 flex flex-column flex-middle t-center">
+            <div class="mt-4 mb-3 p-2 flex flex-column flex-middle t-center">
               <a href="/baselayer-3/" class="mb-1 flex flex-column flex-center gap-1 t-underline-none">
                 <svg class="mx-auto" height="48" width="48" viewBox="0 0 111 111" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-miterwrapper:1.5">
                   <g transform="translate(-294.592 -94.592)">
@@ -588,11 +569,11 @@ window.addEventListener("DOMContentLoaded", () => {
                   </svg>
                 <span class="h3 m-0 t-normal t-nowrap">Baselayer CSS</span>
               </a>
-              <span>Version: 3.7.1</span>
+              <span>Version: 3.8.0</span>
             </div>
 
             <p class="p-cell flex flex-center flex-wrap gap-4 t-center">
-              <span><a class="t-underline-hover-only" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> (27 KB)</span>
+              <span><a class="t-underline-hover-only" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> (26 KB)</span>
               <a class="t-underline-hover-only" href="https://github.com/SimonPadbury/baselayer-3">GitHub Repository</a>
               <a class="t-underline-hover-only" href="https://github.com/SimonPadbury/baselayer-3/blob/main/CHANGELOG.md">Changelog</a>
               <a class="t-underline-hover-only" href="https://github.com/SimonPadbury/baselayer-3/blob/main/LICENSE">MIT license</a>

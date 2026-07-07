@@ -1,6 +1,6 @@
 ---
 title: Forms
-mainHeading: Forms
+mainHeading: "Baselayer 3: Forms"
 layout: base.njk
 prevPage: "/colors/"
 nextPage: "/buttons/"
@@ -222,6 +222,8 @@ Border, background, and text color utilities can be used.
   </p>
 </form>
 
+Buttons have a built-in hover background-color change: the background color becomes darker for the light theme, and lighter for the dark theme.
+
 ```html
 <form action="">
   <p>
@@ -233,4 +235,4 @@ Border, background, and text color utilities can be used.
 </form>
 ```
 
-See [buttons]({{ "/buttons/" | url }})) for more information.
+See [buttons]({{ "/buttons/" | url }}) for more information.

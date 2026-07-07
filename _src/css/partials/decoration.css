@@ -331,137 +331,136 @@
 }
 
 .b-thin {
-  border: var(--b-1);
+  border: var(--b-thin);
 }
 
 .b-thick {
-  border: var(--b-2);
+  border: var(--b-thick);
 }
 
 .b-heavy {
-  border: var(--b-3);
+  border: var(--b-heavy);
 }
 
 .bt-thin {
-  border-top: var(--b-1);
+  border-top: var(--b-thin);
 }
 
 .bt-thick {
-  border-top: var(--b-2);
+  border-top: var(--b-thick);
 }
 
 .bt-heavy {
-  border-top: var(--b-3);
+  border-top: var(--b-heavy);
 }
 
 .br-thin {
-  border-right: var(--b-1);
+  border-right: var(--b-thin);
 }
 
 .br-thick {
-  border-right: var(--b-2);
+  border-right: var(--b-thick);
 }
 
 .br-heavy {
-  border-right: var(--b-3);
+  border-right: var(--b-heavy);
 }
 
 .bb-thin {
-  border-bottom: var(--b-1);
+  border-bottom: var(--b-thin);
 }
 
 .bb-thick {
-  border-bottom: var(--b-2);
+  border-bottom: var(--b-thick);
 }
 
 .bb-heavy {
-  border-bottom: var(--b-3);
+  border-bottom: var(--b-heavy);
 }
 
 .bl-thin {
-  border-left: var(--b-1);
+  border-left: var(--b-thin);
 }
 
 .bl-thick {
-  border-left: var(--b-2);
+  border-left: var(--b-thick);
 }
 
 .bl-heavy {
-  border-left: var(--b-3);
+  border-left: var(--b-heavy);
 }
 
 .b-currentColor {
   border-color: currentColor;
 }
 
-.rounded,
-.rounded-1 {
-  --r: var(--s-1);
-  border-radius: var(--r);
+.b-transparent {
+  border-color: transparent;
 }
 
-.rounded-tl {
-  --r: var(--s-1);
-  border-top-left-radius: var(--r);
-}
-
-.rounded-tr {
-  --r: var(--s-1);
-  border-top-right-radius: var(--r);
-}
-
-.rounded-br {
-  --r: var(--s-1);
-  border-bottom-right-radius: var(--r);
-}
-
-.rounded-bl {
-  --r: var(--s-1);
-  border-bottom-left-radius: var(--r);
+.rounded-0 {
+  border-radius: 0;
 }
 
 .rounded-tiny {
-  --r: var(--s-tiny);
+  border-radius: var(--s-tiny);
+}
+
+.rounded,
+.rounded-1 {
+  border-radius: var(--s-1);
 }
 
 .rounded-2 {
-  --r: var(--s-2);
+  border-radius: var(--s-2);
 }
 
 .rounded-3 {
-  --r: var(--s-3);
+  border-radius: var(--s-3);
 }
 
 .rounded-4 {
-  --r: var(--s-4);
+  border-radius: var(--s-4);
 }
 
 .rounded-pill {
-  --r: var(--pill);
+  border-radius: 999em;
 }
 
 .img-cover {
-  width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: cover !important;
   object-position: center;
+  overflow: clip;
+  width: 100%;
 }
 
-.opacity-25\%,
-.hover\:opacity-25\%\:hover {
-  opacity: 0.25;
+.img-cover-right-top {
+  object-position: right top;
 }
 
-.opacity-50\%,
-.hover\:opacity-50\%\:hover {
-  opacity: 0.5;
+.img-cover-right {
+  object-position: right;
 }
 
-.opacity-75\%,
-.hover\:opacity-75\%\:hover {
-  opacity: 0.75;
+.img-cover-right-bottom {
+  object-position: right bottom;
 }
 
-.hover\:opacity-100\%\:hover {
-  opacity: 1;
+.img-cover-bottom {
+  object-position: bottom;
+}
+
+.img-cover-left-bottom {
+  object-position: left bottom;
+}
+
+.img-cover-left {
+  object-position: left;
+}
+
+.img-contain {
+  height: 100%;
+  object-fit: contain !important;
+  width: 100%;
 }

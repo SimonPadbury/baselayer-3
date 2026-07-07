@@ -7,7 +7,7 @@
 
   <title>Getting started · Baselayer CSS</title>
 
-  <link rel="stylesheet" href="/baselayer-3/css/min/baselayer.min.css?v=3.7.1">
+  <link rel="stylesheet" href="/baselayer-3/css/min/baselayer.min.css?v=3.8.0">
 
   <style>
     :root {
@@ -138,7 +138,7 @@ button.toggler {
   content: "✓";
 }
 
-.font-prose #content-wrap {
+.font-prose .main-pane-content {
   font-family: var(--t-prose);
 }
 
@@ -274,7 +274,7 @@ window.addEventListener("DOMContentLoaded", () => {
   <div class="sticky top h-max-100dvh overflow-y">
     <div class="flex flex-space-between md:block">
       <div class="p-cell md:t-center">
-        <a id="site-title" href="/baselayer-3/" class="h4 t-normal flex flex-center flex-middle gap-1 t-gray t-800 dark:t-200 hover:t-reversi t-underline-none">
+        <a id="site-title" href="/baselayer-3/" class="h4 t-normal flex flex-center flex-middle gap-1 t-reversi t-underline-none">
           <svg height="48" width="48" viewBox="0 0 111 111" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-miterwrapper:1.5">
             <g transform="translate(-294.592 -94.592)">
               <circle cx="350" cy="150" r="50" style="fill:none;stroke:currentColor;stroke-width:4px"/>
@@ -287,44 +287,47 @@ window.addEventListener("DOMContentLoaded", () => {
           <span class="t-nowrap">Baselayer CSS</span>
         </a>
       </div>
-      <button type="button" id="site-menu-toggle" aria-expanded="false" aria-label="Menu" aria-controls="site-menu" class="m-1 md:hidden">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256"><path d="M228,128a12,12,0,0,1-12,12H40a12,12,0,0,1,0-24H216A12,12,0,0,1,228,128ZM40,76H216a12,12,0,0,0,0-24H40a12,12,0,0,0,0,24ZM216,180H40a12,12,0,0,0,0,24H216a12,12,0,0,0,0-24Z"></path></svg>
+      <div>
+        <button type="button" id="site-menu-toggle" aria-expanded="false" aria-label="Menu" aria-controls="site-menu" class="m-1 aspect-ratio-1x1 p-0 relative md:hidden">
+        <svg class="box place-center" xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" viewBox="0 0 256 256"><path d="M228,128a12,12,0,0,1-12,12H40a12,12,0,0,1,0-24H216A12,12,0,0,1,228,128ZM40,76H216a12,12,0,0,0,0-24H40a12,12,0,0,0,0,24ZM216,180H40a12,12,0,0,0,0,24H216a12,12,0,0,0,0-24Z"></path></svg>
       </button>
+      </div>
     </div>
 
     <div id="js-menu-wrapper">
       <div class="m-2 bt-thin bb-thin py-2 flex flex-center flex-wrap gap-2 links-underlined-hover-only">
-        <span class="t-gray t-600 dark:t-400">Version: 3.7.1</span>
-        <a class="t-gray t-800 dark:t-200 hover:t-900 hover:dark:t-100" href="https://github.com/SimonPadbury/baselayer-3">GitHub</a>
+        <span class="t-gray t-600 dark:t-400">Version: 3.8.0</span>
+        <a class="t-gray t-700 dark:t-300" href="https://github.com/SimonPadbury/baselayer-3">GitHub</a>
         <span>
-          <a class="t-gray t-800 dark:t-200 hover:t-900 hover:dark:t-100" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> <span class="t-gray t-600 t-dark-invert">(27 KB)</span>
+          <a class="t-gray t-700 dark:t-300" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> <span class="t-gray t-600 dark:t-400">(26 KB)</span>
         </span>
       </div>
 
       <nav class="p-2">
-        <menu class="pl-0 flex flex-column gap-1 links-underline-none">
+        <p class="h4 t-semibold">Documentation</p>
+        <menu class="mt-2 pl-0 flex flex-column gap-1 links-underline-none">
           <menuitem>
-            <a class="block bl-thick b-gray b-300 dark:b-700 t-reversi bg-gray bg-200 dark:bg-800 p-cell t-gray t-700 dark:t-300 hover:t-900 hover:dark:t-100"  aria-current="page" href="/baselayer-3/">Getting started</a>
+            <a class="block bl-thick b-gray b-300 dark:b-700 t-reversi bg-gray bg-200 dark:bg-800 p-cell t-gray t-600 dark:t-300"  aria-current="page" href="/baselayer-3/">Getting started</a>
           </menuitem>
           <menuitem>
-            <a class="block  p-cell t-gray t-700 dark:t-300 hover:t-900 hover:dark:t-100"  href="/baselayer-3/typography/">Typography</a>
+            <a class="block  p-cell t-gray t-600 dark:t-300"  href="/baselayer-3/typography/">Typography</a>
           </menuitem>
           <menuitem>
-            <a class="block  p-cell t-gray t-700 dark:t-300 hover:t-900 hover:dark:t-100"  href="/baselayer-3/layout/">Layout</a>
+            <a class="block  p-cell t-gray t-600 dark:t-300"  href="/baselayer-3/layout/">Layout</a>
           </menuitem>
           <menuitem>
-            <a class="block  p-cell t-gray t-700 dark:t-300 hover:t-900 hover:dark:t-100"  href="/baselayer-3/decoration/">Decoration</a></menuitem>
+            <a class="block  p-cell t-gray t-600 dark:t-300"  href="/baselayer-3/decoration/">Decoration</a></menuitem>
           <menuitem>
-            <a class="block  p-cell t-gray t-700 dark:t-300 hover:t-900 hover:dark:t-100"  href="/baselayer-3/colors/">Colors</a>
+            <a class="block  p-cell t-gray t-600 dark:t-300"  href="/baselayer-3/colors/">Colors</a>
           </menuitem>
           <menuitem>
-            <a class="block  p-cell t-gray t-700 dark:t-300 hover:t-900 hover:dark:t-100"  href="/baselayer-3/forms/">Forms</a>
+            <a class="block  p-cell t-gray t-600 dark:t-300"  href="/baselayer-3/forms/">Forms</a>
           </menuitem>
           <menuitem>
-            <a class="block  p-cell t-gray t-700 dark:t-300 hover:t-900 hover:dark:t-100"  href="/baselayer-3/buttons/">Buttons</a>
+            <a class="block  p-cell t-gray t-600 dark:t-300"  href="/baselayer-3/buttons/">Buttons</a>
             </menuitem>
           <menuitem>
-            <a class="block p-cell t-gray t-700 dark:t-300 hover:t-900 hover:dark:t-100" href="/baselayer-3/examples/">Examples</a>
+            <a class="block p-cell t-gray t-600 dark:t-300" href="/baselayer-3/examples/">Examples</a>
           </menuitem>
         </menu>
       </nav>
@@ -382,15 +385,15 @@ window.addEventListener("DOMContentLoaded", () => {
       </aside>
       <div class="main-pane">
         <div class="main-pane-content container">
-          <header id="article-title" class="content-grid">
-            <div class="aspect-ratio-16x9 relative">
-              <h1 class="box place-center my-3 t-balance t-center">Getting started with Baselayer</h1>
+          <header id="article-title" class="wrapper-md">
+            <div class="py-4 t-comfort">
+              <h1 class="py-4 t-thin t-balance t-center">Getting started with Baselayer 3</h1>
             </div>
           </header>
           <main class="content-grid flow">
             <h2 id="introduction" tabindex="-1">Introduction</h2>
 <p class="t-lg">Designed as a good place to start, Baselayer may be all you need for small projects such as static websites and blogs. Or you may use it as a <em>baselayer</em> to quick-start your mega project.</p>
-<p>Ready to use as-is, Baselayer’s 27 KB (minified) stylesheet gives you all this:</p>
+<p>Ready to use as-is, Baselayer’s 26 KB (minified) stylesheet gives you all this:</p>
 <ul>
 <li>A modern CSS reset</li>
 <li>Minimalist styled classless typography and form elements</li>
@@ -403,6 +406,7 @@ window.addEventListener("DOMContentLoaded", () => {
 <li>Theming control using CSS variables</li>
 <li>And more</li>
 </ul>
+<p>Here’s the Github location of <a href="https://github.com/SimonPadbury/baselayer-3/blob/main/_src/css/min/baselayer.min.css">baselayer.min.css</a>.</p>
 <h2 id="modern-css-technologies" tabindex="-1">Modern CSS technologies</h2>
 <p>Baselayer supports only up-to-date (2023 forward) <a href="https://developer.mozilla.org/en-US/docs/Glossary/Baseline/Compatibility">baseline compatibility</a> web browsers (Safari, Firefox, Chrome, Edge, etc.). Such as:</p>
 <ul>
@@ -420,7 +424,7 @@ window.addEventListener("DOMContentLoaded", () => {
 <ul>
 <li>Aim at being a good place to start — a <em>baselayer</em> for a web design project.</li>
 <li>Do “most things most people want” out of the box.</li>
-<li>Being so small (27 KB), there’s less you need to overwrite in order to style it your own way (and most things in Baselayer can be restyled by CSS variables). So, there’s no need for a purge process to remove a heavy payload of unused Baselayer styles.</li>
+<li>Being so small (26 KB), there’s less you need to overwrite in order to style it your own way (and most things in Baselayer can be restyled by CSS variables). So, there’s no need for a purge process to remove a heavy payload of unused Baselayer styles.</li>
 <li>No CSS preprocessing.</li>
 </ul>
 <h2 id="built-using-postcss" tabindex="-1">Built using PostCSS</h2>
@@ -489,18 +493,18 @@ window.addEventListener("DOMContentLoaded", () => {
 </code></pre>
 
             <hr>
-            <nav class="expand grid gap-2 sm:equal-2-cols links-underline-none">
+            <nav class="expand grid gap-2 sm:equal-2-cols">
               
               
-              <a class="sm:col-2 my-1 b-thin b-blue b-300 hover:b-500 dark:b-700 rad-1 p-cell flex flex-column gap-1 t-blue t-600 hover:t-700 dark:t-400 t-right bg-blue hover:bg-100 hover:dark:bg-800" href="/baselayer-3/typography/">
-                Next page
+              <a class="sm:col-2 my-1 b-thin rounded p-cell flex flex-column flex-bottom gap-1 t-right t-underline-hover-only hover:bg-blue bg-100 dark:bg-900" href="/baselayer-3/typography/">
+                <span class="t-blue t-underline-none">Next page</span>
                 <span class="h3 m-0 t-normal">Typography</span>
               </a>
               
             </nav>
           </main>
           <div class="container-md">
-                        <div class="mt-4 mb-3 p-2 flex flex-column flex-middle t-center">
+            <div class="mt-4 mb-3 p-2 flex flex-column flex-middle t-center">
               <a href="/baselayer-3/" class="mb-1 flex flex-column flex-center gap-1 t-underline-none">
                 <svg class="mx-auto" height="48" width="48" viewBox="0 0 111 111" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-miterwrapper:1.5">
                   <g transform="translate(-294.592 -94.592)">
@@ -513,11 +517,11 @@ window.addEventListener("DOMContentLoaded", () => {
                   </svg>
                 <span class="h3 m-0 t-normal t-nowrap">Baselayer CSS</span>
               </a>
-              <span>Version: 3.7.1</span>
+              <span>Version: 3.8.0</span>
             </div>
 
             <p class="p-cell flex flex-center flex-wrap gap-4 t-center">
-              <span><a class="t-underline-hover-only" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> (27 KB)</span>
+              <span><a class="t-underline-hover-only" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> (26 KB)</span>
               <a class="t-underline-hover-only" href="https://github.com/SimonPadbury/baselayer-3">GitHub Repository</a>
               <a class="t-underline-hover-only" href="https://github.com/SimonPadbury/baselayer-3/blob/main/CHANGELOG.md">Changelog</a>
               <a class="t-underline-hover-only" href="https://github.com/SimonPadbury/baselayer-3/blob/main/LICENSE">MIT license</a>

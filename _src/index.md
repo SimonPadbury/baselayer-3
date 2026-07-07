@@ -1,6 +1,6 @@
 ---
 title: Getting started
-mainHeading: Getting started with Baselayer
+mainHeading: Getting started with Baselayer 3
 layout: base.njk
 nextPage: "/typography/"
 nextLink: "Typography"
@@ -22,6 +22,8 @@ Ready to use as-is, Baselayer’s {{ metadata.filesize }} (minified) stylesheet 
 * Built-in dark mode using `light-dark()`
 * Theming control using CSS variables
 * And more
+
+Here’s the Github location of [baselayer.min.css](https://github.com/SimonPadbury/baselayer-3/blob/main/_src/css/min/baselayer.min.css).
 
 ## Modern CSS technologies
 

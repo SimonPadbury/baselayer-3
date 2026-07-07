@@ -7,7 +7,7 @@
 
   <title>Typography · Baselayer CSS</title>
 
-  <link rel="stylesheet" href="/baselayer-3/css/min/baselayer.min.css?v=3.7.1">
+  <link rel="stylesheet" href="/baselayer-3/css/min/baselayer.min.css?v=3.8.0">
 
   <style>
     :root {
@@ -138,7 +138,7 @@ button.toggler {
   content: "✓";
 }
 
-.font-prose #content-wrap {
+.font-prose .main-pane-content {
   font-family: var(--t-prose);
 }
 
@@ -274,7 +274,7 @@ window.addEventListener("DOMContentLoaded", () => {
   <div class="sticky top h-max-100dvh overflow-y">
     <div class="flex flex-space-between md:block">
       <div class="p-cell md:t-center">
-        <a id="site-title" href="/baselayer-3/" class="h4 t-normal flex flex-center flex-middle gap-1 t-gray t-800 dark:t-200 hover:t-reversi t-underline-none">
+        <a id="site-title" href="/baselayer-3/" class="h4 t-normal flex flex-center flex-middle gap-1 t-reversi t-underline-none">
           <svg height="48" width="48" viewBox="0 0 111 111" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-miterwrapper:1.5">
             <g transform="translate(-294.592 -94.592)">
               <circle cx="350" cy="150" r="50" style="fill:none;stroke:currentColor;stroke-width:4px"/>
@@ -287,44 +287,47 @@ window.addEventListener("DOMContentLoaded", () => {
           <span class="t-nowrap">Baselayer CSS</span>
         </a>
       </div>
-      <button type="button" id="site-menu-toggle" aria-expanded="false" aria-label="Menu" aria-controls="site-menu" class="m-1 md:hidden">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256"><path d="M228,128a12,12,0,0,1-12,12H40a12,12,0,0,1,0-24H216A12,12,0,0,1,228,128ZM40,76H216a12,12,0,0,0,0-24H40a12,12,0,0,0,0,24ZM216,180H40a12,12,0,0,0,0,24H216a12,12,0,0,0,0-24Z"></path></svg>
+      <div>
+        <button type="button" id="site-menu-toggle" aria-expanded="false" aria-label="Menu" aria-controls="site-menu" class="m-1 aspect-ratio-1x1 p-0 relative md:hidden">
+        <svg class="box place-center" xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" viewBox="0 0 256 256"><path d="M228,128a12,12,0,0,1-12,12H40a12,12,0,0,1,0-24H216A12,12,0,0,1,228,128ZM40,76H216a12,12,0,0,0,0-24H40a12,12,0,0,0,0,24ZM216,180H40a12,12,0,0,0,0,24H216a12,12,0,0,0,0-24Z"></path></svg>
       </button>
+      </div>
     </div>
 
     <div id="js-menu-wrapper">
       <div class="m-2 bt-thin bb-thin py-2 flex flex-center flex-wrap gap-2 links-underlined-hover-only">
-        <span class="t-gray t-600 dark:t-400">Version: 3.7.1</span>
-        <a class="t-gray t-800 dark:t-200 hover:t-900 hover:dark:t-100" href="https://github.com/SimonPadbury/baselayer-3">GitHub</a>
+        <span class="t-gray t-600 dark:t-400">Version: 3.8.0</span>
+        <a class="t-gray t-700 dark:t-300" href="https://github.com/SimonPadbury/baselayer-3">GitHub</a>
         <span>
-          <a class="t-gray t-800 dark:t-200 hover:t-900 hover:dark:t-100" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> <span class="t-gray t-600 t-dark-invert">(27 KB)</span>
+          <a class="t-gray t-700 dark:t-300" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> <span class="t-gray t-600 dark:t-400">(26 KB)</span>
         </span>
       </div>
 
       <nav class="p-2">
-        <menu class="pl-0 flex flex-column gap-1 links-underline-none">
+        <p class="h4 t-semibold">Documentation</p>
+        <menu class="mt-2 pl-0 flex flex-column gap-1 links-underline-none">
           <menuitem>
-            <a class="block  p-cell t-gray t-700 dark:t-300 hover:t-900 hover:dark:t-100"  href="/baselayer-3/">Getting started</a>
+            <a class="block  p-cell t-gray t-600 dark:t-300"  href="/baselayer-3/">Getting started</a>
           </menuitem>
           <menuitem>
-            <a class="block bl-thick b-gray b-300 dark:b-700 t-reversi bg-gray bg-200 dark:bg-800 p-cell t-gray t-700 dark:t-300 hover:t-900 hover:dark:t-100"  aria-current="page" href="/baselayer-3/typography/">Typography</a>
+            <a class="block bl-thick b-gray b-300 dark:b-700 t-reversi bg-gray bg-200 dark:bg-800 p-cell t-gray t-600 dark:t-300"  aria-current="page" href="/baselayer-3/typography/">Typography</a>
           </menuitem>
           <menuitem>
-            <a class="block  p-cell t-gray t-700 dark:t-300 hover:t-900 hover:dark:t-100"  href="/baselayer-3/layout/">Layout</a>
+            <a class="block  p-cell t-gray t-600 dark:t-300"  href="/baselayer-3/layout/">Layout</a>
           </menuitem>
           <menuitem>
-            <a class="block  p-cell t-gray t-700 dark:t-300 hover:t-900 hover:dark:t-100"  href="/baselayer-3/decoration/">Decoration</a></menuitem>
+            <a class="block  p-cell t-gray t-600 dark:t-300"  href="/baselayer-3/decoration/">Decoration</a></menuitem>
           <menuitem>
-            <a class="block  p-cell t-gray t-700 dark:t-300 hover:t-900 hover:dark:t-100"  href="/baselayer-3/colors/">Colors</a>
+            <a class="block  p-cell t-gray t-600 dark:t-300"  href="/baselayer-3/colors/">Colors</a>
           </menuitem>
           <menuitem>
-            <a class="block  p-cell t-gray t-700 dark:t-300 hover:t-900 hover:dark:t-100"  href="/baselayer-3/forms/">Forms</a>
+            <a class="block  p-cell t-gray t-600 dark:t-300"  href="/baselayer-3/forms/">Forms</a>
           </menuitem>
           <menuitem>
-            <a class="block  p-cell t-gray t-700 dark:t-300 hover:t-900 hover:dark:t-100"  href="/baselayer-3/buttons/">Buttons</a>
+            <a class="block  p-cell t-gray t-600 dark:t-300"  href="/baselayer-3/buttons/">Buttons</a>
             </menuitem>
           <menuitem>
-            <a class="block p-cell t-gray t-700 dark:t-300 hover:t-900 hover:dark:t-100" href="/baselayer-3/examples/">Examples</a>
+            <a class="block p-cell t-gray t-600 dark:t-300" href="/baselayer-3/examples/">Examples</a>
           </menuitem>
         </menu>
       </nav>
@@ -376,15 +379,15 @@ window.addEventListener("DOMContentLoaded", () => {
         <div id="toc-outer" class="sticky top w-content h-max-100dvh mx-auto px-2 pb-4 links-underline-hover-only overflow-y">
           <p class="h4 t-semibold">On this page</p>
           <nav class="toc" >
-        <ul><li><a href="#font-stacks">Font stacks</a><ul><li><a href="#setting-font-stacks">Setting font stacks</a></li></ul></li><li><a href="#base-font-size">Base font size</a></li><li><a href="#typographic-block-elements">Typographic block elements</a><ul><li><a href="#the-typographic-block-flow-utility">The typographic block flow utility</a></li><li><a href="#headings">Headings</a></li><li><a href="#block-quotes">Block quotes</a></li><li><a href="#lists">Lists</a></li></ul></li><li><a href="#links-and-menus">Links and menus</a><ul><li><a href="#link-utilities">Link utilities</a></li><li><a href="#panel-links">Panel links</a></li><li><a href="#menus">Menus</a></li></ul></li><li><a href="#text-alignment">Text alignment</a></li><li><a href="#tables">Tables</a><ul><li><a href="#making-wide-tables-responsive">Making wide tables responsive</a></li></ul></li><li><a href="#making-text-bigger">Making text bigger</a><ul><li><a href="#font-size-multipliers">Font size multipliers</a></li><li><a href="#responsive-font-size-multipliers">Responsive font size multipliers</a></li></ul></li><li><a href="#code">Code</a></li><li><a href="#other-typographic-utility-classes">Other typographic utility classes</a></li></ul>
+        <ul><li><a href="#font-stacks">Font stacks</a><ul><li><a href="#setting-font-stacks">Setting font stacks</a></li></ul></li><li><a href="#base-font-size">Base font size</a></li><li><a href="#typographic-block-elements">Typographic block elements</a><ul><li><a href="#the-typographic-block-flow-utility">The typographic block flow utility</a></li><li><a href="#headings">Headings</a></li><li><a href="#block-quotes">Block quotes</a></li><li><a href="#lists">Lists</a></li></ul></li><li><a href="#links-and-menus">Links and menus</a><ul><li><a href="#link-utilities">Link utilities</a></li><li><a href="#panel-links">Panel links</a></li><li><a href="#menus">Menus</a></li></ul></li><li><a href="#text-alignment">Text alignment</a></li><li><a href="#tables">Tables</a><ul><li><a href="#making-wide-tables-responsive">Making wide tables responsive</a></li></ul></li><li><a href="#controlling-text-size">Controlling text size</a><ul><li><a href="#inline-font-size-multipliers">Inline font size multipliers</a></li><li><a href="#block-font-size-multipliers">Block font size multipliers</a></li><li><a href="#responsive-font-size-multipliers">Responsive font size multipliers</a></li></ul></li><li><a href="#code">Code</a></li><li><a href="#other-typographic-utility-classes">Other typographic utility classes</a></li></ul>
       </nav>
         </div>
       </aside>
       <div class="main-pane">
         <div class="main-pane-content container">
-          <header id="article-title" class="content-grid">
-            <div class="aspect-ratio-16x9 relative">
-              <h1 class="box place-center my-3 t-balance t-center">Typography</h1>
+          <header id="article-title" class="wrapper-md">
+            <div class="py-4 t-comfort">
+              <h1 class="py-4 t-thin t-balance t-center">Baselayer 3: Typography</h1>
             </div>
           </header>
           <main class="content-grid flow">
@@ -394,20 +397,20 @@ window.addEventListener("DOMContentLoaded", () => {
   --t-sans: ui-sans-serif, sans-serif;
   --t-serif: ui-serif, serif;
   --t-mono: ui-monospace, monospace;
-  --t-default: var(--t-sans);
+  --t-base-ff: var(--t-sans);
   --t-prose: var(--t-serif);
 }
 </code></pre>
 <p>Everything here is an example, a place to start. Your own <code>--base</code> and <code>--prose</code> don’t need to be both sans-serif and serif. See <a href="#setting-font-stacks">setting font stacks</a> for more information.</p>
-<p>The Baselayer docs make use of JavaScript and some extra CSS to enable a demo toggle, so that you can switch between <code>--base</code> and <code>--prose</code> in this main content area — see main menu.</p>
+<p>The Baselayer docs make use of JavaScript and some extra CSS to enable a demo toggle, so that you can switch between <code>--base-ff</code> and <code>--prose</code> in this main content area — see main menu.</p>
 <p>Font stack usage in Baselayer:</p>
 <ul>
-<li>The base font stack <code>--t-default</code> is set in the <code>&lt;body&gt;</code> tag and via the <code>t-base</code> utility class. It is also set on form inputs and on heading tags (using <code>--h-ff: inherit;</code> so that you can override and set a different heading typeface).</li>
+<li>The base font stack <code>--t-base-ff</code> is set in the <code>&lt;body&gt;</code> tag and via the <code>t-base</code> utility class. It is also set on form inputs and on heading tags (using <code>--h-ff: inherit;</code>) so that you can override and set a different heading typeface).</li>
 <li>The prose is only available via the <code>t-prose</code> utility class. Employ it on your <code>&lt;article&gt;</code> tag, or wherever you need.</li>
 <li>The monotype is available via the <code>&lt;code&gt;</code>, <code>&lt;kbd&gt;</code>, and <code>&lt;samp&gt;</code> HTML tags, and in the <code>t-mono</code> utility class.</li>
 </ul>
 <h3 id="setting-font-stacks" tabindex="-1">Setting font stacks</h3>
-<p>In choosing your own font stacks, you will probably need two fonts that have similar <em>x-height</em>, so that you can set them using the same font size and line-height. Some other factors to compare are hights for lowercase ascenders and descenders, letter width, and stroke thickness.</p>
+<p>In choosing your own font stacks, you will probably need two fonts that have similar <em>x-height</em> CSS property), so that you can set them using the same font size and line-height. Some other factors to compare are hights for lowercase ascenders and descenders, letter width, and stroke thickness.</p>
 <p>If you want to stick with using native font stacks (i.e. those that come with computers, tablets, and phones), then the <a href="https://modernfontstacks.com">Modern Font Stacks</a> website has several examples that you can easily copy.</p>
 <p>In choosing your own typefaces from elsewhere, a good place to start is by pairing serif and sans-serif (or slab serif) fonts of the same typeface, if both are available. <a href="https://fonts.google.com">Google Fonts</a> has several such typefaces to choose from, such as:</p>
 <ul>
@@ -459,20 +462,22 @@ window.addEventListener("DOMContentLoaded", () => {
   margin-top: var(--s-flow, 1em);
 }
 
-:where(h1, h2, h3, h4, h5, .h1, .h2, .h3, .h4, .h5)
-  + :where(h2, h3, h4, h5, h6, .h2, .h3, .h4, .h5, .h6) {
+:where(h1, h2, h3, h4, h5)
+  + :where(h2, h3, h4, h5, h6) {
   margin-top: var(--s-between-headings, --s-1) !important;
 }
 </code></pre>
 <h3 id="headings" tabindex="-1">Headings</h3>
 <p>Heading sizes are set a simple typographic scale (but set in <strong>em</strong>, not pt or px). The font size for <code>h6</code> and utility class <code>.h6</code> is not increased by this scale (remains the same as the base font size).</p>
 <p>Example headings (using heading-size utility classes):</p>
-<p class="h1 mt-3 t-semibold">Heading h1</p>
+<div class="w-fit-content mx-auto flex flex-column">
+<p class="h1 t-semibold">Heading h1</p>
 <p class="h2 t-semibold">Heading h2</p>
 <p class="h3 t-semibold">Heading h3</p>
 <p class="h4 t-semibold">Heading h4</p>
 <p class="h5 t-semibold">Heading h5</p>
 <p class="h6 mb-3 t-semibold">Heading h6</p>
+</div>
 <pre><code class="language-css">:root {
   --h1: 2.5em;
   --h2: 1.875em;
@@ -603,31 +608,30 @@ window.addEventListener("DOMContentLoaded", () => {
 &lt;/dl&gt;
 </code></pre>
 <h2 id="links-and-menus" tabindex="-1">Links and menus</h2>
-<p>The default underline for links has been moved downwards slightly to improve legibility. The link decoration (underline) thickness has been set at 1px, so that it doesn’t become thicker when used on larger text (e.g. in headings) where link underline can be too bulky).</p>
-<p>On <code>:hover</code>, the link text color remains unchanged. Instead, the visual cue that “this text is a clickable link” is indicated by underline becoming thicker, increasing to 3px.</p>
-<p>This thickening of the line is more obvious than a slight color change, such as you see in other CSS starter kits and frameworks. But if you require a color change, you can add your own, e.g. by Baselayer variables or <a href="/baselayer-3/colors">color utilities</a>.</p>
+<p><strong>New in Baselayer v.3.8.0:</strong> link text is now darkened on hover by mixing in a little black, or lightened for the dark theme by mixing in a little white, using <code>color-mix()</code>. And Baselayer has reverted to the default link underline (the opinionated modification of position and thickness has been removed).</p>
 <p>Example:</p>
 <ul>
 <li><a href="">This is a link to nowhere</a> as a demonstration</li>
 </ul>
 <h3 id="link-utilities" tabindex="-1">Link utilities</h3>
-<p>Then there are the following two classes that apply to links, that may be handy in some situations:</p>
+<p>For accessability, links <em>within the main content area</em> usually have underlines as a visual cue. In other locations such as navigation menus, the unlerline may not be necessary.</p>
 <ul>
 <li><a class="t-underline-none" href="">This link has no underline</a> — <code>t-underline-none</code></li>
 <li><a class="t-underline-hover-only" href="">This link has no underline unless hovered</a> — <code>t-underline-hover-only</code></li>
 </ul>
-<p>When you remove the underline completely, you will want to add back affordance e.g. by changing the text or background color on hover.</p>
-<p>The browser default, and the best practice for accessability, is to have links indicated by an underline (and the browser default color of links is blue). But in the context of menus it is permissible to deviate from the best practice, provided there are other visual and non-visual indicators. This is the reason why we should use <a href="https://www.codecademy.com/resources/blog/semantic-html/">semantic HTML</a> tags on menus, and and why we should place navigation menus in their expected locations (in sitewide menu-bars, sidebars, and footers).</p>
+<p>It needs to be visually obvious that a link is a link. Therefore the browser default, and the best practice for accessability, is to have links indicated by an underline (and the browser default color of links is usually blue). However, in the context of menus it is permissible to deviate from the best practice; but you will want to add in other visual indicators.</p>
+<p>It is also best practice for accessibility and SEO reasons to use <a href="https://www.codecademy.com/resources/blog/semantic-html/">semantic HTML</a> tags on menus, and and why we should place navigation menus in their expected locations: in sitewide menu-bars, sidebars, and footers.</p>
+<p>Within the main content area, if you remove the link underline, you will want to add another visual cue e.g. by changing the background color on hover (as is done in “links styled as buttons”).</p>
 <h3 id="panel-links" tabindex="-1">Panel links</h3>
 <p>There may be situations where you have a link that contains some accompanying text that you don’t want to receive the <code>&lt;a href=&quot;&quot;&gt;</code> (link) underline. Examples where this may be used: media object, card or hero component, where you want the whole thing to behave as a “big button”.</p>
 <p>In this case, you don’t want to place the <code>t-underline-none</code> on the <code>&lt;a href=&quot;&quot;&gt;</code> itself, but only on the inner element.</p>
-<p>You will also want to style the outer <code>&lt;a href=&quot;&quot;&gt;</code> e.g. with the <code>block</code> utility (for <code>display:block</code>), and add more styles to this inner element text, so that it is not the same color as the link label.</p>
-<p>In the example below, see how only the inner element <em>not</em> styled with <code>t-underline-none</code> behaves as the link text.</p>
+<p>You will usually also want to style the outer <code>&lt;a href=&quot;&quot;&gt;</code> e.g. with the <code>block</code> utility (for <code>display:block</code>), and add more styles to this inner element text, so that it is not the same color as the link label.</p>
+<p>In the example below, see how the “Lorem ipsum” paragraph does not look like link text, and does not visually respond like link text, even though it is within the link panel.</p>
 <a class="my-3 p-3 bg-gray bg-100 dark:bg-900" href="#/">
   <p>Link label (title)</p>
   <p class="mb-0 t-gray t-900 dark:t-100 t-underline-none">Lorem ipsum dolor sit amet ...</p>
 </a>
-<pre><code class="language-html">&lt;a href=&quot;&quot;&gt;
+<pre><code class="language-html">&lt;a class=&quot;block&quot; href=&quot;&quot;&gt;
   &lt;p&gt;Link label (title)&lt;/p&gt;
   &lt;p class=&quot;t-underline-none&quot;&gt;Lorem ipsum dolor sit amet ...&lt;/p&gt;
 &lt;/a&gt;
@@ -637,9 +641,9 @@ window.addEventListener("DOMContentLoaded", () => {
     <p>Link label (title)</p>
     <p class="mb-0 t-gray t-900 dark:t-100 t-underline-none">Lorem ipsum dolor sit amet ...</p>
 </a>
-<pre><code class="language-html">&lt;a class=&quot;t-underline-hover-only&quot; href=&quot;&quot;&gt;
-    &lt;p&gt;Link label (title)&lt;/p&gt;
-    &lt;p class=&quot;t-underline-none&quot;&gt;Lorem ipsum dolor sit amet ...&lt;/p&gt;
+<pre><code class="language-html">&lt;a class=&quot;block t-underline-hover-only&quot; href=&quot;&quot;&gt;
+  &lt;p&gt;Link label (title)&lt;/p&gt;
+  &lt;p class=&quot;t-underline-none&quot;&gt;Lorem ipsum dolor sit amet ...&lt;/p&gt;
 &lt;/a&gt;
 </code></pre>
 <h3 id="menus" tabindex="-1">Menus</h3>
@@ -728,8 +732,7 @@ window.addEventListener("DOMContentLoaded", () => {
 <li>Table cells <code>&lt;th&gt;</code> and <code>&lt;td&gt;</code> have a border set by <code>var(--b-1)</code> – the same detail as <code>&lt;hr&gt;</code> and <a href="/baselayer-3/decoration/#borders">border</a> utility classes.</li>
 <li>Table cell paddings are set by <code>--p-cell</code> (see decoration <a href="/baselayer-3/decoration/#spacing-extras">spacing extras</a>)</li>
 <li>All cell content is left-aligned. You can change that on the whole <code>&lt;table&gt;</code> or on a per-cell basis using the <a href="#text-alignment">text alignment</a> classes.</li>
-<li>Optional modifier <code>table-grid</code> will add the outline to all <code>th</code> and <code>td</code> cells.</li>
-<li>Optional modifier <code>table-fixed</code> will force cells to have the same (fixed) width.</li>
+<li>Table cell widths normally adjust to accommmodate the content. Adding the optional modifier <code>table-fixed</code> will force all the cells to have the same (fixed) width.</li>
 </ul>
 <table class="table">
   <caption>This is a Table Caption</caption>
@@ -787,39 +790,6 @@ window.addEventListener("DOMContentLoaded", () => {
   &lt;/tbody&gt;
 &lt;/table&gt;
 </code></pre>
-<p>With <code>table table-grid</code>:</p>
-<table class="table table-grid">
-  <caption>This is a Table Caption</caption>
-  <thead>
-    <tr>
-      <th>Table Header 1</th>
-      <th>Table Header 2</th>
-      <th>Table Header 3</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Table content 1.1</td>
-      <td>Table content 2.1</td>
-      <td>Table content 3.1</td>
-    </tr>
-    <tr>
-      <td>Table content 1.2</td>
-      <td>Table content 2.2</td>
-      <td>Table content 3.2</td>
-    </tr>
-    <tr>
-      <td>Table content 1.3</td>
-      <td>Table content 2.3</td>
-      <td>Table content 3.3</td>
-    </tr>
-    <tr>
-      <td>Table content 1.4</td>
-      <td>Table content 2.4</td>
-      <td>Table content 3.4</td>
-    </tr>
-  </tbody>
-</table>
 <h3 id="making-wide-tables-responsive" tabindex="-1">Making wide tables responsive</h3>
 <p>If you have a lot of content in your table, it will probably break your page layout on small viewports (e.g. phones). The simplest way to make a table “responsive” is to wrap your table in a DIV with the <code>overflow-x</code> class to make it horizontally scrollable.</p>
 <div class="overflow-x">
@@ -858,13 +828,29 @@ window.addEventListener("DOMContentLoaded", () => {
   &lt;/table&gt;
 &lt;/div&gt;
 </code></pre>
-<h2 id="making-text-bigger" tabindex="-1">Making text bigger</h2>
-<p>The base font size is 100% (16px default). Additionally:</p>
-<h3 id="font-size-multipliers" tabindex="-1">Font size multipliers</h3>
+<h2 id="controlling-text-size" tabindex="-1">Controlling text size</h2>
+<p>The base font size is 100% (16px default). Additionally Baselayer includes all the following font-size multipliers.</p>
+<div aria-label="Warning" class="popout bl-heavy b-amber b-400 p-2 t-reversi bg-amber bg-200 dark:bg-700">
+<p><strong>Note:</strong> Baselayer font size multipliers are sent in <code>em</code> relative sizes, to enable the multipliciation. This means that if you nest them, you multiply the multiplication. There are two things you need to beware of:</p>
 <ol>
-<li>There’s a <code>t-lg</code> class that can be used to make text 1.325em — good for a lead paragraph, large button, or important messaging.</li>
-<li>Classes <code>.h1</code> through <code>.h6</code> will resize text the same amount as for their respective heading tag sizes — use these when you want to make text bigger (or large text smaller) without adversely affecting accessibility/ SEO heading hierarchy.</li>
+<li>The resulting font size can be too big for small devices; check what your titles and hero messaging looks like on phones. The <a href="#responsive-block-font-size-multipliers">responsive font-size multipliers</a> are designed to help you not make tech too bug for phones.</li>
+<li>If you want some words of a title to be in smaller text, you need <code>t-sm</code> for that portion, not e.g. <code>h2</code> inside <code>h1</code> because, counterintuitively, that will make the text larger not smaller.</li>
 </ol>
+</div>
+<h3 id="inline-font-size-multipliers" tabindex="-1">Inline font size multipliers</h3>
+<p>The <code>t-sm</code> class will reduce text to 0.75em – good for small-print, footnotes, or reducing the size of part of the text within headings.</p>
+<p>The <code>t-lg</code> class will enlarge text to 1.25em — good for a lead paragraph, large button, or important messaging.</p>
+<p class="t-center"><span class="t-sm">t-sm text</span>, <span>base text</span>, <span class="t-lg">t-lg text</span></p>
+<h3 id="block-font-size-multipliers" tabindex="-1">Block font size multipliers</h3>
+<p>Classes <code>.h1</code> through <code>.h6</code> will resize text the same amount as for their respective heading tag sizes — use these when you want to make text bigger (or large text smaller) without adversely affecting accessibility/ SEO heading hierarchy.</p>
+<div class="w-fit-content mx-auto flex flex-column">
+<span class="h6"><code>h6</code> heading size is the same as base size, but in <code>em</code></span>
+<span class="h5"><code>h5</code> heading size</span>
+<span class="h4"><code>h4</code> heading size is the same as <code>t-lg</code></span>
+<span class="h3"><code>h3</code> heading size</span>
+<span class="h2"><code>h2</code> heading size</span>
+<span class="h1"><code>h1</code> heading size</span>
+</div>
 <h3 id="responsive-font-size-multipliers" tabindex="-1">Responsive font size multipliers</h3>
 <p>In small container (or viewport) widths, these three utilities below do nothing. But with wider stace available, they use a CSS <code>clamp()</code> to ramp up the size to a maximum.</p>
 <ol>
@@ -921,23 +907,23 @@ window.addEventListener("DOMContentLoaded", () => {
 <p><strong>Note:</strong> links can also be styled as though they are buttons using the <code>btn</code> utility class. See <a href="/baselayer-3/buttons/">buttons</a>.</p>
 
             <hr>
-            <nav class="expand grid gap-2 sm:equal-2-cols links-underline-none">
+            <nav class="expand grid gap-2 sm:equal-2-cols">
               
-              <a class="sm:col-1 my-1 b-thin b-blue b-300 hover:b-500 dark:b-700 rad-1 p-cell flex flex-column gap-1 t-blue t-600 hover:t-700 dark:t-400 bg-blue hover:bg-100 hover:dark:bg-800"  href="/baselayer-3/">
-                Previous page
+              <a class="sm:col-1 my-1 b-thin rounded p-cell flex flex-column flex-top gap-1 t-underline-hover-only hover:bg-blue bg-100 dark:bg-900"  href="/baselayer-3/">
+                <span class="t-blue t-underline-none">Previous page</span>
                 <span class="h3 m-0 t-normal"> Introduction</span>
               </a>
               
               
-              <a class="sm:col-2 my-1 b-thin b-blue b-300 hover:b-500 dark:b-700 rad-1 p-cell flex flex-column gap-1 t-blue t-600 hover:t-700 dark:t-400 t-right bg-blue hover:bg-100 hover:dark:bg-800" href="/baselayer-3/layout/">
-                Next page
+              <a class="sm:col-2 my-1 b-thin rounded p-cell flex flex-column flex-bottom gap-1 t-right t-underline-hover-only hover:bg-blue bg-100 dark:bg-900" href="/baselayer-3/layout/">
+                <span class="t-blue t-underline-none">Next page</span>
                 <span class="h3 m-0 t-normal">Layout</span>
               </a>
               
             </nav>
           </main>
           <div class="container-md">
-                        <div class="mt-4 mb-3 p-2 flex flex-column flex-middle t-center">
+            <div class="mt-4 mb-3 p-2 flex flex-column flex-middle t-center">
               <a href="/baselayer-3/" class="mb-1 flex flex-column flex-center gap-1 t-underline-none">
                 <svg class="mx-auto" height="48" width="48" viewBox="0 0 111 111" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-miterwrapper:1.5">
                   <g transform="translate(-294.592 -94.592)">
@@ -950,11 +936,11 @@ window.addEventListener("DOMContentLoaded", () => {
                   </svg>
                 <span class="h3 m-0 t-normal t-nowrap">Baselayer CSS</span>
               </a>
-              <span>Version: 3.7.1</span>
+              <span>Version: 3.8.0</span>
             </div>
 
             <p class="p-cell flex flex-center flex-wrap gap-4 t-center">
-              <span><a class="t-underline-hover-only" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> (27 KB)</span>
+              <span><a class="t-underline-hover-only" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> (26 KB)</span>
               <a class="t-underline-hover-only" href="https://github.com/SimonPadbury/baselayer-3">GitHub Repository</a>
               <a class="t-underline-hover-only" href="https://github.com/SimonPadbury/baselayer-3/blob/main/CHANGELOG.md">Changelog</a>
               <a class="t-underline-hover-only" href="https://github.com/SimonPadbury/baselayer-3/blob/main/LICENSE">MIT license</a>

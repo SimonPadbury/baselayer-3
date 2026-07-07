@@ -1,14 +1,22 @@
 <!--
 • Increment version control numbers in
   README.md, baselayer.css, metadata.json,
-  package.json, package-lock.json (x2), and
-  this CHANGELOG.md
+  package.json, and this CHANGELOG.md
 • Adjust filesize in README.md and
   metadata.json if necessary.
-• Remember to do `npx -y pagefind --site docs` before deployment.
 -->
 
 # Baselayer 3 changelog
+
+## v.3.8.0 -- 2 Jul 2026
+
+* Removed the opinionated link decorations (thickened underline on hover, etc.)
+* Removed hover states from lightness utilities. Instead, Baselayer now darkens (either link text or button background) on hover by mixing in a little black, or lightens it for the dark theme by mixing in a little white.
+* `content-grid` content column width is now set by `--w-sm` not `66ch`.
+* Added `img-contain` and directional `img-cover-*` classes.
+* Simplified the rounded corner utility classes to use the spacing variables and have the same suffix names as margin, madding, and gap; removed the individual rounded corner utilities.
+* Added glass (blur) and filter background modifier utilities.
+* Removed the opacity decoration utilities.
 
 ## v.3.7.1 -- 29 Jun 2026
 

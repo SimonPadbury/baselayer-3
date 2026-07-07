@@ -1,31 +1,31 @@
 .b-blue,
 .hover\:b-blue:hover {
   --bc: var(--blue);
-  border-color: oklch(from var(--bc) var(--bl, 50%) c h);
+  border-color: oklch(from var(--bc) var(--bl, var(--l500)) c h);
 }
 
 .b-green,
 .hover\:b-green:hover {
   --bc: var(--green);
-  border-color: oklch(from var(--bc) var(--bl, 50%) c h);
+  border-color: oklch(from var(--bc) var(--bl, var(--l500)) c h);
 }
 
 .b-amber,
 .hover\:b-amber:hover {
   --bc: var(--amber);
-  border-color: oklch(from var(--bc) var(--bl, 50%) c h);
+  border-color: oklch(from var(--bc) var(--bl, var(--l500)) c h);
 }
 
 .b-red,
 .hover\:b-red:hover {
   --bc: var(--red);
-  border-color: oklch(from var(--bc) var(--bl, 50%) c h);
+  border-color: oklch(from var(--bc) var(--bl, var(--l500)) c h);
 }
 
 .b-gray,
 .hover\:b-gray:hover {
   --bc: var(--gray);
-  border-color: oklch(from var(--bc) var(--bl, 50%) c h);
+  border-color: oklch(from var(--bc) var(--bl, var(--l500)) c h);
 }
 
 /* Text colors */
@@ -33,31 +33,31 @@
 .t-blue,
 .hover\:t-blue:hover {
   --tc: var(--blue);
-  color: oklch(from var(--tc) var(--tl, 50%) c h);
+  color: oklch(from var(--tc) var(--tl, var(--l500)) c h);
 }
 
 .t-green,
 .hover\:t-green:hover {
   --tc: var(--green);
-  color: oklch(from var(--tc) var(--tl, 50%) c h);
+  color: oklch(from var(--tc) var(--tl, var(--l500)) c h);
 }
 
 .t-amber,
 .hover\:t-amber:hover {
   --tc: var(--amber);
-  color: oklch(from var(--tc) var(--tl, 50%) c h);
+  color: oklch(from var(--tc) var(--tl, var(--l500)) c h);
 }
 
 .t-red,
 .hover\:t-red:hover {
   --tc: var(--red);
-  color: oklch(from var(--tc) var(--tl, 50%) c h);
+  color: oklch(from var(--tc) var(--tl, var(--l500)) c h);
 }
 
 .t-gray,
 .hover\:t-gray:hover {
   --tc: var(--gray);
-  color: oklch(from var(--tc) var(--tl, 50%) c h);
+  color: oklch(from var(--tc) var(--tl, var(--l500)) c h);
 }
 
 /* Background colors */
@@ -65,31 +65,46 @@
 .bg-blue,
 .hover\:bg-blue:hover {
   --bgc: var(--blue);
-  background: oklch(from var(--bgc) var(--bgl, 50%) c h);
+  background-color: light-dark(
+    oklch(from var(--bgc) var(--bgl, var(--l500)) c h),
+    oklch(from var(--bgc) var(--bgld, var(--l500)) c h)
+  );
 }
 
 .bg-green,
 .hover\:bg-green:hover {
   --bgc: var(--green);
-  background: oklch(from var(--bgc) var(--bgl, 50%) c h);
+  background-color: light-dark(
+    oklch(from var(--bgc) var(--bgl, var(--l500)) c h),
+    oklch(from var(--bgc) var(--bgld, var(--l500)) c h)
+  );
 }
 
 .bg-amber,
 .hover\:bg-amber:hover {
   --bgc: var(--amber);
-  background: oklch(from var(--bgc) var(--bgl, 50%) c h);
+  background-color: light-dark(
+    oklch(from var(--bgc) var(--bgl, var(--l500)) c h),
+    oklch(from var(--bgc) var(--bgld, var(--l500)) c h)
+  );
 }
 
 .bg-red,
 .hover\:bg-red:hover {
   --bgc: var(--red);
-  background: oklch(from var(--bgc) var(--bgl, 50%) c h);
+  background-color: light-dark(
+    oklch(from var(--bgc) var(--bgl, var(--l500)) c h),
+    oklch(from var(--bgc) var(--bgld, var(--l500)) c h)
+  );
 }
 
 .bg-gray,
 .hover\:bg-gray:hover {
   --bgc: var(--gray);
-  background: oklch(from var(--bgc) var(--bgl, 50%) c h);
+  background-color: light-dark(
+    oklch(from var(--bgc) var(--bgl, var(--l500)) c h),
+    oklch(from var(--bgc) var(--bgld, var(--l500)) c h)
+  );
 }
 
 /* Border lightness levels */
@@ -105,7 +120,7 @@
 [class*="b-900"] {
   border-color: oklch(from var(--bc) var(--bl) c h);
 }
-/* Use `hover:dark:b-100` NOT `dark:hover:b-100` */
+
 [class*="dark:b-100"],
 [class*="dark:b-200"],
 [class*="dark:b-300"],
@@ -121,93 +136,75 @@
   );
 }
 
-.b-100,
-.hover\:b-100:hover {
+.b-100 {
   --bl: var(--l100);
 }
 
-.b-200,
-.hover\:b-200:hover {
+.b-200 {
   --bl: var(--l200);
 }
 
-.b-300,
-.hover\:b-300:hover {
+.b-300 {
   --bl: var(--l300);
 }
 
-.b-400,
-.hover\:b-400:hover {
+.b-400 {
   --bl: var(--l400);
 }
 
-.b-500,
-.hover\:b-500:hover {
+.b-500 {
   --bl: var(--l500);
 }
 
-.b-600,
-.hover\:b-600:hover {
+.b-600 {
   --bl: var(--l600);
 }
 
-.b-700,
-.hover\:b-700:hover {
+.b-700 {
   --bl: var(--l700);
 }
 
-.b-800,
-.hover\:b-800:hover {
+.b-800 {
   --bl: var(--l800);
 }
 
-.b-900,
-.hover\:b-900:hover {
+.b-900 {
   --bl: var(--l900);
 }
 
-.dark\:b-100,
-.hover\:dark\:b-100:hover {
+.dark\:b-100 {
   --bld: var(--l100);
 }
 
-.dark\:b-200,
-.hover\:dark\:b-200:hover {
+.dark\:b-200 {
   --bld: var(--l200);
 }
 
-.dark\:b-300,
-.hover\:dark\:b-300:hover {
+.dark\:b-300 {
   --bld: var(--l300);
 }
 
-.dark\:b-400,
-.hover\:dark\:b-400:hover {
+.dark\:b-400 {
   --bld: var(--l400);
 }
 
-.dark\:b-500,
-.hover\:dark\:b-500:hover {
+.dark\:b-500 {
   --bld: var(--l500);
 }
 
-.dark\:b-600,
-.hover\:dark\:b-600:hover {
+.dark\:b-600 {
   --bld: var(--l600);
 }
 
-.dark\:b-700,
-.hover\:dark\:b-700:hover {
+.dark\:b-700 {
   --bld: var(--l700);
 }
 
-.dark\:b-800,
-.hover\:dark\:b-800:hover {
+.dark\:b-800 {
   --bld: var(--l800);
 }
 
-.dark\:b-900,
-.hover\:dark\:b-900:hover {
+.dark\:b-900 {
   --bld: var(--l900);
 }
 
@@ -224,7 +221,7 @@
 [class*="t-900"] {
   color: oklch(from var(--tc) var(--tl) c h);
 }
-/* Use `.hover:dark:t-100` NOT `.dark:hover:t-100` */
+
 [class*="dark:t-100"],
 [class*="dark:t-200"],
 [class*="dark:t-300"],
@@ -240,93 +237,75 @@
   );
 }
 
-.t-100,
-.hover\:t-100:hover {
+.t-100 {
   --tl: var(--l100);
 }
 
-.t-200,
-.hover\:t-200:hover {
+.t-200 {
   --tl: var(--l200);
 }
 
-.t-300,
-.hover\:t-300:hover {
+.t-300 {
   --tl: var(--l300);
 }
 
-.t-400,
-.hover\:t-400:hover {
+.t-400 {
   --tl: var(--l400);
 }
 
-.t-500,
-.hover\:t-500:hover {
+.t-500 {
   --tl: var(--l500);
 }
 
-.t-600,
-.hover\:t-600:hover {
+.t-600 {
   --tl: var(--l600);
 }
 
-.t-700,
-.hover\:t-700:hover {
+.t-700 {
   --tl: var(--l700);
 }
 
-.t-800,
-.hover\:t-800:hover {
+.t-800 {
   --tl: var(--l800);
 }
 
-.t-900,
-.hover\:t-900:hover {
+.t-900 {
   --tl: var(--l900);
 }
 
-.dark\:t-100,
-.hover\:dark\:t-100:hover {
+.dark\:t-100 {
   --tld: var(--l100);
 }
 
-.dark\:t-200,
-.hover\:dark\:t-200:hover {
+.dark\:t-200 {
   --tld: var(--l200);
 }
 
-.dark\:t-300,
-.hover\:dark\:t-300:hover {
+.dark\:t-300 {
   --tld: var(--l300);
 }
 
-.dark\:t-400,
-.hover\:dark\:t-400:hover {
+.dark\:t-400 {
   --tld: var(--l400);
 }
 
-.dark\:t-500,
-.hover\:dark\:t-500:hover {
+.dark\:t-500 {
   --tld: var(--l500);
 }
 
-.dark\:t-600,
-.hover\:dark\:t-600:hover {
+.dark\:t-600 {
   --tld: var(--l600);
 }
 
-.dark\:t-700,
-.hover\:dark\:t-700:hover {
+.dark\:t-700 {
   --tld: var(--l700);
 }
 
-.dark\:t-800,
-.hover\:dark\:t-800:hover {
+.dark\:t-800 {
   --tld: var(--l800);
 }
 
-.dark\:t-900,
-.hover\:dark\:t-900:hover {
+.dark\:t-900 {
   --tld: var(--l900);
 }
 
@@ -341,10 +320,9 @@
 [class*="bg-700"],
 [class*="bg-800"],
 [class*="bg-900"] {
-  background: oklch(from var(--bgc) var(--bgl) c h);
+  background-color: oklch(from var(--bgc) var(--bgl) c h);
 }
 
-/* USE `hover:dark:bg-100` NOT `dark:hover:bg-100` */
 [class*="dark:bg-100"],
 [class*="dark:bg-200"],
 [class*="dark:bg-300"],
@@ -354,99 +332,81 @@
 [class*="dark:bg-700"],
 [class*="dark:bg-800"],
 [class*="dark:bg-900"] {
-  background: light-dark(
+  background-color: light-dark(
     oklch(from var(--bgc) var(--bgl) c h),
     oklch(from var(--bgc) var(--bgld) c h)
   );
 }
 
-.bg-100,
-.hover\:bg-100:hover {
+.bg-100 {
   --bgl: var(--l100);
 }
 
-.bg-200,
-.hover\:bg-200:hover {
+.bg-200 {
   --bgl: var(--l200);
 }
 
-.bg-300,
-.hover\:bg-300:hover {
+.bg-300 {
   --bgl: var(--l300);
 }
 
-.bg-400,
-.hover\:bg-400:hover {
+.bg-400 {
   --bgl: var(--l400);
 }
 
-.bg-500,
-.hover\:bg-500:hover {
+.bg-500 {
   --bgl: var(--l500);
 }
 
-.bg-600,
-.hover\:bg-600:hover {
+.bg-600 {
   --bgl: var(--l600);
 }
 
-.bg-700,
-.hover\:bg-700:hover {
+.bg-700 {
   --bgl: var(--l700);
 }
 
-.bg-800,
-.hover\:bg-800:hover {
+.bg-800 {
   --bgl: var(--l800);
 }
 
-.bg-900,
-.hover\:bg-900:hover {
+.bg-900 {
   --bgl: var(--l900);
 }
 
-.dark\:bg-100,
-.hover\:dark\:bg-100:hover {
+.dark\:bg-100 {
   --bgld: var(--l100);
 }
 
-.dark\:bg-200,
-.hover\:dark\:bg-200:hover {
+.dark\:bg-200 {
   --bgld: var(--l200);
 }
 
-.dark\:bg-300,
-.hover\:dark\:bg-300:hover {
+.dark\:bg-300 {
   --bgld: var(--l300);
 }
 
-.dark\:bg-400,
-.hover\:dark\:bg-400:hover {
+.dark\:bg-400 {
   --bgld: var(--l400);
 }
 
-.dark\:bg-500,
-.hover\:dark\:bg-500:hover {
+.dark\:bg-500 {
   --bgld: var(--l500);
 }
 
-.dark\:bg-600,
-.hover\:dark\:bg-600:hover {
+.dark\:bg-600 {
   --bgld: var(--l600);
 }
 
-.dark\:bg-700,
-.hover\:dark\:bg-700:hover {
+.dark\:bg-700 {
   --bgld: var(--l700);
 }
 
-.dark\:bg-800,
-.hover\:dark\:bg-800:hover {
+.dark\:bg-800 {
   --bgld: var(--l800);
 }
 
-.dark\:bg-900,
-.hover\:dark\:bg-900:hover {
+.dark\:bg-900 {
   --bgld: var(--l900);
 }
 
@@ -476,7 +436,7 @@
 .bg-white,
 .hover\:bg-white:hover {
   --bgc: #fff;
-  background: var(--bgc);
+  background-color: var(--bgc);
 }
 
 .b-black,
@@ -494,52 +454,58 @@
 .bg-black,
 .hover\:bg-black:hover {
   --bgc: #000;
-  background: var(--bgc);
+  background-color: var(--bgc);
 }
 
 .bg-transparent {
   --bgc: transparent;
-  background: var(--bgc);
+  background-color: var(--bgc);
 }
 
-.b-reversi,
-.hover\:b-reversi:hover {
-  --bc: #000;
-  --bcd: #fff;
-  border-color: light-dark(var(--bgc), var(--bcd));
+.b-reversi {
+  --bl: unset;
+  border-color: light-dark(#000, #fff);
 }
 
-.b-reversi-flip,
-.hover\:b-reversi-flip:hover {
-  --bc: #fff;
-  --bcd: #000;
-  border-color: light-dark(var(--bcd), var(--bgc));
+.b-reversi-flip {
+  --bl: unset;
+  border-color: light-dark(#fff, #000);
 }
 
-.t-reversi,
-.hover\:t-reversi:hover {
-  --tc: #000;
-  --tcd: #fff;
-  color: light-dark(var(--tc), var(--tcd));
+.t-reversi {
+  --tl: unset;
+  color: light-dark(#000, #fff);
 }
 
-.t-reversi-flip,
-.hover\:t-reversi-flip:hover {
-  --tc: #fff;
-  --tcd: #000;
-  color: light-dark(var(--tc), var(--tcd));
+.t-reversi-flip {
+  --tl: unset;
+  color: light-dark(#fff, #000);
 }
 
-.bg-reversi,
-.hover\:bg-reversi:hover {
-  --bgc: #000;
-  --bgcd: #fff;
-  background: light-dark(var(--bgc), var(--bgcd));
+.bg-reversi {
+  --bgl: unset;
+  background-color: light-dark(#000, #fff);
 }
 
-.bg-reversi-flip,
-.hover\:bg-reversi-flip:hover {
-  --bgc: #fff;
-  --bgcd: #000;
-  background: light-dark(var(--bgc), var(--bgcd));
+.bg-reversi-flip {
+  --bgl: unset;
+  background-color: light-dark(#fff, #000);
+}
+
+.bg-glass,
+.bg-filter {
+  background: color-mix(
+    in srgb,
+    var(--bgc, transparent) calc(100% - var(--bgl, 50%)),
+    transparent
+  ) !important;
+}
+
+.bg-glass {
+  backdrop-filter: var(--bg-glass-blur);
+}
+
+.hover\:bg-opaque:hover {
+  backdrop-filter: unset;
+  background: var(--bgc) !important;
 }

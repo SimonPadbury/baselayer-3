@@ -1037,7 +1037,6 @@ wrappers (f.k.a. containers) and widths
 
 /* For -xxl see above */
 
-.wrapper-content,
 .w-content {
   --w-max: var(--w-content);
 }
@@ -1075,6 +1074,14 @@ wrappers (f.k.a. containers) and widths
   inset: 0;
 }
 
+[class*="icon"],
+[class*="square"] {
+  aspect-ratio: 1/1;
+  height: min(var(--square), var(--square));
+  position: relative;
+  width: min(var(--square), var(--square));
+}
+
 .aspect-ratio-16x9 {
   aspect-ratio: 16 / 9;
 }
@@ -1089,8 +1096,4 @@ wrappers (f.k.a. containers) and widths
 
 .aspect-ratio-4x3 {
   aspect-ratio: 4 / 3;
-}
-
-.aspect-ratio-1x1 {
-  aspect-ratio: 1 / 1;
 }

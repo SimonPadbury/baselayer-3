@@ -1,28 +1,19 @@
 ---
 title: Examples
-mainHeading: Examples
+mainHeading: "Baselayer 3: Examples"
 layout: base-fw.njk
 ---
-
-<div class="wrapper">
-  <button class="pl-1" type="button" onclick="history.back();">
-  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><path d="M165.66,202.34a8,8,0,0,1-11.32,11.32l-80-80a8,8,0,0,1,0-11.32l80-80a8,8,0,0,1,11.32,11.32L91.31,128Z"></path></svg>
-    Back
-  </button>
-</div>
-
-* * *
 
 ## [Centered layout wrappers]({{ "/layout/#centered-layout-wrappers" | url }})
 
 **Note:** `container` is simply used for adding a [container query context]({{ "/layout/#container-query-contexts" | url }}) — it doesn’t add any constraints.
 
-<div class="wrapper mb-1 p-1 bg-gray bg-100 dark:bg-900">wrapper / wrapper-xxl — max 1792px</div>
-<div class="wrapper-xl mb-1 p-1 bg-gray bg-100 dark:bg-900">wrapper-lg — max 1536px</div>
-<div class="wrapper-lg mb-1 p-1 bg-gray bg-100 dark:bg-900">wrapper-lg — max 1280px</div>
-<div class="wrapper-md mb-1 p-1 bg-gray bg-100 dark:bg-900">wrapper-md — max 1024px</div>
-<div class="wrapper-sm mb-1 p-1 bg-gray bg-100 dark:bg-900">wrapper-sm — max 760px</div>
-<div class="wrapper-xs mb-1 p-1 bg-gray bg-100 dark:bg-900">wrapper-xs — max 512px</div>
+<div class="wrapper mb-1 p-1 bg-gray bg-200 dark:bg-800">wrapper / wrapper-xxl — max 1792px</div>
+<div class="wrapper-xl mb-1 p-1 bg-gray bg-200 dark:bg-800">wrapper-lg — max 1536px</div>
+<div class="wrapper-lg mb-1 p-1 bg-gray bg-200 dark:bg-800">wrapper-lg — max 1280px</div>
+<div class="wrapper-md mb-1 p-1 bg-gray bg-200 dark:bg-800">wrapper-md — max 1024px</div>
+<div class="wrapper-sm mb-1 p-1 bg-gray bg-200 dark:bg-800">wrapper-sm — max 760px</div>
+<div class="wrapper-xs mb-1 p-1 bg-gray bg-200 dark:bg-800">wrapper-xs — max 512px</div>
 
 * * *
 
@@ -46,12 +37,12 @@ layout: base-fw.njk
   <button class="rounded rounded-pill" type="button" name="button">Pill button</button>
   <button class="px-3" type="button" name="button">Stretched button</button>
   <a class="btn" href="#/">Link pseudo-button</a>
-  <button class="b-blue b-600 hover:b-700 bg-blue bg-600 hover:bg-700" type="button" name="button">Blue button</button>
-  <button class="b-amber b-400 hover:b-500 t-white hover:t-white bg-amber bg-400 hover:bg-500" type="button" name="button">Amber button</button>
+  <button class="bg-blue" type="button" name="button">Blue button</button>
+  <button class="bg-amber" type="button" name="button">Amber button</button>
   <a class="btn b-thin b-green bg-transparent t-green t-600 hover:b-700 hover:t-white hover:bg-green hover:bg-700" href="#/">Link ghost pseudo-button</a>
 </div>
-<div class="wrapper-sm mb-2">
-  <p class="mb-2">Full width button inside <code>wrapper-sm</code></p>
+<div class="wrapper-xs mb-2">
+  <p class="mb-2">Full width button inside <code>wrapper-xs</code></p>
   <button class="w-100%">Button</button>
 </div>
 
@@ -64,9 +55,9 @@ A malleable grid without setting equalization on cell widths. In this example, f
 <div class="wrapper mb-3 flow">
   <p class="mb-1"><code>grid gap-1</code></p>
     <div class="grid gap-1">
-      <div class="sm:col-1 p-cell bg-gray bg-100 dark:bg-900"><code>sm:col-1</code> A narrow column</div>
-      <div class="sm:col-2 p-cell bg-gray bg-100 dark:bg-900"><code>sm:col-2</code> This will expand to become a wide column because it has a lot of content. This will expand to become a wide column because it has a lot of content. This will expand to become a wide column because it has a lot of content.</div>
-      <div class="sm:col-3 p-cell bg-gray bg-100 dark:bg-900"><code>sm:col-3</code> Another narrow column</div>
+      <div class="sm:col-1 p-cell bg-gray bg-200 dark:bg-800"><code>sm:col-1</code> A narrow column</div>
+      <div class="sm:col-2 p-cell bg-gray bg-200 dark:bg-800"><code>sm:col-2</code> This will expand to become a wide column because it has a lot of content. This will expand to become a wide column because it has a lot of content. This will expand to become a wide column because it has a lot of content.</div>
+      <div class="sm:col-3 p-cell bg-gray bg-200 dark:bg-800"><code>sm:col-3</code> Another narrow column</div>
   </div>
 </div>
 
@@ -75,24 +66,24 @@ Using `equal-` modifiers on the grid wrapper will both equalize column width and
 <div class="wrapper flow">
 <code>grid sm:equal-2-cols gap-2</code>
 <div class="mt-1 mb-2 grid sm:equal-2-cols gap-2">
-  <div class="p-1 bg-gray bg-100 dark:bg-900">#</div>
-  <div class="p-1 bg-gray bg-100 dark:bg-900">#</div>
+  <div class="p-1 bg-gray bg-200 dark:bg-800">#</div>
+  <div class="p-1 bg-gray bg-200 dark:bg-800">#</div>
 </div>
 <code>grid sm:equal-2-cols md:equal-3-cols gap-2</code>
 <div class="mt-1 mb-2 grid sm:equal-2-cols md:equal-3-cols gap-2">
-  <div class="p-1 bg-gray bg-100 dark:bg-900">#</div>
-  <div class="p-1 bg-gray bg-100 dark:bg-900">#</div>
-  <div class="p-1 bg-gray bg-100 dark:bg-900">#</div>
-  <div class="p-1 bg-gray bg-100 dark:bg-900">#</div>
-  <div class="sm:col-span-2 p-1 bg-gray bg-100 dark:bg-900"><code>sm:col-span-2</code></div>
+  <div class="p-1 bg-gray bg-200 dark:bg-800">#</div>
+  <div class="p-1 bg-gray bg-200 dark:bg-800">#</div>
+  <div class="p-1 bg-gray bg-200 dark:bg-800">#</div>
+  <div class="p-1 bg-gray bg-200 dark:bg-800">#</div>
+  <div class="sm:col-span-2 p-1 bg-gray bg-200 dark:bg-800"><code>sm:col-span-2</code></div>
 </div>
 <p><code>sm:grid</code> takes effect at 768px up. Below 768px, <code>gap-2</code> will have no effect.</p>
 <code>sm:grid sm:equal-4-cols gap-2</code>
 <div class="mt-1 mb-2 sm:grid sm:equal-4-cols gap-2">
-  <div class="p-1 bg-gray bg-100 dark:bg-900">#</div>
-  <div class="sm:col-span-2 p-1 bg-gray bg-100 dark:bg-900"><code>sm:col-span-2</code></div>
-  <div class="sm:col-span-3 p-1 bg-gray bg-100 dark:bg-900"><code>sm:col-span-3</code></div>
-  <div class="sm:col-4 sm:row-1 sm:row-span-2 p-1 bg-gray bg-100 dark:bg-900"><code>sm:col-4 sm:row-1 sm:row-span-2</code></div>
+  <div class="p-1 bg-gray bg-200 dark:bg-800">#</div>
+  <div class="sm:col-span-2 p-1 bg-gray bg-200 dark:bg-800"><code>sm:col-span-2</code></div>
+  <div class="sm:col-span-3 p-1 bg-gray bg-200 dark:bg-800"><code>sm:col-span-3</code></div>
+  <div class="sm:col-4 sm:row-1 sm:row-span-2 p-1 bg-gray bg-200 dark:bg-800"><code>sm:col-4 sm:row-1 sm:row-span-2</code></div>
 </div>
 </div><!-- /.wrapper -->
 
@@ -211,19 +202,18 @@ See [typography: making text bigger]({{ "/typography/#making-text-bigger" | url 
   <h3 class="h1">Title of this <code>content-grid</code> demo</h3>
   <p><code>content-grid</code> is intended for long-form articles. Its 7-column grid places the content in column 4, where each immediate-child elment will be its own grid item. <code>popout</code> spans rows 3-5. <code>expand</code> spans rows 2-6. <code>full-bleed</code> spans rows 1-7.</p>
   <p>Here’s a styled <code>&lt;p class="popout"&gt;</code>:</p>
-  <div aria-label="Note" class="popout bt-heavy b-blue b-300 b-dark-invert rounded rounded-2 p-2 t-reversi bg-gray bg-100 dark:bg-900">
+  <div aria-label="Note" class="popout bt-heavy b-blue b-300 b-dark-invert rounded rounded-2 p-2 t-reversi bg-gray bg-200 dark:bg-800">
     &star; Information panel
   </div>
-  <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni rem animi quaerat accusantium illum architecto, nemo, ex harum voluptatum adipisci eum blanditiis dolorum. Natus debitis quisquam, expedita accusantium quos cumque?</p>
   <p>Here’s a styled <code>&lt;div class="expand"&gt;</code>:</p>
   <div class="expand aspect-ratio-16x9 flex flex-center flex-middle relative">
     <svg xmlns="http://www.w3.org/2000/svg" class="box img-cover" preserveAspectRatio="xMidYMid slice" width="1000" height="600"><defs><linearGradient id="gradient1" gradientTransform="rotate(45)"><stop offset="5%" stop-color="rgba(255,255,0,.5)"/><stop offset="50%" stop-color="rgba(255,255,255,0)"/><stop offset="95%" stop-color="rgba(255,0,0,.5)"/></linearGradient><linearGradient id="gradient2" gradientTransform="rotate(135)"><stop offset="5%" stop-color="rgba(0,0,255,.5)"/><stop offset="50%" stop-color="rgba(255,255,255,0)"/><stop offset="95%" stop-color="rgba(0,255,0,.5)"/></linearGradient></defs><rect width="100%" height="100%" fill="url('#gradient1')"/><rect width="100%" height="100%" fill="url('#gradient2')"/></svg>
-    <div class="z-1 wrapper-content py-3 flow">
+    <div class="z-1 w-content p-2 flow bg-black bg-filter bg-200">
       <p class="h2 t-bold">This example text may or may not distort the 16×9 aspect ratio that has been given to this demo component.</p>
       <p class="h2 t-bold">The SVG image rectangle will be 1280px × 720px if your viewport is big enough. See what it does on a narrow viewport width (e.g. phone).</p>
     </div>
   </div>
-  <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni rem animi quaerat accusantium illum architecto, nemo, ex harum voluptatum adipisci eum blanditiis dolorum. Natus debitis quisquam, expedita accusantium quos cumque?</p>
+  <p>The text layer above has a transparent black filter background. See <a href="{{ "/colors/#glass-(blur)-and-filter-backgrounds" | url }}">Glass (blur) and filter backgrounds</a>.</p>
   <p>Here’s a styled <code>&lt;p class="full-bleed"&gt;</code>:</p>
   <div class="full-bleed p-2 t-semibold t-white bg-red">
     <code>full-bleed</code> — expands to the full width of the avilable space. If there are no sidebars, it will reach the sides of the viewport.
@@ -244,14 +234,14 @@ Styled by utility classes.
       <div aria-label="Note" class="mb-2 bt-heavy b-blue b-300 rounded p-2 t-black bg-gray bg-100">
         <span class="t-lg">&star;</span> Information panel
       </div>
-      <div aria-label="Note" class="mb-2 bl-heavy b-amber b-500 p-2 t-black bg-amber bg-200">
+      <div aria-label="Note" class="mb-2 bl-heavy b-amber b-400 p-2 t-black bg-amber bg-200">
         <span class="t-lg">&#9888;</span> Warning alert panel.
       </div>
       <p>With <code>dark:</code></p>
       <div aria-label="Note" class="mb-2 bt-heavy b-blue b-300 dark:b-600 rounded p-2 t-reversi bg-gray bg-100 dark:bg-900">
         <span class="t-lg">&star;</span> Information panel
       </div>
-      <div aria-label="Note" class="mb-2 bl-heavy b-amber b-500 p-2 t-reversi bg-amber bg-200 dark:bg-700">
+      <div aria-label="Note" class="mb-2 bl-heavy b-amber b-400 p-2 t-reversi bg-amber bg-200 dark:bg-700">
         <span class="t-lg">&#9888;</span> Warning alert panel.
       </div>
     </div>

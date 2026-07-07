@@ -26,13 +26,13 @@ body {
   min-block-size: 100%;
   min-height: 100dvh;
   margin: 0;
-  font-family: var(--t-default);
-  font-size: var(--t-base);
+  font-family: var(--t-base-ff);
+  font-size: var(--t-base-fs);
   line-height: var(--t-lh);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   color: var(--tc-base);
-  background: var(--bgc-body);
+  background-color: var(--bgc-body);
 }
 
 *,
@@ -44,6 +44,7 @@ body {
 * {
   padding: 0;
   margin: 0;
+  background-origin: border-box;
 }
 
 img,

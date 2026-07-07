@@ -1,6 +1,6 @@
 ---
 title: Typography
-mainHeading: Typography
+mainHeading: "Baselayer 3: Typography"
 layout: base.njk
 prevPage: "/"
 nextPage: "/layout/"
@@ -17,24 +17,24 @@ A few native font stacks are set in the `root-vars.css` file.
   --t-sans: ui-sans-serif, sans-serif;
   --t-serif: ui-serif, serif;
   --t-mono: ui-monospace, monospace;
-  --t-default: var(--t-sans);
+  --t-base-ff: var(--t-sans);
   --t-prose: var(--t-serif);
 }
 ```
 
 Everything here is an example, a place to start. Your own `--base` and `--prose` don’t need to be both sans-serif and serif. See [setting font stacks](#setting-font-stacks) for more information.
 
-The Baselayer docs make use of JavaScript and some extra CSS to enable a demo toggle, so that you can switch between `--base` and `--prose` in this main content area — see main menu.
+The Baselayer docs make use of JavaScript and some extra CSS to enable a demo toggle, so that you can switch between `--base-ff` and `--prose` in this main content area — see main menu.
 
 Font stack usage in Baselayer:
 
-* The base font stack `--t-default` is set in the `<body>` tag and via the `t-base` utility class. It is also set on form inputs and on heading tags (using `--h-ff: inherit;` so that you can override and set a different heading typeface).
+* The base font stack `--t-base-ff` is set in the `<body>` tag and via the `t-base` utility class. It is also set on form inputs and on heading tags (using `--h-ff: inherit;`) so that you can override and set a different heading typeface).
 * The prose is only available via the `t-prose` utility class. Employ it on your `<article>` tag, or wherever you need.
 * The monotype is available via the `<code>`, `<kbd>`, and `<samp>` HTML tags, and in the `t-mono` utility class.
 
 ### Setting font stacks
 
-In choosing your own font stacks, you will probably need two fonts that have similar _x-height_, so that you can set them using the same font size and line-height. Some other factors to compare are hights for lowercase ascenders and descenders, letter width, and stroke thickness.
+In choosing your own font stacks, you will probably need two fonts that have similar _x-height_ CSS property), so that you can set them using the same font size and line-height. Some other factors to compare are hights for lowercase ascenders and descenders, letter width, and stroke thickness.
 
 If you want to stick with using native font stacks (i.e. those that come with computers, tablets, and phones), then the [Modern Font Stacks](https://modernfontstacks.com) website has several examples that you can easily copy.
 
@@ -100,8 +100,8 @@ I have also added an override for situaions where you may have a sub-sub heading
   margin-top: var(--s-flow, 1em);
 }
 
-:where(h1, h2, h3, h4, h5, .h1, .h2, .h3, .h4, .h5)
-  + :where(h2, h3, h4, h5, h6, .h2, .h3, .h4, .h5, .h6) {
+:where(h1, h2, h3, h4, h5)
+  + :where(h2, h3, h4, h5, h6) {
   margin-top: var(--s-between-headings, --s-1) !important;
 }
 ```
@@ -112,12 +112,14 @@ Heading sizes are set a simple typographic scale (but set in **em**, not pt or p
 
 Example headings (using heading-size utility classes):
 
-<p class="h1 mt-3 t-semibold">Heading h1</p>
+<div class="w-fit-content mx-auto flex flex-column">
+<p class="h1 t-semibold">Heading h1</p>
 <p class="h2 t-semibold">Heading h2</p>
 <p class="h3 t-semibold">Heading h3</p>
 <p class="h4 t-semibold">Heading h4</p>
 <p class="h5 t-semibold">Heading h5</p>
 <p class="h6 mb-3 t-semibold">Heading h6</p>
+</div>
 
 ```css
 :root {
@@ -259,11 +261,7 @@ For definition lists (dictionary lists), the title is bold and the definition da
 
 ## Links and menus
 
-The default underline for links has been moved downwards slightly to improve legibility. The link decoration (underline) thickness has been set at 1px, so that it doesn’t become thicker when used on larger text (e.g. in headings) where link underline can be too bulky).
-
-On `:hover`, the link text color remains unchanged. Instead, the visual cue that “this text is a clickable link” is indicated by underline becoming thicker, increasing to 3px.
-
-This thickening of the line is more obvious than a slight color change, such as you see in other CSS starter kits and frameworks. But if you require a color change, you can add your own, e.g. by Baselayer variables or [color utilities]({{ '/colors' | url }}).
+**New in Baselayer v.3.8.0:** link text is now darkened on hover by mixing in a little black, or lightened for the dark theme by mixing in a little white, using `color-mix()`. And Baselayer has reverted to the default link underline (the opinionated modification of position and thickness has been removed).
 
 Example:
 
@@ -271,14 +269,16 @@ Example:
 
 ### Link utilities
 
-Then there are the following two classes that apply to links, that may be handy in some situations:
+For accessability, links _within the main content area_ usually have underlines as a visual cue. In other locations such as navigation menus, the unlerline may not be necessary.
 
 * <a class="t-underline-none" href="">This link has no underline</a> — `t-underline-none`
 * <a class="t-underline-hover-only" href="">This link has no underline unless hovered</a> — `t-underline-hover-only`
 
-When you remove the underline completely, you will want to add back affordance e.g. by changing the text or background color on hover.
+It needs to be visually obvious that a link is a link. Therefore the browser default, and the best practice for accessability, is to have links indicated by an underline (and the browser default color of links is usually blue). However, in the context of menus it is permissible to deviate from the best practice; but you will want to add in other visual indicators.
 
-The browser default, and the best practice for accessability, is to have links indicated by an underline (and the browser default color of links is blue). But in the context of menus it is permissible to deviate from the best practice, provided there are other visual and non-visual indicators. This is the reason why we should use [semantic HTML](https://www.codecademy.com/resources/blog/semantic-html/) tags on menus, and and why we should place navigation menus in their expected locations (in sitewide menu-bars, sidebars, and footers).
+It is also best practice for accessibility and SEO reasons to use [semantic HTML](https://www.codecademy.com/resources/blog/semantic-html/) tags on menus, and and why we should place navigation menus in their expected locations: in sitewide menu-bars, sidebars, and footers.
+
+Within the main content area, if you remove the link underline, you will want to add another visual cue e.g. by changing the background color on hover (as is done in “links styled as buttons”).
 
 ### Panel links
 
@@ -286,9 +286,9 @@ There may be situations where you have a link that contains some accompanying te
 
 In this case, you don’t want to place the `t-underline-none` on the `<a href="">` itself, but only on the inner element.
 
-You will also want to style the outer `<a href="">` e.g. with the `block` utility (for `display:block`), and add more styles to this inner element text, so that it is not the same color as the link label.
+You will usually also want to style the outer `<a href="">` e.g. with the `block` utility (for `display:block`), and add more styles to this inner element text, so that it is not the same color as the link label.
 
-In the example below, see how only the inner element _not_ styled with `t-underline-none` behaves as the link text.
+In the example below, see how the “Lorem ipsum” paragraph does not look like link text, and does not visually respond like link text, even though it is within the link panel.
 
 <a class="my-3 p-3 bg-gray bg-100 dark:bg-900" href="#/">
   <p>Link label (title)</p>
@@ -296,7 +296,7 @@ In the example below, see how only the inner element _not_ styled with `t-underl
 </a>
 
 ```html
-<a href="">
+<a class="block" href="">
   <p>Link label (title)</p>
   <p class="t-underline-none">Lorem ipsum dolor sit amet ...</p>
 </a>
@@ -310,9 +310,9 @@ Another example: here `t-underline-hover-only` has also been added to the `<a hr
 </a>
 
 ```html
-<a class="t-underline-hover-only" href="">
-    <p>Link label (title)</p>
-    <p class="t-underline-none">Lorem ipsum dolor sit amet ...</p>
+<a class="block t-underline-hover-only" href="">
+  <p>Link label (title)</p>
+  <p class="t-underline-none">Lorem ipsum dolor sit amet ...</p>
 </a>
 ```
 
@@ -422,8 +422,7 @@ Baselayer tables are set using the `.table` class.
 * Table cells `<th>` and `<td>` have a border set by `var(--b-1)` – the same detail as `<hr>` and [border]({{ '/decoration/' | url }}#borders) utility classes.
 * Table cell paddings are set by `--p-cell` (see decoration [spacing extras]({{ '/decoration/' | url }}#spacing-extras))
 * All cell content is left-aligned. You can change that on the whole `<table>` or on a per-cell basis using the [text alignment](#text-alignment) classes.
-* Optional modifier `table-grid` will add the outline to all `th` and `td` cells.
-* Optional modifier `table-fixed` will force cells to have the same (fixed) width.
+* Table cell widths normally adjust to accommmodate the content. Adding the optional modifier `table-fixed` will force all the cells to have the same (fixed) width.
 
 <table class="table">
   <caption>This is a Table Caption</caption>
@@ -483,41 +482,6 @@ Baselayer tables are set using the `.table` class.
   </tbody>
 </table>
 ```
-
-With `table table-grid`:
-
-<table class="table table-grid">
-  <caption>This is a Table Caption</caption>
-  <thead>
-    <tr>
-      <th>Table Header 1</th>
-      <th>Table Header 2</th>
-      <th>Table Header 3</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Table content 1.1</td>
-      <td>Table content 2.1</td>
-      <td>Table content 3.1</td>
-    </tr>
-    <tr>
-      <td>Table content 1.2</td>
-      <td>Table content 2.2</td>
-      <td>Table content 3.2</td>
-    </tr>
-    <tr>
-      <td>Table content 1.3</td>
-      <td>Table content 2.3</td>
-      <td>Table content 3.3</td>
-    </tr>
-    <tr>
-      <td>Table content 1.4</td>
-      <td>Table content 2.4</td>
-      <td>Table content 3.4</td>
-    </tr>
-  </tbody>
-</table>
 
 ### Making wide tables responsive
 
@@ -562,14 +526,38 @@ If you have a lot of content in your table, it will probably break your page lay
 </div>
 ```
 
-## Making text bigger
+## Controlling text size
 
-The base font size is 100% (16px default). Additionally:
+The base font size is 100% (16px default). Additionally Baselayer includes all the following font-size multipliers.
 
-### Font size multipliers
+<div aria-label="Warning" class="popout bl-heavy b-amber b-400 p-2 t-reversi bg-amber bg-200 dark:bg-700">
+<p><strong>Note:</strong> Baselayer font size multipliers are sent in <code>em</code> relative sizes, to enable the multipliciation. This means that if you nest them, you multiply the multiplication. There are two things you need to beware of:</p>
+<ol>
+<li>The resulting font size can be too big for small devices; check what your titles and hero messaging looks like on phones. The <a href="#responsive-block-font-size-multipliers">responsive font-size multipliers</a> are designed to help you not make tech too bug for phones.</li>
+<li>If you want some words of a title to be in smaller text, you need <code>t-sm</code> for that portion, not e.g. <code>h2</code> inside <code>h1</code> because, counterintuitively, that will make the text larger not smaller.</li>
+</ol>
+</div>
 
-1. There’s a `t-lg` class that can be used to make text 1.325em — good for a lead paragraph, large button, or important messaging.
-2. Classes `.h1` through `.h6` will resize text the same amount as for their respective heading tag sizes — use these when you want to make text bigger (or large text smaller) without adversely affecting accessibility/ SEO heading hierarchy.
+### Inline font size multipliers
+
+The `t-sm` class will reduce text to 0.75em – good for small-print, footnotes, or reducing the size of part of the text within headings.
+
+The `t-lg` class will enlarge text to 1.25em — good for a lead paragraph, large button, or important messaging.
+
+<p class="t-center"><span class="t-sm">t-sm text</span>, <span>base text</span>, <span class="t-lg">t-lg text</span></p>
+
+### Block font size multipliers
+
+Classes `.h1` through `.h6` will resize text the same amount as for their respective heading tag sizes — use these when you want to make text bigger (or large text smaller) without adversely affecting accessibility/ SEO heading hierarchy.
+
+<div class="w-fit-content mx-auto flex flex-column">
+<span class="h6"><code>h6</code> heading size is the same as base size, but in <code>em</code></span>
+<span class="h5"><code>h5</code> heading size</span>
+<span class="h4"><code>h4</code> heading size is the same as <code>t-lg</code></span>
+<span class="h3"><code>h3</code> heading size</span>
+<span class="h2"><code>h2</code> heading size</span>
+<span class="h1"><code>h1</code> heading size</span>
+</div>
 
 ### Responsive font size multipliers
 

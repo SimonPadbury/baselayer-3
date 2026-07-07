@@ -7,7 +7,7 @@
 
   <title>Buttons · Baselayer CSS</title>
 
-  <link rel="stylesheet" href="/baselayer-3/css/min/baselayer.min.css?v=3.7.1">
+  <link rel="stylesheet" href="/baselayer-3/css/min/baselayer.min.css?v=3.8.0">
 
   <style>
     :root {
@@ -138,7 +138,7 @@ button.toggler {
   content: "✓";
 }
 
-.font-prose #content-wrap {
+.font-prose .main-pane-content {
   font-family: var(--t-prose);
 }
 
@@ -274,7 +274,7 @@ window.addEventListener("DOMContentLoaded", () => {
   <div class="sticky top h-max-100dvh overflow-y">
     <div class="flex flex-space-between md:block">
       <div class="p-cell md:t-center">
-        <a id="site-title" href="/baselayer-3/" class="h4 t-normal flex flex-center flex-middle gap-1 t-gray t-800 dark:t-200 hover:t-reversi t-underline-none">
+        <a id="site-title" href="/baselayer-3/" class="h4 t-normal flex flex-center flex-middle gap-1 t-reversi t-underline-none">
           <svg height="48" width="48" viewBox="0 0 111 111" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-miterwrapper:1.5">
             <g transform="translate(-294.592 -94.592)">
               <circle cx="350" cy="150" r="50" style="fill:none;stroke:currentColor;stroke-width:4px"/>
@@ -287,44 +287,47 @@ window.addEventListener("DOMContentLoaded", () => {
           <span class="t-nowrap">Baselayer CSS</span>
         </a>
       </div>
-      <button type="button" id="site-menu-toggle" aria-expanded="false" aria-label="Menu" aria-controls="site-menu" class="m-1 md:hidden">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256"><path d="M228,128a12,12,0,0,1-12,12H40a12,12,0,0,1,0-24H216A12,12,0,0,1,228,128ZM40,76H216a12,12,0,0,0,0-24H40a12,12,0,0,0,0,24ZM216,180H40a12,12,0,0,0,0,24H216a12,12,0,0,0,0-24Z"></path></svg>
+      <div>
+        <button type="button" id="site-menu-toggle" aria-expanded="false" aria-label="Menu" aria-controls="site-menu" class="m-1 aspect-ratio-1x1 p-0 relative md:hidden">
+        <svg class="box place-center" xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" viewBox="0 0 256 256"><path d="M228,128a12,12,0,0,1-12,12H40a12,12,0,0,1,0-24H216A12,12,0,0,1,228,128ZM40,76H216a12,12,0,0,0,0-24H40a12,12,0,0,0,0,24ZM216,180H40a12,12,0,0,0,0,24H216a12,12,0,0,0,0-24Z"></path></svg>
       </button>
+      </div>
     </div>
 
     <div id="js-menu-wrapper">
       <div class="m-2 bt-thin bb-thin py-2 flex flex-center flex-wrap gap-2 links-underlined-hover-only">
-        <span class="t-gray t-600 dark:t-400">Version: 3.7.1</span>
-        <a class="t-gray t-800 dark:t-200 hover:t-900 hover:dark:t-100" href="https://github.com/SimonPadbury/baselayer-3">GitHub</a>
+        <span class="t-gray t-600 dark:t-400">Version: 3.8.0</span>
+        <a class="t-gray t-700 dark:t-300" href="https://github.com/SimonPadbury/baselayer-3">GitHub</a>
         <span>
-          <a class="t-gray t-800 dark:t-200 hover:t-900 hover:dark:t-100" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> <span class="t-gray t-600 t-dark-invert">(27 KB)</span>
+          <a class="t-gray t-700 dark:t-300" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> <span class="t-gray t-600 dark:t-400">(26 KB)</span>
         </span>
       </div>
 
       <nav class="p-2">
-        <menu class="pl-0 flex flex-column gap-1 links-underline-none">
+        <p class="h4 t-semibold">Documentation</p>
+        <menu class="mt-2 pl-0 flex flex-column gap-1 links-underline-none">
           <menuitem>
-            <a class="block  p-cell t-gray t-700 dark:t-300 hover:t-900 hover:dark:t-100"  href="/baselayer-3/">Getting started</a>
+            <a class="block  p-cell t-gray t-600 dark:t-300"  href="/baselayer-3/">Getting started</a>
           </menuitem>
           <menuitem>
-            <a class="block  p-cell t-gray t-700 dark:t-300 hover:t-900 hover:dark:t-100"  href="/baselayer-3/typography/">Typography</a>
+            <a class="block  p-cell t-gray t-600 dark:t-300"  href="/baselayer-3/typography/">Typography</a>
           </menuitem>
           <menuitem>
-            <a class="block  p-cell t-gray t-700 dark:t-300 hover:t-900 hover:dark:t-100"  href="/baselayer-3/layout/">Layout</a>
+            <a class="block  p-cell t-gray t-600 dark:t-300"  href="/baselayer-3/layout/">Layout</a>
           </menuitem>
           <menuitem>
-            <a class="block  p-cell t-gray t-700 dark:t-300 hover:t-900 hover:dark:t-100"  href="/baselayer-3/decoration/">Decoration</a></menuitem>
+            <a class="block  p-cell t-gray t-600 dark:t-300"  href="/baselayer-3/decoration/">Decoration</a></menuitem>
           <menuitem>
-            <a class="block  p-cell t-gray t-700 dark:t-300 hover:t-900 hover:dark:t-100"  href="/baselayer-3/colors/">Colors</a>
+            <a class="block  p-cell t-gray t-600 dark:t-300"  href="/baselayer-3/colors/">Colors</a>
           </menuitem>
           <menuitem>
-            <a class="block  p-cell t-gray t-700 dark:t-300 hover:t-900 hover:dark:t-100"  href="/baselayer-3/forms/">Forms</a>
+            <a class="block  p-cell t-gray t-600 dark:t-300"  href="/baselayer-3/forms/">Forms</a>
           </menuitem>
           <menuitem>
-            <a class="block bl-thick b-gray b-300 dark:b-700 t-reversi bg-gray bg-200 dark:bg-800 p-cell t-gray t-700 dark:t-300 hover:t-900 hover:dark:t-100"  aria-current="page" href="/baselayer-3/buttons/">Buttons</a>
+            <a class="block bl-thick b-gray b-300 dark:b-700 t-reversi bg-gray bg-200 dark:bg-800 p-cell t-gray t-600 dark:t-300"  aria-current="page" href="/baselayer-3/buttons/">Buttons</a>
             </menuitem>
           <menuitem>
-            <a class="block p-cell t-gray t-700 dark:t-300 hover:t-900 hover:dark:t-100" href="/baselayer-3/examples/">Examples</a>
+            <a class="block p-cell t-gray t-600 dark:t-300" href="/baselayer-3/examples/">Examples</a>
           </menuitem>
         </menu>
       </nav>
@@ -376,20 +379,20 @@ window.addEventListener("DOMContentLoaded", () => {
         <div id="toc-outer" class="sticky top w-content h-max-100dvh mx-auto px-2 pb-4 links-underline-hover-only overflow-y">
           <p class="h4 t-semibold">On this page</p>
           <nav class="toc" >
-        <ul><li><a href="#button-types-and-link-%E2%80%9Cpseudo-buttons%E2%80%9D">Button types and link “pseudo-buttons”</a></li><li><a href="#full-width-buttons">Full-width buttons</a></li><li><a href="#adding-colors-to-buttons">Adding colors to buttons</a></li><li><a href="#buttons-with-icons">Buttons with icons</a></li><li><a href="#pill-buttons">Pill buttons</a></li><li><a href="#button-sizes">Button sizes</a></li></ul>
+        <ul><li><a href="#button-types-and-link-pseudo-buttons">Button types and link pseudo-buttons</a></li><li><a href="#full-width-buttons">Full-width buttons</a></li><li><a href="#adding-colors-to-buttons">Adding colors to buttons</a></li><li><a href="#buttons-with-icons">Buttons with icons</a></li><li><a href="#pill-buttons">Pill buttons</a></li><li><a href="#button-sizes">Button sizes</a></li></ul>
       </nav>
         </div>
       </aside>
       <div class="main-pane">
         <div class="main-pane-content container">
-          <header id="article-title" class="content-grid">
-            <div class="aspect-ratio-16x9 relative">
-              <h1 class="box place-center my-3 t-balance t-center">Buttons</h1>
+          <header id="article-title" class="wrapper-md">
+            <div class="py-4 t-comfort">
+              <h1 class="py-4 t-thin t-balance t-center">Baselayer 3: Buttons</h1>
             </div>
           </header>
           <main class="content-grid flow">
-            <p>Baselayer form elements have simple background, hovers and focus styling (border is set to <code>1px solid transparent</code>).</p>
-<h3 id="button-types-and-link-%E2%80%9Cpseudo-buttons%E2%80%9D" tabindex="-1">Button types and link “pseudo-buttons”</h3>
+            <p>Baselayer form elements have simple background, hover state and focus styling.</p>
+<h2 id="button-types-and-link-pseudo-buttons" tabindex="-1">Button types and link pseudo-buttons</h2>
 <form class="mt-2 mb-3">
   <button type="button" name="button">Button</button>
   <input type="button" name="input" value="Input Button">
@@ -397,7 +400,7 @@ window.addEventListener("DOMContentLoaded", () => {
   <input type="reset" name="reset" value="Reset">
   <a class="btn" href="">Link “button”</a>
 </form>
-<pre><code>&lt;button type=&quot;button&quot; name=&quot;button&quot;&gt;Button&lt;/button&gt;
+<pre><code class="language-html">&lt;button type=&quot;button&quot; name=&quot;button&quot;&gt;Button&lt;/button&gt;
 
 &lt;input type=&quot;button&quot; name=&quot;input&quot; value=&quot;Input Button&quot;&gt;
 
@@ -405,13 +408,15 @@ window.addEventListener("DOMContentLoaded", () => {
 
 &lt;input type=&quot;reset&quot; name=&quot;reset&quot; value=&quot;Reset Button&quot;&gt;
 
+&lt;!-- Styling a link as a button --&gt;
 &lt;a class=&quot;btn&quot; href=&quot;&quot;&gt;Link “button”&lt;/a&gt;
 </code></pre>
 <p><strong>Notes:</strong></p>
 <ol>
-<li>Form inputs, textareas, buttons, and the <code>btn</code> class, have <code>font-size: inherit</code>. This means their font sizes can be modified by any font-size limit around the button in Baselayer.</li>
-<li>The font-family of form elements, buttons, <code>btn</code> is controlled by <code>var(--base)</code> (default is sans-serif).</li>
-<li>The <code>btn</code> class doesn’t include the input focus ring (that is set only on form inputs, textareas, and the <code>&lt;button&gt;</code> tag). But if the <code>btn</code> utility class is used on an <code>&lt;a href=&quot;&quot;&gt;</code> link tag, then will get the link focus ring insead (this is only visible when keyboard-tabbing or using assistive tech).</li>
+<li>Form inputs, textareas, and buttons (including the <code>btn</code> class) have <code>font-size: inherit</code>. This means their font sizes can be modified by any font-size limit around the button in Baselayer.</li>
+<li>The font-family of form elements and buttons is controlled by <code>var(--base-ff)</code> (default is sans-serif).</li>
+<li>Buttons and form elements have the same min-height and padding, so that they can be used in combination. The padding is set using <code>--p-form: 0.5em 1em;</code>, so that it will also respond to the font-size of the button.</li>
+<li>Buttons have a built-in hover background-color change: the background color becomes darker for the light theme, and lighter for the dark theme. You don’t need to set the hover state of buttons.</li>
 </ol>
 <h2 id="full-width-buttons" tabindex="-1">Full-width buttons</h2>
 <p>In Baselayer, buttons are pre-styled with <code>display: inline-flex</code> and centering and middling flexbox alignment.</p>
@@ -437,79 +442,90 @@ window.addEventListener("DOMContentLoaded", () => {
 <p>Another way to control the width of a button is <em>from outside of it</em> — by wrapping the button in a <code>grid</code> so that the button adopts the dimensions of a grid item.</p>
 <h2 id="adding-colors-to-buttons" tabindex="-1">Adding colors to buttons</h2>
 <p>Border, background, and text color utilities can be used.</p>
-<p>When colorizing buttons, remember to set their <code>hover:</code> hover state shades too.</p>
-<form>
+<form class="my-3">
   <p>
     <button type="button" name="button">Button</button>
-    <button class="bg-blue bg-600 hover:bg-700" type="button" name="button">Button</button>
-    <button class="bg-amber bg-500 hover:bg-600" type="button" name="button">Button</button>
+    <button class="bg-blue" type="button" name="button">Button</button>
+    <button class="bg-amber" type="button" name="button">Button</button>
+    <button class="t-black bg-amber bg-200 dark:bg-300" type="button" name="button">Button</button>
     <a class="btn b-thin b-green bg-transparent t-green t-600 hover:t-white hover:bg-green hover:bg-600" href="#/">Link “button”</a>
   </p>
 </form>
+<p>Buttons have a built-in hover color-change: the background color becomes darker for the light theme, and lighter for the dark theme.</p>
 <pre><code class="language-html">&lt;!-- Default button --&gt;
 &lt;button type=&quot;button&quot; name=&quot;button&quot;&gt;Button&lt;/button&gt;
 
 &lt;!-- Blue button --&gt;
-&lt;button class=&quot;bg-blue bg-600 hover:bg-700&quot; type=&quot;button&quot; name=&quot;button&quot;&gt;Button&lt;/button&gt;
+&lt;button class=&quot;bg-blue&quot; type=&quot;button&quot; name=&quot;button&quot;&gt;Button&lt;/button&gt;
 
-&lt;!-- Amber button --&gt;
-&lt;button class=&quot;bg-amber bg-500 hover:bg-600&quot; type=&quot;button&quot; name=&quot;button&quot;&gt;Button&lt;/button&gt;
+&lt;!-- Amber buttons --&gt;
+&lt;button class=&quot;bg-amber&quot; type=&quot;button&quot; name=&quot;button&quot;&gt;Button&lt;/button&gt;
+&lt;button class=&quot;t-black bg-amber bg-200 dark:bg-300&quot; type=&quot;button&quot; name=&quot;button&quot;&gt;Button&lt;/button&gt;
 
 &lt;!-- Green outline (a.k.a. ghost) link “button” --&gt;
 &lt;a class=&quot;btn b-thin b-green bg-transparent t-green t-600 hover:t-white hover:bg-green hover:bg-600&quot; href=&quot;#/&quot;&gt;Link “button”&lt;/a&gt;
 </code></pre>
 <h2 id="buttons-with-icons" tabindex="-1">Buttons with icons</h2>
-<p>In Baselayer, buttons are pre-styled with <code>display: inline-flex</code> and centering and middling flexbox alignment. So, all you need to do is add an icon and it will all line up.</p>
+<p>In Baselayer, buttons have <code>display: inline-flex</code> and centering and middling alignment. So, all you need to do is add an icon and it will all line up.</p>
 <p>
-  <button type="button" name="button" class="gap-1">
+  <button type="button" name="button" class="gap-tiny">
     Search
     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"></rect><circle cx="116" cy="116" r="84" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"></circle><line x1="175.4" y1="175.4" x2="224" y2="224" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"></line></svg>
   </button>
 </p>
-<pre><code class="language-html">&lt;button type=&quot;button&quot; name=&quot;button&quot; class=&quot;gap-1&quot;&gt;
+<pre><code class="language-html">&lt;button type=&quot;button&quot; name=&quot;button&quot; class=&quot;gap-tiny&quot;&gt;
   Search
   &lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;16&quot; height=&quot;16&quot; fill=&quot;currentColor&quot;&gt;
-    &lt;!-- SVG icon --&gt;
+    ...
   &lt;/svg&gt;
 &lt;/button&gt;
 </code></pre>
-<p>Baselayer CSS buttons works well with SVG icons, e.g. <a href="https://phosphoricons.com/">Phosphor icons</a>. Set the width and height of the icon to be e.g. 16px, 20px, or 24px. Set the fill colors to be <code>currentColor</code> so that it can be controlled by the CSS.</p>
-<p>If you are combining text with an icon, you may sometimes need to add some space using <code>gap-1</code> within your button (see <a href="/baselayer-3/layout/#flex-layouts">flex layouts</a>). That’s the easiest way. Alternatively, you could put <code>&amp;nbsp;</code> between your button text and icon.</p>
-<p>For icon-only buttons, add the CSS class  <code>btn-icon</code> and have only a single character or icon in the button — this will make the button to be a square.</p>
+<p>Baselayer CSS buttons works well with SVG icons, e.g. <a href="https://phosphoricons.com/">Phosphor icons</a>. Set the width and height of the icon to be e.g. 16px, 20px, or 24px. Also, you probably want to set the fill colors to be <code>currentColor</code> so that it can be controlled by the CSS.</p>
+<p>If you are combining text with an icon, you may sometimes need to add some space using <code>gap-tiny</code> within your button (see <a href="/baselayer-3/layout/#flex-layouts">flex layouts</a>). That’s the easiest way. Alternatively, you could put <code>&amp;nbsp;</code> between your button text and icon.</p>
+<p>For icon-only buttons where you want the button to be a square, add the CSS class  <code>aspect-ratio-1x1</code>  and remove the padding using <code>p-0</code>.</p>
 <form>
-  <p class="flex flex-middle">
-    <button type="button" name="button">Button</button>&nbsp;
-    <button class="btn-icon" type="button" name="button">1</button>&nbsp;
-    <button class="btn-icon" type="button" name="button">
+  <p class="flex flex-middle gap-tiny">
+    <button type="button" name="button">Button</button>
+    <button class="aspect-ratio-1x1 p-0" type="button" name="button">1</button>
+    <button class="aspect-ratio-1x1 p-0" type="button" name="button">
       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"></rect><line x1="40" y1="128" x2="216" y2="128" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"></line><polyline points="144 56 216 128 144 200" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"></polyline></svg>
     </button>
   </p>
 </form>
 <h2 id="pill-buttons" tabindex="-1">Pill buttons</h2>
-<p>Putting <code>rounded rounded-pill</code> on a square icon button will make it circular. (See <a href="/baselayer-3/decoration/#rounded-corners">decoration: rounded corners</a>.)</p>
+<p><code>rounded-pill</code> roundes the right and left ends of a button. Adding <code>rounded-pill</code> to a square button will make it circular. (See <a href="/baselayer-3/decoration/#rounded-corners">decoration: rounded corners</a>.)</p>
 <form>
   <p class="flex flex-middle">
-    <button class="rounded rounded-pill" type="button" name="button">Button</button>&nbsp;
-    <button class="btn-icon rounded rounded-pill" type="button" name="button">
+    <button class="rounded-pill" type="button" name="button">Button</button>&nbsp;
+    <button class="rounded-pill aspect-ratio-1x1 p-0" type="button" name="button">
       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"></rect><line x1="40" y1="128" x2="216" y2="128" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"></line><polyline points="144 56 216 128 144 200" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"></polyline></svg>
     </button>
   </p>
 </form>
-<pre><code class="language-html">&lt;button class=&quot;rad rad-pill&quot; type=&quot;button&quot; name=&quot;button&quot;&gt;Button&lt;/button&gt;
-
-&lt;button class=&quot;btn-icon rad rad-pill&quot; type=&quot;button&quot; name=&quot;button&quot;&gt;I&lt;/button&gt;
-</code></pre>
 <h2 id="button-sizes" tabindex="-1">Button sizes</h2>
-<p>Buttons (and the <code>btn</code> utility) will resize according to the font-size of the block that they are inside.</p>
-<p>You can also use the typographic size classes <code>t-sm</code> and <code>t-lg</code> to modify buttons directly.</p>
+<p>Buttons (including the <code>btn</code> utility) and form inputs will resize according to the font-size of the block that they are inside.</p>
+<p>You can also use the typographic size classes <code>t-sm</code> and <code>t-lg</code> on the buttons or inputs to modify buttons directly. You will still need to use these if the internal character is replaced by an SVG icon. You will also want to change the <code>width=&quot;&quot;</code> and the <code>height=&quot;&quot;</code> directly.</p>
 <form class="mt-2 mb-3">
   <div class="flex flex-middle gap-1">
-    <button type="button" name="button" class="t-sm">Button</button>
+    <button  class="t-sm" type="button" name="button">Button</button>
     <button type="button" name="button">Button</button>
-    <button type="button" name="button" class="t-lg">Button</button>
+    <button  class="t-lg" type="button" name="button">Button</button>
   </div>
-  <hr class="my-2">
-  <div class="flex flex-middle gap-1">
+  <div class="mt-3 flex flex-middle gap-1">
+    <button class="aspect-ratio-1x1 p-0 t-sm" type="button" name="button" class="t-sm">1</button>
+    <button class="aspect-ratio-1x1 p-0" type="button" name="button">2</button>
+    <button class="aspect-ratio-1x1 p-0 t-lg" type="button" name="button" class="t-lg">3</button>
+    <button class="rounded-pill aspect-ratio-1x1 p-0 t-sm" type="button" name="button">
+      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"></rect><line x1="40" y1="128" x2="216" y2="128" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"></line><polyline points="144 56 216 128 144 200" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"></polyline></svg>
+    </button>
+    <button class="rounded-pill aspect-ratio-1x1 p-0" type="button" name="button">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"></rect><line x1="40" y1="128" x2="216" y2="128" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"></line><polyline points="144 56 216 128 144 200" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"></polyline></svg>
+    </button>
+    <button class="rounded-pill aspect-ratio-1x1 p-0 t-lg" type="button" name="button">
+      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"></rect><line x1="40" y1="128" x2="216" y2="128" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"></line><polyline points="144 56 216 128 144 200" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"></polyline></svg>
+    </button>
+  </div>
+  <div class="mt-3 flex flex-middle gap-1">
     <a href="#" class="btn t-sm">Link “button”</a>
     <a href="#" class="btn">Link “button”</a>
     <a href="#" class="btn t-lg">Link “button”</a>
@@ -525,30 +541,25 @@ window.addEventListener("DOMContentLoaded", () => {
   &lt;a href=&quot;#&quot; class=&quot;btn t-lg&quot;&gt;Link “button”&lt;/a&gt;
 &lt;/form&gt;
 </code></pre>
-<p>Notes on buttons:</p>
-<ol>
-<li>Button padding is set using <code>--p-btn: 0.5em 1em;</code>, so that it will also respond to the text size of the button.</li>
-<li>Buttons and form elements have the same min-height and padding, so that they can be used in combination.</li>
-</ol>
 
             <hr>
-            <nav class="expand grid gap-2 sm:equal-2-cols links-underline-none">
+            <nav class="expand grid gap-2 sm:equal-2-cols">
               
-              <a class="sm:col-1 my-1 b-thin b-blue b-300 hover:b-500 dark:b-700 rad-1 p-cell flex flex-column gap-1 t-blue t-600 hover:t-700 dark:t-400 bg-blue hover:bg-100 hover:dark:bg-800"  href="/baselayer-3/forms/">
-                Previous page
+              <a class="sm:col-1 my-1 b-thin rounded p-cell flex flex-column flex-top gap-1 t-underline-hover-only hover:bg-blue bg-100 dark:bg-900"  href="/baselayer-3/forms/">
+                <span class="t-blue t-underline-none">Previous page</span>
                 <span class="h3 m-0 t-normal"> Forms</span>
               </a>
               
               
-              <a class="sm:col-2 my-1 b-thin b-blue b-300 hover:b-500 dark:b-700 rad-1 p-cell flex flex-column gap-1 t-blue t-600 hover:t-700 dark:t-400 t-right bg-blue hover:bg-100 hover:dark:bg-800" href="/baselayer-3/examples/">
-                Next page
+              <a class="sm:col-2 my-1 b-thin rounded p-cell flex flex-column flex-bottom gap-1 t-right t-underline-hover-only hover:bg-blue bg-100 dark:bg-900" href="/baselayer-3/examples/">
+                <span class="t-blue t-underline-none">Next page</span>
                 <span class="h3 m-0 t-normal">Examples</span>
               </a>
               
             </nav>
           </main>
           <div class="container-md">
-                        <div class="mt-4 mb-3 p-2 flex flex-column flex-middle t-center">
+            <div class="mt-4 mb-3 p-2 flex flex-column flex-middle t-center">
               <a href="/baselayer-3/" class="mb-1 flex flex-column flex-center gap-1 t-underline-none">
                 <svg class="mx-auto" height="48" width="48" viewBox="0 0 111 111" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-miterwrapper:1.5">
                   <g transform="translate(-294.592 -94.592)">
@@ -561,11 +572,11 @@ window.addEventListener("DOMContentLoaded", () => {
                   </svg>
                 <span class="h3 m-0 t-normal t-nowrap">Baselayer CSS</span>
               </a>
-              <span>Version: 3.7.1</span>
+              <span>Version: 3.8.0</span>
             </div>
 
             <p class="p-cell flex flex-center flex-wrap gap-4 t-center">
-              <span><a class="t-underline-hover-only" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> (27 KB)</span>
+              <span><a class="t-underline-hover-only" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> (26 KB)</span>
               <a class="t-underline-hover-only" href="https://github.com/SimonPadbury/baselayer-3">GitHub Repository</a>
               <a class="t-underline-hover-only" href="https://github.com/SimonPadbury/baselayer-3/blob/main/CHANGELOG.md">Changelog</a>
               <a class="t-underline-hover-only" href="https://github.com/SimonPadbury/baselayer-3/blob/main/LICENSE">MIT license</a>

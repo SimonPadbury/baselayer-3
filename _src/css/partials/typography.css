@@ -60,37 +60,38 @@ Based on Andy Bell’s `.flow` utility, https://piccalil.li/blog/my-favourite-3-
   margin-top: var(--s-flow, 1em);
 }
 
-:where(h1, h2, h3, h4, h5, .h1, .h2, .h3, .h4, .h5)
-  + :where(h2, h3, h4, h5, h6, .h2, .h3, .h4, .h5, .h6) {
+:where(h1, h2, h3, h4, h5) + :where(h2, h3, h4, h5, h6) {
   margin-top: var(--s-between-headings, var(--s-1)) !important;
 }
 
-a {
+a:not(.btn) {
   --tc: var(--tc-link);
-  text-decoration: underline;
-  color: var(--tc);
+  --tcd: var(--tc-link);
+  --tl: var(--l500);
+  --tld: var(--l500);
+  color: var(--tc-link);
+  color: light-dark(
+    oklch(from var(--tc) calc(var(--tl) - 9.5%) c h),
+    oklch(from var(--tcd, var(--tcd)) calc(var(--tld) + 9.5%) c h)
+  );
   cursor: pointer;
   transition: all 0.15s ease;
-  text-decoration-skip-ink: auto;
-  text-underline-offset: var(--a-deco-offset);
-  text-decoration-thickness: var(--a-deco-thickness);
+  &:hover {
+    color: light-dark(
+      oklch(from var(--tc) calc(var(--tl) - 28.5%) c h),
+      oklch(from var(--tc, var(--tcd)) calc(var(--tld) + 28.5%) c h)
+    ) !important;
+  }
 }
 
-a:has(.t-underline-none):not(.t-underline-hover-only) :not(.t-underline-none) {
-  text-decoration: underline;
-}
-
+a:has(.t-underline-none):not(.t-underline-hover-only) :not(.t-underline-none),
 a:not(.t-underline-none):hover,
 a:has(.t-underline-none):hover :not(.t-underline-none) {
-  text-decoration: underline;
-  text-decoration-thickness: var(--a-deco-thickness-hover);
+  text-decoration-line: underline;
 }
 
 a:has(.t-underline-none),
-a:has(.t-underline-none):hover {
-  text-decoration: none;
-}
-
+a:has(.t-underline-none):hover,
 .t-underline-none,
 .t-underline-hover-only,
 .links-underline-none a,
@@ -146,8 +147,6 @@ caption {
   width: 100%;
   border-collapse: collapse;
   border-spacing: 0;
-  border-top: var(--b-1);
-  border-bottom: var(--b-1);
 }
 
 .table-fixed {
@@ -156,24 +155,20 @@ caption {
 
 th,
 td {
+  border: var(--b-thin);
   padding: var(--p-cell);
   vertical-align: top;
   text-align: left;
-
-  .table-grid & {
-    border: var(--b-1);
-  }
 }
 
 th {
-  border-bottom: var(--b-1);
   font-weight: bold;
 }
 
 hr {
   width: 100%;
   border: 0;
-  border-top: var(--b-1);
+  border-top: var(--b-thin);
   height: 0;
   margin-block: 3rem;
 }
@@ -197,11 +192,11 @@ samp {
 
 code {
   display: inline-block;
-  border: var(--b-1);
+  border: var(--b-thin);
   border-radius: var(--s-xs);
   padding-inline: 0.25em;
   color: var(--tc-code);
-  background: var(--bgc-code);
+  background-color: var(--bgc-code);
   font-variant-numeric: slashed-zero;
 }
 
@@ -219,7 +214,7 @@ pre {
     display: block;
     border-radius: var(--s-1);
     padding: 1em;
-    background: var(--bgc-code);
+    background-color: var(--bgc-code);
     overflow-x: auto;
     /* So that the :focus-visible ring works, and so that the background color extends into the overflowing area */
   }
@@ -347,7 +342,7 @@ small,
 mark,
 .t-highlight {
   color: currentColor;
-  background: var(--bgc-highlight);
+  background-color: var(--bgc-highlight);
 }
 
 .t-long-read {
@@ -363,7 +358,7 @@ mark,
 }
 
 .t-base {
-  font-family: var(--t-default);
+  font-family: var(--t-base-ff);
 }
 
 .t-prose {

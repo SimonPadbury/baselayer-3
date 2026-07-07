@@ -1,6 +1,6 @@
 ---
 title: Layout
-mainHeading: Layout
+mainHeading: "Baselayer 3: Layout"
 layout: base.njk
 prevPage: "/typography/"
 nextPage: "/decoration/"
@@ -74,7 +74,7 @@ The difference between width utilities and wrapper utilities is that wrappers ha
 * `w-xxs` — maximum width 256px
 * `wrapper-xs` / `w-xs` — maximum width 512px
 * `wrapper-sm` / `w-sm` — maximum width 768px
-* `wrapper-content` / `w-content` — maximum width 66ch
+* `w-content` — maximum width 66ch
 * `wrapper-md` / `w-md` — maximum width 1024px
 * `wrapper-lg` / `w-lg` — maximum width 1280px
 * `wrapper-xl` / `w-xl` — maximum width 1536px
@@ -156,7 +156,7 @@ Example:
 
 Since Baselayer 3.4.0, the `<body>` tag provides a *container query context*, using `container-type: inline-size`. Additionally you can set another (inner) container query context ising the `container` class.
 
-<div aria-label="Warning" class="popout bl-heavy b-amber b-500 dark:b-600 p-3 bg-amber bg-200 dark:bg-800">The <code>container</code> class does not constrain the outer element’s width in any way. You may also need to control the widths of your content with e.g. <a href="#centered-layout-wrappers">wrapper</a> or <a href="#widths">width</a> utilities, or by placing the container within a grid cell, etc.
+<div aria-label="Warning" class="popout bl-heavy b-amber b-400 p-2 t-reversi bg-amber bg-200 dark:bg-700">The <code>container</code> class does not constrain the outer element’s width in any way. You may also need to control the widths of your content with e.g. <a href="#centered-layout-wrappers">wrapper</a> or <a href="#widths">width</a> utilities, or by placing the container within a grid cell, etc.
 </div>
 
 There are four `@container` variants for `flex`, `grid`, and `hidden` classes corresponding to prefix widths:

@@ -1,6 +1,6 @@
 ---
 title: Colors
-mainHeading: Colors
+mainHeading: "Baselayer 3: Colors"
 layout: base.njk
 prevPage: "/decoration/"
 nextPage: "/forms/"
@@ -8,17 +8,15 @@ prevLink: "Decoration"
 nextLink: "Forms"
 ---
 
-Baselayer’s color utility class system is based on using the modern CSS `oklch()` function and a series of interpolated lightness level variables that enable the lightness level utility classes to work. The lightnsses for color each class are not pre-created, unlike with other CSS frameworks.
+<p class="t-lg">Baselayer’s color utility class system is based on using the modern CSS <code>oklch()</code> function and a series of interpolated lightness level variables that enable the lightness level utility classes to work. The lightnsses for color each class are not pre-created, unlike with other CSS frameworks.</p>
 
-So in the HTML, you first choose the color utility class, then you choose the lightness level class separately. Handled this way, the stylesheet doesn’t need to be loaded with lighness classes for every color — most of which you’d never use.
+In the HTML, you first choose the color utility class, then you choose the lightness level class separately. Handled this way, the stylesheet doesn’t need to be loaded with lighness classes for every color — most of which you would never use.
 
 The `oklch()` function has been [baseline: widely available](https://developer.mozilla.org/en-US/docs/Glossary/Baseline/Compatibility) since March 2023. All “evergreen” browsers (Chrome, Edge, Firefox, Safari) have capability to use it (see [Can I use](https://caniuse.com/?search=color-mix())).
 
-In setting up the lightness utility classes, Baselayer’s `oklch()` formulas take the hue (h) and chroma (c) values out of the base color variables, and adjusts the lightness level (l) to 50% (matching Baselayer’s built-in middle lightness, i.e. `--l500`). This enables a _perceptually uniform_ system of lightness levels.
+In setting up the lightness utility classes, Baselayer’s `oklch()` formulas use the hue (h) and chroma (c) values out of the theme color variables. The lightness levels `*-100` trough `*-900` are _perceptually uniform_.
 
-The five Baselayer built-in theme colors are set using Hex `#` codes). But if/when you add your own in all other color system, the `oklch( ... )` formulas can handle it.
-
-Example using background `bg-*` utility classes:
+Demo using background `bg-*` utility classes:
 
 <div class="full-bleed my-3 p-2 flex flex-center flex-wrap">
   <div style="width: clamp(96px, 15cqi, 208px)">
@@ -92,24 +90,16 @@ Also available:
 
 All colors and lightness levels are declared in `variables.css`.
 
-Color utility classes (declared in `colors.css`) are prefixed acording to where the color will be applied — border `b-*` text `t-*` or background `bg-*`. I have named the colors according to their common names (blue, green, amber, red, gray). You can modify the root variables of these colors, and you can [add your own colors](#adding-more-colors).
+Color utility classes (declared in `colors.css`) are prefixed acording to where the color will be applied — border `b-*` text `t-*` or background `bg-*`. I have named the colors according to their common names (blue, green, amber, red, gray). You can modify the root variables of these colors, and you can add your own by copying and modifying the border, text, and background utilities you see at the start of `css/_colors.css` — see [adding more colors](#adding-more-colors).
 
 <div class="my-4 expand">
 <table class="table">
 <thead>
 <tr>
-<th rowspan="2"></th>
-<th colspan="2" class="t-center bg-gray bg-100 dark:bg-900">Border Color</th>
-<th colspan="2" class="t-center">Text Color</th>
-<th colspan="2" class="t-center bg-gray bg-100 dark:bg-900">Background Color</th>
-</tr>
-<tr>
-<th class="bg-gray bg-100 dark:bg-900">Default state</th>
-<th class="bg-gray bg-100 dark:bg-900">Hover state</th>
-<th>Default state</th>
-<th>Hover state</th>
-<th class="bg-gray bg-100 dark:bg-900">Default state</th>
-<th class="bg-gray bg-100 dark:bg-900">Hover state</th>
+<th></th>
+<th class="t-center bg-gray bg-100 dark:bg-900">Border Color</th>
+<th class="t-center">Text Color</th>
+<th class="t-center bg-gray bg-100 dark:bg-900">Background Color</th>
 </tr>
 </thead>
 <tbody>
@@ -119,11 +109,8 @@ Color utility classes (declared in `colors.css`) are prefixed acording to where 
 <tr class="bb-thin">
 <td>Lightness modifier</td>
 <td class="bg-gray bg-100 dark:bg-900"><code>b-100</code><br>...<br><code>b-900</code></td>
-<td class="bg-gray bg-100 dark:bg-900"><code>hover:b-100</code><br>...<br><code>hover:b-900</code></td>
 <td><code>t-100</code><br>...<br><code>t-900</code></td>
-<td><code>hover:t-100</code><br>...<br><code>hover:t-900</code></td>
 <td class="bg-gray bg-100 dark:bg-900"><code>bg-100</code><br>...<br><code>bg-900</code></td>
-<td class="bg-gray bg-100 dark:bg-900"><code>hover:bg-100</code><br>...<br><code>hover:bg-900</code></td>
 </tr>
 <tr class="bb-thin">
 <td colspan="7" class="p-0 px-1 t-heavy t-loose t-uppercase bg-gray bg-200 dark:bg-800">Dark theme*</td>
@@ -131,15 +118,11 @@ Color utility classes (declared in `colors.css`) are prefixed acording to where 
 <tr>
 <td>Lightness modifier</td>
 <td class="bg-gray bg-100 dark:bg-900"><code>dark:b-100</code><br>...<br><code>dark:b-900</code></td>
-<td class="bg-gray bg-100 dark:bg-900"><code>hover:dark:b-100</code><br>...<br><code>hover:dark:b-900</code></td>
 <td><code>dark:t-100</code><br>...<br><code>dark:t-900</code></td>
-<td><code>hover:dark:t-100</code><br>...<br><code>hover:dark:t-900</code></td>
 <td class="bg-gray bg-100 dark:bg-900"><code>dark:bg-100</code><br>...<br><code>dark:bg-900</code></td>
-<td class="bg-gray bg-100 dark:bg-900"><code>hover:dark:bg-100</code><br>...<br><code>hover:dark:bg-900</code></td>
 </tr>
 </tbody>
 </table>
-<p class="mt-1 t-center">* Use <code>hover:dark:b-100</code> NOT <code>`dark:hover:b-100`</code> etc.
 </div>
 
 Example border, text and background utilities:
@@ -185,23 +168,25 @@ For WCAG level AA conformance, most user interface colors need to be _mid-level_
 <form class="my-4">
   <p>
     <button type="button" name="button">Button</button>
-    <button class="bg-blue bg-500 hover:bg-600" type="button" name="button">Button</button>
-    <button class="bg-amber bg-500 hover:bg-600" type="button" name="button">Button</button>
+    <button class="bg-blue" type="button" name="button">Button</button>
+    <button class="bg-amber" type="button" name="button">Button</button>
+    <button class="t-black bg-amber bg-200 dark:bg-300" type="button" name="button">Button</button>
     <button class="b-thin b-green bg-transparent t-green t-600 hover:t-white hover:bg-green hover:bg-600" type="button" name="button">Button</button>
   </p>
 </form>
 
-When colorizing buttons (and link pseudo-buttons), remember to set their `hover:` hover state shades too.
+Buttons have a built-in hover background-color change: the background color becomes darker for the light theme, and lighter for the dark theme.
 
 ```html
 <!-- Default button -->
 <button type="button" name="button">Button</button>
 
 <!-- Blue button -->
-<button class="bg-blue bg-600 hover:bg-700" type="button" name="button">Button</button>
+<button class="bg-blue" type="button" name="button">Button</button>
 
-<!-- Amber button -->
-<button class="bg-amber bg-500 hover:bg-600" type="button" name="button">Button</button>
+<!-- Amber buttons -->
+<button class="bg-amber" type="button" name="button">Button</button>
+<button class="t-black bg-amber bg-200 dark:bg-300" type="button" name="button">Button</button>
 
 <!-- Green outline (a.k.a. ghost) button -->
 <button class="b-thin b-green bg-transparent t-green t-600 hover:t-white hover:bg-green hover:bg-600" type="button" name="button">Button</button>
@@ -229,7 +214,7 @@ Baselayer handles color in a 4-step process:
       /* Theme base colors */
       --blue: #4166f5;
       --green: #00a550;
-      --amber: #ffba00;
+      --amber: #ffdc00;
       --red: #e34234;
       --gray: #838996;
     }
@@ -271,7 +256,9 @@ Baselayer handles color in a 4-step process:
     }
     ```
 
-You can, of course, add any colors you want, and in any format you want. But if you want to add colors in a way that integrates with the Baselayer system, do this:
+## Adding more colors
+
+You can add any colors you want, and in any format you want. But if you want to add colors in a way that integrates with the Baselayer system, do this:
 
 1. You need to declare your colors first as CSS variables (preferably in the `:root{}`), so that they are available for the lightness utility classes.
 2. You need to insert your colors _before_ the Baselayer `@layer bl-colors` so that  your colors can make use of the Baselayer color shades.
@@ -326,6 +313,8 @@ Examples:
 }
 ```
 
+The five Baselayer built-in theme colors (blue, green, amber, red, gray) are set using hex `#` codes). However, if you add your own in all other color system, the `oklch( ... )` formulas can handle it.
+
 ## How the dark theme works
 
 Baselayer has a simple dark theme built in. Since v.3.4.0, the user’s operating system preference for light or dark mode is automatically detected on the HTML tag by the following CSS:
@@ -338,27 +327,60 @@ html {
 
 For the dark theme, HTML elements are generally flipped from light to dark, or dark to light, as required. The colors are shifted as follows:
 
-* Body background is near black
-* Text is near white
-* Table borders, horizontal rules, form inputs are a darker gray
-* Text links are a lighter blue
-* Default buttons are a lighter gray
-* Form elements’ text and background are switched the same as base text and body in dark mode
+<table class="table">
+<thead>
+<tr>
+<th></th>
+<th>Light theme</th>
+<th>Dark theme</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Body background</td>
+<td>White</td>
+<td>Near black</td>
+</tr>
+<tr>
+<td>Base text</td>
+<td>Dark gray</td>
+<td>White</td>
+</tr>
+<tr>
+<td>Links/ hovered</td>
+<td>Mid blue/ Darker blue</td>
+<td>Mid blue/ Lighter blue</td>
+</tr>
+<tr>
+<td>Buttons/ hovered</td>
+<td>Mid gray/ Darker gray</td>
+<td>Mid gray/ Lighter gray</td>
+</tr>
+<tr>
+<td>Table borders, horizontal rules, form inputs</td>
+<td>Mid-light gray</td>
+<td>Mid-dark gray</td>
+</tr>
+<tr>
+<td>Form elements’ text and background</td>
+<td>Same as base text and body in light theme</td>
+<td>Same as base text and body in dark theme</td>
+</tr>
+</tbody>
+</table>
 
-All the theme color variables in Baselayer (since v.3.4.0) involve a `light-dark()` CSS function. For example:
+All the theme color variables in Baselayer involve a `light-dark()` CSS function. For example:
 
 ```css
 :root {
-  /*
-  Body tag background color
-  */
+  /* Body tag background color */
+
   --bgc-body: light-dark(
     white,
     color-mix(in oklch, var(--gray), var(--l950)));
 
-  /*
-  Base text color (also set on the body tag)
-  */
+  /* Base text color (also set on the body tag) */
+
   --tc-base: light-dark(
     color-mix(in OKLCH, var(--gray), var(--l900)),
     color-mix(in OKLCH, var(--gray), var(--l100))
@@ -367,8 +389,6 @@ All the theme color variables in Baselayer (since v.3.4.0) involve a `light-dark
 ```
 
 Baselayer does not use `@media (prefers-color-scheme: dark) {}` anywhere.
-
-The color shade utilities can [optionally be inverted](#inverting-lightness-levels-for-the-dark-theme) by adding the `*-dark-invert` modifier classes.
 
 ### Light and dark theme classes
 
@@ -450,16 +470,7 @@ Example using `bg-blue`:
 Notes:
 
 * The middle dark mode `dark:bg-500` is the same lightness level as its light mode counterpart.
-* The `dark:` prefix is only for switching lightness levels, not for switching colors.
-* When setting the hover state lightness level, the `hover:` prefix must come before the `dark:` prefix.
-
-```html
-<!-- This is correct -->
-<a href="" class="... hover:dark:bg-900">Link</a>
-
-<!-- This will not work -->
-<a href="" class="... hover:dark:bg-900">Link</a>
-```
+* Except for [reversi](#black%2C-white%2C-and-reversi), colors can't be switched when switching between light and dark mode (only lightness utilities have a `dark:` prefix option).
 
 ### What if you don’t want a dark theme?
 
@@ -471,7 +482,7 @@ html {
 }
 ```
 
-And you won’t need to use any `dark:` prefixed classes.
+And then you won’t need to use any `dark:` prefixed uilities.
 
 ## Other Baselayer color utilities
 
@@ -479,48 +490,68 @@ Other color utilities included in Baselayer cover black, white, reversi, reversi
 
 ### Black, white, and reversi
 
-Black and white are explicitly named colors in baselayer. They do not have lightness levels.
+Black and white are explicitly named colors in baselayer. They do not have lightness levels (use grays).
 
-**New in Baselayer v.3.5:** If you want something black in the light theme but white in the dark theme (and vise versa), Baselayer has `*-reversi` and `*-reversi-flip` classes that handle this. See [reversi](https://en.wikipedia.org/wiki/Reversi).
+**New in Baselayer v.3.5:** If you want something black in the light theme but white in the dark theme (and vise versa like [reversi](https://en.wikipedia.org/wiki/Reversi) game pieces), Baselayer has `*-reversi` and `*-reversi-flip` classes that handle this.
 
 * `*-black` / `hover:*-black` — named color black
 * `*-white` / `hover:*-white` — named color white
 * `*-reversi` / `hover:*-reversi` — black for light theme; white for dark theme
 * `*-reversi-flip` / `hover:*-reversi-flip` — white for light theme; black for dark theme
 
-<div class="my-2 flex flex-center gap-2">
-<div class="w-xs">
+<div class="w-xs mx-auto my-3 grid equal-2-cols">
 <div class="b-thin aspect-ratio-1x1 rad rad-pill p-4 flex flex-center flex-middle t-center t-white bg-black"><span>t-white<br> bg-black</span></div>
-</div>
-<div class="w-xs">
 <div class="b-thin aspect-ratio-1x1 rad rad-pill p-4 flex flex-center flex-middle t-center t-black bg-white"><span>t-black<br> bg-white</span></div>
-</div>
-</div>
-<div class="mb-3 flex flex-center gap-2">
-<div class="w-xs">
 <div class="b-thin aspect-ratio-1x1 rad rad-pill p-4 flex flex-center t-center flex-middle t-reversi-flip bg-reversi"><span>t-reversi-flip<br> bg-reversi</span></div>
-</div>
-<div class="w-xs">
 <div class="b-thin aspect-ratio-1x1 rad rad-pill p-4 flex flex-center flex-middle t-center t-reversi bg-reversi-flip"><span>t-reversi<br> bg-reversi-flip</span></div>
 </div>
-</div>
 
-```html
-<div class="t-white bg-black">...</div>
+### Transparent
 
-<div class="t-black bg-white">...</div>
+* Transparent: `b-transparent` / `bg-transparent`
 
-<div class="t-reversi-flip bg-reversi">...</div>
+There are no hover states of `*-transparent`.
 
-<div class="t-reversi bg-reversi-flip">...</div>
-```
+### Hover state utilities
 
-If you want “lightness levels” between white and black, then use grays.
+Since Baselayer v.3.8.0, named color utility classes have a hover state (declared by the prefix `hover:`) but shade utility classes do not.
 
-### Transparent background
+The following elements and classes have hover states:
 
-E.g. for outline buttons.
+* `<a href="">` links have a text-color change on hover: becoming darker for the light theme and lighter for the dark theme. Examples:
+    <div class="my-3 t-center">
+    <a href="">Default (blue) link</a>
+    <a class="t-green" href="">Green link</a>
+    </div>
 
-* Transparent: `bg-transparent`
+    ```html
+    <a href="">Default (blue) link</a>
+    <a class="t-green" href="">Green link</a>
+    ```
+* Buttons (`<input>` buttons, `<button>`, and pseudo button links `<a class="btn" href="">`) have a background-color change on hover: becoming darker for the light theme and lighter for the dark theme.
+* Named color utilities can “switch on” color in the hover state, if you add the `hover:` prefix. Example:
+    ```html
+    <!-- Outline (ghost) button -->
+    <button class="b-thin b-green bg-transparent t-green t-600 hover:t-white hover:bg-green hover:bg-600" type="button" name="button">Button</button>
 
-There are no hover states of `bg-transparent`.
+    <!-- Adding a hover color to a table row -->
+    <tr class="hover:bg-gray bg-100 dark:bg-900"> ... </tr>
+    ```
+
+### Glass (blur) and filter backgrounds
+
+The following color utility modifiers are intended for use in conjunction with background colors and shade (they do not include color).
+
+Use these classes on layers above images. You will see little or no effect from them unless thy are used on a panel in front of a photo or complex pattern.
+
+* `bg-glass` (alias `bg-blur`) — mid-opacity, blurred backround
+* `bg-filter` — mid-opacity background
+* `hover:bg-opaque` – removes the blur, and sets the opacity level to 1 (fully opaque)
+
+These modifiers can also be used in conjunction with the background lightness utilities (but not the `dark:` lightness utilities). When `bg-100` ... `bg-900` are used with `bg-glass`, `bg-blur`, or `bg-filter`, the refactored to affect the transparency level.
+
+Examples:
+
+* `bg-glass bg-white bg-900` – a highly opaque white glassmorphic blur effect
+* `bg-filter bg-white bg-200` – a lightly transparent black glass effect
+* `bg-filter bg-green` – a green mid-opacity filter
