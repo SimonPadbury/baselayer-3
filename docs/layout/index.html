@@ -379,7 +379,7 @@ window.addEventListener("DOMContentLoaded", () => {
         <div id="toc-outer" class="sticky top w-content h-max-100dvh mx-auto px-2 pb-4 links-underline-hover-only overflow-y">
           <p class="h4 t-semibold">On this page</p>
           <nav class="toc" >
-        <ul><li><a href="#container-query-contexts">Container query contexts</a></li><li><a href="#blocks">Blocks</a></li><li><a href="#dimensions">Dimensions</a><ul><li><a href="#wrappers">Wrappers</a></li><li><a href="#widths">Widths</a></li><li><a href="#heights">Heights</a></li><li><a href="#box">Box</a></li></ul></li><li><a href="#positions">Positions</a></li><li><a href="#container-query-powered-layouts">Container query powered layouts</a></li><li><a href="#responsive-blocks-and-inline-blocks">Responsive blocks and inline-blocks</a></li><li><a href="#flex-layouts">Flex layouts</a><ul><li><a href="#using-flex-modifiers">Using flex modifiers</a></li><li><a href="#flex-item-grow">Flex-item grow</a></li><li><a href="#flex-gaps">Flex gaps</a></li><li><a href="#flex-and-container-queries">Flex and container queries</a></li></ul></li><li><a href="#grid-layouts">Grid layouts</a><ul><li><a href="#setting-up-a-grid">Setting up a grid</a></li><li><a href="#grid-gaps">Grid gaps</a></li><li><a href="#controlling-grid-items">Controlling grid items</a></li><li><a href="#grid-items-and-dense-packing">Grid items and dense packing</a></li><li><a href="#grid-and-container-queries">Grid and container queries</a></li><li><a href="#responsive-grid-layout-tiers-can-be-combined">Responsive grid layout tiers can be combined</a></li></ul></li><li><a href="#invisibility-(hidden)-classes">Invisibility (hidden) classes</a></li><li><a href="#content-grid">Content-grid</a><ul><li><a href="#popout-panels">Popout panels</a></li><li><a href="#expanded-panels">Expanded panels</a></li><li><a href="#full-bleed-panels">Full-bleed panels</a></li></ul></li><li><a href="#aspect-ratios">Aspect ratios</a></li><li><a href="#overflows">Overflows</a><ul><li><a href="#overflow-clip">Overflow clip</a></li></ul></li><li><a href="#floats">Floats</a></li></ul>
+        <ul><li><a href="#container-query-contexts">Container query contexts</a></li><li><a href="#blocks">Blocks</a></li><li><a href="#dimensions">Dimensions</a><ul><li><a href="#wrappers">Wrappers</a></li><li><a href="#widths">Widths</a></li><li><a href="#heights">Heights</a></li><li><a href="#squares">Squares</a></li><li><a href="#box">Box</a></li></ul></li><li><a href="#positions">Positions</a></li><li><a href="#container-query-powered-layouts">Container query powered layouts</a></li><li><a href="#responsive-blocks-and-inline-blocks">Responsive blocks and inline-blocks</a></li><li><a href="#flex-layouts">Flex layouts</a><ul><li><a href="#using-flex-modifiers">Using flex modifiers</a></li><li><a href="#flex-item-grow">Flex-item grow</a></li><li><a href="#flex-gaps">Flex gaps</a></li><li><a href="#flex-and-container-queries">Flex and container queries</a></li></ul></li><li><a href="#grid-layouts">Grid layouts</a><ul><li><a href="#setting-up-a-grid">Setting up a grid</a></li><li><a href="#grid-gaps">Grid gaps</a></li><li><a href="#controlling-grid-items">Controlling grid items</a></li><li><a href="#grid-items-and-dense-packing">Grid items and dense packing</a></li><li><a href="#grid-and-container-queries">Grid and container queries</a></li><li><a href="#responsive-grid-layout-tiers-can-be-combined">Responsive grid layout tiers can be combined</a></li></ul></li><li><a href="#invisibility-(hidden)-classes">Invisibility (hidden) classes</a></li><li><a href="#content-grid">Content-grid</a><ul><li><a href="#popout-panels">Popout panels</a></li><li><a href="#expanded-panels">Expanded panels</a></li><li><a href="#full-bleed-panels">Full-bleed panels</a></li></ul></li><li><a href="#aspect-ratios">Aspect ratios</a></li><li><a href="#overflows">Overflows</a><ul><li><a href="#overflow-clip">Overflow clip</a></li></ul></li><li><a href="#floats">Floats</a></li></ul>
       </nav>
         </div>
       </aside>
@@ -390,7 +390,8 @@ window.addEventListener("DOMContentLoaded", () => {
               <h1 class="py-4 t-thin t-balance t-center">Baselayer 3: Layout</h1>
             </div>
           </header>
-          <main class="content-grid flow">
+
+          <main class="content-grid pb-4 flow">
             <div aria-label="Note" class="popout bl-heavy b-blue b-400 dark:b-600 p-3 bg-blue bg-100 dark:bg-900">
   Since September 2023, all “evergreen” browsers (Chrome, Edge, Firefox, Safari) have capability for the new CSS Container Queries (see <a href="https://caniuse.com/?search=container">Can I use: Container Queries</a>). So, Baselayer now has <a href="#container-query-powered-layouts">container query powered layouts</a> to control <code>flex</code>, <code>grid</code>, and <code>hidden</code> utility classes.
 </div>
@@ -459,6 +460,14 @@ window.addEventListener("DOMContentLoaded", () => {
 <li><code>h-max-100dvh</code> — height is constrained to 100dvh, e.g. for tall sidebars (use this in conjunction with <code>overflow-y</code>)</li>
 </ul>
 <p>Baselayer uses <code>100dvh</code> (<a href="https://www.bram.us/2021/07/08/the-large-small-and-dynamic-viewports/">dynamic viewport height</a>) that gives a different viewport height for some devices — i.e. it compensates for the retracting interface toolbars on iOS Safari.</p>
+<h3 id="squares" tabindex="-1">Squares</h3>
+<p>Baselayer squares have dimensions set in <code>em</code> so that they scale with the font size of their parent element. Squares are useful for making square buttons and icons, featured images, author photos, etc.</p>
+<ul>
+<li><code>square-1</code> (alias <code>square-icon</code>) — 1.25em² (20px² on normal sized text, 1rem / 16px)</li>
+<li><code>square-2</code> — 2.5em² (40px² on normal sized text)</li>
+<li><code>square-3</code> — 3.75em² (60px² on normal sized text)</li>
+</ul>
+<p>Pair <code>square-* rounded-pill</code> and you get a circle. Using <code>square-*</code> with a font-size utility will give you other sizes. E.g. <code>square-3 h1</code> is 3.75em² × 2.5em = 9.375em² = 150px².</p>
 <h3 id="box" tabindex="-1">Box</h3>
 <ul>
 <li><code>box</code> — expands an inner element using <code>position: absolute; inset: 0</code> to fill the size of its wrapper (use in conjunction with <code>relative</code> positioning on the parent element of a <code>box</code>). This is useful for setting up a panel (e.g. hero or card) background image with text overlay.</li>
@@ -766,7 +775,7 @@ window.addEventListener("DOMContentLoaded", () => {
 <ul>
 <li><code>gap-*</code> — adds a <em>horizontal and vertical</em> gap between grid cells, using the same spacing variables as for margins and paddings:
 <ul>
-<li><code>gap-tiny1</code> — using spaing variable <code>--s-tiny</code></li>
+<li><code>gap-tiny</code> — using spaing variable <code>--s-tiny</code></li>
 <li><code>gap-1</code> — using spaing variable <code>--s-1</code></li>
 <li><code>gap-2</code> — using spaing variable <code>--s-2</code></li>
 <li><code>gap-3</code> — using spaing variable <code>--s-3</code></li>
@@ -775,31 +784,27 @@ window.addEventListener("DOMContentLoaded", () => {
 </li>
 </ul>
 <p>These same <code>gap-*</code> classes are used for <a href="#flex-layouts">flex layouts</a>.</p>
+<p><code>gap-tiny</code> is good for button groups and form-button combos, where you want a gap to be approx. 1 charcter width.</p>
 <div class="mt-3 grid equal-3-cols gap-tiny">
   <div class="b-thin p-cell">With <code>gap-tiny</code></div>
   <div class="b-thin p-cell"></div>
   <div class="b-thin p-cell"></div>
 </div>
-<p><code>gap-tiny</code> is good for button groups and form-button combos, where you want a gap to be approx 1 charcter width.</p>
-<hr class="my-3">
 <div class="grid equal-3-cols gap-1">
   <div class="b-thin p-cell">With <code>gap-1</code></div>
   <div class="b-thin p-cell"></div>
   <div class="b-thin p-cell"></div>
 </div>
-<hr class="my-3">
 <div class="grid equal-3-cols gap-2">
   <div class="b-thin p-cell">With <code>gap-2</code></div>
   <div class="b-thin p-cell"></div>
   <div class="b-thin p-cell"></div>
 </div>
-<hr class="my-3">
 <div class="grid equal-3-cols gap-3">
   <div class="b-thin p-cell">With <code>gap-3</code></div>
   <div class="b-thin p-cell"></div>
   <div class="b-thin p-cell"></div>
 </div>
-<hr class="my-3">
 <div class="mb-4 grid equal-3-cols gap-4">
   <div class="b-thin p-cell">With <code>gap-4</code></div>
   <div class="b-thin p-cell"></div>
@@ -844,66 +849,64 @@ window.addEventListener("DOMContentLoaded", () => {
 </code></pre>
 <p>Controlling positioning and spanning at <em>per-grid-item</em> level:</p>
 <ul>
-<li><strong>Positioning (optional)</strong> — <code>col-*</code> and <code>row-*</code> etc. – for positioning each grid item over non-adjacent grid cells.</li>
-<li><strong>Spanning (optional)</strong> — <code>col-span-*</code> and <code>row-span-*</code>etc. – spanning 2, 3, or 4 columns or rows.</li>
+<li><strong>Positioning (optional)</strong> — <em>singular</em> <code>col-{x}</code> and <code>row-{x}</code> etc. – for positioning each grid item over non-adjacent grid cells.</li>
+<li><strong>Spanning (optional)</strong> — <em>plural</em> <code>cols-{x}-{y}</code> and <code>rows-{x}-{y}</code> etc. – for positioning and spanning.</li>
 </ul>
+<p><strong>Note:</strong> Since Baselayer v.3.8.0, the grid system’s <em>spanning</em> classes have been refactored to make them more intuitive. Now e.g. <code>md:cols-1-2</code> means: “From medium vewports up, this grid item starts in column 1 and spans to column 2”.</p>
 <p>CSS grid positions grid items <em>automatically</em> on the available grid cells — so an item will be placed on the <em>next</em> available cell until required to begin again on the <em>next</em> (i.e. new) row. You can use this automatic positioning to your advantage, allowing CSS grid to presume where you want your next item to be. As in the following simple example:</p>
 <div class="mt-3 mb-4 grid equal-3-cols gap-2">
   <div class="b-thin p-cell">1</div>
-  <div class="col-span-2 b-thin p-cell">columns 2 to 3</div>
+  <div class="cols-2-3 b-thin p-cell">columns 2 to 3</div>
 </div>
 <pre><code class="language-html">&lt;div class=&quot;grid equal-3-cols gap-2&quot;&gt;
   &lt;div&gt;...&lt;/div&gt;
-  &lt;div class=&quot;col-span-2&quot;&gt;...&lt;/div&gt;
+  &lt;div class=&quot;cols-2-3&quot;&gt;...&lt;/div&gt;
 &lt;/div&gt;
 </code></pre>
-<p>The <code>col-span-</code> and <code>row-span-</code> spanning classes can be used to make grid items to span up to 4 columns and/or 4 rows.</p>
-<p>The <code>col-</code> and <code>row-</code> positioning classes are used to instruct the grid which grid cell you want your grid item to be placed on (up to 4 columns and/or 4 rows).</p>
-<p>Pairing spanning with positioning gives yo even more control. In the following example, we specified that item 3 should go on <code>row-2</code> and the CSS grid automatically figured out that item 4 should start in the next available grid  column (i.e. column 3):</p>
 <div class="mt-3 mb-4 grid equal-4-cols gap-1">
   <div class="b-thin p-cell">1</div>
   <div class="b-thin p-cell">2</div>
-  <div class="col-span-2 row-2 b-thin p-cell">columns 1 to 2, row 2</div>
-  <div class="col-span-2 row-span-2 b-thin p-cell">columns 3 to 4, rows 1 to 2</div>
+  <div class="cols-1-2 row-2 b-thin p-cell">columns 1 to 2, row 2</div>
+  <div class="cols-3-4 rows-1-2 b-thin p-cell">columns 3 to 4, rows 1 to 2</div>
 </div>
 <pre><code class="language-html">&lt;div class=&quot;grid equal-4-cols gap-1&quot;&gt;
   &lt;div&gt;1&lt;/div&gt;
   &lt;div&gt;2&lt;/div&gt;
-  &lt;div class=&quot;col-span-2 row-2&quot;&gt;columns 1 to 2, row 2&lt;/div&gt;
-  &lt;div class=&quot;col-span-2 row-span-2&quot;&gt;columns 3 to 4, rows 1 to 2&lt;/div&gt;
+  &lt;div class=&quot;cols-1-2 row-2&quot;&gt;columns 1 to 2, row 2&lt;/div&gt;
+  &lt;div class=&quot;cols-3-4 rows-1-2&quot;&gt;columns 3 to 4, rows 1 to 2&lt;/div&gt;
 &lt;/div&gt;
 </code></pre>
 <h3 id="grid-items-and-dense-packing" tabindex="-1">Grid items and dense packing</h3>
 <p>When you control the positioning of grid items, you cam sometimes leave leave spaces of unoccupied cells. This is because CSS grid automatially tries to place the next item in the next available cell — it does not automatically back-fill any empty cells that you have left:</p>
 <div class="mt-3 mb-4 grid gap-1 equal-4-cols">
   <div class="b-thin p-cell">Item 1</div>
-  <div class="col-1 col-span-2 b-thin p-cell">Item 2</div>
-  <div class="col-2 col-span-3 b-thin p-cell">Item 3</div>
+  <div class="cols-1-2 b-thin p-cell">Item 2</div>
+  <div class="cols-2-4 b-thin p-cell">Item 3</div>
   <div class="col-4 b-thin p-cell">Item 4</div>
   <div class="col-3 b-thin p-cell">Item 5</div>
 </div>
 <pre><code class="language-html">&lt;div class=&quot;grid gap-1 equal-4-cols&quot;&gt;
   &lt;div&gt;Item 1&lt;/div&gt;
-  &lt;div class=&quot;col-1 col-span-2&quot;&gt;Item 2&lt;/div&gt;
-  &lt;div class=&quot;col-2 col-span-3&quot;&gt;Item 3&lt;/div&gt;
+  &lt;div class=&quot;cols-1-2&quot;&gt;Item 2&lt;/div&gt;
+  &lt;div class=&quot;cols-2-4&quot;&gt;Item 3&lt;/div&gt;
   &lt;div class=&quot;col-4&quot;&gt;Item 4&lt;/div&gt;
   &lt;div class=&quot;col-3&quot;&gt;Item 5&lt;/div&gt;
 &lt;/div&gt;
 </code></pre>
-<p>With the <code>grid-dense</code> modifier you can back-fill some or all of these unoccupied cells, by CSS grid reordering (rearranging) your grid items to fill in the spaces. Here’s the example above again, but with <code>grid grid-dense</code>:</p>
+<p>With the <code>grid-dense</code> modifier you can back-fill some or all of these unoccupied cells, by CSS grid reordering (rearranging) your grid items to fill in the spaces. Here’s the same example again, but with <code>grid grid-dense</code>:</p>
 <div class="mt-3 mb-4 grid grid-dense gap-1 equal-4-cols">
-  <div class="b-thin p-cell">1</div>
-  <div class="col-1 col-span-2 b-thin p-cell">2</div>
-  <div class="col-2 col-span-3 b-thin p-cell">3</div>
-  <div class="col-4 b-thin p-cell">4</div>
-  <div class="col-3 b-thin p-cell">5</div>
+  <div class="b-thin p-cell">Item 1</div>
+  <div class="cols-1-2 b-thin p-cell">Item 2</div>
+  <div class="cols-2-4 b-thin p-cell">Item 3</div>
+  <div class="col-4 b-thin p-cell">Item 4</div>
+  <div class="col-3 b-thin p-cell">Item 5</div>
 </div>
 <pre><code class="language-html">&lt;div class=&quot;grid gap-1 equal-4-cols grid-dense&quot;&gt;
   &lt;div&gt;Item 1&lt;/div&gt;
-  &lt;div class=&quot;col-1 col-span-2&quot;&gt;2&lt;/div&gt;
-  &lt;div class=&quot;col-2 col-span-3&quot;&gt;3&lt;/div&gt;
-  &lt;div class=&quot;col-4&quot;&gt;4&lt;/div&gt;
-  &lt;div class=&quot;col-3&quot;&gt;5&lt;/div&gt;
+  &lt;div class=&quot;cols-1-2&quot;&gt;Item 2&lt;/div&gt;
+  &lt;div class=&quot;cols-2-4&quot;&gt;Item 3&lt;/div&gt;
+  &lt;div class=&quot;col-4&quot;&gt;Item 4&lt;/div&gt;
+  &lt;div class=&quot;col-3&quot;&gt;Item 5&lt;/div&gt;
 &lt;/div&gt;
 </code></pre>
 <h3 id="grid-and-container-queries" tabindex="-1">Grid and container queries</h3>
@@ -951,7 +954,7 @@ window.addEventListener("DOMContentLoaded", () => {
         <svg xmlns="http://www.w3.org/2000/svg" class="r-pill img-cover" preserveAspectRatio="xMidYMid slice" width="1000" height="1000"><defs><linearGradient id="gradient1" gradientTransform="rotate(45)"><stop offset="5%" stop-color="rgba(255,255,0,.5)"></stop><stop offset="50%" stop-color="rgba(255,255,255,0)"></stop><stop offset="95%" stop-color="rgba(255,0,0,.5)"></stop></linearGradient><linearGradient id="gradient2" gradientTransform="rotate(135)"><stop offset="5%" stop-color="rgba(0,0,255,.5)"></stop><stop offset="50%" stop-color="rgba(255,255,255,0)"></stop><stop offset="95%" stop-color="rgba(0,255,0,.5)"></stop></linearGradient></defs><rect width="100%" height="100%" fill="url('#gradient1')"></rect><rect width="100%" height="100%" fill="url('#gradient2')"></rect></svg>
       </div>
     </div>
-    <div class="xs:col-2 sm:col-span-3">
+    <div class="xs:cols-2-4">
       <p class="h4 mt-0 mb-1 ">Media object</p>
       <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni rem animi quaerat accusantium illum architecto, nemo, ex harum voluptatum adipisci eum blanditiis dolorum.</p>
       <button>Something</button>
@@ -1174,24 +1177,25 @@ window.addEventListener("DOMContentLoaded", () => {
 </div>
 <p>There's also a <code>clearfix</code> class, if you need it.</p>
 
-            <hr>
-            <nav class="expand grid gap-2 sm:equal-2-cols">
-              
-              <a class="sm:col-1 my-1 b-thin rounded p-cell flex flex-column flex-top gap-1 t-underline-hover-only hover:bg-blue bg-100 dark:bg-900"  href="/baselayer-3/typography/">
-                <span class="t-blue t-underline-none">Previous page</span>
-                <span class="h3 m-0 t-normal"> Typography</span>
-              </a>
-              
-              
-              <a class="sm:col-2 my-1 b-thin rounded p-cell flex flex-column flex-bottom gap-1 t-right t-underline-hover-only hover:bg-blue bg-100 dark:bg-900" href="/baselayer-3/decoration/">
-                <span class="t-blue t-underline-none">Next page</span>
-                <span class="h3 m-0 t-normal">Decoration</span>
-              </a>
-              
-            </nav>
           </main>
-          <div class="container-md">
-            <div class="mt-4 mb-3 p-2 flex flex-column flex-middle t-center">
+
+          <nav class="wrapper-md pt-4 grid gap-2 sm:equal-2-cols">
+            
+            <a class="sm:col-1 my-1 b-thin rounded p-cell flex flex-column flex-top gap-1 t-underline-none hover:bg-blue bg-100 dark:bg-900"  href="/baselayer-3/typography/">
+              <span class="t-blue">Previous page</span>
+              <span class="h3 m-0 t-normal"> Typography</span>
+            </a>
+            
+            
+            <a class="sm:col-2 my-1 b-thin rounded p-cell flex flex-column flex-bottom gap-1 t-right t-underline-none hover:bg-blue bg-100 dark:bg-900" href="/baselayer-3/decoration/">
+              <span class="t-blue">Next page</span>
+              <span class="h3 m-0 t-normal">Decoration</span>
+            </a>
+            
+          </nav>
+
+          <footer class="wrapper-md py-4 t-base">
+            <div class="mb-3 p-2 flex flex-column flex-middle t-center">
               <a href="/baselayer-3/" class="mb-1 flex flex-column flex-center gap-1 t-underline-none">
                 <svg class="mx-auto" height="48" width="48" viewBox="0 0 111 111" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-miterwrapper:1.5">
                   <g transform="translate(-294.592 -94.592)">
@@ -1215,7 +1219,7 @@ window.addEventListener("DOMContentLoaded", () => {
             </p>
             <p class="t-center"><span>Developer: <a class="t-underline-hover-only" href="https://github.com/SimonPadbury">Simon Padbury</a></span>
 
-          </div>
+          </footer>
         </div>
       </div>
     </div>

@@ -171,7 +171,7 @@ If the element is a square, then `rounded rounded-pill` makes a circle.
 
 Baselayer box shadows are intended to represent layer “lifts” along the z-axis. The higher a layer is lifted from the page, the less sharpness and more spread the box shadow has. This also means that the higher the suffix, the fainter the shadow becomes as it is spread over a wider area.</p>
 
-**Note:** box shadows require a lighter layer behind them, else they will not be seen, especially in the dark theme.
+**Note:** box shadows require a layer behind them that’s lighter than the shadow, else they will not be seen, especially in the dark theme.
 
 <div class="my-3 p-3 flex flex-wrap gap-3 bg-gray bg-100 dark:bg-600">
   <div class="bs-1 p-2">bs-1</div>

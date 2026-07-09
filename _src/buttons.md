@@ -85,7 +85,7 @@ Border, background, and text color utilities can be used.
     <button class="bg-blue" type="button" name="button">Button</button>
     <button class="bg-amber" type="button" name="button">Button</button>
     <button class="t-black bg-amber bg-200 dark:bg-300" type="button" name="button">Button</button>
-    <a class="btn b-thin b-green bg-transparent t-green t-600 hover:t-white hover:bg-green hover:bg-600" href="#/">Link “button”</a>
+    <a class="btn b-thin b-green bg-transparent t-green hover:t-reversi-flip hover:bg-green" href="#/">Link “button”</a>
   </p>
 </form>
 
@@ -103,7 +103,7 @@ Buttons have a built-in hover color-change: the background color becomes darker 
 <button class="t-black bg-amber bg-200 dark:bg-300" type="button" name="button">Button</button>
 
 <!-- Green outline (a.k.a. ghost) link “button” -->
-<a class="btn b-thin b-green bg-transparent t-green t-600 hover:t-white hover:bg-green hover:bg-600" href="#/">Link “button”</a>
+<a class="btn b-thin b-green bg-transparent t-green hover:t-reversi-flip hover:bg-green" href="#/">Link “button”</a>
 ```
 
 ## Buttons with icons

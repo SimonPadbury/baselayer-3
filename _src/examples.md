@@ -8,12 +8,12 @@ layout: base-fw.njk
 
 **Note:** `container` is simply used for adding a [container query context]({{ "/layout/#container-query-contexts" | url }}) — it doesn’t add any constraints.
 
-<div class="wrapper mb-1 p-1 bg-gray bg-200 dark:bg-800">wrapper / wrapper-xxl — max 1792px</div>
-<div class="wrapper-xl mb-1 p-1 bg-gray bg-200 dark:bg-800">wrapper-lg — max 1536px</div>
-<div class="wrapper-lg mb-1 p-1 bg-gray bg-200 dark:bg-800">wrapper-lg — max 1280px</div>
-<div class="wrapper-md mb-1 p-1 bg-gray bg-200 dark:bg-800">wrapper-md — max 1024px</div>
-<div class="wrapper-sm mb-1 p-1 bg-gray bg-200 dark:bg-800">wrapper-sm — max 760px</div>
-<div class="wrapper-xs mb-1 p-1 bg-gray bg-200 dark:bg-800">wrapper-xs — max 512px</div>
+<div class="wrapper mb-1 p-1 bg-green bg-200 dark:bg-800">wrapper / wrapper-xxl — max 1792px</div>
+<div class="wrapper-xl mb-1 p-1 bg-green bg-200 dark:bg-800">wrapper-lg — max 1536px</div>
+<div class="wrapper-lg mb-1 p-1 bg-green bg-200 dark:bg-800">wrapper-lg — max 1280px</div>
+<div class="wrapper-md mb-1 p-1 bg-green bg-200 dark:bg-800">wrapper-md — max 1024px</div>
+<div class="wrapper-sm mb-1 p-1 bg-green bg-200 dark:bg-800">wrapper-sm — max 760px</div>
+<div class="wrapper-xs mb-1 p-1 bg-green bg-200 dark:bg-800">wrapper-xs — max 512px</div>
 
 * * *
 
@@ -24,7 +24,7 @@ layout: base-fw.njk
   <label class="inline-block px-1 t-white bg-red bg-600">Required</label>
   <label class="inline-block px-1 t-white bg-green bg-600">Success</label>
   <label class="inline-block px-1 t-white bg-blue bg-600">Information</label>
-  <label class="inline-block px-1 bg-gray bg-200 dark:bg-800">Uncategorized</label>
+  <label class="inline-block px-1 bg-green bg-200 dark:bg-800">Uncategorized</label>
 </div>
 
 * * *
@@ -39,7 +39,7 @@ layout: base-fw.njk
   <a class="btn" href="#/">Link pseudo-button</a>
   <button class="bg-blue" type="button" name="button">Blue button</button>
   <button class="bg-amber" type="button" name="button">Amber button</button>
-  <a class="btn b-thin b-green bg-transparent t-green t-600 hover:b-700 hover:t-white hover:bg-green hover:bg-700" href="#/">Link ghost pseudo-button</a>
+    <a class="btn b-thin b-green bg-transparent t-green hover:t-reversi-flip hover:bg-green" href="#/">Outline link button</a>
 </div>
 <div class="wrapper-xs mb-2">
   <p class="mb-2">Full width button inside <code>wrapper-xs</code></p>
@@ -55,9 +55,9 @@ A malleable grid without setting equalization on cell widths. In this example, f
 <div class="wrapper mb-3 flow">
   <p class="mb-1"><code>grid gap-1</code></p>
     <div class="grid gap-1">
-      <div class="sm:col-1 p-cell bg-gray bg-200 dark:bg-800"><code>sm:col-1</code> A narrow column</div>
-      <div class="sm:col-2 p-cell bg-gray bg-200 dark:bg-800"><code>sm:col-2</code> This will expand to become a wide column because it has a lot of content. This will expand to become a wide column because it has a lot of content. This will expand to become a wide column because it has a lot of content.</div>
-      <div class="sm:col-3 p-cell bg-gray bg-200 dark:bg-800"><code>sm:col-3</code> Another narrow column</div>
+      <div class="sm:col-1 p-cell bg-green bg-200 dark:bg-800"><code>sm:col-1</code> A narrow column</div>
+      <div class="sm:col-2 p-cell bg-green bg-200 dark:bg-800"><code>sm:col-2</code> This will expand to become a wide column because it has a lot of content. This will expand to become a wide column because it has a lot of content. This will expand to become a wide column because it has a lot of content.</div>
+      <div class="sm:col-3 p-cell bg-green bg-200 dark:bg-800"><code>sm:col-3</code> Another narrow column</div>
   </div>
 </div>
 
@@ -66,24 +66,23 @@ Using `equal-` modifiers on the grid wrapper will both equalize column width and
 <div class="wrapper flow">
 <code>grid sm:equal-2-cols gap-2</code>
 <div class="mt-1 mb-2 grid sm:equal-2-cols gap-2">
-  <div class="p-1 bg-gray bg-200 dark:bg-800">#</div>
-  <div class="p-1 bg-gray bg-200 dark:bg-800">#</div>
+  <div class="p-1 bg-green bg-200 dark:bg-800">#</div>
+  <div class="p-1 bg-green bg-200 dark:bg-800">#</div>
 </div>
 <code>grid sm:equal-2-cols md:equal-3-cols gap-2</code>
 <div class="mt-1 mb-2 grid sm:equal-2-cols md:equal-3-cols gap-2">
-  <div class="p-1 bg-gray bg-200 dark:bg-800">#</div>
-  <div class="p-1 bg-gray bg-200 dark:bg-800">#</div>
-  <div class="p-1 bg-gray bg-200 dark:bg-800">#</div>
-  <div class="p-1 bg-gray bg-200 dark:bg-800">#</div>
-  <div class="sm:col-span-2 p-1 bg-gray bg-200 dark:bg-800"><code>sm:col-span-2</code></div>
+  <div class="p-1 bg-green bg-200 dark:bg-800">#</div>
+  <div class="p-1 bg-green bg-200 dark:bg-800">#</div>
+  <div class="p-1 bg-green bg-200 dark:bg-800">#</div>
+  <div class="p-1 bg-green bg-200 dark:bg-800">#</div>
+  <div class="sm:cols-1-2 md:cols-2-3 p-1 bg-green bg-200 dark:bg-800"><code>sm:cols-1-2 md:cols-2-3</code></div>
 </div>
-<p><code>sm:grid</code> takes effect at 768px up. Below 768px, <code>gap-2</code> will have no effect.</p>
 <code>sm:grid sm:equal-4-cols gap-2</code>
-<div class="mt-1 mb-2 sm:grid sm:equal-4-cols gap-2">
-  <div class="p-1 bg-gray bg-200 dark:bg-800">#</div>
-  <div class="sm:col-span-2 p-1 bg-gray bg-200 dark:bg-800"><code>sm:col-span-2</code></div>
-  <div class="sm:col-span-3 p-1 bg-gray bg-200 dark:bg-800"><code>sm:col-span-3</code></div>
-  <div class="sm:col-4 sm:row-1 sm:row-span-2 p-1 bg-gray bg-200 dark:bg-800"><code>sm:col-4 sm:row-1 sm:row-span-2</code></div>
+<div class="mt-1 mb-2 grid sm:equal-4-cols gap-2">
+  <div class="p-1 bg-green bg-200 dark:bg-800">#</div>
+  <div class="sm:cols-2-3 p-1 bg-green bg-200 dark:bg-800"><code>sm:cols-2-3</code></div>
+  <div class="sm:cols-1-3 p-1 bg-green bg-200 dark:bg-800"><code>sm:cols-1-3</code></div>
+  <div class="sm:col-4 sm:row-1 sm:rows-1-2 p-1 bg-green bg-200 dark:bg-800"><code>sm:col-4 sm:row-1 sm:rows-1-2</code></div>
 </div>
 </div><!-- /.wrapper -->
 
@@ -151,13 +150,13 @@ See [typography: making text bigger]({{ "/typography/#making-text-bigger" | url 
   <code>grid md:equal-3-cols lg:equal-4-cols gap-3</code>
   <div class="mt-1 grid md:equal-3-cols lg:equal-4-cols gap-3">
     <!---->
-    <div class="md:col-2 md:col-span-2">
-      <code>md:col-2 md:col-span-2</code>
+    <div class="md:cols-2-3">
+      <code>md:cols-2-3</code>
       <p class="h1 mb-0">Title of This Article</p>
     </div>
     <!---->
-    <div class="md:col-2 md:col-span-2 lg:col-4 lg:row-1 lg:row-span-2 relative">
-      <code class="mb-1">md:col-2 md:col-span-2 lg:col-4 lg:row-span-2 relative</code><br>
+    <div class="md:cols-2-3 lg:col-4 lg:rows-1-2 relative">
+      <code class="mb-1">md:cols-2-3 lg:col-4 lg:rows-1-2 relative</code><br>
       <div class="sticky top">
         <code>sticky top</code>
         <p class="h4">On this page TOC</p>
@@ -170,8 +169,8 @@ See [typography: making text bigger]({{ "/typography/#making-text-bigger" | url 
       </div>
     </div>
     <!---->
-    <div class="md:col-2 md:col-span-2 flow">
-      <code>md:col-2 md:col-span-2</code>
+    <div class="md:cols-2-3 flow">
+      <code>md:cols-2-3</code>
       <p class="h2">Abstract</p>
       <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni rem animi quaerat accusantium illum architecto, nemo, ex harum voluptatum adipisci eum blanditiis dolorum. Natus debitis quisquam, expedita accusantium quos cumque?</p>
       <p class="h2">Materials and Methods</p>
@@ -182,8 +181,8 @@ See [typography: making text bigger]({{ "/typography/#making-text-bigger" | url 
       <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni rem animi quaerat accusantium illum architecto, nemo, ex harum voluptatum adipisci eum blanditiis dolorum. Natus debitis quisquam, expedita accusantium quos cumque?</p>
     </div>
     <!---->
-    <div class="md:col-1 md:row-1 md:row-span-3 lg:row-span-2">
-      <code>md:col-1 md:row-1 md:rows-1-3 lg:rows-1-2</code>
+    <div class="md:col-1 md:rows-1-3 lg:rows-1-2">
+      <code>md:col-1 md:rows-1-3 lg:rows-1-2</code>
       <p class="h4">Navigation menu</p>
       <ul class="mt-2 flex flex-column gap-1">
         <li>Page One</li>
@@ -202,7 +201,7 @@ See [typography: making text bigger]({{ "/typography/#making-text-bigger" | url 
   <h3 class="h1">Title of this <code>content-grid</code> demo</h3>
   <p><code>content-grid</code> is intended for long-form articles. Its 7-column grid places the content in column 4, where each immediate-child elment will be its own grid item. <code>popout</code> spans rows 3-5. <code>expand</code> spans rows 2-6. <code>full-bleed</code> spans rows 1-7.</p>
   <p>Here’s a styled <code>&lt;p class="popout"&gt;</code>:</p>
-  <div aria-label="Note" class="popout bt-heavy b-blue b-300 b-dark-invert rounded rounded-2 p-2 t-reversi bg-gray bg-200 dark:bg-800">
+  <div aria-label="Note" class="popout bt-heavy b-blue b-300 b-dark-invert rounded p-2 t-reversi bg-gray bg-200 dark:bg-800">
     &star; Information panel
   </div>
   <p>Here’s a styled <code>&lt;div class="expand"&gt;</code>:</p>
@@ -282,17 +281,17 @@ Styled by utility classes.
 
 <div class="wrapper">
   <div class="container resize-x">
-    <div class="grid sm:equal-2-cols md:equal-2-cols gap-3">
+    <div class="grid sm:equal-2-cols gap-3">
       <div>
         <form class="container" action="">
           <fieldset class="p-2">
             <legend>Form inputs etc. as grid items</legend>
             <div class="sm:grid sm:equal-4-cols gap-2">
               <label class="inline-block py-1" for="name">Your name</label>
-              <input class="w-100% sm:col-span-3" type="text" id="name" name="name" placeholder="Enter your name">
+              <input class="w-100% sm:cols-2-4" type="text" id="name" name="name" placeholder="Enter your name">
               <label class="inline-block py-1" for="email">Your email</label>
-              <input class="w-100% sm:col-span-3" type="email" id="email" name="example" placeholder="Enter your email address">
-              <div class="mt-1 sm:col-2 sm:col-span-3">
+              <input class="w-100% sm:cols-2-4" type="email" id="email" name="example" placeholder="Enter your email address">
+              <div class="mt-1 sm:cols-2-4">
                 <button type="submit">Subscribe</button>
               </div>
             </div>
@@ -304,7 +303,7 @@ Styled by utility classes.
           <div class="aspect-ratio-1x1 r-pill relative">
             <svg xmlns="http://www.w3.org/2000/svg" class="box img-cover" preserveAspectRatio="xMidYMid slice" width="1000" height="600"><defs><linearGradient id="gradient1" gradientTransform="rotate(45)"><stop offset="5%" stop-color="rgba(255,255,0,.5)"/><stop offset="50%" stop-color="rgba(255,255,255,0)"/><stop offset="95%" stop-color="rgba(255,0,0,.5)"/></linearGradient><linearGradient id="gradient2" gradientTransform="rotate(135)"><stop offset="5%" stop-color="rgba(0,0,255,.5)"/><stop offset="50%" stop-color="rgba(255,255,255,0)"/><stop offset="95%" stop-color="rgba(0,255,0,.5)"/></linearGradient></defs><rect width="100%" height="100%" fill="url('#gradient1')"/><rect width="100%" height="100%" fill="url('#gradient2')"/></svg>
           </div>
-          <div class="col-span-3">
+          <div class="cols-2-4">
             <p class="h4">Grid media object</p>
             <p class="my-1">This example will behave as a grid for all container widths, even down to phones in portrait orientation.</p>
             <button>Something</button>
@@ -317,11 +316,11 @@ Styled by utility classes.
 
 <div class="wrapper-xl my-3">
   <div class="container resize-x">
-    <div class="p-2 grid md:equal-2-cols grid-dense gap-3">
-      <div class="md:col-2 rounded rounded-4 aspect-ratio-16x9 relative overflow-clip">
+    <div class="p-2 grid sm:equal-2-cols grid-dense gap-3">
+      <div class="sm:col-2 rounded rounded-4 aspect-ratio-16x9 relative overflow-clip">
         <svg xmlns="http://www.w3.org/2000/svg" class="box img-cover" preserveAspectRatio="xMidYMid slice" width="1000" height="600"><defs><linearGradient id="gradient1" gradientTransform="rotate(45)"><stop offset="5%" stop-color="rgba(255,255,0,.5)"/><stop offset="50%" stop-color="rgba(255,255,255,0)"/><stop offset="95%" stop-color="rgba(255,0,0,.5)"/></linearGradient><linearGradient id="gradient2" gradientTransform="rotate(135)"><stop offset="5%" stop-color="rgba(0,0,255,.5)"/><stop offset="50%" stop-color="rgba(255,255,255,0)"/><stop offset="95%" stop-color="rgba(0,255,0,.5)"/></linearGradient></defs><rect width="100%" height="100%" fill="url('#gradient1')"/><rect width="100%" height="100%" fill="url('#gradient2')"/></svg>
       </div>
-      <div class="md:col-1 flex flex-column flex-center">
+      <div class="sm:col-1 flex flex-column flex-center">
         <div class="w-sm t-long-read flow">
           <p class="h2 mt-0">A “two-up” feature block</p>
           <p>In this exmple, the image is <em>before</em> the text content in the HTML. But for container width above 768px, the grid system places the image to the right (in the 2nd column). The text content is positioned vertical-center by <code>flex flex-column flex-center</code></p>

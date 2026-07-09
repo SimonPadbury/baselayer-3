@@ -390,7 +390,8 @@ window.addEventListener("DOMContentLoaded", () => {
               <h1 class="py-4 t-thin t-balance t-center">Baselayer 3: Decoration</h1>
             </div>
           </header>
-          <main class="content-grid flow">
+
+          <main class="content-grid pb-4 flow">
             <h2 id="spacing" tabindex="-1">Spacing</h2>
 <p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Introduction_to_the_CSS_box_model">Box model</a> margin and padding spacing have 5 levels based on 5 CSS variables. These same spacing variables are also used for gaps (in flexbox and grid system), and for border radius utilities.</p>
 <pre><code class="language-css">:root {
@@ -530,7 +531,7 @@ window.addEventListener("DOMContentLoaded", () => {
 <h2 id="box-shadows" tabindex="-1">Box shadows</h2>
 <p><code>bs-1</code> / <code>bs-2</code> / <code>bs-3</code></p>
 <p>Baselayer box shadows are intended to represent layer “lifts” along the z-axis. The higher a layer is lifted from the page, the less sharpness and more spread the box shadow has. This also means that the higher the suffix, the fainter the shadow becomes as it is spread over a wider area.</p></p>
-<p><strong>Note:</strong> box shadows require a lighter layer behind them, else they will not be seen, especially in the dark theme.</p>
+<p><strong>Note:</strong> box shadows require a layer behind them that’s lighter than the shadow, else they will not be seen, especially in the dark theme.</p>
 <div class="my-3 p-3 flex flex-wrap gap-3 bg-gray bg-100 dark:bg-600">
   <div class="bs-1 p-2">bs-1</div>
   <div class="bs-2 p-2">bs-2</div>
@@ -561,24 +562,25 @@ window.addEventListener("DOMContentLoaded", () => {
 <li><code>img-cover img-cover-left</code> — ensures the left part of the image is in view</li>
 </ul>
 
-            <hr>
-            <nav class="expand grid gap-2 sm:equal-2-cols">
-              
-              <a class="sm:col-1 my-1 b-thin rounded p-cell flex flex-column flex-top gap-1 t-underline-hover-only hover:bg-blue bg-100 dark:bg-900"  href="/baselayer-3/layout/">
-                <span class="t-blue t-underline-none">Previous page</span>
-                <span class="h3 m-0 t-normal"> Layout</span>
-              </a>
-              
-              
-              <a class="sm:col-2 my-1 b-thin rounded p-cell flex flex-column flex-bottom gap-1 t-right t-underline-hover-only hover:bg-blue bg-100 dark:bg-900" href="/baselayer-3/colors/">
-                <span class="t-blue t-underline-none">Next page</span>
-                <span class="h3 m-0 t-normal">Colors</span>
-              </a>
-              
-            </nav>
           </main>
-          <div class="container-md">
-            <div class="mt-4 mb-3 p-2 flex flex-column flex-middle t-center">
+
+          <nav class="wrapper-md pt-4 grid gap-2 sm:equal-2-cols">
+            
+            <a class="sm:col-1 my-1 b-thin rounded p-cell flex flex-column flex-top gap-1 t-underline-none hover:bg-blue bg-100 dark:bg-900"  href="/baselayer-3/layout/">
+              <span class="t-blue">Previous page</span>
+              <span class="h3 m-0 t-normal"> Layout</span>
+            </a>
+            
+            
+            <a class="sm:col-2 my-1 b-thin rounded p-cell flex flex-column flex-bottom gap-1 t-right t-underline-none hover:bg-blue bg-100 dark:bg-900" href="/baselayer-3/colors/">
+              <span class="t-blue">Next page</span>
+              <span class="h3 m-0 t-normal">Colors</span>
+            </a>
+            
+          </nav>
+
+          <footer class="wrapper-md py-4 t-base">
+            <div class="mb-3 p-2 flex flex-column flex-middle t-center">
               <a href="/baselayer-3/" class="mb-1 flex flex-column flex-center gap-1 t-underline-none">
                 <svg class="mx-auto" height="48" width="48" viewBox="0 0 111 111" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-miterwrapper:1.5">
                   <g transform="translate(-294.592 -94.592)">
@@ -602,7 +604,7 @@ window.addEventListener("DOMContentLoaded", () => {
             </p>
             <p class="t-center"><span>Developer: <a class="t-underline-hover-only" href="https://github.com/SimonPadbury">Simon Padbury</a></span>
 
-          </div>
+          </footer>
         </div>
       </div>
     </div>

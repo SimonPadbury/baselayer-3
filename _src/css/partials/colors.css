@@ -462,32 +462,38 @@
   background-color: var(--bgc);
 }
 
-.b-reversi {
+.b-reversi,
+.hover\:b-reversi:hover {
   --bl: unset;
   border-color: light-dark(#000, #fff);
 }
 
-.b-reversi-flip {
+.b-reversi-flip,
+.hover\:b-reversi-flip:hover {
   --bl: unset;
   border-color: light-dark(#fff, #000);
 }
 
-.t-reversi {
+.t-reversi,
+.hover\:t-reversi:hover {
   --tl: unset;
   color: light-dark(#000, #fff);
 }
 
-.t-reversi-flip {
+.t-reversi-flip,
+.hover\:t-reversi-flip:hover {
   --tl: unset;
   color: light-dark(#fff, #000);
 }
 
-.bg-reversi {
+.bg-reversi,
+.hover\:bg-reversi:hover {
   --bgl: unset;
   background-color: light-dark(#000, #fff);
 }
 
-.bg-reversi-flip {
+.bg-reversi-flip,
+.hover\:bg-reversi-flip:hover {
   --bgl: unset;
   background-color: light-dark(#fff, #000);
 }

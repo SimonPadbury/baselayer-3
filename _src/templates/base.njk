@@ -47,26 +47,28 @@
               <h1 class="py-4 t-thin t-balance t-center">{{ mainHeading }}</h1>
             </div>
           </header>
-          <main class="content-grid flow">
+
+          <main class="content-grid pb-4 flow">
             {{ content | safe }}
-            <hr>
-            <nav class="expand grid gap-2 sm:equal-2-cols">
-              {% if prevPage %}
-              <a class="sm:col-1 my-1 b-thin rounded p-cell flex flex-column flex-top gap-1 t-underline-hover-only hover:bg-blue bg-100 dark:bg-900"  href="{{ prevPage | url }}">
-                <span class="t-blue t-underline-none">Previous page</span>
-                <span class="h3 m-0 t-normal"> {{ prevLink if prevLink else "Previous page" }}</span>
-              </a>
-              {% endif %}
-              {% if nextPage %}
-              <a class="sm:col-2 my-1 b-thin rounded p-cell flex flex-column flex-bottom gap-1 t-right t-underline-hover-only hover:bg-blue bg-100 dark:bg-900" href="{{ nextPage | url }}">
-                <span class="t-blue t-underline-none">Next page</span>
-                <span class="h3 m-0 t-normal">{{ nextLink if nextLink else "Next page" }}</span>
-              </a>
-              {% endif %}
-            </nav>
           </main>
-          <div class="container-md">
-            <div class="mt-4 mb-3 p-2 flex flex-column flex-middle t-center">
+
+          <nav class="wrapper-md pt-4 grid gap-2 sm:equal-2-cols">
+            {% if prevPage %}
+            <a class="sm:col-1 my-1 b-thin rounded p-cell flex flex-column flex-top gap-1 t-underline-none hover:bg-blue bg-100 dark:bg-900"  href="{{ prevPage | url }}">
+              <span class="t-blue">Previous page</span>
+              <span class="h3 m-0 t-normal"> {{ prevLink if prevLink else "Previous page" }}</span>
+            </a>
+            {% endif %}
+            {% if nextPage %}
+            <a class="sm:col-2 my-1 b-thin rounded p-cell flex flex-column flex-bottom gap-1 t-right t-underline-none hover:bg-blue bg-100 dark:bg-900" href="{{ nextPage | url }}">
+              <span class="t-blue">Next page</span>
+              <span class="h3 m-0 t-normal">{{ nextLink if nextLink else "Next page" }}</span>
+            </a>
+            {% endif %}
+          </nav>
+
+          <footer class="wrapper-md py-4 t-base">
+            <div class="mb-3 p-2 flex flex-column flex-middle t-center">
               <a href="{{ '/' | url }}" class="mb-1 flex flex-column flex-center gap-1 t-underline-none">
                 <svg class="mx-auto" height="48" width="48" viewBox="0 0 111 111" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-miterwrapper:1.5">
                   <g transform="translate(-294.592 -94.592)">
@@ -90,7 +92,7 @@
             </p>
             <p class="t-center"><span>Developer: <a class="t-underline-hover-only" href="{{ metadata.developer.url }}">{{ metadata.developer.name }}</a></span>
 
-          </div>
+          </footer>
         </div>
       </div>
     </div>

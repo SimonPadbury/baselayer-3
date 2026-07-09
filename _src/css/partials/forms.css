@@ -73,7 +73,7 @@ button,
   --bgc: var(--bgc-btn);
   --bgl: var(--l500);
   --bgcd: var(--bgc);
-  --bgld: var(--l500);
+  --bgld: var(--bgl);
   position: relative;
   -webkit-appearance: none;
   appearance: none;
@@ -84,7 +84,7 @@ button,
   border: 1px solid transparent;
   padding: var(--p-form);
   font-family: var(--t-base-ff);
-  font-weight: var(--t-btn);
+  font-weight: var(--t-btn-fw);
   text-decoration: none;
   color: var(--tc);
   background-color: light-dark(

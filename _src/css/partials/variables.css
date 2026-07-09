@@ -1,9 +1,5 @@
 :root {
-  /*
-  Widths
-  ======
-  Note: xs, sm, and md are the same as `@container` breakpoint min-widths.
-  */
+  /* Widths */
   --w-xxs: 256px;
   --w-xs: 512px;
   --w-sm: 768px;
@@ -54,17 +50,13 @@
   --t-semibold: 600;
   --t-bold: 700;
   --t-heavy: 900;
-  --t-btn: var(--t-semibold);
+  --t-btn-fw: var(--t-semibold);
 
   /* Forms */
   --b-form: var(--b-thin);
   --y-form: 2.5em;
 
-  /*
-  Headings
-  ========
-  Set heading sizes using ems, so that all headings can be `clamp()`
-  */
+  /* Headings */
   --h1: 2.5em;
   --h2: 1.875em;
   --h3: 1.5em;

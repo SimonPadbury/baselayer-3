@@ -358,9 +358,9 @@ mark,
 }
 
 .t-base {
-  font-family: var(--t-base-ff);
+  font-family: var(--t-sans);
 }
 
 .t-prose {
-  font-family: var(--t-prose);
+  font-family: var(--t-serif);
 }

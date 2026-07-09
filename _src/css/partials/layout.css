@@ -192,7 +192,7 @@ Grid system
 */
 
 [class*="grid"] {
-  --cols: 1; /* preventing unexpected inheritance when nesting grids */
+  --gcols: 1; /* preventing unexpected inheritance when nesting grids */
 }
 
 .grid {
@@ -204,24 +204,29 @@ Grid system
 }
 
 [class*="equal-"] {
-  grid-template-columns: repeat(var(--cols), minmax(1rem, 1fr));
+  grid-template-columns: repeat(var(--gcols), minmax(1rem, 1fr));
 }
 
-[class*="col-1"],
-[class*="col-2"],
-[class*="col-3"],
-[class*="col-4"] {
+[class*="col-"],
+[class*="cols-"] {
   grid-column: var(--col);
 }
 
-[class*="row-1"],
-[class*="row-2"],
-[class*="row-3"],
-[class*="row-4"] {
+[class*="row-"],
+[class*="rows-"] {
   grid-row: var(--row);
 }
 
-[class*="col-span-"] {
+/* [class*="cols-"] {
+  grid-column: var(--col) / span var(--cspan);
+}
+
+[class*="rows-"] {
+  --row: auto;
+  grid-row: var(--row) / span var(--rspan);
+} */
+
+/* [class*="col-span-"] {
   --col: auto;
   grid-column: var(--col) / span var(--cspan);
 }
@@ -229,18 +234,18 @@ Grid system
 [class*="row-span-"] {
   --row: auto;
   grid-row: var(--row) / span var(--rspan);
-}
+} */
 
 .equal-2-cols {
-  --cols: 2;
+  --gcols: 2;
 }
 
 .equal-3-cols {
-  --cols: 3;
+  --gcols: 3;
 }
 
 .equal-4-cols {
-  --cols: 4;
+  --gcols: 4;
 }
 
 .col-1 {
@@ -259,20 +264,28 @@ Grid system
   --col: 4;
 }
 
-.col-span-1 {
-  --cspan: 1;
+.cols-1-2 {
+  --col: 1 / span 2;
 }
 
-.col-span-2 {
-  --cspan: 2;
+.cols-1-3 {
+  --col: 1 / span 3;
 }
 
-.col-span-3 {
-  --cspan: 3;
+.cols-1-4 {
+  --col: 1 / span 4;
 }
 
-.col-span-4 {
-  --cspan: 4;
+.cols-2-3 {
+  --col: 2 / span 2;
+}
+
+.cols-2-4 {
+  --col: 2 / span 3;
+}
+
+.cols-3-4 {
+  --col: 3 / span 2;
 }
 
 .row-1 {
@@ -291,20 +304,28 @@ Grid system
   --row: 4;
 }
 
-.row-span-1 {
-  --rspan: 1;
+.rows-1-2 {
+  --row: 1 / span 2;
 }
 
-.row-span-2 {
-  --rspan: 2;
+.rows-1-3 {
+  --row: 1 / span 3;
 }
 
-.row-span-3 {
-  --rspan: 3;
+.rows-1-4 {
+  --row: 1 / span 4;
 }
 
-.row-span-4 {
-  --rspan: 4;
+.rows-2-3 {
+  --row: 2 / span 2;
+}
+
+.rows-2-4 {
+  --row: 2 / span 3;
+}
+
+.rows-3-4 {
+  --row: 3 / span 2;
 }
 
 /*
@@ -410,15 +431,15 @@ Invisibility for smaller viewports (“hidden-below”)
   }
 
   .xs\:equal-2-cols {
-    --cols: 2;
+    --gcols: 2;
   }
 
   .xs\:equal-3-cols {
-    --cols: 3;
+    --gcols: 3;
   }
 
   .xs\:equal-4-cols {
-    --cols: 4;
+    --gcols: 4;
   }
 
   .xs\:col-1 {
@@ -437,20 +458,28 @@ Invisibility for smaller viewports (“hidden-below”)
     --col: 4;
   }
 
-  .xs\:col-span-1 {
-    --cspan: 1;
+  .xs\:cols-1-2 {
+    --col: 1 / span 2;
   }
 
-  .xs\:col-span-2 {
-    --cspan: 2;
+  .xs\:cols-1-3 {
+    --col: 1 / span 3;
   }
 
-  .xs\:col-span-3 {
-    --cspan: 3;
+  .xs\:cols-1-4 {
+    --col: 1 / span 4;
   }
 
-  .xs\:col-span-4 {
-    --cspan: 4;
+  .xs\:cols-2-3 {
+    --col: 2 / span 2;
+  }
+
+  .xs\:cols-2-4 {
+    --col: 2 / span 3;
+  }
+
+  .xs\:cols-3-4 {
+    --col: 3 / span 2;
   }
 
   .xs\:row-1 {
@@ -469,20 +498,28 @@ Invisibility for smaller viewports (“hidden-below”)
     --row: 4;
   }
 
-  .xs\:row-span-1 {
-    --rspan: 1;
+  .xs\:rows-1-2 {
+    --row: 1 / span 2;
   }
 
-  .xs\:row-span-2 {
-    --rspan: 2;
+  .xs\:rows-1-3 {
+    --row: 1 / span 3;
   }
 
-  .xs\:row-span-3 {
-    --rspan: 3;
+  .xs\:rows-1-4 {
+    --row: 1 / span 4;
   }
 
-  .xs\:row-span-4 {
-    --rspan: 4;
+  .xs\:rows-2-3 {
+    --row: 2 / span 2;
+  }
+
+  .xs\:rows-2-4 {
+    --row: 2 / span 3;
+  }
+
+  .xs\:rows-3-4 {
+    --row: 3 / span 2;
   }
 }
 
@@ -561,15 +598,15 @@ Invisibility for smaller viewports (“hidden-below”)
   }
 
   .sm\:equal-2-cols {
-    --cols: 2;
+    --gcols: 2;
   }
 
   .sm\:equal-3-cols {
-    --cols: 3;
+    --gcols: 3;
   }
 
   .sm\:equal-4-cols {
-    --cols: 4;
+    --gcols: 4;
   }
 
   .sm\:col-1 {
@@ -588,20 +625,28 @@ Invisibility for smaller viewports (“hidden-below”)
     --col: 4;
   }
 
-  .sm\:col-span-1 {
-    --cspan: 1;
+  .sm\:cols-1-2 {
+    --col: 1 / span 2;
   }
 
-  .sm\:col-span-2 {
-    --cspan: 2;
+  .sm\:cols-1-3 {
+    --col: 1 / span 3;
   }
 
-  .sm\:col-span-3 {
-    --cspan: 3;
+  .sm\:cols-1-4 {
+    --col: 1 / span 4;
   }
 
-  .sm\:col-span-4 {
-    --cspan: 4;
+  .sm\:cols-2-3 {
+    --col: 2 / span 2;
+  }
+
+  .sm\:cols-2-4 {
+    --col: 2 / span 3;
+  }
+
+  .sm\:cols-3-4 {
+    --col: 3 / span 2;
   }
 
   .sm\:row-1 {
@@ -620,20 +665,28 @@ Invisibility for smaller viewports (“hidden-below”)
     --row: 4;
   }
 
-  .sm\:row-span-1 {
-    --rspan: 1;
+  .sm\:rows-1-2 {
+    --row: 1 / span 2;
   }
 
-  .sm\:row-span-2 {
-    --rspan: 2;
+  .sm\:rows-1-3 {
+    --row: 1 / span 3;
   }
 
-  .sm\:row-span-3 {
-    --rspan: 3;
+  .sm\:rows-1-4 {
+    --row: 1 / span 4;
   }
 
-  .sm\:row-span-4 {
-    --rspan: 4;
+  .sm\:rows-2-3 {
+    --row: 2 / span 2;
+  }
+
+  .sm\:rows-2-4 {
+    --row: 2 / span 3;
+  }
+
+  .sm\:rows-3-4 {
+    --row: 3 / span 2;
   }
 }
 
@@ -712,15 +765,15 @@ Invisibility for smaller viewports (“hidden-below”)
   }
 
   .md\:equal-2-cols {
-    --cols: 2;
+    --gcols: 2;
   }
 
   .md\:equal-3-cols {
-    --cols: 3;
+    --gcols: 3;
   }
 
   .md\:equal-4-cols {
-    --cols: 4;
+    --gcols: 4;
   }
 
   .md\:col-1 {
@@ -739,20 +792,28 @@ Invisibility for smaller viewports (“hidden-below”)
     --col: 4;
   }
 
-  .md\:col-span-1 {
-    --cspan: 1;
+  .md\:cols-1-2 {
+    --col: 1 / span 2;
   }
 
-  .md\:col-span-2 {
-    --cspan: 2;
+  .md\:cols-1-3 {
+    --col: 1 / span 3;
   }
 
-  .md\:col-span-3 {
-    --cspan: 3;
+  .md\:cols-1-4 {
+    --col: 1 / span 4;
   }
 
-  .md\:col-span-4 {
-    --cspan: 4;
+  .md\:cols-2-3 {
+    --col: 2 / span 2;
+  }
+
+  .md\:cols-2-4 {
+    --col: 2 / span 3;
+  }
+
+  .md\:cols-3-4 {
+    --col: 3 / span 2;
   }
 
   .md\:row-1 {
@@ -771,20 +832,28 @@ Invisibility for smaller viewports (“hidden-below”)
     --row: 4;
   }
 
-  .md\:row-span-1 {
-    --rspan: 1;
+  .md\:rows-1-2 {
+    --row: 1 / span 2;
   }
 
-  .md\:row-span-2 {
-    --rspan: 2;
+  .md\:rows-1-3 {
+    --row: 1 / span 3;
   }
 
-  .md\:row-span-3 {
-    --rspan: 3;
+  .md\:rows-1-4 {
+    --row: 1 / span 4;
   }
 
-  .md\:row-span-4 {
-    --rspan: 4;
+  .md\:rows-2-3 {
+    --row: 2 / span 2;
+  }
+
+  .md\:rows-2-4 {
+    --row: 2 / span 3;
+  }
+
+  .md\:rows-3-4 {
+    --row: 3 / span 2;
   }
 }
 
@@ -863,15 +932,15 @@ Invisibility for smaller viewports (“hidden-below”)
   }
 
   .lg\:equal-2-cols {
-    --cols: 2;
+    --gcols: 2;
   }
 
   .lg\:equal-3-cols {
-    --cols: 3;
+    --gcols: 3;
   }
 
   .lg\:equal-4-cols {
-    --cols: 4;
+    --gcols: 4;
   }
 
   .lg\:col-1 {
@@ -890,20 +959,28 @@ Invisibility for smaller viewports (“hidden-below”)
     --col: 4;
   }
 
-  .lg\:col-span-1 {
-    --cspan: 1;
+  .lg\:cols-1-2 {
+    --col: 1 / span 2;
   }
 
-  .lg\:col-span-2 {
-    --cspan: 2;
+  .lg\:cols-1-3 {
+    --col: 1 / span 3;
   }
 
-  .lg\:col-span-3 {
-    --cspan: 3;
+  .lg\:cols-1-4 {
+    --col: 1 / span 4;
   }
 
-  .lg\:col-span-4 {
-    --cspan: 4;
+  .lg\:cols-2-3 {
+    --col: 2 / span 2;
+  }
+
+  .lg\:cols-2-4 {
+    --col: 2 / span 3;
+  }
+
+  .lg\:cols-3-4 {
+    --col: 3 / span 2;
   }
 
   .lg\:row-1 {
@@ -922,20 +999,28 @@ Invisibility for smaller viewports (“hidden-below”)
     --row: 4;
   }
 
-  .lg\:row-span-1 {
-    --rspan: 1;
+  .lg\:rows-1-2 {
+    --row: 1 / span 2;
   }
 
-  .lg\:row-span-2 {
-    --rspan: 2;
+  .lg\:rows-1-3 {
+    --row: 1 / span 3;
   }
 
-  .lg\:row-span-3 {
-    --rspan: 3;
+  .lg\:rows-1-4 {
+    --row: 1 / span 4;
   }
 
-  .lg\:row-span-4 {
-    --rspan: 4;
+  .lg\:rows-2-3 {
+    --row: 2 / span 2;
+  }
+
+  .lg\:rows-2-4 {
+    --row: 2 / span 3;
+  }
+
+  .lg\:rows-3-4 {
+    --row: 3 / span 2;
   }
 }
 
