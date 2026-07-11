@@ -513,7 +513,7 @@ If you do only this to set up a Baselayer grid, then each *grid item* will autom
 ### Grid gaps
 
 * `gap-*` — adds a *horizontal and vertical* gap between grid cells, using the same spacing variables as for margins and paddings:
-    * `gap-tiny` — using spaing variable `--s-tiny`
+    * `gap-tiny1` — using spaing variable `--s-tiny`
     * `gap-1` — using spaing variable `--s-1`
     * `gap-2` — using spaing variable `--s-2`
     * `gap-3` — using spaing variable `--s-3`
@@ -521,32 +521,31 @@ If you do only this to set up a Baselayer grid, then each *grid item* will autom
 
 These same `gap-*` classes are used for [flex layouts](#flex-layouts).
 
-<p><code>gap-tiny</code> is good for button groups and form-button combos, where you want a gap to be approx. 1 charcter width.</p>
-
 <div class="mt-3 grid equal-3-cols gap-tiny">
   <div class="b-thin p-cell">With <code>gap-tiny</code></div>
   <div class="b-thin p-cell"></div>
   <div class="b-thin p-cell"></div>
 </div>
-
+<p><code>gap-tiny</code> is good for button groups and form-button combos, where you want a gap to be approx 1 charcter width.</p>
+<hr class="my-3">
 <div class="grid equal-3-cols gap-1">
   <div class="b-thin p-cell">With <code>gap-1</code></div>
   <div class="b-thin p-cell"></div>
   <div class="b-thin p-cell"></div>
 </div>
-
+<hr class="my-3">
 <div class="grid equal-3-cols gap-2">
   <div class="b-thin p-cell">With <code>gap-2</code></div>
   <div class="b-thin p-cell"></div>
   <div class="b-thin p-cell"></div>
 </div>
-
+<hr class="my-3">
 <div class="grid equal-3-cols gap-3">
   <div class="b-thin p-cell">With <code>gap-3</code></div>
   <div class="b-thin p-cell"></div>
   <div class="b-thin p-cell"></div>
 </div>
-
+<hr class="my-3">
 <div class="mb-4 grid equal-3-cols gap-4">
   <div class="b-thin p-cell">With <code>gap-4</code></div>
   <div class="b-thin p-cell"></div>
@@ -605,38 +604,42 @@ For example, each of the following grid examples has 4 grid cells.
 
 Controlling positioning and spanning at *per-grid-item* level:
 
-* **Positioning (optional)** — *singular* `col-{x}` and `row-{x}` etc. – for positioning each grid item over non-adjacent grid cells.
-* **Spanning (optional)** — *plural* `cols-{x}-{y}` and `rows-{x}-{y}` etc. – for positioning and spanning.
-
-**Note:** Since Baselayer v.3.8.0, the grid system’s *spanning* classes have been refactored to make them more intuitive. Now e.g. `md:cols-1-2` means: “From medium vewports up, this grid item starts in column 1 and spans to column 2”.
+* **Positioning (optional)** — `col-*` and `row-*` etc. – for positioning each grid item over non-adjacent grid cells.
+* **Spanning (optional)** — `col-span-*` and `row-span-*`etc. – spanning 2, 3, or 4 columns or rows.
 
 CSS grid positions grid items *automatically* on the available grid cells — so an item will be placed on the *next* available cell until required to begin again on the *next* (i.e. new) row. You can use this automatic positioning to your advantage, allowing CSS grid to presume where you want your next item to be. As in the following simple example:
 
 <div class="mt-3 mb-4 grid equal-3-cols gap-2">
   <div class="b-thin p-cell">1</div>
-  <div class="cols-2-3 b-thin p-cell">columns 2 to 3</div>
+  <div class="col-span-2 b-thin p-cell">columns 2 to 3</div>
 </div>
 
 ```html
 <div class="grid equal-3-cols gap-2">
   <div>...</div>
-  <div class="cols-2-3">...</div>
+  <div class="col-span-2">...</div>
 </div>
 ```
+
+The `col-span-` and `row-span-` spanning classes can be used to make grid items to span up to 4 columns and/or 4 rows.
+
+The `col-` and `row-` positioning classes are used to instruct the grid which grid cell you want your grid item to be placed on (up to 4 columns and/or 4 rows).
+
+Pairing spanning with positioning gives yo even more control. In the following example, we specified that item 3 should go on `row-2` and the CSS grid automatically figured out that item 4 should start in the next available grid  column (i.e. column 3):
 
 <div class="mt-3 mb-4 grid equal-4-cols gap-1">
   <div class="b-thin p-cell">1</div>
   <div class="b-thin p-cell">2</div>
-  <div class="cols-1-2 row-2 b-thin p-cell">columns 1 to 2, row 2</div>
-  <div class="cols-3-4 rows-1-2 b-thin p-cell">columns 3 to 4, rows 1 to 2</div>
+  <div class="col-span-2 row-2 b-thin p-cell">columns 1 to 2, row 2</div>
+  <div class="col-span-2 row-span-2 b-thin p-cell">columns 3 to 4, rows 1 to 2</div>
 </div>
 
 ```html
 <div class="grid equal-4-cols gap-1">
   <div>1</div>
   <div>2</div>
-  <div class="cols-1-2 row-2">columns 1 to 2, row 2</div>
-  <div class="cols-3-4 rows-1-2">columns 3 to 4, rows 1 to 2</div>
+  <div class="col-span-2 row-2">columns 1 to 2, row 2</div>
+  <div class="col-span-2 row-span-2">columns 3 to 4, rows 1 to 2</div>
 </div>
 ```
 
@@ -646,8 +649,8 @@ When you control the positioning of grid items, you cam sometimes leave leave sp
 
 <div class="mt-3 mb-4 grid gap-1 equal-4-cols">
   <div class="b-thin p-cell">Item 1</div>
-  <div class="cols-1-2 b-thin p-cell">Item 2</div>
-  <div class="cols-2-4 b-thin p-cell">Item 3</div>
+  <div class="col-1 col-span-2 b-thin p-cell">Item 2</div>
+  <div class="col-2 col-span-3 b-thin p-cell">Item 3</div>
   <div class="col-4 b-thin p-cell">Item 4</div>
   <div class="col-3 b-thin p-cell">Item 5</div>
 </div>
@@ -655,30 +658,30 @@ When you control the positioning of grid items, you cam sometimes leave leave sp
 ```html
 <div class="grid gap-1 equal-4-cols">
   <div>Item 1</div>
-  <div class="cols-1-2">Item 2</div>
-  <div class="cols-2-4">Item 3</div>
+  <div class="col-1 col-span-2">Item 2</div>
+  <div class="col-2 col-span-3">Item 3</div>
   <div class="col-4">Item 4</div>
   <div class="col-3">Item 5</div>
 </div>
 ```
 
-With the `grid-dense` modifier you can back-fill some or all of these unoccupied cells, by CSS grid reordering (rearranging) your grid items to fill in the spaces. Here’s the same example again, but with `grid grid-dense`:
+With the `grid-dense` modifier you can back-fill some or all of these unoccupied cells, by CSS grid reordering (rearranging) your grid items to fill in the spaces. Here’s the example above again, but with `grid grid-dense`:
 
 <div class="mt-3 mb-4 grid grid-dense gap-1 equal-4-cols">
-  <div class="b-thin p-cell">Item 1</div>
-  <div class="cols-1-2 b-thin p-cell">Item 2</div>
-  <div class="cols-2-4 b-thin p-cell">Item 3</div>
-  <div class="col-4 b-thin p-cell">Item 4</div>
-  <div class="col-3 b-thin p-cell">Item 5</div>
+  <div class="b-thin p-cell">1</div>
+  <div class="col-1 col-span-2 b-thin p-cell">2</div>
+  <div class="col-2 col-span-3 b-thin p-cell">3</div>
+  <div class="col-4 b-thin p-cell">4</div>
+  <div class="col-3 b-thin p-cell">5</div>
 </div>
 
 ```html
 <div class="grid gap-1 equal-4-cols grid-dense">
   <div>Item 1</div>
-  <div class="cols-1-2">Item 2</div>
-  <div class="cols-2-4">Item 3</div>
-  <div class="col-4">Item 4</div>
-  <div class="col-3">Item 5</div>
+  <div class="col-1 col-span-2">2</div>
+  <div class="col-2 col-span-3">3</div>
+  <div class="col-4">4</div>
+  <div class="col-3">5</div>
 </div>
 ```
 
@@ -737,7 +740,7 @@ Another example:
         <svg xmlns="http://www.w3.org/2000/svg" class="r-pill img-cover" preserveAspectRatio="xMidYMid slice" width="1000" height="1000"><defs><linearGradient id="gradient1" gradientTransform="rotate(45)"><stop offset="5%" stop-color="rgba(255,255,0,.5)"></stop><stop offset="50%" stop-color="rgba(255,255,255,0)"></stop><stop offset="95%" stop-color="rgba(255,0,0,.5)"></stop></linearGradient><linearGradient id="gradient2" gradientTransform="rotate(135)"><stop offset="5%" stop-color="rgba(0,0,255,.5)"></stop><stop offset="50%" stop-color="rgba(255,255,255,0)"></stop><stop offset="95%" stop-color="rgba(0,255,0,.5)"></stop></linearGradient></defs><rect width="100%" height="100%" fill="url('#gradient1')"></rect><rect width="100%" height="100%" fill="url('#gradient2')"></rect></svg>
       </div>
     </div>
-    <div class="xs:cols-2-4">
+    <div class="xs:col-2 sm:col-span-3">
       <p class="h4 mt-0 mb-1 ">Media object</p>
       <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni rem animi quaerat accusantium illum architecto, nemo, ex harum voluptatum adipisci eum blanditiis dolorum.</p>
       <button>Something</button>

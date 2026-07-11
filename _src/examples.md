@@ -75,14 +75,15 @@ Using `equal-` modifiers on the grid wrapper will both equalize column width and
   <div class="p-1 bg-green bg-200 dark:bg-800">#</div>
   <div class="p-1 bg-green bg-200 dark:bg-800">#</div>
   <div class="p-1 bg-green bg-200 dark:bg-800">#</div>
-  <div class="sm:cols-1-2 md:cols-2-3 p-1 bg-green bg-200 dark:bg-800"><code>sm:cols-1-2 md:cols-2-3</code></div>
+  <div class="sm:col-span-2 p-1 bg-green bg-200 dark:bg-800"><code>sm:col-span-2</code></div>
 </div>
+<p><code>sm:grid</code> takes effect at 640px up. Below 640px, <code>gap-2</code> will have no effect.</p>
 <code>sm:grid sm:equal-4-cols gap-2</code>
-<div class="mt-1 mb-2 grid sm:equal-4-cols gap-2">
+<div class="mt-1 mb-2 sm:grid sm:equal-4-cols gap-2">
   <div class="p-1 bg-green bg-200 dark:bg-800">#</div>
-  <div class="sm:cols-2-3 p-1 bg-green bg-200 dark:bg-800"><code>sm:cols-2-3</code></div>
-  <div class="sm:cols-1-3 p-1 bg-green bg-200 dark:bg-800"><code>sm:cols-1-3</code></div>
-  <div class="sm:col-4 sm:row-1 sm:rows-1-2 p-1 bg-green bg-200 dark:bg-800"><code>sm:col-4 sm:row-1 sm:rows-1-2</code></div>
+  <div class="sm:col-span-2 p-1 bg-green bg-200 dark:bg-800"><code>sm:col-span-2</code></div>
+  <div class="sm:col-span-3 p-1 bg-green bg-200 dark:bg-800"><code>sm:col-span-3</code></div>
+  <div class="sm:col-4 sm:row-1 sm:row-span-2 p-1 bg-green bg-200 dark:bg-800"><code>sm:col-4 sm:row-1 sm:row-span-2</code></div>
 </div>
 </div><!-- /.wrapper -->
 
@@ -150,13 +151,13 @@ See [typography: making text bigger]({{ "/typography/#making-text-bigger" | url 
   <code>grid md:equal-3-cols lg:equal-4-cols gap-3</code>
   <div class="mt-1 grid md:equal-3-cols lg:equal-4-cols gap-3">
     <!---->
-    <div class="md:cols-2-3">
-      <code>md:cols-2-3</code>
+    <div class="md:col-2 md:col-span-2">
+      <code>md:col-2 md:col-span-2</code>
       <p class="h1 mb-0">Title of This Article</p>
     </div>
     <!---->
-    <div class="md:cols-2-3 lg:col-4 lg:rows-1-2 relative">
-      <code class="mb-1">md:cols-2-3 lg:col-4 lg:rows-1-2 relative</code><br>
+    <div class="md:col-2 md:col-span-2 lg:col-4 lg:row-1 lg:row-span-2 relative">
+      <code class="mb-1">md:col-2 md:col-span-2 lg:col-4 lg:row-span-2 relative</code><br>
       <div class="sticky top">
         <code>sticky top</code>
         <p class="h4">On this page TOC</p>
@@ -169,8 +170,8 @@ See [typography: making text bigger]({{ "/typography/#making-text-bigger" | url 
       </div>
     </div>
     <!---->
-    <div class="md:cols-2-3 flow">
-      <code>md:cols-2-3</code>
+    <div class="md:col-2 md:col-span-2 flow">
+      <code>md:col-2 md:col-span-2</code>
       <p class="h2">Abstract</p>
       <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni rem animi quaerat accusantium illum architecto, nemo, ex harum voluptatum adipisci eum blanditiis dolorum. Natus debitis quisquam, expedita accusantium quos cumque?</p>
       <p class="h2">Materials and Methods</p>
@@ -181,8 +182,8 @@ See [typography: making text bigger]({{ "/typography/#making-text-bigger" | url 
       <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni rem animi quaerat accusantium illum architecto, nemo, ex harum voluptatum adipisci eum blanditiis dolorum. Natus debitis quisquam, expedita accusantium quos cumque?</p>
     </div>
     <!---->
-    <div class="md:col-1 md:rows-1-3 lg:rows-1-2">
-      <code>md:col-1 md:rows-1-3 lg:rows-1-2</code>
+    <div class="md:col-1 md:row-1 md:row-span-3 lg:row-span-2">
+      <code>md:col-1 md:row-1 md:row-span-3 lg:row-span-2</code>
       <p class="h4">Navigation menu</p>
       <ul class="mt-2 flex flex-column gap-1">
         <li>Page One</li>
@@ -237,7 +238,7 @@ Styled by utility classes.
         <span class="t-lg">&#9888;</span> Warning alert panel.
       </div>
       <p>With <code>dark:</code></p>
-      <div aria-label="Note" class="mb-2 bt-heavy b-blue b-300 dark:b-600 rounded p-2 t-reversi bg-gray bg-100 dark:bg-900">
+      <div aria-label="Note" class="mb-2 bt-heavy b-blue b-300 dark:b-600 rounded p-2 t-reversi bg-green bg-200 dark:bg-800">
         <span class="t-lg">&star;</span> Information panel
       </div>
       <div aria-label="Note" class="mb-2 bl-heavy b-amber b-400 p-2 t-reversi bg-amber bg-200 dark:bg-700">
@@ -281,17 +282,17 @@ Styled by utility classes.
 
 <div class="wrapper">
   <div class="container resize-x">
-    <div class="grid sm:equal-2-cols gap-3">
+    <div class="grid sm:equal-2-cols md:equal-2-cols gap-3">
       <div>
         <form class="container" action="">
           <fieldset class="p-2">
             <legend>Form inputs etc. as grid items</legend>
             <div class="sm:grid sm:equal-4-cols gap-2">
               <label class="inline-block py-1" for="name">Your name</label>
-              <input class="w-100% sm:cols-2-4" type="text" id="name" name="name" placeholder="Enter your name">
+              <input class="w-100% sm:col-span-3" type="text" id="name" name="name" placeholder="Enter your name">
               <label class="inline-block py-1" for="email">Your email</label>
-              <input class="w-100% sm:cols-2-4" type="email" id="email" name="example" placeholder="Enter your email address">
-              <div class="mt-1 sm:cols-2-4">
+              <input class="w-100% sm:col-span-3" type="email" id="email" name="example" placeholder="Enter your email address">
+              <div class="mt-1 sm:col-2 sm:col-span-3">
                 <button type="submit">Subscribe</button>
               </div>
             </div>
@@ -303,7 +304,7 @@ Styled by utility classes.
           <div class="aspect-ratio-1x1 r-pill relative">
             <svg xmlns="http://www.w3.org/2000/svg" class="box img-cover" preserveAspectRatio="xMidYMid slice" width="1000" height="600"><defs><linearGradient id="gradient1" gradientTransform="rotate(45)"><stop offset="5%" stop-color="rgba(255,255,0,.5)"/><stop offset="50%" stop-color="rgba(255,255,255,0)"/><stop offset="95%" stop-color="rgba(255,0,0,.5)"/></linearGradient><linearGradient id="gradient2" gradientTransform="rotate(135)"><stop offset="5%" stop-color="rgba(0,0,255,.5)"/><stop offset="50%" stop-color="rgba(255,255,255,0)"/><stop offset="95%" stop-color="rgba(0,255,0,.5)"/></linearGradient></defs><rect width="100%" height="100%" fill="url('#gradient1')"/><rect width="100%" height="100%" fill="url('#gradient2')"/></svg>
           </div>
-          <div class="cols-2-4">
+          <div class="col-span-3">
             <p class="h4">Grid media object</p>
             <p class="my-1">This example will behave as a grid for all container widths, even down to phones in portrait orientation.</p>
             <button>Something</button>

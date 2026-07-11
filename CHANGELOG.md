@@ -12,7 +12,6 @@
 
 * Removed the opinionated link decorations (thickened underline on hover, etc.)
 * Removed hover states from lightness utilities. Instead, Baselayer now darkens (either link text or button background) on hover by mixing in a little black, or lightens it for the dark theme by mixing in a little white.
-* The `grid` system’s *spanning* classes have been refactored to be more intuitive.
 * `content-grid` content column width is now set by `--w-sm` not `66ch`.
 * Added `img-contain` and directional `img-cover-*` classes.
 * Added `square-*`.
