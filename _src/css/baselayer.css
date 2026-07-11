@@ -1,7 +1,4 @@
-/*!
- * Baselayer 3 CSS v.3.8.0
- * https://github.com/SimonPadbury/baselayer
- */
+/*! Baselayer 3 CSS | v.3.8.0 | https://github.com/SimonPadbury/baselayer */
 
 @import "/partials/variables.css" layer(bl-variables);
 @import "/partials/reset.css" layer(bl-reset);
