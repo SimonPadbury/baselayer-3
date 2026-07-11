@@ -21,7 +21,7 @@
   --s-2: 1rem;
   --s-3: clamp(1.5rem, 0.5rem + 1.25cqi, 2rem);
   --s-4: clamp(2rem, 1rem + 2.5cqi, 3rem);
-  --s-flow: 1em;
+  --s-t-flow: 1em;
   --s-list: 1.5rem;
   --p-cell: 0.5rem 1rem;
   --pill: 99rem;

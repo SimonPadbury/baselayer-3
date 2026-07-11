@@ -76,11 +76,11 @@ html {
 
   .ms-windows #site-nav > div {
     scrollbar-gutter: stable;
-    overflow-y: hidden;
+    overt-flow-y: hidden;
   }
 
   .ms-windows #site-nav:hover > div {
-    overflow-y: auto;
+    overt-flow-y: auto;
   }
 }
 
@@ -95,11 +95,11 @@ html {
 
   .ms-windows #toc-outer {
     scrollbar-gutter: stable;
-    overflow-y: hidden;
+    overt-flow-y: hidden;
   }
 
   .ms-windows #toc-outer:hover {
-    overflow-y: auto;
+    overt-flow-y: auto;
   }
 }
 
@@ -148,14 +148,14 @@ button.toggler {
 
 pre code {
   max-height: 80vh;
-  overflow-y: auto;
+  overt-flow-y: auto;
 }
 
 .resize-x {
   margin-inline: -5px;
   padding: 5px;
   resize: horizontal;
-  overflow-x: auto;
+  overt-flow-x: auto;
   background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='silver' stroke-width='2' stroke-dasharray='8%2c 8' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
 }
 
@@ -271,7 +271,7 @@ window.addEventListener("DOMContentLoaded", () => {
   <div class="page-container">
     <div class="left-sidebar">
       <div id="site-nav" class="h-100% bg-gray bg-100 dark:bg-900">
-  <div class="sticky top h-max-100dvh overflow-y">
+  <div class="sticky top h-max-100dvh overt-flow-y">
     <div class="flex flex-space-between md:block">
       <div class="p-cell md:t-center">
         <a id="site-title" href="/baselayer-3/" class="h4 t-normal flex flex-center flex-middle gap-1 t-reversi t-underline-none">
@@ -375,7 +375,7 @@ window.addEventListener("DOMContentLoaded", () => {
     </div>
     <div class="main-frame">
       <aside class="right-sidebar lg:hidden-below">
-        <div id="toc-outer" class="sticky top w-content h-max-100dvh mx-auto pt-2 px-2 pb-4 links-underline-hover-only overflow-y">
+        <div id="toc-outer" class="sticky top w-content h-max-100dvh mx-auto pt-2 px-2 pb-4 links-underline-hover-only overt-flow-y">
           <p class="h4 t-thin t-loose t-center">On this page</p>
           <nav class="toc" >
         <ul><li><a href="#spacing">Spacing</a><ul><li><a href="#spacing-extras">Spacing extras</a></li></ul></li><li><a href="#borders">Borders</a><ul><li><a href="#border-extras">Border extras</a></li></ul></li><li><a href="#rounded-corners">Rounded corners</a></li><li><a href="#box-shadows">Box shadows</a></li><li><a href="#image-contain-and-cover">Image contain and cover</a></li></ul>
@@ -390,7 +390,7 @@ window.addEventListener("DOMContentLoaded", () => {
             </div>
           </header>
 
-          <main class="content-grid pb-4 flow">
+          <main class="content-grid pb-4 t-flow">
             <h2 id="spacing" tabindex="-1">Spacing</h2>
 <p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Introduction_to_the_CSS_box_model">Box model</a> margin and padding spacing have 5 levels based on 5 CSS variables. These same spacing variables are also used for gaps (in flexbox and grid system), and for border radius utilities.</p>
 <pre><code class="language-css">:root {
@@ -402,7 +402,7 @@ window.addEventListener("DOMContentLoaded", () => {
 }
 </code></pre>
 <p>Spacing levels <code>--s-3</code> and <code>--s-4</code> increase responsively (to <code>@container</code> width, see <a href="/baselayer-3/layout/#container-query-contexts">container query contexts</a>) depending how how much width is available, using <code>clamp()</code> functions. This makes the negative space (“whitespace”) for spacing levels 3 and 4 larger where there is a larger container (or viewport) width available.</p>
-<div class="my-3 expand overflow-x">
+<div class="my-3 expand overt-flow-x">
 <table class="table">
 <thead>
 <th>Spacing variable</th>
@@ -504,7 +504,7 @@ window.addEventListener("DOMContentLoaded", () => {
 <p>For more on border colors see <a href="/baselayer-3/colors/">colors</a>.</p>
 <h2 id="rounded-corners" tabindex="-1">Rounded corners</h2>
 <p>All Baselayer border radius classes apply their border radius potentially to all four corners. If you want different radii on different corners of the same element, then you can access each of the spacing variables in your CSS, or set your own values.</p>
-<p><strong>Tip:</strong> If you are putting rounded corners on a block element that contains an image, you will also need to add <code>overflow-clip</code>.</p>
+<p><strong>Tip:</strong> If you are putting rounded corners on a block element that contains an image, you will also need to add <code>overt-flow-clip</code>.</p>
 <p>There are five modifier classes. These only supply a spacing variable.</p>
 <ul>
 <li><code>rounded-tiny</code> — <code>--s-tiny</code></li>

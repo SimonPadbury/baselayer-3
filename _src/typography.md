@@ -75,11 +75,11 @@ The default font size in Baselayer is 100% for small viewports. This sets the va
 
 Previously in Baselayer, typographic blocks had zero top margin, and a small bottom margin—following the traditional Bootstrap CSS. But since Baselayer v.3.7.x, all block elements including typographic blocks have _no built-in margin_ (margin is removed in the CSS reset). This gives you full control of whitespace in your design of components.
 
-### The typographic block `flow` utility
+### The typographic block `t-flow` utility
 
 Then I discovered a [YouTube video by Kevin Powell](https://youtu.be/CU8Plk-53RU) in which he flips the typographic block whitespace to become a top margin and sets it using _ems_, so that it is bigger for bigger font sizes (headings). This enabled the typographic styles to be simplified.
 
-Subsequently I found [Andy Bell’s typographic flow utility class](https://piccalil.li/blog/my-favourite-3-lines-of-css/) to be a further improvement, enabling you to add back typographic whitepace (as top margin using ems) only where you need it in your prose or long read content areas. So now this `flow` utility has been added to Baselayer since v.3.7.x.
+Subsequently I found [Andy Bell’s typographic flow utility class](https://piccalil.li/blog/my-favourite-3-lines-of-css/) to be a further improvement, enabling you to add back typographic whitepace (as top margin using ems) only where you need it in your prose or long read content areas. So now this `t-flow` utility has been added to Baselayer since v.3.7.x.
 
 I have also added an override for situaions where you may have a sub-sub heading immediately following a sub-heading. The top margin of the lower level heading is reduced.
 
@@ -93,8 +93,8 @@ I have also added an override for situaions where you may have a sub-sub heading
 
 /* In typography.css */
 
-.flow > * + *:not(hr) {
-  margin-top: var(--s-flow, 1em);
+.t-flow > * + *:not(hr) {
+  margin-top: var(--s-t-flow, 1em);
 }
 
 :where(h1, h2, h3, h4, h5)
@@ -178,7 +178,7 @@ Notes on headings in Baselayer:
 * Headings font weight is set using `--h-fw: var(--t-semibold)` — which you can also override.
 * Headings line heights set using the formula `1em + 0.5rem`.
 * The matching heading size utility classes `h2` to `h6` only affect font-size. They do not include font-weight styling.
-* The CSS reset removes margin and padding from headings. Typographic block spacing can be controlled by the `flow` (see [the typographic block flow utility](#the-typographic-block-flow-utility)). You could also incorporate the `flow` styling directly into your `<article>` tag in your design layout, the typographic block elements are its immediate children.
+* The CSS reset removes margin and padding from headings. Typographic block spacing can be controlled by the `t-flow` (see [the typographic block t-flow utility](#the-typographic-block-t-flow-utility)). You could also incorporate the `t-flow` styling directly into your `<article>` tag in your design layout, the typographic block elements are its immediate children.
 
 ```css
 :root {
@@ -482,9 +482,9 @@ Baselayer tables are set using the `.table` class.
 
 ### Making wide tables responsive
 
-If you have a lot of content in your table, it will probably break your page layout on small viewports (e.g. phones). The simplest way to make a table “responsive” is to wrap your table in a DIV with the `overflow-x` class to make it horizontally scrollable.
+If you have a lot of content in your table, it will probably break your page layout on small viewports (e.g. phones). The simplest way to make a table “responsive” is to wrap your table in a DIV with the `overt-flow-x` class to make it horizontally scrollable.
 
-<div class="overflow-x">
+<div class="overt-flow-x">
   <table class="table table-grid">
     <thead>
       <th>Column title</th>
@@ -516,7 +516,7 @@ If you have a lot of content in your table, it will probably break your page lay
 </div>
 
 ```html
-<div class="overflow-x">
+<div class="overt-flow-x">
   <table class="table">
     ...
   </table>
@@ -604,7 +604,7 @@ There’s a demo of these text size utilities in [examples]({{ "/examples/#text-
 
 `<code>` tags have monospaced text (set by `--t-mono`) over a white or black background (in light or dark modes), with a thin border and a little padding to improve readability.
 
-If the `<code>` tag is wrapped in a `<pre>` tag, then it becomes a block level element with more padding, a max-width of 100%, and y-axis overflow scrolling.
+If the `<code>` tag is wrapped in a `<pre>` tag, then it becomes a block level element with more padding, a max-width of 100%, and y-axis overt-flow scrolling.
 
 ## Other typographic utility classes
 

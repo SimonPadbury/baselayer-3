@@ -95,19 +95,19 @@ Keyboard-tab through these links and buttons to see the focus rings:
 
 <div class="my-3 b-thin">
   <div class="grid sm:equal-4-cols">
-    <div class="p-3 flex flex-column flex-center flex-middle bg-white flow">
+    <div class="p-3 flex flex-column flex-center flex-middle bg-white t-flow">
       <p><a href="/#">Link</a></p>
       <p><button type="button">Button</button></p>
     </div>
-    <div class="p-3 flex flex-column flex-center flex-middle bg-blue bg-700 flow">
+    <div class="p-3 flex flex-column flex-center flex-middle bg-blue bg-700 t-flow">
       <p><a class="t-blue t-200 hover:t-300" href="/#">Link</a></p>
       <p><button class="rounded" type="button">Button</button></p>
     </div>
-    <div class="p-3 flex flex-column flex-center flex-middle bg-red bg-500 flow">
+    <div class="p-3 flex flex-column flex-center flex-middle bg-red bg-500 t-flow">
       <p><a class="t-blue t-200 hover:t-300" href="/#">Link</a></p>
       <p><button class="rounded" type="button">Button</button></p>
     </div>
-    <div class="p-3 flex flex-column flex-center flex-middle bg-black flow">
+    <div class="p-3 flex flex-column flex-center flex-middle bg-black t-flow">
       <p><a class="t-blue t-200 t-dark-invert hover:t-300" href="/#">Link</a></p>
       <p><button class="rounded rounded-pill" type="button">Button</button></p>
     </div>

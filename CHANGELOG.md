@@ -15,6 +15,7 @@
 * `content-grid` content column width is now set by `--w-sm` not `66ch`.
 * Added `img-contain` and directional `img-cover-*` classes.
 * Added `square-*`.
+* Typographic `.flow` utility renamed as `.t-flow`.
 * Simplified the rounded corner utility classes to use the spacing variables and have the same suffix names as margin, madding, and gap; removed the individual rounded corner utilities.
 * Improved form elements andbuttons.
 * Added glass (blur) and filter background modifier utilities.

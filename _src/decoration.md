@@ -24,7 +24,7 @@ nextLink: "Colors"
 
 Spacing levels `--s-3` and `--s-4` increase responsively (to `@container` width, see [container query contexts]({{ "/layout/#container-query-contexts" | url }})) depending how how much width is available, using `clamp()` functions. This makes the negative space (“whitespace”) for spacing levels 3 and 4 larger where there is a larger container (or viewport) width available.
 
-<div class="my-3 expand overflow-x">
+<div class="my-3 expand overt-flow-x">
 <table class="table">
 <thead>
 <th>Spacing variable</th>
@@ -137,7 +137,7 @@ For more on border colors see [colors]({{ "/colors/" | url }}).
 
 All Baselayer border radius classes apply their border radius potentially to all four corners. If you want different radii on different corners of the same element, then you can access each of the spacing variables in your CSS, or set your own values.
 
-**Tip:** If you are putting rounded corners on a block element that contains an image, you will also need to add `overflow-clip`.
+**Tip:** If you are putting rounded corners on a block element that contains an image, you will also need to add `overt-flow-clip`.
 
 There are five modifier classes. These only supply a spacing variable.
 

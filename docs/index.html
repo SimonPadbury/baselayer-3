@@ -76,11 +76,11 @@ html {
 
   .ms-windows #site-nav > div {
     scrollbar-gutter: stable;
-    overflow-y: hidden;
+    overt-flow-y: hidden;
   }
 
   .ms-windows #site-nav:hover > div {
-    overflow-y: auto;
+    overt-flow-y: auto;
   }
 }
 
@@ -95,11 +95,11 @@ html {
 
   .ms-windows #toc-outer {
     scrollbar-gutter: stable;
-    overflow-y: hidden;
+    overt-flow-y: hidden;
   }
 
   .ms-windows #toc-outer:hover {
-    overflow-y: auto;
+    overt-flow-y: auto;
   }
 }
 
@@ -148,14 +148,14 @@ button.toggler {
 
 pre code {
   max-height: 80vh;
-  overflow-y: auto;
+  overt-flow-y: auto;
 }
 
 .resize-x {
   margin-inline: -5px;
   padding: 5px;
   resize: horizontal;
-  overflow-x: auto;
+  overt-flow-x: auto;
   background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='silver' stroke-width='2' stroke-dasharray='8%2c 8' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
 }
 
@@ -271,7 +271,7 @@ window.addEventListener("DOMContentLoaded", () => {
   <div class="page-container">
     <div class="left-sidebar">
       <div id="site-nav" class="h-100% bg-gray bg-100 dark:bg-900">
-  <div class="sticky top h-max-100dvh overflow-y">
+  <div class="sticky top h-max-100dvh overt-flow-y">
     <div class="flex flex-space-between md:block">
       <div class="p-cell md:t-center">
         <a id="site-title" href="/baselayer-3/" class="h4 t-normal flex flex-center flex-middle gap-1 t-reversi t-underline-none">
@@ -375,7 +375,7 @@ window.addEventListener("DOMContentLoaded", () => {
     </div>
     <div class="main-frame">
       <aside class="right-sidebar lg:hidden-below">
-        <div id="toc-outer" class="sticky top w-content h-max-100dvh mx-auto pt-2 px-2 pb-4 links-underline-hover-only overflow-y">
+        <div id="toc-outer" class="sticky top w-content h-max-100dvh mx-auto pt-2 px-2 pb-4 links-underline-hover-only overt-flow-y">
           <p class="h4 t-thin t-loose t-center">On this page</p>
           <nav class="toc" >
         <ul><li><a href="#introduction">Introduction</a></li><li><a href="#modern-css-technologies">Modern CSS technologies</a></li><li><a href="#baselayer%E2%80%99s-design-philosophy">Baselayer’s design philosophy</a></li><li><a href="#built-using-postcss">Built using PostCSS</a></li><li><a href="#a-modern-css-reset">A modern CSS reset</a></li><li><a href="#baselayer%E2%80%99s-built-in-accessibility-features">Baselayer’s built-in accessibility features</a><ul><li><a href="#(1.)-focus-states">(1.) Focus states</a></li><li><a href="#(2.)-the-visually-hidden-(screen-reader-only)-class">(2.) The visually-hidden (screen-reader only) class</a></li></ul></li></ul>
@@ -390,7 +390,7 @@ window.addEventListener("DOMContentLoaded", () => {
             </div>
           </header>
 
-          <main class="content-grid pb-4 flow">
+          <main class="content-grid pb-4 t-flow">
             <h2 id="introduction" tabindex="-1">Introduction</h2>
 <p class="t-lg">Designed as a good place to start, Baselayer may be all you need for small projects such as static websites and blogs. Or you may use it as a <em>baselayer</em> to quick-start your mega project.</p>
 <p>Ready to use as-is, Baselayer’s 27 KB (minified) stylesheet gives you all this:</p>
@@ -459,19 +459,19 @@ window.addEventListener("DOMContentLoaded", () => {
 <p>Keyboard-tab through these links and buttons to see the focus rings:</p>
 <div class="my-3 b-thin">
   <div class="grid sm:equal-4-cols">
-    <div class="p-3 flex flex-column flex-center flex-middle bg-white flow">
+    <div class="p-3 flex flex-column flex-center flex-middle bg-white t-flow">
       <p><a href="/#">Link</a></p>
       <p><button type="button">Button</button></p>
     </div>
-    <div class="p-3 flex flex-column flex-center flex-middle bg-blue bg-700 flow">
+    <div class="p-3 flex flex-column flex-center flex-middle bg-blue bg-700 t-flow">
       <p><a class="t-blue t-200 hover:t-300" href="/#">Link</a></p>
       <p><button class="rounded" type="button">Button</button></p>
     </div>
-    <div class="p-3 flex flex-column flex-center flex-middle bg-red bg-500 flow">
+    <div class="p-3 flex flex-column flex-center flex-middle bg-red bg-500 t-flow">
       <p><a class="t-blue t-200 hover:t-300" href="/#">Link</a></p>
       <p><button class="rounded" type="button">Button</button></p>
     </div>
-    <div class="p-3 flex flex-column flex-center flex-middle bg-black flow">
+    <div class="p-3 flex flex-column flex-center flex-middle bg-black t-flow">
       <p><a class="t-blue t-200 t-dark-invert hover:t-300" href="/#">Link</a></p>
       <p><button class="rounded rounded-pill" type="button">Button</button></p>
     </div>

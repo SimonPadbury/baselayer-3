@@ -64,11 +64,11 @@ html {
 
   .ms-windows #site-nav > div {
     scrollbar-gutter: stable;
-    overflow-y: hidden;
+    overt-flow-y: hidden;
   }
 
   .ms-windows #site-nav:hover > div {
-    overflow-y: auto;
+    overt-flow-y: auto;
   }
 }
 
@@ -83,11 +83,11 @@ html {
 
   .ms-windows #toc-outer {
     scrollbar-gutter: stable;
-    overflow-y: hidden;
+    overt-flow-y: hidden;
   }
 
   .ms-windows #toc-outer:hover {
-    overflow-y: auto;
+    overt-flow-y: auto;
   }
 }
 
@@ -136,13 +136,13 @@ button.toggler {
 
 pre code {
   max-height: 80vh;
-  overflow-y: auto;
+  overt-flow-y: auto;
 }
 
 .resize-x {
   margin-inline: -5px;
   padding: 5px;
   resize: horizontal;
-  overflow-x: auto;
+  overt-flow-x: auto;
   background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='silver' stroke-width='2' stroke-dasharray='8%2c 8' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
 }

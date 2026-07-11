@@ -53,11 +53,11 @@ h6 {
 }
 
 /* 
-Flow class for spacing between typographic elements. 
+t-flow class for spacing between typographic elements. 
 Based on Andy Bell’s `.flow` utility, https://piccalil.li/blog/my-favourite-3-lines-of-css/ 
 */
-.flow > * + *:not(hr) {
-  margin-top: var(--s-flow, 1em);
+.t-flow > * + *:not(hr) {
+  margin-top: var(--s-t-flow, 1em);
 }
 
 :where(h1, h2, h3, h4, h5) + :where(h2, h3, h4, h5, h6) {
@@ -204,10 +204,10 @@ pre {
   font-style: normal;
   font-weight: normal;
   white-space: pre-wrap;
-  overflow-wrap: break-word;
+  overt-flow-wrap: break-word;
 
   &:not(:has(code)) {
-    overflow-x: auto;
+    overt-flow-x: auto;
   }
 
   code {
@@ -215,8 +215,8 @@ pre {
     border-radius: var(--s-1);
     padding: 1em;
     background-color: var(--bgc-code);
-    overflow-x: auto;
-    /* So that the :focus-visible ring works, and so that the background color extends into the overflowing area */
+    overt-flow-x: auto;
+    /* So that the :focus-visible ring works, and so that the background color extends into the overt-flowing area */
   }
 }
 

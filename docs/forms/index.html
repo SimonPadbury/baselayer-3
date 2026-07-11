@@ -76,11 +76,11 @@ html {
 
   .ms-windows #site-nav > div {
     scrollbar-gutter: stable;
-    overflow-y: hidden;
+    overt-flow-y: hidden;
   }
 
   .ms-windows #site-nav:hover > div {
-    overflow-y: auto;
+    overt-flow-y: auto;
   }
 }
 
@@ -95,11 +95,11 @@ html {
 
   .ms-windows #toc-outer {
     scrollbar-gutter: stable;
-    overflow-y: hidden;
+    overt-flow-y: hidden;
   }
 
   .ms-windows #toc-outer:hover {
-    overflow-y: auto;
+    overt-flow-y: auto;
   }
 }
 
@@ -148,14 +148,14 @@ button.toggler {
 
 pre code {
   max-height: 80vh;
-  overflow-y: auto;
+  overt-flow-y: auto;
 }
 
 .resize-x {
   margin-inline: -5px;
   padding: 5px;
   resize: horizontal;
-  overflow-x: auto;
+  overt-flow-x: auto;
   background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='silver' stroke-width='2' stroke-dasharray='8%2c 8' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
 }
 
@@ -271,7 +271,7 @@ window.addEventListener("DOMContentLoaded", () => {
   <div class="page-container">
     <div class="left-sidebar">
       <div id="site-nav" class="h-100% bg-gray bg-100 dark:bg-900">
-  <div class="sticky top h-max-100dvh overflow-y">
+  <div class="sticky top h-max-100dvh overt-flow-y">
     <div class="flex flex-space-between md:block">
       <div class="p-cell md:t-center">
         <a id="site-title" href="/baselayer-3/" class="h4 t-normal flex flex-center flex-middle gap-1 t-reversi t-underline-none">
@@ -375,7 +375,7 @@ window.addEventListener("DOMContentLoaded", () => {
     </div>
     <div class="main-frame">
       <aside class="right-sidebar lg:hidden-below">
-        <div id="toc-outer" class="sticky top w-content h-max-100dvh mx-auto pt-2 px-2 pb-4 links-underline-hover-only overflow-y">
+        <div id="toc-outer" class="sticky top w-content h-max-100dvh mx-auto pt-2 px-2 pb-4 links-underline-hover-only overt-flow-y">
           <p class="h4 t-thin t-loose t-center">On this page</p>
           <nav class="toc" >
         <ul><li><a href="#textual-form-input-fields">Textual form input fields</a></li><li><a href="#number-inputs">Number inputs</a></li><li><a href="#date-and-time-inputs">Date and time inputs</a></li><li><a href="#color-picker">Color picker</a></li><li><a href="#file-upload">File upload</a></li><li><a href="#select-and-multi-select">Select and multi-select</a></li><li><a href="#list-and-datalist">List and datalist</a></li><li><a href="#text-area-(multiline)">Text area (multiline)</a></li><li><a href="#radio-boxes-and-checkboxes">Radio boxes and checkboxes</a></li><li><a href="#fieldsets-and-legends">Fieldsets and legends</a></li><li><a href="#adding-colors-to-form-elements">Adding colors to form elements</a></li><li><a href="#form-buttons">Form buttons</a></li></ul>
@@ -390,7 +390,7 @@ window.addEventListener("DOMContentLoaded", () => {
             </div>
           </header>
 
-          <main class="content-grid pb-4 flow">
+          <main class="content-grid pb-4 t-flow">
             <p>Baselayer form elements have simple background and focus styling.</p>
 <p><strong>Notes:</strong></p>
 <ol>
@@ -405,7 +405,7 @@ window.addEventListener("DOMContentLoaded", () => {
 <li>The font-family of form elements, buttons, and <code>btn</code> is controlled by <code>var(--t-default)</code> (default is sans-serif).</li>
 </ol>
 <h2 id="textual-form-input-fields" tabindex="-1">Textual form input fields</h2>
-<form action="" class="flow">
+<form action="" class="t-flow">
   <p>
     <label for="example-input-text">Text</label>
     <input type="text" id="example-input-text" name="example" placeholder="Enter text">
@@ -431,7 +431,7 @@ window.addEventListener("DOMContentLoaded", () => {
 </form>
 <h2 id="number-inputs" tabindex="-1">Number inputs</h2>
 <p>On touch screens, these inputs invoke the numeric keyboard instead of the text keyboard.</p>
-<form action="" class="flow">
+<form action="" class="t-flow">
   <p>
     <label for="example-input-tel">Telephone number</label>
     <input type="tel" id="example-input-tel" name="example" placeholder="Telephone number">
@@ -443,7 +443,7 @@ window.addEventListener("DOMContentLoaded", () => {
 </form>
 <h2 id="date-and-time-inputs" tabindex="-1">Date and time inputs</h2>
 <p>On some devices (e.g. iOS Safari), these inputs get modified by date pickers, etc. The shape of the input fields gets changed.</p>
-<form action="" class="flow">
+<form action="" class="t-flow">
   <p>
     <label for="example-input-date">Date</label>
     <input type="date" id="example-input-date" name="example">
@@ -459,14 +459,14 @@ window.addEventListener("DOMContentLoaded", () => {
 </form>
 <h2 id="color-picker" tabindex="-1">Color picker</h2>
 <p>Invokes the device’s color picker.</p>
-<form action="" class="flow">
+<form action="" class="t-flow">
   <p>
     <label for="example-input-color">Color</label>
     <input type="color" id="example-input-color" placeholder="#fff">
   </p>
 </form>
 <h2 id="file-upload" tabindex="-1">File upload</h2>
-<form action="" class="flow">
+<form action="" class="t-flow">
   <p>
     <label for="example-input-file">File input</label>
     <input type="file" id="example-input-file" accept="image/png, image/jpeg">
@@ -474,7 +474,7 @@ window.addEventListener("DOMContentLoaded", () => {
 </form>
 <h2 id="select-and-multi-select" tabindex="-1">Select and multi-select</h2>
 <p>On some devices (e.g. iOS Safari), these inputs get modified by number pickers (dropdowns).</p>
-<form action="" class="flow">
+<form action="" class="t-flow">
   <p>
     <label for="example-select1">Example select</label>
     <select id="example-select1">
@@ -507,12 +507,12 @@ window.addEventListener("DOMContentLoaded", () => {
   <option value="German Shepherd"></option>
 </datalist>
 <h2 id="text-area-(multiline)" tabindex="-1">Text area (multiline)</h2>
-<form action="" class="flow">
+<form action="" class="t-flow">
     <label for="example-textarea">Example textarea</label><br>
     <textarea id="example-textarea"></textarea>
 </form>
 <h2 id="radio-boxes-and-checkboxes" tabindex="-1">Radio boxes and checkboxes</h2>
-<form action="" class="flow">
+<form action="" class="t-flow">
   <p class="my2">Radio boxes:</p>
   <input type="radio" id="example-radio-1" name="example-radio" value="banana">
   <label for="example-radio-1">Banana</label><br>
@@ -531,7 +531,7 @@ window.addEventListener("DOMContentLoaded", () => {
 </form>
 <h2 id="fieldsets-and-legends" tabindex="-1">Fieldsets and legends</h2>
 <p>Groups of form elements can be wrapped in <code>&lt;fieldset&gt;</code> tags. Add a <code>&lt;legend&gt;</code> to provide a special title for the entire fieldset.</p>
-<form action="" class="flow">
+<form action="" class="t-flow">
   <fieldset class="flex">
     <legend>Example e-newsletter subscribe</legend>
     <input class="grow" type="email" id="example-input-email" placeholder="Enter email">
@@ -549,7 +549,7 @@ window.addEventListener("DOMContentLoaded", () => {
 <p><strong>Note:</strong> In the example above, the Baselayer <code>flex</code> class has been used to align these form elements side-by-side, and then <code>grow</code> has been used to expand the email input field. A <code>&lt;legend&gt;</code> is also included — but since its text incorporates with the <code>&lt;fieldset&gt;</code> wrapping border line, it will not be controlled by the flexbox rule.</p>
 <h2 id="adding-colors-to-form-elements" tabindex="-1">Adding colors to form elements</h2>
 <p>Border, background, and text color utilities can be used.</p>
-<form class="flow">
+<form class="t-flow">
   <label for="example-input-text">Label</label>
   <input class="b-thick b-red" type="text" id="example-input-text" placeholder="Enter some text here">
   <input class="b-thick b-green" type="text" id="example-input-text" placeholder="Enter some text here">
@@ -561,7 +561,7 @@ window.addEventListener("DOMContentLoaded", () => {
 &lt;input class=&quot;b-thick b-green&quot; type=&quot;text&quot; id=&quot;example-input-text&quot; placeholder=&quot;Enter some text here&quot;&gt;
 </code></pre>
 <h2 id="form-buttons" tabindex="-1">Form buttons</h2>
-<form action="" class="flow">
+<form action="" class="t-flow">
   <p>
     <button type="button" name="button">Button</button>
     <input type="button" name="input" value="Input Button">

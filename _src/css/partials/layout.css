@@ -77,16 +77,16 @@
   clear: both;
 }
 
-.overflow-x {
-  overflow-x: auto;
+.overt-flow-x {
+  overt-flow-x: auto;
 }
 
-.overflow-y {
-  overflow-y: auto;
+.overt-flow-y {
+  overt-flow-y: auto;
 }
 
-.overflow-clip {
-  overflow: clip;
+.overt-flow-clip {
+  overt-flow: clip;
 }
 
 .block {
@@ -208,7 +208,7 @@ Grid system
 }
 
 .grid-dense {
-  grid-auto-flow: dense;
+  grid-auto-t-flow: dense;
 }
 
 [class*="equal-"] {

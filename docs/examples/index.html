@@ -22,7 +22,7 @@
       margin-inline: -5px;
       padding: 5px;
       resize: horizontal;
-      overflow-x: auto;
+      overt-flow-x: auto;
       background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='silver' stroke-width='2' stroke-dasharray='8%2c 8' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
     }
   </style>
@@ -115,7 +115,7 @@ baselayerInit();
     </button>
   </nav>
 
-  <main class="flow" id="main-content">
+  <main class="t-flow" id="main-content">
     <h2 id="centered-layout-wrappers" tabindex="-1"><a href="/baselayer-3/layout/#centered-layout-wrappers">Centered layout wrappers</a></h2>
 <p><strong>Note:</strong> <code>container</code> is simply used for adding a <a href="/baselayer-3/layout/#container-query-contexts">container query context</a> — it doesn’t add any constraints.</p>
 <div class="wrapper mb-1 p-1 bg-green bg-200 dark:bg-800">wrapper / wrapper-xxl — max 1792px</div>
@@ -152,7 +152,7 @@ baselayerInit();
 <hr>
 <h2 id="up-to-four-column-grid-layouts" tabindex="-1">Up to four column <a href="/baselayer-3/layout/#grid">grid layouts</a></h2>
 <p>A malleable grid without setting equalization on cell widths. In this example, for <code>sm</code> up, columns will adopt whatever width they require for their content. Specify where you want your <em>grid items</em> using column placement classes — then <em>CSS grid</em> will figure out how many columns you need.</p>
-<div class="wrapper mb-3 flow">
+<div class="wrapper mb-3 t-flow">
   <p class="mb-1"><code>grid gap-1</code></p>
     <div class="grid gap-1">
       <div class="sm:col-1 p-cell bg-green bg-200 dark:bg-800"><code>sm:col-1</code> A narrow column</div>
@@ -161,7 +161,7 @@ baselayerInit();
   </div>
 </div>
 <p>Using <code>equal-</code> modifiers on the grid wrapper will both equalize column width and specify the number of columns. Then for simple layouts (e.g. galleries), you won’t need column placement classes.</p>
-<div class="wrapper flow">
+<div class="wrapper t-flow">
 <code>grid sm:equal-2-cols gap-2</code>
 <div class="mt-1 mb-2 grid sm:equal-2-cols gap-2">
   <div class="p-1 bg-green bg-200 dark:bg-800">#</div>
@@ -187,7 +187,7 @@ baselayerInit();
 <hr>
 <h2 id="text-sizes" tabindex="-1">Text sizes</h2>
 <p>See <a href="/baselayer-3/typography/#making-text-bigger">typography: making text bigger</a>. <code>t-long-read</code>, <code>t-comfort</code>, and <code>t-display</code> involve a <code>clamp()</code>. On small devices (e.g. phones), all these bigger text utilities are reduced to the normal sizes.</p>
-<div class="wrapper-xl overflow-x">
+<div class="wrapper-xl overt-flow-x">
   <table class="table">
     <thead>
       <th>Default</th>
@@ -239,7 +239,7 @@ baselayerInit();
   </div>
 </div>
 <h2 id="example-%E2%80%9Cresearch-article%E2%80%9D-page-layout-using-grid" tabindex="-1">Example “research article” page layout using <a href="/baselayer-3/layout/#grid">grid</a></h2>
-<div class="wrapper-xl container mt-2 mb-3 flow">
+<div class="wrapper-xl container mt-2 mb-3 t-flow">
   <code>grid md:equal-3-cols lg:equal-4-cols gap-3</code>
   <div class="mt-1 grid md:equal-3-cols lg:equal-4-cols gap-3">
     <!---->
@@ -262,7 +262,7 @@ baselayerInit();
       </div>
     </div>
     <!---->
-    <div class="md:col-2 md:col-span-2 flow">
+    <div class="md:col-2 md:col-span-2 t-flow">
       <code>md:col-2 md:col-span-2</code>
       <p class="h2">Abstract</p>
       <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni rem animi quaerat accusantium illum architecto, nemo, ex harum voluptatum adipisci eum blanditiis dolorum. Natus debitis quisquam, expedita accusantium quos cumque?</p>
@@ -287,7 +287,7 @@ baselayerInit();
 </div>
 <hr>
 <h2 id="content-grid-layouts" tabindex="-1"><a href="/baselayer-3/layout/#content-grid">Content-grid</a> layouts</h2>
-<div class="content-grid flow">
+<div class="content-grid t-flow">
   <h3 class="h1">Title of this <code>content-grid</code> demo</h3>
   <p><code>content-grid</code> is intended for long-form articles. Its 7-column grid places the content in column 4, where each immediate-child elment will be its own grid item. <code>popout</code> spans rows 3-5. <code>expand</code> spans rows 2-6. <code>full-bleed</code> spans rows 1-7.</p>
   <p>Here’s a styled <code>&lt;p class="popout"&gt;</code>:</p>
@@ -297,7 +297,7 @@ baselayerInit();
   <p>Here’s a styled <code>&lt;div class="expand"&gt;</code>:</p>
   <div class="expand aspect-ratio-16x9 flex flex-center flex-middle relative">
     <svg xmlns="http://www.w3.org/2000/svg" class="box img-cover" preserveAspectRatio="xMidYMid slice" width="1000" height="600"><defs><linearGradient id="gradient1" gradientTransform="rotate(45)"><stop offset="5%" stop-color="rgba(255,255,0,.5)"/><stop offset="50%" stop-color="rgba(255,255,255,0)"/><stop offset="95%" stop-color="rgba(255,0,0,.5)"/></linearGradient><linearGradient id="gradient2" gradientTransform="rotate(135)"><stop offset="5%" stop-color="rgba(0,0,255,.5)"/><stop offset="50%" stop-color="rgba(255,255,255,0)"/><stop offset="95%" stop-color="rgba(0,255,0,.5)"/></linearGradient></defs><rect width="100%" height="100%" fill="url('#gradient1')"/><rect width="100%" height="100%" fill="url('#gradient2')"/></svg>
-    <div class="z-1 w-content p-2 flow bg-black bg-filter bg-200">
+    <div class="z-1 w-content p-2 t-flow bg-black bg-filter bg-200">
       <p class="h2 t-bold">This example text may or may not distort the 16×9 aspect ratio that has been given to this demo component.</p>
       <p class="h2 t-bold">The SVG image rectangle will be 1280px × 720px if your viewport is big enough. See what it does on a narrow viewport width (e.g. phone).</p>
     </div>
@@ -314,7 +314,7 @@ baselayerInit();
 <p>Styled by utility classes.</p>
 <div class="wrapper">
   <div class="grid md:equal-2-cols gap-3">
-    <div class="flow">
+    <div class="t-flow">
       <p>Without dark mode lightness levels using <code>dark:</code></p>
       <div aria-label="Note" class="mb-2 bt-heavy b-blue b-300 rounded p-2 t-black bg-gray bg-100">
         <span class="t-lg">&star;</span> Information panel
@@ -336,7 +336,7 @@ baselayerInit();
         <div class="aspect-ratio-21x9 relative">
           <svg xmlns="http://www.w3.org/2000/svg" class="box img-cover" preserveAspectRatio="xMidYMid slice" width="1000" height="600"><defs><linearGradient id="gradient1" gradientTransform="rotate(45)"><stop offset="5%" stop-color="rgba(255,255,0,.5)"/><stop offset="50%" stop-color="rgba(255,255,255,0)"/><stop offset="95%" stop-color="rgba(255,0,0,.5)"/></linearGradient><linearGradient id="gradient2" gradientTransform="rotate(135)"><stop offset="5%" stop-color="rgba(0,0,255,.5)"/><stop offset="50%" stop-color="rgba(255,255,255,0)"/><stop offset="95%" stop-color="rgba(0,255,0,.5)"/></linearGradient></defs><rect width="100%" height="100%" fill="url('#gradient1')"/><rect width="100%" height="100%" fill="url('#gradient2')"/></svg>
         </div>
-        <div class="p-2 flow">
+        <div class="p-2 t-flow">
         <p class="h3">Card title</p>
         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni rem animi quaerat accusantium illum architecto, nemo, ex harum voluptatum adipisci eum blanditiis dolorum.</p>
         <p><a class="btn r-2 bg-green bg-600 hover:bg-700" href="#/">Get this thing</a></p>
@@ -353,7 +353,7 @@ baselayerInit();
           <svg xmlns="http://www.w3.org/2000/svg" class="rounded rounded-pill img-cover" preserveAspectRatio="xMidYMid slice" width="1000" height="1000"><defs><linearGradient id="gradient1" gradientTransform="rotate(45)"><stop offset="5%" stop-color="rgba(255,255,0,.5)"></stop><stop offset="50%" stop-color="rgba(255,255,255,0)"></stop><stop offset="95%" stop-color="rgba(255,0,0,.5)"></stop></linearGradient><linearGradient id="gradient2" gradientTransform="rotate(135)"><stop offset="5%" stop-color="rgba(0,0,255,.5)"></stop><stop offset="50%" stop-color="rgba(255,255,255,0)"></stop><stop offset="95%" stop-color="rgba(0,255,0,.5)"></stop></linearGradient></defs><rect width="100%" height="100%" fill="url('#gradient1')"></rect><rect width="100%" height="100%" fill="url('#gradient2')"></rect></svg>
         </div>
       </div>
-      <div class="grow flow">
+      <div class="grow t-flow">
         <p class="h4 t-center sm:t-left">Flexbox media object</p>
         <p class="">In this example, the media object “collapses” to a single column below container width 768px, using <code>sm:flex</code>. And below that width, the title and button are centered using <code>t-center</code>, which is overridden by <code>sm:t-left</code>.</p>
         <p class="t-center sm:t-left">
@@ -400,11 +400,11 @@ baselayerInit();
 <div class="wrapper-xl my-3">
   <div class="container resize-x">
     <div class="p-2 grid sm:equal-2-cols grid-dense gap-3">
-      <div class="sm:col-2 rounded rounded-4 aspect-ratio-16x9 relative overflow-clip">
+      <div class="sm:col-2 rounded rounded-4 aspect-ratio-16x9 relative overt-flow-clip">
         <svg xmlns="http://www.w3.org/2000/svg" class="box img-cover" preserveAspectRatio="xMidYMid slice" width="1000" height="600"><defs><linearGradient id="gradient1" gradientTransform="rotate(45)"><stop offset="5%" stop-color="rgba(255,255,0,.5)"/><stop offset="50%" stop-color="rgba(255,255,255,0)"/><stop offset="95%" stop-color="rgba(255,0,0,.5)"/></linearGradient><linearGradient id="gradient2" gradientTransform="rotate(135)"><stop offset="5%" stop-color="rgba(0,0,255,.5)"/><stop offset="50%" stop-color="rgba(255,255,255,0)"/><stop offset="95%" stop-color="rgba(0,255,0,.5)"/></linearGradient></defs><rect width="100%" height="100%" fill="url('#gradient1')"/><rect width="100%" height="100%" fill="url('#gradient2')"/></svg>
       </div>
       <div class="sm:col-1 flex flex-column flex-center">
-        <div class="w-sm t-long-read flow">
+        <div class="w-sm t-long-read t-flow">
           <p class="h2 mt-0">A “two-up” feature block</p>
           <p>In this exmple, the image is <em>before</em> the text content in the HTML. But for container width above 768px, the grid system places the image to the right (in the 2nd column). The text content is positioned vertical-center by <code>flex flex-column flex-center</code></p>
           <p class="mb-0"><a class="btn r-pill bg-teal" href="#/">Discover more</a></p>

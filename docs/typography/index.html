@@ -76,11 +76,11 @@ html {
 
   .ms-windows #site-nav > div {
     scrollbar-gutter: stable;
-    overflow-y: hidden;
+    overt-flow-y: hidden;
   }
 
   .ms-windows #site-nav:hover > div {
-    overflow-y: auto;
+    overt-flow-y: auto;
   }
 }
 
@@ -95,11 +95,11 @@ html {
 
   .ms-windows #toc-outer {
     scrollbar-gutter: stable;
-    overflow-y: hidden;
+    overt-flow-y: hidden;
   }
 
   .ms-windows #toc-outer:hover {
-    overflow-y: auto;
+    overt-flow-y: auto;
   }
 }
 
@@ -148,14 +148,14 @@ button.toggler {
 
 pre code {
   max-height: 80vh;
-  overflow-y: auto;
+  overt-flow-y: auto;
 }
 
 .resize-x {
   margin-inline: -5px;
   padding: 5px;
   resize: horizontal;
-  overflow-x: auto;
+  overt-flow-x: auto;
   background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='silver' stroke-width='2' stroke-dasharray='8%2c 8' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
 }
 
@@ -271,7 +271,7 @@ window.addEventListener("DOMContentLoaded", () => {
   <div class="page-container">
     <div class="left-sidebar">
       <div id="site-nav" class="h-100% bg-gray bg-100 dark:bg-900">
-  <div class="sticky top h-max-100dvh overflow-y">
+  <div class="sticky top h-max-100dvh overt-flow-y">
     <div class="flex flex-space-between md:block">
       <div class="p-cell md:t-center">
         <a id="site-title" href="/baselayer-3/" class="h4 t-normal flex flex-center flex-middle gap-1 t-reversi t-underline-none">
@@ -375,10 +375,10 @@ window.addEventListener("DOMContentLoaded", () => {
     </div>
     <div class="main-frame">
       <aside class="right-sidebar lg:hidden-below">
-        <div id="toc-outer" class="sticky top w-content h-max-100dvh mx-auto pt-2 px-2 pb-4 links-underline-hover-only overflow-y">
+        <div id="toc-outer" class="sticky top w-content h-max-100dvh mx-auto pt-2 px-2 pb-4 links-underline-hover-only overt-flow-y">
           <p class="h4 t-thin t-loose t-center">On this page</p>
           <nav class="toc" >
-        <ul><li><a href="#font-stacks">Font stacks</a><ul><li><a href="#setting-font-stacks">Setting font stacks</a></li></ul></li><li><a href="#base-font-size">Base font size</a></li><li><a href="#typographic-block-elements">Typographic block elements</a><ul><li><a href="#the-typographic-block-flow-utility">The typographic block flow utility</a></li><li><a href="#headings">Headings</a></li><li><a href="#block-quotes">Block quotes</a></li><li><a href="#lists">Lists</a></li></ul></li><li><a href="#links-and-menus">Links and menus</a><ul><li><a href="#link-utilities">Link utilities</a></li><li><a href="#panel-links">Panel links</a></li><li><a href="#menus">Menus</a></li></ul></li><li><a href="#text-alignment">Text alignment</a></li><li><a href="#tables">Tables</a><ul><li><a href="#making-wide-tables-responsive">Making wide tables responsive</a></li></ul></li><li><a href="#controlling-text-size">Controlling text size</a><ul><li><a href="#inline-font-size-multipliers">Inline font size multipliers</a></li><li><a href="#block-font-size-multipliers">Block font size multipliers</a></li><li><a href="#responsive-font-size-multipliers">Responsive font size multipliers</a></li></ul></li><li><a href="#code">Code</a></li><li><a href="#other-typographic-utility-classes">Other typographic utility classes</a></li></ul>
+        <ul><li><a href="#font-stacks">Font stacks</a><ul><li><a href="#setting-font-stacks">Setting font stacks</a></li></ul></li><li><a href="#base-font-size">Base font size</a></li><li><a href="#typographic-block-elements">Typographic block elements</a><ul><li><a href="#the-typographic-block-t-flow-utility">The typographic block t-flow utility</a></li><li><a href="#headings">Headings</a></li><li><a href="#block-quotes">Block quotes</a></li><li><a href="#lists">Lists</a></li></ul></li><li><a href="#links-and-menus">Links and menus</a><ul><li><a href="#link-utilities">Link utilities</a></li><li><a href="#panel-links">Panel links</a></li><li><a href="#menus">Menus</a></li></ul></li><li><a href="#text-alignment">Text alignment</a></li><li><a href="#tables">Tables</a><ul><li><a href="#making-wide-tables-responsive">Making wide tables responsive</a></li></ul></li><li><a href="#controlling-text-size">Controlling text size</a><ul><li><a href="#inline-font-size-multipliers">Inline font size multipliers</a></li><li><a href="#block-font-size-multipliers">Block font size multipliers</a></li><li><a href="#responsive-font-size-multipliers">Responsive font size multipliers</a></li></ul></li><li><a href="#code">Code</a></li><li><a href="#other-typographic-utility-classes">Other typographic utility classes</a></li></ul>
       </nav>
         </div>
       </aside>
@@ -390,7 +390,7 @@ window.addEventListener("DOMContentLoaded", () => {
             </div>
           </header>
 
-          <main class="content-grid pb-4 flow">
+          <main class="content-grid pb-4 t-flow">
             <h2 id="font-stacks" tabindex="-1">Font stacks</h2>
 <p>A few native font stacks are set in the <code>root-vars.css</code> file.</p>
 <pre><code class="language-css">:root {
@@ -441,9 +441,9 @@ window.addEventListener("DOMContentLoaded", () => {
 </code></pre>
 <h2 id="typographic-block-elements" tabindex="-1">Typographic block elements</h2>
 <p>Previously in Baselayer, typographic blocks had zero top margin, and a small bottom margin—following the traditional Bootstrap CSS. But since Baselayer v.3.7.x, all block elements including typographic blocks have <em>no built-in margin</em> (margin is removed in the CSS reset). This gives you full control of whitespace in your design of components.</p>
-<h3 id="the-typographic-block-flow-utility" tabindex="-1">The typographic block <code>flow</code> utility</h3>
+<h3 id="the-typographic-block-t-flow-utility" tabindex="-1">The typographic block <code>t-flow</code> utility</h3>
 <p>Then I discovered a <a href="https://youtu.be/CU8Plk-53RU">YouTube video by Kevin Powell</a> in which he flips the typographic block whitespace to become a top margin and sets it using <em>ems</em>, so that it is bigger for bigger font sizes (headings). This enabled the typographic styles to be simplified.</p>
-<p>Subsequently I found <a href="https://piccalil.li/blog/my-favourite-3-lines-of-css/">Andy Bell’s typographic flow utility class</a> to be a further improvement, enabling you to add back typographic whitepace (as top margin using ems) only where you need it in your prose or long read content areas. So now this <code>flow</code> utility has been added to Baselayer since v.3.7.x.</p>
+<p>Subsequently I found <a href="https://piccalil.li/blog/my-favourite-3-lines-of-css/">Andy Bell’s typographic flow utility class</a> to be a further improvement, enabling you to add back typographic whitepace (as top margin using ems) only where you need it in your prose or long read content areas. So now this <code>t-flow</code> utility has been added to Baselayer since v.3.7.x.</p>
 <p>I have also added an override for situaions where you may have a sub-sub heading immediately following a sub-heading. The top margin of the lower level heading is reduced.</p>
 <pre><code class="language-css">/* In reset.css */
 
@@ -454,8 +454,8 @@ window.addEventListener("DOMContentLoaded", () => {
 
 /* In typography.css */
 
-.flow &gt; * + *:not(hr) {
-  margin-top: var(--s-flow, 1em);
+.t-flow &gt; * + *:not(hr) {
+  margin-top: var(--s-t-flow, 1em);
 }
 
 :where(h1, h2, h3, h4, h5)
@@ -531,7 +531,7 @@ window.addEventListener("DOMContentLoaded", () => {
 <li>Headings font weight is set using <code>--h-fw: var(--t-semibold)</code> — which you can also override.</li>
 <li>Headings line heights set using the formula <code>1em + 0.5rem</code>.</li>
 <li>The matching heading size utility classes <code>h2</code> to <code>h6</code> only affect font-size. They do not include font-weight styling.</li>
-<li>The CSS reset removes margin and padding from headings. Typographic block spacing can be controlled by the <code>flow</code> (see <a href="#the-typographic-block-flow-utility">the typographic block flow utility</a>). You could also incorporate the <code>flow</code> styling directly into your <code>&lt;article&gt;</code> tag in your design layout, the typographic block elements are its immediate children.</li>
+<li>The CSS reset removes margin and padding from headings. Typographic block spacing can be controlled by the <code>t-flow</code> (see <a href="#the-typographic-block-t-flow-utility">the typographic block t-flow utility</a>). You could also incorporate the <code>t-flow</code> styling directly into your <code>&lt;article&gt;</code> tag in your design layout, the typographic block elements are its immediate children.</li>
 </ul>
 <pre><code class="language-css">:root {
   --h-ff: inherit; /* headings font-family */
@@ -787,8 +787,8 @@ window.addEventListener("DOMContentLoaded", () => {
 &lt;/table&gt;
 </code></pre>
 <h3 id="making-wide-tables-responsive" tabindex="-1">Making wide tables responsive</h3>
-<p>If you have a lot of content in your table, it will probably break your page layout on small viewports (e.g. phones). The simplest way to make a table “responsive” is to wrap your table in a DIV with the <code>overflow-x</code> class to make it horizontally scrollable.</p>
-<div class="overflow-x">
+<p>If you have a lot of content in your table, it will probably break your page layout on small viewports (e.g. phones). The simplest way to make a table “responsive” is to wrap your table in a DIV with the <code>overt-flow-x</code> class to make it horizontally scrollable.</p>
+<div class="overt-flow-x">
   <table class="table table-grid">
     <thead>
       <th>Column title</th>
@@ -818,7 +818,7 @@ window.addEventListener("DOMContentLoaded", () => {
     <tbody>
   </table>
 </div>
-<pre><code class="language-html">&lt;div class=&quot;overflow-x&quot;&gt;
+<pre><code class="language-html">&lt;div class=&quot;overt-flow-x&quot;&gt;
   &lt;table class=&quot;table&quot;&gt;
     ...
   &lt;/table&gt;
@@ -889,7 +889,7 @@ window.addEventListener("DOMContentLoaded", () => {
 <p>There’s a demo of these text size utilities in <a href="/baselayer-3/examples/#text-sizes">examples</a>.</p>
 <h2 id="code" tabindex="-1">Code</h2>
 <p><code>&lt;code&gt;</code> tags have monospaced text (set by <code>--t-mono</code>) over a white or black background (in light or dark modes), with a thin border and a little padding to improve readability.</p>
-<p>If the <code>&lt;code&gt;</code> tag is wrapped in a <code>&lt;pre&gt;</code> tag, then it becomes a block level element with more padding, a max-width of 100%, and y-axis overflow scrolling.</p>
+<p>If the <code>&lt;code&gt;</code> tag is wrapped in a <code>&lt;pre&gt;</code> tag, then it becomes a block level element with more padding, a max-width of 100%, and y-axis overt-flow scrolling.</p>
 <h2 id="other-typographic-utility-classes" tabindex="-1">Other typographic utility classes</h2>
 <p>Besides those already introduced, Baselayer also has utility classes for:</p>
 <ul>

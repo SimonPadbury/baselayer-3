@@ -94,7 +94,7 @@ Five more:
 
 * `h-100%` — height expands to 100%, e.g. for making cards equal to the height of their wrapper
 * `h-100dvh` — height expands to 100dvh, e.g. for making “full cover” panels
-* `h-max-100dvh` — height is constrained to 100dvh, e.g. for tall sidebars (use this in conjunction with `overflow-y`)
+* `h-max-100dvh` — height is constrained to 100dvh, e.g. for tall sidebars (use this in conjunction with `overt-flow-y`)
 
 Baselayer uses `100dvh` ([dynamic viewport height](https://www.bram.us/2021/07/08/the-large-small-and-dynamic-viewports/)) that gives a different viewport height for some devices — i.e. it compensates for the retracting interface toolbars on iOS Safari.
 
@@ -904,7 +904,7 @@ Example “poster” infographic panel using `expand` (and showing how Baselayer
 
 <div class="expand aspect-ratio-16x9 flex flex-center flex-middle relative">
   <svg xmlns="http://www.w3.org/2000/svg" class="box img-cover" preserveAspectRatio="xMidYMid slice" width="1000" height="600"><defs><linearGradient id="gradient1" gradientTransform="rotate(45)"><stop offset="5%" stop-color="rgba(255,255,0,.5)"></stop><stop offset="50%" stop-color="rgba(255,255,255,0)"></stop><stop offset="95%" stop-color="rgba(255,0,0,.5)"></stop></linearGradient><linearGradient id="gradient2" gradientTransform="rotate(135)"><stop offset="5%" stop-color="rgba(0,0,255,.5)"></stop><stop offset="50%" stop-color="rgba(255,255,255,0)"></stop><stop offset="95%" stop-color="rgba(0,255,0,.5)"></stop></linearGradient></defs><rect width="100%" height="100%" fill="url('#gradient1')"></rect><rect width="100%" height="100%" fill="url('#gradient2')"></rect></svg>
-  <div class="z-1 w-content p-2 flow bg-black bg-filter bg-200">
+  <div class="z-1 w-content p-2 t-flow bg-black bg-filter bg-200">
     <p class="h2 t-bold">This example text may or may not distort the 16×9 aspect ratio that has been given to this demo component.</p>
     <p class="h2 t-bold">The SVG image rectangle will be 1280px × 720px if your viewport is big enough. See what it does on a narrow viewport width (e.g. phone).</p>
   </div>
@@ -919,7 +919,7 @@ The text layer itself has a transparent black filter background. See [Glass (blu
 <div class="expand mb-2 aspect-ratio-16x9 flex flex-center flex-middle relative">
   <svg>...</svg>
   <div class="z-1 w-sm aspect-ratio-16x9 p-3">
-    <div class="flow">
+    <div class="t-flow">
       <p class="h1 t-bold">This is a lot of example text that may or may not distort the aspect ratio (16×9) of this <code>expand</code> component.</p>
       <p class="h1 t-bold">See what it does on a small viewport width (e.g. phone).</p>
     </div>
@@ -927,7 +927,7 @@ The text layer itself has a transparent black filter background. See [Glass (blu
 </div>
 ```
 
-For information on the `flow` utility class, see [typographic block elements]({{ "/typography/#typograpic-block-elements" | url }}).
+For information on the `t-flow` utility class, see [typographic block elements]({{ "/typography/#typograpic-block-elements" | url }}).
 
 ### Full-bleed panels
 
@@ -970,16 +970,16 @@ Common aspect ratio constraints for images, video, and hero blocks.
   </div>
 </div>
 
-## Overflows
+## Overt-flows
 
 Using `auto` to add scrollling when the content of a block exceeds its constrained height or width.
 
-* `overflow-x` — e.g. for wrapping tables with a lots of columns, that would break a template layout in small viewports
-* `overflow-y` — e.g. for sidebar menus loaded with content
+* `overt-flow-x` — e.g. for wrapping tables with a lots of columns, that would break a template layout in small viewports
+* `overt-flow-y` — e.g. for sidebar menus loaded with content
 
-### Overflow clip
+### Overt-flow clip
 
-* `overflow-clip` — for hiding content that overflows your set dimensions on an element, and for preventing images to show in the corners of elements that have [rounded corners]({{ "/decoration/#rounded-corners" | url }}).
+* `overt-flow-clip` — for hiding content that overt-flows your set dimensions on an element, and for preventing images to show in the corners of elements that have [rounded corners]({{ "/decoration/#rounded-corners" | url }}).
 
 ## Floats
 
