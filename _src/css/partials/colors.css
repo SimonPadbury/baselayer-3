@@ -412,15 +412,6 @@
 
 /* Colors - other */
 
-.b-currentcolor {
-  border-color: currentColor;
-}
-
-.b-transparent {
-  --bc: transparent;
-  border-color: var(--bc);
-}
-
 .b-white,
 .hover\:b-white:hover {
   --bc: #fff;
@@ -454,11 +445,6 @@
 .bg-black,
 .hover\:bg-black:hover {
   --bgc: #000;
-  background-color: var(--bgc);
-}
-
-.bg-transparent {
-  --bgc: transparent;
   background-color: var(--bgc);
 }
 
@@ -498,9 +484,24 @@
   background-color: light-dark(#fff, #000);
 }
 
+.b-currentcolor,
+.b-currentColor {
+  border-color: currentColor;
+}
+
+.b-transparent {
+  --bc: transparent;
+  border-color: var(--bc);
+}
+
+.bg-transparent {
+  --bgc: transparent;
+  background-color: var(--bgc);
+}
+
 .bg-glass,
 .bg-filter {
-  background: color-mix(
+  background-color: color-mix(
     in srgb,
     var(--bgc, transparent) calc(100% - var(--bgl, 50%)),
     transparent
@@ -513,5 +514,5 @@
 
 .hover\:bg-opaque:hover {
   backdrop-filter: unset;
-  background: var(--bgc) !important;
+  background-color: var(--bgc) !important;
 }

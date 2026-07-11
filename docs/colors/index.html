@@ -299,12 +299,11 @@ window.addEventListener("DOMContentLoaded", () => {
         <span class="t-gray t-600 dark:t-400">Version: 3.8.0</span>
         <a class="t-gray t-700 dark:t-300" href="https://github.com/SimonPadbury/baselayer-3">GitHub</a>
         <span>
-          <a class="t-gray t-700 dark:t-300" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> <span class="t-gray t-600 dark:t-400">(27 KB)</span>
+          <a class="t-gray t-700 dark:t-300" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> <span class="t-gray t-600 dark:t-400">(28 KB)</span>
         </span>
       </div>
 
       <nav class="p-2">
-        <p class="h4 t-semibold">Documentation</p>
         <menu class="mt-2 pl-0 flex flex-column gap-1 links-underline-none">
           <menuitem>
             <a class="block  p-cell t-gray t-600 dark:t-300"  href="/baselayer-3/">Getting started</a>
@@ -376,10 +375,10 @@ window.addEventListener("DOMContentLoaded", () => {
     </div>
     <div class="main-frame">
       <aside class="right-sidebar lg:hidden-below">
-        <div id="toc-outer" class="sticky top w-content h-max-100dvh mx-auto px-2 pb-4 links-underline-hover-only overflow-y">
-          <p class="h4 t-semibold">On this page</p>
+        <div id="toc-outer" class="sticky top w-content h-max-100dvh mx-auto pt-2 px-2 pb-4 links-underline-hover-only overflow-y">
+          <p class="h4 t-thin t-loose t-center">On this page</p>
           <nav class="toc" >
-        <ul><li><a href="#color-and-shade-utility-classes">Color and shade utility classes</a></li><li><a href="#colors-and-accessibility">Colors and accessibility</a></li><li><a href="#how-baselayer-css-handles-color">How Baselayer CSS handles color</a></li><li><a href="#adding-more-colors">Adding more colors</a></li><li><a href="#how-the-dark-theme-works">How the dark theme works</a><ul><li><a href="#light-and-dark-theme-classes">Light and dark theme classes</a></li><li><a href="#dark-theme-lightness-levels">Dark theme lightness levels</a></li><li><a href="#what-if-you-don%E2%80%99t-want-a-dark-theme%3F">What if you don’t want a dark theme?</a></li></ul></li><li><a href="#other-baselayer-color-utilities">Other Baselayer color utilities</a><ul><li><a href="#black%2C-white%2C-and-reversi">Black, white, and reversi</a></li><li><a href="#transparent">Transparent</a></li><li><a href="#hover-state-utilities">Hover state utilities</a></li><li><a href="#glass-(blur)-and-filter-backgrounds">Glass (blur) and filter backgrounds</a></li></ul></li></ul>
+        <ul><li><a href="#color-and-shade-utility-classes">Color and shade utility classes</a></li><li><a href="#colors-and-accessibility">Colors and accessibility</a></li><li><a href="#how-baselayer-css-handles-color">How Baselayer CSS handles color</a></li><li><a href="#adding-more-colors">Adding more colors</a></li><li><a href="#how-the-dark-theme-works">How the dark theme works</a><ul><li><a href="#light-and-dark-theme-classes">Light and dark theme classes</a></li><li><a href="#dark-theme-lightness-levels">Dark theme lightness levels</a></li><li><a href="#what-if-you-don%E2%80%99t-want-a-dark-theme%3F">What if you don’t want a dark theme?</a></li></ul></li><li><a href="#other-baselayer-color-utilities">Other Baselayer color utilities</a><ul><li><a href="#black%2C-white%2C-and-reversi">Black, white, and reversi</a></li><li><a href="#currentcolor">CurrentColor</a></li><li><a href="#transparent">Transparent</a></li><li><a href="#hover-state-utilities">Hover state utilities</a></li><li><a href="#glass-(blur)-and-filter-backgrounds">Glass (blur) and filter backgrounds</a></li></ul></li></ul>
       </nav>
         </div>
       </aside>
@@ -656,12 +655,12 @@ window.addEventListener("DOMContentLoaded", () => {
 .bg-purple,
 .hover\:bg-purple:hover {
   --bgc: var(--purple);
-  background: oklch(from var(--bgc) var(--bgl, 50%) c h);
+  background-color: oklch(from var(--bgc) var(--bgl, 50%) c h);
 }
 .bg-teal,
 .hover\:bg-teal:hover {
   --bgc: var(--teal);
-  background: oklch(from var(--bgc) var(--bgl, 50%) c h);
+  background-color: oklch(from var(--bgc) var(--bgl, 50%) c h);
 }
 </code></pre>
 <p>The five Baselayer built-in theme colors (blue, green, amber, red, gray) are set using hex <code>#</code> codes). However, if you add your own in all other color system, the <code>oklch( ... )</code> formulas can handle it.</p>
@@ -809,10 +808,9 @@ window.addEventListener("DOMContentLoaded", () => {
 </code></pre>
 <p>And then you won’t need to use any <code>dark:</code> prefixed uilities.</p>
 <h2 id="other-baselayer-color-utilities" tabindex="-1">Other Baselayer color utilities</h2>
-<p>Other color utilities included in Baselayer cover black, white, reversi, reversi-flip, and transparent (for background only).</p>
 <h3 id="black%2C-white%2C-and-reversi" tabindex="-1">Black, white, and reversi</h3>
 <p>Black and white are explicitly named colors in baselayer. They do not have lightness levels (use grays).</p>
-<p><strong>New in Baselayer v.3.5:</strong> If you want something black in the light theme but white in the dark theme (and vise versa like <a href="https://en.wikipedia.org/wiki/Reversi">reversi</a> game pieces), Baselayer has <code>*-reversi</code> and <code>*-reversi-flip</code> classes that handle this.</p>
+<p>If you want something black in the light theme but white in the dark theme (and vise versa like <a href="https://en.wikipedia.org/wiki/Reversi">reversi</a> game pieces), Baselayer has <code>*-reversi</code> and <code>*-reversi-flip</code> classes that handle this.</p>
 <ul>
 <li><code>*-black</code> / <code>hover:*-black</code> — named color black</li>
 <li><code>*-white</code> / <code>hover:*-white</code> — named color white</li>
@@ -825,9 +823,16 @@ window.addEventListener("DOMContentLoaded", () => {
 <div class="b-thin aspect-ratio-1x1 rad rad-pill p-4 flex flex-center t-center flex-middle t-reversi-flip bg-reversi"><span>t-reversi-flip<br> bg-reversi</span></div>
 <div class="b-thin aspect-ratio-1x1 rad rad-pill p-4 flex flex-center flex-middle t-center t-reversi bg-reversi-flip"><span>t-reversi<br> bg-reversi-flip</span></div>
 </div>
+<h3 id="currentcolor" tabindex="-1">CurrentColor</h3>
+<ul>
+<li>Border-color: <code>b-currentcolor</code> / background-color: <code>bg-currentcolor</code></li>
+<li>Also aliases <code>b-currentolor</code> / <code>bg-currentColor</code>.</li>
+</ul>
+<p>Sets the border or background to <code>currentColor</code> — the current text color.</p>
+<p>There are no hover states of <code>*-currentColor</code> — but if the color changes on hover, then so will the <code>*-currentColor</code>.</p>
 <h3 id="transparent" tabindex="-1">Transparent</h3>
 <ul>
-<li>Transparent: <code>b-transparent</code> / <code>bg-transparent</code></li>
+<li>Border-color: <code>b-transparent</code> / background-color <code>bg-transparent</code></li>
 </ul>
 <p>There are no hover states of <code>*-transparent</code>.</p>
 <h3 id="hover-state-utilities" tabindex="-1">Hover state utilities</h3>
@@ -908,7 +913,7 @@ window.addEventListener("DOMContentLoaded", () => {
             </div>
 
             <p class="p-cell flex flex-center flex-wrap gap-4 t-center">
-              <span><a class="t-underline-hover-only" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> (27 KB)</span>
+              <span><a class="t-underline-hover-only" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> (28 KB)</span>
               <a class="t-underline-hover-only" href="https://github.com/SimonPadbury/baselayer-3">GitHub Repository</a>
               <a class="t-underline-hover-only" href="https://github.com/SimonPadbury/baselayer-3/blob/main/CHANGELOG.md">Changelog</a>
               <a class="t-underline-hover-only" href="https://github.com/SimonPadbury/baselayer-3/blob/main/LICENSE">MIT license</a>

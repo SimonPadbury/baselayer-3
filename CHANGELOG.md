@@ -8,7 +8,7 @@
 
 # Baselayer 3 changelog
 
-## v.3.8.0 -- 9 Jul 2026
+## v.3.8.0 -- 11 Jul 2026
 
 * Removed the opinionated link decorations (thickened underline on hover, etc.)
 * Removed hover states from lightness utilities. Instead, Baselayer now darkens (either link text or button background) on hover by mixing in a little black, or lightens it for the dark theme by mixing in a little white.
@@ -17,6 +17,7 @@
 * Added `img-contain` and directional `img-cover-*` classes.
 * Added `square-*`.
 * Simplified the rounded corner utility classes to use the spacing variables and have the same suffix names as margin, madding, and gap; removed the individual rounded corner utilities.
+* Improved form elements andbuttons.
 * Added glass (blur) and filter background modifier utilities.
 * Removed the opacity decoration utilities.
 

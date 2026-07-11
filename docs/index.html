@@ -299,12 +299,11 @@ window.addEventListener("DOMContentLoaded", () => {
         <span class="t-gray t-600 dark:t-400">Version: 3.8.0</span>
         <a class="t-gray t-700 dark:t-300" href="https://github.com/SimonPadbury/baselayer-3">GitHub</a>
         <span>
-          <a class="t-gray t-700 dark:t-300" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> <span class="t-gray t-600 dark:t-400">(27 KB)</span>
+          <a class="t-gray t-700 dark:t-300" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> <span class="t-gray t-600 dark:t-400">(28 KB)</span>
         </span>
       </div>
 
       <nav class="p-2">
-        <p class="h4 t-semibold">Documentation</p>
         <menu class="mt-2 pl-0 flex flex-column gap-1 links-underline-none">
           <menuitem>
             <a class="block bl-thick b-gray b-300 dark:b-700 t-reversi bg-gray bg-200 dark:bg-800 p-cell t-gray t-600 dark:t-300"  aria-current="page" href="/baselayer-3/">Getting started</a>
@@ -376,8 +375,8 @@ window.addEventListener("DOMContentLoaded", () => {
     </div>
     <div class="main-frame">
       <aside class="right-sidebar lg:hidden-below">
-        <div id="toc-outer" class="sticky top w-content h-max-100dvh mx-auto px-2 pb-4 links-underline-hover-only overflow-y">
-          <p class="h4 t-semibold">On this page</p>
+        <div id="toc-outer" class="sticky top w-content h-max-100dvh mx-auto pt-2 px-2 pb-4 links-underline-hover-only overflow-y">
+          <p class="h4 t-thin t-loose t-center">On this page</p>
           <nav class="toc" >
         <ul><li><a href="#introduction">Introduction</a></li><li><a href="#modern-css-technologies">Modern CSS technologies</a></li><li><a href="#baselayer%E2%80%99s-design-philosophy">Baselayer’s design philosophy</a></li><li><a href="#built-using-postcss">Built using PostCSS</a></li><li><a href="#a-modern-css-reset">A modern CSS reset</a></li><li><a href="#baselayer%E2%80%99s-built-in-accessibility-features">Baselayer’s built-in accessibility features</a><ul><li><a href="#(1.)-focus-states">(1.) Focus states</a></li><li><a href="#(2.)-the-visually-hidden-(screen-reader-only)-class">(2.) The visually-hidden (screen-reader only) class</a></li></ul></li></ul>
       </nav>
@@ -394,7 +393,7 @@ window.addEventListener("DOMContentLoaded", () => {
           <main class="content-grid pb-4 flow">
             <h2 id="introduction" tabindex="-1">Introduction</h2>
 <p class="t-lg">Designed as a good place to start, Baselayer may be all you need for small projects such as static websites and blogs. Or you may use it as a <em>baselayer</em> to quick-start your mega project.</p>
-<p>Ready to use as-is, Baselayer’s 27 KB (minified) stylesheet gives you all this:</p>
+<p>Ready to use as-is, Baselayer’s 28 KB (minified) stylesheet gives you all this:</p>
 <ul>
 <li>A modern CSS reset</li>
 <li>Minimalist styled classless typography and form elements</li>
@@ -407,7 +406,7 @@ window.addEventListener("DOMContentLoaded", () => {
 <li>Theming control using CSS variables</li>
 <li>And more</li>
 </ul>
-<p>Here’s the Github location of <a href="https://github.com/SimonPadbury/baselayer-3/blob/main/_src/css/min/baselayer.min.css">baselayer.min.css</a>.</p>
+<p>Download <a href="https://github.com/SimonPadbury/baselayer-3/blob/main/_src/css/min/baselayer.min.css">baselayer.min.css</a></p>
 <h2 id="modern-css-technologies" tabindex="-1">Modern CSS technologies</h2>
 <p>Baselayer supports only up-to-date (2023 forward) <a href="https://developer.mozilla.org/en-US/docs/Glossary/Baseline/Compatibility">baseline compatibility</a> web browsers (Safari, Firefox, Chrome, Edge, etc.). Such as:</p>
 <ul>
@@ -425,7 +424,8 @@ window.addEventListener("DOMContentLoaded", () => {
 <ul>
 <li>Aim at being a good place to start — a <em>baselayer</em> for a web design project.</li>
 <li>Do “most things most people want” out of the box.</li>
-<li>Being so small (27 KB), there’s less you need to overwrite in order to style it your own way (and most things in Baselayer can be restyled by CSS variables). So, there’s no need for a purge process to remove a heavy payload of unused Baselayer styles.</li>
+<li>Most things in Baselayer can be restyled by CSS variables.</li>
+<li>Being so small (28 KB), there’s no need for a purge process to remove unused styles.</li>
 <li>No CSS preprocessing.</li>
 </ul>
 <h2 id="built-using-postcss" tabindex="-1">Built using PostCSS</h2>
@@ -436,7 +436,7 @@ window.addEventListener("DOMContentLoaded", () => {
 </ul>
 <p><strong>Note:</strong> neither <a href="https://preset-env.cssdb.org">postcss-preset-env</a> nor <a href="https://github.com/postcss/autoprefixer">autoprefixer</a> have been used in Baselayer. And preprocessors such as Sass, Less, Stylus etc. are not required.</p>
 <h2 id="a-modern-css-reset" tabindex="-1">A modern CSS reset</h2>
-<p>The Baselayer reset is a combination of <a href="https://www.joshwcomeau.com/css/custom-css-reset/">Josh W Comeau’s custom CSS reset</a>, <a href="https://andy-bell.co.uk/a-more-modern-css-reset/">Andy Bell’s (more) modern CSS reset”</a>, and <a href="https://vale.rocks/posts/css-reset">Vale (Declan Chidlow)’s Opinionated CSS Reset</a>.</p>
+<p>The Baselayer reset is a combination of modern CSS resets by <a href="https://www.joshwcomeau.com/css/custom-css-reset/">Josh W Comeau</a>, <a href="https://andy-bell.co.uk/a-more-modern-css-reset/">Andy Bell</a>, and <a href="https://vale.rocks/posts/css-reset">Declan Chidlow (Vale)</a>.</p>
 <p>From that basis, Baselayer then takes care of the basics by setting some minimalist, easy-to-read typography, and styles for buttons and forms.</p>
 <h2 id="baselayer%E2%80%99s-built-in-accessibility-features" tabindex="-1">Baselayer’s built-in accessibility features</h2>
 <p>Baselayer has two “must have” accessibility features built-in.</p>
@@ -523,7 +523,7 @@ window.addEventListener("DOMContentLoaded", () => {
             </div>
 
             <p class="p-cell flex flex-center flex-wrap gap-4 t-center">
-              <span><a class="t-underline-hover-only" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> (27 KB)</span>
+              <span><a class="t-underline-hover-only" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> (28 KB)</span>
               <a class="t-underline-hover-only" href="https://github.com/SimonPadbury/baselayer-3">GitHub Repository</a>
               <a class="t-underline-hover-only" href="https://github.com/SimonPadbury/baselayer-3/blob/main/CHANGELOG.md">Changelog</a>
               <a class="t-underline-hover-only" href="https://github.com/SimonPadbury/baselayer-3/blob/main/LICENSE">MIT license</a>

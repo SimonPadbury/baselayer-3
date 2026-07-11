@@ -304,12 +304,12 @@ Examples:
 .bg-purple,
 .hover\:bg-purple:hover {
   --bgc: var(--purple);
-  background: oklch(from var(--bgc) var(--bgl, 50%) c h);
+  background-color: oklch(from var(--bgc) var(--bgl, 50%) c h);
 }
 .bg-teal,
 .hover\:bg-teal:hover {
   --bgc: var(--teal);
-  background: oklch(from var(--bgc) var(--bgl, 50%) c h);
+  background-color: oklch(from var(--bgc) var(--bgl, 50%) c h);
 }
 ```
 
@@ -486,13 +486,11 @@ And then you won’t need to use any `dark:` prefixed uilities.
 
 ## Other Baselayer color utilities
 
-Other color utilities included in Baselayer cover black, white, reversi, reversi-flip, and transparent (for background only).
-
 ### Black, white, and reversi
 
 Black and white are explicitly named colors in baselayer. They do not have lightness levels (use grays).
 
-**New in Baselayer v.3.5:** If you want something black in the light theme but white in the dark theme (and vise versa like [reversi](https://en.wikipedia.org/wiki/Reversi) game pieces), Baselayer has `*-reversi` and `*-reversi-flip` classes that handle this.
+If you want something black in the light theme but white in the dark theme (and vise versa like [reversi](https://en.wikipedia.org/wiki/Reversi) game pieces), Baselayer has `*-reversi` and `*-reversi-flip` classes that handle this.
 
 * `*-black` / `hover:*-black` — named color black
 * `*-white` / `hover:*-white` — named color white
@@ -506,9 +504,18 @@ Black and white are explicitly named colors in baselayer. They do not have light
 <div class="b-thin aspect-ratio-1x1 rad rad-pill p-4 flex flex-center flex-middle t-center t-reversi bg-reversi-flip"><span>t-reversi<br> bg-reversi-flip</span></div>
 </div>
 
+### CurrentColor
+
+* Border-color: `b-currentcolor` / background-color: `bg-currentcolor`
+* Also aliases `b-currentolor` / `bg-currentColor`. 
+
+Sets the border or background to `currentColor` — the current text color.
+
+There are no hover states of `*-currentColor` — but if the color changes on hover, then so will the `*-currentColor`.
+
 ### Transparent
 
-* Transparent: `b-transparent` / `bg-transparent`
+* Border-color: `b-transparent` / background-color `bg-transparent`
 
 There are no hover states of `*-transparent`.
 

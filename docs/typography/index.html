@@ -299,12 +299,11 @@ window.addEventListener("DOMContentLoaded", () => {
         <span class="t-gray t-600 dark:t-400">Version: 3.8.0</span>
         <a class="t-gray t-700 dark:t-300" href="https://github.com/SimonPadbury/baselayer-3">GitHub</a>
         <span>
-          <a class="t-gray t-700 dark:t-300" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> <span class="t-gray t-600 dark:t-400">(27 KB)</span>
+          <a class="t-gray t-700 dark:t-300" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> <span class="t-gray t-600 dark:t-400">(28 KB)</span>
         </span>
       </div>
 
       <nav class="p-2">
-        <p class="h4 t-semibold">Documentation</p>
         <menu class="mt-2 pl-0 flex flex-column gap-1 links-underline-none">
           <menuitem>
             <a class="block  p-cell t-gray t-600 dark:t-300"  href="/baselayer-3/">Getting started</a>
@@ -376,8 +375,8 @@ window.addEventListener("DOMContentLoaded", () => {
     </div>
     <div class="main-frame">
       <aside class="right-sidebar lg:hidden-below">
-        <div id="toc-outer" class="sticky top w-content h-max-100dvh mx-auto px-2 pb-4 links-underline-hover-only overflow-y">
-          <p class="h4 t-semibold">On this page</p>
+        <div id="toc-outer" class="sticky top w-content h-max-100dvh mx-auto pt-2 px-2 pb-4 links-underline-hover-only overflow-y">
+          <p class="h4 t-thin t-loose t-center">On this page</p>
           <nav class="toc" >
         <ul><li><a href="#font-stacks">Font stacks</a><ul><li><a href="#setting-font-stacks">Setting font stacks</a></li></ul></li><li><a href="#base-font-size">Base font size</a></li><li><a href="#typographic-block-elements">Typographic block elements</a><ul><li><a href="#the-typographic-block-flow-utility">The typographic block flow utility</a></li><li><a href="#headings">Headings</a></li><li><a href="#block-quotes">Block quotes</a></li><li><a href="#lists">Lists</a></li></ul></li><li><a href="#links-and-menus">Links and menus</a><ul><li><a href="#link-utilities">Link utilities</a></li><li><a href="#panel-links">Panel links</a></li><li><a href="#menus">Menus</a></li></ul></li><li><a href="#text-alignment">Text alignment</a></li><li><a href="#tables">Tables</a><ul><li><a href="#making-wide-tables-responsive">Making wide tables responsive</a></li></ul></li><li><a href="#controlling-text-size">Controlling text size</a><ul><li><a href="#inline-font-size-multipliers">Inline font size multipliers</a></li><li><a href="#block-font-size-multipliers">Block font size multipliers</a></li><li><a href="#responsive-font-size-multipliers">Responsive font size multipliers</a></li></ul></li><li><a href="#code">Code</a></li><li><a href="#other-typographic-utility-classes">Other typographic utility classes</a></li></ul>
       </nav>
@@ -411,9 +410,9 @@ window.addEventListener("DOMContentLoaded", () => {
 <li>The monotype is available via the <code>&lt;code&gt;</code>, <code>&lt;kbd&gt;</code>, and <code>&lt;samp&gt;</code> HTML tags, and in the <code>t-mono</code> utility class.</li>
 </ul>
 <h3 id="setting-font-stacks" tabindex="-1">Setting font stacks</h3>
-<p>In choosing your own font stacks, you will probably need two fonts that have similar <em>x-height</em> CSS property), so that you can set them using the same font size and line-height. Some other factors to compare are hights for lowercase ascenders and descenders, letter width, and stroke thickness.</p>
+<p>In choosing your own font stacks, you will probably need two fonts that have similar <em>x-height</em> CSS property, so that you can set them using the same font size and line-height. Some other factors to compare are hights for lowercase ascenders and descenders, letter width, and stroke thickness.</p>
 <p>If you want to stick with using native font stacks (i.e. those that come with computers, tablets, and phones), then the <a href="https://modernfontstacks.com">Modern Font Stacks</a> website has several examples that you can easily copy.</p>
-<p>In choosing your own typefaces from elsewhere, a good place to start is by pairing serif and sans-serif (or slab serif) fonts of the same typeface, if both are available. <a href="https://fonts.google.com">Google Fonts</a> has several such typefaces to choose from, such as:</p>
+<p>In choosing your own typefaces from elsewhere, a good place to start is by pairing serif and sans-serif (or slab serif) fonts of the same typeface, if both are available. <a href="https://fonts.google.com">Google Fonts</a> has several such typeface pairs choose from, e.g.:</p>
 <ul>
 <li>Alegreya and Alegreya Sans</li>
 <li>IBM Plex and IBM Plex Sans</li>
@@ -423,12 +422,8 @@ window.addEventListener("DOMContentLoaded", () => {
 <li>Roboto and Roboto Slab</li>
 <li>Source Sans 3 and Source Serif 4</li>
 </ul>
-<p>In Baselayer, sizes and weights for the base and prose typefaces can optionally be set independently — but you will still want them to share the same line height. For using another set of sizes and weights for prose, you will need to do some un-commenting in two files: <code>variables.css</code> and <code>typography.css</code>.</p>
-<p>So, for example:</p>
-<ul>
-<li>If your chosen prose typeface has an <em>x-height</em> much different than your chosen base typeface, then <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/font-size-adjust">font-size-adjust</a> can help.</li>
-<li>If your base typeface has thicker strokes so that it “looks darker” than your prose typeface, then you may want to set your base font-weight slightly lighter. Variable fonts with font weight can allow fine tuning.</li>
-</ul>
+<p>If your chosen prose typeface has an <em>x-height</em> much different than your chosen base typeface, then <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/font-size-adjust">font-size-adjust</a> can help.</p>
+<p>If your base typeface has thicker strokes so that it “looks darker” than your prose typeface, then you may want to set your base font-weight slightly lighter. Variable fonts with font weight can allow fine tuning.</p>
 <p>For inspiration:</p>
 <ul>
 <li><a href="https://fonts.google.com/knowledge/choosing_type/pairing_typefaces">Pairing Typefaces (Google Fonts article)</a></li>
@@ -492,8 +487,8 @@ window.addEventListener("DOMContentLoaded", () => {
   <thead>
     <tr>
       <th>Heading Level</th>
-      <th>Font Size in em</th>
-      <th>Equivalent Size in pixels (px)</th>
+      <th class="t-center">Font Size in em</th>
+      <th class="t-center">Equivalent Size in px</th>
     </tr>
   </thead>
   <tbody>
@@ -841,9 +836,9 @@ window.addEventListener("DOMContentLoaded", () => {
 <h3 id="inline-font-size-multipliers" tabindex="-1">Inline font size multipliers</h3>
 <p>The <code>t-sm</code> class will reduce text to 0.75em – good for small-print, footnotes, or reducing the size of part of the text within headings.</p>
 <p>The <code>t-lg</code> class will enlarge text to 1.25em — good for a lead paragraph, large button, or important messaging.</p>
-<p class="t-center"><span class="t-sm">t-sm text</span>, <span>base text</span>, <span class="t-lg">t-lg text</span></p>
+<p class="t-center"><span class="t-sm"><code>t-sm</code> text</span>, <span>base text</span>, <span class="t-lg"><code>t-lg</code> text</span></p>
 <h3 id="block-font-size-multipliers" tabindex="-1">Block font size multipliers</h3>
-<p>Classes <code>.h1</code> through <code>.h6</code> will resize text the same amount as for their respective heading tag sizes — use these when you want to make text bigger (or large text smaller) without adversely affecting accessibility/ SEO heading hierarchy.</p>
+<p>Classes <code>h1</code> through <code>h6</code> will resize text the same amount as for their respective heading tag sizes — use these when you want to make text bigger (or large text smaller) without adversely affecting accessibility/ SEO heading hierarchy.</p>
 <div class="w-fit-content mx-auto flex flex-column">
 <span class="h6"><code>h6</code> heading size is the same as base size, but in <code>em</code></span>
 <span class="h5"><code>h5</code> heading size</span>
@@ -942,7 +937,7 @@ window.addEventListener("DOMContentLoaded", () => {
             </div>
 
             <p class="p-cell flex flex-center flex-wrap gap-4 t-center">
-              <span><a class="t-underline-hover-only" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> (27 KB)</span>
+              <span><a class="t-underline-hover-only" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> (28 KB)</span>
               <a class="t-underline-hover-only" href="https://github.com/SimonPadbury/baselayer-3">GitHub Repository</a>
               <a class="t-underline-hover-only" href="https://github.com/SimonPadbury/baselayer-3/blob/main/CHANGELOG.md">Changelog</a>
               <a class="t-underline-hover-only" href="https://github.com/SimonPadbury/baselayer-3/blob/main/LICENSE">MIT license</a>

@@ -96,11 +96,9 @@ Invokes the device’s color picker.
 <form action="" class="flow">
   <p>
     <label for="example-input-file">File input</label>
-    <input class="w100%" type="file" id="example-input-file" accept="image/png, image/jpeg">
+    <input type="file" id="example-input-file" accept="image/png, image/jpeg">
   </p>
 </form>
-
-**Note:** File upload inputs `<input type="file">` can break your page layout on the smallest phones in portrait orientation. But if you add `class="w100%"` that problem goes away.
 
 ## Select and multi-select
 
@@ -176,7 +174,7 @@ Groups of form elements can be wrapped in `<fieldset>` tags. Add a `<legend>` to
 <form action="" class="flow">
   <fieldset class="flex">
     <legend>Example e-newsletter subscribe</legend>
-    <input class="w-100%" type="email" id="example-input-email" placeholder="Enter email">
+    <input class="grow" type="email" id="example-input-email" placeholder="Enter email">
     <input type="submit" name="submit" value="Subscribe">
   </fieldset>
 </form>
@@ -185,7 +183,7 @@ Groups of form elements can be wrapped in `<fieldset>` tags. Add a `<legend>` to
 <form action="">
   <fieldset class="flex">
     <legend>Example e-newsletter subscribe</legend>
-    <input class="w100%" type="email" id="example-input-email" placeholder="Enter email">
+    <input class="grow" type="email" id="example-input-email" placeholder="Enter email">
     <input type="submit" name="submit" value="Subscribe">
   </fieldset>
 </form>

@@ -23,7 +23,7 @@ Ready to use as-is, Baselayer’s {{ metadata.filesize }} (minified) stylesheet 
 * Theming control using CSS variables
 * And more
 
-Here’s the Github location of [baselayer.min.css](https://github.com/SimonPadbury/baselayer-3/blob/main/_src/css/min/baselayer.min.css).
+Download [baselayer.min.css](https://github.com/SimonPadbury/baselayer-3/blob/main/_src/css/min/baselayer.min.css)
 
 ## Modern CSS technologies
 
@@ -44,7 +44,8 @@ The design philosophy behind the Baselayer CSS project is as follows:
 
 * Aim at being a good place to start — a _baselayer_ for a web design project.
 * Do “most things most people want” out of the box.
-* Being so small ({{ metadata.filesize }}), there’s less you need to overwrite in order to style it your own way (and most things in Baselayer can be restyled by CSS variables). So, there’s no need for a purge process to remove a heavy payload of unused Baselayer styles.
+* Most things in Baselayer can be restyled by CSS variables.
+* Being so small ({{ metadata.filesize }}), there’s no need for a purge process to remove unused styles.
 * No CSS preprocessing.
 
 ## Built using PostCSS
@@ -58,7 +59,7 @@ Baselayer is built using [PostCSS](https://postcss.org) and some plugins. The pl
 
 ## A modern CSS reset
 
-The Baselayer reset is a combination of [Josh W Comeau’s custom CSS reset](https://www.joshwcomeau.com/css/custom-css-reset/), [Andy Bell’s (more) modern CSS reset”](https://andy-bell.co.uk/a-more-modern-css-reset/), and [Vale (Declan Chidlow)’s Opinionated CSS Reset](https://vale.rocks/posts/css-reset).
+The Baselayer reset is a combination of modern CSS resets by [Josh W Comeau](https://www.joshwcomeau.com/css/custom-css-reset/), [Andy Bell](https://andy-bell.co.uk/a-more-modern-css-reset/), and [Declan Chidlow (Vale)](https://vale.rocks/posts/css-reset).
 
 From that basis, Baselayer then takes care of the basics by setting some minimalist, easy-to-read typography, and styles for buttons and forms.
 

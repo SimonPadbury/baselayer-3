@@ -149,8 +149,16 @@
   align-items: flex-end;
 }
 
+.flex-space-around {
+  justify-content: space-around;
+}
+
 .flex-space-between {
   justify-content: space-between;
+}
+
+.flex-space-around {
+  justify-content: space-around;
 }
 
 .flex-grow-equal > *,
@@ -216,25 +224,6 @@ Grid system
 [class*="rows-"] {
   grid-row: var(--row);
 }
-
-/* [class*="cols-"] {
-  grid-column: var(--col) / span var(--cspan);
-}
-
-[class*="rows-"] {
-  --row: auto;
-  grid-row: var(--row) / span var(--rspan);
-} */
-
-/* [class*="col-span-"] {
-  --col: auto;
-  grid-column: var(--col) / span var(--cspan);
-}
-
-[class*="row-span-"] {
-  --row: auto;
-  grid-row: var(--row) / span var(--rspan);
-} */
 
 .equal-2-cols {
   --gcols: 2;
@@ -413,6 +402,10 @@ Invisibility for smaller viewports (“hidden-below”)
     align-items: flex-end;
   }
 
+  .xs\:flex-space-around {
+    justify-content: space-around;
+  }
+
   .xs\:flex-space-between {
     justify-content: space-between;
   }
@@ -578,6 +571,10 @@ Invisibility for smaller viewports (“hidden-below”)
 
   .sm\:flex-bottom {
     align-items: flex-end;
+  }
+
+  .sm\:flex-space-around {
+    justify-content: space-around;
   }
 
   .sm\:flex-space-between {
@@ -747,6 +744,10 @@ Invisibility for smaller viewports (“hidden-below”)
     align-items: flex-end;
   }
 
+  .md\:flex-space-around {
+    justify-content: space-around;
+  }
+
   .md\:flex-space-between {
     justify-content: space-between;
   }
@@ -912,6 +913,10 @@ Invisibility for smaller viewports (“hidden-below”)
 
   .lg\:flex-bottom {
     align-items: flex-end;
+  }
+
+  .lg\:flex-space-around {
+    justify-content: space-around;
   }
 
   .lg\:flex-space-between {
@@ -1087,7 +1092,7 @@ wrappers (f.k.a. containers) and widths
 .wrapper-xxl,
 [class*="wrapper-"] {
   --w-max: var(--w-xxl);
-  width: min(100% - var(--s-4), var(--w-max));
+  width: min(100% - calc(var(--s-2) * 2), var(--w-max));
   margin-inline: auto;
 }
 
@@ -1126,6 +1131,12 @@ wrappers (f.k.a. containers) and widths
   --w-max: var(--w-content);
 }
 
+.w-auto {
+  min-width: auto;
+  width: auto;
+  max-width: auto;
+}
+
 .w-100\% {
   width: 100%;
 }
@@ -1159,12 +1170,33 @@ wrappers (f.k.a. containers) and widths
   inset: 0;
 }
 
-[class*="icon"],
 [class*="square"] {
   aspect-ratio: 1/1;
   height: min(var(--square), var(--square));
   position: relative;
   width: min(var(--square), var(--square));
+}
+
+[class*="square"]:has(svg) {
+  display: inline-flex;
+  place-self: center;
+  svg {
+    height: var(--square);
+    width: var(--square);
+  }
+}
+
+.square-icon,
+.square-1 {
+  --square: var(--square-1);
+}
+
+.square-2 {
+  --square: var(--square-2);
+}
+
+.square-3 {
+  --square: var(--square-3);
 }
 
 .aspect-ratio-16x9 {

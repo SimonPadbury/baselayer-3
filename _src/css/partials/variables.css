@@ -7,6 +7,9 @@
   --w-lg: 1280px;
   --w-xl: 1536px;
   --w-xxl: 1792px;
+  --square-1: 1.5em;
+  --square-2: 3em;
+  --square-3: 4.5em;
   /* Content grid */
   --w-content: var(--w-sm);
   --w-content-gutter: var(--s-3);
@@ -21,7 +24,6 @@
   --s-flow: 1em;
   --s-list: 1.5rem;
   --p-cell: 0.5rem 1rem;
-  --p-form: 0.5em 1em; /* and buttons */
   --pill: 99rem;
 
   /* Borders */
@@ -52,9 +54,9 @@
   --t-heavy: 900;
   --t-btn-fw: var(--t-semibold);
 
-  /* Forms */
+  /* Forms
   --b-form: var(--b-thin);
-  --y-form: 2.5em;
+  --y-form: 2.5em; */
 
   /* Headings */
   --h1: 2.5em;

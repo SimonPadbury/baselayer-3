@@ -33,7 +33,7 @@ The Baselayer `container` class only adds another container query context wherev
 
 ## Dimensions
 
-### Wrappers
+### Centered layout wrappers
 
 Baselayer’s `wrapper` classes add a constrained layout width, inline margin (x-axis) auto centering, and side edge whitespace when the viewport width is at or narrower then the wrapper width.
 
@@ -46,7 +46,7 @@ The centered layout `wrapper` is set up as follows:
 
 :root {
   ...
-  --s-4: clamp(2rem, 1rem + 2.5cqi, 3rem);
+  --s-2: 1rem;
   ...
   --w-xxl: 1792px;
 }
@@ -56,12 +56,14 @@ The centered layout `wrapper` is set up as follows:
 .wrapper,
 [class*="wrapper-"] {
   --w-max: var(--w-xxl);
-  width: min(100% - var(--s-4), var(--w-max));
+  width: min(100% - calc(var(--s-2) * 2), var(--w-max));
   margin-inline: auto;
 }
 ```
 
-Wrapper side spacing is provided by `--s-4` when the viewport width is less than `--w-max`. This adds a some negative space (commonly known as *whitespace*, though it is not always white) right and left of the wrapper, to prevent text being difficult to read when up against the sides of the viewport.
+Wrapper side spacing (right and left) is provided by `--s-2` when the viewport width is less than `--w-max`. This adds a some negative space (commonly known as *whitespace*, though it is not always white) right and left of the wrapper, to prevent text being difficult to read when up against the sides of the viewport.
+
+There’s a demo of these text size utilities in [examples]({{ "/examples/centered-layout-wrappers" | url }}).
 
 There are several `wrapper` utilities, with maximum widths same as the width utilities (see below).
 
@@ -80,12 +82,13 @@ The difference between width utilities and wrapper utilities is that wrappers ha
 * `wrapper-xl` / `w-xl` — maximum width 1536px
 * `wrapper` / `wrapper-xxl` / `w-xxl` — maximum width 1792px
 
-Four more:
+Five more:
 
 * `w-100%` — width expands to 100% of available space
 * `w-100vw` — width expands to 100vw (viewport width)
 * `w-max-100vw` — width is constrained to 100vw (viewport width); use this to prevent horizontal scrolling
 * `w-fit-content` — width is constrained to the max-width of its content; use this for “shrink wrapping”
+* `w-auto` — overrides the min-width, width, and max-width with `auto`
 
 ### Heights
 
@@ -99,11 +102,23 @@ Baselayer uses `100dvh` ([dynamic viewport height](https://www.bram.us/2021/07/0
 
 Baselayer squares have dimensions set in `em` so that they scale with the font size of their parent element. Squares are useful for making square buttons and icons, featured images, author photos, etc.
 
-* `square-1` (alias `square-icon`) — 1.25em² (20px² on normal sized text, 1rem / 16px)
-* `square-2` — 2.5em² (40px² on normal sized text)
-* `square-3` — 3.75em² (60px² on normal sized text)
+* `square-1` (alias `square-icon`) — 1.5em² (24px² on normal sized text, 1rem / 16px)
+* `square-2` — 3em² (48px² on normal sized text)
+* `square-3` — 4.5em² (72px² on normal sized text)
 
-Pair `square-* rounded-pill` and you get a circle. Using `square-*` with a font-size utility will give you other sizes. E.g. `square-3 h1` is 3.75em² &times; 2.5em = 9.375em² = 150px².
+<div class="flex gap-2">
+<div class="square-1 bg-green bg-200 dark:bg-800">&nbsp;</div>
+<div class="square-2 bg-green bg-200 dark:bg-800">&nbsp;</div>
+<div class="square-3 bg-green bg-200 dark:bg-800">&nbsp;</div>
+</div>
+
+Pair `square-* rounded-pill` and you get a circle.
+
+<div class="square-3 rounded-pill bg-green bg-200 dark:bg-800">&nbsp;</div>
+
+Using `square-*` with a font-size utility will give you other sizes. E.g. `square-3 h1` is 4.5em² &times; 2.5em = 1.25em² = 180px².
+
+<div class="square-3 h1 bg-green bg-200 dark:bg-800">&nbsp;</div>
 
 ### Box
 
@@ -122,7 +137,7 @@ Pair `square-* rounded-pill` and you get a circle. Using `square-*` with a font-
 * `z-1` — z-index: 1 — e.g. use low value z-indexes for layering in hero components
 * `z-2` — z-index: 2
 * `z-3` — z-index: 3
-* `z-997` — z-index: 997 — e.g. use high value z-indexed for layering in modals and fixed or sticky menubars
+* `z-997` — z-index: 997 — e.g. use high value z-indexes for layering in modals and fixed or sticky menubars
 * `z-998` — z-index: 998
 * `z-999` — z-index: 999
 
@@ -133,7 +148,7 @@ Example:
   <div class="absolute right h-100% flex flex-middle"><code>Right</code></div>
   <div class="absolute bottom w-100% t-center"><code>Bottom</code></div>
   <div class="absolute left h-100% flex flex-middle"><code>Left</code></div>
-  <div class="box place-center"><code>Centered<br>and middled</code></div>
+  <div class="box place-center"><code>place-center</code></div>
 </div>
 
 ```html
@@ -156,7 +171,7 @@ Example:
   </div>
 
   <div class="box place-center">
-    Centered and middled
+    place-center
   </div>
 
 </div>
@@ -164,7 +179,7 @@ Example:
 
 ## Container query powered layouts
 
-Since Baselayer 3.4.0, the `<body>` tag provides a *container query context*, using `container-type: inline-size`. Additionally you can set another (inner) container query context ising the `container` class.
+In Baselayer the `<body>` tag provides a *container query context*, using `container-type: inline-size`. Additionally you can set another (inner) container query context anywhere using the Baselayer `container` class.
 
 <div aria-label="Warning" class="popout bl-heavy b-amber b-400 p-2 t-reversi bg-amber bg-200 dark:bg-700">The <code>container</code> class does not constrain the outer element’s width in any way. You may also need to control the widths of your content with e.g. <a href="#centered-layout-wrappers">wrapper</a> or <a href="#widths">width</a> utilities, or by placing the container within a grid cell, etc.
 </div>
@@ -217,6 +232,7 @@ All of the following have (base), `xs:`, `sm:`, `md:` and `lg:` variants:
 * `flex-wrap` — gives you flex-wrap: wrap
 * `flex-column` — gives you flex-direction: column
 * `flex-row` — gives you flex-direction: row (default behavior)
+* `flex-space-around` — gives you justify-content: space-around
 * `flex-space-between` — gives you justify-content: space-between
 * `flex-grow-equal` — makes grid item expand so that they occupy an equal fraction of the total width (or height, if used with `flex-column`)
 * `flex-grow-auto` — makes grid item expand so that they occupy an unequal fraction of the total width (or height, if used with `flex-column`). Each flex item will expand as required by its respective content.
@@ -297,6 +313,16 @@ Examples:
 </div>
 ```
 
+`flex flex-space-around`:
+
+<div class="my-3 flex flex-space-around">
+  <div class="b-thin p-cell">One</div>
+  <div class="b-thin p-cell">Two</div>
+  <div class="b-thin p-cell">Three</div>
+  <div class="b-thin p-cell">Four</div>
+</div>
+
+
 `flex flex-space-between`:
 
 <div class="my-3 flex flex-space-between">
@@ -307,6 +333,13 @@ Examples:
 </div>
 
 ```html
+<div class="flex flex-space-around">
+  <div>One</div>
+  <div>Two</div>
+  <div>Three</div>
+  <div>Four</div>
+</div>
+
 <div class="flex flex-space-between">
   <div>One</div>
   <div>Two</div>
@@ -332,6 +365,8 @@ Examples:
   <span>Four</span>
 </div>
 ```
+
+**Note:** with `flex-column`, the flexbox layout is reoriented 90&deg;, so that the `flex-top` and `flex-bottom` work on the horizontal axis, and the `flex-start` and `flex-end` work on the vertical axis.
 
 ### Flex-item grow
 
@@ -383,33 +418,47 @@ Examples:
 
 Baselayer has `@contaner` controlled `flex` and all flex modifier classes (including the `gap-*` classes) that will take effect at the following container widths up — use one of these instead of simply `flex` on your outer block element:
 
-* `xs:flex`, and modifiers `sm:flex-start` etc. — flex at container width 512px and up
+* `xs:flex`, and modifiers `xs:flex-start` etc. — flex at container width 512px and up
 * `sm:flex`, and modifiers `sm:flex-start` etc. — flex at container width 768px and up
 * `md:flex`, and modifiers `md:flex-start` etc. — flex at container width 1024px and up
 * `lg:flex`, and modifiers `lg:flex-start` etc. — flex at container width 1280px and up
 
-Example using a `container` outer with `flex flex-column sm:flex-row sm:flex-end gap-2`:
+The following demo menubar is a complex example that uses several flexboxes. The classic switch from a stacked menu to a menubar happens at `xs` - 512px container width. [Buttons]({{ "/buttons" | url }}) have an inline-block built in, therefore `flex-start` has been used on each button to push the button text to the left for the stacked mode.
 
 <div class="expand my-4">
   <div class="container resize-x">
-    <nav class="flex flex-column sm:flex-row sm:flex-end gap-2">
-      <a class="btn flex-start" href="#/">Home</a>
-      <a class="btn flex-start" href="#/">About</a>
-      <a class="btn flex-start" href="#/">Blog</a>
-      <a class="btn flex-start" href="#/">Contact</a>
-    </nav>
+    <div class="flex flex-column xs:flex-row xs:flex-space-between gap-2">
+      <div>
+        <a class="p-1 inline-flex gap-1 h4 t-bold t-underline-none" href="#/">
+          <span class="square-1 rounded-pill bg-currentColor"></span>
+          <span>Logo</span>
+        </a>
+      </div>
+      <nav class="flex flex-column xs:flex-row xs:flex-end gap-2">
+        <a class="btn flex-start" href="#/">Home</a>
+        <a class="btn flex-start" href="#/">About</a>
+        <a class="btn flex-start" href="#/">Blog</a>
+        <a class="btn flex-start" href="#/">Contact</a>
+      </nav>
+    </div>
   </div>
 </div>
 
-This sets up a classic switch from phones menu to tablets-up menubar. (Buttons have an inline-block built in.)
-
 ```html
-<nav class="flex flex-column sm:flex-row sm:flex-end gap-2">
-  <a class="btn flex-start" href="#/">Home</a>
-  <a class="btn flex-start" href="#/">About</a>
-  <a class="btn flex-start" href="#/">Blog</a>
-  <a class="btn flex-start" href="#/">Contact</a>
-</nav>
+<div class="flex flex-column xs:flex-row xs:flex-space-between gap-2">
+  <div>
+    <a class="p-1 inline-flex gap-1 h4 t-bold t-underline-none" href="#/">
+      <span class="square-1 rounded-pill bg-currentColor"></span>
+      <span>Logo</span>
+    </a>
+  </div>
+  <nav class="flex flex-column xs:flex-row xs:flex-end gap-2">
+    <a class="btn flex-start" href="#/">Home</a>
+    <a class="btn flex-start" href="#/">About</a>
+    <a class="btn flex-start" href="#/">Blog</a>
+    <a class="btn flex-start" href="#/">Contact</a>
+  </nav>
+</div>
 ```
 
 ## Grid layouts

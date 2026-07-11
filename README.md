@@ -1,6 +1,6 @@
 # Baselayer 3
 
-v.3.8.0 • 27 KB (minified) • MIT licence.
+v.3.8.0 • 28 KB (minified) • MIT licence.
 
 Designed as a good place to start, Baselayer may be all you need — for small web projects. Or you may use it as a _baselayer_ to quick-start your mega project.
 

@@ -34,11 +34,11 @@ Font stack usage in Baselayer:
 
 ### Setting font stacks
 
-In choosing your own font stacks, you will probably need two fonts that have similar _x-height_ CSS property), so that you can set them using the same font size and line-height. Some other factors to compare are hights for lowercase ascenders and descenders, letter width, and stroke thickness.
+In choosing your own font stacks, you will probably need two fonts that have similar _x-height_ CSS property, so that you can set them using the same font size and line-height. Some other factors to compare are hights for lowercase ascenders and descenders, letter width, and stroke thickness.
 
 If you want to stick with using native font stacks (i.e. those that come with computers, tablets, and phones), then the [Modern Font Stacks](https://modernfontstacks.com) website has several examples that you can easily copy.
 
-In choosing your own typefaces from elsewhere, a good place to start is by pairing serif and sans-serif (or slab serif) fonts of the same typeface, if both are available. [Google Fonts](https://fonts.google.com) has several such typefaces to choose from, such as:
+In choosing your own typefaces from elsewhere, a good place to start is by pairing serif and sans-serif (or slab serif) fonts of the same typeface, if both are available. [Google Fonts](https://fonts.google.com) has several such typeface pairs choose from, e.g.:
 
 * Alegreya and Alegreya Sans
 * IBM Plex and IBM Plex Sans
@@ -48,12 +48,9 @@ In choosing your own typefaces from elsewhere, a good place to start is by pairi
 * Roboto and Roboto Slab
 * Source Sans 3 and Source Serif 4
 
-In Baselayer, sizes and weights for the base and prose typefaces can optionally be set independently — but you will still want them to share the same line height. For using another set of sizes and weights for prose, you will need to do some un-commenting in two files: `variables.css` and `typography.css`.
+If your chosen prose typeface has an _x-height_ much different than your chosen base typeface, then [font-size-adjust](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/font-size-adjust) can help.
 
-So, for example:
-
-* If your chosen prose typeface has an _x-height_ much different than your chosen base typeface, then [font-size-adjust](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/font-size-adjust) can help.
-* If your base typeface has thicker strokes so that it “looks darker” than your prose typeface, then you may want to set your base font-weight slightly lighter. Variable fonts with font weight can allow fine tuning.
+If your base typeface has thicker strokes so that it “looks darker” than your prose typeface, then you may want to set your base font-weight slightly lighter. Variable fonts with font weight can allow fine tuning.
 
 For inspiration:
 
@@ -136,8 +133,8 @@ Example headings (using heading-size utility classes):
   <thead>
     <tr>
       <th>Heading Level</th>
-      <th>Font Size in em</th>
-      <th>Equivalent Size in pixels (px)</th>
+      <th class="t-center">Font Size in em</th>
+      <th class="t-center">Equivalent Size in px</th>
     </tr>
   </thead>
   <tbody>
@@ -544,11 +541,11 @@ The `t-sm` class will reduce text to 0.75em – good for small-print, footnotes,
 
 The `t-lg` class will enlarge text to 1.25em — good for a lead paragraph, large button, or important messaging.
 
-<p class="t-center"><span class="t-sm">t-sm text</span>, <span>base text</span>, <span class="t-lg">t-lg text</span></p>
+<p class="t-center"><span class="t-sm"><code>t-sm</code> text</span>, <span>base text</span>, <span class="t-lg"><code>t-lg</code> text</span></p>
 
 ### Block font size multipliers
 
-Classes `.h1` through `.h6` will resize text the same amount as for their respective heading tag sizes — use these when you want to make text bigger (or large text smaller) without adversely affecting accessibility/ SEO heading hierarchy.
+Classes `h1` through `h6` will resize text the same amount as for their respective heading tag sizes — use these when you want to make text bigger (or large text smaller) without adversely affecting accessibility/ SEO heading hierarchy.
 
 <div class="w-fit-content mx-auto flex flex-column">
 <span class="h6"><code>h6</code> heading size is the same as base size, but in <code>em</code></span>

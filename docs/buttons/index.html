@@ -299,12 +299,11 @@ window.addEventListener("DOMContentLoaded", () => {
         <span class="t-gray t-600 dark:t-400">Version: 3.8.0</span>
         <a class="t-gray t-700 dark:t-300" href="https://github.com/SimonPadbury/baselayer-3">GitHub</a>
         <span>
-          <a class="t-gray t-700 dark:t-300" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> <span class="t-gray t-600 dark:t-400">(27 KB)</span>
+          <a class="t-gray t-700 dark:t-300" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> <span class="t-gray t-600 dark:t-400">(28 KB)</span>
         </span>
       </div>
 
       <nav class="p-2">
-        <p class="h4 t-semibold">Documentation</p>
         <menu class="mt-2 pl-0 flex flex-column gap-1 links-underline-none">
           <menuitem>
             <a class="block  p-cell t-gray t-600 dark:t-300"  href="/baselayer-3/">Getting started</a>
@@ -376,8 +375,8 @@ window.addEventListener("DOMContentLoaded", () => {
     </div>
     <div class="main-frame">
       <aside class="right-sidebar lg:hidden-below">
-        <div id="toc-outer" class="sticky top w-content h-max-100dvh mx-auto px-2 pb-4 links-underline-hover-only overflow-y">
-          <p class="h4 t-semibold">On this page</p>
+        <div id="toc-outer" class="sticky top w-content h-max-100dvh mx-auto pt-2 px-2 pb-4 links-underline-hover-only overflow-y">
+          <p class="h4 t-thin t-loose t-center">On this page</p>
           <nav class="toc" >
         <ul><li><a href="#button-types-and-link-pseudo-buttons">Button types and link pseudo-buttons</a></li><li><a href="#full-width-buttons">Full-width buttons</a></li><li><a href="#adding-colors-to-buttons">Adding colors to buttons</a></li><li><a href="#buttons-with-icons">Buttons with icons</a></li><li><a href="#pill-buttons">Pill buttons</a></li><li><a href="#button-sizes">Button sizes</a></li></ul>
       </nav>
@@ -414,14 +413,19 @@ window.addEventListener("DOMContentLoaded", () => {
 </code></pre>
 <p><strong>Notes:</strong></p>
 <ol>
-<li>Form inputs, textareas, and buttons (including the <code>btn</code> class) have <code>font-size: inherit</code>. This means their font sizes can be modified by any font-size limit around the button in Baselayer.</li>
+<li>Form elements and buttons (including the <code>btn</code> class) have <code>font-size: inherit</code>. This means their font sizes can be modified by any font-size limit around the button in Baselayer.</li>
 <li>The font-family of form elements and buttons is controlled by <code>var(--base-ff)</code> (default is sans-serif).</li>
-<li>Buttons and form elements have the same min-height and padding, so that they can be used in combination. The padding is set using <code>--p-form: 0.5em 1em;</code>, so that it will also respond to the font-size of the button.</li>
+<li>Buttons and form elements have the same min-width, min-height and padding, so that they can be used in combination. All these are sent to <code>0.5em</code>, so that it will also respond to the font-size of the form element or button.</li>
+<li>Buttons have built-in <code>display: inline-flex</code> and centering and middling flexbox alignment.</li>
 <li>Buttons have a built-in hover background-color change: the background color becomes darker for the light theme, and lighter for the dark theme. You don’t need to set the hover state of buttons.</li>
 </ol>
 <h2 id="full-width-buttons" tabindex="-1">Full-width buttons</h2>
-<p>In Baselayer, buttons are pre-styled with <code>display: inline-flex</code> and centering and middling flexbox alignment.</p>
-<p>So, if you want a button to stretch full-width, you can add <code>class=&quot;w-100%&quot;</code> or you can override the inline-flex by adding <code>class=&quot;flex&quot;</code>. (Do not use <code>class=&quot;block&quot;</code> on a button (or <code>.btn</code>) because that will override its inline flexbox.)</p>
+<p>If you want a button to stretch full-width there are multiple options:</p>
+<ol>
+<li>Add <code>class=&quot;w-100%&quot;</code> to the button</li>
+<li>Override the inline-flex by adding <code>class=&quot;flex&quot;</code>. (Do not use <code>class=&quot;block&quot;</code> on a button because that will override its inline flexbox.)</li>
+<li>Include the button as a flex-item or grid-item, so that the <code>flex</code> or <code>grid</code> wrapper takes care of the button width.</li>
+</ol>
 <p><button class="w-100% my-2" type="button" name="button">Button</button></p>
 <pre><code class="language-html">&lt;button class=&quot;w-100%&quot; type=&quot;button&quot; name=&quot;button&quot;&gt;
   Button
@@ -467,32 +471,17 @@ window.addEventListener("DOMContentLoaded", () => {
 &lt;a class=&quot;btn b-thin b-green bg-transparent t-green hover:t-reversi-flip hover:bg-green&quot; href=&quot;#/&quot;&gt;Link “button”&lt;/a&gt;
 </code></pre>
 <h2 id="buttons-with-icons" tabindex="-1">Buttons with icons</h2>
-<p>In Baselayer, buttons have <code>display: inline-flex</code> and centering and middling alignment. So, all you need to do is add an icon and it will all line up.</p>
-<p>
-  <button type="button" name="button" class="gap-tiny">
-    Search
-    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"></rect><circle cx="116" cy="116" r="84" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"></circle><line x1="175.4" y1="175.4" x2="224" y2="224" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"></line></svg>
-  </button>
-</p>
-<pre><code class="language-html">&lt;button type=&quot;button&quot; name=&quot;button&quot; class=&quot;gap-tiny&quot;&gt;
-  Search
-  &lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;16&quot; height=&quot;16&quot; fill=&quot;currentColor&quot;&gt;
-    ...
-  &lt;/svg&gt;
-&lt;/button&gt;
-</code></pre>
-<p>Baselayer CSS buttons works well with SVG icons, e.g. <a href="https://phosphoricons.com/">Phosphor icons</a>. Set the width and height of the icon to be e.g. 16px, 20px, or 24px. Also, you probably want to set the fill colors to be <code>currentColor</code> so that it can be controlled by the CSS.</p>
+<p>In Baselayer, buttons have built-in <code>display: inline-flex</code> and centering and middling flexbox alignment. So, all you need to do is add an icon (ASCII character, SVG or small image), and it will all line up.</p>
+<p>Buttons have built-in equal min-width and min-height. So, if you only have an icon or single ASCII character, and if your icon width is equal or smaller than its height and your icon is square, then you get a square button. (<code>w-auto</code> can be used to override the min-width.)</p>
+<p><button type="button">button</button>
+<button type="button">☆</button>
+<button class="w-auto" type="button">☆</button>
+<button type="button" name="button" class="gap-tiny">
+Search
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"></rect><circle cx="116" cy="116" r="84" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"></circle><line x1="175.4" y1="175.4" x2="224" y2="224" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"></line></svg>
+</button></p>
+<p>Baselayer CSS buttons works well with SVG icons, e.g. <a href="https://phosphoricons.com/">Phosphor icons</a>. Set the width and height of the icon to be 24px for default (medium) sized buttons. Also, you probably want to set the fill colors to be <code>currentColor</code> so that it can be controlled by the CSS.</p>
 <p>If you are combining text with an icon, you may sometimes need to add some space using <code>gap-tiny</code> within your button (see <a href="/baselayer-3/layout/#flex-layouts">flex layouts</a>). That’s the easiest way. Alternatively, you could put <code>&amp;nbsp;</code> between your button text and icon.</p>
-<p>For icon-only buttons where you want the button to be a square, add the CSS class  <code>aspect-ratio-1x1</code>  and remove the padding using <code>p-0</code>.</p>
-<form>
-  <p class="flex flex-middle gap-tiny">
-    <button type="button" name="button">Button</button>
-    <button class="aspect-ratio-1x1 p-0" type="button" name="button">1</button>
-    <button class="aspect-ratio-1x1 p-0" type="button" name="button">
-      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"></rect><line x1="40" y1="128" x2="216" y2="128" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"></line><polyline points="144 56 216 128 144 200" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"></polyline></svg>
-    </button>
-  </p>
-</form>
 <h2 id="pill-buttons" tabindex="-1">Pill buttons</h2>
 <p><code>rounded-pill</code> roundes the right and left ends of a button. Adding <code>rounded-pill</code> to a square button will make it circular. (See <a href="/baselayer-3/decoration/#rounded-corners">decoration: rounded corners</a>.)</p>
 <form>
@@ -503,8 +492,11 @@ window.addEventListener("DOMContentLoaded", () => {
     </button>
   </p>
 </form>
+<p>If you have some text in a button with <code>rounded-pill</code> (i.e. not a single character or icon), the rounded ends will be too close to the text (as in the example above). So, add some inline paddingusing one of the <code>px-*</code> utilities, depending on how much you need.</p>
+<p>Button with <code>rounded-pill px-2</code>: <button class="rounded-pill px-2" type="button">Button</button></p>
 <h2 id="button-sizes" tabindex="-1">Button sizes</h2>
 <p>Buttons (including the <code>btn</code> utility) and form inputs will resize according to the font-size of the block that they are inside.</p>
+<p>In baselayer, button min-width, min-height, and padding are all set in ems, so that they scale according to the text size.</p>
 <p>You can also use the typographic size classes <code>t-sm</code> and <code>t-lg</code> on the buttons or inputs to modify buttons directly. You will still need to use these if the internal character is replaced by an SVG icon. You will also want to change the <code>width=&quot;&quot;</code> and the <code>height=&quot;&quot;</code> directly.</p>
 <form class="mt-2 mb-3">
   <div class="flex flex-middle gap-1">
@@ -578,7 +570,7 @@ window.addEventListener("DOMContentLoaded", () => {
             </div>
 
             <p class="p-cell flex flex-center flex-wrap gap-4 t-center">
-              <span><a class="t-underline-hover-only" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> (27 KB)</span>
+              <span><a class="t-underline-hover-only" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> (28 KB)</span>
               <a class="t-underline-hover-only" href="https://github.com/SimonPadbury/baselayer-3">GitHub Repository</a>
               <a class="t-underline-hover-only" href="https://github.com/SimonPadbury/baselayer-3/blob/main/CHANGELOG.md">Changelog</a>
               <a class="t-underline-hover-only" href="https://github.com/SimonPadbury/baselayer-3/blob/main/LICENSE">MIT license</a>

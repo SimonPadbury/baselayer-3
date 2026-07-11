@@ -299,12 +299,11 @@ window.addEventListener("DOMContentLoaded", () => {
         <span class="t-gray t-600 dark:t-400">Version: 3.8.0</span>
         <a class="t-gray t-700 dark:t-300" href="https://github.com/SimonPadbury/baselayer-3">GitHub</a>
         <span>
-          <a class="t-gray t-700 dark:t-300" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> <span class="t-gray t-600 dark:t-400">(27 KB)</span>
+          <a class="t-gray t-700 dark:t-300" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> <span class="t-gray t-600 dark:t-400">(28 KB)</span>
         </span>
       </div>
 
       <nav class="p-2">
-        <p class="h4 t-semibold">Documentation</p>
         <menu class="mt-2 pl-0 flex flex-column gap-1 links-underline-none">
           <menuitem>
             <a class="block  p-cell t-gray t-600 dark:t-300"  href="/baselayer-3/">Getting started</a>
@@ -376,8 +375,8 @@ window.addEventListener("DOMContentLoaded", () => {
     </div>
     <div class="main-frame">
       <aside class="right-sidebar lg:hidden-below">
-        <div id="toc-outer" class="sticky top w-content h-max-100dvh mx-auto px-2 pb-4 links-underline-hover-only overflow-y">
-          <p class="h4 t-semibold">On this page</p>
+        <div id="toc-outer" class="sticky top w-content h-max-100dvh mx-auto pt-2 px-2 pb-4 links-underline-hover-only overflow-y">
+          <p class="h4 t-thin t-loose t-center">On this page</p>
           <nav class="toc" >
         <ul><li><a href="#textual-form-input-fields">Textual form input fields</a></li><li><a href="#number-inputs">Number inputs</a></li><li><a href="#date-and-time-inputs">Date and time inputs</a></li><li><a href="#color-picker">Color picker</a></li><li><a href="#file-upload">File upload</a></li><li><a href="#select-and-multi-select">Select and multi-select</a></li><li><a href="#list-and-datalist">List and datalist</a></li><li><a href="#text-area-(multiline)">Text area (multiline)</a></li><li><a href="#radio-boxes-and-checkboxes">Radio boxes and checkboxes</a></li><li><a href="#fieldsets-and-legends">Fieldsets and legends</a></li><li><a href="#adding-colors-to-form-elements">Adding colors to form elements</a></li><li><a href="#form-buttons">Form buttons</a></li></ul>
       </nav>
@@ -470,10 +469,9 @@ window.addEventListener("DOMContentLoaded", () => {
 <form action="" class="flow">
   <p>
     <label for="example-input-file">File input</label>
-    <input class="w100%" type="file" id="example-input-file" accept="image/png, image/jpeg">
+    <input type="file" id="example-input-file" accept="image/png, image/jpeg">
   </p>
 </form>
-<p><strong>Note:</strong> File upload inputs <code>&lt;input type=&quot;file&quot;&gt;</code> can break your page layout on the smallest phones in portrait orientation. But if you add <code>class=&quot;w100%&quot;</code> that problem goes away.</p>
 <h2 id="select-and-multi-select" tabindex="-1">Select and multi-select</h2>
 <p>On some devices (e.g. iOS Safari), these inputs get modified by number pickers (dropdowns).</p>
 <form action="" class="flow">
@@ -536,14 +534,14 @@ window.addEventListener("DOMContentLoaded", () => {
 <form action="" class="flow">
   <fieldset class="flex">
     <legend>Example e-newsletter subscribe</legend>
-    <input class="w-100%" type="email" id="example-input-email" placeholder="Enter email">
+    <input class="grow" type="email" id="example-input-email" placeholder="Enter email">
     <input type="submit" name="submit" value="Subscribe">
   </fieldset>
 </form>
 <pre><code class="language-html">&lt;form action=&quot;&quot;&gt;
   &lt;fieldset class=&quot;flex&quot;&gt;
     &lt;legend&gt;Example e-newsletter subscribe&lt;/legend&gt;
-    &lt;input class=&quot;w100%&quot; type=&quot;email&quot; id=&quot;example-input-email&quot; placeholder=&quot;Enter email&quot;&gt;
+    &lt;input class=&quot;grow&quot; type=&quot;email&quot; id=&quot;example-input-email&quot; placeholder=&quot;Enter email&quot;&gt;
     &lt;input type=&quot;submit&quot; name=&quot;submit&quot; value=&quot;Subscribe&quot;&gt;
   &lt;/fieldset&gt;
 &lt;/form&gt;
@@ -618,7 +616,7 @@ window.addEventListener("DOMContentLoaded", () => {
             </div>
 
             <p class="p-cell flex flex-center flex-wrap gap-4 t-center">
-              <span><a class="t-underline-hover-only" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> (27 KB)</span>
+              <span><a class="t-underline-hover-only" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> (28 KB)</span>
               <a class="t-underline-hover-only" href="https://github.com/SimonPadbury/baselayer-3">GitHub Repository</a>
               <a class="t-underline-hover-only" href="https://github.com/SimonPadbury/baselayer-3/blob/main/CHANGELOG.md">Changelog</a>
               <a class="t-underline-hover-only" href="https://github.com/SimonPadbury/baselayer-3/blob/main/LICENSE">MIT license</a>

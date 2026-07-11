@@ -35,16 +35,19 @@ Baselayer form elements have simple background, hover state and focus styling.
 
 **Notes:**
 
-1. Form inputs, textareas, and buttons (including the `btn` class) have `font-size: inherit`. This means their font sizes can be modified by any font-size limit around the button in Baselayer.
+1. Form elements and buttons (including the `btn` class) have `font-size: inherit`. This means their font sizes can be modified by any font-size limit around the button in Baselayer.
 2. The font-family of form elements and buttons is controlled by `var(--base-ff)` (default is sans-serif).
-3. Buttons and form elements have the same min-height and padding, so that they can be used in combination. The padding is set using `--p-form: 0.5em 1em;`, so that it will also respond to the font-size of the button.
-4. Buttons have a built-in hover background-color change: the background color becomes darker for the light theme, and lighter for the dark theme. You don’t need to set the hover state of buttons.
+3. Buttons and form elements have the same min-width, min-height and padding, so that they can be used in combination. All these are sent to `0.5em`, so that it will also respond to the font-size of the form element or button.
+4. Buttons have built-in `display: inline-flex` and centering and middling flexbox alignment.
+5. Buttons have a built-in hover background-color change: the background color becomes darker for the light theme, and lighter for the dark theme. You don’t need to set the hover state of buttons.
 
 ## Full-width buttons
 
-In Baselayer, buttons are pre-styled with `display: inline-flex` and centering and middling flexbox alignment.
+If you want a button to stretch full-width there are multiple options:
 
-So, if you want a button to stretch full-width, you can add `class="w-100%"` or you can override the inline-flex by adding `class="flex"`. (Do not use `class="block"` on a button (or `.btn`) because that will override its inline flexbox.)
+1. Add `class="w-100%"` to the button
+2. Override the inline-flex by adding `class="flex"`. (Do not use `class="block"` on a button because that will override its inline flexbox.)
+3. Include the button as a flex-item or grid-item, so that the `flex` or `grid` wrapper takes care of the button width.
 
 <button class="w-100% my-2" type="button" name="button">Button</button>
 
@@ -108,39 +111,21 @@ Buttons have a built-in hover color-change: the background color becomes darker 
 
 ## Buttons with icons
 
-In Baselayer, buttons have `display: inline-flex` and centering and middling alignment. So, all you need to do is add an icon and it will all line up.
+In Baselayer, buttons have built-in `display: inline-flex` and centering and middling flexbox alignment. So, all you need to do is add an icon (ASCII character, SVG or small image), and it will all line up.
 
-<p>
-  <button type="button" name="button" class="gap-tiny">
-    Search
-    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"></rect><circle cx="116" cy="116" r="84" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"></circle><line x1="175.4" y1="175.4" x2="224" y2="224" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"></line></svg>
-  </button>
-</p>
+Buttons have built-in equal min-width and min-height. So, if you only have an icon or single ASCII character, and if your icon width is equal or smaller than its height and your icon is square, then you get a square button. (`w-auto` can be used to override the min-width.)
 
-```html
+<button type="button">button</button>
+<button type="button">&star;</button>
+<button class="w-auto" type="button">&star;</button>
 <button type="button" name="button" class="gap-tiny">
   Search
-  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor">
-    ...
-  </svg>
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"></rect><circle cx="116" cy="116" r="84" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"></circle><line x1="175.4" y1="175.4" x2="224" y2="224" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"></line></svg>
 </button>
-```
 
-Baselayer CSS buttons works well with SVG icons, e.g. [Phosphor icons](https://phosphoricons.com/). Set the width and height of the icon to be e.g. 16px, 20px, or 24px. Also, you probably want to set the fill colors to be `currentColor` so that it can be controlled by the CSS.
+Baselayer CSS buttons works well with SVG icons, e.g. [Phosphor icons](https://phosphoricons.com/). Set the width and height of the icon to be 24px for default (medium) sized buttons. Also, you probably want to set the fill colors to be `currentColor` so that it can be controlled by the CSS.
 
 If you are combining text with an icon, you may sometimes need to add some space using `gap-tiny` within your button (see [flex layouts]({{ '/layout/' | url }}#flex-layouts)). That’s the easiest way. Alternatively, you could put `&nbsp;` between your button text and icon.
-
-For icon-only buttons where you want the button to be a square, add the CSS class  `aspect-ratio-1x1`  and remove the padding using `p-0`.
-
-<form>
-  <p class="flex flex-middle gap-tiny">
-    <button type="button" name="button">Button</button>
-    <button class="aspect-ratio-1x1 p-0" type="button" name="button">1</button>
-    <button class="aspect-ratio-1x1 p-0" type="button" name="button">
-      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"></rect><line x1="40" y1="128" x2="216" y2="128" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"></line><polyline points="144 56 216 128 144 200" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"></polyline></svg>
-    </button>
-  </p>
-</form>
 
 ## Pill buttons
 
@@ -155,9 +140,15 @@ For icon-only buttons where you want the button to be a square, add the CSS clas
   </p>
 </form>
 
+If you have some text in a button with `rounded-pill` (i.e. not a single character or icon), the rounded ends will be too close to the text (as in the example above). So, add some inline paddingusing one of the `px-*` utilities, depending on how much you need.
+
+Button with `rounded-pill px-2`: <button class="rounded-pill px-2" type="button">Button</button>
+
 ## Button sizes
 
 Buttons (including the `btn` utility) and form inputs will resize according to the font-size of the block that they are inside.
+
+In baselayer, button min-width, min-height, and padding are all set in ems, so that they scale according to the text size.
 
 You can also use the typographic size classes `t-sm` and `t-lg` on the buttons or inputs to modify buttons directly. You will still need to use these if the internal character is replaced by an SVG icon. You will also want to change the `width=""` and the `height=""` directly.
 

@@ -16,29 +16,27 @@ legend {
 input,
 select,
 textarea {
-  min-height: var(--y-form);
-  border: var(--b-form);
+  -webkit-appearance: none;
+  min-width: 3em;
+  min-height: 3em;
+  border: var(--b-thin);
   border-radius: unset;
-  padding: var(--p-form);
+  padding: 0.5em;
   font-family: var(--t-base-ff);
+  font-size: inherit;
   text-align: start;
   color: var(--tc-form);
   background-color: var(--bgc-form);
 }
 
-select:not([multiple]) {
-  height: var(--y-form);
-}
-
 [type="color"] {
-  width: var(--y-form);
-  height: var(--y-form);
-  padding: 0.25em;
+  padding: 0.325em;
 }
 
 [type="checkbox"],
 [type="radio"] {
   display: inline-block;
+  min-width: unset;
   min-height: unset;
   width: 1em;
   height: 1em;
@@ -52,6 +50,7 @@ select:not([multiple]) {
 ::file-selector-button {
   border: 0;
   font-size: 1em;
+  padding: 0.325em;
   color: white;
   background-color: var(--bgc-btn);
 }
@@ -77,12 +76,13 @@ button,
   position: relative;
   -webkit-appearance: none;
   appearance: none;
-  min-height: var(--y-form);
+  min-width: 3em;
+  min-height: 3em;
   display: inline-flex;
   justify-content: center;
   align-items: center;
   border: 1px solid transparent;
-  padding: var(--p-form);
+  padding: 0.5em;
   font-family: var(--t-base-ff);
   font-weight: var(--t-btn-fw);
   text-decoration: none;
