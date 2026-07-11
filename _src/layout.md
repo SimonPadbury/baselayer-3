@@ -902,19 +902,18 @@ Sometimes you need to expand a panel more than as is done in the popout above. Y
 
 Example “poster” infographic panel using `expand` (and showing how Baselayer’s [aspect ratio](#aspect-ratios) utilities work):
 
-<div class="expand mt-3 mb-4">
-  <div class="aspect-ratio-16x9 flex flex-center flex-middle relative">
-    <svg xmlns="http://www.w3.org/2000/svg" class="box img-cover" preserveAspectRatio="xMidYMid slice" width="1000" height="600"><defs><linearGradient id="gradient1" gradientTransform="rotate(45)"><stop offset="5%" stop-color="rgba(255,255,0,.5)"/><stop offset="50%" stop-color="rgba(255,255,255,0)"/><stop offset="95%" stop-color="rgba(255,0,0,.5)"/></linearGradient><linearGradient id="gradient2" gradientTransform="rotate(135)"><stop offset="5%" stop-color="rgba(0,0,255,.5)"/><stop offset="50%" stop-color="rgba(255,255,255,0)"/><stop offset="95%" stop-color="rgba(0,255,0,.5)"/></linearGradient></defs><rect width="100%" height="100%" fill="url('#gradient1')"/><rect width="100%" height="100%" fill="url('#gradient2')"/></svg>
-    <div class="z-1 w-content py-3">
-      <div class="flow">
-        <p class="h1 t-bold">This is a lot of example text that may or may not distort the aspect ratio (16×9) of this <code>expand</code> component.</p>
-        <p class="h1 t-bold">See what it does on a small viewport width (e.g. phone).</p>
-      </div>
-    </div>
+<div class="expand aspect-ratio-16x9 flex flex-center flex-middle relative">
+  <svg xmlns="http://www.w3.org/2000/svg" class="box img-cover" preserveAspectRatio="xMidYMid slice" width="1000" height="600"><defs><linearGradient id="gradient1" gradientTransform="rotate(45)"><stop offset="5%" stop-color="rgba(255,255,0,.5)"></stop><stop offset="50%" stop-color="rgba(255,255,255,0)"></stop><stop offset="95%" stop-color="rgba(255,0,0,.5)"></stop></linearGradient><linearGradient id="gradient2" gradientTransform="rotate(135)"><stop offset="5%" stop-color="rgba(0,0,255,.5)"></stop><stop offset="50%" stop-color="rgba(255,255,255,0)"></stop><stop offset="95%" stop-color="rgba(0,255,0,.5)"></stop></linearGradient></defs><rect width="100%" height="100%" fill="url('#gradient1')"></rect><rect width="100%" height="100%" fill="url('#gradient2')"></rect></svg>
+  <div class="z-1 w-content p-2 flow bg-black bg-filter bg-200">
+    <p class="h2 t-bold">This example text may or may not distort the 16×9 aspect ratio that has been given to this demo component.</p>
+    <p class="h2 t-bold">The SVG image rectangle will be 1280px × 720px if your viewport is big enough. See what it does on a narrow viewport width (e.g. phone).</p>
   </div>
 </div>
 
 A z-index positioning layer (e.g. `z-1`) is required to make the text overlay the image layer. (Alternatively, you can add another `relative` context.)
+
+The text layer itself has a transparent black filter background. See [Glass (blur) and filter backgrounds]({{ "/colors/#glass-(blur)-and-filter-backgrounds" | url }}).
+
 
 ```html
 <div class="expand mb-2 aspect-ratio-16x9 flex flex-center flex-middle relative">
