@@ -1,66 +1,16 @@
+/* Baselayer’s 5 base colors */
+
 .b-blue,
 .hover\:b-blue:hover {
   --bc: var(--blue);
   border-color: oklch(from var(--bc) var(--bl, var(--l500)) c h);
 }
 
-.b-green,
-.hover\:b-green:hover {
-  --bc: var(--green);
-  border-color: oklch(from var(--bc) var(--bl, var(--l500)) c h);
-}
-
-.b-amber,
-.hover\:b-amber:hover {
-  --bc: var(--amber);
-  border-color: oklch(from var(--bc) var(--bl, var(--l500)) c h);
-}
-
-.b-red,
-.hover\:b-red:hover {
-  --bc: var(--red);
-  border-color: oklch(from var(--bc) var(--bl, var(--l500)) c h);
-}
-
-.b-gray,
-.hover\:b-gray:hover {
-  --bc: var(--gray);
-  border-color: oklch(from var(--bc) var(--bl, var(--l500)) c h);
-}
-
-/* Text colors */
-
 .t-blue,
 .hover\:t-blue:hover {
   --tc: var(--blue);
   color: oklch(from var(--tc) var(--tl, var(--l500)) c h);
 }
-
-.t-green,
-.hover\:t-green:hover {
-  --tc: var(--green);
-  color: oklch(from var(--tc) var(--tl, var(--l500)) c h);
-}
-
-.t-amber,
-.hover\:t-amber:hover {
-  --tc: var(--amber);
-  color: oklch(from var(--tc) var(--tl, var(--l500)) c h);
-}
-
-.t-red,
-.hover\:t-red:hover {
-  --tc: var(--red);
-  color: oklch(from var(--tc) var(--tl, var(--l500)) c h);
-}
-
-.t-gray,
-.hover\:t-gray:hover {
-  --tc: var(--gray);
-  color: oklch(from var(--tc) var(--tl, var(--l500)) c h);
-}
-
-/* Background colors */
 
 .bg-blue,
 .hover\:bg-blue:hover {
@@ -69,6 +19,18 @@
     oklch(from var(--bgc) var(--bgl, var(--l500)) c h),
     oklch(from var(--bgc) var(--bgld, var(--l500)) c h)
   );
+}
+
+.b-green,
+.hover\:b-green:hover {
+  --bc: var(--green);
+  border-color: oklch(from var(--bc) var(--bl, var(--l500)) c h);
+}
+
+.t-green,
+.hover\:t-green:hover {
+  --tc: var(--green);
+  color: oklch(from var(--tc) var(--tl, var(--l500)) c h);
 }
 
 .bg-green,
@@ -80,6 +42,18 @@
   );
 }
 
+.b-amber,
+.hover\:b-amber:hover {
+  --bc: var(--amber);
+  border-color: oklch(from var(--bc) var(--bl, var(--l500)) c h);
+}
+
+.t-amber,
+.hover\:t-amber:hover {
+  --tc: var(--amber);
+  color: oklch(from var(--tc) var(--tl, var(--l500)) c h);
+}
+
 .bg-amber,
 .hover\:bg-amber:hover {
   --bgc: var(--amber);
@@ -87,6 +61,24 @@
     oklch(from var(--bgc) var(--bgl, var(--l500)) c h),
     oklch(from var(--bgc) var(--bgld, var(--l500)) c h)
   );
+}
+
+.b-red,
+.hover\:b-red:hover {
+  --bc: var(--red);
+  border-color: oklch(from var(--bc) var(--bl, var(--l500)) c h);
+}
+
+.t-red,
+.hover\:t-red:hover {
+  --tc: var(--red);
+  color: oklch(from var(--tc) var(--tl, var(--l500)) c h);
+}
+
+.b-gray,
+.hover\:b-gray:hover {
+  --bc: var(--gray);
+  border-color: oklch(from var(--bc) var(--bl, var(--l500)) c h);
 }
 
 .bg-red,
@@ -98,6 +90,12 @@
   );
 }
 
+.t-gray,
+.hover\:t-gray:hover {
+  --tc: var(--gray);
+  color: oklch(from var(--tc) var(--tl, var(--l500)) c h);
+}
+
 .bg-gray,
 .hover\:bg-gray:hover {
   --bgc: var(--gray);
@@ -105,6 +103,125 @@
     oklch(from var(--bgc) var(--bgl, var(--l500)) c h),
     oklch(from var(--bgc) var(--bgld, var(--l500)) c h)
   );
+}
+
+/* Black, white, and reversi */
+
+.b-white,
+.hover\:b-white:hover {
+  --bc: #fff;
+  --bl: unset;
+  border-color: var(--bc);
+}
+
+.t-white,
+.hover\:t-white:hover {
+  --tc: #fff;
+  --tl: unset;
+  color: var(--tc);
+}
+
+.bg-white,
+.hover\:bg-white:hover {
+  --bgc: #fff;
+  --bgl: 200%;
+  background-color: var(--bgc);
+}
+
+.b-black,
+.hover\:b-black:hover {
+  --bc: #000;
+  border-color: var(--bc);
+}
+
+.t-black,
+.hover\:t-black:hover {
+  --tc: #000;
+  color: var(--tc);
+}
+
+.bg-black,
+.hover\:bg-black:hover {
+  --bgc: #000;
+  --bgl: 0%;
+  background-color: var(--bgc);
+}
+
+.b-reversi,
+.hover\:b-reversi:hover {
+  --bl: 0%;
+  --bld: 200%;
+  border-color: light-dark(#000, #fff);
+}
+
+.b-reversi-flip,
+.hover\:b-reversi-flip:hover {
+  --bl: 200%;
+  --bld: 0%;
+  border-color: light-dark(#fff, #000);
+}
+
+.t-reversi,
+.hover\:t-reversi:hover {
+  --tl: 0%;
+  --tld: 200%;
+  color: light-dark(#000, #fff);
+}
+
+.t-reversi-flip,
+.hover\:t-reversi-flip:hover {
+  --tl: 200%;
+  --tld: 0%;
+  color: light-dark(#fff, #000);
+}
+
+.bg-reversi,
+.hover\:bg-reversi:hover {
+  --bgl: 0%;
+  --bgld: 200%;
+  background-color: light-dark(#000, #fff);
+}
+
+.bg-reversi-flip,
+.hover\:bg-reversi-flip:hover {
+  --bgl: 200%;
+  --bgld: 0%;
+  background-color: light-dark(#fff, #000);
+}
+
+/* Other color utilities */
+
+.b-currentcolor,
+.b-currentColor {
+  border-color: currentColor;
+}
+
+.b-transparent {
+  --bc: transparent;
+  border-color: var(--bc);
+}
+
+.bg-transparent {
+  --bgc: transparent;
+  background-color: var(--bgc);
+}
+
+.bg-glass,
+.bg-filter {
+  background-color: color-mix(
+    in srgb,
+    var(--bgc, transparent) calc(100% - var(--bgl, 50%)),
+    transparent
+  ) !important;
+}
+
+.bg-glass {
+  backdrop-filter: var(--bg-glass-blur);
+}
+
+.hover\:bg-opaque:hover {
+  backdrop-filter: unset;
+  background-color: var(--bgc) !important;
 }
 
 /* Border lightness levels */
@@ -408,111 +525,4 @@
 
 .dark\:bg-900 {
   --bgld: var(--l900);
-}
-
-/* Colors - other */
-
-.b-white,
-.hover\:b-white:hover {
-  --bc: #fff;
-  border-color: var(--bc);
-}
-
-.hover\:t-white:hover,
-.t-white {
-  --tc: #fff;
-  color: var(--tc);
-}
-
-.bg-white,
-.hover\:bg-white:hover {
-  --bgc: #fff;
-  background-color: var(--bgc);
-}
-
-.b-black,
-.hover\:b-black:hover {
-  --bc: #000;
-  border-color: var(--bc);
-}
-
-.hover\:t-black:hover,
-.t-black {
-  --tc: #000;
-  color: var(--tc);
-}
-
-.bg-black,
-.hover\:bg-black:hover {
-  --bgc: #000;
-  background-color: var(--bgc);
-}
-
-.b-reversi,
-.hover\:b-reversi:hover {
-  --bl: unset;
-  border-color: light-dark(#000, #fff);
-}
-
-.b-reversi-flip,
-.hover\:b-reversi-flip:hover {
-  --bl: unset;
-  border-color: light-dark(#fff, #000);
-}
-
-.t-reversi,
-.hover\:t-reversi:hover {
-  --tl: unset;
-  color: light-dark(#000, #fff);
-}
-
-.t-reversi-flip,
-.hover\:t-reversi-flip:hover {
-  --tl: unset;
-  color: light-dark(#fff, #000);
-}
-
-.bg-reversi,
-.hover\:bg-reversi:hover {
-  --bgl: unset;
-  background-color: light-dark(#000, #fff);
-}
-
-.bg-reversi-flip,
-.hover\:bg-reversi-flip:hover {
-  --bgl: unset;
-  background-color: light-dark(#fff, #000);
-}
-
-.b-currentcolor,
-.b-currentColor {
-  border-color: currentColor;
-}
-
-.b-transparent {
-  --bc: transparent;
-  border-color: var(--bc);
-}
-
-.bg-transparent {
-  --bgc: transparent;
-  background-color: var(--bgc);
-}
-
-.bg-glass,
-.bg-filter {
-  background-color: color-mix(
-    in srgb,
-    var(--bgc, transparent) calc(100% - var(--bgl, 50%)),
-    transparent
-  ) !important;
-}
-
-.bg-glass {
-  backdrop-filter: var(--bg-glass-blur);
-}
-
-.hover\:bg-opaque:hover {
-  backdrop-filter: unset;
-  background-color: var(--bgc) !important;
 }

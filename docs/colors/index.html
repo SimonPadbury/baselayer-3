@@ -7,7 +7,7 @@
 
   <title>Colors · Baselayer CSS</title>
 
-  <link rel="stylesheet" href="/baselayer-3/css/min/baselayer.min.css?v=3.8.0">
+  <link rel="stylesheet" href="/baselayer-3/css/min/baselayer.min.css?v=3.8.1">
 
   <style>
     :root {
@@ -296,10 +296,10 @@ window.addEventListener("DOMContentLoaded", () => {
 
     <div id="js-menu-wrapper">
       <div class="m-2 bt-thin bb-thin py-2 flex flex-center flex-wrap gap-2 links-underlined-hover-only">
-        <span class="t-gray t-600 dark:t-400">Version: 3.8.0</span>
+        <span class="t-gray t-600 dark:t-400">Version: 3.8.1</span>
         <a class="t-gray t-700 dark:t-300" href="https://github.com/SimonPadbury/baselayer-3">GitHub</a>
         <span>
-          <a class="t-gray t-700 dark:t-300" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> <span class="t-gray t-600 dark:t-400">(27 KB)</span>
+          <a class="t-gray t-700 dark:t-300" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> <span class="t-gray t-600 dark:t-400">(28 KB)</span>
         </span>
       </div>
 
@@ -378,7 +378,7 @@ window.addEventListener("DOMContentLoaded", () => {
         <div id="toc-outer" class="sticky top w-content h-max-100dvh mx-auto pt-2 px-2 pb-4 links-underline-hover-only overt-flow-y">
           <p class="h4 t-thin t-loose t-center">On this page</p>
           <nav class="toc" >
-        <ul><li><a href="#color-and-shade-utility-classes">Color and shade utility classes</a></li><li><a href="#colors-and-accessibility">Colors and accessibility</a></li><li><a href="#how-baselayer-css-handles-color">How Baselayer CSS handles color</a></li><li><a href="#adding-more-colors">Adding more colors</a></li><li><a href="#how-the-dark-theme-works">How the dark theme works</a><ul><li><a href="#light-and-dark-theme-classes">Light and dark theme classes</a></li><li><a href="#dark-theme-lightness-levels">Dark theme lightness levels</a></li><li><a href="#what-if-you-don%E2%80%99t-want-a-dark-theme%3F">What if you don’t want a dark theme?</a></li></ul></li><li><a href="#other-baselayer-color-utilities">Other Baselayer color utilities</a><ul><li><a href="#black%2C-white%2C-and-reversi">Black, white, and reversi</a></li><li><a href="#currentcolor">CurrentColor</a></li><li><a href="#transparent">Transparent</a></li><li><a href="#hover-state-utilities">Hover state utilities</a></li><li><a href="#glass-(blur)-and-filter-backgrounds">Glass (blur) and filter backgrounds</a></li></ul></li></ul>
+        <ul><li><a href="#color-and-shade-utility-classes">Color and shade utility classes</a></li><li><a href="#colors-and-accessibility">Colors and accessibility</a></li><li><a href="#how-baselayer-css-handles-color">How Baselayer CSS handles color</a></li><li><a href="#adding-more-colors">Adding more colors</a></li><li><a href="#how-the-dark-theme-works">How the dark theme works</a><ul><li><a href="#light-and-dark-theme-classes">Light and dark theme classes</a></li><li><a href="#dark-theme-lightness-levels">Dark theme lightness levels</a></li><li><a href="#what-if-you-don%E2%80%99t-want-a-dark-theme%3F">What if you don’t want a dark theme?</a></li></ul></li><li><a href="#hover-states-and-color-changes">Hover states and color changes</a></li><li><a href="#other-baselayer-color-utilities">Other Baselayer color utilities</a><ul><li><a href="#black%2C-white%2C-and-reversi">Black, white, and reversi</a></li><li><a href="#currentcolor">CurrentColor</a></li><li><a href="#transparent">Transparent</a></li><li><a href="#glass-(blur)-and-filter-backgrounds">Glass (blur) and filter backgrounds</a></li></ul></li></ul>
       </nav>
         </div>
       </aside>
@@ -797,8 +797,9 @@ window.addEventListener("DOMContentLoaded", () => {
 </table>
 <p>Notes:</p>
 <ul>
-<li>The middle dark mode <code>dark:bg-500</code> is the same lightness level as its light mode counterpart.</li>
-<li>Except for <a href="#black%2C-white%2C-and-reversi">reversi</a>, colors can't be switched when switching between light and dark mode (only lightness utilities have a <code>dark:</code> prefix option).</li>
+<li>The middle dark mode <code>dark:bg-500</code> is the same lightness level as <code>bg-500</code>.</li>
+<li>Except for <a href="#black%2C-white%2C-and-reversi">reversi</a>, the colors themselves don't change when switching between light and dark mode.</li>
+<li>Only lightness utilities have a <code>dark:</code> prefix option.</li>
 </ul>
 <h3 id="what-if-you-don%E2%80%99t-want-a-dark-theme%3F" tabindex="-1">What if you don’t want a dark theme?</h3>
 <p>Then you can simply override or replace the HTML tag as follows:</p>
@@ -807,6 +808,37 @@ window.addEventListener("DOMContentLoaded", () => {
 }
 </code></pre>
 <p>And then you won’t need to use any <code>dark:</code> prefixed uilities.</p>
+<h2 id="hover-states-and-color-changes" tabindex="-1">Hover states and color changes</h2>
+<p>Since Baselayer v.3.8.0, links and buttons have built-in hover states: usually, link text-color darkens on hover, and button background-color darkens on hover. The exceptions are <a href="/colors/#black%2C-white%2C-and-reversi">black, white, and reversi</a> — these do not darken or lighten on hover.</p>
+<p>However, colors (including black, white, and reversi) have alternate prefixed <code>hover:</code> utilities — so that the color can be implemented on hover (e.g. for creation of ghost buttons, or making a table row background change color on hover). <strong>Note:</strong> shade utility classes do not have hover states.</p>
+<p>The following elements and classes have hover states:</p>
+<ul>
+<li>
+<p><code>&lt;a href=&quot;&quot;&gt;</code> links have a text-color change on hover: becoming darker for the light theme and lighter for the dark theme. Examples:</p>
+  <div class="my-3 t-center">
+  <a href="">Default (blue) link</a>
+  <a class="t-green" href="">Green link</a>
+  </div>
+<pre><code class="language-html">&lt;a href=&quot;&quot;&gt;Default (blue) link&lt;/a&gt;
+&lt;a class=&quot;t-green&quot; href=&quot;&quot;&gt;Green link&lt;/a&gt;
+</code></pre>
+</li>
+<li>
+<p>Buttons (<code>&lt;input&gt;</code> buttons, <code>&lt;button&gt;</code>, and pseudo button links <code>&lt;a class=&quot;btn&quot; href=&quot;&quot;&gt;</code>) have a background-color change on hover: becoming darker for the light theme and lighter for the dark theme.</p>
+</li>
+<li>
+<p>Named color utilities can “switch on” color in the hover state, if you add the <code>hover:</code> prefix. Example:</p>
+  <div class="my-3 t-center">
+  <button class="b-thin b-green bg-transparent t-green t-600 hover:t-white hover:bg-green hover:bg-600" type="button" name="button">Button</button>
+  </div>
+<pre><code class="language-html">&lt;!-- Outline (ghost) button --&gt;
+&lt;button class=&quot;b-thin b-green bg-transparent t-green t-600 hover:t-white hover:bg-green hover:bg-600&quot; type=&quot;button&quot; name=&quot;button&quot;&gt;Button&lt;/button&gt;
+
+&lt;!-- Adding a hover color to a table row --&gt;
+&lt;tr class=&quot;hover:bg-gray bg-100 dark:bg-900&quot;&gt; ... &lt;/tr&gt;
+</code></pre>
+</li>
+</ul>
 <h2 id="other-baselayer-color-utilities" tabindex="-1">Other Baselayer color utilities</h2>
 <h3 id="black%2C-white%2C-and-reversi" tabindex="-1">Black, white, and reversi</h3>
 <p>Black and white are explicitly named colors in baselayer. They do not have lightness levels (use grays).</p>
@@ -835,33 +867,6 @@ window.addEventListener("DOMContentLoaded", () => {
 <li>Border-color: <code>b-transparent</code> / background-color <code>bg-transparent</code></li>
 </ul>
 <p>There are no hover states of <code>*-transparent</code>.</p>
-<h3 id="hover-state-utilities" tabindex="-1">Hover state utilities</h3>
-<p>Since Baselayer v.3.8.0, named color utility classes have a hover state (declared by the prefix <code>hover:</code>) but shade utility classes do not.</p>
-<p>The following elements and classes have hover states:</p>
-<ul>
-<li>
-<p><code>&lt;a href=&quot;&quot;&gt;</code> links have a text-color change on hover: becoming darker for the light theme and lighter for the dark theme. Examples:</p>
-  <div class="my-3 t-center">
-  <a href="">Default (blue) link</a>
-  <a class="t-green" href="">Green link</a>
-  </div>
-<pre><code class="language-html">&lt;a href=&quot;&quot;&gt;Default (blue) link&lt;/a&gt;
-&lt;a class=&quot;t-green&quot; href=&quot;&quot;&gt;Green link&lt;/a&gt;
-</code></pre>
-</li>
-<li>
-<p>Buttons (<code>&lt;input&gt;</code> buttons, <code>&lt;button&gt;</code>, and pseudo button links <code>&lt;a class=&quot;btn&quot; href=&quot;&quot;&gt;</code>) have a background-color change on hover: becoming darker for the light theme and lighter for the dark theme.</p>
-</li>
-<li>
-<p>Named color utilities can “switch on” color in the hover state, if you add the <code>hover:</code> prefix. Example:</p>
-<pre><code class="language-html">&lt;!-- Outline (ghost) button --&gt;
-&lt;button class=&quot;b-thin b-green bg-transparent t-green t-600 hover:t-white hover:bg-green hover:bg-600&quot; type=&quot;button&quot; name=&quot;button&quot;&gt;Button&lt;/button&gt;
-
-&lt;!-- Adding a hover color to a table row --&gt;
-&lt;tr class=&quot;hover:bg-gray bg-100 dark:bg-900&quot;&gt; ... &lt;/tr&gt;
-</code></pre>
-</li>
-</ul>
 <h3 id="glass-(blur)-and-filter-backgrounds" tabindex="-1">Glass (blur) and filter backgrounds</h3>
 <p>The following color utility modifiers are intended for use in conjunction with background colors and shade (they do not include color).</p>
 <p>Use these classes on layers above images. You will see little or no effect from them unless thy are used on a panel in front of a photo or complex pattern.</p>
@@ -909,11 +914,11 @@ window.addEventListener("DOMContentLoaded", () => {
                   </svg>
                 <span class="h3 m-0 t-normal t-nowrap">Baselayer CSS</span>
               </a>
-              <span>Version: 3.8.0</span>
+              <span>Version: 3.8.1</span>
             </div>
 
             <p class="p-cell flex flex-center flex-wrap gap-4 t-center">
-              <span><a class="t-underline-hover-only" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> (27 KB)</span>
+              <span><a class="t-underline-hover-only" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> (28 KB)</span>
               <a class="t-underline-hover-only" href="https://github.com/SimonPadbury/baselayer-3">GitHub Repository</a>
               <a class="t-underline-hover-only" href="https://github.com/SimonPadbury/baselayer-3/blob/main/CHANGELOG.md">Changelog</a>
               <a class="t-underline-hover-only" href="https://github.com/SimonPadbury/baselayer-3/blob/main/LICENSE">MIT license</a>

@@ -8,6 +8,11 @@
 
 # Baselayer 3 changelog
 
+## v.3.8.1 -- 23 Jul 2026
+
+* Minor improvement to colors and hover states.
+* Minor improvement to forms.
+
 ## v.3.8.0 -- 11 Jul 2026
 
 * Removed the opinionated link decorations (thickened underline on hover, etc.)

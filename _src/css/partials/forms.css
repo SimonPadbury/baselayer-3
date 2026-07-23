@@ -16,20 +16,21 @@ legend {
 input,
 select,
 textarea {
-  -webkit-appearance: none;
   min-width: 3em;
   min-height: 3em;
+  max-width: 100%;
   border: var(--b-thin);
-  border-radius: unset;
-  padding: 0.5em;
-  font-family: var(--t-base-ff);
+  padding: var(--s-1);
+  color: var(--tc-form);
+  background: var(--bgc-form);
+  font-family: var(--t-form-ff);
   font-size: inherit;
   text-align: start;
-  color: var(--tc-form);
-  background-color: var(--bgc-form);
 }
 
 [type="color"] {
+  min-width: 3em;
+  min-height: 3em;
   padding: 0.325em;
 }
 

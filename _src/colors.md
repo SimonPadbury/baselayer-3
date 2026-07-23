@@ -469,8 +469,9 @@ Example using `bg-blue`:
 
 Notes:
 
-* The middle dark mode `dark:bg-500` is the same lightness level as its light mode counterpart.
-* Except for [reversi](#black%2C-white%2C-and-reversi), colors can't be switched when switching between light and dark mode (only lightness utilities have a `dark:` prefix option).
+* The middle dark mode `dark:bg-500` is the same lightness level as `bg-500`.
+* Except for [reversi](#black%2C-white%2C-and-reversi), the colors themselves don't change when switching between light and dark mode.
+* Only lightness utilities have a `dark:` prefix option.
 
 ### What if you don’t want a dark theme?
 
@@ -483,6 +484,38 @@ html {
 ```
 
 And then you won’t need to use any `dark:` prefixed uilities.
+
+## Hover states and color changes
+
+Since Baselayer v.3.8.0, links and buttons have built-in hover states: usually, link text-color darkens on hover, and button background-color darkens on hover. The exceptions are [black, white, and reversi]({{base_url}}/colors/#black%2C-white%2C-and-reversi) — these do not darken or lighten on hover.
+
+However, colors (including black, white, and reversi) have alternate prefixed `hover:` utilities — so that the color can be implemented on hover (e.g. for creation of ghost buttons, or making a table row background change color on hover). **Note:** shade utility classes do not have hover states.
+
+The following elements and classes have hover states:
+
+* `<a href="">` links have a text-color change on hover: becoming darker for the light theme and lighter for the dark theme. Examples:
+    <div class="my-3 t-center">
+    <a href="">Default (blue) link</a>
+    <a class="t-green" href="">Green link</a>
+    </div>
+
+    ```html
+    <a href="">Default (blue) link</a>
+    <a class="t-green" href="">Green link</a>
+    ```
+* Buttons (`<input>` buttons, `<button>`, and pseudo button links `<a class="btn" href="">`) have a background-color change on hover: becoming darker for the light theme and lighter for the dark theme.
+* Named color utilities can “switch on” color in the hover state, if you add the `hover:` prefix. Example:
+    <div class="my-3 t-center">
+    <button class="b-thin b-green bg-transparent t-green t-600 hover:t-white hover:bg-green hover:bg-600" type="button" name="button">Button</button>
+    </div>
+    
+    ```html
+    <!-- Outline (ghost) button -->
+    <button class="b-thin b-green bg-transparent t-green t-600 hover:t-white hover:bg-green hover:bg-600" type="button" name="button">Button</button>
+
+    <!-- Adding a hover color to a table row -->
+    <tr class="hover:bg-gray bg-100 dark:bg-900"> ... </tr>
+    ```
 
 ## Other Baselayer color utilities
 
@@ -518,32 +551,6 @@ There are no hover states of `*-currentColor` — but if the color changes on ho
 * Border-color: `b-transparent` / background-color `bg-transparent`
 
 There are no hover states of `*-transparent`.
-
-### Hover state utilities
-
-Since Baselayer v.3.8.0, named color utility classes have a hover state (declared by the prefix `hover:`) but shade utility classes do not.
-
-The following elements and classes have hover states:
-
-* `<a href="">` links have a text-color change on hover: becoming darker for the light theme and lighter for the dark theme. Examples:
-    <div class="my-3 t-center">
-    <a href="">Default (blue) link</a>
-    <a class="t-green" href="">Green link</a>
-    </div>
-
-    ```html
-    <a href="">Default (blue) link</a>
-    <a class="t-green" href="">Green link</a>
-    ```
-* Buttons (`<input>` buttons, `<button>`, and pseudo button links `<a class="btn" href="">`) have a background-color change on hover: becoming darker for the light theme and lighter for the dark theme.
-* Named color utilities can “switch on” color in the hover state, if you add the `hover:` prefix. Example:
-    ```html
-    <!-- Outline (ghost) button -->
-    <button class="b-thin b-green bg-transparent t-green t-600 hover:t-white hover:bg-green hover:bg-600" type="button" name="button">Button</button>
-
-    <!-- Adding a hover color to a table row -->
-    <tr class="hover:bg-gray bg-100 dark:bg-900"> ... </tr>
-    ```
 
 ### Glass (blur) and filter backgrounds
 
