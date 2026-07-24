@@ -564,6 +564,11 @@ Use these classes on layers above images. You will see little or no effect from 
 
 These modifiers can also be used in conjunction with the background lightness utilities (but not the `dark:` lightness utilities). When `bg-100` ... `bg-900` are used with `bg-glass`, `bg-blur`, or `bg-filter`, the refactored to affect the transparency level.
 
+**Notes:**
+
+1. You will see no effect from these classes unless you place them on a panel in front of a photo or complex pattern. Intended for use in conjunction with background colors and shades.
+2. The [black, white, and reversi]([#black-and-white](#black%2C-white%2C-and-reversi)) colors don’t come with a built-in middle shade. Therefore, when being used with `bg-filter` or `bg-filter` they must always be accompanied with one of the background shades `bg-100` though `bg-900`.
+
 Examples:
 
 * `bg-glass bg-white bg-900` – a highly opaque white glassmorphic blur effect

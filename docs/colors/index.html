@@ -876,6 +876,11 @@ window.addEventListener("DOMContentLoaded", () => {
 <li><code>hover:bg-opaque</code> – removes the blur, and sets the opacity level to 1 (fully opaque)</li>
 </ul>
 <p>These modifiers can also be used in conjunction with the background lightness utilities (but not the <code>dark:</code> lightness utilities). When <code>bg-100</code> ... <code>bg-900</code> are used with <code>bg-glass</code>, <code>bg-blur</code>, or <code>bg-filter</code>, the refactored to affect the transparency level.</p>
+<p><strong>Notes:</strong></p>
+<ol>
+<li>You will see no effect from these classes unless you place them on a panel in front of a photo or complex pattern. Intended for use in conjunction with background colors and shades.</li>
+<li>The <a href="%5B#black-and-white%5D(#black%2C-white%2C-and-reversi)">black, white, and reversi</a> colors don’t come with a built-in middle shade. Therefore, when being used with <code>bg-filter</code> or <code>bg-filter</code> they must always be accompanied with one of the background shades <code>bg-100</code> though <code>bg-900</code>.</li>
+</ol>
 <p>Examples:</p>
 <ul>
 <li><code>bg-glass bg-white bg-900</code> – a highly opaque white glassmorphic blur effect</li>
