@@ -208,7 +208,7 @@ Grid system
 }
 
 .grid-dense {
-  grid-auto-t-flow: dense;
+  grid-auto-flow: dense;
 }
 
 [class*="equal-"] {
