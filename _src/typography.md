@@ -258,7 +258,7 @@ For definition lists (dictionary lists), the title is bold and the definition da
 
 ## Links and menus
 
-**New in Baselayer v.3.8.0:** link text is now darkened on hover by mixing in a little black, or lightened for the dark theme by mixing in a little white, using `color-mix()`. And Baselayer has reverted to the default link underline (the opinionated modification of position and thickness has been removed).
+**New in Baselayer v.3.8.0:** link text is now darkened on hover by mixing in a little black, or lightened for the dark theme. And Baselayer has reverted to the default link underline (the opinionated modification of position and thickness has been removed).
 
 Example:
 
@@ -266,50 +266,48 @@ Example:
 
 ### Link utilities
 
-For accessability, links _within the main content area_ usually have underlines as a visual cue. In other locations such as navigation menus, the unlerline may not be necessary.
+For accessability, links _within the main content area_ usually have underlines as a visual cue.
 
 * <a class="t-underline-none" href="">This link has no underline</a> — `t-underline-none`
 * <a class="t-underline-hover-only" href="">This link has no underline unless hovered</a> — `t-underline-hover-only`
 
-It needs to be visually obvious that a link is a link. Therefore the browser default, and the best practice for accessability, is to have links indicated by an underline (and the browser default color of links is usually blue). However, in the context of menus it is permissible to deviate from the best practice; but you will want to add in other visual indicators.
+It needs to be visually obvious that a link is a link. Therefore the browser default, and the best practice for accessability, is to have links indicated by an underline (and the browser default color of links is usually blue). However, n other locations such as navigation menus, the unlerline may not be necessary; but you will want to add in other visual indicators.
 
 It is also best practice for accessibility and SEO reasons to use [semantic HTML](https://www.codecademy.com/resources/blog/semantic-html/) tags on menus, and and why we should place navigation menus in their expected locations: in sitewide menu-bars, sidebars, and footers.
 
-Within the main content area, if you remove the link underline, you will want to add another visual cue e.g. by changing the background color on hover (as is done in “links styled as buttons”).
+Within the main content area, if you remove the link underline, you will want to add another visual cue e.g. by changing the background color on hover (as is done in “links styled as pseudo buttons”).
 
 ### Panel links
 
-There may be situations where you have a link that contains some accompanying text that you don’t want to receive the `<a href="">` (link) underline. Examples where this may be used: media object, card or hero component, where you want the whole thing to behave as a “big button”.
+There may be situations where you have a link that contains some accompanying text that you don’t want to receive the `<a href="">` (link) underline. Examples where this may be used: media object, card or hero component, where you want the whole thing to behave like a “big button”. for these, you need the `panel-link` and `panel-link-title` combo classes.
 
-In this case, you don’t want to place the `t-underline-none` on the `<a href="">` itself, but only on the inner element.
+You will also want to style the outer `<a href="">` e.g. with the block utility (for `display:block`), and add more styles to this inner element text, so that it is not the same color as the link label.
 
-You will usually also want to style the outer `<a href="">` e.g. with the `block` utility (for `display:block`), and add more styles to this inner element text, so that it is not the same color as the link label.
+You will also want to style the other element(s) text that’s not the `panel-link-title` with a different color, e.g. `t-gray t-900 dark:t-100`.
 
-In the example below, see how the “Lorem ipsum” paragraph does not look like link text, and does not visually respond like link text, even though it is within the link panel.
-
-<a class="my-3 p-3 bg-gray bg-100 dark:bg-900" href="#/">
-  <p>Link label (title)</p>
-  <p class="mb-0 t-gray t-900 dark:t-100 t-underline-none">Lorem ipsum dolor sit amet ...</p>
+<a class="block my-3 p-3 bg-gray bg-100 dark:bg-900 panel-link" href="#/">
+  <div class="panel-link-title">Link label (title)</div>
+  <div class="t-gray t-900 dark:t-100">Lorem ipsum dolor sit amet ...</div>
 </a>
 
 ```html
-<a class="block" href="">
-  <p>Link label (title)</p>
-  <p class="t-underline-none">Lorem ipsum dolor sit amet ...</p>
+<a class="block my-3 p-3 bg-gray bg-100 dark:bg-900 panel-link" href="#/">
+  <div class="panel-link-title">Link label (title)</div>
+  <div class="t-gray t-900 dark:t-100">Lorem ipsum ...</div>
 </a>
 ```
 
 Another example: here `t-underline-hover-only` has also been added to the `<a href="">`:
 
-<a class="my-3 p-3 t-underline-hover-only bg-gray bg-100 dark:bg-900" href="#/">
-    <p>Link label (title)</p>
-    <p class="mb-0 t-gray t-900 dark:t-100 t-underline-none">Lorem ipsum dolor sit amet ...</p>
+<a class="block my-3 p-3 bg-gray bg-100 dark:bg-900 panel-link t-underline-hover-only" href="#/">
+  <div class="panel-link-title">Link label (title)</div>
+  <div class="t-gray t-900 dark:t-100">Lorem ipsum dolor sit amet ...</div>
 </a>
 
 ```html
-<a class="block t-underline-hover-only" href="">
-  <p>Link label (title)</p>
-  <p class="t-underline-none">Lorem ipsum dolor sit amet ...</p>
+<a class="block my-3 p-3 bg-gray bg-100 dark:bg-900 panel-link t-underline-hover-only" href="#/">
+  <div class="panel-link-title">Link label (title)</div>
+  <div class="t-gray t-900 dark:t-100">Lorem ipsum ...</div>
 </a>
 ```
 
@@ -482,11 +480,16 @@ Baselayer tables are set using the `.table` class.
 
 ### Making wide tables responsive
 
-If you have a lot of content in your table, it will probably break your page layout on small viewports (e.g. phones). The simplest way to make a table “responsive” is to wrap your table in a DIV with the `overt-flow-x` class to make it horizontally scrollable.
+If you have a lot of content in your table, it will probably break your page layout on small viewports (e.g. phones). The simplest way to make a table “responsive” is to wrap your table in a DIV with the `overflow-x` class to make it horizontally scrollable.
 
-<div class="overt-flow-x">
+<div class="overflow-x">
   <table class="table table-grid">
     <thead>
+      <th>Column title</th>
+      <th>Column title</th>
+      <th>Column title</th>
+      <th>Column title</th>
+      <th>Column title</th>
       <th>Column title</th>
       <th>Column title</th>
       <th>Column title</th>
@@ -510,13 +513,18 @@ If you have a lot of content in your table, it will probably break your page lay
         <td>Table cell content</td>
         <td>Table cell content</td>
         <td>Table cell content</td>
+        <td>Table cell content</td>
+        <td>Table cell content</td>
+        <td>Table cell content</td>
+        <td>Table cell content</td>
+        <td>Table cell content</td>
       </tr>
     <tbody>
   </table>
 </div>
 
 ```html
-<div class="overt-flow-x">
+<div class="overflow-x">
   <table class="table">
     ...
   </table>
@@ -604,7 +612,7 @@ There’s a demo of these text size utilities in [examples]({{ "/examples/#text-
 
 `<code>` tags have monospaced text (set by `--t-mono`) over a white or black background (in light or dark modes), with a thin border and a little padding to improve readability.
 
-If the `<code>` tag is wrapped in a `<pre>` tag, then it becomes a block level element with more padding, a max-width of 100%, and y-axis overt-flow scrolling.
+If the `<code>` tag is wrapped in a `<pre>` tag, then it becomes a block level element with more padding, a max-width of 100%, and y-axis overflow scrolling.
 
 ## Other typographic utility classes
 

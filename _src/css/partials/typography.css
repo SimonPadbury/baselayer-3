@@ -84,20 +84,19 @@ a:not(.btn) {
   }
 }
 
-a:has(.t-underline-none):not(.t-underline-hover-only) :not(.t-underline-none),
-a:not(.t-underline-none):hover,
-a:has(.t-underline-none):hover :not(.t-underline-none) {
-  text-decoration-line: underline;
-}
-
-a:has(.t-underline-none),
-a:has(.t-underline-none):hover,
+.panel-link,
 .t-underline-none,
-.t-underline-hover-only,
+.t-underline-none .panel-link-title,
+.t-underline-hover-only:not(:hover),
+.t-underline-hover-only:not(:hover) .panel-link-title,
 .links-underline-none a,
 .links-underline-none a:hover,
 .links-underline-hover-only a {
-  text-decoration: none;
+  text-decoration-line: none;
+}
+
+.panel-link-title {
+  text-decoration-line: underline;
 }
 
 ol,
@@ -203,11 +202,8 @@ code {
 pre {
   font-style: normal;
   font-weight: normal;
-  white-space: pre-wrap;
-  overt-flow-wrap: break-word;
-
-  &:not(:has(code)) {
-    overt-flow-x: auto;
+  :not(:has code) {
+    overflow-x: auto;
   }
 
   code {
@@ -215,8 +211,8 @@ pre {
     border-radius: var(--s-1);
     padding: 1em;
     background-color: var(--bgc-code);
-    overt-flow-x: auto;
-    /* So that the :focus-visible ring works, and so that the background color extends into the overt-flowing area */
+    overflow-x: auto;
+    /* So that the :focus-visible ring works, and so that the background color extends into the overflowing area */
   }
 }
 

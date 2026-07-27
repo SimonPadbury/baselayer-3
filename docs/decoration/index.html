@@ -7,7 +7,7 @@
 
   <title>Decoration · Baselayer CSS</title>
 
-  <link rel="stylesheet" href="/baselayer-3/css/min/baselayer.min.css?v=3.8.1">
+  <link rel="stylesheet" href="/baselayer-3/css/min/baselayer.min.css?v=3.8.2">
 
   <style>
     :root {
@@ -76,11 +76,11 @@ html {
 
   .ms-windows #site-nav > div {
     scrollbar-gutter: stable;
-    overt-flow-y: hidden;
+    overflow-y: hidden;
   }
 
   .ms-windows #site-nav:hover > div {
-    overt-flow-y: auto;
+    overflow-y: auto;
   }
 }
 
@@ -95,11 +95,11 @@ html {
 
   .ms-windows #toc-outer {
     scrollbar-gutter: stable;
-    overt-flow-y: hidden;
+    overflow-y: hidden;
   }
 
   .ms-windows #toc-outer:hover {
-    overt-flow-y: auto;
+    overflow-y: auto;
   }
 }
 
@@ -148,14 +148,14 @@ button.toggler {
 
 pre code {
   max-height: 80vh;
-  overt-flow-y: auto;
+  overflow-y: auto;
 }
 
 .resize-x {
   margin-inline: -5px;
   padding: 5px;
   resize: horizontal;
-  overt-flow-x: auto;
+  overflow-x: auto;
   background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='silver' stroke-width='2' stroke-dasharray='8%2c 8' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
 }
 
@@ -271,7 +271,7 @@ window.addEventListener("DOMContentLoaded", () => {
   <div class="page-container">
     <div class="left-sidebar">
       <div id="site-nav" class="h-100% bg-gray bg-100 dark:bg-900">
-  <div class="sticky top h-max-100dvh overt-flow-y">
+  <div class="sticky top h-max-100dvh overflow-y">
     <div class="flex flex-space-between md:block">
       <div class="p-cell md:t-center">
         <a id="site-title" href="/baselayer-3/" class="h4 t-normal flex flex-center flex-middle gap-1 t-reversi t-underline-none">
@@ -296,10 +296,10 @@ window.addEventListener("DOMContentLoaded", () => {
 
     <div id="js-menu-wrapper">
       <div class="m-2 bt-thin bb-thin py-2 flex flex-center flex-wrap gap-2 links-underlined-hover-only">
-        <span class="t-gray t-600 dark:t-400">Version: 3.8.1</span>
+        <span class="t-gray t-600 dark:t-400">Version: 3.8.2</span>
         <a class="t-gray t-700 dark:t-300" href="https://github.com/SimonPadbury/baselayer-3">GitHub</a>
         <span>
-          <a class="t-gray t-700 dark:t-300" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> <span class="t-gray t-600 dark:t-400">(28 KB)</span>
+          <a class="t-gray t-700 dark:t-300" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> <span class="t-gray t-600 dark:t-400">(27 KB)</span>
         </span>
       </div>
 
@@ -375,7 +375,7 @@ window.addEventListener("DOMContentLoaded", () => {
     </div>
     <div class="main-frame">
       <aside class="right-sidebar lg:hidden-below">
-        <div id="toc-outer" class="sticky top w-content h-max-100dvh mx-auto pt-2 px-2 pb-4 links-underline-hover-only overt-flow-y">
+        <div id="toc-outer" class="sticky top w-content h-max-100dvh mx-auto pt-2 px-2 pb-4 links-underline-hover-only overflow-y">
           <p class="h4 t-thin t-loose t-center">On this page</p>
           <nav class="toc" >
         <ul><li><a href="#spacing">Spacing</a><ul><li><a href="#spacing-extras">Spacing extras</a></li></ul></li><li><a href="#borders">Borders</a><ul><li><a href="#border-extras">Border extras</a></li></ul></li><li><a href="#rounded-corners">Rounded corners</a></li><li><a href="#box-shadows">Box shadows</a></li><li><a href="#image-contain-and-cover">Image contain and cover</a></li></ul>
@@ -402,7 +402,7 @@ window.addEventListener("DOMContentLoaded", () => {
 }
 </code></pre>
 <p>Spacing levels <code>--s-3</code> and <code>--s-4</code> increase responsively (to <code>@container</code> width, see <a href="/baselayer-3/layout/#container-query-contexts">container query contexts</a>) depending how how much width is available, using <code>clamp()</code> functions. This makes the negative space (“whitespace”) for spacing levels 3 and 4 larger where there is a larger container (or viewport) width available.</p>
-<div class="my-3 expand overt-flow-x">
+<div class="my-3 expand overflow-x">
 <table class="table">
 <thead>
 <th>Spacing variable</th>
@@ -504,7 +504,7 @@ window.addEventListener("DOMContentLoaded", () => {
 <p>For more on border colors see <a href="/baselayer-3/colors/">colors</a>.</p>
 <h2 id="rounded-corners" tabindex="-1">Rounded corners</h2>
 <p>All Baselayer border radius classes apply their border radius potentially to all four corners. If you want different radii on different corners of the same element, then you can access each of the spacing variables in your CSS, or set your own values.</p>
-<p><strong>Tip:</strong> If you are putting rounded corners on a block element that contains an image, you will also need to add <code>overt-flow-clip</code>.</p>
+<p><strong>Tip:</strong> If you are putting rounded corners on a block element that contains an image, you will also need to add <code>overflow-clip</code>.</p>
 <p>There are five modifier classes. These only supply a spacing variable.</p>
 <ul>
 <li><code>rounded-tiny</code> — <code>--s-tiny</code></li>
@@ -592,11 +592,11 @@ window.addEventListener("DOMContentLoaded", () => {
                   </svg>
                 <span class="h3 m-0 t-normal t-nowrap">Baselayer CSS</span>
               </a>
-              <span>Version: 3.8.1</span>
+              <span>Version: 3.8.2</span>
             </div>
 
             <p class="p-cell flex flex-center flex-wrap gap-4 t-center">
-              <span><a class="t-underline-hover-only" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> (28 KB)</span>
+              <span><a class="t-underline-hover-only" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> (27 KB)</span>
               <a class="t-underline-hover-only" href="https://github.com/SimonPadbury/baselayer-3">GitHub Repository</a>
               <a class="t-underline-hover-only" href="https://github.com/SimonPadbury/baselayer-3/blob/main/CHANGELOG.md">Changelog</a>
               <a class="t-underline-hover-only" href="https://github.com/SimonPadbury/baselayer-3/blob/main/LICENSE">MIT license</a>

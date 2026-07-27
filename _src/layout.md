@@ -94,7 +94,7 @@ Five more:
 
 * `h-100%` — height expands to 100%, e.g. for making cards equal to the height of their wrapper
 * `h-100dvh` — height expands to 100dvh, e.g. for making “full cover” panels
-* `h-max-100dvh` — height is constrained to 100dvh, e.g. for tall sidebars (use this in conjunction with `overt-flow-y`)
+* `h-max-100dvh` — height is constrained to 100dvh, e.g. for tall sidebars (use this in conjunction with `overflow-y`)
 
 Baselayer uses `100dvh` ([dynamic viewport height](https://www.bram.us/2021/07/08/the-large-small-and-dynamic-viewports/)) that gives a different viewport height for some devices — i.e. it compensates for the retracting interface toolbars on iOS Safari.
 
@@ -970,16 +970,16 @@ Common aspect ratio constraints for images, video, and hero blocks.
   </div>
 </div>
 
-## Overt-flows
+## overflows
 
 Using `auto` to add scrollling when the content of a block exceeds its constrained height or width.
 
-* `overt-flow-x` — e.g. for wrapping tables with a lots of columns, that would break a template layout in small viewports
-* `overt-flow-y` — e.g. for sidebar menus loaded with content
+* `overflow-x` — e.g. for wrapping tables with a lots of columns, that would break a template layout in small viewports
+* `overflow-y` — e.g. for sidebar menus loaded with content
 
-### Overt-flow clip
+### overflow clip
 
-* `overt-flow-clip` — for hiding content that overt-flows your set dimensions on an element, and for preventing images to show in the corners of elements that have [rounded corners]({{ "/decoration/#rounded-corners" | url }}).
+* `overflow-clip` — for hiding content that overflows your set dimensions on an element, and for preventing images to show in the corners of elements that have [rounded corners]({{ "/decoration/#rounded-corners" | url }}).
 
 ## Floats
 

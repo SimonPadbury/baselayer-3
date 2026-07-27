@@ -77,16 +77,16 @@
   clear: both;
 }
 
-.overt-flow-x {
-  overt-flow-x: auto;
+.overflow-x {
+  overflow-x: auto;
 }
 
-.overt-flow-y {
-  overt-flow-y: auto;
+.overflow-y {
+  overflow-y: auto;
 }
 
-.overt-flow-clip {
-  overt-flow: clip;
+.overflow-clip {
+  overflow: clip;
 }
 
 .block {

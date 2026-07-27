@@ -463,7 +463,7 @@
   height: 100%;
   object-fit: cover !important;
   object-position: center;
-  overt-flow: clip;
+  overflow: clip;
   width: 100%;
 }
 

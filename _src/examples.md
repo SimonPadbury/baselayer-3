@@ -93,7 +93,7 @@ Using `equal-` modifiers on the grid wrapper will both equalize column width and
 
 See [typography: making text bigger]({{ "/typography/#making-text-bigger" | url }}). `t-long-read`, `t-comfort`, and `t-display` involve a `clamp()`. On small devices (e.g. phones), all these bigger text utilities are reduced to the normal sizes.
 
-<div class="wrapper-xl overt-flow-x">
+<div class="wrapper-xl overflow-x">
   <table class="table">
     <thead>
       <th>Default</th>
@@ -318,7 +318,7 @@ Styled by utility classes.
 <div class="wrapper-xl my-3">
   <div class="container resize-x">
     <div class="p-2 grid sm:equal-2-cols grid-dense gap-3">
-      <div class="sm:col-2 rounded rounded-4 aspect-ratio-16x9 relative overt-flow-clip">
+      <div class="sm:col-2 rounded rounded-4 aspect-ratio-16x9 relative overflow-clip">
         <svg xmlns="http://www.w3.org/2000/svg" class="box img-cover" preserveAspectRatio="xMidYMid slice" width="1000" height="600"><defs><linearGradient id="gradient1" gradientTransform="rotate(45)"><stop offset="5%" stop-color="rgba(255,255,0,.5)"/><stop offset="50%" stop-color="rgba(255,255,255,0)"/><stop offset="95%" stop-color="rgba(255,0,0,.5)"/></linearGradient><linearGradient id="gradient2" gradientTransform="rotate(135)"><stop offset="5%" stop-color="rgba(0,0,255,.5)"/><stop offset="50%" stop-color="rgba(255,255,255,0)"/><stop offset="95%" stop-color="rgba(0,255,0,.5)"/></linearGradient></defs><rect width="100%" height="100%" fill="url('#gradient1')"/><rect width="100%" height="100%" fill="url('#gradient2')"/></svg>
       </div>
       <div class="sm:col-1 flex flex-column flex-center">

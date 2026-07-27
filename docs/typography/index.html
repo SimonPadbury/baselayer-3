@@ -7,7 +7,7 @@
 
   <title>Typography · Baselayer CSS</title>
 
-  <link rel="stylesheet" href="/baselayer-3/css/min/baselayer.min.css?v=3.8.1">
+  <link rel="stylesheet" href="/baselayer-3/css/min/baselayer.min.css?v=3.8.2">
 
   <style>
     :root {
@@ -76,11 +76,11 @@ html {
 
   .ms-windows #site-nav > div {
     scrollbar-gutter: stable;
-    overt-flow-y: hidden;
+    overflow-y: hidden;
   }
 
   .ms-windows #site-nav:hover > div {
-    overt-flow-y: auto;
+    overflow-y: auto;
   }
 }
 
@@ -95,11 +95,11 @@ html {
 
   .ms-windows #toc-outer {
     scrollbar-gutter: stable;
-    overt-flow-y: hidden;
+    overflow-y: hidden;
   }
 
   .ms-windows #toc-outer:hover {
-    overt-flow-y: auto;
+    overflow-y: auto;
   }
 }
 
@@ -148,14 +148,14 @@ button.toggler {
 
 pre code {
   max-height: 80vh;
-  overt-flow-y: auto;
+  overflow-y: auto;
 }
 
 .resize-x {
   margin-inline: -5px;
   padding: 5px;
   resize: horizontal;
-  overt-flow-x: auto;
+  overflow-x: auto;
   background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='silver' stroke-width='2' stroke-dasharray='8%2c 8' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
 }
 
@@ -271,7 +271,7 @@ window.addEventListener("DOMContentLoaded", () => {
   <div class="page-container">
     <div class="left-sidebar">
       <div id="site-nav" class="h-100% bg-gray bg-100 dark:bg-900">
-  <div class="sticky top h-max-100dvh overt-flow-y">
+  <div class="sticky top h-max-100dvh overflow-y">
     <div class="flex flex-space-between md:block">
       <div class="p-cell md:t-center">
         <a id="site-title" href="/baselayer-3/" class="h4 t-normal flex flex-center flex-middle gap-1 t-reversi t-underline-none">
@@ -296,10 +296,10 @@ window.addEventListener("DOMContentLoaded", () => {
 
     <div id="js-menu-wrapper">
       <div class="m-2 bt-thin bb-thin py-2 flex flex-center flex-wrap gap-2 links-underlined-hover-only">
-        <span class="t-gray t-600 dark:t-400">Version: 3.8.1</span>
+        <span class="t-gray t-600 dark:t-400">Version: 3.8.2</span>
         <a class="t-gray t-700 dark:t-300" href="https://github.com/SimonPadbury/baselayer-3">GitHub</a>
         <span>
-          <a class="t-gray t-700 dark:t-300" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> <span class="t-gray t-600 dark:t-400">(28 KB)</span>
+          <a class="t-gray t-700 dark:t-300" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> <span class="t-gray t-600 dark:t-400">(27 KB)</span>
         </span>
       </div>
 
@@ -375,7 +375,7 @@ window.addEventListener("DOMContentLoaded", () => {
     </div>
     <div class="main-frame">
       <aside class="right-sidebar lg:hidden-below">
-        <div id="toc-outer" class="sticky top w-content h-max-100dvh mx-auto pt-2 px-2 pb-4 links-underline-hover-only overt-flow-y">
+        <div id="toc-outer" class="sticky top w-content h-max-100dvh mx-auto pt-2 px-2 pb-4 links-underline-hover-only overflow-y">
           <p class="h4 t-thin t-loose t-center">On this page</p>
           <nav class="toc" >
         <ul><li><a href="#font-stacks">Font stacks</a><ul><li><a href="#setting-font-stacks">Setting font stacks</a></li></ul></li><li><a href="#base-font-size">Base font size</a></li><li><a href="#typographic-block-elements">Typographic block elements</a><ul><li><a href="#the-typographic-block-t-flow-utility">The typographic block t-flow utility</a></li><li><a href="#headings">Headings</a></li><li><a href="#block-quotes">Block quotes</a></li><li><a href="#lists">Lists</a></li></ul></li><li><a href="#links-and-menus">Links and menus</a><ul><li><a href="#link-utilities">Link utilities</a></li><li><a href="#panel-links">Panel links</a></li><li><a href="#menus">Menus</a></li></ul></li><li><a href="#text-alignment">Text alignment</a></li><li><a href="#tables">Tables</a><ul><li><a href="#making-wide-tables-responsive">Making wide tables responsive</a></li></ul></li><li><a href="#controlling-text-size">Controlling text size</a><ul><li><a href="#inline-font-size-multipliers">Inline font size multipliers</a></li><li><a href="#block-font-size-multipliers">Block font size multipliers</a></li><li><a href="#responsive-font-size-multipliers">Responsive font size multipliers</a></li></ul></li><li><a href="#code">Code</a></li><li><a href="#other-typographic-utility-classes">Other typographic utility classes</a></li></ul>
@@ -604,42 +604,41 @@ window.addEventListener("DOMContentLoaded", () => {
 &lt;/dl&gt;
 </code></pre>
 <h2 id="links-and-menus" tabindex="-1">Links and menus</h2>
-<p><strong>New in Baselayer v.3.8.0:</strong> link text is now darkened on hover by mixing in a little black, or lightened for the dark theme by mixing in a little white, using <code>color-mix()</code>. And Baselayer has reverted to the default link underline (the opinionated modification of position and thickness has been removed).</p>
+<p><strong>New in Baselayer v.3.8.0:</strong> link text is now darkened on hover by mixing in a little black, or lightened for the dark theme. And Baselayer has reverted to the default link underline (the opinionated modification of position and thickness has been removed).</p>
 <p>Example:</p>
 <ul>
 <li><a href="">This is a link to nowhere</a> as a demonstration</li>
 </ul>
 <h3 id="link-utilities" tabindex="-1">Link utilities</h3>
-<p>For accessability, links <em>within the main content area</em> usually have underlines as a visual cue. In other locations such as navigation menus, the unlerline may not be necessary.</p>
+<p>For accessability, links <em>within the main content area</em> usually have underlines as a visual cue.</p>
 <ul>
 <li><a class="t-underline-none" href="">This link has no underline</a> — <code>t-underline-none</code></li>
 <li><a class="t-underline-hover-only" href="">This link has no underline unless hovered</a> — <code>t-underline-hover-only</code></li>
 </ul>
-<p>It needs to be visually obvious that a link is a link. Therefore the browser default, and the best practice for accessability, is to have links indicated by an underline (and the browser default color of links is usually blue). However, in the context of menus it is permissible to deviate from the best practice; but you will want to add in other visual indicators.</p>
+<p>It needs to be visually obvious that a link is a link. Therefore the browser default, and the best practice for accessability, is to have links indicated by an underline (and the browser default color of links is usually blue). However, n other locations such as navigation menus, the unlerline may not be necessary; but you will want to add in other visual indicators.</p>
 <p>It is also best practice for accessibility and SEO reasons to use <a href="https://www.codecademy.com/resources/blog/semantic-html/">semantic HTML</a> tags on menus, and and why we should place navigation menus in their expected locations: in sitewide menu-bars, sidebars, and footers.</p>
-<p>Within the main content area, if you remove the link underline, you will want to add another visual cue e.g. by changing the background color on hover (as is done in “links styled as buttons”).</p>
+<p>Within the main content area, if you remove the link underline, you will want to add another visual cue e.g. by changing the background color on hover (as is done in “links styled as pseudo buttons”).</p>
 <h3 id="panel-links" tabindex="-1">Panel links</h3>
-<p>There may be situations where you have a link that contains some accompanying text that you don’t want to receive the <code>&lt;a href=&quot;&quot;&gt;</code> (link) underline. Examples where this may be used: media object, card or hero component, where you want the whole thing to behave as a “big button”.</p>
-<p>In this case, you don’t want to place the <code>t-underline-none</code> on the <code>&lt;a href=&quot;&quot;&gt;</code> itself, but only on the inner element.</p>
-<p>You will usually also want to style the outer <code>&lt;a href=&quot;&quot;&gt;</code> e.g. with the <code>block</code> utility (for <code>display:block</code>), and add more styles to this inner element text, so that it is not the same color as the link label.</p>
-<p>In the example below, see how the “Lorem ipsum” paragraph does not look like link text, and does not visually respond like link text, even though it is within the link panel.</p>
-<a class="my-3 p-3 bg-gray bg-100 dark:bg-900" href="#/">
-  <p>Link label (title)</p>
-  <p class="mb-0 t-gray t-900 dark:t-100 t-underline-none">Lorem ipsum dolor sit amet ...</p>
+<p>There may be situations where you have a link that contains some accompanying text that you don’t want to receive the <code>&lt;a href=&quot;&quot;&gt;</code> (link) underline. Examples where this may be used: media object, card or hero component, where you want the whole thing to behave like a “big button”. for these, you need the <code>panel-link</code> and <code>panel-link-title</code> combo classes.</p>
+<p>You will also want to style the outer <code>&lt;a href=&quot;&quot;&gt;</code> e.g. with the block utility (for <code>display:block</code>), and add more styles to this inner element text, so that it is not the same color as the link label.</p>
+<p>You will also want to style the other element(s) text that’s not the <code>panel-link-title</code> with a different color, e.g. <code>t-gray t-900 dark:t-100</code>.</p>
+<a class="block my-3 p-3 bg-gray bg-100 dark:bg-900 panel-link" href="#/">
+  <div class="panel-link-title">Link label (title)</div>
+  <div class="t-gray t-900 dark:t-100">Lorem ipsum dolor sit amet ...</div>
 </a>
-<pre><code class="language-html">&lt;a class=&quot;block&quot; href=&quot;&quot;&gt;
-  &lt;p&gt;Link label (title)&lt;/p&gt;
-  &lt;p class=&quot;t-underline-none&quot;&gt;Lorem ipsum dolor sit amet ...&lt;/p&gt;
+<pre><code class="language-html">&lt;a class=&quot;block my-3 p-3 bg-gray bg-100 dark:bg-900 panel-link&quot; href=&quot;#/&quot;&gt;
+  &lt;div class=&quot;panel-link-title&quot;&gt;Link label (title)&lt;/div&gt;
+  &lt;div class=&quot;t-gray t-900 dark:t-100&quot;&gt;Lorem ipsum ...&lt;/div&gt;
 &lt;/a&gt;
 </code></pre>
 <p>Another example: here <code>t-underline-hover-only</code> has also been added to the <code>&lt;a href=&quot;&quot;&gt;</code>:</p>
-<a class="my-3 p-3 t-underline-hover-only bg-gray bg-100 dark:bg-900" href="#/">
-    <p>Link label (title)</p>
-    <p class="mb-0 t-gray t-900 dark:t-100 t-underline-none">Lorem ipsum dolor sit amet ...</p>
+<a class="block my-3 p-3 bg-gray bg-100 dark:bg-900 panel-link t-underline-hover-only" href="#/">
+  <div class="panel-link-title">Link label (title)</div>
+  <div class="t-gray t-900 dark:t-100">Lorem ipsum dolor sit amet ...</div>
 </a>
-<pre><code class="language-html">&lt;a class=&quot;block t-underline-hover-only&quot; href=&quot;&quot;&gt;
-  &lt;p&gt;Link label (title)&lt;/p&gt;
-  &lt;p class=&quot;t-underline-none&quot;&gt;Lorem ipsum dolor sit amet ...&lt;/p&gt;
+<pre><code class="language-html">&lt;a class=&quot;block my-3 p-3 bg-gray bg-100 dark:bg-900 panel-link t-underline-hover-only&quot; href=&quot;#/&quot;&gt;
+  &lt;div class=&quot;panel-link-title&quot;&gt;Link label (title)&lt;/div&gt;
+  &lt;div class=&quot;t-gray t-900 dark:t-100&quot;&gt;Lorem ipsum ...&lt;/div&gt;
 &lt;/a&gt;
 </code></pre>
 <h3 id="menus" tabindex="-1">Menus</h3>
@@ -787,10 +786,15 @@ window.addEventListener("DOMContentLoaded", () => {
 &lt;/table&gt;
 </code></pre>
 <h3 id="making-wide-tables-responsive" tabindex="-1">Making wide tables responsive</h3>
-<p>If you have a lot of content in your table, it will probably break your page layout on small viewports (e.g. phones). The simplest way to make a table “responsive” is to wrap your table in a DIV with the <code>overt-flow-x</code> class to make it horizontally scrollable.</p>
-<div class="overt-flow-x">
+<p>If you have a lot of content in your table, it will probably break your page layout on small viewports (e.g. phones). The simplest way to make a table “responsive” is to wrap your table in a DIV with the <code>overflow-x</code> class to make it horizontally scrollable.</p>
+<div class="overflow-x">
   <table class="table table-grid">
     <thead>
+      <th>Column title</th>
+      <th>Column title</th>
+      <th>Column title</th>
+      <th>Column title</th>
+      <th>Column title</th>
       <th>Column title</th>
       <th>Column title</th>
       <th>Column title</th>
@@ -814,11 +818,16 @@ window.addEventListener("DOMContentLoaded", () => {
         <td>Table cell content</td>
         <td>Table cell content</td>
         <td>Table cell content</td>
+        <td>Table cell content</td>
+        <td>Table cell content</td>
+        <td>Table cell content</td>
+        <td>Table cell content</td>
+        <td>Table cell content</td>
       </tr>
     <tbody>
   </table>
 </div>
-<pre><code class="language-html">&lt;div class=&quot;overt-flow-x&quot;&gt;
+<pre><code class="language-html">&lt;div class=&quot;overflow-x&quot;&gt;
   &lt;table class=&quot;table&quot;&gt;
     ...
   &lt;/table&gt;
@@ -889,7 +898,7 @@ window.addEventListener("DOMContentLoaded", () => {
 <p>There’s a demo of these text size utilities in <a href="/baselayer-3/examples/#text-sizes">examples</a>.</p>
 <h2 id="code" tabindex="-1">Code</h2>
 <p><code>&lt;code&gt;</code> tags have monospaced text (set by <code>--t-mono</code>) over a white or black background (in light or dark modes), with a thin border and a little padding to improve readability.</p>
-<p>If the <code>&lt;code&gt;</code> tag is wrapped in a <code>&lt;pre&gt;</code> tag, then it becomes a block level element with more padding, a max-width of 100%, and y-axis overt-flow scrolling.</p>
+<p>If the <code>&lt;code&gt;</code> tag is wrapped in a <code>&lt;pre&gt;</code> tag, then it becomes a block level element with more padding, a max-width of 100%, and y-axis overflow scrolling.</p>
 <h2 id="other-typographic-utility-classes" tabindex="-1">Other typographic utility classes</h2>
 <p>Besides those already introduced, Baselayer also has utility classes for:</p>
 <ul>
@@ -933,11 +942,11 @@ window.addEventListener("DOMContentLoaded", () => {
                   </svg>
                 <span class="h3 m-0 t-normal t-nowrap">Baselayer CSS</span>
               </a>
-              <span>Version: 3.8.1</span>
+              <span>Version: 3.8.2</span>
             </div>
 
             <p class="p-cell flex flex-center flex-wrap gap-4 t-center">
-              <span><a class="t-underline-hover-only" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> (28 KB)</span>
+              <span><a class="t-underline-hover-only" href="https://raw.githubusercontent.com/SimonPadbury/baselayer-3/main/_src/css/min/baselayer.min.css">Download CSS</a> (27 KB)</span>
               <a class="t-underline-hover-only" href="https://github.com/SimonPadbury/baselayer-3">GitHub Repository</a>
               <a class="t-underline-hover-only" href="https://github.com/SimonPadbury/baselayer-3/blob/main/CHANGELOG.md">Changelog</a>
               <a class="t-underline-hover-only" href="https://github.com/SimonPadbury/baselayer-3/blob/main/LICENSE">MIT license</a>

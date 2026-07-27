@@ -7,7 +7,7 @@
 
   <title>Examples · Baselayer CSS</title>
 
-  <link rel="stylesheet" href="/baselayer-3/css/min/baselayer.min.css?v=3.8.1">
+  <link rel="stylesheet" href="/baselayer-3/css/min/baselayer.min.css?v=3.8.2">
 
   <style>
     header > h1,
@@ -22,7 +22,7 @@
       margin-inline: -5px;
       padding: 5px;
       resize: horizontal;
-      overt-flow-x: auto;
+      overflow-x: auto;
       background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='silver' stroke-width='2' stroke-dasharray='8%2c 8' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
     }
   </style>
@@ -187,7 +187,7 @@ baselayerInit();
 <hr>
 <h2 id="text-sizes" tabindex="-1">Text sizes</h2>
 <p>See <a href="/baselayer-3/typography/#making-text-bigger">typography: making text bigger</a>. <code>t-long-read</code>, <code>t-comfort</code>, and <code>t-display</code> involve a <code>clamp()</code>. On small devices (e.g. phones), all these bigger text utilities are reduced to the normal sizes.</p>
-<div class="wrapper-xl overt-flow-x">
+<div class="wrapper-xl overflow-x">
   <table class="table">
     <thead>
       <th>Default</th>
@@ -400,7 +400,7 @@ baselayerInit();
 <div class="wrapper-xl my-3">
   <div class="container resize-x">
     <div class="p-2 grid sm:equal-2-cols grid-dense gap-3">
-      <div class="sm:col-2 rounded rounded-4 aspect-ratio-16x9 relative overt-flow-clip">
+      <div class="sm:col-2 rounded rounded-4 aspect-ratio-16x9 relative overflow-clip">
         <svg xmlns="http://www.w3.org/2000/svg" class="box img-cover" preserveAspectRatio="xMidYMid slice" width="1000" height="600"><defs><linearGradient id="gradient1" gradientTransform="rotate(45)"><stop offset="5%" stop-color="rgba(255,255,0,.5)"/><stop offset="50%" stop-color="rgba(255,255,255,0)"/><stop offset="95%" stop-color="rgba(255,0,0,.5)"/></linearGradient><linearGradient id="gradient2" gradientTransform="rotate(135)"><stop offset="5%" stop-color="rgba(0,0,255,.5)"/><stop offset="50%" stop-color="rgba(255,255,255,0)"/><stop offset="95%" stop-color="rgba(0,255,0,.5)"/></linearGradient></defs><rect width="100%" height="100%" fill="url('#gradient1')"/><rect width="100%" height="100%" fill="url('#gradient2')"/></svg>
       </div>
       <div class="sm:col-1 flex flex-column flex-center">

@@ -8,6 +8,11 @@
 
 # Baselayer 3 changelog
 
+## v.3.8.2 -- 27 Jul 2026
+
+* Simplified link utilities and added `panel-link` and `panel-link-title`.
+* Improved `pre code` blocks.
+
 ## v.3.8.1 -- 23 Jul 2026
 
 * Minor improvement to colors and hover states.
